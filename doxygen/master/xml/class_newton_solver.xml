@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_newton_solver" kind="class" language="C++" prot="public">
+    <compoundname>NewtonSolver</compoundname>
+    <basecompoundref refid="class_non_linear_solver" prot="public" virt="non-virtual">NonLinearSolver&lt; VectorType &gt;</basecompoundref>
+    <includes refid="newton__solver_8h" local="no">newton_solver.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename VectorType</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_newton_solver_1a5d479d1b1cc50f12d138df63b8e1a3b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NewtonSolver&lt; VectorType &gt;::NewtonSolver</definition>
+        <argsstring>(const Parameters::NonLinearSolver &amp;param, GenericSolver&lt; VectorType &gt; *solver)</argsstring>
+        <name>NewtonSolver</name>
+        <qualifiedname>NewtonSolver::NewtonSolver</qualifiedname>
+        <param>
+          <type>const Parameters::NonLinearSolver &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type><ref refid="class_generic_solver" kindref="compound">GenericSolver</ref>&lt; VectorType &gt; *</type>
+          <declname>solver</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/newton_solver.h" line="21" column="3" bodyfile="snapshots/master/include/newton_solver.h" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_newton_solver_1af0a5f8ad940d81aef916f6d22a2c17e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void NewtonSolver&lt; VectorType &gt;::solve</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) override</argsstring>
+        <name>solve</name>
+        <qualifiedname>NewtonSolver::solve</qualifiedname>
+        <reimplements refid="class_non_linear_solver_1ab9dba2383dc2918c7e3742da3efc062d">solve</reimplements>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the nonlinear problem with Newton-Raphson&apos;s method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/newton_solver.h" line="30" column="8" bodyfile="snapshots/master/include/newton_solver.h" bodystart="30" bodyend="213"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_newton_solver_1ab65d4761c80603fe928221d4d5460513" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NewtonSolver&lt; VectorType &gt;::reassembly_heuristic</definition>
+        <argsstring>(const double current_residual_norm, const double previous_residual_norm) const</argsstring>
+        <name>reassembly_heuristic</name>
+        <qualifiedname>NewtonSolver::reassembly_heuristic</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>current_residual_norm</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>previous_residual_norm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An heuristic to determine whether the matrix should be assembled </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/newton_solver.h" line="219" column="8" bodyfile="snapshots/master/include/newton_solver.h" bodystart="219" bodyend="235"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This structure and solve function are borrowed from the Lethe project. Generic Newton nonlinear solver. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NewtonSolver&lt; VectorType &gt;</label>
+        <link refid="class_newton_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NonLinearSolver&lt; VectorType &gt;</label>
+        <link refid="class_non_linear_solver"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NewtonSolver&lt; VectorType &gt;</label>
+        <link refid="class_newton_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NonLinearSolver&lt; VectorType &gt;</label>
+        <link refid="class_non_linear_solver"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/newton_solver.h" line="15" column="1" bodyfile="snapshots/master/include/newton_solver.h" bodystart="16" bodyend="236"/>
+    <listofallmembers>
+      <member refid="class_newton_solver_1a5d479d1b1cc50f12d138df63b8e1a3b8" prot="public" virt="non-virtual"><scope>NewtonSolver</scope><name>NewtonSolver</name></member>
+      <member refid="class_non_linear_solver_1abe5387c6659615475a7f6d225735ee40" prot="public" virt="non-virtual"><scope>NewtonSolver</scope><name>NonLinearSolver</name></member>
+      <member refid="class_non_linear_solver_1acd735065369142f0c54cd51f41b954af" prot="protected" virt="non-virtual"><scope>NewtonSolver</scope><name>param</name></member>
+      <member refid="class_newton_solver_1ab65d4761c80603fe928221d4d5460513" prot="private" virt="non-virtual"><scope>NewtonSolver</scope><name>reassembly_heuristic</name></member>
+      <member refid="class_newton_solver_1af0a5f8ad940d81aef916f6d22a2c17e8" prot="public" virt="virtual"><scope>NewtonSolver</scope><name>solve</name></member>
+      <member refid="class_non_linear_solver_1aa356d9b5dc10c69811f607fdfa7251b8" prot="protected" virt="non-virtual"><scope>NewtonSolver</scope><name>solver</name></member>
+      <member refid="class_non_linear_solver_1ab173a3a8d92b805d39af0ceae6d084d7" prot="public" virt="virtual"><scope>NewtonSolver</scope><name>~NonLinearSolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

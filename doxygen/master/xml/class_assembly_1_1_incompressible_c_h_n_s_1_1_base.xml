@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_incompressible_c_h_n_s_1_1_base" kind="class" language="C++" prot="public">
+    <compoundname>Assembly::IncompressibleCHNS::Base</compoundname>
+    <basecompoundref refid="class_assembly_1_1_assembler_base" prot="public" virt="non-virtual">Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;</basecompoundref>
+    <includes refid="incompressible__chns__assemblers_8h" local="no">incompressible_chns_assemblers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+      <param>
+        <type>unsigned int</type>
+        <declname>assembly_flags</declname>
+        <defname>assembly_flags</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a8d0a948abe97c206cb85e47e121b007b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;::with_stabilization</definition>
+        <argsstring></argsstring>
+        <name>with_stabilization</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::Base::with_stabilization</qualifiedname>
+        <initializer>                                       =
+(assembly_flags &amp; <ref refid="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496ada2e635f57716cd8423be3b19773f6d2" kindref="member">stabilization</ref>) != 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="77" column="29" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a8b6243791fd62463bf3fe964e5f20eff" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;::with_tracer_stabilization</definition>
+        <argsstring></argsstring>
+        <name>with_tracer_stabilization</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::Base::with_tracer_stabilization</qualifiedname>
+        <initializer>                                              =
+(assembly_flags &amp; <ref refid="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496a9efe20614b1d0a141363bfc0b8425ba5" kindref="member">tracer_stabilization</ref>) != 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="79" column="29" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1aaac7b254dd10aa64950d2e9e875195e3" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;::with_moving_mesh</definition>
+        <argsstring></argsstring>
+        <name>with_moving_mesh</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::Base::with_moving_mesh</qualifiedname>
+        <initializer>                                     =
+(assembly_flags &amp; <ref refid="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496ac25e91c7a9f7f0e698a0440d17a851e5" kindref="member">moving_mesh</ref>) != 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="81" column="29" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1ac37688cf41102050c3c5048f34dd961c" prot="public" static="no" mutable="no">
+        <type>const ComponentOrdering &amp;</type>
+        <definition>const ComponentOrdering&amp; Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::Base::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="84" column="31" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a887913bc24a247ca66c2ce7e8146868a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;::Base</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering)</argsstring>
+        <name>Base</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::Base::Base</qualifiedname>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="72" column="7" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="72" bodyend="74"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Abstract base class for the incompressible CHNS forms. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_assembler_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EnableObserverPointer</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_assembler_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EnableObserverPointer</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="66" column="5" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="67" bodyend="85"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_assembler_base_1a71374e6143201432559d73028bea33ed" prot="public" virt="pure-virtual"><scope>Assembly::IncompressibleCHNS::Base</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_assembler_base_1a1e07a5108f263f3c6ecc5c22ec2f5f13" prot="public" virt="pure-virtual"><scope>Assembly::IncompressibleCHNS::Base</scope><name>assemble_rhs</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a887913bc24a247ca66c2ce7e8146868a" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::Base</scope><name>Base</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1ac37688cf41102050c3c5048f34dd961c" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::Base</scope><name>ordering</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1aaac7b254dd10aa64950d2e9e875195e3" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::Base</scope><name>with_moving_mesh</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a8d0a948abe97c206cb85e47e121b007b" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::Base</scope><name>with_stabilization</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a8b6243791fd62463bf3fe964e5f20eff" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::Base</scope><name>with_tracer_stabilization</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

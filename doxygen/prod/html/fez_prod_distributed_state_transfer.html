@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — CHNS ALE · branche personnelle: Motif — transporter un état distribué qui contient sa géométrie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — CHNS ALE · branche personnelle<span id="projectnumber">&#160;35d43b8e3bc4 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('fez_prod_distributed_state_transfer.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Motif — transporter un état distribué qui contient sa géométrie </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_guides_2prod_2patterns_2distributed-state-transfer"></a></p>
+<blockquote class="doxtable">
+<p>Branche personnelle ; commit <span class="tt">35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858</span>. Constat statique confirmé sur les fonctions citées. Les effets numériques et le comportement MPI doivent encore être exécutés sur un build local. </p>
+</blockquote>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+Résumé pour reprendre rapidement</h1>
+<p>L'AMR ne transporte pas simplement « le vecteur solution ». Il transporte une <b>famille d'états à des dates différentes</b> vers un nouveau maillage distribué. En ALE, chaque état contient aussi une position de maillage. La topologie change, les DoFs changent, et les contraintes doivent retrouver une géométrie cohérente avant d'être évaluées.</p>
+<p>La couche <span class="tt"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a></span> est un alias compilé vers les vecteurs MPI PETSc ou Trilinos, selon les macros. Il faut donc distinguer le contrat FEZ de l'implémentation du backend. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/types.h#L8-L25">types.h</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+Les objets et leurs contrats</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Objet  </th><th class="markdownTableHeadNone">Rôle dans le transport  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">present_solution</span>  </td><td class="markdownTableBodyNone">État courant, position ALE comprise  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">previous_solutions</span>  </td><td class="markdownTableBodyNone">États aux dates BDF antérieures, donc positions antérieures comprises  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">additional_solution</span>  </td><td class="markdownTableBodyNone">État historique supplémentaire, exposé par le contrôleur temporel si disponible  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">evaluation_point</span>  </td><td class="markdownTableBodyNone">Vecteur auquel <span class="tt">MappingFEField</span> est lié ; les positions qu'il contient déterminent la géométrie courante  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">SolutionTransfer</span>  </td><td class="markdownTableBodyNone">Prépare l'interpolation avant le changement de topologie, puis l'effectue après recréation des DoFs  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">locally_owned_dofs</span> / <span class="tt">locally_relevant_dofs</span>  </td><td class="markdownTableBodyNone">Partition détenue par le rang et DoFs requis localement, y compris les fantômes  </td></tr>
+</table>
+<p>La liaison géométrique est explicite : <span class="tt">MappingFEField(*dof_handler, evaluation_point, position_mask)</span>. Il ne suffit donc pas qu'un autre vecteur contienne les bonnes positions. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L521-L550">setup_mappings</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+Séquence observée</h1>
+<ol type="1">
+<li><span class="tt"><a class="el" href="class_navier_stokes_solver.html#a9a4264d51d48627a356452430441413b">NavierStokesSolver::adapt_mesh()</a></span> obtient <span class="tt">time_handler.get_additional_solution()</span>. Le résultat peut être nul si aucun estimateur n'existe ou si son vecteur n'est pas encore initialisé. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1433-L1443">Appel</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284">getter</a></li>
+<li><span class="tt"><a class="el" href="class_transient_fixed_point_data.html#a890bd79923e8fa2ebe5370004c22729f">TransientFixedPointData::adapt_mesh_with_dealii_routines()</a></span> construit la liste <span class="tt">all_in</span> : courant, historiques, puis supplémentaire. Il vérifie la taille et la présence de fantômes. Les champs physiques et positions voyagent dans les mêmes vecteurs. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L900-L918">Préparation</a></li>
+<li>Le code appelle successivement <span class="tt">prepare_coarsening_and_refinement()</span>, <span class="tt">solution_transfer-&gt;prepare_for_coarsening_and_refinement(all_in)</span>, puis <span class="tt">execute_coarsening_and_refinement()</span>. Ce chemin est conditionné par <span class="tt">DEAL_II_WITH_P4EST</span>. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L920-L934">Modification topologique</a></li>
+<li>Le solveur réexécute <span class="tt">setup_dofs()</span> et <span class="tt">setup_mappings()</span>. Le transport interpole vers des vecteurs ne contenant que les DoFs possédés. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1448-L1451">Recréation</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L565-L581">sorties possédées</a></li>
+<li>Le transfert distribue les contraintes reçues sur le courant, mais seulement les contraintes de nœuds pendants sur les historiques et le supplémentaire. Le supplémentaire est réinitialisé avec les nouveaux ensembles possédés/pertinents avant copie. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L583-L613">Restauration</a></li>
+<li>En ALE, l'appelant transmet d'abord uniquement des contraintes de nœuds pendants. Il réimpose ensuite les positions courantes de bord, recopie vers <span class="tt">evaluation_point</span>, reconstruit les contraintes physiques et les structures algébriques, puis contraint le courant. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1453-L1516">Ordre ALE complet</a></li>
+</ol>
+<p>Il n'y a pas d'appel explicite à <span class="tt">repartition()</span> dans ces passages : la mutation distribuée est confiée à <span class="tt">execute_coarsening_and_refinement()</span>. Le message du commit mentionne p4est et le repartitionnement ; une preuve dynamique d'un changement effectif de propriétaire des cellules reste à produire.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+Trois invariants à conserver</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+1. Même index, même sens, même instant</h2>
+<p>Les états de <span class="tt">all_in</span> et <span class="tt">all_out</span> doivent conserver le même ordre. Une nouvelle catégorie d'état nécessite de modifier préparation et restauration ensemble. Les positions historiques ne doivent pas recevoir les valeurs de bord imposées au temps courant. Le commentaire du transport rappelle explicitement cette différence. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L906-L912">Ordre des états</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L587-L604">temps des contraintes</a></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+2. Géométrie reconstruite avant ses consommateurs</h2>
+<p>Les conditions physiques, points de quadrature et poids de pression dépendent de la géométrie. Restaurer seulement <span class="tt">present_solution</span> sans mettre à jour <span class="tt">evaluation_point</span> ne respecte pas la liaison observée de <span class="tt">MappingFEField</span>. Le test de bord évalue la vitesse imposée contre les points de quadrature du mapping mobile. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L40-L76">Test de géométrie de bord</a></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+3. État temporel au-delà du BDF nominal</h2>
+<p><span class="tt"><a class="el" href="class_time_handler.html#ac78eebc6fb6cdc751662f3d2c0bf62a4">TimeHandler::rotate_solutions()</a></span> copie d'abord le dernier historique vers l'estimateur de pas de temps, puis décale l'historique BDF. Ce vecteur supplémentaire fait donc partie de la mémoire du calcul et doit suivre l'AMR. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L262-L275">Rotation</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/timestep_adaptation.cpp#L49-L59">stockage supplémentaire</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+Échos déjà identifiés</h1>
+<ul>
+<li><b>Injection presolver → CHNS</b> : autre changement de représentation d'état. <span class="tt">extract_subsolution</span> remappe les composants de position et éventuellement <span class="tt">psi</span>, puis compresse les insertions et met à jour <span class="tt">evaluation_point</span>. Même exigence de cohérence géométrique, mais ce n'est pas le même algorithme que le transport AMR. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L865-L905">Injection</a></li>
+<li><b>Initialisation des champs physiques</b> : la position est évaluée en premier ; vitesse et <span class="tt">phi</span> sont ensuite interpolés sur le mapping mobile. Même dépendance géométrie → évaluation physique. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L792-L856">Initialisation</a></li>
+<li><b>Préraffinement du calcul comprimé</b> : les champs initiaux peuvent être reconstruits tout en préservant la position déjà transportée. Même vecteur, mais certaines composantes sont conservées tandis que d'autres sont réinterpolées. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L803-L846">Branche preserve_mesh_position</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L328-L342">appel</a></li>
+</ul>
+<p>Ces rapprochements sont confirmés par les appels et copies lus. Ils ne signifient pas que les opérations soient interchangeables.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
+Ce qui pourrait casser si le motif évolue</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Changement  </th><th class="markdownTableHeadNone">Conséquence à examiner, encore hypothétique  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Ajout d'un champ stocké en dehors du vecteur principal  </td><td class="markdownTableBodyNone">Il peut rester sur l'ancien maillage si aucun transfert dédié ne l'inclut  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Réduction de l'historique transporté  </td><td class="markdownTableBodyNone">Incohérence du schéma ou de l'estimateur temporel après adaptation  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Application des BC courantes à tous les historiques  </td><td class="markdownTableBodyNone">Altération de la dépendance temporelle des positions et des champs  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Mise à jour tardive de <span class="tt">evaluation_point</span>  </td><td class="markdownTableBodyNone">Conditions physiques calculées sur la mauvaise géométrie  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Changement de backend PETSc/Trilinos  </td><td class="markdownTableBodyNone">Revalider copie, fantômes, compression et réinitialisation sous ce backend  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Remplacement de l'interpolation par une projection conservative  </td><td class="markdownTableBodyNone">Revoir exactitude polynomiale, contraintes et comportement de masse au déraffinement  </td></tr>
+</table>
+<p>Aucune de ces lignes n'est un bug diagnostiqué. Elles donnent les chemins à suivre lors d'une future modification.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+Preuves testables déjà dans le dépôt</h1>
+<p>Le test <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L80-L148">amr_ale_transfer</a> vérifie deux raffinements puis un déraffinement d'états représentables, les historiques aux dates distinctes, les positions mappées et <span class="tt">evaluation_point</span>. Son <span class="tt">main</span> couvre les variantes standard/enlarged, avec et sans pression moyenne. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L218-L244">Configurations</a></p>
+<p>Le test <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/chns_presolver_amr.cc#L118-L154">chns_presolver_amr</a> vérifie l'état initial comprimé après adaptation et contrôle explicitement <span class="tt">additional_solution</span>. Il exige la conservation de la masse représentée au raffinement de sa fixture, mais seulement une masse finie et bornée au déraffinement : aucune garantie générale de conservation exacte de masse ne découle de ce test.</p>
+<p>À exécuter ensuite : ces fixtures sur 1 et 4 rangs, instrumentation du propriétaire des cellules avant/après et contrôle du transfert avec pas de temps adaptatif effectivement utilisé. Aujourd'hui : sources lues, exécution non effectuée.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+Exercice C++ de lecture</h1>
+<p>Dans la signature suivante, pourquoi le dernier paramètre est-il un pointeur initialisable à <span class="tt">nullptr</span>, alors que les contraintes sont passées par référence constante ?</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> transfer_solution_between_refinements(</div>
+<div class="line">  <span class="keyword">const</span> IndexSet &amp;locally_relevant_dofs,</div>
+<div class="line">  <span class="keyword">const</span> AffineConstraints&lt;double&gt; &amp;nonzero_constraints,</div>
+<div class="line">  <a class="code hl_typedef" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *additional_solution);</div>
+<div class="ttc" id="anamespace_l_a_html_a71486a471be13e3af27194053d6c8a4b"><div class="ttname"><a href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a></div><div class="ttdeci">dealii::LinearAlgebraPETSc::MPI::Vector ParVectorType</div><div class="ttdef"><b>Définition</b> <a href="types_8h_source.html#l00014">types.h:14</a></div></div>
+</div><!-- fragment --><p><b>Réponse :</b> l'état supplémentaire est optionnel et mutable : le code teste sa présence puis le réinitialise et le remplit. Les deux références désignent des objets obligatoires, consultés sans modifier leur interface. Un pointeur ne signifie pas ici un transfert de propriété : le propriétaire de l'état reste l'estimateur temporel. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613">Implémentation</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284">accès à l'état</a> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

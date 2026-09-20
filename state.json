@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "session": "2026-09-19-J1",
+  "timezone": "America/New_York",
+  "capturedAt": "2026-09-20T03:16:52Z",
+  "repository": "https://github.com/arthurbawin/fez",
+  "heads": [
+    {
+      "name": "master",
+      "short": "master",
+      "key": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c"
+    },
+    {
+      "name": "chns-ding-horriche-master-form",
+      "short": "prod · CHNS–ALE",
+      "key": "prod",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858"
+    }
+  ],
+  "comparison": {
+    "ahead": 62,
+    "behind": 0,
+    "base": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+    "changedFiles": 182
+  },
+  "scope": "sources GitHub ; pas de build local FEZ",
+  "filesRead": [
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "solvers/incompressible_chns.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/incompressible_chns_solver.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "src/incompressible_chns_solver.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/generic_solver.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "src/generic_solver.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/navier_stokes_solver.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "src/navier_stokes_solver.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/newton_solver.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/assembly/assembler.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/assembly/incompressible_chns_assemblers.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "src/assembly/incompressible_chns_assemblers.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/copy_data.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/scratch_data.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/linear_solver.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "src/scratch_data.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "src/linear_solver.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/types.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "solvers/incompressible_chns_ale.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "solvers/incompressible_chns_ale_enlarged.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/presolver_tools.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/types.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/mesh_adaptation_tools.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "src/navier_stokes_solver.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "src/incompressible_chns_solver.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "src/elasticity_solver.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "src/mesh_adaptation/transient_fixed_point.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "src/mesh_adaptation_tools.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "src/time_handler.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "src/timestep_adaptation.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/assembly/incompressible_chns_assemblers.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "tests/unit_tests/amr_ale_transfer.cc",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "tests/unit_tests/chns_presolver_amr.cc",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "solvers/monolithic_fsi.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/monolithic_fsi_solver.h",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "src/monolithic_fsi_solver.cpp",
+      "scope": "lecture ciblée de fonctions et déclarations"
+    },
+    {
+      "key": "master",
+      "branch": "master",
+      "sha": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "path": "include/time_handler.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/generic_solver.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/navier_stokes_solver.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/time_handler.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/scratch_data.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/copy_data.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/newton_solver.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/incompressible_chns_solver.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "prod",
+      "branch": "chns-ding-horriche-master-form",
+      "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "path": "include/elasticity_solver.h",
+      "scope": "déclarations de classes et membres pour la hiérarchie"
+    }
+  ],
+  "graphs": [
+    {
+      "id": "master-core",
+      "branch": "master",
+      "nodes": 18,
+      "edges": 23
+    },
+    {
+      "id": "master-assembly",
+      "branch": "master",
+      "nodes": 9,
+      "edges": 9
+    },
+    {
+      "id": "prod-ale-amr",
+      "branch": "chns-ding-horriche-master-form",
+      "nodes": 23,
+      "edges": 28
+    },
+    {
+      "id": "master-fsi",
+      "branch": "master",
+      "nodes": 17,
+      "edges": 17
+    },
+    {
+      "id": "hierarchy-master",
+      "branch": "master",
+      "nodes": 8,
+      "edges": 11
+    },
+    {
+      "id": "hierarchy-prod",
+      "branch": "chns-ding-horriche-master-form",
+      "nodes": 8,
+      "edges": 11
+    }
+  ],
+  "reviewedPullRequests": [
+    {
+      "number": 91,
+      "url": "https://github.com/arthurbawin/fez/pull/91",
+      "state": "closed",
+      "merged": true
+    },
+    {
+      "number": 81,
+      "url": "https://github.com/arthurbawin/fez/pull/81",
+      "state": "closed",
+      "merged": true
+    },
+    {
+      "number": 93,
+      "url": "https://github.com/arthurbawin/fez/pull/93",
+      "state": "open",
+      "merged": false
+    },
+    {
+      "number": 92,
+      "url": "https://github.com/arthurbawin/fez/pull/92",
+      "state": "open",
+      "merged": false
+    },
+    {
+      "number": 86,
+      "url": "https://github.com/arthurbawin/fez/pull/86",
+      "state": "closed",
+      "merged": true
+    }
+  ],
+  "validation": {
+    "FEZCompiled": false,
+    "numericalTestsRun": false,
+    "confirmedNewBugs": 0,
+    "website": "voir VALIDATION.md",
+    "doxygen": "voir doxygen/README.md"
+  },
+  "next": [
+    "Vérifier les nouveaux SHA et comparer les commits avant de réutiliser les conclusions.",
+    "Reproduire tests amr_ale_transfer et chns_presolver_amr sur le PC FEZ avec 1 puis plusieurs rangs.",
+    "Suivre #92 et #93 ; distinguer proposition, fusion et présence dans la branche personnelle.",
+    "Étudier conservation au transfert et Jacobien CHNS standard/enlarged."
+  ]
+}

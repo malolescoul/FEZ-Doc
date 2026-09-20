@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['delta_5fdx_0',['delta_dx',['../class_navier_stokes_scratch_1_1_scratch_data.html#acfbd08c7441b6dd810c1d380bac09c64',1,'NavierStokesScratch::ScratchData']]],
+  ['density_1',['density',['../class_navier_stokes_scratch_1_1_scratch_data.html#a6fc2d924e601fe9e5ea75bb6b93fad1b',1,'NavierStokesScratch::ScratchData']]],
+  ['density0_2',['density0',['../class_navier_stokes_scratch_1_1_scratch_data.html#a295f245a73e9ac7ca11f7337a49e629e',1,'NavierStokesScratch::ScratchData']]],
+  ['density1_3',['density1',['../class_navier_stokes_scratch_1_1_scratch_data.html#ae7a5d776e473086610b689c1c3cbb62f',1,'NavierStokesScratch::ScratchData']]],
+  ['density_5fref_4',['density_ref',['../class_navier_stokes_scratch_1_1_scratch_data.html#a7f957b1d77ef212eea9e32dc227c8a5c',1,'NavierStokesScratch::ScratchData']]],
+  ['derivative_5fdensity_5fwrt_5ftracer_5',['derivative_density_wrt_tracer',['../class_navier_stokes_scratch_1_1_scratch_data.html#a5a5dfc6713dd2e625a008c61565dfa82',1,'NavierStokesScratch::ScratchData']]],
+  ['derivative_5fdynamic_5fviscosity_5fwrt_5ftracer_6',['derivative_dynamic_viscosity_wrt_tracer',['../class_navier_stokes_scratch_1_1_scratch_data.html#a4b16c0b985c0c9eed74562358e677598',1,'NavierStokesScratch::ScratchData']]],
+  ['diffusive_5fflux_7',['diffusive_flux',['../class_navier_stokes_scratch_1_1_scratch_data.html#a749dcba7a9572a3fdde5b158699b3a5f',1,'NavierStokesScratch::ScratchData']]],
+  ['diffusive_5fflux_5ffactor_8',['diffusive_flux_factor',['../class_navier_stokes_scratch_1_1_scratch_data.html#a4b883d82055bc50357a6b7aca4571e66',1,'NavierStokesScratch::ScratchData']]],
+  ['direct_5fsolver_5freuse_9',['direct_solver_reuse',['../class_navier_stokes_solver.html#ac44eafeceecc0a4dfa0f31e98bb326ea',1,'NavierStokesSolver']]],
+  ['div_5fphi_5fu_10',['div_phi_u',['../class_navier_stokes_scratch_1_1_scratch_data.html#a5336be8d32a6925449036430a7fb18ae',1,'NavierStokesScratch::ScratchData']]],
+  ['div_5fphi_5fu_5fface_11',['div_phi_u_face',['../class_navier_stokes_scratch_1_1_scratch_data.html#a0be1499794904964c571b814357a7104',1,'NavierStokesScratch::ScratchData']]],
+  ['div_5fphi_5fx_12',['div_phi_x',['../class_navier_stokes_scratch_1_1_scratch_data.html#ae8adaef9af72bb8ee8c145c8a311117b',1,'NavierStokesScratch::ScratchData']]],
+  ['dof_5fhandler_13',['dof_handler',['../class_navier_stokes_solver.html#a57ad356a2c7e351f4e566da0da44edbd',1,'NavierStokesSolver']]],
+  ['dof_5fhandlers_14',['dof_handlers',['../class_transient_fixed_point_data.html#a0af5d5f04292880de883573c37627123',1,'TransientFixedPointData']]],
+  ['dofs_5fper_5fcell_15',['dofs_per_cell',['../class_navier_stokes_scratch_1_1_scratch_data.html#ac954cd8478faecbb99bdcd154f258b83',1,'NavierStokesScratch::ScratchData']]],
+  ['dofs_5fto_5fcomponent_16',['dofs_to_component',['../class_navier_stokes_solver.html#af18e19729cac8012b78ea9941fdda6f6',1,'NavierStokesSolver::dofs_to_component'],['../class_b_d_f_error_estimator.html#ac9377e402bbceb911fb1bb5bfd5d045a',1,'BDFErrorEstimator::dofs_to_component']]],
+  ['dxsids_5farray_17',['dxsids_array',['../class_navier_stokes_scratch_1_1_scratch_data.html#a2ae7db57203af43aed0af85cb4fdf499',1,'NavierStokesScratch::ScratchData']]],
+  ['dynamic_5fviscosity_18',['dynamic_viscosity',['../class_navier_stokes_scratch_1_1_scratch_data.html#a1dfd54fa12558a6a958398a61721098c',1,'NavierStokesScratch::ScratchData']]],
+  ['dynamic_5fviscosity0_19',['dynamic_viscosity0',['../class_navier_stokes_scratch_1_1_scratch_data.html#a97d08945008f2a73a9dddbb6d9fcd8cc',1,'NavierStokesScratch::ScratchData']]],
+  ['dynamic_5fviscosity1_20',['dynamic_viscosity1',['../class_navier_stokes_scratch_1_1_scratch_data.html#a31204f5c95011939bfb5466a5872e5b7',1,'NavierStokesScratch::ScratchData']]]
+];

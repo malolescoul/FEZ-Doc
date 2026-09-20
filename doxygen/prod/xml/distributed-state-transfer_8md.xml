@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="distributed-state-transfer_8md" kind="file" language="Markdown">
+    <compoundname>distributed-state-transfer.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Motif<sp/>—<sp/>transporter<sp/>un<sp/>état<sp/>distribué<sp/>qui<sp/>contient<sp/>sa<sp/>géométrie<sp/>{#fez_prod_distributed_state_transfer}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&gt;<sp/>Branche<sp/>personnelle<sp/>;<sp/>commit<sp/>`35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858`.<sp/>Constat<sp/>statique<sp/>confirmé<sp/>sur<sp/>les<sp/>fonctions<sp/>citées.<sp/>Les<sp/>effets<sp/>numériques<sp/>et<sp/>le<sp/>comportement<sp/>MPI<sp/>doivent<sp/>encore<sp/>être<sp/>exécutés<sp/>sur<sp/>un<sp/>build<sp/>local.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Résumé<sp/>pour<sp/>reprendre<sp/>rapidement</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">L&apos;AMR<sp/>ne<sp/>transporte<sp/>pas<sp/>simplement<sp/>«<sp/>le<sp/>vecteur<sp/>solution<sp/>».<sp/>Il<sp/>transporte<sp/>une<sp/>**famille<sp/>d&apos;états<sp/>à<sp/>des<sp/>dates<sp/>différentes**<sp/>vers<sp/>un<sp/>nouveau<sp/>maillage<sp/>distribué.<sp/>En<sp/>ALE,<sp/>chaque<sp/>état<sp/>contient<sp/>aussi<sp/>une<sp/>position<sp/>de<sp/>maillage.<sp/>La<sp/>topologie<sp/>change,<sp/>les<sp/>DoFs<sp/>changent,<sp/>et<sp/>les<sp/>contraintes<sp/>doivent<sp/>retrouver<sp/>une<sp/>géométrie<sp/>cohérente<sp/>avant<sp/>d&apos;être<sp/>évaluées.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">La<sp/>couche<sp/>`LA::ParVectorType`<sp/>est<sp/>un<sp/>alias<sp/>compilé<sp/>vers<sp/>les<sp/>vecteurs<sp/>MPI<sp/>PETSc<sp/>ou<sp/>Trilinos,<sp/>selon<sp/>les<sp/>macros.<sp/>Il<sp/>faut<sp/>donc<sp/>distinguer<sp/>le<sp/>contrat<sp/>FEZ<sp/>de<sp/>l&apos;implémentation<sp/>du<sp/>backend.<sp/>[types.h](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/types.h#L8-L25)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Les<sp/>objets<sp/>et<sp/>leurs<sp/>contrats</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Objet<sp/>|<sp/>Rôle<sp/>dans<sp/>le<sp/>transport<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|---|---|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`present_solution`<sp/>|<sp/>État<sp/>courant,<sp/>position<sp/>ALE<sp/>comprise<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`previous_solutions`<sp/>|<sp/>États<sp/>aux<sp/>dates<sp/>BDF<sp/>antérieures,<sp/>donc<sp/>positions<sp/>antérieures<sp/>comprises<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`additional_solution`<sp/>|<sp/>État<sp/>historique<sp/>supplémentaire,<sp/>exposé<sp/>par<sp/>le<sp/>contrôleur<sp/>temporel<sp/>si<sp/>disponible<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`evaluation_point`<sp/>|<sp/>Vecteur<sp/>auquel<sp/>`MappingFEField`<sp/>est<sp/>lié<sp/>;<sp/>les<sp/>positions<sp/>qu&apos;il<sp/>contient<sp/>déterminent<sp/>la<sp/>géométrie<sp/>courante<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SolutionTransfer`<sp/>|<sp/>Prépare<sp/>l&apos;interpolation<sp/>avant<sp/>le<sp/>changement<sp/>de<sp/>topologie,<sp/>puis<sp/>l&apos;effectue<sp/>après<sp/>recréation<sp/>des<sp/>DoFs<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`locally_owned_dofs`<sp/>/<sp/>`locally_relevant_dofs`<sp/>|<sp/>Partition<sp/>détenue<sp/>par<sp/>le<sp/>rang<sp/>et<sp/>DoFs<sp/>requis<sp/>localement,<sp/>y<sp/>compris<sp/>les<sp/>fantômes<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">La<sp/>liaison<sp/>géométrique<sp/>est<sp/>explicite<sp/>:<sp/>`MappingFEField(*dof_handler,<sp/>evaluation_point,<sp/>position_mask)`.<sp/>Il<sp/>ne<sp/>suffit<sp/>donc<sp/>pas<sp/>qu&apos;un<sp/>autre<sp/>vecteur<sp/>contienne<sp/>les<sp/>bonnes<sp/>positions.<sp/>[setup_mappings](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L521-L550)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Séquence<sp/>observée</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>`NavierStokesSolver::adapt_mesh()`<sp/>obtient<sp/>`time_handler.get_additional_solution()`.<sp/>Le<sp/>résultat<sp/>peut<sp/>être<sp/>nul<sp/>si<sp/>aucun<sp/>estimateur<sp/>n&apos;existe<sp/>ou<sp/>si<sp/>son<sp/>vecteur<sp/>n&apos;est<sp/>pas<sp/>encore<sp/>initialisé.<sp/>[Appel](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1433-L1443),<sp/>[getter](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284)</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>`TransientFixedPointData::adapt_mesh_with_dealii_routines()`<sp/>construit<sp/>la<sp/>liste<sp/>`all_in`<sp/>:<sp/>courant,<sp/>historiques,<sp/>puis<sp/>supplémentaire.<sp/>Il<sp/>vérifie<sp/>la<sp/>taille<sp/>et<sp/>la<sp/>présence<sp/>de<sp/>fantômes.<sp/>Les<sp/>champs<sp/>physiques<sp/>et<sp/>positions<sp/>voyagent<sp/>dans<sp/>les<sp/>mêmes<sp/>vecteurs.<sp/>[Préparation](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L900-L918)</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Le<sp/>code<sp/>appelle<sp/>successivement<sp/>`prepare_coarsening_and_refinement()`,<sp/>`solution_transfer-&gt;prepare_for_coarsening_and_refinement(all_in)`,<sp/>puis<sp/>`execute_coarsening_and_refinement()`.<sp/>Ce<sp/>chemin<sp/>est<sp/>conditionné<sp/>par<sp/>`DEAL_II_WITH_P4EST`.<sp/>[Modification<sp/>topologique](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L920-L934)</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Le<sp/>solveur<sp/>réexécute<sp/>`setup_dofs()`<sp/>et<sp/>`setup_mappings()`.<sp/>Le<sp/>transport<sp/>interpole<sp/>vers<sp/>des<sp/>vecteurs<sp/>ne<sp/>contenant<sp/>que<sp/>les<sp/>DoFs<sp/>possédés.<sp/>[Recréation](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1448-L1451),<sp/>[sorties<sp/>possédées](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L565-L581)</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>Le<sp/>transfert<sp/>distribue<sp/>les<sp/>contraintes<sp/>reçues<sp/>sur<sp/>le<sp/>courant,<sp/>mais<sp/>seulement<sp/>les<sp/>contraintes<sp/>de<sp/>nœuds<sp/>pendants<sp/>sur<sp/>les<sp/>historiques<sp/>et<sp/>le<sp/>supplémentaire.<sp/>Le<sp/>supplémentaire<sp/>est<sp/>réinitialisé<sp/>avec<sp/>les<sp/>nouveaux<sp/>ensembles<sp/>possédés/pertinents<sp/>avant<sp/>copie.<sp/>[Restauration](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L583-L613)</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/>En<sp/>ALE,<sp/>l&apos;appelant<sp/>transmet<sp/>d&apos;abord<sp/>uniquement<sp/>des<sp/>contraintes<sp/>de<sp/>nœuds<sp/>pendants.<sp/>Il<sp/>réimpose<sp/>ensuite<sp/>les<sp/>positions<sp/>courantes<sp/>de<sp/>bord,<sp/>recopie<sp/>vers<sp/>`evaluation_point`,<sp/>reconstruit<sp/>les<sp/>contraintes<sp/>physiques<sp/>et<sp/>les<sp/>structures<sp/>algébriques,<sp/>puis<sp/>contraint<sp/>le<sp/>courant.<sp/>[Ordre<sp/>ALE<sp/>complet](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1453-L1516)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Il<sp/>n&apos;y<sp/>a<sp/>pas<sp/>d&apos;appel<sp/>explicite<sp/>à<sp/>`repartition()`<sp/>dans<sp/>ces<sp/>passages<sp/>:<sp/>la<sp/>mutation<sp/>distribuée<sp/>est<sp/>confiée<sp/>à<sp/>`execute_coarsening_and_refinement()`.<sp/>Le<sp/>message<sp/>du<sp/>commit<sp/>mentionne<sp/>p4est<sp/>et<sp/>le<sp/>repartitionnement<sp/>;<sp/>une<sp/>preuve<sp/>dynamique<sp/>d&apos;un<sp/>changement<sp/>effectif<sp/>de<sp/>propriétaire<sp/>des<sp/>cellules<sp/>reste<sp/>à<sp/>produire.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Trois<sp/>invariants<sp/>à<sp/>conserver</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>1.<sp/>Même<sp/>index,<sp/>même<sp/>sens,<sp/>même<sp/>instant</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Les<sp/>états<sp/>de<sp/>`all_in`<sp/>et<sp/>`all_out`<sp/>doivent<sp/>conserver<sp/>le<sp/>même<sp/>ordre.<sp/>Une<sp/>nouvelle<sp/>catégorie<sp/>d&apos;état<sp/>nécessite<sp/>de<sp/>modifier<sp/>préparation<sp/>et<sp/>restauration<sp/>ensemble.<sp/>Les<sp/>positions<sp/>historiques<sp/>ne<sp/>doivent<sp/>pas<sp/>recevoir<sp/>les<sp/>valeurs<sp/>de<sp/>bord<sp/>imposées<sp/>au<sp/>temps<sp/>courant.<sp/>Le<sp/>commentaire<sp/>du<sp/>transport<sp/>rappelle<sp/>explicitement<sp/>cette<sp/>différence.<sp/>[Ordre<sp/>des<sp/>états](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L906-L912),<sp/>[temps<sp/>des<sp/>contraintes](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L587-L604)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>2.<sp/>Géométrie<sp/>reconstruite<sp/>avant<sp/>ses<sp/>consommateurs</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Les<sp/>conditions<sp/>physiques,<sp/>points<sp/>de<sp/>quadrature<sp/>et<sp/>poids<sp/>de<sp/>pression<sp/>dépendent<sp/>de<sp/>la<sp/>géométrie.<sp/>Restaurer<sp/>seulement<sp/>`present_solution`<sp/>sans<sp/>mettre<sp/>à<sp/>jour<sp/>`evaluation_point`<sp/>ne<sp/>respecte<sp/>pas<sp/>la<sp/>liaison<sp/>observée<sp/>de<sp/>`MappingFEField`.<sp/>Le<sp/>test<sp/>de<sp/>bord<sp/>évalue<sp/>la<sp/>vitesse<sp/>imposée<sp/>contre<sp/>les<sp/>points<sp/>de<sp/>quadrature<sp/>du<sp/>mapping<sp/>mobile.<sp/>[Test<sp/>de<sp/>géométrie<sp/>de<sp/>bord](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L40-L76)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>3.<sp/>État<sp/>temporel<sp/>au-delà<sp/>du<sp/>BDF<sp/>nominal</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`TimeHandler::rotate_solutions()`<sp/>copie<sp/>d&apos;abord<sp/>le<sp/>dernier<sp/>historique<sp/>vers<sp/>l&apos;estimateur<sp/>de<sp/>pas<sp/>de<sp/>temps,<sp/>puis<sp/>décale<sp/>l&apos;historique<sp/>BDF.<sp/>Ce<sp/>vecteur<sp/>supplémentaire<sp/>fait<sp/>donc<sp/>partie<sp/>de<sp/>la<sp/>mémoire<sp/>du<sp/>calcul<sp/>et<sp/>doit<sp/>suivre<sp/>l&apos;AMR.<sp/>[Rotation](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L262-L275),<sp/>[stockage<sp/>supplémentaire](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/timestep_adaptation.cpp#L49-L59)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Échos<sp/>déjà<sp/>identifiés</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**Injection<sp/>presolver<sp/>→<sp/>CHNS**<sp/>:<sp/>autre<sp/>changement<sp/>de<sp/>représentation<sp/>d&apos;état.<sp/>`extract_subsolution`<sp/>remappe<sp/>les<sp/>composants<sp/>de<sp/>position<sp/>et<sp/>éventuellement<sp/>`psi`,<sp/>puis<sp/>compresse<sp/>les<sp/>insertions<sp/>et<sp/>met<sp/>à<sp/>jour<sp/>`evaluation_point`.<sp/>Même<sp/>exigence<sp/>de<sp/>cohérence<sp/>géométrique,<sp/>mais<sp/>ce<sp/>n&apos;est<sp/>pas<sp/>le<sp/>même<sp/>algorithme<sp/>que<sp/>le<sp/>transport<sp/>AMR.<sp/>[Injection](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L865-L905)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Initialisation<sp/>des<sp/>champs<sp/>physiques**<sp/>:<sp/>la<sp/>position<sp/>est<sp/>évaluée<sp/>en<sp/>premier<sp/>;<sp/>vitesse<sp/>et<sp/>`phi`<sp/>sont<sp/>ensuite<sp/>interpolés<sp/>sur<sp/>le<sp/>mapping<sp/>mobile.<sp/>Même<sp/>dépendance<sp/>géométrie<sp/>→<sp/>évaluation<sp/>physique.<sp/>[Initialisation](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L792-L856)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Préraffinement<sp/>du<sp/>calcul<sp/>comprimé**<sp/>:<sp/>les<sp/>champs<sp/>initiaux<sp/>peuvent<sp/>être<sp/>reconstruits<sp/>tout<sp/>en<sp/>préservant<sp/>la<sp/>position<sp/>déjà<sp/>transportée.<sp/>Même<sp/>vecteur,<sp/>mais<sp/>certaines<sp/>composantes<sp/>sont<sp/>conservées<sp/>tandis<sp/>que<sp/>d&apos;autres<sp/>sont<sp/>réinterpolées.<sp/>[Branche<sp/>preserve_mesh_position](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L803-L846),<sp/>[appel](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L328-L342)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Ces<sp/>rapprochements<sp/>sont<sp/>confirmés<sp/>par<sp/>les<sp/>appels<sp/>et<sp/>copies<sp/>lus.<sp/>Ils<sp/>ne<sp/>signifient<sp/>pas<sp/>que<sp/>les<sp/>opérations<sp/>soient<sp/>interchangeables.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Ce<sp/>qui<sp/>pourrait<sp/>casser<sp/>si<sp/>le<sp/>motif<sp/>évolue</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Changement<sp/>|<sp/>Conséquence<sp/>à<sp/>examiner,<sp/>encore<sp/>hypothétique<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|---|---|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Ajout<sp/>d&apos;un<sp/>champ<sp/>stocké<sp/>en<sp/>dehors<sp/>du<sp/>vecteur<sp/>principal<sp/>|<sp/>Il<sp/>peut<sp/>rester<sp/>sur<sp/>l&apos;ancien<sp/>maillage<sp/>si<sp/>aucun<sp/>transfert<sp/>dédié<sp/>ne<sp/>l&apos;inclut<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Réduction<sp/>de<sp/>l&apos;historique<sp/>transporté<sp/>|<sp/>Incohérence<sp/>du<sp/>schéma<sp/>ou<sp/>de<sp/>l&apos;estimateur<sp/>temporel<sp/>après<sp/>adaptation<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Application<sp/>des<sp/>BC<sp/>courantes<sp/>à<sp/>tous<sp/>les<sp/>historiques<sp/>|<sp/>Altération<sp/>de<sp/>la<sp/>dépendance<sp/>temporelle<sp/>des<sp/>positions<sp/>et<sp/>des<sp/>champs<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Mise<sp/>à<sp/>jour<sp/>tardive<sp/>de<sp/>`evaluation_point`<sp/>|<sp/>Conditions<sp/>physiques<sp/>calculées<sp/>sur<sp/>la<sp/>mauvaise<sp/>géométrie<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Changement<sp/>de<sp/>backend<sp/>PETSc/Trilinos<sp/>|<sp/>Revalider<sp/>copie,<sp/>fantômes,<sp/>compression<sp/>et<sp/>réinitialisation<sp/>sous<sp/>ce<sp/>backend<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Remplacement<sp/>de<sp/>l&apos;interpolation<sp/>par<sp/>une<sp/>projection<sp/>conservative<sp/>|<sp/>Revoir<sp/>exactitude<sp/>polynomiale,<sp/>contraintes<sp/>et<sp/>comportement<sp/>de<sp/>masse<sp/>au<sp/>déraffinement<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Aucune<sp/>de<sp/>ces<sp/>lignes<sp/>n&apos;est<sp/>un<sp/>bug<sp/>diagnostiqué.<sp/>Elles<sp/>donnent<sp/>les<sp/>chemins<sp/>à<sp/>suivre<sp/>lors<sp/>d&apos;une<sp/>future<sp/>modification.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Preuves<sp/>testables<sp/>déjà<sp/>dans<sp/>le<sp/>dépôt</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Le<sp/>test<sp/>[amr_ale_transfer](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L80-L148)<sp/>vérifie<sp/>deux<sp/>raffinements<sp/>puis<sp/>un<sp/>déraffinement<sp/>d&apos;états<sp/>représentables,<sp/>les<sp/>historiques<sp/>aux<sp/>dates<sp/>distinctes,<sp/>les<sp/>positions<sp/>mappées<sp/>et<sp/>`evaluation_point`.<sp/>Son<sp/>`main`<sp/>couvre<sp/>les<sp/>variantes<sp/>standard/enlarged,<sp/>avec<sp/>et<sp/>sans<sp/>pression<sp/>moyenne.<sp/>[Configurations](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L218-L244)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Le<sp/>test<sp/>[chns_presolver_amr](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/chns_presolver_amr.cc#L118-L154)<sp/>vérifie<sp/>l&apos;état<sp/>initial<sp/>comprimé<sp/>après<sp/>adaptation<sp/>et<sp/>contrôle<sp/>explicitement<sp/>`additional_solution`.<sp/>Il<sp/>exige<sp/>la<sp/>conservation<sp/>de<sp/>la<sp/>masse<sp/>représentée<sp/>au<sp/>raffinement<sp/>de<sp/>sa<sp/>fixture,<sp/>mais<sp/>seulement<sp/>une<sp/>masse<sp/>finie<sp/>et<sp/>bornée<sp/>au<sp/>déraffinement<sp/>:<sp/>aucune<sp/>garantie<sp/>générale<sp/>de<sp/>conservation<sp/>exacte<sp/>de<sp/>masse<sp/>ne<sp/>découle<sp/>de<sp/>ce<sp/>test.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">À<sp/>exécuter<sp/>ensuite<sp/>:<sp/>ces<sp/>fixtures<sp/>sur<sp/>1<sp/>et<sp/>4<sp/>rangs,<sp/>instrumentation<sp/>du<sp/>propriétaire<sp/>des<sp/>cellules<sp/>avant/après<sp/>et<sp/>contrôle<sp/>du<sp/>transfert<sp/>avec<sp/>pas<sp/>de<sp/>temps<sp/>adaptatif<sp/>effectivement<sp/>utilisé.<sp/>Aujourd&apos;hui<sp/>:<sp/>sources<sp/>lues,<sp/>exécution<sp/>non<sp/>effectuée.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Exercice<sp/>C++<sp/>de<sp/>lecture</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Dans<sp/>la<sp/>signature<sp/>suivante,<sp/>pourquoi<sp/>le<sp/>dernier<sp/>paramètre<sp/>est-il<sp/>un<sp/>pointeur<sp/>initialisable<sp/>à<sp/>`nullptr`,<sp/>alors<sp/>que<sp/>les<sp/>contraintes<sp/>sont<sp/>passées<sp/>par<sp/>référence<sp/>constante<sp/>?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>transfer_solution_between_refinements(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>const<sp/>IndexSet<sp/>&amp;locally_relevant_dofs,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>const<sp/>AffineConstraints&lt;double&gt;<sp/>&amp;nonzero_constraints,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>LA::ParVectorType<sp/>*additional_solution);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Réponse<sp/>:**<sp/>l&apos;état<sp/>supplémentaire<sp/>est<sp/>optionnel<sp/>et<sp/>mutable<sp/>:<sp/>le<sp/>code<sp/>teste<sp/>sa<sp/>présence<sp/>puis<sp/>le<sp/>réinitialise<sp/>et<sp/>le<sp/>remplit.<sp/>Les<sp/>deux<sp/>références<sp/>désignent<sp/>des<sp/>objets<sp/>obligatoires,<sp/>consultés<sp/>sans<sp/>modifier<sp/>leur<sp/>interface.<sp/>Un<sp/>pointeur<sp/>ne<sp/>signifie<sp/>pas<sp/>ici<sp/>un<sp/>transfert<sp/>de<sp/>propriété<sp/>:<sp/>le<sp/>propriétaire<sp/>de<sp/>l&apos;état<sp/>reste<sp/>l&apos;estimateur<sp/>temporel.<sp/>[Implémentation](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613),<sp/>[accès<sp/>à<sp/>l&apos;état](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284)</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="guides/prod/patterns/distributed-state-transfer.md"/>
+  </compounddef>
+</doxygen>

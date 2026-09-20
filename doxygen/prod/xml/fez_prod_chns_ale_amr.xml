@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="fez_prod_chns_ale_amr" kind="page">
+    <compoundname>fez_prod_chns_ale_amr</compoundname>
+    <title>CHNS–ALE et adaptation du maillage : première carte vérifiée</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="fez_prod_chns_ale_amr_1md_guides_2prod_2features_2chns-ale-amr"/></para>
+<para><blockquote><para>État : lecture statique ciblée, premier jour. Branche <computeroutput>chns-ding-horriche-master-form</computeroutput>, commit <computeroutput>35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858</computeroutput>. Comparaison ponctuelle avec <computeroutput>master</computeroutput> à <computeroutput>ccf20caa0745cc2fe640f879d34acf2bf3855e6c</computeroutput>. Aucun build ni test exécuté. </para>
+</blockquote></para>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md0">
+<title>Ce qu&apos;il faut retenir</title><para>Le solveur CHNS mobile stocke la <bold>position du maillage parmi les inconnues</bold>. La géométrie utilisée pour intégrer les champs dépend donc du vecteur de solution. Une adaptation correcte doit transporter ensemble les champs physiques, les positions actuelles, les positions historiques BDF et, si nécessaire, la solution supplémentaire du contrôleur de pas de temps. L&apos;ordre de restauration est déterminant : géométrie d&apos;abord, conditions physiques ensuite.</para>
+<para>Le commit de tête, daté du 18 septembre 2026, s&apos;intitule <bold>Couple CHNS ALE with tree-based AMR</bold>. Son message annonce le couplage presolver/AMR, Kelly multichamp, la bande d&apos;interface et le transport de l&apos;historique. Les paragraphes ci-dessous distinguent les éléments effectivement retrouvés dans le code des vérifications restant à mener. <ulink url="https://github.com/arthurbawin/fez/commit/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858">Commit</ulink></para>
+</sect1>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md1">
+<title>Points d&apos;entrée et responsabilités</title><para><table rows="6" cols="2"><row>
+<entry thead="yes"><para>Entrée  </para>
+</entry><entry thead="yes"><para>Responsabilité observée  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/solvers/incompressible_chns_ale.cpp#L32-L50"><computeroutput>solvers/incompressible_chns_ale.cpp</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>Lit les paramètres et instancie <computeroutput><ref refid="class_c_h_n_s_solver" kindref="compound">CHNSSolver</ref>&lt;2,true&gt;</computeroutput>. Le presolver externe n&apos;est créé que hors AMR arborescent.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L91-L125"><computeroutput>CHNSSolver::initialize_solution</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>En ALE+AMR+presolver, crée le presolver sur la triangulation CHNS partagée, injecte les champs et reconstruit les contraintes.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L265-L428"><computeroutput>NavierStokesSolver::run_time_subinterval</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>Orchestre initialisation, préraffinement, pas de temps, adaptation et rotation de l&apos;historique.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1433-L1517"><computeroutput>NavierStokesSolver::adapt_mesh</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>Rétablit la géométrie, les contraintes et les structures algébriques après modification du maillage.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L780-L924"><computeroutput>TransientFixedPointData</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>Marque le maillage, prépare le transport de tous les états, puis exécute raffinement/déraffinement.  </para>
+</entry></row>
+</table>
+</para>
+<para>La variante enlarged est instanciée comme <computeroutput><ref refid="class_c_h_n_s_solver" kindref="compound">CHNSSolver</ref>&lt;2,true,true&gt;</computeroutput> dans son exécutable. Le champ supplémentaire <computeroutput>psi</computeroutput> intervient dans le forçage du maillage et possède une équation de reconstruction ; ne pas l&apos;assimiler à la phase physique <computeroutput>phi</computeroutput>. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/solvers/incompressible_chns_ale_enlarged.cpp#L32-L50">Entrée enlarged</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L819-L848">couplages</ulink></para>
+</sect1>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md2">
+<title>Parcours 1 — préparer un état CHNS sur la géométrie comprimée</title><para><orderedlist>
+<listitem><para>Le solveur crée ses DoFs, mappings et contraintes.</para>
+</listitem><listitem><para>En simulation transitoire, premier intervalle, sans restart, avec ALE+AMR+presolver, les stratégies <bold>FixedNumber et InterfaceBand</bold> déclenchent <computeroutput>initialize_solution()</computeroutput> <bold>avant</bold> les préraffinements. Cette condition est explicite : ne pas la généraliser à FixedFraction. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L302-L316">Condition</ulink></para>
+</listitem><listitem><para><computeroutput>create_elasticity_presolver(param, with_enlarged, triangulation)</computeroutput> crée un <computeroutput><ref refid="class_elasticity_solver" kindref="compound">ElasticitySolver</ref></computeroutput> empruntant la triangulation de référence. Le mode cache doit être <computeroutput>off</computeroutput> et l&apos;export final msh désactivé pour cette combinaison. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/presolver_tools.h#L15-L42">Fabrique</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L133-L143">gardes CHNS</ulink></para>
+</listitem><listitem><para>Le presolver applique une continuation du multiplicateur de compression lorsque le forçage utilise <computeroutput>chns_form</computeroutput>, puis résout le problème non linéaire. Il ne relit pas un nouveau maillage lorsqu&apos;une triangulation est empruntée. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/elasticity_solver.cpp#L258-L308">ElasticitySolver::run</ulink></para>
+</listitem><listitem><para>La position est injectée <bold>avant</bold> l&apos;interpolation de vitesse et de traceur sur <computeroutput>moving_mapping</computeroutput>. Dans la variante enlarged, <computeroutput>psi</computeroutput> est aussi copié si les deux solveurs le possèdent. Le code exige la même triangulation pour le passage AMR. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L787-L905">Injection</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L758-L770">traceur</ulink></para>
+</listitem><listitem><para>Les contraintes de pression sont recréées sur la géométrie comprimée. Les historiques BDF sont initialisés avec cet état ; pendant le préraffinement, les champs initiaux sont réinterpolés en conservant la position transportée. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L103-L121">Initialisation CHNS</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L321-L342">préraffinement</ulink></para>
+</listitem></orderedlist>
+</para>
+<para><bold>Pourquoi cela compte :</bold> réévaluer une condition initiale physique sur le maillage de référence à la place de la géométrie comprimée change le champ réellement imposé. Réinitialiser seulement les positions présentes, mais pas leur passé BDF, peut introduire une vitesse de maillage artificielle. Ces conséquences sont des inférences directes du rôle de l&apos;état et des assertions des tests, pas des bugs constatés.</para>
+</sect1>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md3">
+<title>Parcours 2 — décider où raffiner</title><sect2 id="fez_prod_chns_ale_amr_1autotoc_md4">
+<title>Kelly multichamp</title><para><computeroutput>compute_error_estimate()</computeroutput> calcule un indicateur séparé pour chaque variable choisie. En ALE, il multiplie l&apos;indicateur par <computeroutput>sqrt(h_def/h_ref)</computeroutput>, avec <computeroutput>h_def</computeroutput> obtenu entre sommets mappés ; le commentaire précise que cela n&apos;est pas le diamètre exact d&apos;une cellule courbe de haut ordre. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1374-L1428">Indicateurs</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/mesh_adaptation_tools.h#L18-L30">diamètre</ulink></para>
+<para><computeroutput>mark_multifield_adaptation()</computeroutput> sélectionne indépendamment chaque champ non nul, combine le raffinement par union et le déraffinement par intersection. Lorsqu&apos;un budget limite l&apos;union, les cellules demandées par davantage de champs passent en premier ; <computeroutput>CellId</computeroutput> tranche les égalités, sans comparer les unités physiques des indicateurs. Le commentaire indique que l&apos;équilibrage peut ajouter des cellules au-delà de ce budget de demandes. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation_tools.cpp#L28-L121">Sélection</ulink></para>
+</sect2>
+<sect2 id="fez_prod_chns_ale_amr_1autotoc_md5">
+<title>Bande autour de l&apos;interface</title><para>La stratégie utilise le zéro du traceur, une demi-largeur et un diamètre cible exprimés en multiples de <computeroutput>epsilon_interface</computeroutput>. Elle est explicitement limitée à <bold>2D et aux quadrilatères</bold>. Le contour est échantillonné puis approché par segments, rassemblés avec MPI ; les cellules sont comparées à ce contour dans la géométrie mappée. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1344-L1367">Appel et limitation 2D</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation_tools.cpp#L189-L269">construction du contour</ulink></para>
+<para>Les critères valent +1 pour raffiner, 0 pour conserver et −1 pour demander un déraffinement. Les marges 1,1 sur la bande et 0,9 sur le diamètre limitent les oscillations ; le diamètre d&apos;un parent ALE inactif est estimé à deux fois celui de l&apos;enfant. Cela reste une approximation géométrique, explicitement codée. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation_tools.cpp#L271-L325">Décision</ulink></para>
+</sect2>
+</sect1>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md6">
+<title>Parcours 3 — transporter, puis reconstruire</title><para><computeroutput>adapt_mesh()</computeroutput> récupère l&apos;éventuel état supplémentaire du contrôleur temporel. La couche d&apos;adaptation prépare <computeroutput>present_solution + previous_solutions + additional_solution</computeroutput> avec des vecteurs fantômes avant <computeroutput>execute_coarsening_and_refinement()</computeroutput>. Après redistribution des DoFs, elle interpole vers des vecteurs ne contenant que les DoFs possédés, applique les contraintes, puis recopie vers les états du solveur. Voir la fiche <ref refid="fez_prod_distributed_state_transfer_1md_guides_2prod_2patterns_2distributed-state-transfer" kindref="member">transfert d&apos;état distribué</ref>.</para>
+<para>Le point sensible est l&apos;ordre ALE :</para>
+<para><itemizedlist>
+<listitem><para>transporter d&apos;abord tous les états avec seulement les contraintes de nœuds pendants ;</para>
+</listitem><listitem><para>réimposer les positions de bord <bold>courantes</bold> ;</para>
+</listitem><listitem><para>rendre le <computeroutput>moving_mapping</computeroutput> cohérent via <computeroutput>evaluation_point</computeroutput> ;</para>
+</listitem><listitem><para>reconstruire pression, conditions physiques, parcimonie et solveur direct ;</para>
+</listitem><listitem><para>appliquer les contraintes physiques courantes à la solution courante.</para>
+</listitem></itemizedlist>
+</para>
+<para>Les historiques reçoivent seulement les contraintes de nœuds pendants, afin de ne pas remplacer leurs valeurs de bord passées par celles du temps présent. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1453-L1516">Orchestration</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613">interpolation des états</ulink></para>
+</sect1>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md7">
+<title>Assemblage : les premiers liens vérifiés</title><para><computeroutput><ref refid="class_c_h_n_s_solver_1af004d2c1786e4da0f929d51903556668" kindref="member">CHNSSolver::setup_assemblers()</ref></computeroutput> installe les assembleurs CHNS et ajoute les assembleurs d&apos;élasticité lorsque le maillage est mobile. La fabrique CHNS sélectionne les drapeaux de spécialisation à la compilation pour ALE, enlarged, stabilisation et Ding–Horriche. Elle impose notamment que la variante enlarged soit ALE. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L626-L641">Composition</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/assembly/incompressible_chns_assemblers.h#L369-L456">fabrique</ulink></para>
+<para>La table de parcimonie indique des dépendances autorisées, <bold>pas un graphe d&apos;appels ni une preuve qu&apos;un coefficient est toujours non nul</bold> : positions couplées à <computeroutput>x,phi,u</computeroutput>, également à <computeroutput>psi</computeroutput> en enlarged ; ligne de <computeroutput>psi</computeroutput> couplée à <computeroutput>psi,phi,mu,x</computeroutput>. Modifier une formulation doit faire relire à la fois assembleur, scratch et table de couplage. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L795-L859">Table</ulink></para>
+<para>La lecture complète des termes faibles, de leur Jacobienne et de leur cohérence mathématique est réservée à une prochaine session. Les passages de la grosse implémentation d&apos;assemblage ont été repérés, pas audités intégralement.</para>
+</sect1>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md8">
+<title>Différence avec master effectivement lue</title><para><table rows="4" cols="3"><row>
+<entry thead="yes"><para>Sujet  </para>
+</entry><entry thead="yes"><para>master ccf20caa  </para>
+</entry><entry thead="yes"><para>Branche personnelle 35d43b8e  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Variables Kelly  </para>
+</entry><entry thead="no"><para>Assertion limitant à une seule variable  </para>
+</entry><entry thead="no"><para>Indicateur indépendant par variable, combinaison des sélections  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Après adaptation  </para>
+</entry><entry thead="no"><para>Structures et contraintes reconstruites avant le transfert  </para>
+</entry><entry thead="no"><para>Chemin ALE restaurant d&apos;abord la géométrie puis les conditions physiques  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>État temporel supplémentaire  </para>
+</entry><entry thead="no"><para>Transfert courant + historiques seulement  </para>
+</entry><entry thead="no"><para>Ajout d&apos;un pointeur optionnel vers l&apos;état supplémentaire  </para>
+</entry></row>
+</table>
+</para>
+<para>Sources master : <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L1183-L1242">indicateur et adaptation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/mesh_adaptation/transient_fixed_point.cpp#L558-L603">transfert</ulink>. Cette comparaison porte sur ces fonctions ; elle n&apos;affirme pas que les deux branches ne diffèrent que sur ces trois points.</para>
+</sect1>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md9">
+<title>Tests disponibles et statut</title><para><itemizedlist>
+<listitem><para><ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L80-L148"><computeroutput>amr_ale_transfer.cc</computeroutput></ulink> : deux raffinements puis un déraffinement ; contrôle solution présente, <computeroutput>evaluation_point</computeroutput>, historiques et géométrie avec un état exactement représentable. La même fixture couvre standard/enlarged et la pression moyenne ; un cas séparé contrôle l&apos;évaluation des valeurs de bord sur la nouvelle géométrie.</para>
+</listitem><listitem><para><ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/chns_presolver_amr.cc#L95-L154"><computeroutput>chns_presolver_amr.cc</computeroutput></ulink> : interpolation initiale sur géométrie mobile, historiques cohérents, raffinement/déraffinement et conservation de l&apos;état supplémentaire. Le test précise que le déraffinement par interpolation n&apos;a pas à conserver exactement la masse.</para>
+</listitem><listitem><para>L&apos;arbre GitHub contient des références <computeroutput>.mpirun=1.output</computeroutput> et <computeroutput>.mpirun=4.output</computeroutput> pour ces deux tests, ainsi que <computeroutput>presolver_amr</computeroutput>, <computeroutput>amr_ale_indicator</computeroutput>, <computeroutput>amr_interface_band</computeroutput>, <computeroutput>amr_multifield</computeroutput> et des cas d&apos;intégration standard/enlarged. Leur présence n&apos;est <bold>pas</bold> une preuve d&apos;exécution réussie au commit courant.</para>
+</listitem><listitem><para>AMR+restart est explicitement refusé à l&apos;exécution dans ce parcours. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L281-L286">Garde</ulink></para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="fez_prod_chns_ale_amr_1autotoc_md10">
+<title>Impacts à surveiller et suite de lecture</title><para><table rows="6" cols="2"><row>
+<entry thead="yes"><para>Modification future  </para>
+</entry><entry thead="yes"><para>Relations à revalider  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Ordre de <computeroutput>setup_mappings</computeroutput> / contraintes / transfert  </para>
+</entry><entry thead="no"><para>Géométrie ALE, BC physiques, poids de pression moyenne  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Nouveau champ ou changement de composants  </para>
+</entry><entry thead="no"><para><computeroutput>ComponentOrdering</computeroutput>, masques, injection presolver, assembleurs, transport de l&apos;état complet  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Nouveau contrôleur de pas de temps  </para>
+</entry><entry thead="no"><para>Existence, taille et renouvellement de <computeroutput>additional_solution</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Autre stratégie de préraffinement  </para>
+</entry><entry thead="no"><para>Condition <computeroutput>presolve_before_prerefinement</computeroutput> et conservation de la géométrie comprimée  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Maillage très courbe ou interface complexe  </para>
+</entry><entry thead="no"><para>Approximation entre sommets, échantillonnage du zéro, coût du rassemblement global des segments  </para>
+</entry></row>
+</table>
+</para>
+<para><bold>Prochaine validation sur le PC de calcul :</bold> exécuter les fixtures ciblées sur 1 et 4 rangs, relever les versions deal.II/PETSc/p4est et mesurer une situation où des cellules changent effectivement de propriétaire MPI. Aucun bug nouveau n&apos;est affirmé à ce stade. </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/prod/features/chns-ale-amr.md"/>
+  </compounddef>
+</doxygen>

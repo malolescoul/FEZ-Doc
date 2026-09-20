@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_assembly" kind="namespace" language="C++">
+    <compoundname>Assembly</compoundname>
+    <innerclass refid="class_assembly_1_1_assembler_base" prot="public">Assembly::AssemblerBase</innerclass>
+    <innernamespace refid="namespace_assembly_1_1_incompressible_c_h_n_s">Assembly::IncompressibleCHNS</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A namespace gathering the assembly routines, each associated with a volume or boundary weak form. </para>
+    </detaileddescription>
+    <location file="snapshots/master/include/assembly/assembler.h" line="10" column="1"/>
+  </compounddef>
+</doxygen>

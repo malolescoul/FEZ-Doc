@@ -1,0 +1,800 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_transient_fixed_point_data" kind="class" language="C++" prot="public">
+    <compoundname>TransientFixedPointData</compoundname>
+    <includes refid="transient__fixed__point_8h" local="no">transient_fixed_point.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1a12e32a41100e26620327a9ba99cd0c09" prot="private" static="no" mutable="no">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt;dim&gt;&amp; TransientFixedPointData&lt; dim &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>TransientFixedPointData::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="235" column="25" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1ad7d92524a64c2bef8a55653290f98cd4" prot="private" static="no" mutable="no">
+        <type>TimerOutput &amp;</type>
+        <definition>TimerOutput&amp; TransientFixedPointData&lt; dim &gt;::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <qualifiedname>TransientFixedPointData::timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="240" column="15" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1abc864f694fe2e6629a455d67f54ba52b" prot="private" static="no" mutable="no">
+        <type>MPI_Comm</type>
+        <definition>MPI_Comm TransientFixedPointData&lt; dim &gt;::mpi_communicator</definition>
+        <argsstring></argsstring>
+        <name>mpi_communicator</name>
+        <qualifiedname>TransientFixedPointData::mpi_communicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="245" column="12" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1a694e06de4266e30adf4c895bfac022af" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int TransientFixedPointData&lt; dim &gt;::n_time_intervals</definition>
+        <argsstring></argsstring>
+        <name>n_time_intervals</name>
+        <qualifiedname>TransientFixedPointData::n_time_intervals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="250" column="16" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1abf709f87b3745550c2f6f0c3067412ac" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; parallel::DistributedTriangulationBase&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;parallel::DistributedTriangulationBase&lt;dim&gt; &gt; &gt; TransientFixedPointData&lt; dim &gt;::triangulations</definition>
+        <argsstring></argsstring>
+        <name>triangulations</name>
+        <qualifiedname>TransientFixedPointData::triangulations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="256" column="5" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1a0af5d5f04292880de883573c37627123" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; DoFHandler&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;DoFHandler&lt;dim&gt; &gt; &gt; TransientFixedPointData&lt; dim &gt;::dof_handlers</definition>
+        <argsstring></argsstring>
+        <name>dof_handlers</name>
+        <qualifiedname>TransientFixedPointData::dof_handlers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="261" column="15" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1ace389050d531523b9f6fea94990bfccb" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;LA::ParVectorType&gt; &gt; TransientFixedPointData&lt; dim &gt;::present_solutions</definition>
+        <argsstring></argsstring>
+        <name>present_solutions</name>
+        <qualifiedname>TransientFixedPointData::present_solutions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="266" column="15" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1a208b111181da622e58e26fccf8dcb4b8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; std::vector&lt; <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;std::vector&lt;LA::ParVectorType&gt; &gt; &gt; TransientFixedPointData&lt; dim &gt;::previous_solutions</definition>
+        <argsstring></argsstring>
+        <name>previous_solutions</name>
+        <qualifiedname>TransientFixedPointData::previous_solutions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="272" column="5" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1a9c443fb56abe64b550606ad021bf3ac3" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; MetricField&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;MetricField&lt;dim&gt; &gt; &gt; TransientFixedPointData&lt; dim &gt;::metrics_for_adaptation</definition>
+        <argsstring></argsstring>
+        <name>metrics_for_adaptation</name>
+        <qualifiedname>TransientFixedPointData::metrics_for_adaptation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="277" column="15" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_transient_fixed_point_data_1a72f7b9b03f7809cb95ff19aabee2729f" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; SolutionTransfer&lt; dim, <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;SolutionTransfer&lt;dim, LA::ParVectorType&gt; &gt; TransientFixedPointData&lt; dim &gt;::solution_transfer</definition>
+        <argsstring></argsstring>
+        <name>solution_transfer</name>
+        <qualifiedname>TransientFixedPointData::solution_transfer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="282" column="19" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a3fa7c0d1448fa9f45ad569fa7f40b2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TransientFixedPointData&lt; dim &gt;::TransientFixedPointData</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, TimerOutput &amp;timer, const unsigned int n_time_intervals, const MPI_Comm mpi_communicator, parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;triangulation, DoFHandler&lt; dim &gt; *&amp;dof_handler, LA::ParVectorType *&amp;present_solution, std::vector&lt; LA::ParVectorType &gt; *&amp;solver_previous_solutions, MetricField&lt; dim &gt; *&amp;metric_for_adaptation)</argsstring>
+        <name>TransientFixedPointData</name>
+        <qualifiedname>TransientFixedPointData::TransientFixedPointData</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>TimerOutput &amp;</type>
+          <declname>timer</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_time_intervals</declname>
+        </param>
+        <param>
+          <type>const MPI_Comm</type>
+          <declname>mpi_communicator</declname>
+        </param>
+        <param>
+          <type>parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;</type>
+          <declname>triangulation</declname>
+        </param>
+        <param>
+          <type>DoFHandler&lt; dim &gt; *&amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> *&amp;</type>
+          <declname>present_solution</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; *&amp;</type>
+          <declname>solver_previous_solutions</declname>
+        </param>
+        <param>
+          <type>MetricField&lt; dim &gt; *&amp;</type>
+          <declname>metric_for_adaptation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor. Initializes the data for <computeroutput>n</computeroutput> subintervals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="40" column="3" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="23" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1ad59031a31ce379d13b5005198e62d5d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::reinit</definition>
+        <argsstring>(const unsigned int n_time_intervals, parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;triangulation, DoFHandler&lt; dim &gt; *&amp;dof_handler, LA::ParVectorType *&amp;present_solution, std::vector&lt; LA::ParVectorType &gt; *&amp;solver_previous_solutions, MetricField&lt; dim &gt; *&amp;metric_for_adaptation)</argsstring>
+        <name>reinit</name>
+        <qualifiedname>TransientFixedPointData::reinit</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_time_intervals</declname>
+        </param>
+        <param>
+          <type>parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;</type>
+          <declname>triangulation</declname>
+        </param>
+        <param>
+          <type>DoFHandler&lt; dim &gt; *&amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> *&amp;</type>
+          <declname>present_solution</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; *&amp;</type>
+          <declname>solver_previous_solutions</declname>
+        </param>
+        <param>
+          <type>MetricField&lt; dim &gt; *&amp;</type>
+          <declname>metric_for_adaptation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reinitialize this object to hold data for <computeroutput>n_time_intervals</computeroutput> intervals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="54" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="47" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a5cc88c1aaf28b68cb0c635f6c1c52630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::set_interval_data</definition>
+        <argsstring>(const unsigned int interval_index, parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;triangulation, DoFHandler&lt; dim &gt; *&amp;dof_handler, LA::ParVectorType *&amp;present_solution, std::vector&lt; LA::ParVectorType &gt; *&amp;solver_previous_solutions, MetricField&lt; dim &gt; *&amp;metric_for_adaptation)</argsstring>
+        <name>set_interval_data</name>
+        <qualifiedname>TransientFixedPointData::set_interval_data</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <param>
+          <type>parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;</type>
+          <declname>triangulation</declname>
+        </param>
+        <param>
+          <type>DoFHandler&lt; dim &gt; *&amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> *&amp;</type>
+          <declname>present_solution</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; *&amp;</type>
+          <declname>solver_previous_solutions</declname>
+        </param>
+        <param>
+          <type>MetricField&lt; dim &gt; *&amp;</type>
+          <declname>metric_for_adaptation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assign the data associated with the interval_index-th time interval to the given pointers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="66" column="3" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="102" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a04f51c3783cef9a175533843b4b2a277" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int TransientFixedPointData&lt; dim &gt;::get_n_time_intervals</definition>
+        <argsstring>() const</argsstring>
+        <name>get_n_time_intervals</name>
+        <qualifiedname>TransientFixedPointData::get_n_time_intervals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the number of time intervals stored in this object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="76" column="16" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a1e18170c5ea7c8b9422e112f0b63f855" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>parallel::DistributedTriangulationBase&lt; dim &gt; *</type>
+        <definition>parallel::DistributedTriangulationBase&lt; dim &gt; * TransientFixedPointData&lt; dim &gt;::get_triangulation</definition>
+        <argsstring>(const unsigned int interval_index)</argsstring>
+        <name>get_triangulation</name>
+        <qualifiedname>TransientFixedPointData::get_triangulation</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the raw pointer to the <computeroutput>interval_index-th</computeroutput> triangulation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="82" column="3" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="127" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1aaa545cf174272395c2fcaa9966e8e9d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DoFHandler&lt; dim &gt; *</type>
+        <definition>DoFHandler&lt; dim &gt; * TransientFixedPointData&lt; dim &gt;::get_dof_handler</definition>
+        <argsstring>(const unsigned int interval_index)</argsstring>
+        <name>get_dof_handler</name>
+        <qualifiedname>TransientFixedPointData::get_dof_handler</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the raw pointer to the <computeroutput>interval_index-th</computeroutput> dof handler. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="87" column="14" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="136" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a351ef269d1f07461f554074645356a73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> *</type>
+        <definition>LA::ParVectorType * TransientFixedPointData&lt; dim &gt;::get_present_solution</definition>
+        <argsstring>(const unsigned int interval_index)</argsstring>
+        <name>get_present_solution</name>
+        <qualifiedname>TransientFixedPointData::get_present_solution</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the raw pointer to the <computeroutput>interval_index-th</computeroutput> solution vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="92" column="21" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="143" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a35c6b2b0412e057e3d434828f08bd8b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; *</type>
+        <definition>std::vector&lt; LA::ParVectorType &gt; * TransientFixedPointData&lt; dim &gt;::get_previous_solutions</definition>
+        <argsstring>(const unsigned int interval_index)</argsstring>
+        <name>get_previous_solutions</name>
+        <qualifiedname>TransientFixedPointData::get_previous_solutions</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the raw pointer to the <computeroutput>interval_index-th</computeroutput> vector of previous solution vectors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="99" column="3" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="152" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1aaf255d2db0ccbc410521596646ff6d87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>MetricField&lt; dim &gt; *</type>
+        <definition>MetricField&lt; dim &gt; * TransientFixedPointData&lt; dim &gt;::get_metric_field</definition>
+        <argsstring>(const unsigned int interval_index)</argsstring>
+        <name>get_metric_field</name>
+        <qualifiedname>TransientFixedPointData::get_metric_field</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the raw pointer to the <computeroutput>interval_index-th</computeroutput> Riemannian metric. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="104" column="15" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="160" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a65cd3ac83fb5b42b1708caef03c87c20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const MetricField&lt; dim &gt; *</type>
+        <definition>const MetricField&lt; dim &gt; * TransientFixedPointData&lt; dim &gt;::get_metric_field</definition>
+        <argsstring>(const unsigned int interval_index) const</argsstring>
+        <name>get_metric_field</name>
+        <qualifiedname>TransientFixedPointData::get_metric_field</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Const version of the above </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="110" column="3" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="168" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a0c663bafe3a27d8bcaca38ca9d5aa46f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string TransientFixedPointData&lt; dim &gt;::get_meshfile_name</definition>
+        <argsstring>(const unsigned int interval_index) const</argsstring>
+        <name>get_meshfile_name</name>
+        <qualifiedname>TransientFixedPointData::get_meshfile_name</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the name of the mesh file to be used for this time interval. If this is the first fixed-point iteration, this is the initial mesh file. Otherwise, this is the name of the adapted mesh on this interval. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="117" column="15" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="176" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1abb451d408867c77fe6b1654ab0375f59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int TransientFixedPointData&lt; dim &gt;::get_sum_of_active_cells</definition>
+        <argsstring>() const</argsstring>
+        <name>get_sum_of_active_cells</name>
+        <qualifiedname>TransientFixedPointData::get_sum_of_active_cells</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the sum of the active cells among the triangulations of all time intervals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="123" column="16" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="205" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1abe3b88138201b081de941f16f1b5ab7f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int TransientFixedPointData&lt; dim &gt;::get_sum_of_vertices</definition>
+        <argsstring>() const</argsstring>
+        <name>get_sum_of_vertices</name>
+        <qualifiedname>TransientFixedPointData::get_sum_of_vertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the sum of the mesh vertices among the triangulations of all time intervals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="129" column="16" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="214" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a8788e3d9b1930b9d8ad5945127e7e9ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int TransientFixedPointData&lt; dim &gt;::get_sum_of_dofs</definition>
+        <argsstring>() const</argsstring>
+        <name>get_sum_of_dofs</name>
+        <qualifiedname>TransientFixedPointData::get_sum_of_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the sum of all dofs among the dof handlers of all time intervals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="134" column="16" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="223" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1ad5570dce77267bceab8bf5e6d351503f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int TransientFixedPointData&lt; dim &gt;::get_effective_space_time_complexity</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>get_effective_space_time_complexity</name>
+        <qualifiedname>TransientFixedPointData::get_effective_space_time_complexity</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the effective space-time complexity associated with the collection of triangulations stored in object and the given <computeroutput>time_handler</computeroutput>. This quantity is defined by:</para>
+<para>N_st := sum_intervals n_mesh_vertices_i * n_time_steps_i,</para>
+<para>where n_time_steps_i is the number of time steps spent in the i-th time interval. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="147" column="3" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="232" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a4a810569aa193095a031d6ea79277cd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::transfer_solution_between_intervals</definition>
+        <argsstring>(const unsigned int interval_index, const Mapping&lt; dim &gt; &amp;mapping, Function&lt; dim &gt; &amp;exact_solution, const TimeHandler &amp;time_handler, const IndexSet &amp;locally_relevant_dofs, const std::vector&lt; unsigned char &gt; &amp;dofs_to_component)</argsstring>
+        <name>transfer_solution_between_intervals</name>
+        <qualifiedname>TransientFixedPointData::transfer_solution_between_intervals</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const IndexSet &amp;</type>
+          <declname>locally_relevant_dofs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned char &gt; &amp;</type>
+          <declname>dofs_to_component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Transfer the current and previous solution from the (interval_index - 1)-th interval to the <computeroutput>interval_index-th</computeroutput> interval. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>VectorTools::point_values&lt;n_components&gt; needs the number of components at compile time, which we currently do not have access to from the NS base class.</para>
+<para>FIXME: would be cleaner to have a way to get it, but that probably involves adding a template parameter to the NS base class...</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="153" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="434" bodyend="555"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a490a0a16f0746df6be9237fbbf9a3d36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::transfer_solution_between_refinements</definition>
+        <argsstring>(const IndexSet &amp;locally_relevant_dofs, const AffineConstraints&lt; double &gt; &amp;nonzero_constraints)</argsstring>
+        <name>transfer_solution_between_refinements</name>
+        <qualifiedname>TransientFixedPointData::transfer_solution_between_refinements</qualifiedname>
+        <param>
+          <type>const IndexSet &amp;</type>
+          <declname>locally_relevant_dofs</declname>
+        </param>
+        <param>
+          <type>const AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>nonzero_constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Transfer the solutions associated with the previous state of refinement of the triangulation to the solutions associated with its current state. This function is used when using the deal.II refinement and coarsening routines, and thus expects a single time interval (i.e., a single triangulation) for now.</para>
+<para>This functions interpolates the data stored in the SolutionTransfer object, which must have been previously (re-)initialized in <ref refid="class_transient_fixed_point_data_1a7d9012291e63eaab87b3f2ec8d6c3235" kindref="member">adapt_meshes()</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>At this point, we only have the nonzero_constraints for the current time available, but not for the previous times, see also the discussion in step-86.cc (transfer_solution_vectors_to_new_mesh).</para>
+<para>What we can do, however, is create the hanging node constraints for the current mesh, and apply them to the previous solutions.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="171" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="558" bodyend="603"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a76bcb050b324bb30d21024306836c40a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::scale_metrics</definition>
+        <argsstring>(const unsigned int metric_index, const TimeHandler &amp;time_handler)</argsstring>
+        <name>scale_metrics</name>
+        <qualifiedname>TransientFixedPointData::scale_metrics</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>metric_index</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply a local and global scaling to all metric fields. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="178" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="606" bodyend="687"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a0e8cf6bb4fb4cf5f3f0eb1566bfc0459" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::apply_gradation_to_metrics</definition>
+        <argsstring>()</argsstring>
+        <name>apply_gradation_to_metrics</name>
+        <qualifiedname>TransientFixedPointData::apply_gradation_to_metrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply gradation to all metric fields. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="184" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="690" bodyend="694"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a7d9012291e63eaab87b3f2ec8d6c3235" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::adapt_meshes</definition>
+        <argsstring>(const Vector&lt; float &gt; &amp;criteria)</argsstring>
+        <name>adapt_meshes</name>
+        <qualifiedname>TransientFixedPointData::adapt_meshes</qualifiedname>
+        <param>
+          <type>const Vector&lt; float &gt; &amp;</type>
+          <declname>criteria</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adapt the meshes on all subintervals. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>For each time interval, adapt the associated mesh with mmg, using the designated Riemannian metric.</para>
+<para>Adapt the triangulation with the routines from deal.II.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="189" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="697" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a32d5ea055a6ba756405e12d6e70a9b41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>TransientFixedPointData::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear the data for each subinterval. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="194" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="854" bodyend="864"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a4b23ed3cd0a894ae44a38d691c542018" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::write_summary</definition>
+        <argsstring>(const TimeHandler &amp;time_handler, std::ostream &amp;out=std::cout) const</argsstring>
+        <name>write_summary</name>
+        <qualifiedname>TransientFixedPointData::write_summary</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+          <defval>std::cout</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write a summary of the data stored in this object, such as the number of intervals, their starting and ending times, the number of time steps spent in each interval, the number of mesh vertices, of dofs, etc. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="201" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="867" bodyend="895"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a5655602c8d5a09f5ed5a0e573ca28903" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>n_components</declname>
+            <defname>n_components</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::do_solution_transfer</definition>
+        <argsstring>(const unsigned int interval_index, const Mapping&lt; dim &gt; &amp;mapping, Function&lt; dim &gt; &amp;exact_solution, const TimeHandler &amp;time_handler, const IndexSet &amp;locally_relevant_dofs, const std::vector&lt; unsigned char &gt; &amp;dofs_to_component)</argsstring>
+        <name>do_solution_transfer</name>
+        <qualifiedname>TransientFixedPointData::do_solution_transfer</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const IndexSet &amp;</type>
+          <declname>locally_relevant_dofs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned char &gt; &amp;</type>
+          <declname>dofs_to_component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that actually performs the solution transfer in parallel. It uses VectorTools::point_values() which is templated on the number of components in the FESystem, so this function is templated similarly. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Transfer solution from the previous interval in parallel, using the Utilities::MPI::RemotePointEvaluation tools.</para>
+<para>This is (a priori) the worst possible case for solution transfer, as we use different fully_distributed triangulations across intervals, whose partitions are completely unrelated.</para>
+<para>This function is not expected to scale well, but it is only called N_intervals - 1 times, where N_intervals is typically small compared to the number of time steps per interval.</para>
+<para>The VectorTools::point_values() function takes a vector of evaluation points and returns the interpolated values in the same order, then we need to assign them in the solution vector.</para>
+<para>Here we create the vectors of evaluation points and of dofs at these points for each component from the map of (locally relevant) support points.</para>
+<para>For FESystems with more than one component, <emphasis>all</emphasis> components will be interpolated at <emphasis>all</emphasis> evaluation points, but not all these components have corresponding dofs (e.g., with a P2-P1 Taylor-Hood element, pressure dofs will be interpolated at P2 dofs support points even if there is no pressure dof there). Set the dofs to invalid by default for all components, then overwrite and only transfer in the solution vector if the dof is valid for that component.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="212" column="3" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="248" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1aa476068819068cbf50b4ea872fb92b27" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::adapt_meshes_with_mmg</definition>
+        <argsstring>()</argsstring>
+        <name>adapt_meshes_with_mmg</name>
+        <qualifiedname>TransientFixedPointData::adapt_meshes_with_mmg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adapt the mesh for each time interval with the mmg library. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="222" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="727" bodyend="761"/>
+      </memberdef>
+      <memberdef kind="function" id="class_transient_fixed_point_data_1a5521e6f464505e7ebe7e36b2fb766a96" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TransientFixedPointData&lt; dim &gt;::adapt_mesh_with_dealii_routines</definition>
+        <argsstring>(const Vector&lt; float &gt; &amp;criteria)</argsstring>
+        <name>adapt_mesh_with_dealii_routines</name>
+        <qualifiedname>TransientFixedPointData::adapt_mesh_with_dealii_routines</qualifiedname>
+        <param>
+          <type>const Vector&lt; float &gt; &amp;</type>
+          <declname>criteria</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adapt the mesh using deal.II&apos;s adaptation routines. This function assumes a single time interval, and adapts the mesh associated with the first interval. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="229" column="8" bodyfile="snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp" bodystart="764" bodyend="851"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A class storing the data that need to be duplicated for each time subinterval when using the transient fixed point mesh adaptation method for unsteady simulations. To use a common interface, this structure is also used for non-adaptive simulations, either steady or unsteady, in which case this class stores the data for the single, full simulation time interval.</para>
+<para>This class stores and owns (in the sense of memory management) the triangulations and dof handlers, present and previous solutions vectors, as well as the Riemannian metrics needed for anisotropic mesh adaptation.</para>
+<para>The intended use of this class is to have each solver own one such object, and store &quot;observer&quot; pointers, in the form of raw, non-owning pointers, to the triangulation, dof handler, etc. associated with the index-th time subinterval.</para>
+<para>A more fitting name for this class would maybe be &quot;SolverDataCollection&quot;. </para>
+    </detaileddescription>
+    <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" line="34" column="1" bodyfile="snapshots/master/include/mesh_adaptation/transient_fixed_point.h" bodystart="35" bodyend="283"/>
+    <listofallmembers>
+      <member refid="class_transient_fixed_point_data_1a5521e6f464505e7ebe7e36b2fb766a96" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>adapt_mesh_with_dealii_routines</name></member>
+      <member refid="class_transient_fixed_point_data_1a7d9012291e63eaab87b3f2ec8d6c3235" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>adapt_meshes</name></member>
+      <member refid="class_transient_fixed_point_data_1aa476068819068cbf50b4ea872fb92b27" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>adapt_meshes_with_mmg</name></member>
+      <member refid="class_transient_fixed_point_data_1a0e8cf6bb4fb4cf5f3f0eb1566bfc0459" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>apply_gradation_to_metrics</name></member>
+      <member refid="class_transient_fixed_point_data_1a32d5ea055a6ba756405e12d6e70a9b41" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>clear</name></member>
+      <member refid="class_transient_fixed_point_data_1a5655602c8d5a09f5ed5a0e573ca28903" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>do_solution_transfer</name></member>
+      <member refid="class_transient_fixed_point_data_1a0af5d5f04292880de883573c37627123" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>dof_handlers</name></member>
+      <member refid="class_transient_fixed_point_data_1aaa545cf174272395c2fcaa9966e8e9d7" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_dof_handler</name></member>
+      <member refid="class_transient_fixed_point_data_1ad5570dce77267bceab8bf5e6d351503f" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_effective_space_time_complexity</name></member>
+      <member refid="class_transient_fixed_point_data_1a0c663bafe3a27d8bcaca38ca9d5aa46f" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_meshfile_name</name></member>
+      <member refid="class_transient_fixed_point_data_1aaf255d2db0ccbc410521596646ff6d87" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_metric_field</name></member>
+      <member refid="class_transient_fixed_point_data_1a65cd3ac83fb5b42b1708caef03c87c20" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_metric_field</name></member>
+      <member refid="class_transient_fixed_point_data_1a04f51c3783cef9a175533843b4b2a277" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_n_time_intervals</name></member>
+      <member refid="class_transient_fixed_point_data_1a351ef269d1f07461f554074645356a73" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_present_solution</name></member>
+      <member refid="class_transient_fixed_point_data_1a35c6b2b0412e057e3d434828f08bd8b2" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_previous_solutions</name></member>
+      <member refid="class_transient_fixed_point_data_1abb451d408867c77fe6b1654ab0375f59" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_sum_of_active_cells</name></member>
+      <member refid="class_transient_fixed_point_data_1a8788e3d9b1930b9d8ad5945127e7e9ea" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_sum_of_dofs</name></member>
+      <member refid="class_transient_fixed_point_data_1abe3b88138201b081de941f16f1b5ab7f" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_sum_of_vertices</name></member>
+      <member refid="class_transient_fixed_point_data_1a1e18170c5ea7c8b9422e112f0b63f855" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>get_triangulation</name></member>
+      <member refid="class_transient_fixed_point_data_1a9c443fb56abe64b550606ad021bf3ac3" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>metrics_for_adaptation</name></member>
+      <member refid="class_transient_fixed_point_data_1abc864f694fe2e6629a455d67f54ba52b" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>mpi_communicator</name></member>
+      <member refid="class_transient_fixed_point_data_1a694e06de4266e30adf4c895bfac022af" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>n_time_intervals</name></member>
+      <member refid="class_transient_fixed_point_data_1a12e32a41100e26620327a9ba99cd0c09" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>param</name></member>
+      <member refid="class_transient_fixed_point_data_1ace389050d531523b9f6fea94990bfccb" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>present_solutions</name></member>
+      <member refid="class_transient_fixed_point_data_1a208b111181da622e58e26fccf8dcb4b8" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>previous_solutions</name></member>
+      <member refid="class_transient_fixed_point_data_1ad59031a31ce379d13b5005198e62d5d6" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>reinit</name></member>
+      <member refid="class_transient_fixed_point_data_1a76bcb050b324bb30d21024306836c40a" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>scale_metrics</name></member>
+      <member refid="class_transient_fixed_point_data_1a5cc88c1aaf28b68cb0c635f6c1c52630" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>set_interval_data</name></member>
+      <member refid="class_transient_fixed_point_data_1a72f7b9b03f7809cb95ff19aabee2729f" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>solution_transfer</name></member>
+      <member refid="class_transient_fixed_point_data_1ad7d92524a64c2bef8a55653290f98cd4" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>timer</name></member>
+      <member refid="class_transient_fixed_point_data_1a4a810569aa193095a031d6ea79277cd8" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>transfer_solution_between_intervals</name></member>
+      <member refid="class_transient_fixed_point_data_1a490a0a16f0746df6be9237fbbf9a3d36" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>transfer_solution_between_refinements</name></member>
+      <member refid="class_transient_fixed_point_data_1a3fa7c0d1448fa9f45ad569fa7f40b2b2" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>TransientFixedPointData</name></member>
+      <member refid="class_transient_fixed_point_data_1abf709f87b3745550c2f6f0c3067412ac" prot="private" virt="non-virtual"><scope>TransientFixedPointData</scope><name>triangulations</name></member>
+      <member refid="class_transient_fixed_point_data_1a4b23ed3cd0a894ae44a38d691c542018" prot="public" virt="non-virtual"><scope>TransientFixedPointData</scope><name>write_summary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

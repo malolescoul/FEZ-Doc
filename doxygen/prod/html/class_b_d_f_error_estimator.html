@@ -1,0 +1,726 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — CHNS ALE · branche personnelle: Référence de la classe BDFErrorEstimator</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — CHNS ALE · branche personnelle<span id="projectnumber">&#160;35d43b8e3bc4 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_b_d_f_error_estimator.html','','class_b_d_f_error_estimator-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la classe BDFErrorEstimator</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a44a60ea7cd6c0d6af86116315c12b8a6" id="r_a44a60ea7cd6c0d6af86116315c12b8a6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a44a60ea7cd6c0d6af86116315c12b8a6">BDFErrorEstimator</a> (const Parameters::TimeIntegration &amp;time_parameters, const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler)</td></tr>
+<tr class="memitem:a34b2a41a0226bb2faeaf65e263a87e21" id="r_a34b2a41a0226bb2faeaf65e263a87e21"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a34b2a41a0226bb2faeaf65e263a87e21">attach_data</a> (const ComponentOrdering &amp;ordering, const IndexSet &amp;locally_relevant_dofs, const std::vector&lt; unsigned char &gt; &amp;dofs_to_component)</td></tr>
+<tr class="memitem:a4a84e478d0e10ffca1e42da93674330c" id="r_a4a84e478d0e10ffca1e42da93674330c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4a84e478d0e10ffca1e42da93674330c">advance</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler)</td></tr>
+<tr class="memitem:a1362437fcb51abf8e18efea13b8cea53" id="r_a1362437fcb51abf8e18efea13b8cea53"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1362437fcb51abf8e18efea13b8cea53">rotate_additional_solution</a> (const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;solution)</td></tr>
+<tr class="memitem:a6a5c60cc3645fab7592dc77f8ec86428" id="r_a6a5c60cc3645fab7592dc77f8ec86428"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6a5c60cc3645fab7592dc77f8ec86428">get_additional_solution</a> ()</td></tr>
+<tr class="memitem:af83bbd88b98f52168e3fcc51e0a6d00f" id="r_af83bbd88b98f52168e3fcc51e0a6d00f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af83bbd88b98f52168e3fcc51e0a6d00f">compute_error_estimator</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler, const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;present_solution, const std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; &amp;previous_solutions)</td></tr>
+<tr class="memitem:a81b75254435a20475df31b4f360aaee1" id="r_a81b75254435a20475df31b4f360aaee1"><td class="memItemLeft">const std::map&lt; SolverInfo::VariableType, double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a81b75254435a20475df31b4f360aaee1">get_max_errors</a> () const</td></tr>
+<tr class="memitem:abb1080c513f92d5bbfc8499e897799c5" id="r_abb1080c513f92d5bbfc8499e897799c5"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#abb1080c513f92d5bbfc8499e897799c5">get_next_timestep</a> (const double current_timestep) const</td></tr>
+<tr class="memitem:a3c8eabffb9392ab2aa7e3c7a0a6a5512" id="r_a3c8eabffb9392ab2aa7e3c7a0a6a5512"><td class="memItemLeft">const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3c8eabffb9392ab2aa7e3c7a0a6a5512">get_error_estimator_as_solution</a> () const</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr class="memitem:a7320a6571325848c3f1a6eed10cdbb13" id="r_a7320a6571325848c3f1a6eed10cdbb13"><td class="memItemLeft">const Parameters::TimeIntegration &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a></td></tr>
+<tr class="memitem:af85f9c9bcc73cbfab1972d38e280a937" id="r_af85f9c9bcc73cbfab1972d38e280a937"><td class="memItemLeft">const ComponentOrdering *&#160;</td><td class="memItemRight"><a class="el" href="#af85f9c9bcc73cbfab1972d38e280a937">ordering</a> = nullptr</td></tr>
+<tr class="memitem:adaa97e6b13e4c6f2bec560d4f9d00af3" id="r_adaa97e6b13e4c6f2bec560d4f9d00af3"><td class="memItemLeft">const IndexSet *&#160;</td><td class="memItemRight"><a class="el" href="#adaa97e6b13e4c6f2bec560d4f9d00af3">locally_relevant_dofs</a> = nullptr</td></tr>
+<tr class="memitem:ac9377e402bbceb911fb1bb5bfd5d045a" id="r_ac9377e402bbceb911fb1bb5bfd5d045a"><td class="memItemLeft">const std::vector&lt; unsigned char &gt; *&#160;</td><td class="memItemRight"><a class="el" href="#ac9377e402bbceb911fb1bb5bfd5d045a">dofs_to_component</a> = nullptr</td></tr>
+<tr class="memitem:a02b15767efba4fd6d8d2582223b3bfb5" id="r_a02b15767efba4fd6d8d2582223b3bfb5"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a></td></tr>
+<tr class="memitem:a6584a19c222b99f49ffb1e8e844d8bc9" id="r_a6584a19c222b99f49ffb1e8e844d8bc9"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6584a19c222b99f49ffb1e8e844d8bc9">additional_solution</a></td></tr>
+<tr class="memitem:a3d5a3349407eab66ba675c2b4fe24f1f" id="r_a3d5a3349407eab66ba675c2b4fe24f1f"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a3d5a3349407eab66ba675c2b4fe24f1f">n_previous_solutions</a></td></tr>
+<tr class="memitem:a65aae0f5aab27834c91c15e16ee5b928" id="r_a65aae0f5aab27834c91c15e16ee5b928"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a></td></tr>
+<tr class="memitem:adbd9253b299b6dcd7cc43e5099a9519c" id="r_adbd9253b299b6dcd7cc43e5099a9519c"><td class="memItemLeft">std::vector&lt; SolverInfo::VariableType &gt;&#160;</td><td class="memItemRight"><a class="el" href="#adbd9253b299b6dcd7cc43e5099a9519c">handled_variables</a></td></tr>
+<tr class="memitem:a91eee24567b110e11082f613c06afb68" id="r_a91eee24567b110e11082f613c06afb68"><td class="memItemLeft">std::map&lt; SolverInfo::VariableType, double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a91eee24567b110e11082f613c06afb68">max_error</a></td></tr>
+<tr class="memitem:ab9e28330874c1f3d5d1ea03a5e668a93" id="r_ab9e28330874c1f3d5d1ea03a5e668a93"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab9e28330874c1f3d5d1ea03a5e668a93">save_full_error_estimator</a></td></tr>
+<tr class="memitem:a995c20efe0fbc6ad2b1e502a81e36b6c" id="r_a995c20efe0fbc6ad2b1e502a81e36b6c"><td class="memItemLeft">IndexSet&#160;</td><td class="memItemRight"><a class="el" href="#a995c20efe0fbc6ad2b1e502a81e36b6c">locally_owned_elements</a></td></tr>
+<tr class="memitem:a3a7a9ad8fbe30a357bf96014ee6eb13a" id="r_a3a7a9ad8fbe30a357bf96014ee6eb13a"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3a7a9ad8fbe30a357bf96014ee6eb13a">error_estimator</a></td></tr>
+<tr class="memitem:a97f8b58c5c676ec2ae2e8a9b2919e57d" id="r_a97f8b58c5c676ec2ae2e8a9b2919e57d"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a97f8b58c5c676ec2ae2e8a9b2919e57d">fully_distributed_error_estimator</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>The purpose of this class is to compute the next time step of an unsteady simulation based on the trunaction error of the BDF time stepping methods. For a method of order p, the truncation error of order p + 1 writes :</p>
+<p>e \simeq (-1)^{p+1} h (\sum_{i=0}^p \alpha_i H_i^{p+1}) [u^{n+1}, \ldots, u^{n+1-(p+1)}],</p>
+<p>where h is the current time step, the \alpha_i are the BDF coefficients, H_i := t_{n+1} - t_{n+1-i} and the brackets [., ..., .] are the (forward) divided differences of the solution u at times n+1 to n+1-(p+1).</p>
+<p>This error estimate is combined with the a priori relation e_n \propto h_n^{p+1} to obtain an estimation of the next time step :</p>
+<p>\frac{e_{n+1}}{e_n} \approx \left(\frac{h_{n+1}}{h_n}\right)^{p+1}.</p>
+<p>Letting \epsilon denote the target error e_{n+1}, this yield the time step</p>
+<p>h_{n+1} \approx h_n * \left(\frac{\epsilon}{e_n}\right)^{\frac{1}{p+1}}.</p>
+<p>The estimation of e_n requires an additional solution vector, which is stored in this class. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00040">40</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a44a60ea7cd6c0d6af86116315c12b8a6" name="a44a60ea7cd6c0d6af86116315c12b8a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a60ea7cd6c0d6af86116315c12b8a6">&#9670;&#160;</a></span>BDFErrorEstimator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BDFErrorEstimator::BDFErrorEstimator </td>
+          <td>(</td>
+          <td class="paramtype">const Parameters::TimeIntegration &amp;</td>          <td class="paramname"><span class="paramname"><em>time_parameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time_handler</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00013">13</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="a4a84e478d0e10ffca1e42da93674330c" name="a4a84e478d0e10ffca1e42da93674330c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a84e478d0e10ffca1e42da93674330c">&#9670;&#160;</a></span>advance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BDFErrorEstimator::advance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time_handler</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rotate the stored simulation times t_{n+1} through t_{n+1-(p+1)}. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00040">40</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a34b2a41a0226bb2faeaf65e263a87e21" name="a34b2a41a0226bb2faeaf65e263a87e21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34b2a41a0226bb2faeaf65e263a87e21">&#9670;&#160;</a></span>attach_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BDFErrorEstimator::attach_data </td>
+          <td>(</td>
+          <td class="paramtype">const ComponentOrdering &amp;</td>          <td class="paramname"><span class="paramname"><em>ordering</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexSet &amp;</td>          <td class="paramname"><span class="paramname"><em>locally_relevant_dofs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; unsigned char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dofs_to_component</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Attach solver data to this object. This function is called by attach_data_to_error_estimator in the <a class="el" href="class_time_handler.html">TimeHandler</a>, which must be called once before computing the first error estimates. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00030">30</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af83bbd88b98f52168e3fcc51e0a6d00f" name="af83bbd88b98f52168e3fcc51e0a6d00f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af83bbd88b98f52168e3fcc51e0a6d00f">&#9670;&#160;</a></span>compute_error_estimator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BDFErrorEstimator::compute_error_estimator </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time_handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>present_solution</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>previous_solutions</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compute the next time step based on the truncation error estimate. The maximum error is computed over all dofs and stored independently for each variable. The next time step is set as the most critical time step according to the target error for each variable.</p>
+<p>This time step is clamped by the <a class="el" href="class_time_handler.html">TimeHandler</a> to respect the user bounds (min/max time step, max increase/decrease between two time steps). </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00062">62</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6a5c60cc3645fab7592dc77f8ec86428" name="a6a5c60cc3645fab7592dc77f8ec86428"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a5c60cc3645fab7592dc77f8ec86428">&#9670;&#160;</a></span>get_additional_solution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp; BDFErrorEstimator::get_additional_solution </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the additional solution used by the truncation error estimator so that it can be transferred when the mesh changes. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00057">57</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3c8eabffb9392ab2aa7e3c7a0a6a5512" name="a3c8eabffb9392ab2aa7e3c7a0a6a5512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c8eabffb9392ab2aa7e3c7a0a6a5512">&#9670;&#160;</a></span>get_error_estimator_as_solution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp; BDFErrorEstimator::get_error_estimator_as_solution </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the vector of the last computed error estimator at each dof.</p>
+<p>The goal of this function is to provide the error estimator in a format compatible with the L^p error norm routines, e.g., to compute the discrepancy between the error estimator and the true error. Consequently, this function is only available if compute_error_on_estimator is enabled in the parameter file. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00215">215</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a81b75254435a20475df31b4f360aaee1" name="a81b75254435a20475df31b4f360aaee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81b75254435a20475df31b4f360aaee1">&#9670;&#160;</a></span>get_max_errors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::map&lt; SolverInfo::VariableType, double &gt; &amp; BDFErrorEstimator::get_max_errors </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the maximum error estimate for each variable. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00179">179</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abb1080c513f92d5bbfc8499e897799c5" name="abb1080c513f92d5bbfc8499e897799c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb1080c513f92d5bbfc8499e897799c5">&#9670;&#160;</a></span>get_next_timestep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double BDFErrorEstimator::get_next_timestep </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>current_timestep</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compute and return the next time step based on the stored error estimates. This time step is:</p>
+<p>h_{n+1} = h_n * \left(\frac{\epsilon}{e_n}\right)^{\frac{1}{p+1}},</p>
+<p>where e_n is the computed truncation error and h_n is <code class="param">current_timestep</code>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00185">185</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1362437fcb51abf8e18efea13b8cea53" name="a1362437fcb51abf8e18efea13b8cea53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1362437fcb51abf8e18efea13b8cea53">&#9670;&#160;</a></span>rotate_additional_solution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BDFErrorEstimator::rotate_additional_solution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>solution</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rotate the solution vector u^{n+1-(p+1)}, that is, perform the assignment u^{n+1-(p+1)} := u^{n+1-p}. <code class="param">solution</code> should be u^{n+1-p}. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8cpp_source.html#l00049">49</a> du fichier <a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="a6584a19c222b99f49ffb1e8e844d8bc9" name="a6584a19c222b99f49ffb1e8e844d8bc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6584a19c222b99f49ffb1e8e844d8bc9">&#9670;&#160;</a></span>additional_solution</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> BDFErrorEstimator::additional_solution</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00132">132</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="a02b15767efba4fd6d8d2582223b3bfb5" name="a02b15767efba4fd6d8d2582223b3bfb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02b15767efba4fd6d8d2582223b3bfb5">&#9670;&#160;</a></span>bdf_order</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int BDFErrorEstimator::bdf_order</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00125">125</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="ac9377e402bbceb911fb1bb5bfd5d045a" name="ac9377e402bbceb911fb1bb5bfd5d045a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9377e402bbceb911fb1bb5bfd5d045a">&#9670;&#160;</a></span>dofs_to_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;unsigned char&gt;* BDFErrorEstimator::dofs_to_component = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00122">122</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="a3a7a9ad8fbe30a357bf96014ee6eb13a" name="a3a7a9ad8fbe30a357bf96014ee6eb13a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a7a9ad8fbe30a357bf96014ee6eb13a">&#9670;&#160;</a></span>error_estimator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> BDFErrorEstimator::error_estimator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00152">152</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="a97f8b58c5c676ec2ae2e8a9b2919e57d" name="a97f8b58c5c676ec2ae2e8a9b2919e57d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f8b58c5c676ec2ae2e8a9b2919e57d">&#9670;&#160;</a></span>fully_distributed_error_estimator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> BDFErrorEstimator::fully_distributed_error_estimator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00153">153</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="adbd9253b299b6dcd7cc43e5099a9519c" name="adbd9253b299b6dcd7cc43e5099a9519c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd9253b299b6dcd7cc43e5099a9519c">&#9670;&#160;</a></span>handled_variables</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;SolverInfo::VariableType&gt; BDFErrorEstimator::handled_variables</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00140">140</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="a995c20efe0fbc6ad2b1e502a81e36b6c" name="a995c20efe0fbc6ad2b1e502a81e36b6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a995c20efe0fbc6ad2b1e502a81e36b6c">&#9670;&#160;</a></span>locally_owned_elements</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IndexSet BDFErrorEstimator::locally_owned_elements</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00149">149</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="adaa97e6b13e4c6f2bec560d4f9d00af3" name="adaa97e6b13e4c6f2bec560d4f9d00af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaa97e6b13e4c6f2bec560d4f9d00af3">&#9670;&#160;</a></span>locally_relevant_dofs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const IndexSet* BDFErrorEstimator::locally_relevant_dofs = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00121">121</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="a91eee24567b110e11082f613c06afb68" name="a91eee24567b110e11082f613c06afb68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91eee24567b110e11082f613c06afb68">&#9670;&#160;</a></span>max_error</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;SolverInfo::VariableType, double&gt; BDFErrorEstimator::max_error</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00143">143</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="a3d5a3349407eab66ba675c2b4fe24f1f" name="a3d5a3349407eab66ba675c2b4fe24f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d5a3349407eab66ba675c2b4fe24f1f">&#9670;&#160;</a></span>n_previous_solutions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int BDFErrorEstimator::n_previous_solutions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00134">134</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="af85f9c9bcc73cbfab1972d38e280a937" name="af85f9c9bcc73cbfab1972d38e280a937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85f9c9bcc73cbfab1972d38e280a937">&#9670;&#160;</a></span>ordering</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ComponentOrdering* BDFErrorEstimator::ordering = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00120">120</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="ab9e28330874c1f3d5d1ea03a5e668a93" name="ab9e28330874c1f3d5d1ea03a5e668a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9e28330874c1f3d5d1ea03a5e668a93">&#9670;&#160;</a></span>save_full_error_estimator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BDFErrorEstimator::save_full_error_estimator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00146">146</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="a65aae0f5aab27834c91c15e16ee5b928" name="a65aae0f5aab27834c91c15e16ee5b928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65aae0f5aab27834c91c15e16ee5b928">&#9670;&#160;</a></span>simulation_times</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; BDFErrorEstimator::simulation_times</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00137">137</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<a id="a7320a6571325848c3f1a6eed10cdbb13" name="a7320a6571325848c3f1a6eed10cdbb13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7320a6571325848c3f1a6eed10cdbb13">&#9670;&#160;</a></span>time_parameters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Parameters::TimeIntegration&amp; BDFErrorEstimator::time_parameters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="timestep__adaptation_8h_source.html#l00117">117</a> du fichier <a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/prod/include/<a class="el" href="timestep__adaptation_8h_source.html">timestep_adaptation.h</a></li>
+<li>snapshots/prod/src/<a class="el" href="timestep__adaptation_8cpp_source.html">timestep_adaptation.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_b_d_f_error_estimator.html">BDFErrorEstimator</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

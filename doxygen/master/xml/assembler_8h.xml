@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="assembler_8h" kind="file" language="C++">
+    <compoundname>assembler.h</compoundname>
+    <includes local="no">deal.II/base/observer_pointer.h</includes>
+    <includedby refid="incompressible__chns__assemblers_8h" local="no">snapshots/master/include/assembly/incompressible_chns_assemblers.h</includedby>
+    <includedby refid="incompressible__chns__solver_8h" local="no">snapshots/master/include/incompressible_chns_solver.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>snapshots/master/include/assembly/assembler.h</label>
+        <link refid="assembler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>deal.II/base/observer_pointer.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>snapshots/master/include/assembly/assembler.h</label>
+        <link refid="assembler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>snapshots/master/include/assembly/incompressible_chns_assemblers.h</label>
+        <link refid="incompressible__chns__assemblers_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>snapshots/master/include/incompressible_chns_solver.h</label>
+        <link refid="incompressible__chns__solver_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>snapshots/master/solvers/incompressible_chns.cpp</label>
+        <link refid="incompressible__chns_8cpp"/>
+      </node>
+      <node id="3">
+        <label>snapshots/master/src/assembly/incompressible_chns_assemblers.cpp</label>
+        <link refid="incompressible__chns__assemblers_8cpp"/>
+      </node>
+      <node id="4">
+        <label>snapshots/master/src/incompressible_chns_solver.cpp</label>
+        <link refid="incompressible__chns__solver_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_assembly_1_1_assembler_base" prot="public">Assembly::AssemblerBase</innerclass>
+    <innernamespace refid="namespace_assembly">Assembly</innernamespace>
+    <innernamespace refid="namespacedealii">dealii</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ASSEMBLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ASSEMBLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/base/observer_pointer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>A<sp/>namespace<sp/>gathering<sp/>the<sp/>assembly<sp/>routines,<sp/>each<sp/>associated<sp/>with<sp/>a<sp/>volume</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>or<sp/>boundary<sp/>weak<sp/>form.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="namespace_assembly" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_assembly" kindref="compound">Assembly</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Base<sp/>class<sp/>for<sp/>an<sp/>object<sp/>whose<sp/>job<sp/>is<sp/>to<sp/>assemble<sp/>equations<sp/>on<sp/>an<sp/>element,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>*<sp/>that<sp/>is,<sp/>to<sp/>increment<sp/>the<sp/>local<sp/>matrix<sp/>and<sp/>right-hand<sp/>side<sp/>vector.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>design<sp/>is<sp/>borrowed<sp/>from<sp/>the<sp/>chaos-polymtl/lethe<sp/>project.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>ScratchData,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>CopyData&gt;</highlight></codeline>
+<codeline lineno="21" refid="class_assembly_1_1_assembler_base" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_assembly_1_1_assembler_base" kindref="compound">AssemblerBase</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>EnableObserverPointer</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Assemble<sp/>the<sp/>local<sp/>matrix<sp/>on<sp/>an<sp/>element,<sp/>and<sp/>store<sp/>the<sp/>result<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@p<sp/>copy_data.<sp/>The<sp/>@p<sp/>scratch_data<sp/>must<sp/>have<sp/>been<sp/>reinit&apos;ed<sp/>on<sp/>that</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>element<sp/>before<sp/>calling<sp/>this<sp/>function.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="class_assembly_1_1_assembler_base_1a71374e6143201432559d73028bea33ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_assembly_1_1_assembler_base_1a71374e6143201432559d73028bea33ed" kindref="member">assemble_matrix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ScratchData<sp/>&amp;scratch_data,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CopyData<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;copy_data)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Assemble<sp/>the<sp/>local<sp/>right-hand<sp/>side<sp/>on<sp/>an<sp/>element,<sp/>and<sp/>store<sp/>the<sp/>result<sp/>in</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>the<sp/>@p<sp/>copy_data.<sp/>The<sp/>@p<sp/>scratch_data<sp/>must<sp/>have<sp/>been<sp/>reinit&apos;ed<sp/>on<sp/>that</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>element<sp/>before<sp/>calling<sp/>this<sp/>function.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="class_assembly_1_1_assembler_base_1a1e07a5108f263f3c6ecc5c22ec2f5f13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_assembly_1_1_assembler_base_1a1e07a5108f263f3c6ecc5c22ec2f5f13" kindref="member">assemble_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ScratchData<sp/>&amp;scratch_data,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CopyData<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;copy_data)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Assembly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/master/include/assembly/assembler.h"/>
+  </compounddef>
+</doxygen>

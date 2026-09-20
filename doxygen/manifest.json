@@ -1,0 +1,413 @@
+{
+  "generatedAt": "2026-09-20T03:48:34.594918+00:00",
+  "generator": "Doxygen 1.18.0 (8e760943e5d9581a444cf327f43a0b4d20d29482)",
+  "archiveSha256": "e84f54cfd49ef06b0b16536056dbec0c496323de28abcce53a4269463de35eaf",
+  "archiveHashVerifiedBeforeExecution": true,
+  "downloadUrl": "https://github.com/doxygen/doxygen/releases/download/Release_1_18_0/doxygen-1.18.0.windows.x64.bin.zip",
+  "hashSource": "https://www.doxygen.nl/download.html",
+  "scope": "Snapshots partiels séparés, lecture GitHub. Aucun build FEZ ni test numérique.",
+  "graphviz": false,
+  "portablePageNames": true,
+  "postprocessing": "fix-index-anchors.ps1 normalizes only the missing alphabet and destructor index anchors emitted by Doxygen 1.18.0. API text and source snapshots are unchanged.",
+  "branches": {
+    "master": {
+      "gitBranch": "master",
+      "commit": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
+      "doxygenExitCode": 0,
+      "entryPoint": "master/html/index.html",
+      "snapshotFileCount": 25,
+      "apiSourceFileCount": 25,
+      "htmlFileCount": 200,
+      "xmlFileCount": 74,
+      "warningCount": 24,
+      "warningSummary": "Commandes LaTeX non encadrées par les délimiteurs Doxygen dans des commentaires source existants. Les snapshots originaux sont conservés sans correction.",
+      "guides": [
+        {
+          "path": "guides/master/features/chns-assembly.md",
+          "sha256": "5bd26dfc1e6cd06eaa1e743789856cda8ef6500fa1cbc1eddaab4c019ac7a532",
+          "knowledgeSource": "../knowledge/features/chns-assembly.md",
+          "knowledgeSha256": "38604b93e123fcd2d914dd126416face4b35f2800a3436beb9ed1d594de24dcd",
+          "matchesKnowledgeExceptPageLabel": true
+        },
+        {
+          "path": "guides/master/features/core-solver.md",
+          "sha256": "07bac6d59ea85c888de34dee0fcebd40a2471660d4a798147741d7d694cd438a",
+          "knowledgeSource": "../knowledge/features/core-solver.md",
+          "knowledgeSha256": "7c9a0988ccc4c2b025a2c1ea8d4dadb27477c3f1dc1151a583c4fd916dd0c146",
+          "matchesKnowledgeExceptPageLabel": true
+        },
+        {
+          "path": "guides/master/features/fsi-monolithic.md",
+          "sha256": "1089ef854bb0bb59d56f4265d263e23ddfeb638809eb3d9022a70980fae49e6e",
+          "knowledgeSource": "../knowledge/features/fsi-monolithic.md",
+          "knowledgeSha256": "1c72d31ee56c089652c7e0505cffd9022e24fddf47d7f093d0c3976780e1bf47",
+          "matchesKnowledgeExceptPageLabel": true
+        },
+        {
+          "path": "guides/master/index.md",
+          "sha256": "28db8007ad62270c7fbe56674a0ddf77c760483a1e0d77dd8c1e891a82414cbe"
+        }
+      ],
+      "machinePathFilenames": [],
+      "missingFileLinks": [],
+      "missingFragmentLinks": [],
+      "sources": [
+        {
+          "path": "include/assembly/assembler.h",
+          "sha256": "87b3734d239d2a112f46c78cd71efa3da1c8d0ff611a1abf007aab5b04c89ac1",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/assembly/assembler.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/assembly/incompressible_chns_assemblers.h",
+          "sha256": "2dc00bc3e9619f045c68844fa493c07d9128cb77dbfb0ce776fbc67bc94e0a92",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/assembly/incompressible_chns_assemblers.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/copy_data.h",
+          "sha256": "4919c0d037ae929f0f84f212aaca7d8cbd0159e17c61980bc8e0276b2901245c",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/copy_data.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/generic_solver.h",
+          "sha256": "4829f6c66e19e42014b8f5ede6af9543289e64dcab999cbb28c4848644221a7a",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/generic_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/incompressible_chns_solver.h",
+          "sha256": "7eb7a391f7a1fe9f96a8d7aa696d028420156a5ddb5105d042901c0034db9cdc",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/incompressible_chns_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/linear_solver.h",
+          "sha256": "457dc87952001eb89b7b66f158e2995b2da6f56d2168ae562b126fdfd1d9a6b4",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/linear_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/mesh_adaptation/transient_fixed_point.h",
+          "sha256": "dcb995227f4626eb60c114f888147188ae63395b5f8964fb4b25579e3ea1b928",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/mesh_adaptation/transient_fixed_point.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/monolithic_fsi_solver.h",
+          "sha256": "3f268598ba8e3969e76bbd8d424adb90b7434c01361e344f7fcdecceab4e9e7f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/monolithic_fsi_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/navier_stokes_solver.h",
+          "sha256": "4b1603e9cb4e17c421c8f7dcc3783d21cf6ce4c3ba329b11ae292b6931ff2e86",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/navier_stokes_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/newton_solver.h",
+          "sha256": "82336be0b464a3f56f2d6b3f07c4ebc95f48fa909525ac4e86597aeea9db7e18",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/nonlinear_solver.h",
+          "sha256": "3f35117fbb877eddbfd5cf86e2ef652172cbd13a8e33b282ce77ca4215073d9e",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/nonlinear_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/scratch_data.h",
+          "sha256": "1b190fe8495918969297a8cd036b28ee192914dec90e9519f1df28b34564aeaa",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/scratch_data.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/time_handler.h",
+          "sha256": "6847803b98b15141ba169bb7f39e53123baa3b0d1ff2486883f2020d3dfcbf6c",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/time_handler.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/timestep_adaptation.h",
+          "sha256": "22fce7a21f0c4f3dc4ce8f0ba61aea152e64deb3824f4d46c50648b5d9c80e97",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/timestep_adaptation.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/types.h",
+          "sha256": "8dc4a4a8d60417654a248d96da6a3f13ed19124a844805bdd4fcccf3402dff5f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/types.h",
+          "inApiInput": true
+        },
+        {
+          "path": "solvers/incompressible_chns.cpp",
+          "sha256": "782ed1b043ec28060e6574933303db09a124d527e30e2480a37d66b448ffda96",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/solvers/incompressible_chns.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "solvers/monolithic_fsi.cpp",
+          "sha256": "dac01c4fe9bb043c5499d5ec167bfa9b11348e100099521424123cc43d201bad",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/solvers/monolithic_fsi.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/assembly/incompressible_chns_assemblers.cpp",
+          "sha256": "3a83859e96ba8369e27ee0494cd0640a7861d3480957166653c2abb14e004452",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/assembly/incompressible_chns_assemblers.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/generic_solver.cpp",
+          "sha256": "c57c56c21413ecf461b6a307ca7b35ddd86f066faa80a4c615a6a44eef6d60ad",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/generic_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/incompressible_chns_solver.cpp",
+          "sha256": "acc476298897ac0cbc5b7ca884b47cbb20a0b683ed2d824bfdffe9998c496854",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/linear_solver.cpp",
+          "sha256": "0eab71ba4ce0a0b777705d5b6c21377ec0671389a5eb4e40842ece6ec80cf0b5",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/linear_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/mesh_adaptation/transient_fixed_point.cpp",
+          "sha256": "b782cb7a9055aeb9e4ca503f441441e04be4ae61b45e15ea289857fe761eeac9",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/mesh_adaptation/transient_fixed_point.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/monolithic_fsi_solver.cpp",
+          "sha256": "1f0b918152af6f30ffa1db910a91710f449e7d710991a4f20bab5db850ad1c95",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/navier_stokes_solver.cpp",
+          "sha256": "da0a77a30e30850fe697b85a54b950f0c027cfacb306be123879f95924d68407",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/scratch_data.cpp",
+          "sha256": "55bcc9149c9b31867b3eac8df52aff01959b0bd94613ce09ff2187e59b501062",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/scratch_data.cpp",
+          "inApiInput": true
+        }
+      ]
+    },
+    "prod": {
+      "gitBranch": "chns-ding-horriche-master-form",
+      "commit": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
+      "doxygenExitCode": 0,
+      "entryPoint": "prod/html/index.html",
+      "snapshotFileCount": 28,
+      "apiSourceFileCount": 26,
+      "htmlFileCount": 200,
+      "xmlFileCount": 76,
+      "warningCount": 42,
+      "warningSummary": "Commandes LaTeX non encadrées par les délimiteurs Doxygen dans des commentaires source existants. Les snapshots originaux sont conservés sans correction.",
+      "guides": [
+        {
+          "path": "guides/prod/features/chns-ale-amr.md",
+          "sha256": "8777535e5ba876e041dfc0a2e3f019b099f03ac9f4d397e71e6b0ed469880031",
+          "knowledgeSource": "../knowledge/features/chns-ale-amr.md",
+          "knowledgeSha256": "a005cae7829071d44ba50bad7a55642abbfc07ca308c9a94ef58315bd77947a7",
+          "matchesKnowledgeExceptPageLabel": true
+        },
+        {
+          "path": "guides/prod/index.md",
+          "sha256": "8bf9f1095532c3237369f7041d6bb0c63aa8497b4675393d6f8520e2bb36df90"
+        },
+        {
+          "path": "guides/prod/patterns/distributed-state-transfer.md",
+          "sha256": "a557f5e21cf90ddffa18cc00bde1c8983274ed2c25467477560e13a86b402a98",
+          "knowledgeSource": "../knowledge/patterns/distributed-state-transfer.md",
+          "knowledgeSha256": "162d73f05eaacbb73896a4ba8f496f5b64fd0cbc7a84ef3edce5cfa3b536eb14",
+          "matchesKnowledgeExceptPageLabel": true
+        }
+      ],
+      "machinePathFilenames": [],
+      "missingFileLinks": [],
+      "missingFragmentLinks": [],
+      "sources": [
+        {
+          "path": "include/assembly/incompressible_chns_assemblers.h",
+          "sha256": "ff8dddeed5df322fa031b69ae9797d4edf345107171e9078fd47210fecf0d3dc",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/assembly/incompressible_chns_assemblers.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/copy_data.h",
+          "sha256": "4919c0d037ae929f0f84f212aaca7d8cbd0159e17c61980bc8e0276b2901245c",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/copy_data.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/elasticity_solver.h",
+          "sha256": "5773640266e23018a3b975f5ea0dd0ffe4f3261bcca124d3b7684e0e5f5d900d",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/elasticity_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/generic_solver.h",
+          "sha256": "6a01c1620c170c33dc40cfc0d96ead0d419bfea575690cc78472da89f1947829",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/generic_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/incompressible_chns_solver.h",
+          "sha256": "f3ae308b196bf8f73a0e8af3f07549e86b1e803819e2332f71e6c792df494f01",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/incompressible_chns_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/linear_solver.h",
+          "sha256": "457dc87952001eb89b7b66f158e2995b2da6f56d2168ae562b126fdfd1d9a6b4",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/linear_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/mesh_adaptation/transient_fixed_point.h",
+          "sha256": "5b31ffe86ad58a76246b4a9324df4dbdade6587862f7e65bfd0120491160ee6f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/mesh_adaptation/transient_fixed_point.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/mesh_adaptation_tools.h",
+          "sha256": "1e2a9e3b69af19ef4b1307b39e1fcec4c14717e0f842389b581ed64704ccf058",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/mesh_adaptation_tools.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/navier_stokes_solver.h",
+          "sha256": "f126f90aa0129b18b40c8e582949616070afaa44718955d55de57de1e6229d54",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/navier_stokes_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/newton_solver.h",
+          "sha256": "a4bc67504d6471b424e25422d6148a7208c10ca898b19b68fa0012f5e02ba53e",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/newton_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/nonlinear_solver.h",
+          "sha256": "3f35117fbb877eddbfd5cf86e2ef652172cbd13a8e33b282ce77ca4215073d9e",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/nonlinear_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/presolver_tools.h",
+          "sha256": "2771ed96e45132d0495a87461365dbea788f7ed56c8f0951741c8a8dbaaa6c6a",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/presolver_tools.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/scratch_data.h",
+          "sha256": "2170a5129fe0cec6d56abf74a63a925d440feb5c4c598d89570f449b7d0e0317",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/scratch_data.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/time_handler.h",
+          "sha256": "1579b28095e41485c54d878634961c1a824c2d6f3d0f2388f14e69ea88609338",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/time_handler.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/timestep_adaptation.h",
+          "sha256": "117d6ebd771c28b2afe9abe3b3e95d8ab4791ba1b0b34d2dec3b1a84a10115e3",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/timestep_adaptation.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/types.h",
+          "sha256": "8dc4a4a8d60417654a248d96da6a3f13ed19124a844805bdd4fcccf3402dff5f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/types.h",
+          "inApiInput": true
+        },
+        {
+          "path": "solvers/incompressible_chns_ale.cpp",
+          "sha256": "502e29ec1b4d702ce79bbcbb3047d6a34e7c6949fb0c059714ffb63e0a55b717",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/solvers/incompressible_chns_ale.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "solvers/incompressible_chns_ale_enlarged.cpp",
+          "sha256": "d5698f41bf3bf742a5faa54da4def7357e2a8acddc94d24c85f7f3c3793132f9",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/solvers/incompressible_chns_ale_enlarged.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/assembly/incompressible_chns_assemblers.cpp",
+          "sha256": "59f56b5328aa5f5408fdc43e7be9b56274acd7c47bc91b77003bf23ce9760709",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/assembly/incompressible_chns_assemblers.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/elasticity_solver.cpp",
+          "sha256": "b7a1d29912f1ceff2dbfc41783b09ca03388f09701ae2e0a55d235a6fc299b01",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/elasticity_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/incompressible_chns_solver.cpp",
+          "sha256": "07157fa79511b95fd977a38714c1a0fba2a14c5b4bdfdb710fa526d37df2e67d",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/mesh_adaptation/transient_fixed_point.cpp",
+          "sha256": "47f73ad41ea2127d832703dac81a385abf846bbc8d9d70c56671f7240280434d",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/mesh_adaptation_tools.cpp",
+          "sha256": "2f87cb6f85b7b4933f69efeec8b6843029d2a00daaf69669ee64c65e37c0682a",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation_tools.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/navier_stokes_solver.cpp",
+          "sha256": "bfc9ec1ce80b34d2cab4b826269c9002c3f17582b199ef66e27dc2a28bf00340",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/time_handler.cpp",
+          "sha256": "831eb97910152baee3fa7c25a47c374e6fa6661bcb73365dc50e64f374ad8c9d",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/timestep_adaptation.cpp",
+          "sha256": "2a3fd61f6c36e74f105cf206f7b66be902f25857dfc2e2e9a3578cc07791a0eb",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/timestep_adaptation.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "tests/unit_tests/amr_ale_transfer.cc",
+          "sha256": "623b5ac4519eb7d2d380f44f2d923d8dbbb1d2c8af2a3972a4daf666e6122f50",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/unit_tests/chns_presolver_amr.cc",
+          "sha256": "bb1129bc4fb9900389b3ff68c1dfbc303f0ef08755f8dae1dc216a7820594c39",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/chns_presolver_amr.cc",
+          "inApiInput": false
+        }
+      ]
+    }
+  }
+}

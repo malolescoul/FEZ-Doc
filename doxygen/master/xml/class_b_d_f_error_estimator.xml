@@ -1,0 +1,415 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_b_d_f_error_estimator" kind="class" language="C++" prot="public">
+    <compoundname>BDFErrorEstimator</compoundname>
+    <includes refid="timestep__adaptation_8h" local="no">timestep_adaptation.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" prot="private" static="no" mutable="no">
+        <type>const Parameters::TimeIntegration &amp;</type>
+        <definition>const Parameters::TimeIntegration&amp; BDFErrorEstimator::time_parameters</definition>
+        <argsstring></argsstring>
+        <name>time_parameters</name>
+        <qualifiedname>BDFErrorEstimator::time_parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="111" column="37" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" prot="private" static="no" mutable="no">
+        <type>const ComponentOrdering *</type>
+        <definition>const ComponentOrdering* BDFErrorEstimator::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>BDFErrorEstimator::ordering</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="114" column="36" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" prot="private" static="no" mutable="no">
+        <type>const IndexSet *</type>
+        <definition>const IndexSet* BDFErrorEstimator::locally_relevant_dofs</definition>
+        <argsstring></argsstring>
+        <name>locally_relevant_dofs</name>
+        <qualifiedname>BDFErrorEstimator::locally_relevant_dofs</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="115" column="36" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" prot="private" static="no" mutable="no">
+        <type>const std::vector&lt; unsigned char &gt; *</type>
+        <definition>const std::vector&lt;unsigned char&gt;* BDFErrorEstimator::dofs_to_component</definition>
+        <argsstring></argsstring>
+        <name>dofs_to_component</name>
+        <qualifiedname>BDFErrorEstimator::dofs_to_component</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="116" column="21" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int BDFErrorEstimator::bdf_order</definition>
+        <argsstring></argsstring>
+        <name>bdf_order</name>
+        <qualifiedname>BDFErrorEstimator::bdf_order</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="119" column="16" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a6584a19c222b99f49ffb1e8e844d8bc9" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref></type>
+        <definition>LA::ParVectorType BDFErrorEstimator::additional_solution</definition>
+        <argsstring></argsstring>
+        <name>additional_solution</name>
+        <qualifiedname>BDFErrorEstimator::additional_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="126" column="21" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a3d5a3349407eab66ba675c2b4fe24f1f" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int BDFErrorEstimator::n_previous_solutions</definition>
+        <argsstring></argsstring>
+        <name>n_previous_solutions</name>
+        <qualifiedname>BDFErrorEstimator::n_previous_solutions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="128" column="22" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; BDFErrorEstimator::simulation_times</definition>
+        <argsstring></argsstring>
+        <name>simulation_times</name>
+        <qualifiedname>BDFErrorEstimator::simulation_times</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="131" column="15" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; SolverInfo::VariableType &gt;</type>
+        <definition>std::vector&lt;SolverInfo::VariableType&gt; BDFErrorEstimator::handled_variables</definition>
+        <argsstring></argsstring>
+        <name>handled_variables</name>
+        <qualifiedname>BDFErrorEstimator::handled_variables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="134" column="15" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" prot="private" static="no" mutable="no">
+        <type>std::map&lt; SolverInfo::VariableType, double &gt;</type>
+        <definition>std::map&lt;SolverInfo::VariableType, double&gt; BDFErrorEstimator::max_error</definition>
+        <argsstring></argsstring>
+        <name>max_error</name>
+        <qualifiedname>BDFErrorEstimator::max_error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="137" column="12" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BDFErrorEstimator::save_full_error_estimator</definition>
+        <argsstring></argsstring>
+        <name>save_full_error_estimator</name>
+        <qualifiedname>BDFErrorEstimator::save_full_error_estimator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="140" column="8" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a995c20efe0fbc6ad2b1e502a81e36b6c" prot="private" static="no" mutable="no">
+        <type>IndexSet</type>
+        <definition>IndexSet BDFErrorEstimator::locally_owned_elements</definition>
+        <argsstring></argsstring>
+        <name>locally_owned_elements</name>
+        <qualifiedname>BDFErrorEstimator::locally_owned_elements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="143" column="12" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a3a7a9ad8fbe30a357bf96014ee6eb13a" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref></type>
+        <definition>LA::ParVectorType BDFErrorEstimator::error_estimator</definition>
+        <argsstring></argsstring>
+        <name>error_estimator</name>
+        <qualifiedname>BDFErrorEstimator::error_estimator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="146" column="21" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref></type>
+        <definition>LA::ParVectorType BDFErrorEstimator::fully_distributed_error_estimator</definition>
+        <argsstring></argsstring>
+        <name>fully_distributed_error_estimator</name>
+        <qualifiedname>BDFErrorEstimator::fully_distributed_error_estimator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="147" column="21" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_d_f_error_estimator_1a44a60ea7cd6c0d6af86116315c12b8a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BDFErrorEstimator::BDFErrorEstimator</definition>
+        <argsstring>(const Parameters::TimeIntegration &amp;time_parameters, const TimeHandler &amp;time_handler)</argsstring>
+        <name>BDFErrorEstimator</name>
+        <qualifiedname>BDFErrorEstimator::BDFErrorEstimator</qualifiedname>
+        <param>
+          <type>const Parameters::TimeIntegration &amp;</type>
+          <declname>time_parameters</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="46" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_d_f_error_estimator_1a34b2a41a0226bb2faeaf65e263a87e21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BDFErrorEstimator::attach_data</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering, const IndexSet &amp;locally_relevant_dofs, const std::vector&lt; unsigned char &gt; &amp;dofs_to_component)</argsstring>
+        <name>attach_data</name>
+        <qualifiedname>BDFErrorEstimator::attach_data</qualifiedname>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const IndexSet &amp;</type>
+          <declname>locally_relevant_dofs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned char &gt; &amp;</type>
+          <declname>dofs_to_component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach solver data to this object. This function is called by attach_data_to_error_estimator in the <ref refid="class_time_handler" kindref="compound">TimeHandler</ref>, which must be called once before computing the first error estimates. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="55" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_d_f_error_estimator_1a4a84e478d0e10ffca1e42da93674330c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BDFErrorEstimator::advance</definition>
+        <argsstring>(const TimeHandler &amp;time_handler)</argsstring>
+        <name>advance</name>
+        <qualifiedname>BDFErrorEstimator::advance</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotate the stored simulation times t_{n+1} through t_{n+1-(p+1)}. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="62" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_d_f_error_estimator_1a1362437fcb51abf8e18efea13b8cea53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BDFErrorEstimator::rotate_additional_solution</definition>
+        <argsstring>(const LA::ParVectorType &amp;solution)</argsstring>
+        <name>rotate_additional_solution</name>
+        <qualifiedname>BDFErrorEstimator::rotate_additional_solution</qualifiedname>
+        <param>
+          <type>const <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rotate the solution vector u^{n+1-(p+1)}, that is, perform the assignment u^{n+1-(p+1)} := u^{n+1-p}. <computeroutput>solution</computeroutput> should be u^{n+1-p}. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="68" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_d_f_error_estimator_1af83bbd88b98f52168e3fcc51e0a6d00f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BDFErrorEstimator::compute_error_estimator</definition>
+        <argsstring>(const TimeHandler &amp;time_handler, const LA::ParVectorType &amp;present_solution, const std::vector&lt; LA::ParVectorType &gt; &amp;previous_solutions)</argsstring>
+        <name>compute_error_estimator</name>
+        <qualifiedname>BDFErrorEstimator::compute_error_estimator</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &amp;</type>
+          <declname>present_solution</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; &amp;</type>
+          <declname>previous_solutions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the next time step based on the truncation error estimate. The maximum error is computed over all dofs and stored independently for each variable. The next time step is set as the most critical time step according to the target error for each variable.</para>
+<para>This time step is clamped by the <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> to respect the user bounds (min/max time step, max increase/decrease between two time steps). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="79" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_d_f_error_estimator_1a81b75254435a20475df31b4f360aaee1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::map&lt; SolverInfo::VariableType, double &gt; &amp;</type>
+        <definition>const std::map&lt; SolverInfo::VariableType, double &gt; &amp; BDFErrorEstimator::get_max_errors</definition>
+        <argsstring>() const</argsstring>
+        <name>get_max_errors</name>
+        <qualifiedname>BDFErrorEstimator::get_max_errors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the maximum error estimate for each variable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="87" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_d_f_error_estimator_1abb1080c513f92d5bbfc8499e897799c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double BDFErrorEstimator::get_next_timestep</definition>
+        <argsstring>(const double current_timestep) const</argsstring>
+        <name>get_next_timestep</name>
+        <qualifiedname>BDFErrorEstimator::get_next_timestep</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>current_timestep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute and return the next time step based on the stored error estimates. This time step is:</para>
+<para>h_{n+1} = h_n * \left(\frac{\epsilon}{e_n}\right)^{\frac{1}{p+1}},</para>
+<para>where e_n is the computed truncation error and h_n is <computeroutput>current_timestep</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="97" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_d_f_error_estimator_1a3c8eabffb9392ab2aa7e3c7a0a6a5512" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &amp;</type>
+        <definition>const LA::ParVectorType &amp; BDFErrorEstimator::get_error_estimator_as_solution</definition>
+        <argsstring>() const</argsstring>
+        <name>get_error_estimator_as_solution</name>
+        <qualifiedname>BDFErrorEstimator::get_error_estimator_as_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the vector of the last computed error estimator at each dof.</para>
+<para>The goal of this function is to provide the error estimator in a format compatible with the L^p error norm routines, e.g., to compute the discrepancy between the error estimator and the true error. Consequently, this function is only available if compute_error_on_estimator is enabled in the parameter file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/timestep_adaptation.h" line="108" column="27"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The purpose of this class is to compute the next time step of an unsteady simulation based on the trunaction error of the BDF time stepping methods. For a method of order p, the truncation error of order p + 1 writes :</para>
+<para>e \simeq (-1)^{p+1} h (\sum_{i=0}^p \alpha_i H_i^{p+1}) [u^{n+1}, \ldots, u^{n+1-(p+1)}],</para>
+<para>where h is the current time step, the \alpha_i are the BDF coefficients, H_i := t_{n+1} - t_{n+1-i} and the brackets [., ..., .] are the (forward) divided differences of the solution u at times n+1 to n+1-(p+1).</para>
+<para>This error estimate is combined with the a priori relation e_n \propto h_n^{p+1} to obtain an estimation of the next time step :</para>
+<para>\frac{e_{n+1}}{e_n} \approx \left(\frac{h_{n+1}}{h_n}\right)^{p+1}.</para>
+<para>Letting \epsilon denote the target error e_{n+1}, this yield the time step</para>
+<para>h_{n+1} \approx h_n * \left(\frac{\epsilon}{e_n}\right)^{\frac{1}{p+1}}.</para>
+<para>The estimation of e_n requires an additional solution vector, which is stored in this class. </para>
+    </detaileddescription>
+    <location file="snapshots/master/include/timestep_adaptation.h" line="40" column="1" bodyfile="snapshots/master/include/timestep_adaptation.h" bodystart="41" bodyend="148"/>
+    <listofallmembers>
+      <member refid="class_b_d_f_error_estimator_1a6584a19c222b99f49ffb1e8e844d8bc9" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>additional_solution</name></member>
+      <member refid="class_b_d_f_error_estimator_1a4a84e478d0e10ffca1e42da93674330c" prot="public" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>advance</name></member>
+      <member refid="class_b_d_f_error_estimator_1a34b2a41a0226bb2faeaf65e263a87e21" prot="public" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>attach_data</name></member>
+      <member refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>bdf_order</name></member>
+      <member refid="class_b_d_f_error_estimator_1a44a60ea7cd6c0d6af86116315c12b8a6" prot="public" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>BDFErrorEstimator</name></member>
+      <member refid="class_b_d_f_error_estimator_1af83bbd88b98f52168e3fcc51e0a6d00f" prot="public" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>compute_error_estimator</name></member>
+      <member refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>dofs_to_component</name></member>
+      <member refid="class_b_d_f_error_estimator_1a3a7a9ad8fbe30a357bf96014ee6eb13a" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>error_estimator</name></member>
+      <member refid="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>fully_distributed_error_estimator</name></member>
+      <member refid="class_b_d_f_error_estimator_1a3c8eabffb9392ab2aa7e3c7a0a6a5512" prot="public" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>get_error_estimator_as_solution</name></member>
+      <member refid="class_b_d_f_error_estimator_1a81b75254435a20475df31b4f360aaee1" prot="public" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>get_max_errors</name></member>
+      <member refid="class_b_d_f_error_estimator_1abb1080c513f92d5bbfc8499e897799c5" prot="public" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>get_next_timestep</name></member>
+      <member refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>handled_variables</name></member>
+      <member refid="class_b_d_f_error_estimator_1a995c20efe0fbc6ad2b1e502a81e36b6c" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>locally_owned_elements</name></member>
+      <member refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>locally_relevant_dofs</name></member>
+      <member refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>max_error</name></member>
+      <member refid="class_b_d_f_error_estimator_1a3d5a3349407eab66ba675c2b4fe24f1f" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>n_previous_solutions</name></member>
+      <member refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>ordering</name></member>
+      <member refid="class_b_d_f_error_estimator_1a1362437fcb51abf8e18efea13b8cea53" prot="public" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>rotate_additional_solution</name></member>
+      <member refid="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>save_full_error_estimator</name></member>
+      <member refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>simulation_times</name></member>
+      <member refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" prot="private" virt="non-virtual"><scope>BDFErrorEstimator</scope><name>time_parameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

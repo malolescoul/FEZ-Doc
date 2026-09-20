@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler" kind="class" language="C++" prot="public">
+    <compoundname>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AssemblerBase&lt; ScratchData, CopyData &gt;</basecompoundref>
+    <includes refid="incompressible__chns__assemblers_8h" local="no">incompressible_chns_assemblers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a6bc670f699ebd0c08e9d300749cf7d93" prot="public" static="no" mutable="no">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt;dim&gt;&amp; Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler&lt; dim, ScratchData, CopyData &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="352" column="29" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a487eec0f245f418c87a9d4e494bc82d3" prot="public" static="no" mutable="no">
+        <type>const ComponentOrdering &amp;</type>
+        <definition>const ComponentOrdering&amp; Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler&lt; dim, ScratchData, CopyData &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="353" column="34" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a07de2e5aa75f0079866a2ac05c3038b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler&lt; dim, ScratchData, CopyData &gt;::ContactAngleBoundaryAssembler</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering)</argsstring>
+        <name>ContactAngleBoundaryAssembler</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler::ContactAngleBoundaryAssembler</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="339" column="7" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="339" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a39620ca3605b17abddfbd8d577b2c93d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_matrix</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler::assemble_matrix</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="345" column="20" bodyfile="snapshots/prod/src/assembly/incompressible_chns_assemblers.cpp" bodystart="1285" bodyend="1329"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a932df8f0c7a356e66dcd3a179331133c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_rhs</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler::assemble_rhs</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="348" column="20" bodyfile="snapshots/prod/src/assembly/incompressible_chns_assemblers.cpp" bodystart="1245" bodyend="1281"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Boundary assembler for the static contact-angle (wetting) condition. On Cahn-Hilliard boundary faces carrying a contact angle, the natural Neumann condition n.grad(phi) = 0 of the potential equation is replaced by the wetting condition n.grad(phi) = g(phi), adding the boundary term</para>
+<para><itemizedlist>
+<listitem><para>coeff * g(phi) * w_mu (residual, mu rows)</para>
+</listitem><listitem><para>coeff * g&apos;(phi) * N_phi * w_mu (Jacobian, mu &lt;- phi),</para>
+</listitem></itemizedlist>
+</para>
+<para>with coeff = contact_angle_surface_coefficient (= sigma_tilde * epsilon). Following the rest of the framework, the boundary contribution is added inside assemble_rhs/assemble_matrix by looping over the cell&apos;s boundary faces (using the moving-mesh Cahn-Hilliard face data). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="335" column="5" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="337" bodyend="354"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a39620ca3605b17abddfbd8d577b2c93d" prot="public" virt="virtual"><scope>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a932df8f0c7a356e66dcd3a179331133c" prot="public" virt="virtual"><scope>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler</scope><name>assemble_rhs</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a07de2e5aa75f0079866a2ac05c3038b7" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler</scope><name>ContactAngleBoundaryAssembler</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a487eec0f245f418c87a9d4e494bc82d3" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler</scope><name>ordering</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler_1a6bc670f699ebd0c08e9d300749cf7d93" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler</scope><name>param</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

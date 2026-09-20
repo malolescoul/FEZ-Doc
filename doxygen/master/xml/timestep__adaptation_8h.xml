@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="timestep__adaptation_8h" kind="file" language="C++">
+    <compoundname>timestep_adaptation.h</compoundname>
+    <includes local="no">components_ordering.h</includes>
+    <includes local="no">deal.II/base/index_set.h</includes>
+    <includes local="no">parameters.h</includes>
+    <includes local="no">solver_info.h</includes>
+    <includes refid="time__handler_8h" local="no">time_handler.h</includes>
+    <includes refid="types_8h" local="no">types.h</includes>
+    <includes local="no">utilities.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>time_handler.h</label>
+        <link refid="time__handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>snapshots/master/include/timestep_adaptation.h</label>
+        <link refid="timestep__adaptation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>components_ordering.h</label>
+      </node>
+      <node id="7">
+        <label>deal.II/base/conditional_ostream.h</label>
+      </node>
+      <node id="3">
+        <label>deal.II/base/index_set.h</label>
+      </node>
+      <node id="8">
+        <label>deal.II/base/types.h</label>
+      </node>
+      <node id="10">
+        <label>deal.II/lac/generic_linear_algebra.h</label>
+      </node>
+      <node id="11">
+        <label>deal.II/lac/petsc_sparse_matrix.h</label>
+      </node>
+      <node id="12">
+        <label>deal.II/lac/trilinos_sparse_matrix.h</label>
+      </node>
+      <node id="4">
+        <label>parameters.h</label>
+      </node>
+      <node id="5">
+        <label>solver_info.h</label>
+      </node>
+      <node id="13">
+        <label>utilities.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_b_d_f_error_estimator" prot="public">BDFErrorEstimator</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TIMESTEP_ADAPTATION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TIMESTEP_ADAPTATION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;components_ordering.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;deal.II/base/conditional_ostream.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/base/index_set.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;deal.II/base/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;parameters.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;solver_info.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="time__handler_8h" kindref="compound">time_handler.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="types_8h" kindref="compound">types.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utilities.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>The<sp/>purpose<sp/>of<sp/>this<sp/>class<sp/>is<sp/>to<sp/>compute<sp/>the<sp/>next<sp/>time<sp/>step<sp/>of<sp/>an<sp/>unsteady</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>simulation<sp/>based<sp/>on<sp/>the<sp/>trunaction<sp/>error<sp/>of<sp/>the<sp/>BDF<sp/>time<sp/>stepping<sp/>methods.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>For<sp/>a<sp/>method<sp/>of<sp/>order<sp/>p,<sp/>the<sp/>truncation<sp/>error<sp/>of<sp/>order<sp/>p<sp/>+<sp/>1<sp/>writes<sp/>:</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>e<sp/>\simeq<sp/>(-1)^{p+1}<sp/>h<sp/>(\sum_{i=0}^p<sp/>\alpha_i<sp/>H_i^{p+1})<sp/>[u^{n+1},<sp/>\ldots,</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>u^{n+1-(p+1)}],</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>where<sp/>h<sp/>is<sp/>the<sp/>current<sp/>time<sp/>step,<sp/>the<sp/>\alpha_i<sp/>are<sp/>the<sp/>BDF<sp/>coefficients,</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>H_i<sp/>:=<sp/>t_{n+1}<sp/>-<sp/>t_{n+1-i}<sp/>and<sp/>the<sp/>brackets<sp/>[.,<sp/>...,<sp/>.]<sp/>are<sp/>the<sp/>(forward)</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>divided<sp/>differences<sp/>of<sp/>the<sp/>solution<sp/>u<sp/>at<sp/>times<sp/>n+1<sp/>to<sp/>n+1-(p+1).</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>This<sp/>error<sp/>estimate<sp/>is<sp/>combined<sp/>with<sp/>the<sp/>a<sp/>priori<sp/>relation<sp/>e_n<sp/>\propto</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>h_n^{p+1}<sp/>to<sp/>obtain<sp/>an<sp/>estimation<sp/>of<sp/>the<sp/>next<sp/>time<sp/>step<sp/>:</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/><sp/>\frac{e_{n+1}}{e_n}<sp/>\approx<sp/>\left(\frac{h_{n+1}}{h_n}\right)^{p+1}.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>Letting<sp/>\epsilon<sp/>denote<sp/>the<sp/>target<sp/>error<sp/>e_{n+1},<sp/>this<sp/>yield<sp/>the<sp/>time<sp/>step</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/><sp/>h_{n+1}<sp/>\approx<sp/>h_n<sp/>*<sp/>\left(\frac{\epsilon}{e_n}\right)^{\frac{1}{p+1}}.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>The<sp/>estimation<sp/>of<sp/>e_n<sp/>requires<sp/>an<sp/>additional<sp/>solution<sp/>vector,<sp/>which<sp/>is</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>stored<sp/>in<sp/>this<sp/>class.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_b_d_f_error_estimator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_b_d_f_error_estimator_1a44a60ea7cd6c0d6af86116315c12b8a6" kindref="member">BDFErrorEstimator</ref></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Constructor.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="class_b_d_f_error_estimator_1a44a60ea7cd6c0d6af86116315c12b8a6" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a44a60ea7cd6c0d6af86116315c12b8a6" kindref="member">BDFErrorEstimator</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Parameters::TimeIntegration<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;time_handler);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Attach<sp/>solver<sp/>data<sp/>to<sp/>this<sp/>object.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>function<sp/>is<sp/>called<sp/>by<sp/>attach_data_to_error_estimator<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/>*<sp/>TimeHandler,<sp/>which<sp/>must<sp/>be<sp/>called<sp/>once<sp/>before<sp/>computing<sp/>the<sp/>first<sp/>error</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/>*<sp/>estimates.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="class_b_d_f_error_estimator_1a34b2a41a0226bb2faeaf65e263a87e21" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a34b2a41a0226bb2faeaf65e263a87e21" kindref="member">attach_data</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ComponentOrdering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" kindref="member">ordering</ref>,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IndexSet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref>,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>char&gt;<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" kindref="member">dofs_to_component</ref>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Rotate<sp/>the<sp/>stored<sp/>simulation<sp/>times<sp/>t_{n+1}<sp/>through<sp/>t_{n+1-(p+1)}.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="class_b_d_f_error_estimator_1a4a84e478d0e10ffca1e42da93674330c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a4a84e478d0e10ffca1e42da93674330c" kindref="member">advance</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/>&amp;time_handler);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Rotate<sp/>the<sp/>solution<sp/>vector<sp/>u^{n+1-(p+1)},<sp/>that<sp/>is,<sp/>perform<sp/>the<sp/>assignment</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/>*<sp/>u^{n+1-(p+1)}<sp/>:=<sp/>u^{n+1-p}.<sp/>@p<sp/>solution<sp/>should<sp/>be<sp/>u^{n+1-p}.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="class_b_d_f_error_estimator_1a1362437fcb51abf8e18efea13b8cea53" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a1362437fcb51abf8e18efea13b8cea53" kindref="member">rotate_additional_solution</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>&amp;solution);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Compute<sp/>the<sp/>next<sp/>time<sp/>step<sp/>based<sp/>on<sp/>the<sp/>truncation<sp/>error<sp/>estimate.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/>*<sp/>The<sp/>maximum<sp/>error<sp/>is<sp/>computed<sp/>over<sp/>all<sp/>dofs<sp/>and<sp/>stored<sp/>independently<sp/>for</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/>*<sp/>each<sp/>variable.<sp/>The<sp/>next<sp/>time<sp/>step<sp/>is<sp/>set<sp/>as<sp/>the<sp/>most<sp/>critical<sp/>time<sp/>step</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/>*<sp/>according<sp/>to<sp/>the<sp/>target<sp/>error<sp/>for<sp/>each<sp/>variable.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>time<sp/>step<sp/>is<sp/>clamped<sp/>by<sp/>the<sp/>TimeHandler<sp/>to<sp/>respect<sp/>the<sp/>user<sp/>bounds</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/>*<sp/>(min/max<sp/>time<sp/>step,<sp/>max<sp/>increase/decrease<sp/>between<sp/>two<sp/>time<sp/>steps).</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="class_b_d_f_error_estimator_1af83bbd88b98f52168e3fcc51e0a6d00f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1af83bbd88b98f52168e3fcc51e0a6d00f" kindref="member">compute_error_estimator</ref>(</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;time_handler,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;present_solution,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;LA::ParVectorType&gt;<sp/>&amp;previous_solutions);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>the<sp/>maximum<sp/>error<sp/>estimate<sp/>for<sp/>each<sp/>variable.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="class_b_d_f_error_estimator_1a81b75254435a20475df31b4f360aaee1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::map&lt;SolverInfo::VariableType,<sp/>double&gt;<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1a81b75254435a20475df31b4f360aaee1" kindref="member">get_max_errors</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Compute<sp/>and<sp/>return<sp/>the<sp/>next<sp/>time<sp/>step<sp/>based<sp/>on<sp/>the<sp/>stored<sp/>error<sp/>estimates.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>time<sp/>step<sp/>is:</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/>*<sp/>h_{n+1}<sp/>=<sp/>h_n<sp/>*<sp/>\left(\frac{\epsilon}{e_n}\right)^{\frac{1}{p+1}},</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/>*<sp/>where<sp/>e_n<sp/>is<sp/>the<sp/>computed<sp/>truncation<sp/>error<sp/>and<sp/>h_n<sp/>is<sp/>@p<sp/>current_timestep.</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="class_b_d_f_error_estimator_1abb1080c513f92d5bbfc8499e897799c5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1abb1080c513f92d5bbfc8499e897799c5" kindref="member">get_next_timestep</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>current_timestep)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>the<sp/>vector<sp/>of<sp/>the<sp/>last<sp/>computed<sp/>error<sp/>estimator<sp/>at<sp/>each<sp/>dof.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/>*<sp/>The<sp/>goal<sp/>of<sp/>this<sp/>function<sp/>is<sp/>to<sp/>provide<sp/>the<sp/>error<sp/>estimator<sp/>in<sp/>a<sp/>format</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/>*<sp/>compatible<sp/>with<sp/>the<sp/>L^p<sp/>error<sp/>norm<sp/>routines,<sp/>e.g.,<sp/>to<sp/>compute<sp/>the</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/>*<sp/>discrepancy<sp/>between<sp/>the<sp/>error<sp/>estimator<sp/>and<sp/>the<sp/>true<sp/>error.<sp/>Consequently,</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/>*<sp/>this<sp/>function<sp/>is<sp/>only<sp/>available<sp/>if<sp/>compute_error_on_estimator<sp/>is<sp/>enabled<sp/>in</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/>*<sp/>the<sp/>parameter<sp/>file.</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="class_b_d_f_error_estimator_1a3c8eabffb9392ab2aa7e3c7a0a6a5512" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>&amp;<ref refid="class_b_d_f_error_estimator_1a3c8eabffb9392ab2aa7e3c7a0a6a5512" kindref="member">get_error_estimator_as_solution</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="111" refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Parameters::TimeIntegration<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Non-owning<sp/>pointers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ComponentOrdering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" kindref="member">ordering</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115" refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IndexSet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116" refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>char&gt;<sp/>*<ref refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" kindref="member">dofs_to_component</ref><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Order<sp/>p<sp/>of<sp/>the<sp/>used<sp/>BDF<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Store<sp/>here<sp/>the<sp/>additional<sp/>vector<sp/>needed<sp/>to<sp/>compute<sp/>the<sp/>truncation<sp/>error<sp/>for</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>BDF<sp/>scheme<sp/>of<sp/>order<sp/>p<sp/>+<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Alternatively,<sp/>we<sp/>could<sp/>increment<sp/>n_previous_solutions<sp/>by<sp/>1<sp/>in<sp/>the<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>handler,<sp/>but<sp/>that<sp/>would<sp/>mean<sp/>that<sp/>we<sp/>can<sp/>no<sp/>longer<sp/>use</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>previous_solutions.size()<sp/>whenever<sp/>time<sp/>adaptation<sp/>is<sp/>enabled...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="class_b_d_f_error_estimator_1a6584a19c222b99f49ffb1e8e844d8bc9" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><ref refid="class_b_d_f_error_estimator_1a6584a19c222b99f49ffb1e8e844d8bc9" kindref="member">additional_solution</ref>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="class_b_d_f_error_estimator_1a3d5a3349407eab66ba675c2b4fe24f1f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a3d5a3349407eab66ba675c2b4fe24f1f" kindref="member">n_previous_solutions</ref>;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Simulation<sp/>times<sp/>at<sp/>step<sp/>n+1<sp/>through<sp/>n+1-(p+1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Variables<sp/>present<sp/>in<sp/>the<sp/>solution<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;SolverInfo::VariableType&gt;<sp/><ref refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" kindref="member">handled_variables</ref>;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>each<sp/>variable,<sp/>the<sp/>maximum<sp/>error<sp/>over<sp/>the<sp/>dofs<sp/>of<sp/>this<sp/>variable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" refkind="member"><highlight class="normal"><sp/><sp/>std::map&lt;SolverInfo::VariableType,<sp/>double&gt;<sp/><ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Tracks<sp/>whether<sp/>a<sp/>full<sp/>vector<sp/>of<sp/>estimator<sp/>should<sp/>be<sp/>stored</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" kindref="member">save_full_error_estimator</ref>;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>IndexSet<sp/>of<sp/>locally<sp/>owned<sp/>dofs,<sp/>needed<sp/>to<sp/>initialize<sp/>the<sp/>vectors<sp/>below</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="class_b_d_f_error_estimator_1a995c20efe0fbc6ad2b1e502a81e36b6c" refkind="member"><highlight class="normal"><sp/><sp/>IndexSet<sp/><ref refid="class_b_d_f_error_estimator_1a995c20efe0fbc6ad2b1e502a81e36b6c" kindref="member">locally_owned_elements</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>ghosted<sp/>and<sp/>fully<sp/>distributed<sp/>vectors<sp/>of<sp/>error<sp/>estimator<sp/>at<sp/>each<sp/>dof</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="class_b_d_f_error_estimator_1a3a7a9ad8fbe30a357bf96014ee6eb13a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><ref refid="class_b_d_f_error_estimator_1a3a7a9ad8fbe30a357bf96014ee6eb13a" kindref="member">error_estimator</ref>;</highlight></codeline>
+<codeline lineno="147" refid="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><ref refid="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" kindref="member">fully_distributed_error_estimator</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/master/include/timestep_adaptation.h"/>
+  </compounddef>
+</doxygen>

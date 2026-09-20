@@ -1,0 +1,26 @@
+var class_b_d_f_error_estimator =
+[
+    [ "BDFErrorEstimator", "class_b_d_f_error_estimator.html#a44a60ea7cd6c0d6af86116315c12b8a6", null ],
+    [ "advance", "class_b_d_f_error_estimator.html#a4a84e478d0e10ffca1e42da93674330c", null ],
+    [ "attach_data", "class_b_d_f_error_estimator.html#a34b2a41a0226bb2faeaf65e263a87e21", null ],
+    [ "compute_error_estimator", "class_b_d_f_error_estimator.html#af83bbd88b98f52168e3fcc51e0a6d00f", null ],
+    [ "get_additional_solution", "class_b_d_f_error_estimator.html#a6a5c60cc3645fab7592dc77f8ec86428", null ],
+    [ "get_error_estimator_as_solution", "class_b_d_f_error_estimator.html#a3c8eabffb9392ab2aa7e3c7a0a6a5512", null ],
+    [ "get_max_errors", "class_b_d_f_error_estimator.html#a81b75254435a20475df31b4f360aaee1", null ],
+    [ "get_next_timestep", "class_b_d_f_error_estimator.html#abb1080c513f92d5bbfc8499e897799c5", null ],
+    [ "rotate_additional_solution", "class_b_d_f_error_estimator.html#a1362437fcb51abf8e18efea13b8cea53", null ],
+    [ "additional_solution", "class_b_d_f_error_estimator.html#a6584a19c222b99f49ffb1e8e844d8bc9", null ],
+    [ "bdf_order", "class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5", null ],
+    [ "dofs_to_component", "class_b_d_f_error_estimator.html#ac9377e402bbceb911fb1bb5bfd5d045a", null ],
+    [ "error_estimator", "class_b_d_f_error_estimator.html#a3a7a9ad8fbe30a357bf96014ee6eb13a", null ],
+    [ "fully_distributed_error_estimator", "class_b_d_f_error_estimator.html#a97f8b58c5c676ec2ae2e8a9b2919e57d", null ],
+    [ "handled_variables", "class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c", null ],
+    [ "locally_owned_elements", "class_b_d_f_error_estimator.html#a995c20efe0fbc6ad2b1e502a81e36b6c", null ],
+    [ "locally_relevant_dofs", "class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3", null ],
+    [ "max_error", "class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68", null ],
+    [ "n_previous_solutions", "class_b_d_f_error_estimator.html#a3d5a3349407eab66ba675c2b4fe24f1f", null ],
+    [ "ordering", "class_b_d_f_error_estimator.html#af85f9c9bcc73cbfab1972d38e280a937", null ],
+    [ "save_full_error_estimator", "class_b_d_f_error_estimator.html#ab9e28330874c1f3d5d1ea03a5e668a93", null ],
+    [ "simulation_times", "class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928", null ],
+    [ "time_parameters", "class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13", null ]
+];

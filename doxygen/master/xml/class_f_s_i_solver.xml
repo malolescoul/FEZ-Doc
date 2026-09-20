@@ -1,0 +1,1425 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_f_s_i_solver" kind="class" language="C++" prot="public">
+    <compoundname>FSISolver</compoundname>
+    <basecompoundref refid="class_navier_stokes_solver" prot="public" virt="non-virtual">NavierStokesSolver&lt; dim, true &gt;</basecompoundref>
+    <includes refid="monolithic__fsi__solver_8h" local="no">monolithic_fsi_solver.h</includes>
+    <innerclass refid="struct_f_s_i_solver_1_1_rigid_body_rotation" prot="protected">FSISolver::RigidBodyRotation</innerclass>
+    <innerclass refid="class_f_s_i_solver_1_1_source_term" prot="public">FSISolver::SourceTerm</innerclass>
+    <innerclass refid="class_f_s_i_solver_1_1_m_m_s_source_term" prot="public">FSISolver::MMSSourceTerm</innerclass>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="class_f_s_i_solver_1ae1a09ac0f9638b86b69ec4e55908649c" prot="private" static="no">
+        <type><ref refid="namespace_navier_stokes_scratch_1a071bd6c0e17f9c1f2e577012605d3006" kindref="member">NavierStokesScratch::ScratchDataFSI</ref>&lt; dim &gt;</type>
+        <definition>using FSISolver&lt; dim &gt;::ScratchData = NavierStokesScratch::ScratchDataFSI&lt;dim&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchData</name>
+        <qualifiedname>FSISolver::ScratchData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="36" column="3" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_f_s_i_solver_1a3adaa78e05d63e4b56b61cb9748ca290" prot="private" static="no">
+        <type><ref refid="class_copy_data_base" kindref="compound">CopyDataBase</ref>&lt; 1 &gt;</type>
+        <definition>using FSISolver&lt; dim &gt;::CopyData = CopyDataBase&lt;1&gt;</definition>
+        <argsstring></argsstring>
+        <name>CopyData</name>
+        <qualifiedname>FSISolver::CopyData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="37" column="3" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_f_s_i_solver_1a7c1064e4f55dbb5d70dfdf140c7eae65" prot="private" static="no">
+        <type><ref refid="class_assembly_1_1_assembler_base" kindref="compound">Assembly::AssemblerBase</ref>&lt; <ref refid="class_f_s_i_solver_1ae1a09ac0f9638b86b69ec4e55908649c" kindref="member">ScratchData</ref>, <ref refid="class_f_s_i_solver_1a3adaa78e05d63e4b56b61cb9748ca290" kindref="member">CopyData</ref> &gt;</type>
+        <definition>using FSISolver&lt; dim &gt;::Assembler = Assembly::AssemblerBase&lt;ScratchData, CopyData&gt;</definition>
+        <argsstring></argsstring>
+        <name>Assembler</name>
+        <qualifiedname>FSISolver::Assembler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="38" column="3" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_f_s_i_solver_1a3e73d6a5b146a8be61f2283f6a89c686" prot="private" static="no">
+        <type>typename Parameters::FSI&lt; dim &gt;::CouplingStrategy</type>
+        <definition>using FSISolver&lt; dim &gt;::Coupling = typename Parameters::FSI&lt;dim&gt;::CouplingStrategy</definition>
+        <argsstring></argsstring>
+        <name>Coupling</name>
+        <qualifiedname>FSISolver::Coupling</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="39" column="3" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_f_s_i_solver_1a1558d3f3851e46e73f692f43c46e3527" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; FESystem&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;FESystem&lt;dim&gt; &gt; FSISolver&lt; dim &gt;::fe</definition>
+        <argsstring></argsstring>
+        <name>fe</name>
+        <qualifiedname>FSISolver::fe</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="214" column="19" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a77502ab968fd1fa799ac8ba1b314247d" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_f_s_i_solver_1ae1a09ac0f9638b86b69ec4e55908649c" kindref="member">ScratchData</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ScratchData&gt; FSISolver&lt; dim &gt;::scratch_data</definition>
+        <argsstring></argsstring>
+        <name>scratch_data</name>
+        <qualifiedname>FSISolver::scratch_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="218" column="19" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1ab3805c24cc3825f4608f91c2d24307c7" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="class_f_s_i_solver_1a7c1064e4f55dbb5d70dfdf140c7eae65" kindref="member">Assembler</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;Assembler&gt; &gt; FSISolver&lt; dim &gt;::assemblers</definition>
+        <argsstring></argsstring>
+        <name>assemblers</name>
+        <qualifiedname>FSISolver::assemblers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="220" column="15" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a24593a4cfd870fef95a02d4730263b9e" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Vector</type>
+        <definition>FEValuesExtractors::Vector FSISolver&lt; dim &gt;::lambda_extractor</definition>
+        <argsstring></argsstring>
+        <name>lambda_extractor</name>
+        <qualifiedname>FSISolver::lambda_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="222" column="30" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1abe82a10666752bfd51b6ae5af02818aa" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask FSISolver&lt; dim &gt;::lambda_mask</definition>
+        <argsstring></argsstring>
+        <name>lambda_mask</name>
+        <qualifiedname>FSISolver::lambda_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="223" column="30" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1ab98f547e62f997f3533af26f14f89a88" prot="protected" static="no" mutable="no">
+        <type>types::boundary_id</type>
+        <definition>types::boundary_id FSISolver&lt; dim &gt;::weak_no_slip_boundary_id</definition>
+        <argsstring></argsstring>
+        <name>weak_no_slip_boundary_id</name>
+        <qualifiedname>FSISolver::weak_no_slip_boundary_id</qualifiedname>
+        <initializer>= numbers::invalid_unsigned_int</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The id of the mesh boundary on which the weak no-slip condition is enforced. Currently, this is limited to a single boundary. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="229" column="22" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1ad5f4417231b545f79032274f5eb83cfb" prot="protected" static="no" mutable="no">
+        <type>AffineConstraints&lt; double &gt;</type>
+        <definition>AffineConstraints&lt;double&gt; FSISolver&lt; dim &gt;::lambda_constraints</definition>
+        <argsstring></argsstring>
+        <name>lambda_constraints</name>
+        <qualifiedname>FSISolver::lambda_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="231" column="21" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1ad584b96bb05050e3b758151ae081ea08" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; std::pair&lt; unsigned int, double &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;std::pair&lt;unsigned int, double&gt; &gt; &gt; FSISolver&lt; dim &gt;::lambda_integral_coeffs</definition>
+        <argsstring></argsstring>
+        <name>lambda_integral_coeffs</name>
+        <qualifiedname>FSISolver::lambda_integral_coeffs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data used to enforce the force-position coupling:</para>
+<para>Force coefficients, such that F_d = (int_Gamma (-lambda) ds)_d = sum_j c_dj * lambda_j.</para>
+<para>Stored as [dim][{lambdaDOF_j : c_j}].</para>
+<para>FIXME: Rename as lambda_force_coeffs (or similar) everywhere. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="244" column="5" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a644264471708d96416c4b77406d3a812" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; std::pair&lt; unsigned int, double &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;std::pair&lt;unsigned int, double&gt; &gt; &gt; FSISolver&lt; dim &gt;::lambda_torque_coeffs</definition>
+        <argsstring></argsstring>
+        <name>lambda_torque_coeffs</name>
+        <qualifiedname>FSISolver::lambda_torque_coeffs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Torque coefficients for the &quot;intrinsic&quot; torque w.r.t. to the body centroid, such that int_Gamma (X - Xm) x (-lambda) ds = sum_d (sum_j c_dj * lambda_j).</para>
+<para>Stored as [dim][{lambdaDOF_j : c_j}]. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="254" column="5" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1ad2be0342974c0ec46c74533933ea8c96" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; types::global_dof_index, unsigned int &gt;</type>
+        <definition>std::map&lt;types::global_dof_index, unsigned int&gt; FSISolver&lt; dim &gt;::coupled_position_dofs</definition>
+        <argsstring></argsstring>
+        <name>coupled_position_dofs</name>
+        <qualifiedname>FSISolver::coupled_position_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="256" column="12" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1ae965cbca57de09e7b69f7599b4ae3809" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FSISolver&lt; dim &gt;::has_local_position_master</definition>
+        <argsstring></argsstring>
+        <name>has_local_position_master</name>
+        <qualifiedname>FSISolver::has_local_position_master</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="258" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1af5a1304b927805cc66697a18184739a1" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FSISolver&lt; dim &gt;::has_local_lambda_accumulator</definition>
+        <argsstring></argsstring>
+        <name>has_local_lambda_accumulator</name>
+        <qualifiedname>FSISolver::has_local_lambda_accumulator</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="259" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a065d55e46db16fdf85cbdd95dab03338" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FSISolver&lt; dim &gt;::has_global_master_position_dofs</definition>
+        <argsstring></argsstring>
+        <name>has_global_master_position_dofs</name>
+        <qualifiedname>FSISolver::has_global_master_position_dofs</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="260" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a2d9f07a6fa48251fb039b6685da38f40" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FSISolver&lt; dim &gt;::has_global_accumulator</definition>
+        <argsstring></argsstring>
+        <name>has_global_accumulator</name>
+        <qualifiedname>FSISolver::has_global_accumulator</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="261" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a178de3e6ee7817b8b42fddd850d6d5bd" prot="protected" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int FSISolver&lt; dim &gt;::n_ranks_with_position_master</definition>
+        <argsstring></argsstring>
+        <name>n_ranks_with_position_master</name>
+        <qualifiedname>FSISolver::n_ranks_with_position_master</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="262" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a0e0683580672ef5874049597ec9820aa" prot="protected" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int FSISolver&lt; dim &gt;::n_ranks_with_lambda_accumulator</definition>
+        <argsstring></argsstring>
+        <name>n_ranks_with_lambda_accumulator</name>
+        <qualifiedname>FSISolver::n_ranks_with_lambda_accumulator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="263" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1afdda1678b06227e9d8334b968b7f379e" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; types::global_dof_index, dim &gt;</type>
+        <definition>std::array&lt;types::global_dof_index, dim&gt; FSISolver&lt; dim &gt;::local_position_master_dofs</definition>
+        <argsstring></argsstring>
+        <name>local_position_master_dofs</name>
+        <qualifiedname>FSISolver::local_position_master_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="265" column="14" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a3fbd29c89ce18491f7e69e239aaecf5d" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; types::global_dof_index, dim &gt;</type>
+        <definition>std::array&lt;types::global_dof_index, dim&gt; FSISolver&lt; dim &gt;::global_position_master_dofs</definition>
+        <argsstring></argsstring>
+        <name>global_position_master_dofs</name>
+        <qualifiedname>FSISolver::global_position_master_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="266" column="14" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1aa6c9b1ed688ab89aedc583318953e534" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; types::global_dof_index, dim &gt;</type>
+        <definition>std::array&lt;types::global_dof_index, dim&gt; FSISolver&lt; dim &gt;::local_lambda_accumulators</definition>
+        <argsstring></argsstring>
+        <name>local_lambda_accumulators</name>
+        <qualifiedname>FSISolver::local_lambda_accumulators</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="268" column="14" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a78b135376ffb118564a410d119406d2d" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; types::global_dof_index, dim &gt;</type>
+        <definition>std::array&lt;types::global_dof_index, dim&gt; FSISolver&lt; dim &gt;::global_lambda_accumulators</definition>
+        <argsstring></argsstring>
+        <name>global_lambda_accumulators</name>
+        <qualifiedname>FSISolver::global_lambda_accumulators</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="269" column="14" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1ac9a74233780edc2f9eaff95123b898e9" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; types::global_dof_index &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;types::global_dof_index&gt; &gt; FSISolver&lt; dim &gt;::all_lambda_accumulators</definition>
+        <argsstring></argsstring>
+        <name>all_lambda_accumulators</name>
+        <qualifiedname>FSISolver::all_lambda_accumulators</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="271" column="15" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1ab27164186843e30e83bd45979c6d6596" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FSISolver&lt; dim &gt;::has_cylinder_velocity_dofs</definition>
+        <argsstring></argsstring>
+        <name>has_cylinder_velocity_dofs</name>
+        <qualifiedname>FSISolver::has_cylinder_velocity_dofs</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This flag specifies if this process stores dofs for the solid&apos;s velocity. If it&apos;s the case, &quot;dim&quot; unused Lagrange multiplier dofs are repurposed to represent the velocity of the solid, whose value should be identical on all partitions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="279" column="8" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a1f59a60bb6dcada5911b8d98a449fb49" prot="protected" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int FSISolver&lt; dim &gt;::n_ranks_with_cylinder_velocity_dofs</definition>
+        <argsstring></argsstring>
+        <name>n_ranks_with_cylinder_velocity_dofs</name>
+        <qualifiedname>FSISolver::n_ranks_with_cylinder_velocity_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of ranks storing dofs for the solid&apos;s velocity (i.e., number of processes with has_cylinder_velocity_dofs = true) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="285" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a999d702f7d1254533ac40907d4515fed" prot="protected" static="no" mutable="no">
+        <type>std::array&lt; types::global_dof_index, dim &gt;</type>
+        <definition>std::array&lt;types::global_dof_index, dim&gt; FSISolver&lt; dim &gt;::local_cylinder_velocity_dofs</definition>
+        <argsstring></argsstring>
+        <name>local_cylinder_velocity_dofs</name>
+        <qualifiedname>FSISolver::local_cylinder_velocity_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Degrees of freedom used to represent the solid&apos;s velocity. Since the solid is assumed to be infinitely rigid, its velocity needs only be stored at a single point. To limit communications, each process with a piece of the solid actually stores its own set of velocity dofs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="293" column="14" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a0ea824e1d54de29106ecf0206d15e026" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FSISolver&lt; dim &gt;::has_rotation_angle</definition>
+        <argsstring></argsstring>
+        <name>has_rotation_angle</name>
+        <qualifiedname>FSISolver::has_rotation_angle</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This flag specifies if this process stores dof(s) to represent a rigid-body rotation angle. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="299" column="8" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1a97e5f4091999169c92e91f46a43ed6f4" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FSISolver&lt; dim &gt;::rotation_angle_dof</definition>
+        <argsstring></argsstring>
+        <name>rotation_angle_dof</name>
+        <qualifiedname>FSISolver::rotation_angle_dof</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>In 2D, the dof index associated with the unique rigid-body rotation angle. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="304" column="10" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1abfa3c23cf1495e825fd2c87dad72ca5a" prot="protected" static="no" mutable="no">
+        <type>struct <ref refid="struct_f_s_i_solver_1_1_rigid_body_rotation" kindref="compound">FSISolver::RigidBodyRotation</ref></type>
+        <definition>struct FSISolver::RigidBodyRotation FSISolver&lt; dim &gt;::rigid_body_rotation</definition>
+        <argsstring></argsstring>
+        <name>rigid_body_rotation</name>
+        <qualifiedname>FSISolver::rigid_body_rotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="325" column="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="class_f_s_i_solver_1a35427a8328ec19a4d1265454a1b8a4d0" prot="protected" static="yes" constexpr="yes" mutable="no">
+        <type>ConstexprComponentOrderingFSI&lt; dim &gt;</type>
+        <definition>ConstexprComponentOrderingFSI&lt;dim&gt; FSISolver&lt; dim &gt;::const_ordering</definition>
+        <argsstring></argsstring>
+        <name>const_ordering</name>
+        <qualifiedname>FSISolver::const_ordering</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="216" column="50" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="216" bodyend="216"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_s_i_solver_1a98ac6e59d54734ddb8ecdd24cac435f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FSISolver&lt; dim &gt;::FSISolver</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param)</argsstring>
+        <name>FSISolver</name>
+        <qualifiedname>FSISolver::FSISolver</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Enforcing zero-mean pressure on moving mesh is not trivial, since the constraint weights depend on the mesh position.</para>
+<para>While different coupling schemes are still being tested, keep the debug flag to change the scheme at runtime, but do not allow using the first, inefficient coupling.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="45" column="3" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="31" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a5b5080f1f946a0ea8dafc601b09b38e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>FSISolver&lt; dim &gt;::~FSISolver</definition>
+        <argsstring>()</argsstring>
+        <name>~FSISolver</name>
+        <qualifiedname>FSISolver::~FSISolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="50" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1aeb81cbf49e434cc39452d64d329e8cdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::reset_solver_specific_data</definition>
+        <argsstring>() override</argsstring>
+        <name>reset_solver_specific_data</name>
+        <qualifiedname>FSISolver::reset_solver_specific_data</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a422eeda679e285bc9fc4951dccb99519">reset_solver_specific_data</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset data specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="55" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="272" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a4297d8ca7da958607b7d50e1b78351dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::create_scratch_data</definition>
+        <argsstring>() override</argsstring>
+        <name>create_scratch_data</name>
+        <qualifiedname>FSISolver::create_scratch_data</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a10026a09e34b50769a92b683d081c6ca">create_scratch_data</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the scratch data structure for this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="60" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="194" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1aeaea9e99e7990592d868213cacdec7c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::setup_assemblers</definition>
+        <argsstring>() override</argsstring>
+        <name>setup_assemblers</name>
+        <qualifiedname>FSISolver::setup_assemblers</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a808f73d3ad29c693c0f415369c51720e">setup_assemblers</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the volume and boundary assemblers for this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="65" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="207" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a0779b9a16647d4ec5ad2f6696922553f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::create_lagrange_multiplier_constraints</definition>
+        <argsstring>()</argsstring>
+        <name>create_lagrange_multiplier_constraints</name>
+        <qualifiedname>FSISolver::create_lagrange_multiplier_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the AffineConstraints storing the lambda = 0 constraints everywhere, except on the boundary of interest on which a weakly enforced no-slip condition is prescribed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="72" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="297" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1aab8710e42940ff336051a3b4cea21803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::create_position_lagrange_mult_coupling_data</definition>
+        <argsstring>()</argsstring>
+        <name>create_position_lagrange_mult_coupling_data</name>
+        <qualifiedname>FSISolver::create_position_lagrange_mult_coupling_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>On the cylinder, we have</para>
+<para>x = X - int_Gamma lambda dx,</para>
+<para>yielding the affine constraints</para>
+<para>x_i = X_i + sum_j c_ij * lambda_j, with c_ij = - int_Gamma phi_global_j dx.</para>
+<para>Each position DoF is linked to all lambda DoF on the cylinder, which may not be owned of even ghosts of the current process.</para>
+<para>This function does the following:</para>
+<para><itemizedlist>
+<listitem><para>It computes the coefficients c_ij of the coupling x_i = X_i + c_ij * lambda_j, which are the integral of the global shape functions associated to lambda_j.</para>
+</listitem><listitem><para>It creates the DOF pairings (x_i, vector of lambda_j), which specify to which lambda DOFs a position DOF on the cylinder is constrained (all of them actually).</para>
+<para>FIXME: THERE IS ONLY ONE VECTOR ACTUALLY </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Get the owned position dofs on the cylinder. We might be missing some owned dofs, e.g., on boundary edges for which no cell face touches the cylinder in 3D. Also add them here.</para>
+<para>Set up some flags depending on the coupling strategy. In particular, we need to know whether:</para>
+<para><itemizedlist>
+<listitem><para>additional ghost lambda dofs should be accounted for. This is the case if position (all or masters) dofs are coupled to <emphasis>all</emphasis> lambda dofs, in which case they need all cylinder lambda dofs as ghosts to evaluate the total force integral.</para>
+</listitem><listitem><para>local and global position master dofs should be set, if the coupling strategy uses position masters.</para>
+</listitem><listitem><para>local and global lambda accumulators should be set, if the coupling strategy uses force accumulators.</para>
+</listitem></itemizedlist>
+</para>
+<para>Set up the local and global position master dofs.</para>
+<para>Set up the global position master as the local master on the lowest rank among those with a local position master.</para>
+<para>Set up local and global lambda accumulators</para>
+<para>If the solid has nonzero mass, determine which owned and unused Lagrange multiplier dofs will be promoted to become velocity dofs for the solid obstacle. These dofs are stored in local_cylinder_velocity_dofs.</para>
+<para>If rigid-body rotation is enabled, determine which owned and unused Lagrange multiplier dof(s) will be promoted to represent the rotation angle(s).</para>
+<para>Find all the required unused Lagrange multiplier dofs to repurpose, and assign them in order.</para>
+<para>Set up the global lambda accumulators similarly to the global position master.</para>
+<para>Compute the weights c_ij to compute the hydrodynamic force and torque (if required), and identify the constrained position DOFs. Done only once as cylinder is rigid and those weights will not change.</para>
+<para>Loop only on the owned cells for 2 reasons :</para>
+<para><itemizedlist>
+<listitem><para>Only owned cells contribute to the integral of lambda on this partition</para>
+</listitem><listitem><para>The force-position coupling is done by hand by modifying the linear system directly. Since each rank only stores its <emphasis>owned</emphasis> lines in the matrix/rhs, we are only interested in the <emphasis>owned</emphasis> position dofs that are coupled to the lambda dofs. Some ghost dofs are added here, but we only care for the owned.</para>
+<para>Important (see below) : since we loop over cell <emphasis>faces</emphasis>, we can miss owned position dofs which should be coupled. This happens when owned dofs are located on the edges of slanted tets, whose faces do <emphasis>not</emphasis> lie on the boundary of the obstacle. Thus, we never loop over these faces and cannot get these owned dofs. They are added afterwards after gathering the coupled dofs from other ranks.</para>
+</listitem></itemizedlist>
+</para>
+<para>Lambda face dofs contribute to the weights</para>
+<para>Position face dofs are added to the list of coupled dofs</para>
+<para>Once again we might be missing some owned coupled dofs, on boundary edges Add them here. They are added only if they are already relevant (does not add ghosts). FIXME: Can this be done only once instead?</para>
+<para>Sanity check on the force weights Expected sum is -1/k * |Cylinder|</para>
+<para>Sanity check for the torque weights. Because the intrinsic torque is taken w.r.t. the centroid of the body and the lambda shape function form a partition of unity, the expected sum of torque weights is zero.</para>
+<para>If using force accumulators, simply store the <emphasis>local</emphasis> integral coefficients in a vector. Otherwise, <emphasis>all</emphasis> the coefficients must be gathered to evaluate the complete force integral.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="77" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="580" bodyend="1396"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a7eebadbe0da1adac1199940b73e4039d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FSISolver&lt; dim &gt;::create_solver_specific_constraints_data</definition>
+        <argsstring>() override</argsstring>
+        <name>create_solver_specific_constraints_data</name>
+        <qualifiedname>FSISolver::create_solver_specific_constraints_data</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a8e2e814f67722048bcccd664b1a890df">create_solver_specific_constraints_data</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If a derived solver requires additional constraints data that need to be created only once, they should be created within an overload of this function. For instance, the FSI solver creates here the data to couple the fluid forces on an obstacle to the mesh position. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="79" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="79" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a4ec4998699b90356c807b0bc1372cc56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::remove_cylinder_velocity_constraints</definition>
+        <argsstring>(AffineConstraints&lt; double &gt; &amp;constraints, const bool remove_velocity_constraints, const bool remove_position_constraints) const</argsstring>
+        <name>remove_cylinder_velocity_constraints</name>
+        <qualifiedname>FSISolver::remove_cylinder_velocity_constraints</qualifiedname>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>remove_velocity_constraints</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>remove_position_constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>There is a tricky corner case that happens when a partition has ghost dofs on a boundary edge, but the faces sharing this edge do not belong to this boundary (for instance, tets making an angle, and the tet whose face is on the boundary belongs to another rank). In that case, the ghost dofs on the boundary are not collected with DoFTools::extract_boundary_dofs, since the ghost faces are simply not on the given boundary.</para>
+<para>We have to exchange the boundary dofs, and add the missing ghost ones from other ranks.</para>
+<para>Now actually remove the constraints</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="89" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="1399" bodyend="1630"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a7a4cb0c649af698107383db4fea2f29c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::create_solver_specific_zero_constraints</definition>
+        <argsstring>() override</argsstring>
+        <name>create_solver_specific_zero_constraints</name>
+        <qualifiedname>FSISolver::create_solver_specific_zero_constraints</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1afa4fac4d184896dd78290fe22a1dd3c5">create_solver_specific_zero_constraints</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the additional homogeneous boundary conditions specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>FIXME: Instead of dim = 3, the test should be whether dofs belong to multiple boundaries, but for now this only happens for the 3D fsi test case.</para>
+<para>Remove both position and velocity constraints on the moving boundary:</para>
+<para><itemizedlist>
+<listitem><para>Position because it is coupled to the Lagrange multiplier. If the force-position constraints were handled with an AffineConstraints, this would be checked by the merge() and specifying &quot;no_conflicts_allowed&quot;. But the constraints are enforced &quot;by hand&quot;, so we have to manually check and remove constrained position dofs from adjacent faces.</para>
+</listitem><listitem><para>Velocity because a Lagrange multiplier enforces no slip. If velocity is set by another constraint, the lambda will have garbage values since the constraint cannot be satisfied.</para>
+</listitem></itemizedlist>
+</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="94" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="1633" bodyend="1673"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1aa8099dc6e0b28e3f8d7e60645ba17026" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::create_solver_specific_nonzero_constraints</definition>
+        <argsstring>() override</argsstring>
+        <name>create_solver_specific_nonzero_constraints</name>
+        <qualifiedname>FSISolver::create_solver_specific_nonzero_constraints</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a67e465bff87c6b3af531142c589c8593">create_solver_specific_nonzero_constraints</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the additional inhomogeneous boundary conditions specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="95" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="1676" bodyend="1702"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a873658e23dd5b24d17f465a7a328c374" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::create_sparsity_pattern</definition>
+        <argsstring>() override</argsstring>
+        <name>create_sparsity_pattern</name>
+        <qualifiedname>FSISolver::create_sparsity_pattern</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a80efe337ed26751e91e2a73f30810a37">create_sparsity_pattern</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the matrix sparsity pattern, given the finite element spaces and constraints. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="100" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="1736" bodyend="2027"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a80dbee1d0ec57c123eb15bb15f47cbaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::set_solver_specific_initial_conditions</definition>
+        <argsstring>() override</argsstring>
+        <name>set_solver_specific_initial_conditions</name>
+        <qualifiedname>FSISolver::set_solver_specific_initial_conditions</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1af4c774a72958594b894f856e0e1938aa">set_solver_specific_initial_conditions</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If solid has nonzero mass, set its initial velocity. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="105" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="1705" bodyend="1733"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1ab4901a384da871b7044ecc20818e4085" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::add_algebraic_position_coupling_to_matrix</definition>
+        <argsstring>()</argsstring>
+        <name>add_algebraic_position_coupling_to_matrix</name>
+        <qualifiedname>FSISolver::add_algebraic_position_coupling_to_matrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Now constrain the matrix</para>
+<para>Equation for theta in 2D. For t = theta and l = lambda: <verbatim>       int_Gamma (x - x_c) x (- l) ds = 0
+
+                       |
+                       v
+</verbatim></para>
+<para>int_Gamma (x-xm) x (-l) ds + int_Gamma (xm-xc) x (-l) ds = 0,</para>
+<para>where x-xm = X-Xm (constant if rigid body) and xm - xc = R(t). This yields:</para>
+<para>(int (X-Xm) x (-l) ds / ||R|| + F_L * cos(t) - F_D sin(t) = 0.</para>
+<para>The first term is the intrinsic torque around the center of the body, and the second is the torque around xc caused by the resulting force at xm.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="110" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2179" bodyend="2685"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1ad6215b5c48774e5a8b3cacabc3746a80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::add_algebraic_position_coupling_to_rhs</definition>
+        <argsstring>()</argsstring>
+        <name>add_algebraic_position_coupling_to_rhs</name>
+        <qualifiedname>FSISolver::add_algebraic_position_coupling_to_rhs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>ODE for x: enforce x_dot = v, set inhomogeneities.</para>
+<para>ODE for v, with mass, damping, spring and fluid force. Enforce v_dot = -1/m * (k*(x-X) + c*v + int_cyl lambda.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="115" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2688" bodyend="2878"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a92fa36b7e9bec44f439e3c9829d4acab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::assemble_local_matrix</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</argsstring>
+        <name>assemble_local_matrix</name>
+        <qualifiedname>FSISolver::assemble_local_matrix</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_s_i_solver_1ae1a09ac0f9638b86b69ec4e55908649c" kindref="member">ScratchData</ref> &amp;</type>
+          <declname>scratchData</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_s_i_solver_1a3adaa78e05d63e4b56b61cb9748ca290" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="120" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2062" bodyend="2088"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a9cb1bcfe10dc61008f5f7c73c6dff493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::copy_local_to_global_matrix</definition>
+        <argsstring>(const CopyData &amp;copy_data)</argsstring>
+        <name>copy_local_to_global_matrix</name>
+        <qualifiedname>FSISolver::copy_local_to_global_matrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_s_i_solver_1a3adaa78e05d63e4b56b61cb9748ca290" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="125" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2091" bodyend="2099"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a8e6131d2b605eda83c7357d91ca6aa6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::compare_analytical_matrix_with_fd</definition>
+        <argsstring>() override</argsstring>
+        <name>compare_analytical_matrix_with_fd</name>
+        <qualifiedname>FSISolver::compare_analytical_matrix_with_fd</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a39a2aba0a8595430a78946323db80e7e">compare_analytical_matrix_with_fd</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compare each Jacobian matrix computed in assemble_local_matrix to its finite differences approximation obtained by perturbing the right-hand side (Newton residual). To allow comparing for multiple Newton iterations and/or time steps, this function does not throw if the difference between the analytical matrix entries and their FD counterpart exceeds a prescribed tolerance, but instead prints the local matrices and the problematic entries. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="127" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2102" bodyend="2112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a6133d4d41523f7d60f74cb64d26f67ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::assemble_matrix</definition>
+        <argsstring>() override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>FSISolver::assemble_matrix</qualifiedname>
+        <reimplements refid="class_generic_solver_1ac5925ccdeda32d728e8947224e011ed9">assemble_matrix</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the Jacobian matrix of the nonlinear problem, that is, its linearization at the current solution. This function is overloaded by each derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="132" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2030" bodyend="2059"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a166fbd0ce5c519918c64edc7522088ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::assemble_local_rhs</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</argsstring>
+        <name>assemble_local_rhs</name>
+        <qualifiedname>FSISolver::assemble_local_rhs</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_s_i_solver_1ae1a09ac0f9638b86b69ec4e55908649c" kindref="member">ScratchData</ref> &amp;</type>
+          <declname>scratchData</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_s_i_solver_1a3adaa78e05d63e4b56b61cb9748ca290" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="138" column="3" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2139" bodyend="2165"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a71787a27e95db3f3e92dfd9285794198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::copy_local_to_global_rhs</definition>
+        <argsstring>(const CopyData &amp;copy_data)</argsstring>
+        <name>copy_local_to_global_rhs</name>
+        <qualifiedname>FSISolver::copy_local_to_global_rhs</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_s_i_solver_1a3adaa78e05d63e4b56b61cb9748ca290" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>See copy_local_to_global_matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="145" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2168" bodyend="2176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1aa1c68162a2759bfbb46b8b7d36e15998" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::assemble_rhs</definition>
+        <argsstring>() override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>FSISolver::assemble_rhs</qualifiedname>
+        <reimplements refid="class_generic_solver_1a2ef873f5575b35c23fa5fd742b8725aa">assemble_rhs</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the (negative of the) nonlinear residual -NL(U), evaluated at the current solution. This function is overloaded by each derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="150" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2115" bodyend="2136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a79513bb0c0abc709c182923a504dfc26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::compute_lambda_error_on_boundary</definition>
+        <argsstring>(double &amp;lambda_l2_error, double &amp;lambda_linf_error, Tensor&lt; 1, dim &gt; &amp;error_on_integral)</argsstring>
+        <name>compute_lambda_error_on_boundary</name>
+        <qualifiedname>FSISolver::compute_lambda_error_on_boundary</qualifiedname>
+        <param>
+          <type>double &amp;</type>
+          <declname>lambda_l2_error</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>lambda_linf_error</declname>
+        </param>
+        <param>
+          <type>Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>error_on_integral</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="155" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="3313" bodyend="3423"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a5fd6e088088f6048b74dfda13ff7349d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::check_manufactured_solution_boundary</definition>
+        <argsstring>()</argsstring>
+        <name>check_manufactured_solution_boundary</name>
+        <qualifiedname>FSISolver::check_manufactured_solution_boundary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>This is int lambda := int sigma(u_MMS, p_MMS) cdot normal_to_fluid -normal_to_solid</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="159" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="3120" bodyend="3310"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a12368548fada71f20eafb684e765db5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::compute_solver_specific_errors</definition>
+        <argsstring>() override</argsstring>
+        <name>compute_solver_specific_errors</name>
+        <qualifiedname>FSISolver::compute_solver_specific_errors</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a91b18b78b3a012db616a3cda4c418914">compute_solver_specific_errors</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Errors for lambda on the relevant boundaries </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="164" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="3426" bodyend="3452"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1ab7f26a4c8251b1b77948d2cef19fa5b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::add_solver_specific_postprocessing_data</definition>
+        <argsstring>() override</argsstring>
+        <name>add_solver_specific_postprocessing_data</name>
+        <qualifiedname>FSISolver::add_solver_specific_postprocessing_data</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a56d282940881b16ba0d4b787578fad86">add_solver_specific_postprocessing_data</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add additional postprocessing data specific to each derived solver to the postprocessing handler. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="169" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="3455" bodyend="3480"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a445909b1b23b74da2efee84704012886" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::compare_forces_and_position_on_obstacle</definition>
+        <argsstring>() const</argsstring>
+        <name>compare_forces_and_position_on_obstacle</name>
+        <qualifiedname>FSISolver::compare_forces_and_position_on_obstacle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute integral of lambda (fluid force), compare to position dofs </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Cylinder is rigid, so all displacements should be identical for a given component. If first position dof, save displacement, otherwise compare with saved displacement.</para>
+<para>Cylinder displacement is trivially 0 on processes which do not own a part of the boundary, and is nontrivial otherwise. Taking the max to synchronize does not work because displacement can be negative. Instead, we take the max while preserving the sign.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="174" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="2884" bodyend="3056"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1ac4caf0f951a90fb4da3608a788ac3800" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::check_rigid_body_rotation_angles</definition>
+        <argsstring>() const</argsstring>
+        <name>check_rigid_body_rotation_angles</name>
+        <qualifiedname>FSISolver::check_rigid_body_rotation_angles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If rigid-body rotation is enabled, check that the rotation angles are identical across processes where it is defined. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="180" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="3059" bodyend="3103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a5d09f1369a5410c3b89970e2e2f0bbb5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::check_velocity_boundary</definition>
+        <argsstring>() const</argsstring>
+        <name>check_velocity_boundary</name>
+        <qualifiedname>FSISolver::check_velocity_boundary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="185" column="8" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="3106" bodyend="3117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1a120fb6080ca1f62c82ffd943612da4a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::solver_specific_post_processing</definition>
+        <argsstring>() override</argsstring>
+        <name>solver_specific_post_processing</name>
+        <qualifiedname>FSISolver::solver_specific_post_processing</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a6b6e103541171b2e0c8c735b6fa517f4">solver_specific_post_processing</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Post-process the additional data specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="187" column="16" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="3483" bodyend="3502"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_f_s_i_solver_1afb9b0d1c2eab370ff5e3dbe7d6d1f349" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt;</type>
+        <definition>virtual std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt; FSISolver&lt; dim &gt;::get_additional_variables_description</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_additional_variables_description</name>
+        <qualifiedname>FSISolver::get_additional_variables_description</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1af11dda60a13c7688cf79a2ef88280027">get_additional_variables_description</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the descriptions (name and number of components) of the variables solved for in the derived solvers, aside from velocity, pressure and mesh position. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="191" column="3" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="191" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1ab1232ce6c338b38fdd4cf226959d4b15" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const FESystem&lt; dim &gt; &amp;</type>
+        <definition>virtual const FESystem&lt; dim &gt; &amp; FSISolver&lt; dim &gt;::get_fe_system</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_fe_system</name>
+        <qualifiedname>FSISolver::get_fe_system</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a0f4f2ec48c7cc61661743d43cacbadf6">get_fe_system</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the FESystem of the derived solver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="198" column="26" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="198" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1aa5d0379be7d4cb46f1a56f87aa99e85b" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool FSISolver&lt; dim &gt;::uses_hp_capabilities</definition>
+        <argsstring>() const override</argsstring>
+        <name>uses_hp_capabilities</name>
+        <qualifiedname>FSISolver::uses_hp_capabilities</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1aebcfb0cd753eec7fc661717354ade6f4">uses_hp_capabilities</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if this solver uses hp capabilities </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="200" column="16" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="200" bodyend="200"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_f_s_i_solver_1a8c8e9d4627fde8ec22a32edac4e4afcf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; types::global_dof_index &gt;</type>
+        <definition>std::vector&lt; types::global_dof_index &gt; FSISolver&lt; dim &gt;::find_unused_lagrange_multiplier_dofs</definition>
+        <argsstring>(const unsigned int n_required_dofs)</argsstring>
+        <name>find_unused_lagrange_multiplier_dofs</name>
+        <qualifiedname>FSISolver::find_unused_lagrange_multiplier_dofs</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_required_dofs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Find and return <computeroutput>n_required_dofs</computeroutput> owned and unused Lagrange multiplier dofs. These dofs can then be repurposed as force accumulators, or to store algebraic equations relative to the movement of the rigid body.</para>
+<para>This is a little hack to avoid dealing with multiple dof_handlers... </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Choose the accumulator dofs as the first dim lambda dofs which are not located on the solid boundary, so that they do not affect the no-slip enforcement.</para>
+<para>Note that in 3D, a non-boundary face can still have edge or corner dofs on the solid boundary.</para>
+<para>Important: this (and most of the logic of this solver) is only true for Lagrange finite elements: in that case, the shape functions of the non-boundary lambda nodes are identically zero on the boundary, and thus do not affect the no-slip condition.</para>
+<para>The unused dof must be owned. It might not be possible to find enough unused dofs, based on the partition used, see the assert below.</para>
+<para>If there are too many partitions, there may not be enough unused owned lambda dofs, in which case there is not much we can do, aside from suggesting to use more elements/less MPI ranks.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="211" column="3" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="401" bodyend="553"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Derived class for the monolithic fluid-structure interaction solver. It is a somewhat &quot;niche&quot; class, which treats a single obstacle for now. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="1">
+        <label>FSISolver&lt; dim &gt;</label>
+        <link refid="class_f_s_i_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GenericSolver&lt; LA::ParVectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NavierStokesSolver&lt; dim, true &gt;</label>
+        <link refid="class_navier_stokes_solver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="6">
+        <label>FSISolver&lt; dim &gt;::RigidBodyRotation</label>
+        <link refid="struct_f_s_i_solver_1_1_rigid_body_rotation"/>
+      </node>
+      <node id="1">
+        <label>FSISolver&lt; dim &gt;</label>
+        <link refid="class_f_s_i_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>rigid_body_rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GenericSolver&lt; LA::ParVectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NavierStokesSolver&lt; dim, true &gt;</label>
+        <link refid="class_navier_stokes_solver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>time_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>TimeHandler</label>
+        <link refid="class_time_handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/monolithic_fsi_solver.h" line="34" column="1" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="35" bodyend="424"/>
+    <listofallmembers>
+      <member refid="class_navier_stokes_solver_1a9a4264d51d48627a356452430441413b" prot="public" virt="virtual"><scope>FSISolver</scope><name>adapt_mesh</name></member>
+      <member refid="class_f_s_i_solver_1ab4901a384da871b7044ecc20818e4085" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>add_algebraic_position_coupling_to_matrix</name></member>
+      <member refid="class_f_s_i_solver_1ad6215b5c48774e5a8b3cacabc3746a80" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>add_algebraic_position_coupling_to_rhs</name></member>
+      <member refid="class_f_s_i_solver_1ab7f26a4c8251b1b77948d2cef19fa5b8" prot="public" virt="virtual"><scope>FSISolver</scope><name>add_solver_specific_postprocessing_data</name></member>
+      <member refid="class_f_s_i_solver_1ac9a74233780edc2f9eaff95123b898e9" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>all_lambda_accumulators</name></member>
+      <member refid="class_f_s_i_solver_1a92fa36b7e9bec44f439e3c9829d4acab" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>assemble_local_matrix</name></member>
+      <member refid="class_f_s_i_solver_1a166fbd0ce5c519918c64edc7522088ca" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>assemble_local_rhs</name></member>
+      <member refid="class_f_s_i_solver_1a6133d4d41523f7d60f74cb64d26f67ad" prot="public" virt="virtual"><scope>FSISolver</scope><name>assemble_matrix</name></member>
+      <member refid="class_f_s_i_solver_1aa1c68162a2759bfbb46b8b7d36e15998" prot="public" virt="virtual"><scope>FSISolver</scope><name>assemble_rhs</name></member>
+      <member refid="class_f_s_i_solver_1a7c1064e4f55dbb5d70dfdf140c7eae65" prot="private" virt="non-virtual"><scope>FSISolver</scope><name>Assembler</name></member>
+      <member refid="class_f_s_i_solver_1ab3805c24cc3825f4608f91c2d24307c7" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>assemblers</name></member>
+      <member refid="class_navier_stokes_solver_1a5b4478f4b460ada98850dc3a1180d169" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>cellwise_refinement_criterion</name></member>
+      <member refid="class_f_s_i_solver_1a5fd6e088088f6048b74dfda13ff7349d" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>check_manufactured_solution_boundary</name></member>
+      <member refid="class_f_s_i_solver_1ac4caf0f951a90fb4da3608a788ac3800" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>check_rigid_body_rotation_angles</name></member>
+      <member refid="class_f_s_i_solver_1a5d09f1369a5410c3b89970e2e2f0bbb5" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>check_velocity_boundary</name></member>
+      <member refid="class_navier_stokes_solver_1a9f882e8f71210bce6392b45f18d77479" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>checkpoint</name></member>
+      <member refid="class_f_s_i_solver_1a8e6131d2b605eda83c7357d91ca6aa6a" prot="public" virt="virtual"><scope>FSISolver</scope><name>compare_analytical_matrix_with_fd</name></member>
+      <member refid="class_f_s_i_solver_1a445909b1b23b74da2efee84704012886" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compare_forces_and_position_on_obstacle</name></member>
+      <member refid="class_navier_stokes_solver_1aa270aec15ebda01ec5f7a9d5865aecc6" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_and_add_errors</name></member>
+      <member refid="class_navier_stokes_solver_1a0210d51142aaa5501a531976047c947e" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_dof_based_postprocessing</name></member>
+      <member refid="class_navier_stokes_solver_1abd7642da5120f6259c9c0a04066fbf05" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_error_estimate</name></member>
+      <member refid="class_navier_stokes_solver_1aa3407d3736ce147c9be14cfa61543530" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_errors</name></member>
+      <member refid="class_navier_stokes_solver_1a428e0f14c79d154f6b4c6149193d1745" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_field_integrals</name></member>
+      <member refid="class_navier_stokes_solver_1a0f2e7343205d5c45fe3a3e410af13477" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_forces</name></member>
+      <member refid="class_f_s_i_solver_1a79513bb0c0abc709c182923a504dfc26" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_lambda_error_on_boundary</name></member>
+      <member refid="class_navier_stokes_solver_1a17702caa0151ca48f8df11b91d907d63" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_max_cfl</name></member>
+      <member refid="class_navier_stokes_solver_1a65f73d005afdbcd89e6bd6de3bae75e6" prot="public" virt="virtual"><scope>FSISolver</scope><name>compute_reconstructions</name></member>
+      <member refid="class_navier_stokes_solver_1a85b2c88e68995dd276bcf55a1d230152" prot="public" virt="virtual"><scope>FSISolver</scope><name>compute_riemannian_metric</name></member>
+      <member refid="class_f_s_i_solver_1a12368548fada71f20eafb684e765db5c" prot="public" virt="virtual"><scope>FSISolver</scope><name>compute_solver_specific_errors</name></member>
+      <member refid="class_navier_stokes_solver_1a192f1dc5048e69f422281f1f20162d58" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>compute_structure_mean_position</name></member>
+      <member refid="class_generic_solver_1a19c3628c086e6a0d5a35560b1ce30ed3" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>computing_timer</name></member>
+      <member refid="class_f_s_i_solver_1a35427a8328ec19a4d1265454a1b8a4d0" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>const_ordering</name></member>
+      <member refid="class_navier_stokes_solver_1af11d9066fd86476f350b310342de81d7" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>constrained_pressure_dof</name></member>
+      <member refid="class_navier_stokes_solver_1a4a73b2b2b34f3c6452e895f86dbb9e27" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>constrained_pressure_support_point</name></member>
+      <member refid="class_f_s_i_solver_1a9cb1bcfe10dc61008f5f7c73c6dff493" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>copy_local_to_global_matrix</name></member>
+      <member refid="class_f_s_i_solver_1a71787a27e95db3f3e92dfd9285794198" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>copy_local_to_global_rhs</name></member>
+      <member refid="class_f_s_i_solver_1a3adaa78e05d63e4b56b61cb9748ca290" prot="private" virt="non-virtual"><scope>FSISolver</scope><name>CopyData</name></member>
+      <member refid="class_f_s_i_solver_1ad2be0342974c0ec46c74533933ea8c96" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>coupled_position_dofs</name></member>
+      <member refid="class_f_s_i_solver_1a3e73d6a5b146a8be61f2283f6a89c686" prot="private" virt="non-virtual"><scope>FSISolver</scope><name>Coupling</name></member>
+      <member refid="class_navier_stokes_solver_1aa5e335226e4dfd5ac042e68ca4aba589" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>coupling_table</name></member>
+      <member refid="class_navier_stokes_solver_1a60c13153c2602289fce8101fc2ee18bf" prot="public" virt="virtual"><scope>FSISolver</scope><name>create_base_constraints</name></member>
+      <member refid="class_f_s_i_solver_1a0779b9a16647d4ec5ad2f6696922553f" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>create_lagrange_multiplier_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a21572945b0e2ae106a26158edf83bfd7" prot="public" virt="virtual"><scope>FSISolver</scope><name>create_nonzero_constraints</name></member>
+      <member refid="class_f_s_i_solver_1aab8710e42940ff336051a3b4cea21803" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>create_position_lagrange_mult_coupling_data</name></member>
+      <member refid="class_f_s_i_solver_1a4297d8ca7da958607b7d50e1b78351dc" prot="public" virt="virtual"><scope>FSISolver</scope><name>create_scratch_data</name></member>
+      <member refid="class_f_s_i_solver_1a7eebadbe0da1adac1199940b73e4039d" prot="public" virt="virtual"><scope>FSISolver</scope><name>create_solver_specific_constraints_data</name></member>
+      <member refid="class_f_s_i_solver_1aa8099dc6e0b28e3f8d7e60645ba17026" prot="public" virt="virtual"><scope>FSISolver</scope><name>create_solver_specific_nonzero_constraints</name></member>
+      <member refid="class_f_s_i_solver_1a7a4cb0c649af698107383db4fea2f29c" prot="public" virt="virtual"><scope>FSISolver</scope><name>create_solver_specific_zero_constraints</name></member>
+      <member refid="class_f_s_i_solver_1a873658e23dd5b24d17f465a7a328c374" prot="public" virt="virtual"><scope>FSISolver</scope><name>create_sparsity_pattern</name></member>
+      <member refid="class_navier_stokes_solver_1a35ef1df1a519597491e1cf7afd627d56" prot="public" virt="virtual"><scope>FSISolver</scope><name>create_zero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1af1ef0a882f6592af774f2ac6cf9059e0" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>create_zero_mean_pressure_constraints_data</name></member>
+      <member refid="class_navier_stokes_solver_1ac44eafeceecc0a4dfa0f31e98bb326ea" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>direct_solver_reuse</name></member>
+      <member refid="class_generic_solver_1a7201687f3387085e6c02204ffb9e123b" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>distribute_nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a57ad356a2c7e351f4e566da0da44edbd" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>dof_handler</name></member>
+      <member refid="class_navier_stokes_solver_1af18e19729cac8012b78ea9941fdda6f6" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>dofs_to_component</name></member>
+      <member refid="class_navier_stokes_solver_1a8e95dcd6b28cb54b7cb418a3cc7952c2" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>error_face_quadrature</name></member>
+      <member refid="class_generic_solver_1a600ed6d3b56b637ec1015f38aea35163" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>error_handlers</name></member>
+      <member refid="class_navier_stokes_solver_1aa447a0ead82d0e128722b448c4ae9f88" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>error_quadrature</name></member>
+      <member refid="class_generic_solver_1a5734bd74a0b0d2d3c5950b1f08f28526" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1adb04b0cf420d23e5317cf2d7e7b5c4d5" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>exact_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a4461fe7fde1bcf852e55865ef36c1122" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>face_quadrature</name></member>
+      <member refid="class_f_s_i_solver_1a1558d3f3851e46e73f692f43c46e3527" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>fe</name></member>
+      <member refid="class_navier_stokes_solver_1a31515fe1d1c8531b73dfe24a55fa43cb" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>field_names_and_masks</name></member>
+      <member refid="class_navier_stokes_solver_1a48d998501630eeecc71a49375accfa0a" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>finalize</name></member>
+      <member refid="class_navier_stokes_solver_1a3d1f36ecc6b89311f6825baef0e946cb" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>finalize_interval</name></member>
+      <member refid="class_navier_stokes_solver_1ab1d01282a47026cfa98089f117e473ea" prot="public" virt="virtual"><scope>FSISolver</scope><name>finalize_interval_solver_specific</name></member>
+      <member refid="class_f_s_i_solver_1a8c8e9d4627fde8ec22a32edac4e4afcf" prot="private" virt="non-virtual"><scope>FSISolver</scope><name>find_unused_lagrange_multiplier_dofs</name></member>
+      <member refid="class_navier_stokes_solver_1a853d232cdcd773e23d8c121236e59990" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>fixed_mapping</name></member>
+      <member refid="class_f_s_i_solver_1a98ac6e59d54734ddb8ecdd24cac435f7" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>FSISolver</name></member>
+      <member refid="class_generic_solver_1a3ccc78d2ec40e5074088217f9178ea22" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>GenericSolver</name></member>
+      <member refid="class_f_s_i_solver_1afb9b0d1c2eab370ff5e3dbe7d6d1f349" prot="protected" virt="virtual"><scope>FSISolver</scope><name>get_additional_variables_description</name></member>
+      <member refid="class_navier_stokes_solver_1a72d36789fc5b37dd6b0881b9b4beded3" prot="protected" virt="virtual"><scope>FSISolver</scope><name>get_cell_quadrature_collection</name></member>
+      <member refid="class_navier_stokes_solver_1a947b8e83ba4d32ab1cf00533998eef3c" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_component_mask</name></member>
+      <member refid="class_navier_stokes_solver_1ac2909be372168e3d315b6762e2ec8fa4" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_dof_handler</name></member>
+      <member refid="class_generic_solver_1a71829c00801e12ba31b20d6d8936aeeb" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_error_handler</name></member>
+      <member refid="class_generic_solver_1a0b29381b97f14de5c24762a480d712fd" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1a51cb051475656a0525a354aec094b974" prot="protected" virt="virtual"><scope>FSISolver</scope><name>get_face_quadrature_collection</name></member>
+      <member refid="class_navier_stokes_solver_1a7c8785f651d71c39c4833296e596f00d" prot="protected" virt="virtual"><scope>FSISolver</scope><name>get_fe_collection</name></member>
+      <member refid="class_f_s_i_solver_1ab1232ce6c338b38fdd4cf226959d4b15" prot="protected" virt="virtual"><scope>FSISolver</scope><name>get_fe_system</name></member>
+      <member refid="class_navier_stokes_solver_1aebc219b364ba562f68527e27a3563b99" prot="protected" virt="virtual"><scope>FSISolver</scope><name>get_fixed_mapping_collection</name></member>
+      <member refid="class_generic_solver_1a7821dbf5c15a665d3b7726d000c6bc96" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_local_evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1a5a02e9504844b887bfe709c718489164" prot="protected" virt="virtual"><scope>FSISolver</scope><name>get_moving_mapping_collection</name></member>
+      <member refid="class_generic_solver_1af1efb1d4ee238c5148ee58283ea0fae9" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_newton_update</name></member>
+      <member refid="class_navier_stokes_solver_1a8f79696461bc9a69f2d20fedd9ada3af" prot="public" virt="virtual"><scope>FSISolver</scope><name>get_nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a75d7ec3ea3ddd9ae973bcb584877596f" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_parameters</name></member>
+      <member refid="class_navier_stokes_solver_1a4f9a3ac9c20593f184559fce1ef48894" prot="public" virt="virtual"><scope>FSISolver</scope><name>get_present_solution</name></member>
+      <member refid="class_generic_solver_1a10a1261c26aa9c11ceda08a574cec3a5" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_system_rhs</name></member>
+      <member refid="class_generic_solver_1af955926ba01980b191dd5e1b6ecff617" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>get_time_parameters</name></member>
+      <member refid="class_navier_stokes_solver_1a472a8376b286f4934100b9f68695ccc5" prot="private" virt="non-virtual"><scope>FSISolver</scope><name>get_variables_description</name></member>
+      <member refid="class_f_s_i_solver_1a78b135376ffb118564a410d119406d2d" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>global_lambda_accumulators</name></member>
+      <member refid="class_f_s_i_solver_1a3fbd29c89ce18491f7e69e239aaecf5d" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>global_position_master_dofs</name></member>
+      <member refid="class_f_s_i_solver_1ab27164186843e30e83bd45979c6d6596" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>has_cylinder_velocity_dofs</name></member>
+      <member refid="class_f_s_i_solver_1a2d9f07a6fa48251fb039b6685da38f40" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>has_global_accumulator</name></member>
+      <member refid="class_f_s_i_solver_1a065d55e46db16fdf85cbdd95dab03338" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>has_global_master_position_dofs</name></member>
+      <member refid="class_f_s_i_solver_1af5a1304b927805cc66697a18184739a1" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>has_local_lambda_accumulator</name></member>
+      <member refid="class_f_s_i_solver_1ae965cbca57de09e7b69f7599b4ae3809" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>has_local_position_master</name></member>
+      <member refid="class_f_s_i_solver_1a0ea824e1d54de29106ecf0206d15e026" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>has_rotation_angle</name></member>
+      <member refid="class_navier_stokes_solver_1a1dd90c0881dba50dadb41a36997b0232" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>initial_positions</name></member>
+      <member refid="class_navier_stokes_solver_1a56c44260e048cba5ba6ccd3202cde8b6" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>initialize</name></member>
+      <member refid="class_navier_stokes_solver_1ad2fa476671e05775879fe5eb27243a68" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>initialize_interval</name></member>
+      <member refid="class_navier_stokes_solver_1a117e5b8a7b08bc942db33cae5b7e87f1" prot="public" virt="virtual"><scope>FSISolver</scope><name>initialize_interval_solver_specific</name></member>
+      <member refid="class_f_s_i_solver_1ad5f4417231b545f79032274f5eb83cfb" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>lambda_constraints</name></member>
+      <member refid="class_f_s_i_solver_1a24593a4cfd870fef95a02d4730263b9e" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>lambda_extractor</name></member>
+      <member refid="class_f_s_i_solver_1ad584b96bb05050e3b758151ae081ea08" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>lambda_integral_coeffs</name></member>
+      <member refid="class_f_s_i_solver_1abe82a10666752bfd51b6ae5af02818aa" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>lambda_mask</name></member>
+      <member refid="class_f_s_i_solver_1a644264471708d96416c4b77406d3a812" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>lambda_torque_coeffs</name></member>
+      <member refid="class_navier_stokes_solver_1aecd54ac9fb4df200fbd06bd594dc64ec" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>load</name></member>
+      <member refid="class_f_s_i_solver_1a999d702f7d1254533ac40907d4515fed" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>local_cylinder_velocity_dofs</name></member>
+      <member refid="class_generic_solver_1a36c8d8067040f336a898ceeff371c0c6" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>local_evaluation_point</name></member>
+      <member refid="class_f_s_i_solver_1aa6c9b1ed688ab89aedc583318953e534" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>local_lambda_accumulators</name></member>
+      <member refid="class_f_s_i_solver_1afdda1678b06227e9d8334b968b7f379e" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>local_position_master_dofs</name></member>
+      <member refid="class_navier_stokes_solver_1aca82502b50d8dc56d9665f6800fee627" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>locally_owned_dofs</name></member>
+      <member refid="class_navier_stokes_solver_1a45de4bf57641d0c79c6ae1843e520a2a" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>locally_relevant_dofs</name></member>
+      <member refid="class_generic_solver_1a5c62d177cd9a249c85fb05190ad9975e" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>mesh_param</name></member>
+      <member refid="class_navier_stokes_solver_1a65d271a1b17628765931b62fb45b12fe" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>metric_for_adaptation</name></member>
+      <member refid="class_navier_stokes_solver_1adcdb121026de77bb7b420633747649ce" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>metrics</name></member>
+      <member refid="class_generic_solver_1a231b6929535d7e1834e9072f920d618b" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>mms_param</name></member>
+      <member refid="class_navier_stokes_solver_1adef518f0f93e6c57f183c81fb54538a3" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>moving_mapping</name></member>
+      <member refid="class_generic_solver_1a1d5beb4d77eb4f820b70542dedd31b99" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>mpi_communicator</name></member>
+      <member refid="class_generic_solver_1a6d6e03777028e3b4da9266d39bd28c20" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>mpi_rank</name></member>
+      <member refid="class_generic_solver_1a8758bd19d74796cfdd2c73d3d2a264c0" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>mpi_size</name></member>
+      <member refid="class_f_s_i_solver_1a1f59a60bb6dcada5911b8d98a449fb49" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>n_ranks_with_cylinder_velocity_dofs</name></member>
+      <member refid="class_f_s_i_solver_1a0e0683580672ef5874049597ec9820aa" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>n_ranks_with_lambda_accumulator</name></member>
+      <member refid="class_f_s_i_solver_1a178de3e6ee7817b8b42fddd850d6d5bd" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>n_ranks_with_position_master</name></member>
+      <member refid="class_navier_stokes_solver_1a0ae187dd8edd09f50bcb1f010d9120dc" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>NavierStokesSolver</name></member>
+      <member refid="class_generic_solver_1a3867a896778ee8b20ab6b78804cf1d9d" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>newton_update</name></member>
+      <member refid="class_generic_solver_1a4f4d1b5947c354c1db5fa3b955a84b7e" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>nonlinear_solver</name></member>
+      <member refid="class_navier_stokes_solver_1a7616f51da557a2c45781a988d484bc71" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>ordering</name></member>
+      <member refid="class_generic_solver_1a407d5fd2bb57b9cbeb0b1fcac2079a6c" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>output_param</name></member>
+      <member refid="class_navier_stokes_solver_1aa968f4117bc673e64b6daecae156cd71" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>output_results</name></member>
+      <member refid="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>param</name></member>
+      <member refid="class_navier_stokes_solver_1a2bfa9a69b85a6d34bec0e49b89cc2c79" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>patch_handlers</name></member>
+      <member refid="class_generic_solver_1af8d752e99fe0e3ab145f1d2fa67e0f9a" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>pcout</name></member>
+      <member refid="class_navier_stokes_solver_1afd40ae81ab35ab49cadc86183ef0b328" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>position_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a8d1017421dea4fcd148174fdf9360193" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>position_mask</name></member>
+      <member refid="class_navier_stokes_solver_1a1188bf7e95093f1f575067d945b0b621" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>postproc_handler</name></member>
+      <member refid="class_navier_stokes_solver_1a2f9cb465dbf409f20d7606cea7ad22f5" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>postprocess_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a6bcb217150afb70c898fccf317665211" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>prefix_data</name></member>
+      <member refid="class_navier_stokes_solver_1a7e929c748cfd613281099981a2397183" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>present_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a0a9538db2db7e5c525ead47c96f21c23" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>pressure_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a803369529100d844b35b4af36cf355c1" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>pressure_mask</name></member>
+      <member refid="class_navier_stokes_solver_1ac08db329fa72e8dba6851dcefbced4e1" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>previous_solutions</name></member>
+      <member refid="class_navier_stokes_solver_1a0ba946c47c6ff4ca89845e24002a40ac" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>quadrature</name></member>
+      <member refid="class_navier_stokes_solver_1a9811d0e6351914629f41c6cff297281e" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>recoveries</name></member>
+      <member refid="class_navier_stokes_solver_1ab7062c48b694b7e668d6059217b147c4" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>reinit_ghosted_vectors</name></member>
+      <member refid="class_f_s_i_solver_1a4ec4998699b90356c807b0bc1372cc56" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>remove_cylinder_velocity_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1ab7aaf49c836df3ec7573fcbbff8bd1d4" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>reset</name></member>
+      <member refid="class_f_s_i_solver_1aeb81cbf49e434cc39452d64d329e8cdc" prot="public" virt="virtual"><scope>FSISolver</scope><name>reset_solver_specific_data</name></member>
+      <member refid="class_navier_stokes_solver_1a9609ff15f6e0213153985cbe767e9f91" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>restart</name></member>
+      <member refid="class_f_s_i_solver_1abfa3c23cf1495e825fd2c87dad72ca5a" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>rigid_body_rotation</name></member>
+      <member refid="class_f_s_i_solver_1a97e5f4091999169c92e91f46a43ed6f4" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>rotation_angle_dof</name></member>
+      <member refid="class_navier_stokes_solver_1a628c47919d75c5c48da43dadb4d57985" prot="public" virt="virtual"><scope>FSISolver</scope><name>run</name></member>
+      <member refid="class_generic_solver_1aa535110f9d2518ba39bb8250afe78a1d" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>run_convergence_loop</name></member>
+      <member refid="class_generic_solver_1a3bbafb4d601a4a6963e37f18e66aec5f" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>run_fixed_point_loop</name></member>
+      <member refid="class_navier_stokes_solver_1a7890aef62800dcff0ab182d769a593ab" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>run_time_subinterval</name></member>
+      <member refid="class_navier_stokes_solver_1aeb497ba90ab310ad63ce6fa478c9e593" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>save</name></member>
+      <member refid="class_f_s_i_solver_1a77502ab968fd1fa799ac8ba1b314247d" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>scratch_data</name></member>
+      <member refid="class_f_s_i_solver_1ae1a09ac0f9638b86b69ec4e55908649c" prot="private" virt="non-virtual"><scope>FSISolver</scope><name>ScratchData</name></member>
+      <member refid="class_navier_stokes_solver_1a0c3e2dd7a4efe2be406e0715fb212172" prot="public" virt="virtual"><scope>FSISolver</scope><name>set_active_fe_indices</name></member>
+      <member refid="class_navier_stokes_solver_1a99f8e64420e39e780a8adb8dfff0e5cd" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>set_exact_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a75a77470e2a16504007bc7c31c58a244" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>set_initial_conditions</name></member>
+      <member refid="class_navier_stokes_solver_1a3318116cc7ffc61996bead7c4a5eb1e2" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>set_interval_data</name></member>
+      <member refid="class_navier_stokes_solver_1ada61577eefe77d58162f46d170522878" prot="public" virt="virtual"><scope>FSISolver</scope><name>set_solver_specific_exact_solution</name></member>
+      <member refid="class_f_s_i_solver_1a80dbee1d0ec57c123eb15bb15f47cbaf" prot="public" virt="virtual"><scope>FSISolver</scope><name>set_solver_specific_initial_conditions</name></member>
+      <member refid="class_navier_stokes_solver_1aa4e70ef690324141933b0dfb8b9ee795" prot="public" virt="virtual"><scope>FSISolver</scope><name>set_solver_specific_time</name></member>
+      <member refid="class_navier_stokes_solver_1aa9f9eb2ad3a5f3505d22feffc604da8b" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>set_time</name></member>
+      <member refid="class_f_s_i_solver_1aeaea9e99e7990592d868213cacdec7c2" prot="public" virt="virtual"><scope>FSISolver</scope><name>setup_assemblers</name></member>
+      <member refid="class_navier_stokes_solver_1a151d69c8e5e7c3e4bbfc5fc7c17ce747" prot="public" virt="virtual"><scope>FSISolver</scope><name>setup_dofs</name></member>
+      <member refid="class_navier_stokes_solver_1aa59464653668d93b905e16d3d6ce5d18" prot="public" virt="virtual"><scope>FSISolver</scope><name>setup_mappings</name></member>
+      <member refid="class_generic_solver_1aad9e83b6d58debd0043c81ef0576784a" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>should_adapt_mesh_at_end_of_intervals</name></member>
+      <member refid="class_generic_solver_1ab1bcebb5aef831308a26d02d9af66879" prot="public" virt="virtual"><scope>FSISolver</scope><name>should_adapt_tree_based_mesh</name></member>
+      <member refid="class_generic_solver_1a2b74324644565115a5d2d0e5515036d0" prot="public" virt="virtual"><scope>FSISolver</scope><name>should_add_error_reference_data</name></member>
+      <member refid="class_generic_solver_1a8cd14a62dfd77ec022e3936cac118e9e" prot="public" virt="virtual"><scope>FSISolver</scope><name>should_check_weakly_enforced_velocity</name></member>
+      <member refid="class_generic_solver_1a6965c82680272a2a4e79c7a87458cc2c" prot="public" virt="virtual"><scope>FSISolver</scope><name>should_compute_errors</name></member>
+      <member refid="class_generic_solver_1a6125f84dde8e1b6fc456f61cdc8771fa" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>should_compute_reconstructions</name></member>
+      <member refid="class_generic_solver_1a14dadc93a6d552e17f43fdedd4cf1ec7" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>should_compute_riemannian_metric</name></member>
+      <member refid="class_generic_solver_1aa13c027ad117c5e03368d87021ffd9f6" prot="public" virt="virtual"><scope>FSISolver</scope><name>should_create_triangulation</name></member>
+      <member refid="class_generic_solver_1a5a183941ee012a911f4fcee469630e3a" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>should_scale_and_grade_riemannian_metric</name></member>
+      <member refid="class_navier_stokes_solver_1a6c0b9eb16162e7b27f5548544a376a51" prot="public" virt="virtual"><scope>FSISolver</scope><name>solve_linear_system</name></member>
+      <member refid="class_generic_solver_1a7aaed7416c745ba959ad6f5bb3061b60" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>solve_nonlinear_problem</name></member>
+      <member refid="class_navier_stokes_solver_1a6e29882c15507afc264d6fb344ea6ee2" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>solver_control</name></member>
+      <member refid="class_f_s_i_solver_1a120fb6080ca1f62c82ffd943612da4a4" prot="public" virt="virtual"><scope>FSISolver</scope><name>solver_specific_post_processing</name></member>
+      <member refid="class_generic_solver_1a3176c6c1e6f72c16fa3d0d43ede8757f" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>solver_type</name></member>
+      <member refid="class_navier_stokes_solver_1aed0a59b7f03471a20c716614927585c7" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>source_terms</name></member>
+      <member refid="class_navier_stokes_solver_1aff6918feda6fe6e68191218707781534" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>system_matrix</name></member>
+      <member refid="class_generic_solver_1ac75de63dc7e91e671ce8540996c58b5f" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>system_rhs</name></member>
+      <member refid="class_navier_stokes_solver_1acac54510d82fbc7827a993e203f64996" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>time_handler</name></member>
+      <member refid="class_generic_solver_1a8988f9b2fb2ac2cc17a220cc5e26dd1e" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>time_param</name></member>
+      <member refid="class_navier_stokes_solver_1a5017c45f4c928ef4ed088dddeacaceb2" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>transient_fixed_point_data</name></member>
+      <member refid="class_navier_stokes_solver_1aa63fee077d836891cc947a8603e10083" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>triangulation</name></member>
+      <member refid="class_navier_stokes_solver_1a21f77a3d73741b0f47a8e021f1cdba9f" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>update_boundary_conditions</name></member>
+      <member refid="class_generic_solver_1aa7de51f079b8a6d22818789efcc8f776" prot="public" virt="virtual"><scope>FSISolver</scope><name>update_simulation_parameters</name></member>
+      <member refid="class_f_s_i_solver_1aa5d0379be7d4cb46f1a56f87aa99e85b" prot="protected" virt="virtual"><scope>FSISolver</scope><name>uses_hp_capabilities</name></member>
+      <member refid="class_navier_stokes_solver_1af4bb9d20328ea7c4fcccb095c40fe83d" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>velocity_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a620b3b1798cf6be70ea217b76c92abc0" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>velocity_mask</name></member>
+      <member refid="class_f_s_i_solver_1ab98f547e62f997f3533af26f14f89a88" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>weak_no_slip_boundary_id</name></member>
+      <member refid="class_navier_stokes_solver_1ab5f02acd1f1a5421214a193455371005" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>write_forces</name></member>
+      <member refid="class_navier_stokes_solver_1a697e78827fb176e1f8a1a124fc2f00d4" prot="public" virt="non-virtual"><scope>FSISolver</scope><name>write_structure_mean_position</name></member>
+      <member refid="class_navier_stokes_solver_1a83144de4cd395115d8ce483d90fa3c9b" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>zero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a3cfc34184fdb2e76e5c94056181a6f36" prot="protected" virt="non-virtual"><scope>FSISolver</scope><name>zero_mean_pressure_weights</name></member>
+      <member refid="class_f_s_i_solver_1a5b5080f1f946a0ea8dafc601b09b38e4" prot="public" virt="virtual"><scope>FSISolver</scope><name>~FSISolver</name></member>
+      <member refid="class_generic_solver_1afbeabded407d0ea9875045cc9c2a61d4" prot="public" virt="virtual"><scope>FSISolver</scope><name>~GenericSolver</name></member>
+      <member refid="class_navier_stokes_solver_1ade74be154a84e6766c6e15e2ef04d4bb" prot="public" virt="virtual"><scope>FSISolver</scope><name>~NavierStokesSolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

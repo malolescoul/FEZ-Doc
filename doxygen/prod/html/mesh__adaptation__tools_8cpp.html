@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — CHNS ALE · branche personnelle: Référence du fichier snapshots/prod/src/mesh_adaptation_tools.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — CHNS ALE · branche personnelle<span id="projectnumber">&#160;35d43b8e3bc4 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('mesh__adaptation__tools_8cpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier mesh_adaptation_tools.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;deal.II/base/quadrature_lib.h&gt;</code><br />
+<code>#include &lt;deal.II/distributed/grid_refinement.h&gt;</code><br />
+<code>#include &lt;deal.II/fe/fe_values.h&gt;</code><br />
+<code>#include &lt;deal.II/grid/grid_out.h&gt;</code><br />
+<code>#include &lt;mesh.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="mesh__adaptation__tools_8h_source.html">mesh_adaptation_tools.h</a>&gt;</code><br />
+<code>#include &lt;metric_field.h&gt;</code><br />
+<code>#include &lt;parameter_reader.h&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
+</div>
+<p><a href="mesh__adaptation__tools_8cpp_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Espaces de nommage</h2></td></tr>
+<tr class="memitem:MeshTools" id="r_MeshTools"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html">MeshTools</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ac0fc4ac06279ceab4a87f898151aa417" id="r_ac0fc4ac06279ceab4a87f898151aa417"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:ac0fc4ac06279ceab4a87f898151aa417 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#ac0fc4ac06279ceab4a87f898151aa417">MeshTools::mark_multifield_adaptation</a> (parallel::DistributedTriangulationBase&lt; dim &gt; &amp;tria, const std::vector&lt; Vector&lt; float &gt; &gt; &amp;indicators, const Parameters::Mesh::Adaptation::TreeAMR &amp;param)</td></tr>
+<tr class="memitem:aa947532ea487ef532172e6ad8bfcfbe6" id="r_aa947532ea487ef532172e6ad8bfcfbe6"><td class="memItemLeft">template void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#aa947532ea487ef532172e6ad8bfcfbe6">MeshTools::mark_multifield_adaptation</a> (parallel::DistributedTriangulationBase&lt; 2 &gt; &amp;, const std::vector&lt; Vector&lt; float &gt; &gt; &amp;, const Parameters::Mesh::Adaptation::TreeAMR &amp;)</td></tr>
+<tr class="memitem:ab183e4a9b37e7e68dbdabd4b5f59eae3" id="r_ab183e4a9b37e7e68dbdabd4b5f59eae3"><td class="memItemLeft">template void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#ab183e4a9b37e7e68dbdabd4b5f59eae3">MeshTools::mark_multifield_adaptation</a> (parallel::DistributedTriangulationBase&lt; 3 &gt; &amp;, const std::vector&lt; Vector&lt; float &gt; &gt; &amp;, const Parameters::Mesh::Adaptation::TreeAMR &amp;)</td></tr>
+<tr class="memitem:ab64caa32f406f0e279aa1f24ebffb53c" id="r_ab64caa32f406f0e279aa1f24ebffb53c"><td class="memTemplParams" colspan="2">template&lt;bool with_moving_mesh&gt; </td></tr>
+<tr class="memitem:ab64caa32f406f0e279aa1f24ebffb53c template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#ab64caa32f406f0e279aa1f24ebffb53c">MeshTools::compute_interface_band_criterion</a> (const DoFHandler&lt; 2 &gt; &amp;dof_handler, const Mapping&lt; 2 &gt; &amp;mapping, const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;solution, const unsigned int component, const double half_width, const double target_diameter, Vector&lt; float &gt; &amp;criteria)</td></tr>
+<tr class="memitem:a99a6e42917946f58f989a88611754837" id="r_a99a6e42917946f58f989a88611754837"><td class="memItemLeft">template void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#a99a6e42917946f58f989a88611754837">MeshTools::compute_interface_band_criterion&lt; false &gt;</a> (const DoFHandler&lt; 2 &gt; &amp;, const Mapping&lt; 2 &gt; &amp;, const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;, const unsigned int, const double, const double, Vector&lt; float &gt; &amp;)</td></tr>
+<tr class="memitem:a1c4cbb96b18f1af18265cd21ed40d82b" id="r_a1c4cbb96b18f1af18265cd21ed40d82b"><td class="memItemLeft">template void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#a1c4cbb96b18f1af18265cd21ed40d82b">MeshTools::compute_interface_band_criterion&lt; true &gt;</a> (const DoFHandler&lt; 2 &gt; &amp;, const Mapping&lt; 2 &gt; &amp;, const <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;, const unsigned int, const double, const double, Vector&lt; float &gt; &amp;)</td></tr>
+<tr class="memitem:aac4174a029f426526bb1f1ba42f04e09" id="r_aac4174a029f426526bb1f1ba42f04e09"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:aac4174a029f426526bb1f1ba42f04e09 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#aac4174a029f426526bb1f1ba42f04e09">MeshTools::adapt_with_mmg</a> (const ParameterReader&lt; dim &gt; &amp;param, const MetricField&lt; dim &gt; &amp;metric_field, const std::string &amp;adapt_directory, const std::string &amp;input_meshfile, const std::string &amp;output_meshfile, const unsigned int interval_index=0)</td></tr>
+<tr class="memitem:a6e2ecf206ba62f4268925d8c1d3888af" id="r_a6e2ecf206ba62f4268925d8c1d3888af"><td class="memItemLeft">template void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#a6e2ecf206ba62f4268925d8c1d3888af">MeshTools::adapt_with_mmg</a> (const ParameterReader&lt; 2 &gt; &amp;, const MetricField&lt; 2 &gt; &amp;, const std::string &amp;, const std::string &amp;, const std::string &amp;, const unsigned int)</td></tr>
+<tr class="memitem:a6345635ed5a9fc9a4f1611b06d92eee8" id="r_a6345635ed5a9fc9a4f1611b06d92eee8"><td class="memItemLeft">template void&#160;</td><td class="memItemRight"><a class="el" href="namespace_mesh_tools.html#a6345635ed5a9fc9a4f1611b06d92eee8">MeshTools::adapt_with_mmg</a> (const ParameterReader&lt; 3 &gt; &amp;, const MetricField&lt; 3 &gt; &amp;, const std::string &amp;, const std::string &amp;, const std::string &amp;, const unsigned int)</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_572db43f5fb4bb08ef27a34d9eec3105.html">snapshots</a></li><li class="navelem"><a href="dir_bbcf4d10dc2c11e4f91b65d875fc7b61.html">prod</a></li><li class="navelem"><a href="dir_33678157135ff5b3db7b572f92542cc7.html">src</a></li><li class="navelem"><a href="mesh__adaptation__tools_8cpp.html">mesh_adaptation_tools.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

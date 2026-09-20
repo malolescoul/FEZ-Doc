@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — CHNS ALE · branche personnelle:  Fichier source de snapshots/prod/include/elasticity_solver.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — CHNS ALE · branche personnelle<span id="projectnumber">&#160;35d43b8e3bc4 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('elasticity__solver_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">elasticity_solver.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="elasticity__solver_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LINEAR_ELASTICITY_SOLVER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define LINEAR_ELASTICITY_SOLVER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;assembly/assembler.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;components_ordering.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;<a class="code" href="copy__data_8h.html">copy_data.h</a>&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;deal.II/base/convergence_table.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;deal.II/base/index_set.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;deal.II/base/table_handler.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;deal.II/base/utilities.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;deal.II/distributed/fully_distributed_tria.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;deal.II/dofs/dof_handler.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;deal.II/fe/fe_simplex_p.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;deal.II/fe/fe_system.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;deal.II/fe/mapping_fe.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;deal.II/fe/mapping_fe_field.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;deal.II/lac/affine_constraints.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="generic__solver_8h.html">generic_solver.h</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;mumps_solver.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;parameter_reader.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;scratch_data_elasticity.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="time__handler_8h.html">time_handler.h</a>&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;<a class="code" href="types_8h.html">types.h</a>&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">using namespace </span>dealii;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * Solve the linear elasticity equation written for the mesh position :</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * - \nabla \cdot \sigma(x) + f = 0,</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * with \sigma(x) = 2\mu\epsilon(x) + \lambda\tr{\epsilon(x)} I.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * The infinitesimal strain tensor \epsilon(x) is written in terms of the mesh</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * position, and not in terms of displacement u, and thus writes:</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * \epsilon(x) = (\nabla(u) + \nabla(u)^T)/2</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> *             = (\nabla(x) + \nabla(x)^T)/2 - I</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * The source term f can either be evaluated on the reference configuration X,</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * or on the current configuration x(X), yielding a nonlinear problem.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * For the latter, the nonlinear solver may fail to find a solution if the</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * source term on the current mesh is too steep. To counteract this, a</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * continuation method is used, to progressively account for the source term,</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * and we actually solve :</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * - \nabla \cdot \sigma(x) + alpha * f(x(X)) = 0.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * This feature is controlled by the &quot;Elasticity&quot; subsection of the</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * parameter file. The continuation parameter alpha lies in the provided</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * [min_coeff, max_coeff] bracket, so that the last solved position field</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * satisfies :</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * - \nabla \cdot \sigma(x) + max_coeff * f(x(X)) = 0.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html">   57</a></span><span class="keyword">class </span><a class="code hl_function" href="class_elasticity_solver.html#ad8d35f51a4e1c1f5cf9428cd8af6f527">ElasticitySolver</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_generic_solver.html#a3ccc78d2ec40e5074088217f9178ea22">GenericSolver</a>&lt;LA::ParVectorType&gt;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a1cb4827c9faf3c904a3e86da4773f6e5">   59</a></span>  <span class="keyword">using </span><a class="code hl_typedef" href="class_elasticity_solver.html#a1cb4827c9faf3c904a3e86da4773f6e5">ScratchData</a> = ScratchDataElasticity&lt;dim&gt;;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a446e8b1f37aaa2ee5908ea63a0e2f85f">   60</a></span>  <span class="keyword">using </span><a class="code hl_typedef" href="class_elasticity_solver.html#a446e8b1f37aaa2ee5908ea63a0e2f85f">CopyData</a>    = <a class="code hl_class" href="class_copy_data_base.html">CopyDataBase&lt;1&gt;</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a2f69c195e6bd6231e538b9f23f360c29">   61</a></span>  <span class="keyword">using </span><a class="code hl_typedef" href="class_elasticity_solver.html#a2f69c195e6bd6231e538b9f23f360c29">Assembler</a>   = Assembly::AssemblerBase&lt;ScratchData, CopyData&gt;;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">   * Constructor. With @p with_enlarged_psi the presolver also carries the</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">   * enlarged Cahn-Hilliard marker psi as an extra finite-element field (hybrid</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">   * mode: analytic phi source, psi FE unknown), so the presolved mesh matches</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">   * the equilibrium of the enlarged CHNS-ALE solver. The physical tracer phi</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">   * stays analytic. The CHNS handoff copies the mesh position and, for the</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">   * enlarged solver, the reconstructed psi field.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">   * An optional reference triangulation is borrowed and must outlive the</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">   * solver. Its topology and reference vertices are left unchanged.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <a class="code hl_function" href="class_elasticity_solver.html#ad8d35f51a4e1c1f5cf9428cd8af6f527">ElasticitySolver</a>(<span class="keyword">const</span> ParameterReader&lt;dim&gt; &amp;<a class="code hl_variable" href="class_elasticity_solver.html#ae73f694336b37068a896439c79c2f38e">param</a>,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                   <span class="keyword">const</span> <span class="keywordtype">bool</span>                  <a class="code hl_variable" href="class_elasticity_solver.html#ac91873de9c9fc59da6c08d549b8fe2e0">with_enlarged_psi</a> = <span class="keyword">false</span>,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                   parallel::DistributedTriangulationBase&lt;dim&gt;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                     *reference_triangulation = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#aede390cb69ac7cc8d1be3c5a8689e4c0">   79</a></span>  <span class="keyword">virtual</span> <a class="code hl_function" href="class_elasticity_solver.html#aede390cb69ac7cc8d1be3c5a8689e4c0">~ElasticitySolver</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">   * Solve the elasticity problem</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a6cc0f96caadba38b0f0b8e41cc19b4b7">run</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a231fea58e0578e5d5c9108eba592f4e3">reset</a>();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#abb36609a30ab9e2afdb5d53ae89a7b21">set_time</a>();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a70dbcd1af15ed158ec496aecf9654662">setup_dofs</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#ad561fb21ea86e0ad9c241d3cfca6d141">create_base_constraints</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span>                 homogeneous,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                               AffineConstraints&lt;double&gt; &amp;constraints);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a3b9ea70e85a810f4c3a94ff0a97bebac">create_zero_constraints</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a0a1a5b722fecb31fc62013b156a2031c">create_nonzero_constraints</a>();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a2ed165a75656de8aee4d481a6a315dc5">   99</a></span>  <span class="keyword">virtual</span> AffineConstraints&lt;double&gt; &amp;<a class="code hl_function" href="class_elasticity_solver.html#a2ed165a75656de8aee4d481a6a315dc5">get_nonzero_constraints</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_elasticity_solver.html#a084edf58836f20c334d3809e574d9139">nonzero_constraints</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  }</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#aeea585ff35b347469f876f7197a72b15">update_boundary_conditions</a>();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"></span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">   * Create the volume and boundary assemblers for this solver.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#ac9fcaea678cc00a76dcc6860928f85e0">setup_assemblers</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#ab278fcc7afc5bf5c21323eb1fd77513a">create_sparsity_pattern</a>();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a19204da8473b6b0f2e866fbb19b03703">set_initial_conditions</a>();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a2c2e4a47a42a1a25a2afa26dded8014e">set_exact_solution</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a956be6cddfce1e397cfd84f1a4e42d11">solve_linear_system</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#ae79c5e1925644615584c69c0ecc44640">assemble_matrix</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a1d86ac561109ae3a5f8c82f21caadf98">assemble_local_matrix</a>(</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">const</span> <span class="keyword">typename</span> DoFHandler&lt;dim&gt;::active_cell_iterator &amp;cell,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_typedef" href="class_elasticity_solver.html#a1cb4827c9faf3c904a3e86da4773f6e5">ScratchData</a>                                          &amp;scratchData,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_typedef" href="class_elasticity_solver.html#a446e8b1f37aaa2ee5908ea63a0e2f85f">CopyData</a>                                             &amp;copy_data);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#ab48df5222a268507224b0e8fc6546d01">assemble_local_matrix_finite_differences</a>(</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">const</span> <span class="keyword">typename</span> DoFHandler&lt;dim&gt;::active_cell_iterator &amp;cell,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_typedef" href="class_elasticity_solver.html#a1cb4827c9faf3c904a3e86da4773f6e5">ScratchData</a>                                          &amp;scratchData,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_typedef" href="class_elasticity_solver.html#a446e8b1f37aaa2ee5908ea63a0e2f85f">CopyData</a>                                             &amp;copy_data);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a2afb2ad7643379f6b7bc6679e3471b43">copy_local_to_global_matrix</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="class_elasticity_solver.html#a446e8b1f37aaa2ee5908ea63a0e2f85f">CopyData</a> &amp;copy_data);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a16ad89cb0fc55553b0bd64e50ac7ba82">compare_analytical_matrix_with_fd</a>();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#ad07a6b420bf602c7811663225ecf7003">assemble_rhs</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  <a class="code hl_function" href="class_elasticity_solver.html#afba6f391b59a80283de71b24bd43732e">assemble_local_rhs</a>(<span class="keyword">const</span> <span class="keyword">typename</span> DoFHandler&lt;dim&gt;::active_cell_iterator &amp;cell,</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                     <a class="code hl_typedef" href="class_elasticity_solver.html#a1cb4827c9faf3c904a3e86da4773f6e5">ScratchData</a> &amp;scratchData,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                     <a class="code hl_typedef" href="class_elasticity_solver.html#a446e8b1f37aaa2ee5908ea63a0e2f85f">CopyData</a>    &amp;copy_data);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a371baf864c330c5dd6e89d7ca8cff8b4">copy_local_to_global_rhs</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="class_elasticity_solver.html#a446e8b1f37aaa2ee5908ea63a0e2f85f">CopyData</a> &amp;copy_data);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a560678263ad53f901cb648f15a50db6b">move_mesh</a>();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment"></span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">   * Write the final deformed mesh in Gmsh format while preserving the entities</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">   * and physical groups from the input mesh.</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#af97b88740776a1e1e8b0c8eee29e12b2">write_final_msh</a>();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"></span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">   * Try to load the presolved mesh position from the disk cache. The cache is</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">   * keyed by support-point location (so it is reusable with a different number</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">   * of MPI processes) and guarded by a fingerprint of the presolver-defining</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">   * parameters. In reuse mode, returns true on success and false when the</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">   * caller must recompute the presolved fields. Reads the mesh and sets up</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">   * the DoFs as a side effect.</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_elasticity_solver.html#afed746a871fc3dbd7dae95b773f241d0">try_load_presolved_mesh_cache</a>();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment"></span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">   * Write the presolved mesh position to the disk cache.</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#acbc352cc6ab5b353edfb627c6276819e">write_presolved_mesh_cache</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment"></span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">   * Canonical fingerprint of all parameters that affect the presolved mesh</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">   * position, used to invalidate a stale cache. Requires the DoFs to be set up.</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  std::string <a class="code hl_function" href="class_elasticity_solver.html#ad48b721f131fc783a860b53ee4615e2d">presolved_mesh_fingerprint</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#ab8b04ecaf400d415782c08e78d84132a">postprocess_solution</a>();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a432d90d15bdba54b75f5fb4eb5b7333a">compute_errors</a>();</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a1fcc661956a9c26211a2fe94bd191497">output_results</a>();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver.html#a1fcc661956a9c26211a2fe94bd191497">output_results</a>(<span class="keyword">const</span> Mapping&lt;dim&gt; &amp;output_mapping);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"></span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">   *</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>  <span class="keyword">const</span> ParameterReader&lt;dim&gt; &amp;<a class="code hl_function" href="class_elasticity_solver.html#aedbc211bad177f090120eff68ad909aa">get_parameters</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"></span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">   *</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  <span class="keyword">const</span> DoFHandler&lt;dim&gt; &amp;<a class="code hl_function" href="class_elasticity_solver.html#acf4b6a3edeb9348673ab7f7ef9a3c5c6">get_dof_handler</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment"></span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">   *</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">   */</span></div>
+<div class="foldopen" id="foldopen00193" data-start="{" data-end="}">
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a9edef44cc094f7d0cbdd382b62035e9d">  193</a></span>  <span class="keyword">virtual</span> <a class="code hl_typedef" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;<a class="code hl_function" href="class_elasticity_solver.html#a9edef44cc094f7d0cbdd382b62035e9d">get_present_solution</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="class_elasticity_solver.html#a116f2927544d74272852960c3eff81be">present_solution</a>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  }</div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a3018e1a90a32546df04473947c2d140a">  199</a></span>  ComponentOrdering <a class="code hl_variable" href="class_elasticity_solver.html#a3018e1a90a32546df04473947c2d140a">ordering</a>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#ae73f694336b37068a896439c79c2f38e">  201</a></span>  ParameterReader&lt;dim&gt; <a class="code hl_variable" href="class_elasticity_solver.html#ae73f694336b37068a896439c79c2f38e">param</a>;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#acc52291d7ce98cba6e7473dee8550f39">  203</a></span>  std::unique_ptr&lt;FESystem&lt;dim&gt;&gt; <a class="code hl_variable" href="class_elasticity_solver.html#acc52291d7ce98cba6e7473dee8550f39">fe</a>;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a25c73f925c03d403cff6cc81a82e42c8">  205</a></span>  std::unique_ptr&lt;Quadrature&lt;dim&gt;&gt;     <a class="code hl_variable" href="class_elasticity_solver.html#a25c73f925c03d403cff6cc81a82e42c8">quadrature</a>;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#ae3ebbd3acc79c60b0ee4b1f7e28b32fb">  206</a></span>  std::unique_ptr&lt;Quadrature&lt;dim&gt;&gt;     <a class="code hl_variable" href="class_elasticity_solver.html#ae3ebbd3acc79c60b0ee4b1f7e28b32fb">error_quadrature</a>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#ac5132e8cb7bde48515cb2f99df08a739">  207</a></span>  std::unique_ptr&lt;Quadrature&lt;dim - 1&gt;&gt; <a class="code hl_variable" href="class_elasticity_solver.html#ac5132e8cb7bde48515cb2f99df08a739">face_quadrature</a>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a5ee6adbb2257bac32742b4bdb96f156b">  208</a></span>  std::unique_ptr&lt;Quadrature&lt;dim - 1&gt;&gt; <a class="code hl_variable" href="class_elasticity_solver.html#a5ee6adbb2257bac32742b4bdb96f156b">error_face_quadrature</a>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>  std::unique_ptr&lt;parallel::fullydistributed::Triangulation&lt;dim&gt;&gt;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a1dcf3ff502e49f43d55386a1bcc09775">  211</a></span>    <a class="code hl_variable" href="class_elasticity_solver.html#a1dcf3ff502e49f43d55386a1bcc09775">owned_triangulation</a>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#aed81f42590a08cef6834ad06dfc75e9e">  212</a></span>  parallel::DistributedTriangulationBase&lt;dim&gt; &amp;<a class="code hl_variable" href="class_elasticity_solver.html#aed81f42590a08cef6834ad06dfc75e9e">triangulation</a>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#ade5225c53fbea0eb62e6900908577224">  213</a></span>  std::unique_ptr&lt;Mapping&lt;dim&gt;&gt;                  <a class="code hl_variable" href="class_elasticity_solver.html#ade5225c53fbea0eb62e6900908577224">mapping</a>;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#ae700ebccff5640cb67605abb9e824680">  214</a></span>  DoFHandler&lt;dim&gt;                                <a class="code hl_variable" href="class_elasticity_solver.html#ae700ebccff5640cb67605abb9e824680">dof_handler</a>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a570ffefedddf70672a4cc8bd9ca60038">  215</a></span>  <a class="code hl_class" href="class_time_handler.html">TimeHandler</a>                                    <a class="code hl_variable" href="class_elasticity_solver.html#a570ffefedddf70672a4cc8bd9ca60038">time_handler</a>;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a80c69dea235ddbaf7345728fe0304bb4">  217</a></span>  std::unique_ptr&lt;ScratchData&gt;            <a class="code hl_variable" href="class_elasticity_solver.html#a80c69dea235ddbaf7345728fe0304bb4">scratch_data</a>;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#ac03be4dfa4fc7913f246932d87676974">  218</a></span>  std::vector&lt;std::unique_ptr&lt;Assembler&gt;&gt; <a class="code hl_variable" href="class_elasticity_solver.html#ac03be4dfa4fc7913f246932d87676974">assemblers</a>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>  <span class="comment">// Enlarged-presolver mode: psi is carried as an extra FE field (component dim)</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>  <span class="comment">// to reconstruct the widened mesh-forcing marker. False for a plain presolve.</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#ac91873de9c9fc59da6c08d549b8fe2e0">  222</a></span>  <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_elasticity_solver.html#ac91873de9c9fc59da6c08d549b8fe2e0">with_enlarged_psi</a>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#ab96239577fcadcec954d09b5cb6330ee">  224</a></span>  FEValuesExtractors::Vector <a class="code hl_variable" href="class_elasticity_solver.html#ab96239577fcadcec954d09b5cb6330ee">position_extractor</a>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a1427b3519554fbdbae581d6b6db5ff57">  225</a></span>  ComponentMask              <a class="code hl_variable" href="class_elasticity_solver.html#a1427b3519554fbdbae581d6b6db5ff57">position_mask</a>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a870ce327ba9c0e779c43ec9d846a20ba">  226</a></span>  FEValuesExtractors::Scalar <a class="code hl_variable" href="class_elasticity_solver.html#a870ce327ba9c0e779c43ec9d846a20ba">psi_extractor</a>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a1d1708654aa52974ed63c854591c173c">  227</a></span>  ComponentMask              <a class="code hl_variable" href="class_elasticity_solver.html#a1d1708654aa52974ed63c854591c173c">psi_mask</a>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a1aa8ab3774fc3c666659398060dbdb4c">  229</a></span>  IndexSet <a class="code hl_variable" href="class_elasticity_solver.html#a1aa8ab3774fc3c666659398060dbdb4c">locally_owned_dofs</a>;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#acdf653f43c19810db68b78af1afc8943">  230</a></span>  IndexSet <a class="code hl_variable" href="class_elasticity_solver.html#acdf653f43c19810db68b78af1afc8943">locally_relevant_dofs</a>;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a144802f2303c3acfc9cf0a2ddf83d509">  232</a></span>  AffineConstraints&lt;double&gt; <a class="code hl_variable" href="class_elasticity_solver.html#a144802f2303c3acfc9cf0a2ddf83d509">zero_constraints</a>;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a084edf58836f20c334d3809e574d9139">  233</a></span>  AffineConstraints&lt;double&gt; <a class="code hl_variable" href="class_elasticity_solver.html#a084edf58836f20c334d3809e574d9139">nonzero_constraints</a>;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#adbfce27d36b8cfbac31b9f10d942fb2b">  235</a></span>  <a class="code hl_typedef" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> <a class="code hl_variable" href="class_elasticity_solver.html#adbfce27d36b8cfbac31b9f10d942fb2b">system_matrix</a>;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a116f2927544d74272852960c3eff81be">  237</a></span>  <a class="code hl_typedef" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> <a class="code hl_variable" href="class_elasticity_solver.html#a116f2927544d74272852960c3eff81be">present_solution</a>;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#af7bf0a777cd5e64e2ae95779b8b7c0da">  239</a></span>  std::shared_ptr&lt;Function&lt;dim&gt;&gt; <a class="code hl_variable" href="class_elasticity_solver.html#af7bf0a777cd5e64e2ae95779b8b7c0da">source_terms</a>;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#aa7b44ab0d3551282c056407f67494ee1">  240</a></span>  std::shared_ptr&lt;Function&lt;dim&gt;&gt; <a class="code hl_variable" href="class_elasticity_solver.html#aa7b44ab0d3551282c056407f67494ee1">exact_solution</a>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a4494c2c4229b56a2f0232ea76d7d4ee2">  242</a></span>  SolverControl                                          <a class="code hl_variable" href="class_elasticity_solver.html#a4494c2c4229b56a2f0232ea76d7d4ee2">solver_control</a>;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#a32987c34b31effdc82cfb0e7938e2145">  243</a></span>  std::unique_ptr&lt;PETScWrappers::SparseDirectMUMPSReuse&gt; <a class="code hl_variable" href="class_elasticity_solver.html#a32987c34b31effdc82cfb0e7938e2145">direct_solver_reuse</a>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment">   * Source term called when performing a convergence study.</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">   * This function calls the derivatives functions from the given</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment">   * pre-set manufactured solution.</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">   */</span></div>
+<div class="foldopen" id="foldopen00251" data-start="{" data-end="};">
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="class_elasticity_solver_1_1_m_m_s_source_term.html">  251</a></span>  <span class="keyword">class </span><a class="code hl_function" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a2ae8314f6a44efddd79350c9662ec843">MMSSourceTerm</a> : <span class="keyword">public</span> Function&lt;dim&gt;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  {</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>  <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00254" data-start="{" data-end="}">
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a2ae8314f6a44efddd79350c9662ec843">  254</a></span>    <a class="code hl_function" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a2ae8314f6a44efddd79350c9662ec843">MMSSourceTerm</a>(</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>      <span class="keyword">const</span> Parameters::PhysicalProperties&lt;dim&gt; &amp;<a class="code hl_variable" href="class_elasticity_solver_1_1_m_m_s_source_term.html#ae781c17c36c0e1ea540450d860967848">physical_properties</a>,</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>      <span class="keyword">const</span> ManufacturedSolutions::ManufacturedSolution&lt;dim&gt; &amp;<a class="code hl_variable" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a4c6cef3c7671d2c30bcb000c05526e56">mms</a>)</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>      : Function&lt;dim&gt;(dim)</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>      , <a class="code hl_variable" href="class_elasticity_solver_1_1_m_m_s_source_term.html#ae781c17c36c0e1ea540450d860967848">physical_properties</a>(<a class="code hl_variable" href="class_elasticity_solver_1_1_m_m_s_source_term.html#ae781c17c36c0e1ea540450d860967848">physical_properties</a>)</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>      , <a class="code hl_variable" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a4c6cef3c7671d2c30bcb000c05526e56">mms</a>(<a class="code hl_variable" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a4c6cef3c7671d2c30bcb000c05526e56">mms</a>)</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    {}</div>
+</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment"></span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment">     * Evaluate source term for the linear elasticity equation.</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a3e45debae6578c25974f3ca2c7232187">vector_value</a>(<span class="keyword">const</span> Point&lt;dim&gt; &amp;p,</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                              Vector&lt;double&gt;   &amp;values) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment"></span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment">     * Fill the given list of gradients.</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment">     */</span></div>
+<div class="foldopen" id="foldopen00271" data-start="{" data-end="}">
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a641f9629b08a2f5d8cbdaa17c163363c">  271</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a641f9629b08a2f5d8cbdaa17c163363c">vector_gradient_list</a>(</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>      <span class="keyword">const</span> std::vector&lt;Point&lt;dim&gt;&gt; &amp; <span class="comment">/*points*/</span>,</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>      std::vector&lt;std::vector&lt;Tensor&lt;1, dim&gt;&gt;&gt; &amp; <span class="comment">/*gradients*/</span>)<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>      <span class="comment">// Do nothing: this function is only there to be able to call</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>      <span class="comment">// vector_gradient_list in the ScratchData without throwing in debug mode.</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>      <span class="comment">// Source term gradient is only needed when the source term is evaluated</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      <span class="comment">// on the current configuration (mesh), which is never the case for an MMS</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>      <span class="comment">// source term.</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    }</div>
+</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="class_elasticity_solver_1_1_m_m_s_source_term.html#ae781c17c36c0e1ea540450d860967848">  283</a></span>    <span class="keyword">const</span> Parameters::PhysicalProperties&lt;dim&gt;              &amp;<a class="code hl_variable" href="class_elasticity_solver_1_1_m_m_s_source_term.html#ae781c17c36c0e1ea540450d860967848">physical_properties</a>;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a4c6cef3c7671d2c30bcb000c05526e56">  284</a></span>    <span class="keyword">const</span> ManufacturedSolutions::ManufacturedSolution&lt;dim&gt; &amp;<a class="code hl_variable" href="class_elasticity_solver_1_1_m_m_s_source_term.html#a4c6cef3c7671d2c30bcb000c05526e56">mms</a>;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>  };</div>
+</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>};</div>
+</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment">/* ---------------- template and inline functions ----------------- */</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="foldopen" id="foldopen00291" data-start="{" data-end="}">
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#aedbc211bad177f090120eff68ad909aa">  291</a></span><span class="keyword">const</span> ParameterReader&lt;dim&gt; &amp;<a class="code hl_function" href="class_elasticity_solver.html#aedbc211bad177f090120eff68ad909aa">ElasticitySolver&lt;dim&gt;::get_parameters</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="class_elasticity_solver.html#ae73f694336b37068a896439c79c2f38e">param</a>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>}</div>
+</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="foldopen" id="foldopen00297" data-start="{" data-end="}">
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="class_elasticity_solver.html#acf4b6a3edeb9348673ab7f7ef9a3c5c6">  297</a></span><span class="keyword">const</span> DoFHandler&lt;dim&gt; &amp;<a class="code hl_function" href="class_elasticity_solver.html#acf4b6a3edeb9348673ab7f7ef9a3c5c6">ElasticitySolver&lt;dim&gt;::get_dof_handler</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="class_elasticity_solver.html#ae700ebccff5640cb67605abb9e824680">dof_handler</a>;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>}</div>
+</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="ttc" id="aclass_copy_data_base_html"><div class="ttname"><a href="class_copy_data_base.html">CopyDataBase</a></div><div class="ttdef"><b>Définition</b> <a href="copy__data_8h_source.html#l00038">copy_data.h:39</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_1_1_m_m_s_source_term_html_a2ae8314f6a44efddd79350c9662ec843"><div class="ttname"><a href="class_elasticity_solver_1_1_m_m_s_source_term.html#a2ae8314f6a44efddd79350c9662ec843">ElasticitySolver::MMSSourceTerm::MMSSourceTerm</a></div><div class="ttdeci">MMSSourceTerm(const Parameters::PhysicalProperties&lt; dim &gt; &amp;physical_properties, const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp;mms)</div><div class="ttdef"><b>Définition</b> <a href="#l00254">elasticity_solver.h:254</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_1_1_m_m_s_source_term_html_a3e45debae6578c25974f3ca2c7232187"><div class="ttname"><a href="class_elasticity_solver_1_1_m_m_s_source_term.html#a3e45debae6578c25974f3ca2c7232187">ElasticitySolver::MMSSourceTerm::vector_value</a></div><div class="ttdeci">virtual void vector_value(const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00212">elasticity_solver.cpp:212</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_1_1_m_m_s_source_term_html_a4c6cef3c7671d2c30bcb000c05526e56"><div class="ttname"><a href="class_elasticity_solver_1_1_m_m_s_source_term.html#a4c6cef3c7671d2c30bcb000c05526e56">ElasticitySolver::MMSSourceTerm::mms</a></div><div class="ttdeci">const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp; mms</div><div class="ttdef"><b>Définition</b> <a href="#l00284">elasticity_solver.h:284</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_1_1_m_m_s_source_term_html_a641f9629b08a2f5d8cbdaa17c163363c"><div class="ttname"><a href="class_elasticity_solver_1_1_m_m_s_source_term.html#a641f9629b08a2f5d8cbdaa17c163363c">ElasticitySolver::MMSSourceTerm::vector_gradient_list</a></div><div class="ttdeci">virtual void vector_gradient_list(const std::vector&lt; Point&lt; dim &gt; &gt; &amp;, std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt; &amp;) const override</div><div class="ttdef"><b>Définition</b> <a href="#l00271">elasticity_solver.h:271</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_1_1_m_m_s_source_term_html_ae781c17c36c0e1ea540450d860967848"><div class="ttname"><a href="class_elasticity_solver_1_1_m_m_s_source_term.html#ae781c17c36c0e1ea540450d860967848">ElasticitySolver::MMSSourceTerm::physical_properties</a></div><div class="ttdeci">const Parameters::PhysicalProperties&lt; dim &gt; &amp; physical_properties</div><div class="ttdef"><b>Définition</b> <a href="#l00283">elasticity_solver.h:283</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a084edf58836f20c334d3809e574d9139"><div class="ttname"><a href="class_elasticity_solver.html#a084edf58836f20c334d3809e574d9139">ElasticitySolver::nonzero_constraints</a></div><div class="ttdeci">AffineConstraints&lt; double &gt; nonzero_constraints</div><div class="ttdef"><b>Définition</b> <a href="#l00233">elasticity_solver.h:233</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a0a1a5b722fecb31fc62013b156a2031c"><div class="ttname"><a href="class_elasticity_solver.html#a0a1a5b722fecb31fc62013b156a2031c">ElasticitySolver::create_nonzero_constraints</a></div><div class="ttdeci">void create_nonzero_constraints()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00430">elasticity_solver.cpp:430</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a116f2927544d74272852960c3eff81be"><div class="ttname"><a href="class_elasticity_solver.html#a116f2927544d74272852960c3eff81be">ElasticitySolver::present_solution</a></div><div class="ttdeci">LA::ParVectorType present_solution</div><div class="ttdef"><b>Définition</b> <a href="#l00237">elasticity_solver.h:237</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a1427b3519554fbdbae581d6b6db5ff57"><div class="ttname"><a href="class_elasticity_solver.html#a1427b3519554fbdbae581d6b6db5ff57">ElasticitySolver::position_mask</a></div><div class="ttdeci">ComponentMask position_mask</div><div class="ttdef"><b>Définition</b> <a href="#l00225">elasticity_solver.h:225</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a144802f2303c3acfc9cf0a2ddf83d509"><div class="ttname"><a href="class_elasticity_solver.html#a144802f2303c3acfc9cf0a2ddf83d509">ElasticitySolver::zero_constraints</a></div><div class="ttdeci">AffineConstraints&lt; double &gt; zero_constraints</div><div class="ttdef"><b>Définition</b> <a href="#l00232">elasticity_solver.h:232</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a16ad89cb0fc55553b0bd64e50ac7ba82"><div class="ttname"><a href="class_elasticity_solver.html#a16ad89cb0fc55553b0bd64e50ac7ba82">ElasticitySolver::compare_analytical_matrix_with_fd</a></div><div class="ttdeci">void compare_analytical_matrix_with_fd()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00571">elasticity_solver.cpp:571</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a19204da8473b6b0f2e866fbb19b03703"><div class="ttname"><a href="class_elasticity_solver.html#a19204da8473b6b0f2e866fbb19b03703">ElasticitySolver::set_initial_conditions</a></div><div class="ttdeci">void set_initial_conditions()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00454">elasticity_solver.cpp:454</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a1aa8ab3774fc3c666659398060dbdb4c"><div class="ttname"><a href="class_elasticity_solver.html#a1aa8ab3774fc3c666659398060dbdb4c">ElasticitySolver::locally_owned_dofs</a></div><div class="ttdeci">IndexSet locally_owned_dofs</div><div class="ttdef"><b>Définition</b> <a href="#l00229">elasticity_solver.h:229</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a1cb4827c9faf3c904a3e86da4773f6e5"><div class="ttname"><a href="class_elasticity_solver.html#a1cb4827c9faf3c904a3e86da4773f6e5">ElasticitySolver::ScratchData</a></div><div class="ttdeci">ScratchDataElasticity&lt; dim &gt; ScratchData</div><div class="ttdef"><b>Définition</b> <a href="#l00059">elasticity_solver.h:59</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a1d1708654aa52974ed63c854591c173c"><div class="ttname"><a href="class_elasticity_solver.html#a1d1708654aa52974ed63c854591c173c">ElasticitySolver::psi_mask</a></div><div class="ttdeci">ComponentMask psi_mask</div><div class="ttdef"><b>Définition</b> <a href="#l00227">elasticity_solver.h:227</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a1d86ac561109ae3a5f8c82f21caadf98"><div class="ttname"><a href="class_elasticity_solver.html#a1d86ac561109ae3a5f8c82f21caadf98">ElasticitySolver::assemble_local_matrix</a></div><div class="ttdeci">void assemble_local_matrix(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00537">elasticity_solver.cpp:537</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a1dcf3ff502e49f43d55386a1bcc09775"><div class="ttname"><a href="class_elasticity_solver.html#a1dcf3ff502e49f43d55386a1bcc09775">ElasticitySolver::owned_triangulation</a></div><div class="ttdeci">std::unique_ptr&lt; parallel::fullydistributed::Triangulation&lt; dim &gt; &gt; owned_triangulation</div><div class="ttdef"><b>Définition</b> <a href="#l00211">elasticity_solver.h:211</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a1fcc661956a9c26211a2fe94bd191497"><div class="ttname"><a href="class_elasticity_solver.html#a1fcc661956a9c26211a2fe94bd191497">ElasticitySolver::output_results</a></div><div class="ttdeci">virtual void output_results()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00684">elasticity_solver.cpp:684</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a231fea58e0578e5d5c9108eba592f4e3"><div class="ttname"><a href="class_elasticity_solver.html#a231fea58e0578e5d5c9108eba592f4e3">ElasticitySolver::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00224">elasticity_solver.cpp:224</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a25c73f925c03d403cff6cc81a82e42c8"><div class="ttname"><a href="class_elasticity_solver.html#a25c73f925c03d403cff6cc81a82e42c8">ElasticitySolver::quadrature</a></div><div class="ttdeci">std::unique_ptr&lt; Quadrature&lt; dim &gt; &gt; quadrature</div><div class="ttdef"><b>Définition</b> <a href="#l00205">elasticity_solver.h:205</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a2afb2ad7643379f6b7bc6679e3471b43"><div class="ttname"><a href="class_elasticity_solver.html#a2afb2ad7643379f6b7bc6679e3471b43">ElasticitySolver::copy_local_to_global_matrix</a></div><div class="ttdeci">void copy_local_to_global_matrix(const CopyData &amp;copy_data)</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00560">elasticity_solver.cpp:560</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a2c2e4a47a42a1a25a2afa26dded8014e"><div class="ttname"><a href="class_elasticity_solver.html#a2c2e4a47a42a1a25a2afa26dded8014e">ElasticitySolver::set_exact_solution</a></div><div class="ttdeci">void set_exact_solution()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00468">elasticity_solver.cpp:468</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a2ed165a75656de8aee4d481a6a315dc5"><div class="ttname"><a href="class_elasticity_solver.html#a2ed165a75656de8aee4d481a6a315dc5">ElasticitySolver::get_nonzero_constraints</a></div><div class="ttdeci">virtual AffineConstraints&lt; double &gt; &amp; get_nonzero_constraints() override</div><div class="ttdef"><b>Définition</b> <a href="#l00099">elasticity_solver.h:99</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a2f69c195e6bd6231e538b9f23f360c29"><div class="ttname"><a href="class_elasticity_solver.html#a2f69c195e6bd6231e538b9f23f360c29">ElasticitySolver::Assembler</a></div><div class="ttdeci">Assembly::AssemblerBase&lt; ScratchData, CopyData &gt; Assembler</div><div class="ttdef"><b>Définition</b> <a href="#l00061">elasticity_solver.h:61</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a3018e1a90a32546df04473947c2d140a"><div class="ttname"><a href="class_elasticity_solver.html#a3018e1a90a32546df04473947c2d140a">ElasticitySolver::ordering</a></div><div class="ttdeci">ComponentOrdering ordering</div><div class="ttdef"><b>Définition</b> <a href="#l00199">elasticity_solver.h:199</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a32987c34b31effdc82cfb0e7938e2145"><div class="ttname"><a href="class_elasticity_solver.html#a32987c34b31effdc82cfb0e7938e2145">ElasticitySolver::direct_solver_reuse</a></div><div class="ttdeci">std::unique_ptr&lt; PETScWrappers::SparseDirectMUMPSReuse &gt; direct_solver_reuse</div><div class="ttdef"><b>Définition</b> <a href="#l00243">elasticity_solver.h:243</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a371baf864c330c5dd6e89d7ca8cff8b4"><div class="ttname"><a href="class_elasticity_solver.html#a371baf864c330c5dd6e89d7ca8cff8b4">ElasticitySolver::copy_local_to_global_rhs</a></div><div class="ttdeci">void copy_local_to_global_rhs(const CopyData &amp;copy_data)</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00628">elasticity_solver.cpp:628</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a3b9ea70e85a810f4c3a94ff0a97bebac"><div class="ttname"><a href="class_elasticity_solver.html#a3b9ea70e85a810f4c3a94ff0a97bebac">ElasticitySolver::create_zero_constraints</a></div><div class="ttdeci">void create_zero_constraints()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00424">elasticity_solver.cpp:424</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a432d90d15bdba54b75f5fb4eb5b7333a"><div class="ttname"><a href="class_elasticity_solver.html#a432d90d15bdba54b75f5fb4eb5b7333a">ElasticitySolver::compute_errors</a></div><div class="ttdeci">void compute_errors()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l01134">elasticity_solver.cpp:1134</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a446e8b1f37aaa2ee5908ea63a0e2f85f"><div class="ttname"><a href="class_elasticity_solver.html#a446e8b1f37aaa2ee5908ea63a0e2f85f">ElasticitySolver::CopyData</a></div><div class="ttdeci">CopyDataBase&lt; 1 &gt; CopyData</div><div class="ttdef"><b>Définition</b> <a href="#l00060">elasticity_solver.h:60</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a4494c2c4229b56a2f0232ea76d7d4ee2"><div class="ttname"><a href="class_elasticity_solver.html#a4494c2c4229b56a2f0232ea76d7d4ee2">ElasticitySolver::solver_control</a></div><div class="ttdeci">SolverControl solver_control</div><div class="ttdef"><b>Définition</b> <a href="#l00242">elasticity_solver.h:242</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a560678263ad53f901cb648f15a50db6b"><div class="ttname"><a href="class_elasticity_solver.html#a560678263ad53f901cb648f15a50db6b">ElasticitySolver::move_mesh</a></div><div class="ttdeci">void move_mesh()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00733">elasticity_solver.cpp:733</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a570ffefedddf70672a4cc8bd9ca60038"><div class="ttname"><a href="class_elasticity_solver.html#a570ffefedddf70672a4cc8bd9ca60038">ElasticitySolver::time_handler</a></div><div class="ttdeci">TimeHandler time_handler</div><div class="ttdef"><b>Définition</b> <a href="#l00215">elasticity_solver.h:215</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a5ee6adbb2257bac32742b4bdb96f156b"><div class="ttname"><a href="class_elasticity_solver.html#a5ee6adbb2257bac32742b4bdb96f156b">ElasticitySolver::error_face_quadrature</a></div><div class="ttdeci">std::unique_ptr&lt; Quadrature&lt; dim - 1 &gt; &gt; error_face_quadrature</div><div class="ttdef"><b>Définition</b> <a href="#l00208">elasticity_solver.h:208</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a6cc0f96caadba38b0f0b8e41cc19b4b7"><div class="ttname"><a href="class_elasticity_solver.html#a6cc0f96caadba38b0f0b8e41cc19b4b7">ElasticitySolver::run</a></div><div class="ttdeci">virtual void run() override</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00258">elasticity_solver.cpp:258</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a70dbcd1af15ed158ec496aecf9654662"><div class="ttname"><a href="class_elasticity_solver.html#a70dbcd1af15ed158ec496aecf9654662">ElasticitySolver::setup_dofs</a></div><div class="ttdeci">void setup_dofs()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00376">elasticity_solver.cpp:376</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a80c69dea235ddbaf7345728fe0304bb4"><div class="ttname"><a href="class_elasticity_solver.html#a80c69dea235ddbaf7345728fe0304bb4">ElasticitySolver::scratch_data</a></div><div class="ttdeci">std::unique_ptr&lt; ScratchData &gt; scratch_data</div><div class="ttdef"><b>Définition</b> <a href="#l00217">elasticity_solver.h:217</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a870ce327ba9c0e779c43ec9d846a20ba"><div class="ttname"><a href="class_elasticity_solver.html#a870ce327ba9c0e779c43ec9d846a20ba">ElasticitySolver::psi_extractor</a></div><div class="ttdeci">FEValuesExtractors::Scalar psi_extractor</div><div class="ttdef"><b>Définition</b> <a href="#l00226">elasticity_solver.h:226</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a956be6cddfce1e397cfd84f1a4e42d11"><div class="ttname"><a href="class_elasticity_solver.html#a956be6cddfce1e397cfd84f1a4e42d11">ElasticitySolver::solve_linear_system</a></div><div class="ttdeci">virtual void solve_linear_system() override</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00639">elasticity_solver.cpp:639</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_a9edef44cc094f7d0cbdd382b62035e9d"><div class="ttname"><a href="class_elasticity_solver.html#a9edef44cc094f7d0cbdd382b62035e9d">ElasticitySolver::get_present_solution</a></div><div class="ttdeci">virtual LA::ParVectorType &amp; get_present_solution() override</div><div class="ttdef"><b>Définition</b> <a href="#l00193">elasticity_solver.h:193</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_aa7b44ab0d3551282c056407f67494ee1"><div class="ttname"><a href="class_elasticity_solver.html#aa7b44ab0d3551282c056407f67494ee1">ElasticitySolver::exact_solution</a></div><div class="ttdeci">std::shared_ptr&lt; Function&lt; dim &gt; &gt; exact_solution</div><div class="ttdef"><b>Définition</b> <a href="#l00240">elasticity_solver.h:240</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ab278fcc7afc5bf5c21323eb1fd77513a"><div class="ttname"><a href="class_elasticity_solver.html#ab278fcc7afc5bf5c21323eb1fd77513a">ElasticitySolver::create_sparsity_pattern</a></div><div class="ttdeci">void create_sparsity_pattern()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00436">elasticity_solver.cpp:436</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ab48df5222a268507224b0e8fc6546d01"><div class="ttname"><a href="class_elasticity_solver.html#ab48df5222a268507224b0e8fc6546d01">ElasticitySolver::assemble_local_matrix_finite_differences</a></div><div class="ttdeci">void assemble_local_matrix_finite_differences(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00523">elasticity_solver.cpp:523</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ab8b04ecaf400d415782c08e78d84132a"><div class="ttname"><a href="class_elasticity_solver.html#ab8b04ecaf400d415782c08e78d84132a">ElasticitySolver::postprocess_solution</a></div><div class="ttdeci">void postprocess_solution()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l01161">elasticity_solver.cpp:1161</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ab96239577fcadcec954d09b5cb6330ee"><div class="ttname"><a href="class_elasticity_solver.html#ab96239577fcadcec954d09b5cb6330ee">ElasticitySolver::position_extractor</a></div><div class="ttdeci">FEValuesExtractors::Vector position_extractor</div><div class="ttdef"><b>Définition</b> <a href="#l00224">elasticity_solver.h:224</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_abb36609a30ab9e2afdb5d53ae89a7b21"><div class="ttname"><a href="class_elasticity_solver.html#abb36609a30ab9e2afdb5d53ae89a7b21">ElasticitySolver::set_time</a></div><div class="ttdeci">void set_time()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00245">elasticity_solver.cpp:245</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ac03be4dfa4fc7913f246932d87676974"><div class="ttname"><a href="class_elasticity_solver.html#ac03be4dfa4fc7913f246932d87676974">ElasticitySolver::assemblers</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; Assembler &gt; &gt; assemblers</div><div class="ttdef"><b>Définition</b> <a href="#l00218">elasticity_solver.h:218</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ac5132e8cb7bde48515cb2f99df08a739"><div class="ttname"><a href="class_elasticity_solver.html#ac5132e8cb7bde48515cb2f99df08a739">ElasticitySolver::face_quadrature</a></div><div class="ttdeci">std::unique_ptr&lt; Quadrature&lt; dim - 1 &gt; &gt; face_quadrature</div><div class="ttdef"><b>Définition</b> <a href="#l00207">elasticity_solver.h:207</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ac91873de9c9fc59da6c08d549b8fe2e0"><div class="ttname"><a href="class_elasticity_solver.html#ac91873de9c9fc59da6c08d549b8fe2e0">ElasticitySolver::with_enlarged_psi</a></div><div class="ttdeci">const bool with_enlarged_psi</div><div class="ttdef"><b>Définition</b> <a href="#l00222">elasticity_solver.h:222</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ac9fcaea678cc00a76dcc6860928f85e0"><div class="ttname"><a href="class_elasticity_solver.html#ac9fcaea678cc00a76dcc6860928f85e0">ElasticitySolver::setup_assemblers</a></div><div class="ttdeci">void setup_assemblers()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00368">elasticity_solver.cpp:368</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_acbc352cc6ab5b353edfb627c6276819e"><div class="ttname"><a href="class_elasticity_solver.html#acbc352cc6ab5b353edfb627c6276819e">ElasticitySolver::write_presolved_mesh_cache</a></div><div class="ttdeci">void write_presolved_mesh_cache() const</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00975">elasticity_solver.cpp:975</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_acc52291d7ce98cba6e7473dee8550f39"><div class="ttname"><a href="class_elasticity_solver.html#acc52291d7ce98cba6e7473dee8550f39">ElasticitySolver::fe</a></div><div class="ttdeci">std::unique_ptr&lt; FESystem&lt; dim &gt; &gt; fe</div><div class="ttdef"><b>Définition</b> <a href="#l00203">elasticity_solver.h:203</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_acdf653f43c19810db68b78af1afc8943"><div class="ttname"><a href="class_elasticity_solver.html#acdf653f43c19810db68b78af1afc8943">ElasticitySolver::locally_relevant_dofs</a></div><div class="ttdeci">IndexSet locally_relevant_dofs</div><div class="ttdef"><b>Définition</b> <a href="#l00230">elasticity_solver.h:230</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_acf4b6a3edeb9348673ab7f7ef9a3c5c6"><div class="ttname"><a href="class_elasticity_solver.html#acf4b6a3edeb9348673ab7f7ef9a3c5c6">ElasticitySolver::get_dof_handler</a></div><div class="ttdeci">const DoFHandler&lt; dim &gt; &amp; get_dof_handler() const</div><div class="ttdef"><b>Définition</b> <a href="#l00297">elasticity_solver.h:297</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ad07a6b420bf602c7811663225ecf7003"><div class="ttname"><a href="class_elasticity_solver.html#ad07a6b420bf602c7811663225ecf7003">ElasticitySolver::assemble_rhs</a></div><div class="ttdeci">virtual void assemble_rhs() override</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00584">elasticity_solver.cpp:584</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ad48b721f131fc783a860b53ee4615e2d"><div class="ttname"><a href="class_elasticity_solver.html#ad48b721f131fc783a860b53ee4615e2d">ElasticitySolver::presolved_mesh_fingerprint</a></div><div class="ttdeci">std::string presolved_mesh_fingerprint() const</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00939">elasticity_solver.cpp:939</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ad561fb21ea86e0ad9c241d3cfca6d141"><div class="ttname"><a href="class_elasticity_solver.html#ad561fb21ea86e0ad9c241d3cfca6d141">ElasticitySolver::create_base_constraints</a></div><div class="ttdeci">void create_base_constraints(const bool homogeneous, AffineConstraints&lt; double &gt; &amp;constraints)</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00401">elasticity_solver.cpp:401</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ad8d35f51a4e1c1f5cf9428cd8af6f527"><div class="ttname"><a href="class_elasticity_solver.html#ad8d35f51a4e1c1f5cf9428cd8af6f527">ElasticitySolver::ElasticitySolver</a></div><div class="ttdeci">ElasticitySolver(const ParameterReader&lt; dim &gt; &amp;param, const bool with_enlarged_psi=false, parallel::DistributedTriangulationBase&lt; dim &gt; *reference_triangulation=nullptr)</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00097">elasticity_solver.cpp:97</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_adbfce27d36b8cfbac31b9f10d942fb2b"><div class="ttname"><a href="class_elasticity_solver.html#adbfce27d36b8cfbac31b9f10d942fb2b">ElasticitySolver::system_matrix</a></div><div class="ttdeci">LA::ParMatrixType system_matrix</div><div class="ttdef"><b>Définition</b> <a href="#l00235">elasticity_solver.h:235</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ade5225c53fbea0eb62e6900908577224"><div class="ttname"><a href="class_elasticity_solver.html#ade5225c53fbea0eb62e6900908577224">ElasticitySolver::mapping</a></div><div class="ttdeci">std::unique_ptr&lt; Mapping&lt; dim &gt; &gt; mapping</div><div class="ttdef"><b>Définition</b> <a href="#l00213">elasticity_solver.h:213</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ae3ebbd3acc79c60b0ee4b1f7e28b32fb"><div class="ttname"><a href="class_elasticity_solver.html#ae3ebbd3acc79c60b0ee4b1f7e28b32fb">ElasticitySolver::error_quadrature</a></div><div class="ttdeci">std::unique_ptr&lt; Quadrature&lt; dim &gt; &gt; error_quadrature</div><div class="ttdef"><b>Définition</b> <a href="#l00206">elasticity_solver.h:206</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ae700ebccff5640cb67605abb9e824680"><div class="ttname"><a href="class_elasticity_solver.html#ae700ebccff5640cb67605abb9e824680">ElasticitySolver::dof_handler</a></div><div class="ttdeci">DoFHandler&lt; dim &gt; dof_handler</div><div class="ttdef"><b>Définition</b> <a href="#l00214">elasticity_solver.h:214</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ae73f694336b37068a896439c79c2f38e"><div class="ttname"><a href="class_elasticity_solver.html#ae73f694336b37068a896439c79c2f38e">ElasticitySolver::param</a></div><div class="ttdeci">ParameterReader&lt; dim &gt; param</div><div class="ttdef"><b>Définition</b> <a href="#l00201">elasticity_solver.h:201</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_ae79c5e1925644615584c69c0ecc44640"><div class="ttname"><a href="class_elasticity_solver.html#ae79c5e1925644615584c69c0ecc44640">ElasticitySolver::assemble_matrix</a></div><div class="ttdeci">virtual void assemble_matrix() override</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00490">elasticity_solver.cpp:490</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_aed81f42590a08cef6834ad06dfc75e9e"><div class="ttname"><a href="class_elasticity_solver.html#aed81f42590a08cef6834ad06dfc75e9e">ElasticitySolver::triangulation</a></div><div class="ttdeci">parallel::DistributedTriangulationBase&lt; dim &gt; &amp; triangulation</div><div class="ttdef"><b>Définition</b> <a href="#l00212">elasticity_solver.h:212</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_aedbc211bad177f090120eff68ad909aa"><div class="ttname"><a href="class_elasticity_solver.html#aedbc211bad177f090120eff68ad909aa">ElasticitySolver::get_parameters</a></div><div class="ttdeci">const ParameterReader&lt; dim &gt; &amp; get_parameters() const</div><div class="ttdef"><b>Définition</b> <a href="#l00291">elasticity_solver.h:291</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_aede390cb69ac7cc8d1be3c5a8689e4c0"><div class="ttname"><a href="class_elasticity_solver.html#aede390cb69ac7cc8d1be3c5a8689e4c0">ElasticitySolver::~ElasticitySolver</a></div><div class="ttdeci">virtual ~ElasticitySolver()=default</div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_aeea585ff35b347469f876f7197a72b15"><div class="ttname"><a href="class_elasticity_solver.html#aeea585ff35b347469f876f7197a72b15">ElasticitySolver::update_boundary_conditions</a></div><div class="ttdeci">void update_boundary_conditions()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00480">elasticity_solver.cpp:480</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_af7bf0a777cd5e64e2ae95779b8b7c0da"><div class="ttname"><a href="class_elasticity_solver.html#af7bf0a777cd5e64e2ae95779b8b7c0da">ElasticitySolver::source_terms</a></div><div class="ttdeci">std::shared_ptr&lt; Function&lt; dim &gt; &gt; source_terms</div><div class="ttdef"><b>Définition</b> <a href="#l00239">elasticity_solver.h:239</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_af97b88740776a1e1e8b0c8eee29e12b2"><div class="ttname"><a href="class_elasticity_solver.html#af97b88740776a1e1e8b0c8eee29e12b2">ElasticitySolver::write_final_msh</a></div><div class="ttdeci">void write_final_msh()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00751">elasticity_solver.cpp:751</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_afba6f391b59a80283de71b24bd43732e"><div class="ttname"><a href="class_elasticity_solver.html#afba6f391b59a80283de71b24bd43732e">ElasticitySolver::assemble_local_rhs</a></div><div class="ttdeci">void assemble_local_rhs(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l00605">elasticity_solver.cpp:605</a></div></div>
+<div class="ttc" id="aclass_elasticity_solver_html_afed746a871fc3dbd7dae95b773f241d0"><div class="ttname"><a href="class_elasticity_solver.html#afed746a871fc3dbd7dae95b773f241d0">ElasticitySolver::try_load_presolved_mesh_cache</a></div><div class="ttdeci">bool try_load_presolved_mesh_cache()</div><div class="ttdef"><b>Définition</b> <a href="elasticity__solver_8cpp_source.html#l01029">elasticity_solver.cpp:1029</a></div></div>
+<div class="ttc" id="aclass_generic_solver_html_a3ccc78d2ec40e5074088217f9178ea22"><div class="ttname"><a href="class_generic_solver.html#a3ccc78d2ec40e5074088217f9178ea22">GenericSolver&lt; LA::ParVectorType &gt;::GenericSolver</a></div><div class="ttdeci">GenericSolver(const Parameters::Output &amp;output_param, const Parameters::NonLinearSolver &amp;nonlinear_solver_param, const Parameters::Timer &amp;timer_param, const Parameters::Mesh &amp;mesh_param, const Parameters::TimeIntegration &amp;time_param, const Parameters::MMS &amp;mms_param, const SolverInfo::SolverType solver_type)</div></div>
+<div class="ttc" id="aclass_time_handler_html"><div class="ttname"><a href="class_time_handler.html">TimeHandler</a></div><div class="ttdef"><b>Définition</b> <a href="time__handler_8h_source.html#l00023">time_handler.h:24</a></div></div>
+<div class="ttc" id="acopy__data_8h_html"><div class="ttname"><a href="copy__data_8h.html">copy_data.h</a></div></div>
+<div class="ttc" id="ageneric__solver_8h_html"><div class="ttname"><a href="generic__solver_8h.html">generic_solver.h</a></div></div>
+<div class="ttc" id="anamespace_l_a_html_a6cde9743803c7530f2daf44e83812bb0"><div class="ttname"><a href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a></div><div class="ttdeci">dealii::LinearAlgebraPETSc::MPI::SparseMatrix ParMatrixType</div><div class="ttdef"><b>Définition</b> <a href="types_8h_source.html#l00013">types.h:13</a></div></div>
+<div class="ttc" id="anamespace_l_a_html_a71486a471be13e3af27194053d6c8a4b"><div class="ttname"><a href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a></div><div class="ttdeci">dealii::LinearAlgebraPETSc::MPI::Vector ParVectorType</div><div class="ttdef"><b>Définition</b> <a href="types_8h_source.html#l00014">types.h:14</a></div></div>
+<div class="ttc" id="atime__handler_8h_html"><div class="ttname"><a href="time__handler_8h.html">time_handler.h</a></div></div>
+<div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_572db43f5fb4bb08ef27a34d9eec3105.html">snapshots</a></li><li class="navelem"><a href="dir_bbcf4d10dc2c11e4f91b65d875fc7b61.html">prod</a></li><li class="navelem"><a href="dir_cefe8159d9fcf64e4d97dbb6157a91be.html">include</a></li><li class="navelem"><a href="elasticity__solver_8h.html">elasticity_solver.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_f_s_i_solver_1_1_m_m_s_source_term" kind="class" language="C++" prot="public">
+    <compoundname>FSISolver::MMSSourceTerm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="monolithic__fsi__solver_8h" local="no">monolithic_fsi_solver.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_f_s_i_solver_1_1_m_m_s_source_term_1aaddcd1d3381d8562d2e4b1405551ede2" prot="protected" static="no" mutable="no">
+        <type>const ComponentOrdering &amp;</type>
+        <definition>const ComponentOrdering&amp; FSISolver&lt; dim &gt;::MMSSourceTerm::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>FSISolver::MMSSourceTerm::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="420" column="53" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1_1_m_m_s_source_term_1a7e588d97286e86ac51288b62aef810ef" prot="protected" static="no" mutable="no">
+        <type>const Parameters::PhysicalProperties&lt; dim &gt; &amp;</type>
+        <definition>const Parameters::PhysicalProperties&lt;dim&gt;&amp; FSISolver&lt; dim &gt;::MMSSourceTerm::physical_properties</definition>
+        <argsstring></argsstring>
+        <name>physical_properties</name>
+        <qualifiedname>FSISolver::MMSSourceTerm::physical_properties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="421" column="48" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="421" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1_1_m_m_s_source_term_1a7d0f7fffb6feb326881a94e54e1d5742" prot="protected" static="no" mutable="no">
+        <type>ManufacturedSolutions::ManufacturedSolution&lt; dim &gt;</type>
+        <definition>ManufacturedSolutions::ManufacturedSolution&lt;dim&gt; FSISolver&lt; dim &gt;::MMSSourceTerm::mms</definition>
+        <argsstring></argsstring>
+        <name>mms</name>
+        <qualifiedname>FSISolver::MMSSourceTerm::mms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="422" column="49" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="422" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_s_i_solver_1_1_m_m_s_source_term_1add6a2a1baa8899f3e1a8ce392ef3fdcc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FSISolver&lt; dim &gt;::MMSSourceTerm::MMSSourceTerm</definition>
+        <argsstring>(const double time, const ComponentOrdering &amp;ordering, const Parameters::PhysicalProperties&lt; dim &gt; &amp;physical_properties, const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp;mms)</argsstring>
+        <name>MMSSourceTerm</name>
+        <qualifiedname>FSISolver::MMSSourceTerm::MMSSourceTerm</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const Parameters::PhysicalProperties&lt; dim &gt; &amp;</type>
+          <declname>physical_properties</declname>
+        </param>
+        <param>
+          <type>const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp;</type>
+          <declname>mms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="370" column="5" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="370" bodyend="379"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1_1_m_m_s_source_term_1a21e362c66bfe6a2a645d0f7eca79b95c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FSISolver&lt; dim &gt;::MMSSourceTerm::set_time</definition>
+        <argsstring>(const double new_time) override</argsstring>
+        <name>set_time</name>
+        <qualifiedname>FSISolver::MMSSourceTerm::set_time</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="381" column="18" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="381" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1_1_m_m_s_source_term_1a2dcd7e9056faaf03d3a68e7935f6b796" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FSISolver&lt; dim &gt;::MMSSourceTerm::vector_value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</argsstring>
+        <name>vector_value</name>
+        <qualifiedname>FSISolver::MMSSourceTerm::vector_value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluate the combined velocity-pressure-position-lambda source terms. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="390" column="18" bodyfile="snapshots/master/src/monolithic_fsi_solver.cpp" bodystart="229" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1_1_m_m_s_source_term_1a7c1d2447f8acad385ad567d3dee974d9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FSISolver&lt; dim &gt;::MMSSourceTerm::vector_gradient</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;gradients) const override</argsstring>
+        <name>vector_gradient</name>
+        <qualifiedname>FSISolver::MMSSourceTerm::vector_gradient</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;</type>
+          <declname>gradients</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gradient of source term, using finite differences </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="397" column="5" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="397" bodyend="417"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Source term called when performing a convergence study. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FSISolver&lt; dim &gt;::MMSSourceTerm</label>
+        <link refid="class_f_s_i_solver_1_1_m_m_s_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FSISolver&lt; dim &gt;::MMSSourceTerm</label>
+        <link refid="class_f_s_i_solver_1_1_m_m_s_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/monolithic_fsi_solver.h" line="367" column="3" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="368" bodyend="423"/>
+    <listofallmembers>
+      <member refid="class_f_s_i_solver_1_1_m_m_s_source_term_1a7d0f7fffb6feb326881a94e54e1d5742" prot="protected" virt="non-virtual"><scope>FSISolver::MMSSourceTerm</scope><name>mms</name></member>
+      <member refid="class_f_s_i_solver_1_1_m_m_s_source_term_1add6a2a1baa8899f3e1a8ce392ef3fdcc" prot="public" virt="non-virtual"><scope>FSISolver::MMSSourceTerm</scope><name>MMSSourceTerm</name></member>
+      <member refid="class_f_s_i_solver_1_1_m_m_s_source_term_1aaddcd1d3381d8562d2e4b1405551ede2" prot="protected" virt="non-virtual"><scope>FSISolver::MMSSourceTerm</scope><name>ordering</name></member>
+      <member refid="class_f_s_i_solver_1_1_m_m_s_source_term_1a7e588d97286e86ac51288b62aef810ef" prot="protected" virt="non-virtual"><scope>FSISolver::MMSSourceTerm</scope><name>physical_properties</name></member>
+      <member refid="class_f_s_i_solver_1_1_m_m_s_source_term_1a21e362c66bfe6a2a645d0f7eca79b95c" prot="public" virt="virtual"><scope>FSISolver::MMSSourceTerm</scope><name>set_time</name></member>
+      <member refid="class_f_s_i_solver_1_1_m_m_s_source_term_1a7c1d2447f8acad385ad567d3dee974d9" prot="public" virt="virtual"><scope>FSISolver::MMSSourceTerm</scope><name>vector_gradient</name></member>
+      <member refid="class_f_s_i_solver_1_1_m_m_s_source_term_1a2dcd7e9056faaf03d3a68e7935f6b796" prot="public" virt="virtual"><scope>FSISolver::MMSSourceTerm</scope><name>vector_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

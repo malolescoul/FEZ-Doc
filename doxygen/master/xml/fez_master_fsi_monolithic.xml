@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="fez_master_fsi_monolithic" kind="page">
+    <compoundname>fez_master_fsi_monolithic</compoundname>
+    <title>FSI monolithique : une interface couplée</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="fez_master_fsi_monolithic_1md_guides_2master_2features_2fsi-monolithic"/></para>
+<para>Lecture ciblée de <computeroutput>master@ccf20caa0745cc2fe640f879d34acf2bf3855e6c</computeroutput>. Date de session : 19 septembre 2026 (New York).</para>
+<sect1 id="fez_master_fsi_monolithic_1autotoc_md12">
+<title>Où entrer</title><para>L’<ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/solvers/monolithic_fsi.cpp#L30-L44">exécutable monolithic_fsi.cpp</ulink> construit <bold><ref refid="class_f_s_i_solver" kindref="compound">FSISolver</ref></bold>, puis appelle <computeroutput>run()</computeroutput> ou la boucle MMS. Attention au nom : cette fiche concerne <computeroutput><ref refid="monolithic__fsi__solver_8h" kindref="compound">monolithic_fsi_solver.h</ref>/.cpp</computeroutput>. L’autre implémentation <computeroutput>fsi_solver.h/.cpp</computeroutput> devra être étudiée séparément.</para>
+<para><ref refid="class_f_s_i_solver" kindref="compound">FSISolver</ref> hérite de <computeroutput><ref refid="class_navier_stokes_solver" kindref="compound">NavierStokesSolver</ref>&lt;dim, true&gt;</computeroutput>. Son <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L31-L74">système d’éléments finis</ulink> associe <bold>vitesse u, pression p, position x et multiplicateur λ</bold>. La position du maillage est donc une inconnue du système.</para>
+<para>Le parcours hérité est visible dans la carte : <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L409-L415">run() initialise puis conduit les sous-intervalles</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L135-L157">initialize() configure les assembleurs par appel virtuel</ulink>, et <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L344-L365">le sous-intervalle déclenche la résolution non linéaire</ulink>. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/generic_solver.cpp#L245-L250">GenericSolver délègue à Newton</ulink>, qui <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L107-L111">appelle assemble_matrix() sur le solveur FSI quand un réassemblage est requis</ulink>.</para>
+</sect1>
+<sect1 id="fez_master_fsi_monolithic_1autotoc_md13">
+<title>Ce qui compose le système</title><para><ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L207-L225"><computeroutput>setup_assemblers()</computeroutput></ulink> configure trois familles : Navier–Stokes avec <computeroutput>divergence_form | pseudo_solid</computeroutput>, multiplicateur de Lagrange sur maillage mobile, élasticité du pseudo-solide. Le constructeur vérifie une seule frontière de non-glissement faible et la compatibilité de son identifiant avec la frontière couplée. Il refuse la pression de moyenne nulle sur maillage mobile dans cette version.</para>
+</sect1>
+<sect1 id="fez_master_fsi_monolithic_1autotoc_md14">
+<title>Le motif commun à CHNS</title><para><ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L2030-L2099"><computeroutput>assemble_matrix()</computeroutput></ulink> utilise le motif <bold>WorkStream → ScratchData → assembleurs → CopyData → contraintes homogènes → matrice globale → compress(add)</bold>. Ce motif est aussi présent dans CHNS. La ressemblance porte sur l’organisation du calcul ; elle ne prouve pas que les formulations physiques sont interchangeables.</para>
+<para>Spécificité FSI : une étape de <bold>couplage algébrique position–force</bold> est appelée après la compression si <computeroutput>enable_coupling</computeroutput>. Son <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L2179-L2226">entrée</ulink> récupère les lignes avant de modifier la matrice. Réordonner ces opérations pourrait modifier l’état d’assemblage requis par les itérateurs : c’est un contrat explicite dans le commentaire du code, pas un bug constaté.</para>
+</sect1>
+<sect1 id="fez_master_fsi_monolithic_1autotoc_md15">
+<title>Force, couple et distribution</title><para>Le <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/monolithic_fsi_solver.h#L234-L254">header</ulink> définit les coefficients de force à partir de l’intégrale de −λ et les coefficients de couple intrinsèque par rapport au centre du corps. Le <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L1309-L1335">contrôle de somme des poids de couple</ulink> effectue une réduction MPI puis vérifie une somme proche de zéro.</para>
+<para>Les indicateurs <computeroutput>has_local_position_master</computeroutput>, <computeroutput>has_local_lambda_accumulator</computeroutput>, <computeroutput>has_cylinder_velocity_dofs</computeroutput> et <computeroutput>has_rotation_angle</computeroutput> expriment une intention de stockage local ; ils ne remplacent pas un test de propriété dans <computeroutput>locally_owned_dofs</computeroutput>. Dans cette révision, les deux derniers sont activés par la présence d’une face de frontière sur une cellule owned, puis servent à demander des DoFs inutilisés pour la vitesse ou l’angle (<ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L828-L897">calcul des indicateurs</ulink>). La <ulink url="https://github.com/arthurbawin/fez/pull/93">PR #93</ulink> propose précisément de fonder ces deux décisions sur les DoFs de position possédés. Il faut distinguer intention de stockage, propriété effective et disponibilité comme fantôme avant de raisonner sur une lecture ou une écriture MPI. Aucun défaut n’a été reproduit ici.</para>
+</sect1>
+<sect1 id="fez_master_fsi_monolithic_1autotoc_md16">
+<title>Risques de propagation à vérifier</title><para><itemizedlist>
+<listitem><para>Modifier les composantes : vérifier extracteurs, masques et indices des termes couplés.</para>
+</listitem><listitem><para>Modifier ScratchData/CopyData : relire CHNS <bold>et</bold> FSI, les deux consomment ce motif.</para>
+</listitem><listitem><para>Modifier la distribution MPI : vérifier qui possède les DDL spéciaux, qui a leurs valeurs fantômes et qui écrit les lignes.</para>
+</listitem><listitem><para>Modifier forces/couples : relire l’origine physique de la pression et la convention de signe, ainsi que la stratégie de couplage.</para>
+</listitem></itemizedlist>
+</para>
+<para>Ces pistes sont des obligations de revue, pas des défauts démontrés. Aucun calcul FSI n’a été exécuté aujourd’hui. Lecture fine restante : variantes de couplage, rotation, différence entre les deux implémentations FSI, formulations des assembleurs de frontière et cas tests multi-rangs. </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/master/features/fsi-monolithic.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_f_s_i_solver_1_1_rigid_body_rotation" kind="struct" language="C++" prot="protected">
+    <compoundname>FSISolver::RigidBodyRotation</compoundname>
+    <includes refid="monolithic__fsi__solver_8h" local="no">monolithic_fsi_solver.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_s_i_solver_1_1_rigid_body_rotation_1a675faedeaba458c4ff265c5afce619ff" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FSISolver&lt; dim &gt;::RigidBodyRotation::initial_rotation_angle</definition>
+        <argsstring></argsstring>
+        <name>initial_rotation_angle</name>
+        <qualifiedname>FSISolver::RigidBodyRotation::initial_rotation_angle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>In 2D, the initial angle formed by the rod connecting the center of the solid to the center of rotation, w.r.t. the horizontal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="313" column="12" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_s_i_solver_1_1_rigid_body_rotation_1a5b5fc4000220066dcd3942b36e8068d4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FSISolver&lt; dim &gt;::RigidBodyRotation::rod_length</definition>
+        <argsstring></argsstring>
+        <name>rod_length</name>
+        <qualifiedname>FSISolver::RigidBodyRotation::rod_length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Length of the fictitious rod connecting the body&apos;s center of mass to the center of rotation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="319" column="12" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_s_i_solver_1_1_rigid_body_rotation_1a31873226a576db38cfc73f0e7f0ed594" prot="public" static="no" mutable="no">
+        <type>Point&lt; dim &gt;</type>
+        <definition>Point&lt;dim&gt; FSISolver&lt; dim &gt;::RigidBodyRotation::body_center</definition>
+        <argsstring></argsstring>
+        <name>body_center</name>
+        <qualifiedname>FSISolver::RigidBodyRotation::body_center</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Center of mass of the solid body. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="324" column="11" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/master/include/monolithic_fsi_solver.h" line="307" column="3" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="308" bodyend="325"/>
+    <listofallmembers>
+      <member refid="struct_f_s_i_solver_1_1_rigid_body_rotation_1a31873226a576db38cfc73f0e7f0ed594" prot="public" virt="non-virtual"><scope>FSISolver::RigidBodyRotation</scope><name>body_center</name></member>
+      <member refid="struct_f_s_i_solver_1_1_rigid_body_rotation_1a675faedeaba458c4ff265c5afce619ff" prot="public" virt="non-virtual"><scope>FSISolver::RigidBodyRotation</scope><name>initial_rotation_angle</name></member>
+      <member refid="struct_f_s_i_solver_1_1_rigid_body_rotation_1a5b5fc4000220066dcd3942b36e8068d4" prot="public" virt="non-virtual"><scope>FSISolver::RigidBodyRotation</scope><name>rod_length</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

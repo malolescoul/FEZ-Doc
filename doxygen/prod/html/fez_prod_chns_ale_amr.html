@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — CHNS ALE · branche personnelle: CHNS–ALE et adaptation du maillage : première carte vérifiée</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — CHNS ALE · branche personnelle<span id="projectnumber">&#160;35d43b8e3bc4 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('fez_prod_chns_ale_amr.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">CHNS–ALE et adaptation du maillage : première carte vérifiée </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_guides_2prod_2features_2chns-ale-amr"></a></p>
+<blockquote class="doxtable">
+<p>État : lecture statique ciblée, premier jour. Branche <span class="tt">chns-ding-horriche-master-form</span>, commit <span class="tt">35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858</span>. Comparaison ponctuelle avec <span class="tt">master</span> à <span class="tt">ccf20caa0745cc2fe640f879d34acf2bf3855e6c</span>. Aucun build ni test exécuté. </p>
+</blockquote>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+Ce qu'il faut retenir</h1>
+<p>Le solveur CHNS mobile stocke la <b>position du maillage parmi les inconnues</b>. La géométrie utilisée pour intégrer les champs dépend donc du vecteur de solution. Une adaptation correcte doit transporter ensemble les champs physiques, les positions actuelles, les positions historiques BDF et, si nécessaire, la solution supplémentaire du contrôleur de pas de temps. L'ordre de restauration est déterminant : géométrie d'abord, conditions physiques ensuite.</p>
+<p>Le commit de tête, daté du 18 septembre 2026, s'intitule <b>Couple CHNS ALE with tree-based AMR</b>. Son message annonce le couplage presolver/AMR, Kelly multichamp, la bande d'interface et le transport de l'historique. Les paragraphes ci-dessous distinguent les éléments effectivement retrouvés dans le code des vérifications restant à mener. <a href="https://github.com/arthurbawin/fez/commit/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858">Commit</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Points d'entrée et responsabilités</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Entrée  </th><th class="markdownTableHeadNone">Responsabilité observée  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/solvers/incompressible_chns_ale.cpp#L32-L50"><span class="tt">solvers/incompressible_chns_ale.cpp</span></a>  </td><td class="markdownTableBodyNone">Lit les paramètres et instancie <span class="tt"><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt;2,true&gt;</span>. Le presolver externe n'est créé que hors AMR arborescent.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L91-L125"><span class="tt">CHNSSolver::initialize_solution</span></a>  </td><td class="markdownTableBodyNone">En ALE+AMR+presolver, crée le presolver sur la triangulation CHNS partagée, injecte les champs et reconstruit les contraintes.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L265-L428"><span class="tt">NavierStokesSolver::run_time_subinterval</span></a>  </td><td class="markdownTableBodyNone">Orchestre initialisation, préraffinement, pas de temps, adaptation et rotation de l'historique.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1433-L1517"><span class="tt">NavierStokesSolver::adapt_mesh</span></a>  </td><td class="markdownTableBodyNone">Rétablit la géométrie, les contraintes et les structures algébriques après modification du maillage.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L780-L924"><span class="tt">TransientFixedPointData</span></a>  </td><td class="markdownTableBodyNone">Marque le maillage, prépare le transport de tous les états, puis exécute raffinement/déraffinement.  </td></tr>
+</table>
+<p>La variante enlarged est instanciée comme <span class="tt"><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt;2,true,true&gt;</span> dans son exécutable. Le champ supplémentaire <span class="tt">psi</span> intervient dans le forçage du maillage et possède une équation de reconstruction ; ne pas l'assimiler à la phase physique <span class="tt">phi</span>. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/solvers/incompressible_chns_ale_enlarged.cpp#L32-L50">Entrée enlarged</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L819-L848">couplages</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Parcours 1 — préparer un état CHNS sur la géométrie comprimée</h1>
+<ol type="1">
+<li>Le solveur crée ses DoFs, mappings et contraintes.</li>
+<li>En simulation transitoire, premier intervalle, sans restart, avec ALE+AMR+presolver, les stratégies <b>FixedNumber et InterfaceBand</b> déclenchent <span class="tt">initialize_solution()</span> <b>avant</b> les préraffinements. Cette condition est explicite : ne pas la généraliser à FixedFraction. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L302-L316">Condition</a></li>
+<li><span class="tt">create_elasticity_presolver(param, with_enlarged, triangulation)</span> crée un <span class="tt"><a class="el" href="class_elasticity_solver.html">ElasticitySolver</a></span> empruntant la triangulation de référence. Le mode cache doit être <span class="tt">off</span> et l'export final msh désactivé pour cette combinaison. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/presolver_tools.h#L15-L42">Fabrique</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L133-L143">gardes CHNS</a></li>
+<li>Le presolver applique une continuation du multiplicateur de compression lorsque le forçage utilise <span class="tt">chns_form</span>, puis résout le problème non linéaire. Il ne relit pas un nouveau maillage lorsqu'une triangulation est empruntée. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/elasticity_solver.cpp#L258-L308">ElasticitySolver::run</a></li>
+<li>La position est injectée <b>avant</b> l'interpolation de vitesse et de traceur sur <span class="tt">moving_mapping</span>. Dans la variante enlarged, <span class="tt">psi</span> est aussi copié si les deux solveurs le possèdent. Le code exige la même triangulation pour le passage AMR. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L787-L905">Injection</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L758-L770">traceur</a></li>
+<li>Les contraintes de pression sont recréées sur la géométrie comprimée. Les historiques BDF sont initialisés avec cet état ; pendant le préraffinement, les champs initiaux sont réinterpolés en conservant la position transportée. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L103-L121">Initialisation CHNS</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L321-L342">préraffinement</a></li>
+</ol>
+<p><b>Pourquoi cela compte :</b> réévaluer une condition initiale physique sur le maillage de référence à la place de la géométrie comprimée change le champ réellement imposé. Réinitialiser seulement les positions présentes, mais pas leur passé BDF, peut introduire une vitesse de maillage artificielle. Ces conséquences sont des inférences directes du rôle de l'état et des assertions des tests, pas des bugs constatés.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Parcours 2 — décider où raffiner</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Kelly multichamp</h2>
+<p><span class="tt">compute_error_estimate()</span> calcule un indicateur séparé pour chaque variable choisie. En ALE, il multiplie l'indicateur par <span class="tt">sqrt(h_def/h_ref)</span>, avec <span class="tt">h_def</span> obtenu entre sommets mappés ; le commentaire précise que cela n'est pas le diamètre exact d'une cellule courbe de haut ordre. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1374-L1428">Indicateurs</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/mesh_adaptation_tools.h#L18-L30">diamètre</a></p>
+<p><span class="tt">mark_multifield_adaptation()</span> sélectionne indépendamment chaque champ non nul, combine le raffinement par union et le déraffinement par intersection. Lorsqu'un budget limite l'union, les cellules demandées par davantage de champs passent en premier ; <span class="tt">CellId</span> tranche les égalités, sans comparer les unités physiques des indicateurs. Le commentaire indique que l'équilibrage peut ajouter des cellules au-delà de ce budget de demandes. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation_tools.cpp#L28-L121">Sélection</a></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Bande autour de l'interface</h2>
+<p>La stratégie utilise le zéro du traceur, une demi-largeur et un diamètre cible exprimés en multiples de <span class="tt">epsilon_interface</span>. Elle est explicitement limitée à <b>2D et aux quadrilatères</b>. Le contour est échantillonné puis approché par segments, rassemblés avec MPI ; les cellules sont comparées à ce contour dans la géométrie mappée. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1344-L1367">Appel et limitation 2D</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation_tools.cpp#L189-L269">construction du contour</a></p>
+<p>Les critères valent +1 pour raffiner, 0 pour conserver et −1 pour demander un déraffinement. Les marges 1,1 sur la bande et 0,9 sur le diamètre limitent les oscillations ; le diamètre d'un parent ALE inactif est estimé à deux fois celui de l'enfant. Cela reste une approximation géométrique, explicitement codée. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation_tools.cpp#L271-L325">Décision</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Parcours 3 — transporter, puis reconstruire</h1>
+<p><span class="tt">adapt_mesh()</span> récupère l'éventuel état supplémentaire du contrôleur temporel. La couche d'adaptation prépare <span class="tt">present_solution + previous_solutions + additional_solution</span> avec des vecteurs fantômes avant <span class="tt">execute_coarsening_and_refinement()</span>. Après redistribution des DoFs, elle interpole vers des vecteurs ne contenant que les DoFs possédés, applique les contraintes, puis recopie vers les états du solveur. Voir la fiche <a class="el" href="fez_prod_distributed_state_transfer.html#md_guides_2prod_2patterns_2distributed-state-transfer" title="guides/prod/patterns/distributed-state-transfer.md">transfert d'état distribué</a>.</p>
+<p>Le point sensible est l'ordre ALE :</p>
+<ul>
+<li>transporter d'abord tous les états avec seulement les contraintes de nœuds pendants ;</li>
+<li>réimposer les positions de bord <b>courantes</b> ;</li>
+<li>rendre le <span class="tt">moving_mapping</span> cohérent via <span class="tt">evaluation_point</span> ;</li>
+<li>reconstruire pression, conditions physiques, parcimonie et solveur direct ;</li>
+<li>appliquer les contraintes physiques courantes à la solution courante.</li>
+</ul>
+<p>Les historiques reçoivent seulement les contraintes de nœuds pendants, afin de ne pas remplacer leurs valeurs de bord passées par celles du temps présent. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1453-L1516">Orchestration</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613">interpolation des états</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Assemblage : les premiers liens vérifiés</h1>
+<p><span class="tt"><a class="el" href="class_c_h_n_s_solver.html#af004d2c1786e4da0f929d51903556668">CHNSSolver::setup_assemblers()</a></span> installe les assembleurs CHNS et ajoute les assembleurs d'élasticité lorsque le maillage est mobile. La fabrique CHNS sélectionne les drapeaux de spécialisation à la compilation pour ALE, enlarged, stabilisation et Ding–Horriche. Elle impose notamment que la variante enlarged soit ALE. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L626-L641">Composition</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/assembly/incompressible_chns_assemblers.h#L369-L456">fabrique</a></p>
+<p>La table de parcimonie indique des dépendances autorisées, <b>pas un graphe d'appels ni une preuve qu'un coefficient est toujours non nul</b> : positions couplées à <span class="tt">x,phi,u</span>, également à <span class="tt">psi</span> en enlarged ; ligne de <span class="tt">psi</span> couplée à <span class="tt">psi,phi,mu,x</span>. Modifier une formulation doit faire relire à la fois assembleur, scratch et table de couplage. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/incompressible_chns_solver.cpp#L795-L859">Table</a></p>
+<p>La lecture complète des termes faibles, de leur Jacobienne et de leur cohérence mathématique est réservée à une prochaine session. Les passages de la grosse implémentation d'assemblage ont été repérés, pas audités intégralement.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Différence avec master effectivement lue</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Sujet  </th><th class="markdownTableHeadNone">master ccf20caa  </th><th class="markdownTableHeadNone">Branche personnelle 35d43b8e  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Variables Kelly  </td><td class="markdownTableBodyNone">Assertion limitant à une seule variable  </td><td class="markdownTableBodyNone">Indicateur indépendant par variable, combinaison des sélections  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Après adaptation  </td><td class="markdownTableBodyNone">Structures et contraintes reconstruites avant le transfert  </td><td class="markdownTableBodyNone">Chemin ALE restaurant d'abord la géométrie puis les conditions physiques  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">État temporel supplémentaire  </td><td class="markdownTableBodyNone">Transfert courant + historiques seulement  </td><td class="markdownTableBodyNone">Ajout d'un pointeur optionnel vers l'état supplémentaire  </td></tr>
+</table>
+<p>Sources master : <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L1183-L1242">indicateur et adaptation</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/mesh_adaptation/transient_fixed_point.cpp#L558-L603">transfert</a>. Cette comparaison porte sur ces fonctions ; elle n'affirme pas que les deux branches ne diffèrent que sur ces trois points.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Tests disponibles et statut</h1>
+<ul>
+<li><a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L80-L148"><span class="tt">amr_ale_transfer.cc</span></a> : deux raffinements puis un déraffinement ; contrôle solution présente, <span class="tt">evaluation_point</span>, historiques et géométrie avec un état exactement représentable. La même fixture couvre standard/enlarged et la pression moyenne ; un cas séparé contrôle l'évaluation des valeurs de bord sur la nouvelle géométrie.</li>
+<li><a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/chns_presolver_amr.cc#L95-L154"><span class="tt">chns_presolver_amr.cc</span></a> : interpolation initiale sur géométrie mobile, historiques cohérents, raffinement/déraffinement et conservation de l'état supplémentaire. Le test précise que le déraffinement par interpolation n'a pas à conserver exactement la masse.</li>
+<li>L'arbre GitHub contient des références <span class="tt">.mpirun=1.output</span> et <span class="tt">.mpirun=4.output</span> pour ces deux tests, ainsi que <span class="tt">presolver_amr</span>, <span class="tt">amr_ale_indicator</span>, <span class="tt">amr_interface_band</span>, <span class="tt">amr_multifield</span> et des cas d'intégration standard/enlarged. Leur présence n'est <b>pas</b> une preuve d'exécution réussie au commit courant.</li>
+<li>AMR+restart est explicitement refusé à l'exécution dans ce parcours. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L281-L286">Garde</a></li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Impacts à surveiller et suite de lecture</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Modification future  </th><th class="markdownTableHeadNone">Relations à revalider  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Ordre de <span class="tt">setup_mappings</span> / contraintes / transfert  </td><td class="markdownTableBodyNone">Géométrie ALE, BC physiques, poids de pression moyenne  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Nouveau champ ou changement de composants  </td><td class="markdownTableBodyNone"><span class="tt">ComponentOrdering</span>, masques, injection presolver, assembleurs, transport de l'état complet  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Nouveau contrôleur de pas de temps  </td><td class="markdownTableBodyNone">Existence, taille et renouvellement de <span class="tt">additional_solution</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Autre stratégie de préraffinement  </td><td class="markdownTableBodyNone">Condition <span class="tt">presolve_before_prerefinement</span> et conservation de la géométrie comprimée  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Maillage très courbe ou interface complexe  </td><td class="markdownTableBodyNone">Approximation entre sommets, échantillonnage du zéro, coût du rassemblement global des segments  </td></tr>
+</table>
+<p><b>Prochaine validation sur le PC de calcul :</b> exécuter les fixtures ciblées sur 1 et 4 rangs, relever les versions deal.II/PETSc/p4est et mesurer une situation où des cellules changent effectivement de propriétaire MPI. Aucun bug nouveau n'est affirmé à ce stade. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

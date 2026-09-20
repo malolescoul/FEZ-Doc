@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_mesh_tools" kind="namespace" language="C++">
+    <compoundname>MeshTools</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_mesh_tools_1a2b9e52387c74a54a0413e8522ac2b0b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double MeshTools::mapped_cell_diameter</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;mapping, const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell)</argsstring>
+        <name>mapped_cell_diameter</name>
+        <qualifiedname>MeshTools::mapped_cell_diameter</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/mesh_adaptation_tools.h" line="21" column="10" bodyfile="snapshots/prod/include/mesh_adaptation_tools.h" bodystart="21" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1ac0fc4ac06279ceab4a87f898151aa417" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void MeshTools::mark_multifield_adaptation</definition>
+        <argsstring>(parallel::DistributedTriangulationBase&lt; dim &gt; &amp;tria, const std::vector&lt; Vector&lt; float &gt; &gt; &amp;indicators, const Parameters::Mesh::Adaptation::TreeAMR &amp;param)</argsstring>
+        <name>mark_multifield_adaptation</name>
+        <qualifiedname>MeshTools::mark_multifield_adaptation</qualifiedname>
+        <param>
+          <type>parallel::DistributedTriangulationBase&lt; dim &gt; &amp;</type>
+          <declname>tria</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; Vector&lt; float &gt; &gt; &amp;</type>
+          <declname>indicators</declname>
+        </param>
+        <param>
+          <type>const Parameters::Mesh::Adaptation::TreeAMR &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Select independently for each nonzero field, then combine refinement by union and coarsening by intersection. Apply the cell budget to the union. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="28" column="3" bodyfile="snapshots/prod/src/mesh_adaptation_tools.cpp" bodystart="28" bodyend="122" declfile="snapshots/prod/include/mesh_adaptation_tools.h" declline="38" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1ab64caa32f406f0e279aa1f24ebffb53c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>with_moving_mesh</declname>
+            <defname>with_moving_mesh</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void MeshTools::compute_interface_band_criterion</definition>
+        <argsstring>(const DoFHandler&lt; 2 &gt; &amp;dof_handler, const Mapping&lt; 2 &gt; &amp;mapping, const LA::ParVectorType &amp;solution, const unsigned int component, const double half_width, const double target_diameter, Vector&lt; float &gt; &amp;criteria)</argsstring>
+        <name>compute_interface_band_criterion</name>
+        <qualifiedname>MeshTools::compute_interface_band_criterion</qualifiedname>
+        <param>
+          <type>const DoFHandler&lt; 2 &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; 2 &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>half_width</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>target_diameter</declname>
+        </param>
+        <param>
+          <type>Vector&lt; float &gt; &amp;</type>
+          <declname>criteria</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mark a physical band around the sampled zero contour of a scalar field. Criteria are +1 (refine), 0 (keep), -1 (coarsen). Cell sizes use the mapped mesh for ALE and the reference mesh otherwise. The contour and cell geometry are piecewise linear approximations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="189" column="8" bodyfile="snapshots/prod/src/mesh_adaptation_tools.cpp" bodystart="189" bodyend="327" declfile="snapshots/prod/include/mesh_adaptation_tools.h" declline="50" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1aac4174a029f426526bb1f1ba42f04e09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void MeshTools::adapt_with_mmg</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const MetricField&lt; dim &gt; &amp;metric_field, const std::string &amp;adapt_directory, const std::string &amp;input_meshfile, const std::string &amp;output_meshfile, const unsigned int interval_index=0)</argsstring>
+        <name>adapt_with_mmg</name>
+        <qualifiedname>MeshTools::adapt_with_mmg</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const MetricField&lt; dim &gt; &amp;</type>
+          <declname>metric_field</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>adapt_directory</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input_meshfile</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>output_meshfile</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adapt the mesh given by <computeroutput>input_meshfile</computeroutput> with the MMG library, using the Riemannian metric stored in <computeroutput>metric_field</computeroutput>. The adapted mesh will be written as <computeroutput>output_meshfile</computeroutput> in <computeroutput>adapt_directory</computeroutput>, together with auxiliary files. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="347" column="8" bodyfile="snapshots/prod/src/mesh_adaptation_tools.cpp" bodystart="347" bodyend="721" declfile="snapshots/prod/include/mesh_adaptation_tools.h" declline="65" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1aa947532ea487ef532172e6ad8bfcfbe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void MeshTools::mark_multifield_adaptation</definition>
+        <argsstring>(parallel::DistributedTriangulationBase&lt; 2 &gt; &amp;, const std::vector&lt; Vector&lt; float &gt; &gt; &amp;, const Parameters::Mesh::Adaptation::TreeAMR &amp;)</argsstring>
+        <name>mark_multifield_adaptation</name>
+        <qualifiedname>MeshTools::mark_multifield_adaptation</qualifiedname>
+        <param>
+          <type>parallel::DistributedTriangulationBase&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const std::vector&lt; Vector&lt; float &gt; &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const Parameters::Mesh::Adaptation::TreeAMR &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="125" column="3" declfile="snapshots/prod/src/mesh_adaptation_tools.cpp" declline="125" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1ab183e4a9b37e7e68dbdabd4b5f59eae3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void MeshTools::mark_multifield_adaptation</definition>
+        <argsstring>(parallel::DistributedTriangulationBase&lt; 3 &gt; &amp;, const std::vector&lt; Vector&lt; float &gt; &gt; &amp;, const Parameters::Mesh::Adaptation::TreeAMR &amp;)</argsstring>
+        <name>mark_multifield_adaptation</name>
+        <qualifiedname>MeshTools::mark_multifield_adaptation</qualifiedname>
+        <param>
+          <type>parallel::DistributedTriangulationBase&lt; 3 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const std::vector&lt; Vector&lt; float &gt; &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const Parameters::Mesh::Adaptation::TreeAMR &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="129" column="3" declfile="snapshots/prod/src/mesh_adaptation_tools.cpp" declline="129" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1a99a6e42917946f58f989a88611754837" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void MeshTools::compute_interface_band_criterion&lt; false &gt;</definition>
+        <argsstring>(const DoFHandler&lt; 2 &gt; &amp;, const Mapping&lt; 2 &gt; &amp;, const LA::ParVectorType &amp;, const unsigned int, const double, const double, Vector&lt; float &gt; &amp;)</argsstring>
+        <name>compute_interface_band_criterion&lt; false &gt;</name>
+        <qualifiedname>MeshTools::compute_interface_band_criterion&lt; false &gt;</qualifiedname>
+        <param>
+          <type>const DoFHandler&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const Mapping&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &amp;</type>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>Vector&lt; float &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="329" column="12" declfile="snapshots/prod/src/mesh_adaptation_tools.cpp" declline="329" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1a1c4cbb96b18f1af18265cd21ed40d82b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void MeshTools::compute_interface_band_criterion&lt; true &gt;</definition>
+        <argsstring>(const DoFHandler&lt; 2 &gt; &amp;, const Mapping&lt; 2 &gt; &amp;, const LA::ParVectorType &amp;, const unsigned int, const double, const double, Vector&lt; float &gt; &amp;)</argsstring>
+        <name>compute_interface_band_criterion&lt; true &gt;</name>
+        <qualifiedname>MeshTools::compute_interface_band_criterion&lt; true &gt;</qualifiedname>
+        <param>
+          <type>const DoFHandler&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const Mapping&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &amp;</type>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>Vector&lt; float &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="337" column="12" declfile="snapshots/prod/src/mesh_adaptation_tools.cpp" declline="337" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1a6e2ecf206ba62f4268925d8c1d3888af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void MeshTools::adapt_with_mmg</definition>
+        <argsstring>(const ParameterReader&lt; 2 &gt; &amp;, const MetricField&lt; 2 &gt; &amp;, const std::string &amp;, const std::string &amp;, const std::string &amp;, const unsigned int)</argsstring>
+        <name>adapt_with_mmg</name>
+        <qualifiedname>MeshTools::adapt_with_mmg</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const MetricField&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="723" column="17" declfile="snapshots/prod/src/mesh_adaptation_tools.cpp" declline="723" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_mesh_tools_1a6345635ed5a9fc9a4f1611b06d92eee8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void MeshTools::adapt_with_mmg</definition>
+        <argsstring>(const ParameterReader&lt; 3 &gt; &amp;, const MetricField&lt; 3 &gt; &amp;, const std::string &amp;, const std::string &amp;, const std::string &amp;, const unsigned int)</argsstring>
+        <name>adapt_with_mmg</name>
+        <qualifiedname>MeshTools::adapt_with_mmg</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; 3 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const MetricField&lt; 3 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="729" column="17" declfile="snapshots/prod/src/mesh_adaptation_tools.cpp" declline="729" declcolumn="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/prod/include/mesh_adaptation_tools.h" line="18" column="1"/>
+  </compounddef>
+</doxygen>

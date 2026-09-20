@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>FEZ — référence master</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_guides_2master_2index"/></para>
+<para><bold>Jour 1 · source immuable : <ulink url="https://github.com/arthurbawin/fez/tree/ccf20caa0745cc2fe640f879d34acf2bf3855e6c">ccf20caa0745cc2fe640f879d34acf2bf3855e6c</ulink>.</bold></para>
+<para>Cette référence est générée sur un <bold>snapshot partiel</bold> : le noyau du solveur, le parcours CHNS, l’assemblage et la FSI monolithique. Elle associe les commentaires du code à des guides de lecture rédigés après étude statique. Aucun build FEZ ni test numérique n’a été lancé.</para>
+<sect1 id="index_1autotoc_md18">
+<title>Commencer par un parcours</title><para><orderedlist>
+<listitem><para><ref refid="fez_master_core_solver_1md_guides_2master_2features_2core-solver" kindref="member">Du programme CHNS à Newton</ref> : héritage, temps, résidu, incrément et contraintes.</para>
+</listitem><listitem><para><ref refid="fez_master_chns_assembly_1md_guides_2master_2features_2chns-assembly" kindref="member">Assemblage CHNS</ref> : préparation des données, contributions locales, copie globale et Jacobien.</para>
+</listitem><listitem><para><ref refid="fez_master_fsi_monolithic_1md_guides_2master_2features_2fsi-monolithic" kindref="member">FSI monolithique</ref> : inconnues de position, multiplicateurs, forces, couples et hypothèses MPI.</para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md19">
+<title>Entrées dans l’API</title><para><itemizedlist>
+<listitem><para><ref refid="class_c_h_n_s_solver" kindref="compound">CHNSSolver</ref> : choix des champs et des assembleurs CHNS.</para>
+</listitem><listitem><para><ref refid="class_navier_stokes_solver" kindref="compound">NavierStokesSolver</ref> : cycle de simulation et structures partagées.</para>
+</listitem><listitem><para><ref refid="class_generic_solver" kindref="compound">GenericSolver</ref> : interface du solveur non linéaire.</para>
+</listitem><listitem><para><ref refid="class_newton_solver" kindref="compound">NewtonSolver</ref> : résolution non linéaire et recherche linéaire.</para>
+</listitem><listitem><para><ref refid="class_f_s_i_solver" kindref="compound">FSISolver</ref> : uniquement l’implémentation monolithic_fsi_solver de ce snapshot.</para>
+</listitem><listitem><para>ScratchDataCHNS et <ref refid="class_copy_data_base" kindref="compound">CopyDataBase</ref> : lecture sur l’élément et résultat local.</para>
+</listitem></itemizedlist>
+</para>
+<para>Les noms présents deviennent des liens lorsque Doxygen les résout. Certaines classes externes et dépendances internes absentes du snapshot restent sans référence. L’index « Fichiers » donne accès au code source inclus.</para>
+</sect1>
+<sect1 id="index_1autotoc_md20">
+<title>Lire les liens avec leur preuve</title><para>Un lien source vers GitHub pointe sur le commit analysé, donc conserve le contexte exact des observations. Les pages API extraites reflètent également des commentaires historiques du dépôt : elles ne garantissent pas qu’une précondition implicite ait été auditée. Les explications validées et les limites sont distinguées dans les guides.</para>
+<para>Le contrat de l’assemblage reste essentiel : le second membre contient le négatif du résidu ; les contraintes homogènes s’appliquent à l’incrément. Le fait de rencontrer le même motif WorkStream dans CHNS et FSI n’autorise pas à transposer les formes physiques entre eux.</para>
+</sect1>
+<sect1 id="index_1autotoc_md21">
+<title>Limites de cette édition</title><para>La formulation mathématique complète, les spécialisations des templates, la communication PETSc/deal.II et les scénarios MPI n’ont pas tous été audités. Doxygen ne compile ni ne teste ces sources. Les graphes d’appel automatiques ne sont pas générés ; ils seraient incomplets sans toutes les dépendances et ne remplaceraient pas l’analyse de flux de données.</para>
+<para>La branche personnelle possède sa propre référence et son propre snapshot ; aucune signature provenant de cette branche n’a été mélangée à celle-ci. </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/master/index.md"/>
+  </compounddef>
+</doxygen>

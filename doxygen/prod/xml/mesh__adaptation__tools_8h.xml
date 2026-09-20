@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="mesh__adaptation__tools_8h" kind="file" language="C++">
+    <compoundname>mesh_adaptation_tools.h</compoundname>
+    <includes local="no">deal.II/base/mpi.h</includes>
+    <includes local="no">deal.II/distributed/tria_base.h</includes>
+    <includes local="no">deal.II/dofs/dof_handler.h</includes>
+    <includes local="no">deal.II/fe/mapping.h</includes>
+    <includes local="no">deal.II/grid/tria.h</includes>
+    <includes local="no">deal.II/lac/vector.h</includes>
+    <includes local="no">metric_field.h</includes>
+    <includes local="no">parameter_reader.h</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">cmath</includes>
+    <includedby refid="transient__fixed__point_8cpp" local="no">snapshots/prod/src/mesh_adaptation/transient_fixed_point.cpp</includedby>
+    <includedby refid="mesh__adaptation__tools_8cpp" local="no">snapshots/prod/src/mesh_adaptation_tools.cpp</includedby>
+    <includedby refid="navier__stokes__solver_8cpp" local="no">snapshots/prod/src/navier_stokes_solver.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>snapshots/prod/include/mesh_adaptation_tools.h</label>
+        <link refid="mesh__adaptation__tools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>algorithm</label>
+      </node>
+      <node id="11">
+        <label>cmath</label>
+      </node>
+      <node id="2">
+        <label>deal.II/base/mpi.h</label>
+      </node>
+      <node id="3">
+        <label>deal.II/distributed/tria_base.h</label>
+      </node>
+      <node id="4">
+        <label>deal.II/dofs/dof_handler.h</label>
+      </node>
+      <node id="5">
+        <label>deal.II/fe/mapping.h</label>
+      </node>
+      <node id="6">
+        <label>deal.II/grid/tria.h</label>
+      </node>
+      <node id="7">
+        <label>deal.II/lac/vector.h</label>
+      </node>
+      <node id="8">
+        <label>metric_field.h</label>
+      </node>
+      <node id="9">
+        <label>parameter_reader.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>snapshots/prod/include/mesh_adaptation_tools.h</label>
+        <link refid="mesh__adaptation__tools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>snapshots/prod/src/mesh_adaptation/transient_fixed_point.cpp</label>
+        <link refid="transient__fixed__point_8cpp"/>
+      </node>
+      <node id="3">
+        <label>snapshots/prod/src/mesh_adaptation_tools.cpp</label>
+        <link refid="mesh__adaptation__tools_8cpp"/>
+      </node>
+      <node id="4">
+        <label>snapshots/prod/src/navier_stokes_solver.cpp</label>
+        <link refid="navier__stokes__solver_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespace_mesh_tools">MeshTools</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MESH_ADAPTATION_TOOLS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MESH_ADAPTATION_TOOLS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/base/mpi.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/distributed/tria_base.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/dofs/dof_handler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/fe/mapping.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/grid/tria.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/vector.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;metric_field.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;parameter_reader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="namespace_mesh_tools" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_mesh_tools" kindref="compound">MeshTools</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="21" refid="namespace_mesh_tools_1a2b9e52387c74a54a0413e8522ac2b0b3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespace_mesh_tools_1a2b9e52387c74a54a0413e8522ac2b0b3" kindref="member">mapped_cell_diameter</ref>(</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Mapping&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;mapping,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;::active_cell_iterator<sp/>&amp;cell)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>vertices<sp/>=<sp/>mapping.get_vertices(cell);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>diameter<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>vertices.size();<sp/>++i)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>i<sp/>+<sp/>1;<sp/>j<sp/>&lt;<sp/>vertices.size();<sp/>++j)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>diameter<sp/>=<sp/>std::max(diameter,<sp/>vertices[i].distance(vertices[j]));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>diameter;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Select<sp/>independently<sp/>for<sp/>each<sp/>nonzero<sp/>field,<sp/>then<sp/>combine<sp/>refinement<sp/>by</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/>*<sp/>union<sp/>and<sp/>coarsening<sp/>by<sp/>intersection.<sp/>Apply<sp/>the<sp/>cell<sp/>budget<sp/>to<sp/>the<sp/>union.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespace_mesh_tools_1ac0fc4ac06279ceab4a87f898151aa417" kindref="member">mark_multifield_adaptation</ref>(</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>parallel::DistributedTriangulationBase&lt;dim&gt;<sp/>&amp;tria,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Vector&lt;float&gt;&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;indicators,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Parameters::Mesh::Adaptation::TreeAMR<sp/>&amp;param);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Mark<sp/>a<sp/>physical<sp/>band<sp/>around<sp/>the<sp/>sampled<sp/>zero<sp/>contour<sp/>of<sp/>a<sp/>scalar<sp/>field.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Criteria<sp/>are<sp/>+1<sp/>(refine),<sp/>0<sp/>(keep),<sp/>-1<sp/>(coarsen).<sp/>Cell<sp/>sizes<sp/>use<sp/>the</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/>*<sp/>mapped<sp/>mesh<sp/>for<sp/>ALE<sp/>and<sp/>the<sp/>reference<sp/>mesh<sp/>otherwise.<sp/>The<sp/>contour<sp/>and<sp/>cell</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/>*<sp/>geometry<sp/>are<sp/>piecewise<sp/>linear<sp/>approximations.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>with_moving_mesh&gt;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespace_mesh_tools_1ab64caa32f406f0e279aa1f24ebffb53c" kindref="member">compute_interface_band_criterion</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;2&gt;<sp/><sp/><sp/><sp/><sp/>&amp;dof_handler,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Mapping&lt;2&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;mapping,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>&amp;solution,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>component,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>half_width,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/>target_diameter,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector&lt;float&gt;<sp/>&amp;criteria);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Adapt<sp/>the<sp/>mesh<sp/>given<sp/>by<sp/>@p<sp/>input_meshfile<sp/>with<sp/>the<sp/>MMG<sp/>library,<sp/>using<sp/>the</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Riemannian<sp/>metric<sp/>stored<sp/>in<sp/>@p<sp/>metric_field.<sp/>The<sp/>adapted<sp/>mesh<sp/>will<sp/>be</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/>*<sp/>written<sp/>as<sp/>@p<sp/>output_meshfile<sp/>in<sp/>@p<sp/>adapt_directory,<sp/>together<sp/>with</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/>*<sp/>auxiliary<sp/>files.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespace_mesh_tools_1aac4174a029f426526bb1f1ba42f04e09" kindref="member">adapt_with_mmg</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/>&amp;param,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>MetricField&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/>&amp;metric_field,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;adapt_directory,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;input_meshfile,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;output_meshfile,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interval_index<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>MeshTools</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/prod/include/mesh_adaptation_tools.h"/>
+  </compounddef>
+</doxygen>

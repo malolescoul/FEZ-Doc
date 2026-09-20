@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_copy_data_base" kind="class" language="C++" prot="public">
+    <compoundname>CopyDataBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MeshWorker::CopyData&lt; 1 &gt;</basecompoundref>
+    <includes refid="copy__data_8h" local="no">copy_data.h</includes>
+    <templateparamlist>
+      <param>
+        <type>unsigned int</type>
+        <declname>n_hp_partitions</declname>
+        <defname>n_hp_partitions</defname>
+        <defval>1</defval>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_copy_data_base_1a0af40104c59f63073cf4b8c48f9422e1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CopyDataBase&lt; n_hp_partitions &gt;::cell_is_locally_owned</definition>
+        <argsstring></argsstring>
+        <name>cell_is_locally_owned</name>
+        <qualifiedname>CopyDataBase::cell_is_locally_owned</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="97" column="16" bodyfile="snapshots/prod/include/copy_data.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_copy_data_base_1ac7b90815aabf16d7d703784ed3692816" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CopyDataBase&lt; n_hp_partitions &gt;::cell_is_at_boundary</definition>
+        <argsstring></argsstring>
+        <name>cell_is_at_boundary</name>
+        <qualifiedname>CopyDataBase::cell_is_at_boundary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="98" column="16" bodyfile="snapshots/prod/include/copy_data.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_copy_data_base_1aa0a728ab794c4248043ea43cc70d8c1a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CopyDataBase&lt; n_hp_partitions &gt;::cell_has_lagrange_multiplier</definition>
+        <argsstring></argsstring>
+        <name>cell_has_lagrange_multiplier</name>
+        <qualifiedname>CopyDataBase::cell_has_lagrange_multiplier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="99" column="16" bodyfile="snapshots/prod/include/copy_data.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_copy_data_base_1a23f63e77625cee8295a0f43c870d7551" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int CopyDataBase&lt; n_hp_partitions &gt;::last_active_fe_index</definition>
+        <argsstring></argsstring>
+        <name>last_active_fe_index</name>
+        <qualifiedname>CopyDataBase::last_active_fe_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="100" column="16" bodyfile="snapshots/prod/include/copy_data.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_copy_data_base_1a22b77b8ee976ae1b25dd7fbe77026fd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>CopyDataBase&lt; n_hp_partitions &gt;::CopyDataBase</definition>
+        <argsstring>(const FiniteElement&lt; dim &gt; &amp;fe)</argsstring>
+        <name>CopyDataBase</name>
+        <qualifiedname>CopyDataBase::CopyDataBase</qualifiedname>
+        <param>
+          <type>const FiniteElement&lt; dim &gt; &amp;</type>
+          <declname>fe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor with non-hp FiniteElement simply calls the hp-constructor below. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="46" column="3" bodyfile="snapshots/prod/include/copy_data.h" bodystart="46" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_copy_data_base_1a60013d23f99da5287c0708af7e831793" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>CopyDataBase&lt; n_hp_partitions &gt;::CopyDataBase</definition>
+        <argsstring>(const hp::FECollection&lt; dim &gt; &amp;fe_collection)</argsstring>
+        <name>CopyDataBase</name>
+        <qualifiedname>CopyDataBase::CopyDataBase</qualifiedname>
+        <param>
+          <type>const hp::FECollection&lt; dim &gt; &amp;</type>
+          <declname>fe_collection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor with hp FECollection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="54" column="3" bodyfile="snapshots/prod/include/copy_data.h" bodystart="54" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_copy_data_base_1a4d73b967ddbeea5f5ecd8ee85f4195d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Vector&lt; double &gt; &amp;</type>
+        <definition>Vector&lt; double &gt; &amp; CopyDataBase&lt; n_hp_partitions &gt;::local_rhs</definition>
+        <argsstring>(const unsigned int fe_index=0)</argsstring>
+        <name>local_rhs</name>
+        <qualifiedname>CopyDataBase::local_rhs</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>fe_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a reference to the <computeroutput>fe_index-th</computeroutput> local right-hand side vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="67" column="10" bodyfile="snapshots/prod/include/copy_data.h" bodystart="107" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_copy_data_base_1af0b92d481d889da1d3e7b4d00d345d3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Vector&lt; double &gt; &amp;</type>
+        <definition>const Vector&lt; double &gt; &amp; CopyDataBase&lt; n_hp_partitions &gt;::local_rhs</definition>
+        <argsstring>(const unsigned int fe_index=0) const</argsstring>
+        <name>local_rhs</name>
+        <qualifiedname>CopyDataBase::local_rhs</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>fe_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Const version of the function above </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="72" column="16" bodyfile="snapshots/prod/include/copy_data.h" bodystart="115" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="class_copy_data_base_1a1dec828824a693472b405309328aae4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>FullMatrix&lt; double &gt; &amp;</type>
+        <definition>FullMatrix&lt; double &gt; &amp; CopyDataBase&lt; n_hp_partitions &gt;::local_matrix</definition>
+        <argsstring>(const unsigned int fe_index=0)</argsstring>
+        <name>local_matrix</name>
+        <qualifiedname>CopyDataBase::local_matrix</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>fe_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a reference to the <computeroutput>fe_index-th</computeroutput> local matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="77" column="14" bodyfile="snapshots/prod/include/copy_data.h" bodystart="123" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_copy_data_base_1aa422279230ba272df2d5d33a64b6c8dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const FullMatrix&lt; double &gt; &amp;</type>
+        <definition>const FullMatrix&lt; double &gt; &amp; CopyDataBase&lt; n_hp_partitions &gt;::local_matrix</definition>
+        <argsstring>(const unsigned int fe_index=0) const</argsstring>
+        <name>local_matrix</name>
+        <qualifiedname>CopyDataBase::local_matrix</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>fe_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Const version of the function above </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="82" column="20" bodyfile="snapshots/prod/include/copy_data.h" bodystart="131" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_copy_data_base_1a3be1e1016403ced51d6958fcd1341a19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; types::global_dof_index &gt; &amp;</type>
+        <definition>std::vector&lt; types::global_dof_index &gt; &amp; CopyDataBase&lt; n_hp_partitions &gt;::dof_indices</definition>
+        <argsstring>(const unsigned int fe_index=0)</argsstring>
+        <name>dof_indices</name>
+        <qualifiedname>CopyDataBase::dof_indices</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>fe_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a reference to the <computeroutput>fe_index-th</computeroutput> local vector of dof indices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="88" column="3" bodyfile="snapshots/prod/include/copy_data.h" bodystart="139" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_copy_data_base_1a785ba66422836cb153618762bfb01ddd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; types::global_dof_index &gt; &amp;</type>
+        <definition>const std::vector&lt; types::global_dof_index &gt; &amp; CopyDataBase&lt; n_hp_partitions &gt;::dof_indices</definition>
+        <argsstring>(const unsigned int fe_index=0) const</argsstring>
+        <name>dof_indices</name>
+        <qualifiedname>CopyDataBase::dof_indices</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>fe_index</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Const version of the function above </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/copy_data.h" line="94" column="3" bodyfile="snapshots/prod/include/copy_data.h" bodystart="147" bodyend="151"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A CopyData is a helper structure used to copy the local matrix and RHS contributions to the global system, see for instance the deal.II doc of meshworker/copy_data.h and the run() functions in work_stream.h.</para>
+<para>This class describes a CopyData which can be used with solvers where one FESystem is defined on a part of the domain, and one or more other systems are defined on some other partitions, using the hp tools from deal.II in the spirit of the step-46 examples. To this end, this class is templated on the number of partitions, the regular CopyData structure being simply the case n_hp_partitions = 1.</para>
+<para>This class basically holds &quot;n_hp_partitions&quot; copies of the local matrix, local rhs and local dof indices, which is exactly what a MeshWorker::CopyData does, and is thus derived from that class.</para>
+<para>This class&apos;s name is <ref refid="class_copy_data_base" kindref="compound">CopyDataBase</ref>, so that we can use an alias in the definition of the various derived solvers, for instance:</para>
+<para>using CopyData = <ref refid="class_copy_data_base" kindref="compound">CopyDataBase&lt;1&gt;</ref>;</para>
+<para>This is not possible if this class&apos;s name is CopyData, as otherwise the compiler says that this typedef changes the meaning of CopyData. Thus, we&apos;re simply using any other name that CopyData, which is then used as the local alias in most solvers. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CopyDataBase&lt; n_hp_partitions &gt;</label>
+        <link refid="class_copy_data_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MeshWorker::CopyData&lt; 1 &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CopyDataBase&lt; n_hp_partitions &gt;</label>
+        <link refid="class_copy_data_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MeshWorker::CopyData&lt; 1 &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/prod/include/copy_data.h" line="38" column="1" bodyfile="snapshots/prod/include/copy_data.h" bodystart="39" bodyend="101"/>
+    <listofallmembers>
+      <member refid="class_copy_data_base_1aa0a728ab794c4248043ea43cc70d8c1a" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>cell_has_lagrange_multiplier</name></member>
+      <member refid="class_copy_data_base_1ac7b90815aabf16d7d703784ed3692816" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>cell_is_at_boundary</name></member>
+      <member refid="class_copy_data_base_1a0af40104c59f63073cf4b8c48f9422e1" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>cell_is_locally_owned</name></member>
+      <member refid="class_copy_data_base_1a22b77b8ee976ae1b25dd7fbe77026fd8" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>CopyDataBase</name></member>
+      <member refid="class_copy_data_base_1a60013d23f99da5287c0708af7e831793" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>CopyDataBase</name></member>
+      <member refid="class_copy_data_base_1a3be1e1016403ced51d6958fcd1341a19" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>dof_indices</name></member>
+      <member refid="class_copy_data_base_1a785ba66422836cb153618762bfb01ddd" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>dof_indices</name></member>
+      <member refid="class_copy_data_base_1a23f63e77625cee8295a0f43c870d7551" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>last_active_fe_index</name></member>
+      <member refid="class_copy_data_base_1a1dec828824a693472b405309328aae4b" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>local_matrix</name></member>
+      <member refid="class_copy_data_base_1aa422279230ba272df2d5d33a64b6c8dc" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>local_matrix</name></member>
+      <member refid="class_copy_data_base_1a4d73b967ddbeea5f5ecd8ee85f4195d2" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>local_rhs</name></member>
+      <member refid="class_copy_data_base_1af0b92d481d889da1d3e7b4d00d345d3a" prot="public" virt="non-virtual"><scope>CopyDataBase</scope><name>local_rhs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

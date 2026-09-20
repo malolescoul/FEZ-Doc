@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="fez_master_core_solver" kind="page">
+    <compoundname>fez_master_core_solver</compoundname>
+    <title>Parcours du solveur CHNS — master, jour 1</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="fez_master_core_solver_1md_guides_2master_2features_2core-solver"/></para>
+<para>Révision : <computeroutput>ccf20caa0745cc2fe640f879d34acf2bf3855e6c</computeroutput>. Méthode : lecture statique de GitHub. Aucun build ni calcul FEZ exécuté. Les liens désignent cette révision, pas une branche mobile.</para>
+<sect1 id="fez_master_core_solver_1autotoc_md6">
+<title>Ce que cette fiche permet de retrouver</title><para>Le symbole C++ réel est <bold><ref refid="class_c_h_n_s_solver" kindref="compound">CHNSSolver</ref></bold>, défini dans <computeroutput><ref refid="incompressible__chns__solver_8h" kindref="compound">include/incompressible_chns_solver.h</ref></computeroutput>. Il hérite de <bold><ref refid="class_navier_stokes_solver" kindref="compound">NavierStokesSolver</ref></bold>, qui hérite de <bold><computeroutput><ref refid="class_generic_solver" kindref="compound">GenericSolver</ref>&lt;<ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref>&gt;</computeroutput></bold>. Le premier choisit les champs et les formes CHNS ; le deuxième organise une simulation Navier–Stokes et ses variantes ; le troisième fournit l&apos;interface utilisée par Newton et les boucles de convergence/adaptation. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/incompressible_chns_solver.h#L16-L22">Héritage CHNS</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/navier_stokes_solver.h#L32-L73">héritage NS</ulink>.</para>
+</sect1>
+<sect1 id="fez_master_core_solver_1autotoc_md7">
+<title>Entrée → simulation → Newton</title><para><orderedlist>
+<listitem><para><computeroutput><ref refid="incompressible__chns_8cpp" kindref="compound">solvers/incompressible_chns.cpp</ref>::main</computeroutput> initialise MPI avec un thread, lit le fichier de paramètres et choisit une instanciation 2D ou 3D. Il construit <computeroutput><ref refid="class_c_h_n_s_solver" kindref="compound">CHNSSolver</ref>&lt;dim&gt;</computeroutput>, donc la variante au paramètre <computeroutput>with_moving_mesh=false</computeroutput> par défaut. Il choisit ensuite étude MMS, boucle de point fixe métrique, ou <computeroutput>run()</computeroutput>. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/solvers/incompressible_chns.cpp#L6-L65">Entrée</ulink>.</para>
+</listitem><listitem><para><computeroutput><ref refid="class_navier_stokes_solver_1a628c47919d75c5c48da43dadb4d57985" kindref="member">NavierStokesSolver::run</ref></computeroutput> appelle <computeroutput>reset</computeroutput>, <computeroutput>initialize</computeroutput>, puis <computeroutput>run_time_subinterval</computeroutput> pour chaque intervalle, et <computeroutput>finalize</computeroutput>. Le travail métrique final est conditionnel. <computeroutput>initialize</computeroutput> appelle la méthode virtuelle <computeroutput>setup_assemblers</computeroutput>, ici celle de CHNS. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L409-L434">Cycle</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L135-L157">initialisation</ulink>.</para>
+</listitem><listitem><para>Un sous-intervalle lit ou restaure le maillage, distribue les DoFs, crée mappings, scratch, contraintes et structure creuse. À chaque pas : avancer le temps, appliquer les conditions aux limites, résoudre ou utiliser la solution exacte, puis accepter/recommencer le pas. Les solutions BDF sont tournées après post-traitement et adaptation éventuelle. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L260-L386">Sous-intervalle</ulink>.</para>
+</listitem><listitem><para><computeroutput><ref refid="class_generic_solver_1a7aaed7416c745ba959ad6f5bb3061b60" kindref="member">GenericSolver::solve_nonlinear_problem</ref></computeroutput> délègue à l&apos;objet Newton créé dans son constructeur. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/generic_solver.cpp#L29-L35">Création</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/generic_solver.cpp#L245-L257">délégation</ulink>.</para>
+</listitem><listitem><para>Newton évalue le second membre, en calcule la norme <bold>L2</bold>, vérifie la tolérance, décide de réassembler la matrice, puis résout le système linéaire. Il applique ensuite l&apos;incrément, éventuellement avec recherche linéaire, et redistribue les contraintes non homogènes. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L57-L129">Itération</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L186-L212">mise à jour</ulink>.</para>
+</listitem></orderedlist>
+</para>
+<para><bold>Précision importante :</bold> <computeroutput>assemble_rhs</computeroutput> représente le <bold>négatif du résidu non linéaire</bold>. Le contrat de <computeroutput><ref refid="class_generic_solver" kindref="compound">GenericSolver</ref></computeroutput> l&apos;explicite. On lit donc conceptuellement J(U) δU = −R(U), puis U ← U + α δU. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/generic_solver.h#L94-L118">Contrat</ulink>. La matrice n&apos;est pas nécessairement recalculée à chaque itération : une heuristique dépend du régime stationnaire et de la réduction du résidu. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L215-L235">Heuristique</ulink>.</para>
+</sect1>
+<sect1 id="fez_master_core_solver_1autotoc_md8">
+<title>Les vecteurs : la distinction à retenir</title><para><computeroutput>setup_dofs</computeroutput> initialise <computeroutput>present_solution</computeroutput>, <computeroutput>evaluation_point</computeroutput> et les solutions précédentes avec les ensembles owned <bold>et relevant</bold>. <computeroutput>local_evaluation_point</computeroutput>, <computeroutput>newton_update</computeroutput> et <computeroutput>system_rhs</computeroutput> sont initialisés avec owned seulement. Cette différence est visible dans les appels ; elle doit rester explicite dans toute analyse MPI. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L438-L475">Initialisation</ulink>.</para>
+<para>L&apos;assemblage lit <computeroutput>evaluation_point</computeroutput>. La mise à jour s&apos;effectue dans <computeroutput>local_evaluation_point</computeroutput>, puis ce dernier est affecté à <computeroutput>evaluation_point</computeroutput>. Il faut donc tracer <bold>qui écrit, qui lit, et quand les données sont échangées</bold>, sans déduire une communication précise seulement du nom d&apos;un vecteur. Le détail des communications internes au wrapper deal.II/PETSc n&apos;a pas été audité aujourd&apos;hui.</para>
+</sect1>
+<sect1 id="fez_master_core_solver_1autotoc_md9">
+<title>Résolution linéaire</title><para><computeroutput><ref refid="class_navier_stokes_solver_1a6c0b9eb16162e7b27f5548544a376a51" kindref="member">NavierStokesSolver::solve_linear_system</ref></computeroutput> sélectionne MUMPS direct (avec ou sans objet réutilisable) ou GMRES. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L857-L894">Sélection</ulink>.</para>
+<para>Les fonctions de <computeroutput><ref refid="linear__solver_8cpp" kindref="compound">src/linear_solver.cpp</ref></computeroutput> résolvent dans <computeroutput>completely_distributed_solution</computeroutput>, construit sur les DoFs owned. Elles affectent ensuite <computeroutput>newton_update</computeroutput> et appliquent les <bold>contraintes homogènes</bold> à l&apos;incrément. Le chemin GMRES sélectionne ILU sous PETSc et AMG dans l&apos;autre branche de compilation. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/linear_solver.cpp#L10-L50">Direct</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/linear_solver.cpp#L95-L150">GMRES</ulink>.</para>
+<para>Les alias <computeroutput><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref></computeroutput> et <computeroutput><ref refid="namespace_l_a_1a6cde9743803c7530f2daf44e83812bb0" kindref="member">LA::ParMatrixType</ref></computeroutput> sont définis par <computeroutput>FEZ_WITH_PETSC</computeroutput> ou <computeroutput>FEZ_WITH_TRILINOS</computeroutput>. Cette lecture ne prouve pas que toutes les configurations de compilation fonctionnent. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/types.h#L8-L27">Types</ulink>.</para>
+</sect1>
+<sect1 id="fez_master_core_solver_1autotoc_md10">
+<title>Impacts à suivre lors d&apos;une modification</title><para><table rows="6" cols="3"><row>
+<entry thead="yes"><para>Modification  </para>
+</entry><entry thead="yes"><para>Relire ensemble  </para>
+</entry><entry thead="yes"><para>Pourquoi  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Ajout d&apos;un champ  </para>
+</entry><entry thead="no"><para>FESystem, ordering, extracteurs, masques, scratch, sparsité  </para>
+</entry><entry thead="no"><para>Tous désignent la même organisation des composantes.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Changement du résidu  </para>
+</entry><entry thead="no"><para>assemble_rhs, assemble_matrix, vérification différences finies  </para>
+</entry><entry thead="no"><para>Préserver le signe et la cohérence du Jacobien.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Conditions aux limites  </para>
+</entry><entry thead="no"><para>zero/nonzero constraints, incrément, mise à jour de U  </para>
+</entry><entry thead="no"><para>L&apos;incrément et la solution n&apos;obéissent pas aux mêmes données imposées.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Redistribution du maillage ou des DoFs  </para>
+</entry><entry thead="no"><para>setup_dofs, mappings, scratch, transfert des solutions  </para>
+</entry><entry thead="no"><para>Les indices, espaces de lecture et historiques doivent rester compatibles.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Recherche linéaire/Newton  </para>
+</entry><entry thead="no"><para>evaluation_point, present_solution, résidu, statut du pas  </para>
+</entry><entry thead="no"><para>L&apos;état utilisé pour accepter le pas doit correspondre à l&apos;état évalué.  </para>
+</entry></row>
+</table>
+</para>
+</sect1>
+<sect1 id="fez_master_core_solver_1autotoc_md11">
+<title>Limites et prochaine lecture</title><para>Le chemin CHNS fixe est établi. Les mécanismes internes de <computeroutput><ref refid="class_time_handler" kindref="compound">TimeHandler</ref></computeroutput>, transferts entre maillages, réutilisation MUMPS et conditions FSI restent à analyser. Les variantes ALE sont repérées mais non validées numériquement. Aucun défaut d&apos;exécution n&apos;est conclu à partir de cette seule lecture. </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/master/features/core-solver.md"/>
+  </compounddef>
+</doxygen>

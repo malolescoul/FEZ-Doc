@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_l_a" kind="namespace" language="C++">
+    <compoundname>LA</compoundname>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespace_l_a_1a6cde9743803c7530f2daf44e83812bb0" prot="public" static="no">
+        <type>dealii::LinearAlgebraPETSc::MPI::SparseMatrix</type>
+        <definition>using LA::ParMatrixType = dealii::LinearAlgebraPETSc::MPI::SparseMatrix</definition>
+        <argsstring></argsstring>
+        <name>ParMatrixType</name>
+        <qualifiedname>LA::ParMatrixType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/types.h" line="13" column="3" bodyfile="snapshots/master/include/types.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" prot="public" static="no">
+        <type>dealii::LinearAlgebraPETSc::MPI::Vector</type>
+        <definition>using LA::ParVectorType = dealii::LinearAlgebraPETSc::MPI::Vector</definition>
+        <argsstring></argsstring>
+        <name>ParVectorType</name>
+        <qualifiedname>LA::ParVectorType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/types.h" line="14" column="3" bodyfile="snapshots/master/include/types.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_l_a_1a1f131a80ee6342422c6e7cf434644726" prot="public" static="no">
+        <type>dealii::PETScWrappers::MatrixIterators::const_iterator</type>
+        <definition>using LA::ConstMatrixIterator = 
+dealii::PETScWrappers::MatrixIterators::const_iterator</definition>
+        <argsstring></argsstring>
+        <name>ConstMatrixIterator</name>
+        <qualifiedname>LA::ConstMatrixIterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/types.h" line="15" column="3" bodyfile="snapshots/master/include/types.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/master/include/types.h" line="9" column="1"/>
+  </compounddef>
+</doxygen>

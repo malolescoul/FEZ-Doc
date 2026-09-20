@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler" kind="class" language="C++" prot="public">
+    <compoundname>Assembly::IncompressibleCHNS::VolumeAssembler</compoundname>
+    <basecompoundref refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base" prot="public" virt="non-virtual">Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, chns &gt;</basecompoundref>
+    <includes refid="incompressible__chns__assemblers_8h" local="no">incompressible_chns_assemblers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+      <param>
+        <type>unsigned int</type>
+        <declname>assembly_flags</declname>
+        <defname>assembly_flags</defname>
+        <defval><ref refid="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496a17efa415900b0b71c06c9a0412965d50" kindref="member">chns</ref></defval>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1ae8b246797b24ec8b3a7ba6f929d3f5ba" prot="private" static="no">
+        <type><ref refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a887913bc24a247ca66c2ce7e8146868a" kindref="member">Base</ref>&lt; ScratchData, CopyData, assembly_flags &gt;</type>
+        <definition>using Assembly::IncompressibleCHNS::VolumeAssembler&lt; dim, ScratchData, CopyData, assembly_flags &gt;::BaseType = Base&lt;ScratchData, CopyData, assembly_flags&gt;</definition>
+        <argsstring></argsstring>
+        <name>BaseType</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::VolumeAssembler::BaseType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="98" column="7" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1a7a8c49fad066671cc0d980e62fce7e52" prot="public" static="no" mutable="no">
+        <type>const Table&lt; 2, DoFTools::Coupling &gt; &amp;</type>
+        <definition>const Table&lt;2, DoFTools::Coupling&gt;&amp; Assembly::IncompressibleCHNS::VolumeAssembler&lt; dim, ScratchData, CopyData, assembly_flags &gt;::coupling_table</definition>
+        <argsstring></argsstring>
+        <name>coupling_table</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::VolumeAssembler::coupling_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="120" column="19" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1a5a1ae8962283e09a9d999c9d2af8a2df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Assembly::IncompressibleCHNS::VolumeAssembler&lt; dim, ScratchData, CopyData, assembly_flags &gt;::VolumeAssembler</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering, const Table&lt; 2, DoFTools::Coupling &gt; &amp;coupling_table)</argsstring>
+        <name>VolumeAssembler</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::VolumeAssembler::VolumeAssembler</qualifiedname>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const Table&lt; 2, DoFTools::Coupling &gt; &amp;</type>
+          <declname>coupling_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="101" column="7" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="101" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1aee783129eeda6e499e90598bd34461d7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::IncompressibleCHNS::VolumeAssembler&lt; dim, ScratchData, CopyData, assembly_flags &gt;::assemble_matrix</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::VolumeAssembler::assemble_matrix</qualifiedname>
+        <reimplements refid="class_assembly_1_1_assembler_base_1a71374e6143201432559d73028bea33ed">assemble_matrix</reimplements>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Weak laplacian-like products (e.g., grad_phi_mu \cdot grad_phi in the potential equation) vary like this with the mesh position:</para>
+<para>delta_x_j ((grad_phi_mu \cdot grad_phi) * dx) = (-G_j^T * grad_phi_mu) * grad_phi + grad_phi_mu * (-G_j^T * grad_phi)<itemizedlist>
+<listitem><para>(grad_phi_mu * grad_phi) * trace(G_j),</para>
+</listitem></itemizedlist>
+</para>
+<para>which can be written as grad_phi_mu * ((-G_j - G_j^T + trace(G_j) * I) * grad_phi = grad_phi_mu * ((- 2*sym(G_j) + trace(G_j) * I) * grad_phi.</para>
+<para>The quantity below is the one in parentheses.</para>
+<para>Assemble the local matrix. The loops over the j degrees of freedom are repeated for each assembled equation: this removes the tests over i inside the j loop, and is (ever so slightly) more efficient. Looping only over the coupled dofs for each variable (obtained by creating a set first in the scratch, for instance) does not yield any tremendous additional gain though.</para>
+<para>Momentum equation</para>
+<para>Continuity equation</para>
+<para>Tracer equation</para>
+<para>Potential equation</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="110" column="20" bodyfile="snapshots/master/src/assembly/incompressible_chns_assemblers.cpp" bodystart="194" bodyend="736"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1abf9c5d6c11e19d6090c98f405b3f38b6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::IncompressibleCHNS::VolumeAssembler&lt; dim, ScratchData, CopyData, assembly_flags &gt;::assemble_rhs</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::VolumeAssembler::assemble_rhs</qualifiedname>
+        <reimplements refid="class_assembly_1_1_assembler_base_1a1e07a5108f263f3c6ecc5c22ec2f5f13">assemble_rhs</reimplements>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local right-hand side vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="116" column="20" bodyfile="snapshots/master/src/assembly/incompressible_chns_assemblers.cpp" bodystart="17" bodyend="187"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Assembler for the incompressible CHNS system in the volume.</para>
+<para>TODO: Add expression of the weak form. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_assembler_base"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, chns &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Assembly::IncompressibleCHNS::VolumeAssembler&lt; dim, ScratchData, CopyData, assembly_flags &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EnableObserverPointer</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_assembler_base"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, chns &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Assembly::IncompressibleCHNS::VolumeAssembler&lt; dim, ScratchData, CopyData, assembly_flags &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EnableObserverPointer</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="96" column="5" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="97" bodyend="121"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1aee783129eeda6e499e90598bd34461d7" prot="public" virt="virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1abf9c5d6c11e19d6090c98f405b3f38b6" prot="public" virt="virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>assemble_rhs</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a887913bc24a247ca66c2ce7e8146868a" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>Base</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1ae8b246797b24ec8b3a7ba6f929d3f5ba" prot="private" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>BaseType</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1a7a8c49fad066671cc0d980e62fce7e52" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>coupling_table</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1ac37688cf41102050c3c5048f34dd961c" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>ordering</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1a5a1ae8962283e09a9d999c9d2af8a2df" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>VolumeAssembler</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1aaac7b254dd10aa64950d2e9e875195e3" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>with_moving_mesh</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a8d0a948abe97c206cb85e47e121b007b" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>with_stabilization</name></member>
+      <member refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base_1a8b6243791fd62463bf3fe964e5f20eff" prot="public" virt="non-virtual"><scope>Assembly::IncompressibleCHNS::VolumeAssembler</scope><name>with_tracer_stabilization</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

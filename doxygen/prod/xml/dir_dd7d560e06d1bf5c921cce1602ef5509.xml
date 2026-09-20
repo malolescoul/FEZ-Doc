@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_dd7d560e06d1bf5c921cce1602ef5509" kind="dir">
+    <compoundname>snapshots/prod/include/mesh_adaptation</compoundname>
+    <innerfile refid="transient__fixed__point_8h">transient_fixed_point.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/prod/include/mesh_adaptation/"/>
+  </compounddef>
+</doxygen>

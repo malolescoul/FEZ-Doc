@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="timestep__adaptation_8cpp" kind="file" language="C++">
+    <compoundname>timestep_adaptation.cpp</compoundname>
+    <includes local="no">components_ordering.h</includes>
+    <includes local="no">parameters.h</includes>
+    <includes refid="timestep__adaptation_8h" local="no">timestep_adaptation.h</includes>
+    <includes local="no">algorithm</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>time_handler.h</label>
+        <link refid="time__handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>timestep_adaptation.h</label>
+        <link refid="timestep__adaptation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>snapshots/prod/src/timestep_adaptation.cpp</label>
+        <link refid="timestep__adaptation_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>algorithm</label>
+      </node>
+      <node id="2">
+        <label>components_ordering.h</label>
+      </node>
+      <node id="8">
+        <label>deal.II/base/conditional_ostream.h</label>
+      </node>
+      <node id="5">
+        <label>deal.II/base/index_set.h</label>
+      </node>
+      <node id="9">
+        <label>deal.II/base/types.h</label>
+      </node>
+      <node id="11">
+        <label>deal.II/lac/generic_linear_algebra.h</label>
+      </node>
+      <node id="12">
+        <label>deal.II/lac/petsc_sparse_matrix.h</label>
+      </node>
+      <node id="13">
+        <label>deal.II/lac/trilinos_sparse_matrix.h</label>
+      </node>
+      <node id="3">
+        <label>parameters.h</label>
+      </node>
+      <node id="6">
+        <label>solver_info.h</label>
+      </node>
+      <node id="14">
+        <label>utilities.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="timestep__adaptation_8cpp_1aab23091f79158e6be74a7b3be020d975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DeclExceptionMsg</definition>
+        <argsstring>(ExcDataNotAttached, &quot;You are trying to use a BDFErrorEstimator which has &quot; &quot;uninitialized data. Call attach_data_to_error_estimator() &quot; &quot;from the TimeHandler before using the error estimator.&quot;)</argsstring>
+        <name>DeclExceptionMsg</name>
+        <param>
+          <type>ExcDataNotAttached</type>
+        </param>
+        <param>
+          <type>&quot;You are trying to use a <ref refid="class_b_d_f_error_estimator" kindref="compound">BDFErrorEstimator</ref> which has &quot; &quot;uninitialized data. Call attach_data_to_error_estimator() &quot; &quot;from the <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> before using the error estimator.&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/src/timestep_adaptation.cpp" line="8" column="1" declfile="snapshots/prod/src/timestep_adaptation.cpp" declline="8" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;components_ordering.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;parameters.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="timestep__adaptation_8h" kindref="compound">timestep_adaptation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="timestep__adaptation_8cpp_1aab23091f79158e6be74a7b3be020d975" refkind="member"><highlight class="normal"><ref refid="timestep__adaptation_8cpp_1aab23091f79158e6be74a7b3be020d975" kindref="member">DeclExceptionMsg</ref>(ExcDataNotAttached,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;You<sp/>are<sp/>trying<sp/>to<sp/>use<sp/>a<sp/>BDFErrorEstimator<sp/>which<sp/>has<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;uninitialized<sp/>data.<sp/>Call<sp/>attach_data_to_error_estimator()<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;from<sp/>the<sp/>TimeHandler<sp/>before<sp/>using<sp/>the<sp/>error<sp/>estimator.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_b_d_f_error_estimator_1a44a60ea7cd6c0d6af86116315c12b8a6" refkind="member"><highlight class="normal"><ref refid="class_b_d_f_error_estimator_1a44a60ea7cd6c0d6af86116315c12b8a6" kindref="member">BDFErrorEstimator::BDFErrorEstimator</ref>(</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Parameters::TimeIntegration<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;time_handler)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>(<ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>,<sp/><ref refid="class_b_d_f_error_estimator_1a3d5a3349407eab66ba675c2b4fe24f1f" kindref="member">n_previous_solutions</ref>(time_handler.<ref refid="class_b_d_f_error_estimator_1a3d5a3349407eab66ba675c2b4fe24f1f" kindref="member">n_previous_solutions</ref><sp/>+<sp/>1)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>,<sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>(time_handler.<ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>.size()<sp/>+<sp/>1)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>,<sp/><ref refid="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" kindref="member">save_full_error_estimator</ref>(</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>.adaptation.compute_error_on_estimator)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(time_handler.<ref refid="class_time_handler_1a6e808dba70418db23b85431c96c52602" kindref="member">scheme</ref><sp/>==<sp/>Parameters::TimeIntegration::Scheme::BDF1)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>if<sp/>(time_handler.<ref refid="class_time_handler_1a6e808dba70418db23b85431c96c52602" kindref="member">scheme</ref><sp/>==<sp/>Parameters::TimeIntegration::Scheme::BDF2)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>DEAL_II_NOT_IMPLEMENTED();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="class_b_d_f_error_estimator_1a34b2a41a0226bb2faeaf65e263a87e21" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a34b2a41a0226bb2faeaf65e263a87e21" kindref="member">BDFErrorEstimator::attach_data</ref>(</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ComponentOrdering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" kindref="member">ordering</ref>,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IndexSet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref>,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>char&gt;<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" kindref="member">dofs_to_component</ref>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>this-&gt;ordering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" kindref="member">ordering</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>this-&gt;locally_relevant_dofs<sp/>=<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>this-&gt;dofs_to_component<sp/><sp/><sp/><sp/><sp/>=<sp/>&amp;<ref refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" kindref="member">dofs_to_component</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_b_d_f_error_estimator_1a4a84e478d0e10ffca1e42da93674330c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a4a84e478d0e10ffca1e42da93674330c" kindref="member">BDFErrorEstimator::advance</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/>&amp;time_handler)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Rotate<sp/>the<sp/>times</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!time_handler.<ref refid="class_time_handler_1a3c3079f08a0b86fe8fbd89c0b0c33a28" kindref="member">rolledback_step</ref>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a3d5a3349407eab66ba675c2b4fe24f1f" kindref="member">n_previous_solutions</ref>;<sp/>i<sp/>&gt;=<sp/>1;<sp/>--i)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>[i]<sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>[i<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>[0]<sp/>=<sp/>time_handler.<ref refid="class_time_handler_1a9b3bbdf7c60f579b8f7835ed367a0b17" kindref="member">simulation_times</ref>[0];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="class_b_d_f_error_estimator_1a1362437fcb51abf8e18efea13b8cea53" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a1362437fcb51abf8e18efea13b8cea53" kindref="member">BDFErrorEstimator::rotate_additional_solution</ref>(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>&amp;solution)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>reinits<sp/>additional_solution<sp/>the<sp/>first<sp/>time<sp/>this<sp/>function<sp/>is<sp/>called,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>thanks<sp/>to<sp/>the<sp/>crafty<sp/>operator=<sp/>for<sp/>PETSc<sp/>vectors<sp/>(petsc_vector.h).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a6584a19c222b99f49ffb1e8e844d8bc9" kindref="member">additional_solution</ref><sp/>=<sp/>solution;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="class_b_d_f_error_estimator_1a6a5c60cc3645fab7592dc77f8ec86428" refkind="member"><highlight class="normal"><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>&amp;<ref refid="class_b_d_f_error_estimator_1a6a5c60cc3645fab7592dc77f8ec86428" kindref="member">BDFErrorEstimator::get_additional_solution</ref>()</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a6584a19c222b99f49ffb1e8e844d8bc9" kindref="member">additional_solution</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="class_b_d_f_error_estimator_1af83bbd88b98f52168e3fcc51e0a6d00f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1af83bbd88b98f52168e3fcc51e0a6d00f" kindref="member">BDFErrorEstimator::compute_error_estimator</ref>(</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;time_handler,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;present_solution,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;LA::ParVectorType&gt;<sp/>&amp;previous_solutions)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>that<sp/>attach_data()<sp/>was<sp/>called</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>Assert(<ref refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" kindref="member">ordering</ref>,<sp/>ExcDataNotAttached());</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>Assert(<ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref>,<sp/>ExcDataNotAttached());</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>Assert(<ref refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" kindref="member">dofs_to_component</ref>,<sp/>ExcDataNotAttached());</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>AssertDimension(<ref refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" kindref="member">dofs_to_component</ref>-&gt;size(),</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref>-&gt;n_elements());</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>Assert(<ref refid="class_b_d_f_error_estimator_1a6584a19c222b99f49ffb1e8e844d8bc9" kindref="member">additional_solution</ref>.size()<sp/>&gt;<sp/>0,<sp/>ExcInternalError());</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>Assert(<ref refid="class_b_d_f_error_estimator_1ac9377e402bbceb911fb1bb5bfd5d045a" kindref="member">dofs_to_component</ref>-&gt;size()<sp/>&gt;<sp/>0,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ExcMessage(</highlight><highlight class="stringliteral">&quot;The<sp/>vector<sp/>dofs_to_component<sp/>should<sp/>be<sp/>filled<sp/>before<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;entering<sp/>this<sp/>function.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>full<sp/>vector<sp/>of<sp/>error<sp/>estimates<sp/>for<sp/>each<sp/>dof<sp/>must<sp/>be<sp/>stored<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>has<sp/>not<sp/>yet<sp/>been<sp/>initialized,<sp/>do<sp/>it<sp/>now</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1a3a7a9ad8fbe30a357bf96014ee6eb13a" kindref="member">error_estimator</ref>.size()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" kindref="member">save_full_error_estimator</ref>)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a995c20efe0fbc6ad2b1e502a81e36b6c" kindref="member">locally_owned_elements</ref><sp/>=<sp/>present_solution.locally_owned_elements();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a3a7a9ad8fbe30a357bf96014ee6eb13a" kindref="member">error_estimator</ref>.reinit(<ref refid="class_b_d_f_error_estimator_1a995c20efe0fbc6ad2b1e502a81e36b6c" kindref="member">locally_owned_elements</ref>,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref>,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>present_solution.get_mpi_communicator());</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" kindref="member">fully_distributed_error_estimator</ref>.reinit(</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a995c20efe0fbc6ad2b1e502a81e36b6c" kindref="member">locally_owned_elements</ref>,<sp/>present_solution.get_mpi_communicator());</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>handled<sp/>variables<sp/>the<sp/>first<sp/>time<sp/>we<sp/>enter<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" kindref="member">handled_variables</ref>.empty())</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>var<sp/>:<sp/>SolverInfo::variable_types)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" kindref="member">ordering</ref>-&gt;has_variable(var))</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" kindref="member">handled_variables</ref>.push_back(var);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>[var]<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>Assert(!<ref refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" kindref="member">handled_variables</ref>.empty(),<sp/>ExcInternalError());</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>var<sp/>:<sp/><ref refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" kindref="member">handled_variables</ref>)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>[var]<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_sol<sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref><sp/>+<sp/>2;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>AssertDimension(<ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>.size(),<sp/>n_sol);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>AssertDimension(previous_solutions.size(),<sp/><ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>times(n_sol),<sp/>values(n_sol);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_sol;<sp/>++i)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>times[i]<sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>[i];</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>coefficient<sp/>(-1)^{p+1}<sp/>*<sp/>sum_i<sp/>BDF_coeff_i<sp/>*<sp/>(t_{n+1}<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>t_{n+1-i})^{p+1}<sp/>multiplying<sp/>the<sp/>divided<sp/>difference</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;alpha<sp/>=<sp/>time_handler.<ref refid="class_time_handler_1a8d1ce981da4e691eb60a7e9ec2437b73" kindref="member">bdf_coefficients</ref>;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>coeff<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;=<sp/><ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref>;<sp/>++i)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Hi<sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>[0]<sp/>-<sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>[i];</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>coeff<sp/>+=<sp/>alpha[i]<sp/>*<sp/>std::pow(Hi,<sp/><ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref><sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIXME:<sp/>Probalby<sp/>useless<sp/>if<sp/>taking<sp/>the<sp/>abs<sp/>below</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>coeff<sp/>*=<sp/>(<ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref><sp/>%<sp/>2<sp/>==<sp/>0)<sp/>?<sp/>-1.<sp/>:<sp/>1.;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Current<sp/>time<sp/>step</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>h<sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>[0]<sp/>-<sp/><ref refid="class_b_d_f_error_estimator_1a65aae0f5aab27834c91c15e16ee5b928" kindref="member">simulation_times</ref>[1];</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>trunaction<sp/>error<sp/>for<sp/>each<sp/>relevant<sp/>dof</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;dof<sp/>:<sp/>*<ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref>)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Solution<sp/>at<sp/>times<sp/>t_{n+1}<sp/>through<sp/>t_{n+1-(p+1)}.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>values[0]<sp/>=<sp/>present_solution[dof];</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_sol<sp/>-<sp/>2;<sp/>++i)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[i<sp/>+<sp/>1]<sp/>=<sp/>previous_solutions[i][dof];</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>values[n_sol<sp/>-<sp/>1]<sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a6584a19c222b99f49ffb1e8e844d8bc9" kindref="member">additional_solution</ref>[dof];</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>divided<sp/>difference<sp/>of<sp/>order<sp/>p<sp/>+<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dd<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>.scheme<sp/>==<sp/>Parameters::TimeIntegration::Scheme::BDF1)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>dd<sp/>=<sp/>divided_difference&lt;2&gt;(times,<sp/>values);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>.scheme<sp/>==</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Parameters::TimeIntegration::Scheme::BDF2)</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>dd<sp/>=<sp/>divided_difference&lt;3&gt;(times,<sp/>values);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>error<sp/>=<sp/>std::abs(h<sp/>*<sp/>coeff<sp/>*<sp/>dd);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" kindref="member">save_full_error_estimator</ref>)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1a995c20efe0fbc6ad2b1e502a81e36b6c" kindref="member">locally_owned_elements</ref>.is_element(dof))</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" kindref="member">fully_distributed_error_estimator</ref>[dof]<sp/>=<sp/>error;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>dof<sp/>component,<sp/>then<sp/>variable<sp/>associated<sp/>with<sp/>this<sp/>component</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>comp<sp/>=</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(*dofs_to_component)[<ref refid="class_b_d_f_error_estimator_1adaa97e6b13e4c6f2bec560d4f9d00af3" kindref="member">locally_relevant_dofs</ref>-&gt;index_within_set(dof)];</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>var<sp/><sp/><sp/><sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1af85f9c9bcc73cbfab1972d38e280a937" kindref="member">ordering</ref>-&gt;component_to_variable_type(comp);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>.at(var)<sp/>=<sp/>std::max(<ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>.at(var),<sp/>error);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" kindref="member">save_full_error_estimator</ref>)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" kindref="member">fully_distributed_error_estimator</ref>.compress(VectorOperation::insert);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a3a7a9ad8fbe30a357bf96014ee6eb13a" kindref="member">error_estimator</ref><sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" kindref="member">fully_distributed_error_estimator</ref>;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Synchronize<sp/>the<sp/>max<sp/>errors<sp/>across<sp/>ranks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>var<sp/>:<sp/><ref refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" kindref="member">handled_variables</ref>)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>comm<sp/><sp/>=<sp/>present_solution.get_mpi_communicator();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>.at(var)<sp/>=<sp/>Utilities::MPI::max(<ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>.at(var),<sp/>comm);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Utilities::MPI::this_mpi_process(comm)<sp/>==<sp/>0<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>.adaptation.verbosity<sp/>==<sp/>Parameters::Verbosity::verbose)</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Max<sp/>error<sp/>for<sp/>variable<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>SolverInfo::to_string(var)</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>is<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>.at(var)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::map&lt;SolverInfo::VariableType,<sp/>double&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="179" refid="class_b_d_f_error_estimator_1a81b75254435a20475df31b4f360aaee1" refkind="member"><highlight class="normal"><ref refid="class_b_d_f_error_estimator_1a81b75254435a20475df31b4f360aaee1" kindref="member">BDFErrorEstimator::get_max_errors</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="180"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>Assert(!<ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>.empty(),<sp/>ExcInternalError());</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="class_b_d_f_error_estimator_1abb1080c513f92d5bbfc8499e897799c5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1abb1080c513f92d5bbfc8499e897799c5" kindref="member">BDFErrorEstimator::get_next_timestep</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>current_timestep)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="186"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>Assert(!<ref refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" kindref="member">handled_variables</ref>.empty(),<sp/>ExcInternalError());</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>Assert(!<ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>.empty(),<sp/>ExcInternalError());</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>std::map&lt;SolverInfo::VariableType,<sp/>double&gt;<sp/>target_steps;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>next<sp/>time<sp/>step<sp/>ratios</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>var<sp/>:<sp/><ref refid="class_b_d_f_error_estimator_1adbd9253b299b6dcd7cc43e5099a9519c" kindref="member">handled_variables</ref>)</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>eps<sp/>=<sp/><ref refid="class_b_d_f_error_estimator_1a7320a6571325848c3f1a6eed10cdbb13" kindref="member">time_parameters</ref>.adaptation.target_error.at(var);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ratio<sp/>=</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(eps<sp/>/<sp/>std::max(1e-15,<sp/><ref refid="class_b_d_f_error_estimator_1a91eee24567b110e11082f613c06afb68" kindref="member">max_error</ref>.at(var)),<sp/>1.<sp/>/<sp/>(<ref refid="class_b_d_f_error_estimator_1a02b15767efba4fd6d8d2582223b3bfb5" kindref="member">bdf_order</ref><sp/>+<sp/>1));</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>target_steps[var]<sp/>=<sp/>current_timestep<sp/>*<sp/>ratio;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>Assert(!target_steps.empty(),<sp/>ExcInternalError());</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>key<sp/>and<sp/>value<sp/>of<sp/>minimum<sp/>timestep</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>std::min_element(target_steps.begin(),</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>target_steps.end(),</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;b)<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>a.second<sp/>&lt;<sp/>b.second;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Return<sp/>the<sp/>smallest<sp/>prescribed<sp/>timestep</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>it-&gt;second;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>&amp;</highlight></codeline>
+<codeline lineno="215" refid="class_b_d_f_error_estimator_1a3c8eabffb9392ab2aa7e3c7a0a6a5512" refkind="member"><highlight class="normal"><ref refid="class_b_d_f_error_estimator_1a3c8eabffb9392ab2aa7e3c7a0a6a5512" kindref="member">BDFErrorEstimator::get_error_estimator_as_solution</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="216"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>Assert(<ref refid="class_b_d_f_error_estimator_1ab9e28330874c1f3d5d1ea03a5e668a93" kindref="member">save_full_error_estimator</ref>,<sp/>ExcInternalError());</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_b_d_f_error_estimator_1a97f8b58c5c676ec2ae2e8a9b2919e57d" kindref="member">fully_distributed_error_estimator</ref>;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/prod/src/timestep_adaptation.cpp"/>
+  </compounddef>
+</doxygen>

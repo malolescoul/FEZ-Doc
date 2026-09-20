@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — master: Assemblage CHNS — master, jour 1</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — master<span id="projectnumber">&#160;ccf20caa0745 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('fez_master_chns_assembly.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Assemblage CHNS — master, jour 1 </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_guides_2master_2features_2chns-assembly"></a></p>
+<p>Révision : <span class="tt">ccf20caa0745cc2fe640f879d34acf2bf3855e6c</span>. Statut : parcours et dépendances statiques confirmés ; formulation et résultats numériques non validés par exécution.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+Champs et composition</h1>
+<p><span class="tt"><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a></span> construit un système d'éléments finis contenant vitesse u, pression p, traceur φ et potentiel μ ; la variante mobile ajoute la position x. Les degrés sont indépendamment paramétrables. Les masques et extracteurs sont construits à partir de <span class="tt">ordering</span>. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L24-L91">Construction</a>.</p>
+<p>La classe choisit <span class="tt">ScratchDataCHNS&lt;dim, with_moving_mesh&gt;</span>, <span class="tt"><a class="el" href="class_copy_data_base.html">CopyDataBase</a>&lt;1&gt;</span> et une interface commune <span class="tt">AssemblerBase</span>. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/incompressible_chns_solver.h#L16-L22">Alias</a>. Il ne faut donc pas confondre <b>CHNS</b> (physique/choix de champs), <b>ScratchData</b> (valeurs préparées sur l'élément) et <b>Assembler</b> (contribution à la forme discrète).</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Une cellule, deux sorties</h1>
+<p><span class="tt">assemble_matrix</span> et <span class="tt">assemble_rhs</span> organisent des parcours <span class="tt">WorkStream::run</span>. Chaque parcours possède une opération locale et une opération de copie vers le système global. Le système est mis à zéro avant le parcours, puis <span class="tt">compress(VectorOperation::add)</span> est appelé après. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L420-L450">Matrice</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L516-L575">second membre</a>.</p>
+<p>L'opération locale vérifie que la cellule appartient au rang courant, réinitialise le scratch avec le point d'évaluation et l'historique, remet la contribution locale à zéro et invoque chaque assembleur. Les indices globaux des DoFs de la cellule sont ensuite récupérés. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L463-L489">Opération locale</a>.</p>
+<p>La copie utilise <span class="tt">zero_constraints.distribute_local_to_global</span>. Ce sont des contraintes sur l'<b>incrément</b>, ce qui explique le recours aux contraintes homogènes à cette étape. Les contraintes non homogènes sont appliquées à la solution et aux points d'évaluation pendant la progression de Newton. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L491-L501">Copie</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L121-L129">Newton</a>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Comment φ et μ influencent Navier–Stokes</h1>
+<p>Le scratch CHNS :</p><ul>
+<li>extrait φ, ∇φ, μ et ∇μ depuis <span class="tt">current_solution</span> ;</li>
+<li>extrait l'historique de φ pour la dérivée temporelle ;</li>
+<li>limite φ pour calculer les propriétés mélangées ρ et η, ainsi que leurs dérivées utilisées par le Jacobien ;</li>
+<li>construit <span class="tt">diffusive_flux</span>, qui contient ici <b>déjà</b> le produit du gradient de vitesse par le gradient de potentiel, multiplié par M(ρ₁−ρ₀)/2.</li>
+</ul>
+<p>Ce dernier nom mérite de la prudence : il ne désigne pas seulement le vecteur de flux diffusif J isolé. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/scratch_data.h#L1001-L1066">Préparation CHNS</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/scratch_data.cpp#L384-L411">paramètres</a>.</p>
+<p>Dans le résidu de quantité de mouvement, l'assembleur lit ρ, η, le terme <span class="tt">diffusive_flux</span> et φ∇μ. L'équation du traceur lit la convection et la diffusion de μ ; l'équation du potentiel lit φ(φ²−1) et le gradient de φ. C'est une dépendance <b>couplée dans les équations</b>, et pas seulement une proximité de fichiers. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/assembly/incompressible_chns_assemblers.cpp#L54-L105">Expressions et accumulation</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/assembly/incompressible_chns_assemblers.cpp#L133-L184">formes testées</a>.</p>
+<p>Le Jacobien possède des variations par rapport à la vitesse et au potentiel pour la contribution diffusive. Modifier le modèle du flux impose de relire le calcul dans le scratch <b>et</b> ses dérivées dans l'assembleur. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/assembly/incompressible_chns_assemblers.cpp#L363-L410">Dérivées</a>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Sélection, stabilisation et ALE</h1>
+<p>Les paramètres SUPG/PSPG et SUPG du traceur sélectionnent des spécialisations de <span class="tt">VolumeAssembler</span> à drapeaux de compilation. Les calculs supplémentaires du scratch sont activés par options d'exécution. Leur accord est une condition de cohérence. Le constructeur de la liste vérifie aussi l'accord entre variante ALE et drapeau pseudo-solide du scratch. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/assembly/incompressible_chns_assemblers.h#L131-L200">Sélection</a>.</p>
+<p><b>Limitation explicite de cette révision :</b> la sélection rejette SUPG ou SUPG du traceur avec le maillage mobile. Il s'agit d'une restriction déclarée par le code, pas d'un bug découvert. Dans le Jacobien stabilisé, τ est tenu constant ; le commentaire précise que résidu et opérateur test sont linéarisés. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/assembly/incompressible_chns_assemblers.h#L155-L159">Restriction</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/assembly/incompressible_chns_assemblers.cpp#L384-L404">τ</a>.</p>
+<p>L'initialisation CHNS ajoute aussi les assembleurs d'élasticité lorsque <span class="tt">with_moving_mesh=true</span>. Le scratch calcule alors les données pseudo-solides avant celles de Navier–Stokes, car la vitesse de maillage est nécessaire. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L259-L273">Composition</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/scratch_data.h#L1153-L1186">ordre de calcul</a>. Cela situe un point de rencontre avec le domaine FSI sans affirmer que toute la chaîne FSI a été étudiée.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Sparsité et cohérence du Jacobien</h1>
+<p><span class="tt">create_sparsity_pattern</span> établit une table de couplage par composantes. Avec SUPG, les lignes pression sont élargies aux autres variables, notamment via le résidu fort de quantité de mouvement. La table sert à construire puis distribuer la structure creuse ; <span class="tt">VolumeAssembler</span> en conserve une référence. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L363-L418">Sparsité</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/assembly/incompressible_chns_assemblers.h#L100-L120">référence conservée</a>.</p>
+<p>Le code propose deux voies de contrôle : assembler le Jacobien par différences finies, ou comparer le Jacobien analytique à cette approximation. Elles sont repérées, <b>non exécutées</b>. Un test pertinent après changement de forme doit tenir compte des choix de linéarisation, notamment τ gelé. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L436-L460">Points d'entrée</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L503-L513">comparaison</a>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+À vérifier dans une session avec build</h1>
+<p>Commencer par une configuration CHNS fixe sans stabilisation, puis une configuration stabilisée ; contrôler Jacobien et convergence MMS avant d'élargir à ALE et MPI. Les dossiers <span class="tt">tests/incompressible_chns</span> et <span class="tt">tests/incompressible_chns_ale</span> sont présents dans l'arbre Git ; leurs sorties existantes ne sont pas un résultat de cette session. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

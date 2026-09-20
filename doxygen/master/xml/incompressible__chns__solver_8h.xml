@@ -1,0 +1,763 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="incompressible__chns__solver_8h" kind="file" language="C++">
+    <compoundname>incompressible_chns_solver.h</compoundname>
+    <includes refid="assembler_8h" local="no">assembly/assembler.h</includes>
+    <includes refid="copy__data_8h" local="no">copy_data.h</includes>
+    <includes local="no">deal.II/fe/fe_values_extractors.h</includes>
+    <includes refid="navier__stokes__solver_8h" local="no">navier_stokes_solver.h</includes>
+    <includes refid="scratch__data_8h" local="no">scratch_data.h</includes>
+    <includedby refid="incompressible__chns_8cpp" local="no">snapshots/master/solvers/incompressible_chns.cpp</includedby>
+    <includedby refid="incompressible__chns__solver_8cpp" local="no">snapshots/master/src/incompressible_chns_solver.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>assembly/assembler.h</label>
+        <link refid="assembler_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>copy_data.h</label>
+        <link refid="copy__data_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>generic_solver.h</label>
+        <link refid="generic__solver_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>snapshots/master/include/incompressible_chns_solver.h</label>
+        <link refid="incompressible__chns__solver_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>navier_stokes_solver.h</label>
+        <link refid="navier__stokes__solver_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>newton_solver.h</label>
+        <link refid="newton__solver_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>nonlinear_solver.h</label>
+        <link refid="nonlinear__solver_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>scratch_data.h</label>
+        <link refid="scratch__data_8h"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>time_handler.h</label>
+        <link refid="time__handler_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>cahn_hilliard.h</label>
+      </node>
+      <node id="11">
+        <label>components_ordering.h</label>
+      </node>
+      <node id="27">
+        <label>deal.II/base/conditional_ostream.h</label>
+      </node>
+      <node id="12">
+        <label>deal.II/base/convergence_table.h</label>
+      </node>
+      <node id="13">
+        <label>deal.II/base/index_set.h</label>
+      </node>
+      <node id="3">
+        <label>deal.II/base/observer_pointer.h</label>
+      </node>
+      <node id="49">
+        <label>deal.II/base/quadrature.h</label>
+      </node>
+      <node id="28">
+        <label>deal.II/base/timer.h</label>
+      </node>
+      <node id="35">
+        <label>deal.II/base/types.h</label>
+      </node>
+      <node id="14">
+        <label>deal.II/base/utilities.h</label>
+      </node>
+      <node id="15">
+        <label>deal.II/distributed/tria_base.h</label>
+      </node>
+      <node id="16">
+        <label>deal.II/dofs/dof_handler.h</label>
+      </node>
+      <node id="17">
+        <label>deal.II/fe/fe_simplex_p.h</label>
+      </node>
+      <node id="18">
+        <label>deal.II/fe/fe_system.h</label>
+      </node>
+      <node id="50">
+        <label>deal.II/fe/fe_update_flags.h</label>
+      </node>
+      <node id="51">
+        <label>deal.II/fe/fe_values.h</label>
+      </node>
+      <node id="9">
+        <label>deal.II/fe/fe_values_extractors.h</label>
+      </node>
+      <node id="52">
+        <label>deal.II/fe/mapping.h</label>
+      </node>
+      <node id="19">
+        <label>deal.II/fe/mapping_fe.h</label>
+      </node>
+      <node id="20">
+        <label>deal.II/fe/mapping_fe_field.h</label>
+      </node>
+      <node id="5">
+        <label>deal.II/hp/fe_collection.h</label>
+      </node>
+      <node id="53">
+        <label>deal.II/hp/fe_values.h</label>
+      </node>
+      <node id="21">
+        <label>deal.II/hp/mapping_collection.h</label>
+      </node>
+      <node id="22">
+        <label>deal.II/hp/q_collection.h</label>
+      </node>
+      <node id="23">
+        <label>deal.II/lac/affine_constraints.h</label>
+      </node>
+      <node id="6">
+        <label>deal.II/lac/full_matrix.h</label>
+      </node>
+      <node id="37">
+        <label>deal.II/lac/generic_linear_algebra.h</label>
+      </node>
+      <node id="38">
+        <label>deal.II/lac/petsc_sparse_matrix.h</label>
+      </node>
+      <node id="39">
+        <label>deal.II/lac/trilinos_sparse_matrix.h</label>
+      </node>
+      <node id="7">
+        <label>deal.II/lac/vector.h</label>
+      </node>
+      <node id="8">
+        <label>deal.II/meshworker/copy_data.h</label>
+      </node>
+      <node id="29">
+        <label>deal.II/numerics/vector_tools_common.h</label>
+      </node>
+      <node id="24">
+        <label>error_estimation/patches.h</label>
+      </node>
+      <node id="25">
+        <label>error_estimation/solution_recovery.h</label>
+      </node>
+      <node id="30">
+        <label>error_handler.h</label>
+      </node>
+      <node id="54">
+        <label>fsi_exact_solution.h</label>
+      </node>
+      <node id="42">
+        <label>map</label>
+      </node>
+      <node id="43">
+        <label>memory</label>
+      </node>
+      <node id="44">
+        <label>metric_field.h</label>
+      </node>
+      <node id="45">
+        <label>mumps_solver.h</label>
+      </node>
+      <node id="40">
+        <label>parameter_reader.h</label>
+      </node>
+      <node id="33">
+        <label>parameters.h</label>
+      </node>
+      <node id="46">
+        <label>post_processing_handler.h</label>
+      </node>
+      <node id="41">
+        <label>solver_info.h</label>
+      </node>
+      <node id="55">
+        <label>stabilization_tools.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>snapshots/master/include/incompressible_chns_solver.h</label>
+        <link refid="incompressible__chns__solver_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>snapshots/master/solvers/incompressible_chns.cpp</label>
+        <link refid="incompressible__chns_8cpp"/>
+      </node>
+      <node id="3">
+        <label>snapshots/master/src/incompressible_chns_solver.cpp</label>
+        <link refid="incompressible__chns__solver_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_c_h_n_s_solver" prot="public">CHNSSolver</innerclass>
+    <innerclass refid="class_c_h_n_s_solver_1_1_source_term" prot="protected">CHNSSolver::SourceTerm</innerclass>
+    <innerclass refid="class_c_h_n_s_solver_1_1_m_m_s_solution" prot="protected">CHNSSolver::MMSSolution</innerclass>
+    <innerclass refid="class_c_h_n_s_solver_1_1_m_m_s_source_term" prot="protected">CHNSSolver::MMSSourceTerm</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>INCOMPRESSIBLE_CHNS_SOLVER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INCOMPRESSIBLE_CHNS_SOLVER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="assembler_8h" kindref="compound">assembly/assembler.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="copy__data_8h" kindref="compound">copy_data.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/fe/fe_values_extractors.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="navier__stokes__solver_8h" kindref="compound">navier_stokes_solver.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="scratch__data_8h" kindref="compound">scratch_data.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="12"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>Quasi-incompressible<sp/>Cahn-Hilliard<sp/>Navier-Stokes<sp/>solver.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>TODO:<sp/>Add<sp/>equations.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>with_moving_mesh<sp/>=<sp/>false&gt;</highlight></codeline>
+<codeline lineno="17" refid="class_c_h_n_s_solver" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c_h_n_s_solver_1a37c8036fb7a6a55f317928ea1e18ec2d" kindref="member">CHNSSolver</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_navier_stokes_solver_1a0ae187dd8edd09f50bcb1f010d9120dc" kindref="member">NavierStokesSolver</ref>&lt;dim,<sp/>with_moving_mesh&gt;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19" refid="class_c_h_n_s_solver_1a3d31b7f1dcbe38e795d5bd653dd8d9f5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_c_h_n_s_solver_1a3d31b7f1dcbe38e795d5bd653dd8d9f5" kindref="member">ScratchData</ref><sp/>=</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_navier_stokes_scratch_1a29f2e8468cdefaf31b9059832ef86622" kindref="member">NavierStokesScratch::ScratchDataCHNS&lt;dim, with_moving_mesh&gt;</ref>;</highlight></codeline>
+<codeline lineno="21" refid="class_c_h_n_s_solver_1a096d0f4a5e08e16fdf38e0bde1f5c0b7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_c_h_n_s_solver_1a096d0f4a5e08e16fdf38e0bde1f5c0b7" kindref="member">CopyData</ref><sp/><sp/>=<sp/><ref refid="class_copy_data_base" kindref="compound">CopyDataBase&lt;1&gt;</ref>;</highlight></codeline>
+<codeline lineno="22" refid="class_c_h_n_s_solver_1a0c9aff9a4561a114c8a27406dc139296" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_c_h_n_s_solver_1a0c9aff9a4561a114c8a27406dc139296" kindref="member">Assembler</ref><sp/>=<sp/><ref refid="class_assembly_1_1_assembler_base" kindref="compound">Assembly::AssemblerBase&lt;ScratchData, CopyData&gt;</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Constructor</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="class_c_h_n_s_solver_1a37c8036fb7a6a55f317928ea1e18ec2d" kindref="member">CHNSSolver</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/>&amp;<ref refid="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" kindref="member">param</ref>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Destructor</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="class_c_h_n_s_solver_1abbdd857aed76c3f71de459f905b612bf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1abbdd857aed76c3f71de459f905b612bf" kindref="member">~CHNSSolver</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Update<sp/>parameters<sp/>in<sp/>between<sp/>mesh<sp/>adaptation<sp/>fixed<sp/>point<sp/>iterations.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>specific<sp/>function<sp/>updates<sp/>the<sp/>interface<sp/>thickness.</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a64aefd5523f26fa2ecbb4f1dd4b78603" kindref="member">update_simulation_parameters</ref>(</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fixed_point_iteration)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Create<sp/>the<sp/>scratch<sp/>data<sp/>structure<sp/>for<sp/>this<sp/>solver.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1aefa3611a2cbe5a4b35462ca38901c281" kindref="member">create_scratch_data</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Create<sp/>the<sp/>volume<sp/>and<sp/>boundary<sp/>assemblers<sp/>for<sp/>this<sp/>solver.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a73ee4dc321c27f227e0067d9f7ca7ebe" kindref="member">setup_assemblers</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Apply<sp/>initial<sp/>condition<sp/>on<sp/>the<sp/>tracer<sp/>(phase<sp/>marker)</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a94bee516702c66be4ebedc604bf072f2" kindref="member">set_solver_specific_initial_conditions</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Apply<sp/>exact<sp/>tracer<sp/>and<sp/>potential</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a9167aad8f3c2094b5e18a0d3961ac481" kindref="member">set_solver_specific_exact_solution</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1aa6db2afadd6f4c7d0cf76bfd77411c8f" kindref="member">create_solver_specific_zero_constraints</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a31011142a046c91f4077d8337419eaa9" kindref="member">create_solver_specific_nonzero_constraints</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a9fe80cf41815db9ed9babcf6e1d7ad37" kindref="member">create_sparsity_pattern</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1aeb167c7b4685b92d00a0d812487798f4" kindref="member">compute_solver_specific_errors</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Assemble<sp/>the<sp/>linearized<sp/>Jacobian<sp/>matrix<sp/>at<sp/>the<sp/>current<sp/>evaluation<sp/>point</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a70ff54d615ba71803c2e0ea0d031b96b" kindref="member">assemble_matrix</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Compute<sp/>the<sp/>element-wise<sp/>matrix.<sp/>This<sp/>function<sp/>is<sp/>passed<sp/>to</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/>*<sp/>WorkStream::run<sp/>to<sp/>perform<sp/>multithreaded<sp/>assembly<sp/>if<sp/>supported</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/>*<sp/>(i.e.,<sp/>if<sp/>using<sp/>thread-safe<sp/>matrix<sp/>and<sp/>vector<sp/>wrappers).</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a4d521537bafbd95a805a03ad0678c5d5" kindref="member">assemble_local_matrix</ref>(</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;::active_cell_iterator<sp/>&amp;cell,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1a3d31b7f1dcbe38e795d5bd653dd8d9f5" kindref="member">ScratchData</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;scratchData,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1a096d0f4a5e08e16fdf38e0bde1f5c0b7" kindref="member">CopyData</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Compute<sp/>the<sp/>element-wise<sp/>matrix<sp/>using<sp/>finite<sp/>differences.</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/>*<sp/>FIXME:<sp/>Rethink<sp/>this<sp/>to<sp/>handle<sp/>the<sp/>finite<sp/>difference<sp/>computations</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/>*<sp/>in<sp/>the<sp/>base<sp/>class<sp/>and<sp/>not<sp/>in<sp/>derived<sp/>solvers.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a479631a263cade543253aa444e0fe163" kindref="member">assemble_local_matrix_finite_differences</ref>(</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;::active_cell_iterator<sp/>&amp;cell,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1a3d31b7f1dcbe38e795d5bd653dd8d9f5" kindref="member">ScratchData</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;scratchData,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1a096d0f4a5e08e16fdf38e0bde1f5c0b7" kindref="member">CopyData</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Assemble<sp/>the<sp/>element-wise<sp/>matrix<sp/>computed<sp/>with<sp/>assemble_local_matrix</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/>*<sp/>into<sp/>the<sp/>global<sp/>matrix.<sp/>Passed<sp/>to<sp/>WorkStream::run<sp/>(see<sp/>above).</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a66c3971c93ef59f87a42b0611037b445" kindref="member">copy_local_to_global_matrix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a096d0f4a5e08e16fdf38e0bde1f5c0b7" kindref="member">CopyData</ref><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a8014af98b030db585b12e3cb861f2720" kindref="member">compare_analytical_matrix_with_fd</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Assemble<sp/>the<sp/>Newton<sp/>residual<sp/>at<sp/>the<sp/>current<sp/>evaluation<sp/>point</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a36ac83923a682c7ea61c38cb91be626a" kindref="member">assemble_rhs</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/>*<sp/>See<sp/>assemble_local_matrix.</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="class_c_h_n_s_solver_1a31988c3cdbc80c489bd2b35d7fa069ad" kindref="member">assemble_local_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;::active_cell_iterator<sp/>&amp;cell,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1a3d31b7f1dcbe38e795d5bd653dd8d9f5" kindref="member">ScratchData</ref><sp/>&amp;scratchData,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1a096d0f4a5e08e16fdf38e0bde1f5c0b7" kindref="member">CopyData</ref><sp/><sp/><sp/><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/>*<sp/>See<sp/>copy_local_to_global_matrix.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1ad12601e893eec650e1859aaae549d35a" kindref="member">copy_local_to_global_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1a096d0f4a5e08e16fdf38e0bde1f5c0b7" kindref="member">CopyData</ref><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Post-process<sp/>the<sp/>additional<sp/>data<sp/>specific<sp/>to<sp/>this<sp/>solver.</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1aab4fb13a67bc3f68519ab94f5602b06a" kindref="member">solver_specific_post_processing</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::vector&lt;std::pair&lt;std::string,<sp/>unsigned<sp/>int&gt;&gt;</highlight></codeline>
+<codeline lineno="130" refid="class_c_h_n_s_solver_1a863c85dd93a776a32c90fb76a28c7ba9" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_c_h_n_s_solver_1a863c85dd93a776a32c90fb76a28c7ba9" kindref="member">get_additional_variables_description</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="131"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::pair&lt;std::string,<sp/>unsigned<sp/>int&gt;&gt;<sp/>description;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>description.emplace_back(</highlight><highlight class="stringliteral">&quot;tracer&quot;</highlight><highlight class="normal">,<sp/>1);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>description.emplace_back(</highlight><highlight class="stringliteral">&quot;potential&quot;</highlight><highlight class="normal">,<sp/>1);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>description;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138" refid="class_c_h_n_s_solver_1ad3fa24bf0babaa9b3473b5693f9a07c7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FESystem&lt;dim&gt;<sp/>&amp;<ref refid="class_c_h_n_s_solver_1ad3fa24bf0babaa9b3473b5693f9a07c7" kindref="member">get_fe_system</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="class_c_h_n_s_solver_1aa60ac7cb5064346f1225aaa995aaffb8" kindref="member">fe</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="class_c_h_n_s_solver_1acefa2150f7b983d6bbb3a3670adca0a0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1acefa2150f7b983d6bbb3a3670adca0a0" kindref="member">uses_hp_capabilities</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/>};</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="143" refid="class_c_h_n_s_solver_1aa60ac7cb5064346f1225aaa995aaffb8" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;FESystem&lt;dim&gt;&gt;<sp/><ref refid="class_c_h_n_s_solver_1aa60ac7cb5064346f1225aaa995aaffb8" kindref="member">fe</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>ConstexprComponentOrderingCHNS&lt;dim,<sp/>with_moving_mesh&gt;</highlight></codeline>
+<codeline lineno="146" refid="class_c_h_n_s_solver_1a2623eeb8dcbe604942ee3b5153745e45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1a2623eeb8dcbe604942ee3b5153745e45" kindref="member">const_ordering</ref><sp/>=<sp/>{};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="class_c_h_n_s_solver_1acfbfce2230a4f8633027d1e06c3643b6" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;ScratchData&gt;<sp/><ref refid="class_c_h_n_s_solver_1acfbfce2230a4f8633027d1e06c3643b6" kindref="member">scratch_data</ref>;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="class_c_h_n_s_solver_1a00b8f3a4fc08a5c1b8434e74257fdb1f" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;std::unique_ptr&lt;Assembler&gt;&gt;<sp/><ref refid="class_c_h_n_s_solver_1a00b8f3a4fc08a5c1b8434e74257fdb1f" kindref="member">assemblers</ref>;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152" refid="class_c_h_n_s_solver_1a560b45667e92515f69190297903c2e4a" refkind="member"><highlight class="normal"><sp/><sp/>FEValuesExtractors::Scalar<sp/><ref refid="class_c_h_n_s_solver_1a560b45667e92515f69190297903c2e4a" kindref="member">tracer_extractor</ref>;</highlight></codeline>
+<codeline lineno="153" refid="class_c_h_n_s_solver_1a292ab7950a52dbbd9e75fa074b8ccf50" refkind="member"><highlight class="normal"><sp/><sp/>FEValuesExtractors::Scalar<sp/><ref refid="class_c_h_n_s_solver_1a292ab7950a52dbbd9e75fa074b8ccf50" kindref="member">potential_extractor</ref>;</highlight></codeline>
+<codeline lineno="154" refid="class_c_h_n_s_solver_1a6b17b70314bf82d9df4ea5097c1a9f54" refkind="member"><highlight class="normal"><sp/><sp/>ComponentMask<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1a6b17b70314bf82d9df4ea5097c1a9f54" kindref="member">tracer_mask</ref>;</highlight></codeline>
+<codeline lineno="155" refid="class_c_h_n_s_solver_1abe0d83ec3e2005ee30fd0490425ed7c6" refkind="member"><highlight class="normal"><sp/><sp/>ComponentMask<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1abe0d83ec3e2005ee30fd0490425ed7c6" kindref="member">potential_mask</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Source<sp/>term.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="class_c_h_n_s_solver_1_1_source_term" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c_h_n_s_solver_1_1_source_term_1a772f96df58f4a6db3131a4d854c8b21a" kindref="member">SourceTerm</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Function&lt;dim&gt;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="164" refid="class_c_h_n_s_solver_1_1_source_term_1a772f96df58f4a6db3131a4d854c8b21a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a772f96df58f4a6db3131a4d854c8b21a" kindref="member">SourceTerm</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>time,</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ComponentOrdering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>,</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Parameters::SourceTerms&lt;dim&gt;<sp/>&amp;<ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Function&lt;dim&gt;(<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>.n_components,<sp/>time)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>(<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>(<ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="class_c_h_n_s_solver_1_1_source_term_1a6871b159ea1ff98df2b4af58552853b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a6871b159ea1ff98df2b4af58552853b2" kindref="member">set_time</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>new_time)</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="173"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>.set_time(new_time);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177" refid="class_c_h_n_s_solver_1_1_source_term_1a1477428bc74ed9d71b098c78455162a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a1477428bc74ed9d71b098c78455162a1" kindref="member">vector_value</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&lt;dim&gt;<sp/>&amp;p,</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector&lt;double&gt;<sp/><sp/><sp/>&amp;values)</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="179"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>source_terms.fluid_source<sp/>is<sp/>a<sp/>function<sp/>with<sp/>dim+1<sp/>components</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d<sp/>=<sp/>0;<sp/>d<sp/>&lt;<sp/>dim;<sp/>++d)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>.u_lower<sp/>+<sp/>d]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>.fluid_source-&gt;value(p,<sp/>d);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>(with_moving_mesh)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>.x_lower<sp/>+<sp/>d]<sp/>=</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>.pseudosolid_source-&gt;value(p,<sp/>d);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>.p_lower]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>.fluid_source-&gt;value(p,<sp/>dim);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>.phi_lower]<sp/>=</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>.cahnhilliard_source-&gt;value(p,<sp/>0);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>.mu_lower]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>.cahnhilliard_source-&gt;value(p,<sp/>1);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="195" refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ComponentOrdering<sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" kindref="member">ordering</ref>;</highlight></codeline>
+<codeline lineno="196" refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Parameters::SourceTerms&lt;dim&gt;<sp/><ref refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" kindref="member">source_terms</ref>;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Exact<sp/>solution<sp/>when<sp/>performing<sp/>a<sp/>convergence<sp/>study<sp/>with<sp/>a<sp/>manufactured</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/><sp/><sp/>*<sp/>solution.</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="class_c_h_n_s_solver_1_1_m_m_s_solution" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a860943a13085d2e5e67887a99228385d" kindref="member">MMSSolution</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Function&lt;dim&gt;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="206" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a860943a13085d2e5e67887a99228385d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a860943a13085d2e5e67887a99228385d" kindref="member">MMSSolution</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>time,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ComponentOrdering<sp/>&amp;<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ManufacturedSolutions::ManufacturedSolution&lt;dim&gt;<sp/>&amp;<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Function&lt;dim&gt;(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" kindref="member">n_components</ref>,<sp/>time)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>)</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" kindref="member">n_components</ref>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" kindref="member">n_components</ref>)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a038b7f6d588c999774889adc18dba191" kindref="member">u_lower</ref>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a038b7f6d588c999774889adc18dba191" kindref="member">u_lower</ref>)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adea59a3ffecb477c8578c116f6d32e76" kindref="member">p_lower</ref>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adea59a3ffecb477c8578c116f6d32e76" kindref="member">p_lower</ref>)</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a9b5331a286e1403815646b8568084bba" kindref="member">x_lower</ref>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a9b5331a286e1403815646b8568084bba" kindref="member">x_lower</ref>)</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adfd53ac84695d5e2827962536dfce76c" kindref="member">phi_lower</ref>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adfd53ac84695d5e2827962536dfce76c" kindref="member">phi_lower</ref>)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a3e791bf0b849c0d261bbccf93012542c" kindref="member">mu_lower</ref>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a3e791bf0b849c0d261bbccf93012542c" kindref="member">mu_lower</ref>)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>)</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>time<sp/>in<sp/>the<sp/>mms<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a48189592141bc30d295caa5eeac6621e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a48189592141bc30d295caa5eeac6621e" kindref="member">set_time</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>new_time)</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="222"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.set_time(new_time);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Setting<sp/>the<sp/>individual<sp/>value<sp/>function<sp/>is<sp/>required<sp/>for<sp/>e.g.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>constraining<sp/>a<sp/>pressure<sp/>point,<sp/>which<sp/>calls<sp/>value()<sp/>for<sp/>pressure.</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adcdd892d79f8d9d465b54b76385c6a2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adcdd892d79f8d9d465b54b76385c6a2f" kindref="member">value</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&lt;dim&gt;<sp/><sp/>&amp;p,</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>component<sp/>=<sp/>0)</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="232"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Assert(component<sp/>&lt;<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" kindref="member">n_components</ref>,<sp/>ExcMessage(</highlight><highlight class="stringliteral">&quot;Component<sp/>mismatch&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>(with_moving_mesh)</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_position(component))</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_mesh_position-&gt;value(p,</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>component<sp/>-<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.x_lower);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_velocity(component))</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_velocity-&gt;value(p,<sp/>component<sp/>-<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.u_lower);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_pressure(component))</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_pressure-&gt;value(p);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_tracer(component))</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_tracer-&gt;value(p);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_potential(component))</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_potential-&gt;value(p);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DEAL_II_ASSERT_UNREACHABLE();</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a4d399b9ba84cf40c58eb07af073e8a10" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a4d399b9ba84cf40c58eb07af073e8a10" kindref="member">vector_value</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&lt;dim&gt;<sp/>&amp;p,</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector&lt;double&gt;<sp/><sp/><sp/>&amp;values)</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="252"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Assert(values.size()<sp/>==<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" kindref="member">n_components</ref>,<sp/>ExcMessage(</highlight><highlight class="stringliteral">&quot;Component<sp/>mismatch&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d<sp/>=<sp/>0;<sp/>d<sp/>&lt;<sp/>dim;<sp/>++d)</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a038b7f6d588c999774889adc18dba191" kindref="member">u_lower</ref><sp/>+<sp/>d]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_velocity-&gt;value(p,<sp/>d);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>(with_moving_mesh)</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a9b5331a286e1403815646b8568084bba" kindref="member">x_lower</ref><sp/>+<sp/>d]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_mesh_position-&gt;value(p,<sp/>d);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adea59a3ffecb477c8578c116f6d32e76" kindref="member">p_lower</ref>]<sp/><sp/><sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_pressure-&gt;value(p);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adfd53ac84695d5e2827962536dfce76c" kindref="member">phi_lower</ref>]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_tracer-&gt;value(p);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>values[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a3e791bf0b849c0d261bbccf93012542c" kindref="member">mu_lower</ref>]<sp/><sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_potential-&gt;value(p);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Required<sp/>for<sp/>H1<sp/>norm<sp/>computations<sp/>on<sp/>invididual<sp/>components</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>Tensor&lt;1,<sp/>dim&gt;</highlight></codeline>
+<codeline lineno="269" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a246686edca36aa5927003c8338c62a2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a246686edca36aa5927003c8338c62a2d" kindref="member">gradient</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&lt;dim&gt;<sp/><sp/>&amp;p,</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>component<sp/>=<sp/>0)</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="271"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Assert(component<sp/>&lt;<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" kindref="member">n_components</ref>,<sp/>ExcMessage(</highlight><highlight class="stringliteral">&quot;Component<sp/>mismatch&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>(with_moving_mesh)</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_position(component))</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_mesh_position-&gt;gradient(p,</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>component<sp/>-</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.x_lower);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_velocity(component))</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_velocity-&gt;gradient(p,<sp/>component<sp/>-<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.u_lower);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_pressure(component))</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_pressure-&gt;gradient(p);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_tracer(component))</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_tracer-&gt;gradient(p);</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>.is_potential(component))</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_potential-&gt;gradient(p);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DEAL_II_ASSERT_UNREACHABLE();</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ad3d453676a729d5de1f35ecff6d53b25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ad3d453676a729d5de1f35ecff6d53b25" kindref="member">vector_gradient</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;p,</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Tensor&lt;1,<sp/>dim&gt;&gt;<sp/>&amp;gradients)</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="293"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Assert(gradients.size()<sp/>==<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" kindref="member">n_components</ref>,</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ExcMessage(</highlight><highlight class="stringliteral">&quot;Component<sp/>mismatch&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d<sp/>=<sp/>0;<sp/>d<sp/>&lt;<sp/>dim;<sp/>++d)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradients[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a038b7f6d588c999774889adc18dba191" kindref="member">u_lower</ref><sp/>+<sp/>d]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_velocity-&gt;gradient(p,<sp/>d);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>(with_moving_mesh)</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradients[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a9b5331a286e1403815646b8568084bba" kindref="member">x_lower</ref><sp/>+<sp/>d]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_mesh_position-&gt;gradient(p,<sp/>d);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gradients[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adea59a3ffecb477c8578c116f6d32e76" kindref="member">p_lower</ref>]<sp/><sp/><sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_pressure-&gt;gradient(p);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gradients[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adfd53ac84695d5e2827962536dfce76c" kindref="member">phi_lower</ref>]<sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_tracer-&gt;gradient(p);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gradients[<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a3e791bf0b849c0d261bbccf93012542c" kindref="member">mu_lower</ref>]<sp/><sp/>=<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>.exact_potential-&gt;gradient(p);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="308" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ComponentOrdering<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" kindref="member">ordering</ref>;</highlight></codeline>
+<codeline lineno="309" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" kindref="member">n_components</ref>;</highlight></codeline>
+<codeline lineno="310" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a038b7f6d588c999774889adc18dba191" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a038b7f6d588c999774889adc18dba191" kindref="member">u_lower</ref>;</highlight></codeline>
+<codeline lineno="311" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adea59a3ffecb477c8578c116f6d32e76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adea59a3ffecb477c8578c116f6d32e76" kindref="member">p_lower</ref>;</highlight></codeline>
+<codeline lineno="312" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a9b5331a286e1403815646b8568084bba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a9b5331a286e1403815646b8568084bba" kindref="member">x_lower</ref>;</highlight></codeline>
+<codeline lineno="313" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adfd53ac84695d5e2827962536dfce76c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adfd53ac84695d5e2827962536dfce76c" kindref="member">phi_lower</ref>;</highlight></codeline>
+<codeline lineno="314" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a3e791bf0b849c0d261bbccf93012542c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a3e791bf0b849c0d261bbccf93012542c" kindref="member">mu_lower</ref>;</highlight></codeline>
+<codeline lineno="315" refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ManufacturedSolutions::ManufacturedSolution&lt;dim&gt;<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" kindref="member">mms</ref>;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="318"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="319"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Source<sp/>term<sp/>called<sp/>when<sp/>performing<sp/>a<sp/>convergence<sp/>study.</highlight></codeline>
+<codeline lineno="320"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>function<sp/>calls<sp/>the<sp/>derivatives<sp/>functions<sp/>from<sp/>the<sp/>given</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/><sp/><sp/>*<sp/>pre-set<sp/>manufactured<sp/>solution.</highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="323" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1afceb584c32971fc73840f2b31a3713b9" kindref="member">MMSSourceTerm</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Function&lt;dim&gt;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="326" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1afceb584c32971fc73840f2b31a3713b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1afceb584c32971fc73840f2b31a3713b9" kindref="member">MMSSourceTerm</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>time,</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ComponentOrdering<sp/><sp/><sp/><sp/>&amp;<ref refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" kindref="member">ordering</ref>,</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/>&amp;<ref refid="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" kindref="member">param</ref>)</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Function&lt;dim&gt;(<ref refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1abe8e909ba5cc80cd13f6dc38f101652b" kindref="member">n_components</ref>,<sp/>time)</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1abe8e909ba5cc80cd13f6dc38f101652b" kindref="member">n_components</ref>(<ref refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1abe8e909ba5cc80cd13f6dc38f101652b" kindref="member">n_components</ref>)</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1aab8aad9ee31450e0f5c35ab55c735b0f" kindref="member">u_lower</ref>(<ref refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1aab8aad9ee31450e0f5c35ab55c735b0f" kindref="member">u_lower</ref>)</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a80b8bfeba945a354fb24bb9d52b6c793" kindref="member">p_lower</ref>(<ref refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a80b8bfeba945a354fb24bb9d52b6c793" kindref="member">p_lower</ref>)</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1ac9f49cc601c4d03ca443e9691a821bae" kindref="member">x_lower</ref>(<ref refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1ac9f49cc601c4d03ca443e9691a821bae" kindref="member">x_lower</ref>)</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a6212e8c30e16edd900d9c23122378346" kindref="member">phi_lower</ref>(<ref refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a6212e8c30e16edd900d9c23122378346" kindref="member">phi_lower</ref>)</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a4f828658ab3ceb6a437439b182a5c53c" kindref="member">mu_lower</ref>(<ref refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" kindref="member">ordering</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a4f828658ab3ceb6a437439b182a5c53c" kindref="member">mu_lower</ref>)</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1afc4ad62d54cb20bce90250d67de96b85" kindref="member">physical_properties</ref>(<ref refid="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" kindref="member">param</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1afc4ad62d54cb20bce90250d67de96b85" kindref="member">physical_properties</ref>)</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a7d2f394cfa696fad07d030192bbbb840" kindref="member">cahn_hilliard_param</ref>(<ref refid="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" kindref="member">param</ref>.cahn_hilliard)</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a10e382eb98b8b95232854229d71278d8" kindref="member">mms</ref>(<ref refid="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" kindref="member">param</ref>.<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a10e382eb98b8b95232854229d71278d8" kindref="member">mms</ref>)</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>time<sp/>in<sp/>the<sp/>mms<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="342" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1af1aa4f11967985e06f5a384e5d436cec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1af1aa4f11967985e06f5a384e5d436cec" kindref="member">set_time</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>new_time)</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="343"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a10e382eb98b8b95232854229d71278d8" kindref="member">mms</ref>.set_time(new_time);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1ae93958ba61261114356a2798217ac551" kindref="member">vector_value</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&lt;dim&gt;<sp/>&amp;p,</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector&lt;double&gt;<sp/><sp/><sp/>&amp;values)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="350"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="351"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Gradient<sp/>of<sp/>source<sp/>term,<sp/>using<sp/>finite<sp/>differences</highlight></codeline>
+<codeline lineno="352"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a392688e9989e2a78daf51c868ad3aaba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a392688e9989e2a78daf51c868ad3aaba" kindref="member">vector_gradient</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;p,</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Tensor&lt;1,<sp/>dim&gt;&gt;<sp/>&amp;gradients)</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="356"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>h<sp/>=<sp/>1e-8;</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Vector&lt;double&gt;<sp/>vals_plus(gradients.size()),<sp/>vals_minus(gradients.size());</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d<sp/>=<sp/>0;<sp/>d<sp/>&lt;<sp/>dim;<sp/>++d)</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Point&lt;dim&gt;<sp/>p_plus<sp/>=<sp/>p,<sp/>p_minus<sp/>=<sp/>p;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_plus[d]<sp/>+=<sp/>h;</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>p_minus[d]<sp/>-=<sp/>h;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1ae93958ba61261114356a2798217ac551" kindref="member">vector_value</ref>(p_plus,<sp/>vals_plus);</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1ae93958ba61261114356a2798217ac551" kindref="member">vector_value</ref>(p_minus,<sp/>vals_minus);</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Centered<sp/>finite<sp/>differences</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>c<sp/>=<sp/>0;<sp/>c<sp/>&lt;<sp/>gradients.size();<sp/>++c)</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gradients[c][d]<sp/>=<sp/>(vals_plus[c]<sp/>-<sp/>vals_minus[c])<sp/>/<sp/>(2.0<sp/>*<sp/>h);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="377" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1abe8e909ba5cc80cd13f6dc38f101652b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1abe8e909ba5cc80cd13f6dc38f101652b" kindref="member">n_components</ref>;</highlight></codeline>
+<codeline lineno="378" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1aab8aad9ee31450e0f5c35ab55c735b0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1aab8aad9ee31450e0f5c35ab55c735b0f" kindref="member">u_lower</ref>;</highlight></codeline>
+<codeline lineno="379" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a80b8bfeba945a354fb24bb9d52b6c793" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a80b8bfeba945a354fb24bb9d52b6c793" kindref="member">p_lower</ref>;</highlight></codeline>
+<codeline lineno="380" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1ac9f49cc601c4d03ca443e9691a821bae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1ac9f49cc601c4d03ca443e9691a821bae" kindref="member">x_lower</ref>;</highlight></codeline>
+<codeline lineno="381" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a6212e8c30e16edd900d9c23122378346" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a6212e8c30e16edd900d9c23122378346" kindref="member">phi_lower</ref>;</highlight></codeline>
+<codeline lineno="382" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a4f828658ab3ceb6a437439b182a5c53c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a4f828658ab3ceb6a437439b182a5c53c" kindref="member">mu_lower</ref>;</highlight></codeline>
+<codeline lineno="383" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1afc4ad62d54cb20bce90250d67de96b85" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Parameters::PhysicalProperties&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1afc4ad62d54cb20bce90250d67de96b85" kindref="member">physical_properties</ref>;</highlight></codeline>
+<codeline lineno="384" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a7d2f394cfa696fad07d030192bbbb840" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Parameters::CahnHilliard&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a7d2f394cfa696fad07d030192bbbb840" kindref="member">cahn_hilliard_param</ref>;</highlight></codeline>
+<codeline lineno="385" refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a10e382eb98b8b95232854229d71278d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ManufacturedSolutions::ManufacturedSolution&lt;dim&gt;<sp/><ref refid="class_c_h_n_s_solver_1_1_m_m_s_source_term_1a10e382eb98b8b95232854229d71278d8" kindref="member">mms</ref>;</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="387"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"></highlight></codeline>
+<codeline lineno="389"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="390"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/master/include/incompressible_chns_solver.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,748 @@
+#ifndef NAVIER_STOKES_SOLVER_H
+#define NAVIER_STOKES_SOLVER_H
+
+#include <components_ordering.h>
+#include <deal.II/base/convergence_table.h>
+#include <deal.II/base/index_set.h>
+#include <deal.II/base/utilities.h>
+#include <deal.II/distributed/tria_base.h>
+#include <deal.II/dofs/dof_handler.h>
+#include <deal.II/fe/fe_simplex_p.h>
+#include <deal.II/fe/fe_system.h>
+#include <deal.II/fe/mapping_fe.h>
+#include <deal.II/fe/mapping_fe_field.h>
+#include <deal.II/hp/fe_collection.h>
+#include <deal.II/hp/mapping_collection.h>
+#include <deal.II/hp/q_collection.h>
+#include <deal.II/lac/affine_constraints.h>
+#include <error_estimation/patches.h>
+#include <error_estimation/solution_recovery.h>
+#include <generic_solver.h>
+#include <metric_field.h>
+#include <mumps_solver.h>
+#include <parameter_reader.h>
+#include <post_processing_handler.h>
+#include <time_handler.h>
+#include <types.h>
+
+using namespace dealii;
+
+/**
+ * A base class for Navier-Stokes solvers.
+ *
+ * This class handles the common tasks to all Navier-Stokes related solvers,
+ * namely :
+ *
+ *  - creating and handling the mesh (fixed and/or moving)
+ *  - creating the system parallel matrix and vectors
+ *  - creating the mesh- and NS-related boundary conditions (constraints)
+ *  - advancing the time integration and solving the nonlinear system
+ *  - computing errors on velocity, pressure and mesh position, if applicable
+ *
+ * Solver-specific tasks (additional boundary conditions, outputting results,
+ * computing errors, etc.) are handled by overloading the "solver_specific"
+ * routines, which by default do nothing in this base class.
+ * Other functions, such as setup_dofs, are marked virtual to allow overloading
+ * by solvers requiring a specific treatment, but not all solvers are required
+ * to overload these functions.
+ *
+ * This class does *not* handle the following, which must then be
+ * implemented by each derived solver:
+ *
+ * - creation of the FiniteElements (e.g., FESystem or FECollection), which
+ *   depend on the fields layout and specificities of each solver
+ * - matrix and rhs assembly
+ *   FIXME: This means that currently, each solver assembles its whole set of
+ *   equations. In particular, the Navier-Stokes eq. are duplicated across the
+ *   solvers, which is not ideal.
+ *
+ */
+template <int dim, bool with_moving_mesh = false>
+class NavierStokesSolver : public GenericSolver<LA::ParVectorType>
+{
+public:
+  NavierStokesSolver(const ParameterReader<dim> &param);
+
+  virtual ~NavierStokesSolver() = default;
+
+public:
+  /**
+   * Solve: either solve for the steady-state solution, or integrate
+   * in time until the end of the simulation.
+   */
+  virtual void run() override;
+
+  /**
+   * Update the mesh file for the current interval, and assigns the pointers to
+   * the triangulation, dof_handler, solutions and metric field for this time
+   * interval from the transient fixed-point data (responsible of ownership) to
+   * this object's non-owning pointers.
+   */
+  void set_interval_data(const unsigned int interval_index);
+
+  /**
+   * This is the main "solve" function, which solves the Navier-Stokes related
+   * problem on the current time subinterval [t_i, t_i+1], taking the previous
+   * interval as initial conditions. For unsteady simulations that do not use
+   * metric-based mesh adaptation, this simply runs the simulation for the full
+   * simulation interval [0,T].
+   */
+  void run_time_subinterval(const unsigned int interval_index);
+
+  /**
+   * Reset the solver between two runs. This is typically useful when running
+   * convergence studies, to properly reset the mesh, time integration data,
+   * etc.
+   */
+  void reset();
+
+  /**
+   * Reset data specific to each derived solver. By default, this function does
+   * nothing and must be overriden if needed.
+   */
+  virtual void reset_solver_specific_data() {}
+
+  /**
+   * Initialize data requiring information from the derived solver, such as the
+   * names of the model variables in addition to velocity, pressure and mesh
+   * position. These data cannot be initialized in the base class constructor,
+   * so they are initialized in this function instead.
+   */
+  void initialize();
+
+  /**
+   * Perform actions after the end of the simulation loop, such as writing
+   * .pvd output.
+   */
+  void finalize();
+
+  /**
+   * Initialize data on the current time interval. This function initializes
+   * data which require a well-formed triangulation and dof handler, and must
+   * be called after read_mesh(), setup_dofs() and setup_mappings() have been
+   * called, as opposed to set_interval_data() which dispatches pointers to
+   * empty triangulation and dof handler.
+   */
+  void initialize_interval(const unsigned interval_index);
+
+  /**
+   * Initialize data on current time interval specific to each derived solver.
+   */
+  virtual void
+  initialize_interval_solver_specific(const unsigned /* interval_index */){};
+
+  /**
+   * Perform end-of-interval actions, such as copying the metrics from the
+   * metric field used for mesh adaptation into the dedicated metric field.
+   */
+  void finalize_interval(const unsigned interval_index);
+
+  /**
+   * Perform end-of-interval actions specific to each derived solver.
+   */
+  virtual void
+  finalize_interval_solver_specific(const unsigned /* interval_index */){};
+
+  /**
+   * Update time in all relevant structures:
+   *  - boundary conditions
+   *  - source terms
+   *  - exact solution
+   *  - physical properties
+   */
+  void set_time();
+
+  /**
+   * Set time in the relevant structures of each derived solver. By default,
+   * this function does nothing and must be overriden if needed.
+   */
+  virtual void set_solver_specific_time() {}
+
+  /**
+   * Distribute (number) the degrees of freedom and allocate the parallel matrix
+   * and vectors.
+   */
+  virtual void setup_dofs();
+
+  /**
+   * For solvers with a moving mesh, initialize the MappingFEField from the
+   * mesh position part of the solution vector.
+   */
+  virtual void setup_mappings();
+
+  /**
+   * Create the scratch data structure for this solver.
+   */
+  virtual void create_scratch_data() = 0;
+
+  /**
+   * Create the volume and boundary assemblers for this solver.
+   */
+  virtual void setup_assemblers() = 0;
+
+  /**
+   * For solvers with hp capabilities, set the active fe index on each owned
+   * mesh element.
+   *
+   * This function is not pure virtual because non-hp solvers do not need it,
+   * but it should be overriden by hp solvers, and it will throw an error if
+   * called from this class.
+   *
+   * FIXME: A proper base class should be added for hp solver, to avoid this.
+   */
+  virtual void set_active_fe_indices();
+
+  /**
+   * Reinitialize the ghosted parallel vectors.
+   * This should be called whenever additional ghost dofs are explicitly added
+   * to the vector of locally relevant dofs.
+   */
+  void reinit_ghosted_vectors();
+
+  /**
+   * Create the data needed to enforce zero-mean pressure.
+   *
+   * Note that, as it is done for now, enforcing zero-mean is an expensive
+   * operation, because it couples a pressure dof on a partition to *all*
+   * other pressure dofs, thus filling its matrix entries. See also the comments
+   * in boundary_conditions.h.
+   */
+  void create_zero_mean_pressure_constraints_data();
+
+  /**
+   * If a derived solver requires additional constraints data that need to be
+   * created only once, they should be created within an overload of this
+   * function. For instance, the FSI solver creates here the data to couple the
+   * fluid forces on an obstacle to the mesh position.
+   */
+  virtual void create_solver_specific_constraints_data() {}
+
+  /**
+   * Create the velocity, pressure and mesh position boundary conditions.
+   */
+  virtual void create_base_constraints(const bool                 homogeneous,
+                                       AffineConstraints<double> &constraints);
+
+  /**
+   * Create the homogeneous boundary conditions.
+   */
+  virtual void create_zero_constraints();
+
+  /**
+   * Create the additional homogeneous boundary conditions specific to each
+   * derived solver. By default, this function does nothing and must be
+   * overriden if needed.
+   */
+  virtual void create_solver_specific_zero_constraints() {}
+
+  /**
+   * Create the inhomogeneous boundary conditions.
+   */
+  virtual void create_nonzero_constraints();
+
+  /**
+   * Create the additional inhomogeneous boundary conditions specific to each
+   * derived solver. By default, this function does nothing and must be
+   * overriden if needed.
+   */
+  virtual void create_solver_specific_nonzero_constraints() {}
+
+  /**
+   * Return the inhomogeneous constraints.
+   */
+  virtual AffineConstraints<double> &get_nonzero_constraints() override;
+
+  /**
+   * Update the inhomogeneous boundary conditions for the current time, after
+   * time has been updated.
+   */
+  void update_boundary_conditions();
+
+  /**
+   * Create the matrix sparsity pattern, given the finite element spaces and
+   * constraints.
+   */
+  virtual void create_sparsity_pattern() = 0;
+
+  /**
+   * Apply the initial conditions for velocity, pressure and mesh position.
+   * Initial conditions on additional fields must be set in the solver-specific
+   * overload.
+   */
+  void set_initial_conditions(const bool rotate_solutions = true);
+
+  /**
+   * Create the additional initial conditions specific to each derived solver.
+   * These initial conditions should be written in the newton_update vector.
+   * By default, this function does nothing and must be overriden if needed.
+   */
+  virtual void set_solver_specific_initial_conditions() {}
+
+  /**
+   * Idem as initial conditions, but applies the prescribed exact solution.
+   */
+  void set_exact_solution();
+
+  /**
+   * Applies the exact solution for the the additional fields specific to each
+   * derived solver. By default, this function does nothing and must be
+   * overriden if needed.
+   */
+  virtual void set_solver_specific_exact_solution() {}
+
+  /**
+   * Compare each Jacobian matrix computed in assemble_local_matrix to its
+   * finite differences approximation obtained by perturbing the right-hand side
+   * (Newton residual). To allow comparing for multiple Newton iterations and/or
+   * time steps, this function does not throw if the difference between the
+   * analytical matrix entries and their FD counterpart exceeds a prescribed
+   * tolerance, but instead prints the local matrices and the problematic
+   * entries.
+   */
+  virtual void compare_analytical_matrix_with_fd() = 0;
+
+  /**
+   * Solve the linear system for a single nonlinear solver iteration.
+   */
+  virtual void solve_linear_system() override;
+
+  /**
+   * Post-process the numerical solution: output for visualization,
+   * compute errors, forces, etc.
+   */
+  void postprocess_solution();
+
+  /**
+   * Compute the volume integrals of the selected finite element variables.
+   */
+  void compute_field_integrals();
+
+  /**
+   * Post-process the additional data specific to each derived solver. By
+   * default, this function does nothing and must be overriden if needed.
+   */
+  virtual void solver_specific_post_processing() {}
+
+  /**
+   * For each prescribed Sobolev norm, compute the error on the given field
+   * and add it to the error handler.
+   */
+  void compute_and_add_errors(const Mapping<dim>  &mapping,
+                              const Function<dim> &exact_solution,
+                              Vector<double>      &cellwise_errors,
+                              const ComponentSelectFunction<dim> &comp_function,
+                              const std::string                  &field_name);
+
+  /**
+   * hp version of the function above.
+   */
+  void
+  compute_and_add_errors(const hp::MappingCollection<dim>   &mapping_collection,
+                         const Function<dim>                &exact_solution,
+                         Vector<double>                     &cellwise_errors,
+                         const ComponentSelectFunction<dim> &comp_function,
+                         const std::string                  &field_name);
+
+  /**
+   * Compute the error on the velocity, pressure and mesh position for each of
+   * the prescribed Sobolev norms. Errors on additional fields must be computed
+   * in the overloaded function.
+   */
+  void compute_errors();
+
+  /**
+   * Compute the error norms over the additional fields specific to each derived
+   * solver. By default, this function does nothing and must be overriden if
+   * needed.
+   */
+  virtual void compute_solver_specific_errors() {}
+
+  /**
+   * Postprocess the solution to obtain fields with a dof-based representation,
+   * such as the mesh velocity or an L2 projection of the vorticity.
+   *
+   * These fields are added to the visualization file, so this function must be
+   * called before output_results() for consistency.
+   */
+  void compute_dof_based_postprocessing();
+
+  /**
+   * Write the results to a vtu/pvtu file for visualization.
+   */
+  void output_results();
+
+  /**
+   * Add additional postprocessing data specific to each derived solver to the
+   * postprocessing handler. By default, this function does nothing and must be
+   * overriden if needed.
+   */
+  virtual void add_solver_specific_postprocessing_data() {}
+
+  /**
+   * Compute the maximum CFL number based on the current mesh and solution.
+   * This is the max over all mesh elements and quadrature nodes of
+   *
+   *  CFL = ||u|| * dt/ h,
+   *
+   * where ||u|| is the velocity norm and h is the (isotropic) cell size.
+   * The result is stored in the TimeHandler, to be used for time step
+   * adaptation.
+   */
+  void compute_max_cfl();
+
+  /**
+   * Compute the hydrodynamic forces on the desired boundary.
+   */
+  void compute_forces();
+
+  /**
+   * Write the forces table to stream.
+   */
+  void write_forces(std::ostream &out = std::cout) const;
+
+  /**
+   * If solving a fluid-structure interaction problem, compute the position of
+   * the geometric center of the structure described by the given boundary id.
+   * This is done by evaluating the average of the position field on that
+   * boundary.
+   */
+  void compute_structure_mean_position();
+
+  /**
+   * Write the structure mean position table to stream.
+   */
+  void write_structure_mean_position(std::ostream &out = std::cout) const;
+
+  /**
+   * Compute the solution or derivatives reconstructions of the required fields.
+   * Currently, this is only for the fields from which a metric field is
+   * computed.
+   */
+  virtual void compute_reconstructions();
+
+  /**
+   * Compute the required metric fields.
+   */
+  virtual void compute_riemannian_metric();
+
+  /**
+   * Compute the cellwise error estimate used as refinement/coarsening
+   * criterion.
+   */
+  void compute_error_estimate();
+
+  /**
+   * Adapt the mesh (metric-based remeshing only for now).
+   */
+  virtual void adapt_mesh() override;
+
+  /**
+   * Write the current state of the simulation to compressed save files. This
+   * method and the restart() are based on deal.II's step 83. The written data
+   * are the mesh, the current and previous solutions, and the content of the
+   * time handler. All other data (dof_handler, finite element spaces,
+   * constraints, etc.) can be recomputed when the simulation restarts. See also
+   * step 83 for a discussion on this topic.
+   */
+  void checkpoint();
+
+  /**
+   * Restart the simulation from saved checkpoint files, written by
+   * checkpoint().
+   */
+  void restart();
+
+  /**
+   * Save this object to file. See also the comments for the checkpoint()
+   * function. This function currently only saves the present and previous
+   * solution vectors.
+   */
+  template <class Archive>
+  void save(Archive &ar, const unsigned int version) const;
+
+  /**
+   * Load the present and previous solution vectors from checkpointed data.
+   */
+  template <class Archive>
+  void load(Archive &ar, const unsigned int version);
+
+  /**
+   * Tell Boost to use the split save/load functions above rather than a unique
+   * serialize function for both saving and loading.
+   */
+  BOOST_SERIALIZATION_SPLIT_MEMBER()
+
+  /**
+   * Return the set of simulation parameters.
+   */
+  const ParameterReader<dim> &get_parameters() const;
+
+  /**
+   * Return the dof_handler used by this solver.
+   */
+  const DoFHandler<dim> &get_dof_handler() const;
+
+  /**
+   * Return the (ghosted) solution vector.
+   */
+  virtual LA::ParVectorType &get_present_solution() override;
+
+  /**
+   * Return a component mask for the given @p variable.
+   * Throws an error if the solver does not solve for this variable.
+   */
+  ComponentMask
+  get_component_mask(const SolverInfo::VariableType variable) const;
+
+private:
+  /**
+   * Get the complete description (names and numbers of components) of the
+   * variables handled by this solver.
+   */
+  std::vector<std::pair<std::string, unsigned int>>
+  get_variables_description() const;
+
+protected:
+  /**
+   * Get the descriptions (name and number of components) of the variables
+   * solved for in the derived solvers, aside from velocity, pressure and mesh
+   * position.
+   */
+  virtual std::vector<std::pair<std::string, unsigned int>>
+  get_additional_variables_description() const = 0;
+
+  /**
+   * Get the FESystem of the derived solver
+   */
+  virtual const FESystem<dim> &get_fe_system() const = 0;
+
+  /**
+   * Return true if this solver uses hp capabilities
+   */
+  virtual bool uses_hp_capabilities() const = 0;
+
+  /**
+   * Return the finite element collection used by this solver.
+   *
+   * This function, as well as the get_*_collection functions below, is not pure
+   * virtual because non-hp solvers do not need it, but it should be overriden
+   * by hp solvers, and it will throw an error if called from this class.
+   *
+   * FIXME: A proper base class should be added for hp solver, to avoid this.
+   */
+  virtual const hp::FECollection<dim> *get_fe_collection() const;
+
+  /**
+   * Return the collection of fixed mappings used by this solver
+   */
+  virtual const hp::MappingCollection<dim> *
+  get_fixed_mapping_collection() const;
+
+  /**
+   * Return the collection of moving mappings used by this solver
+   */
+  virtual const hp::MappingCollection<dim> *
+  get_moving_mapping_collection() const;
+
+  /**
+   * Return the cell quadrature collection used by this solver
+   */
+  virtual const hp::QCollection<dim> *get_cell_quadrature_collection() const;
+
+  /**
+   * Return the face quadrature collection used by this solver
+   */
+  virtual const hp::QCollection<dim - 1> *
+  get_face_quadrature_collection() const;
+
+protected:
+  std::unique_ptr<ComponentOrdering> ordering;
+
+  ParameterReader<dim> param;
+
+  // Choose another quadrature rule for error computation
+  std::unique_ptr<Quadrature<dim>>     quadrature;
+  std::unique_ptr<Quadrature<dim>>     error_quadrature;
+  std::unique_ptr<Quadrature<dim - 1>> face_quadrature;
+  std::unique_ptr<Quadrature<dim - 1>> error_face_quadrature;
+
+  TimeHandler time_handler;
+
+  TransientFixedPointData<dim> transient_fixed_point_data;
+
+  parallel::DistributedTriangulationBase<dim> *triangulation;
+  DoFHandler<dim>                             *dof_handler;
+
+  std::unique_ptr<Mapping<dim>> fixed_mapping;
+  std::unique_ptr<Mapping<dim>> moving_mapping;
+
+  std::vector<unsigned char> dofs_to_component;
+
+  FEValuesExtractors::Vector velocity_extractor;
+  FEValuesExtractors::Scalar pressure_extractor;
+  FEValuesExtractors::Vector position_extractor;
+
+  ComponentMask velocity_mask;
+  ComponentMask pressure_mask;
+  ComponentMask position_mask;
+
+  // The field names and component mask for each field handled by this solver
+  std::map<std::string, ComponentMask> field_names_and_masks;
+
+  Table<2, DoFTools::Coupling> coupling_table;
+
+  IndexSet locally_owned_dofs;
+  IndexSet locally_relevant_dofs;
+
+  AffineConstraints<double> zero_constraints;
+  AffineConstraints<double> nonzero_constraints;
+
+  types::global_dof_index constrained_pressure_dof = numbers::invalid_dof_index;
+  Point<dim>              constrained_pressure_support_point;
+  std::vector<std::pair<types::global_dof_index, double>>
+    zero_mean_pressure_weights;
+
+  std::map<types::global_dof_index, Point<dim>> initial_positions;
+
+  LA::ParMatrixType system_matrix;
+
+  LA::ParVectorType              *present_solution;
+  std::vector<LA::ParVectorType> *previous_solutions;
+
+  std::shared_ptr<Function<dim>> source_terms;
+  std::shared_ptr<Function<dim>> exact_solution;
+
+  SolverControl                                          solver_control;
+  std::unique_ptr<PETScWrappers::SparseDirectMUMPSReuse> direct_solver_reuse;
+
+  std::unique_ptr<PostProcessingHandler<dim>>     postproc_handler;
+  typename PostProcessingHandler<dim>::PrefixData prefix_data;
+
+  MetricField<dim> *metric_for_adaptation;
+
+  std::vector<std::unique_ptr<MetricField<dim>>> metrics;
+  std::vector<std::unique_ptr<ErrorEstimation::PatchHandler<dim>>>
+    patch_handlers;
+  std::vector<std::unique_ptr<ErrorEstimation::SolutionRecovery::Scalar<dim>>>
+    recoveries;
+
+  /**
+   * Cellwise error used to adapt the mesh when tree-based adaptation is
+   * enabled.
+   */
+  Vector<float> cellwise_refinement_criterion;
+};
+
+/* ---------------- template and inline functions ----------------- */
+
+template <int dim, bool with_moving_mesh>
+void NavierStokesSolver<dim, with_moving_mesh>::set_active_fe_indices()
+{
+  AssertThrow(false, ExcPureFunctionCalled());
+};
+
+template <int dim, bool with_moving_mesh>
+AffineConstraints<double> &
+NavierStokesSolver<dim, with_moving_mesh>::get_nonzero_constraints()
+{
+  return nonzero_constraints;
+}
+
+template <int dim, bool with_moving_mesh>
+void NavierStokesSolver<dim, with_moving_mesh>::write_forces(
+  std::ostream &out) const
+{
+  postproc_handler->write_forces(out);
+}
+
+template <int dim, bool with_moving_mesh>
+void NavierStokesSolver<dim, with_moving_mesh>::write_structure_mean_position(
+  std::ostream &out) const
+{
+  postproc_handler->write_structure_mean_position(out);
+}
+
+template <int dim, bool with_moving_mesh>
+const ParameterReader<dim> &
+NavierStokesSolver<dim, with_moving_mesh>::get_parameters() const
+{
+  return param;
+}
+
+template <int dim, bool with_moving_mesh>
+const DoFHandler<dim> &
+NavierStokesSolver<dim, with_moving_mesh>::get_dof_handler() const
+{
+  return *dof_handler;
+}
+
+template <int dim, bool with_moving_mesh>
+LA::ParVectorType &
+NavierStokesSolver<dim, with_moving_mesh>::get_present_solution()
+{
+  return *present_solution;
+}
+
+template <int dim, bool with_moving_mesh>
+ComponentMask NavierStokesSolver<dim, with_moving_mesh>::get_component_mask(
+  const SolverInfo::VariableType variable) const
+{
+  Assert(ordering->has_variable(variable),
+         ExcMessage("You are requiring a ComponentMask for the variable \"" +
+                    SolverInfo::to_string(variable) +
+                    "\", but this solver does not store this variable."));
+
+  if (ordering->is_scalar(variable))
+    return this->get_fe_system().component_mask(
+      ordering->get_scalar_extractor(variable));
+  else if (ordering->is_vector(variable))
+    return this->get_fe_system().component_mask(
+      ordering->get_vector_extractor(variable));
+  else
+    DEAL_II_NOT_IMPLEMENTED();
+}
+
+template <int dim, bool with_moving_mesh>
+const hp::FECollection<dim> *
+NavierStokesSolver<dim, with_moving_mesh>::get_fe_collection() const
+{
+  AssertThrow(false, ExcPureFunctionCalled());
+  return nullptr;
+};
+
+template <int dim, bool with_moving_mesh>
+const hp::MappingCollection<dim> *
+NavierStokesSolver<dim, with_moving_mesh>::get_fixed_mapping_collection() const
+{
+  AssertThrow(false, ExcPureFunctionCalled());
+  return nullptr;
+}
+
+template <int dim, bool with_moving_mesh>
+const hp::MappingCollection<dim> *
+NavierStokesSolver<dim, with_moving_mesh>::get_moving_mapping_collection() const
+{
+  AssertThrow(false, ExcPureFunctionCalled());
+  return nullptr;
+}
+
+template <int dim, bool with_moving_mesh>
+const hp::QCollection<dim> *
+NavierStokesSolver<dim, with_moving_mesh>::get_cell_quadrature_collection()
+  const
+{
+  AssertThrow(false, ExcPureFunctionCalled());
+  return nullptr;
+}
+
+template <int dim, bool with_moving_mesh>
+const hp::QCollection<dim - 1> *
+NavierStokesSolver<dim, with_moving_mesh>::get_face_quadrature_collection()
+  const
+{
+  AssertThrow(false, ExcPureFunctionCalled());
+  return nullptr;
+}
+
+#endif
+

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_36df0f6ad8beec6f869bbdc14b1078e1" kind="dir">
+    <compoundname>snapshots/master/include/assembly</compoundname>
+    <innerfile refid="assembler_8h">assembler.h</innerfile>
+    <innerfile refid="incompressible__chns__assemblers_8h">incompressible_chns_assemblers.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/master/include/assembly/"/>
+  </compounddef>
+</doxygen>

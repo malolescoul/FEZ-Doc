@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_dbe53985f38c5b58d3757435c73a1b66" kind="dir">
+    <compoundname>snapshots/master/solvers</compoundname>
+    <innerfile refid="incompressible__chns_8cpp">incompressible_chns.cpp</innerfile>
+    <innerfile refid="monolithic__fsi_8cpp">monolithic_fsi.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/master/solvers/"/>
+  </compounddef>
+</doxygen>

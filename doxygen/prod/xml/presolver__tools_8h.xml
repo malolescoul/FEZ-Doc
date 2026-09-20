@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="presolver__tools_8h" kind="file" language="C++">
+    <compoundname>presolver_tools.h</compoundname>
+    <includes refid="elasticity__solver_8h" local="no">elasticity_solver.h</includes>
+    <includes local="no">parameter_reader.h</includes>
+    <includes local="no">memory</includes>
+    <includedby refid="incompressible__chns__ale_8cpp" local="no">snapshots/prod/solvers/incompressible_chns_ale.cpp</includedby>
+    <includedby refid="incompressible__chns__ale__enlarged_8cpp" local="no">snapshots/prod/solvers/incompressible_chns_ale_enlarged.cpp</includedby>
+    <includedby refid="incompressible__chns__solver_8cpp" local="no">snapshots/prod/src/incompressible_chns_solver.cpp</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>copy_data.h</label>
+        <link refid="copy__data_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>elasticity_solver.h</label>
+        <link refid="elasticity__solver_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>generic_solver.h</label>
+        <link refid="generic__solver_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>newton_solver.h</label>
+        <link refid="newton__solver_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>nonlinear_solver.h</label>
+        <link refid="nonlinear__solver_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>snapshots/prod/include/presolver_tools.h</label>
+        <link refid="presolver__tools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>time_handler.h</label>
+        <link refid="time__handler_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>assembly/assembler.h</label>
+      </node>
+      <node id="36">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>components_ordering.h</label>
+      </node>
+      <node id="22">
+        <label>deal.II/base/conditional_ostream.h</label>
+      </node>
+      <node id="10">
+        <label>deal.II/base/convergence_table.h</label>
+      </node>
+      <node id="11">
+        <label>deal.II/base/index_set.h</label>
+      </node>
+      <node id="23">
+        <label>deal.II/base/observer_pointer.h</label>
+      </node>
+      <node id="12">
+        <label>deal.II/base/table_handler.h</label>
+      </node>
+      <node id="24">
+        <label>deal.II/base/timer.h</label>
+      </node>
+      <node id="31">
+        <label>deal.II/base/types.h</label>
+      </node>
+      <node id="13">
+        <label>deal.II/base/utilities.h</label>
+      </node>
+      <node id="14">
+        <label>deal.II/distributed/fully_distributed_tria.h</label>
+      </node>
+      <node id="15">
+        <label>deal.II/dofs/dof_handler.h</label>
+      </node>
+      <node id="16">
+        <label>deal.II/fe/fe_simplex_p.h</label>
+      </node>
+      <node id="17">
+        <label>deal.II/fe/fe_system.h</label>
+      </node>
+      <node id="18">
+        <label>deal.II/fe/mapping_fe.h</label>
+      </node>
+      <node id="19">
+        <label>deal.II/fe/mapping_fe_field.h</label>
+      </node>
+      <node id="6">
+        <label>deal.II/hp/fe_collection.h</label>
+      </node>
+      <node id="20">
+        <label>deal.II/lac/affine_constraints.h</label>
+      </node>
+      <node id="7">
+        <label>deal.II/lac/full_matrix.h</label>
+      </node>
+      <node id="33">
+        <label>deal.II/lac/generic_linear_algebra.h</label>
+      </node>
+      <node id="34">
+        <label>deal.II/lac/petsc_sparse_matrix.h</label>
+      </node>
+      <node id="35">
+        <label>deal.II/lac/trilinos_sparse_matrix.h</label>
+      </node>
+      <node id="8">
+        <label>deal.II/lac/vector.h</label>
+      </node>
+      <node id="9">
+        <label>deal.II/meshworker/copy_data.h</label>
+      </node>
+      <node id="25">
+        <label>deal.II/numerics/vector_tools_common.h</label>
+      </node>
+      <node id="26">
+        <label>error_handler.h</label>
+      </node>
+      <node id="37">
+        <label>limits</label>
+      </node>
+      <node id="40">
+        <label>map</label>
+      </node>
+      <node id="41">
+        <label>memory</label>
+      </node>
+      <node id="42">
+        <label>mumps_solver.h</label>
+      </node>
+      <node id="38">
+        <label>parameter_reader.h</label>
+      </node>
+      <node id="29">
+        <label>parameters.h</label>
+      </node>
+      <node id="43">
+        <label>scratch_data_elasticity.h</label>
+      </node>
+      <node id="39">
+        <label>solver_info.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>snapshots/prod/include/presolver_tools.h</label>
+        <link refid="presolver__tools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>snapshots/prod/solvers/incompressible_chns_ale.cpp</label>
+        <link refid="incompressible__chns__ale_8cpp"/>
+      </node>
+      <node id="3">
+        <label>snapshots/prod/solvers/incompressible_chns_ale_enlarged.cpp</label>
+        <link refid="incompressible__chns__ale__enlarged_8cpp"/>
+      </node>
+      <node id="4">
+        <label>snapshots/prod/src/incompressible_chns_solver.cpp</label>
+        <link refid="incompressible__chns__solver_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="presolver__tools_8h_1aab7456fad879d073a59c5c001fc1b0e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>std::unique_ptr&lt; <ref refid="class_elasticity_solver" kindref="compound">ElasticitySolver</ref>&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt; ElasticitySolver&lt; dim &gt; &gt; create_elasticity_presolver</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const bool with_enlarged_psi=false, parallel::DistributedTriangulationBase&lt; dim &gt; *reference_triangulation=nullptr)</argsstring>
+        <name>create_elasticity_presolver</name>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>with_enlarged_psi</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>parallel::DistributedTriangulationBase&lt; dim &gt; *</type>
+          <declname>reference_triangulation</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Build and run the elasticity presolver that pre-positions the mesh for a CHNS-ALE simulation. Returns nullptr when the presolver is disabled. The returned solver owns the presolved mesh position and optional enlarged psi field, which the CHNS solver injects into its initial solution. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/presolver_tools.h" line="17" column="1" bodyfile="snapshots/prod/include/presolver_tools.h" bodystart="17" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PRESOLVER_TOOLS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRESOLVER_TOOLS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="elasticity__solver_8h" kindref="compound">elasticity_solver.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;parameter_reader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>Build<sp/>and<sp/>run<sp/>the<sp/>elasticity<sp/>presolver<sp/>that<sp/>pre-positions<sp/>the<sp/>mesh<sp/>for<sp/>a</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>CHNS-ALE<sp/>simulation.<sp/>Returns<sp/>nullptr<sp/>when<sp/>the<sp/>presolver<sp/>is<sp/>disabled.<sp/>The</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>returned<sp/>solver<sp/>owns<sp/>the<sp/>presolved<sp/>mesh<sp/>position<sp/>and<sp/>optional<sp/>enlarged<sp/>psi</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>field,<sp/>which<sp/>the<sp/>CHNS<sp/>solver<sp/>injects<sp/>into<sp/>its<sp/>initial<sp/>solution.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">std::unique_ptr&lt;ElasticitySolver&lt;dim&gt;&gt;</highlight></codeline>
+<codeline lineno="17" refid="presolver__tools_8h_1aab7456fad879d073a59c5c001fc1b0e0" refkind="member"><highlight class="normal"><ref refid="presolver__tools_8h_1aab7456fad879d073a59c5c001fc1b0e0" kindref="member">create_elasticity_presolver</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/>&amp;param,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>with_enlarged_psi<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parallel::DistributedTriangulationBase&lt;dim&gt;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*reference_triangulation<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!param.cahn_hilliard.use_presolver)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>presolver<sp/>=</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>std::make_unique&lt;ElasticitySolver&lt;dim&gt;&gt;(</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>param,<sp/>with_enlarged_psi,<sp/>reference_triangulation);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Mode<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>Parameters::Elasticity::PresolvedMeshPositionMode;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mode<sp/>=<sp/>param.elasticity.presolved_mesh_position_mode;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Only<sp/>&apos;reuse&apos;<sp/>tries<sp/>an<sp/>existing<sp/>cache;<sp/>&apos;force_recompute&apos;<sp/>(and<sp/>&apos;off&apos;)<sp/>always</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>solve.<sp/>run()<sp/>writes<sp/>the<sp/>cache<sp/>itself<sp/>when<sp/>caching<sp/>is<sp/>enabled<sp/>(it<sp/>must<sp/>do</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>so<sp/>before<sp/>the<sp/>mesh<sp/>is<sp/>moved<sp/>for<sp/>postprocessing).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>loaded<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mode<sp/>==<sp/>Mode::reuse)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>loaded<sp/>=<sp/>presolver-&gt;try_load_presolved_mesh_cache();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!loaded)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>presolver-&gt;run();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>presolver;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/prod/include/presolver_tools.h"/>
+  </compounddef>
+</doxygen>

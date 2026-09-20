@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_assembly_1_1_incompressible_c_h_n_s" kind="namespace" language="C++">
+    <compoundname>Assembly::IncompressibleCHNS</compoundname>
+    <innerclass refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base" prot="public">Assembly::IncompressibleCHNS::Base</innerclass>
+    <innerclass refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler" prot="public">Assembly::IncompressibleCHNS::VolumeAssembler</innerclass>
+    <innerclass refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_contact_angle_boundary_assembler" prot="public">Assembly::IncompressibleCHNS::ContactAngleBoundaryAssembler</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496" prot="public" static="no" strong="no">
+        <type>unsigned int</type>
+        <name>AssemblyFlags</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::AssemblyFlags</qualifiedname>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496a17efa415900b0b71c06c9a0412965d50" prot="public">
+          <name>chns</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Assemble the incompressible CHNS system without any stabilization. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496ada2e635f57716cd8423be3b19773f6d2" prot="public">
+          <name>stabilization</name>
+          <initializer>= 1 &lt;&lt; 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Add SUPG/PSPG stabilization forms for the Navier-Stokes equations. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496a9efe20614b1d0a141363bfc0b8425ba5" prot="public">
+          <name>tracer_stabilization</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Add SUPG stabilization form for the phase tracer equation. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496ac25e91c7a9f7f0e698a0440d17a851e5" prot="public">
+          <name>moving_mesh</name>
+          <initializer>= 1 &lt;&lt; 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Account for moving mesh contributions (ALE). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496ac802bd6617c7578992b47a2d3f4807b2" prot="public">
+          <name>enlarged</name>
+          <initializer>= 1 &lt;&lt; 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Assemble the enlarged (psi) tracer Helmholtz reconstruction. Implies moving_mesh (the enlarged solver is ALE only). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496a0f7bbd79523a1db7238479626159329c" prot="public">
+          <name>ding_horriche</name>
+          <initializer>= 1 &lt;&lt; 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Assemble the Ding-Horriche CHNS model instead of the default Abels model. This changes the potential scaling, the capillary momentum force (mu*grad(phi) instead of phi*grad(mu)) and drops the diffusive inertia term. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>These flags are used to specify which terms to assemble in addition to the base incompressible CHNS system. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="28" column="5" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="29" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_assembly_1_1_incompressible_c_h_n_s_1a9042c156c659f2106965ed96680b9d83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Assembly::IncompressibleCHNS::psi_mu_correction_eta</definition>
+        <argsstring>(const double tracer_value)</argsstring>
+        <name>psi_mu_correction_eta</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::psi_mu_correction_eta</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>tracer_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="84" column="19" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="84" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_incompressible_c_h_n_s_1a7754cb7ea5bca3a321c5f38ca60a7739" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Assembly::IncompressibleCHNS::psi_mu_correction_eta_jacobian</definition>
+        <argsstring>(const double tracer_value)</argsstring>
+        <name>psi_mu_correction_eta_jacobian</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::psi_mu_correction_eta_jacobian</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>tracer_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="89" column="19" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="89" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_incompressible_c_h_n_s_1ae4807cf7ad1da1ba9a2e1d886b3c3aaa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double Assembly::IncompressibleCHNS::compute_psi_mu_correction_prefactor</definition>
+        <argsstring>(const double psi_mu_correction_factor, const double sigma_tilde, const double epsilon, const double length_scale_sq)</argsstring>
+        <name>compute_psi_mu_correction_prefactor</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::compute_psi_mu_correction_prefactor</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>psi_mu_correction_factor</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>sigma_tilde</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>epsilon</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>length_scale_sq</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="99" column="19" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="99" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_incompressible_c_h_n_s_1aed4ab9ac22c69f37fff20897db0f0528" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>typename ScratchData</type>
+          </param>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Assembly::IncompressibleCHNS::assemble_psi_equation_rhs</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering, const ScratchData &amp;scratch, VectorType &amp;local_rhs)</argsstring>
+        <name>assemble_psi_equation_rhs</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::assemble_psi_equation_rhs</qualifiedname>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch</declname>
+        </param>
+        <param>
+          <type>VectorType &amp;</type>
+          <declname>local_rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="112" column="17" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="112" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_incompressible_c_h_n_s_1afec501e27eef5d1cec005941864edba3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>with_moving_mesh</declname>
+            <defname>with_moving_mesh</defname>
+          </param>
+          <param>
+            <type>typename ScratchData</type>
+          </param>
+          <param>
+            <type>typename MatrixType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Assembly::IncompressibleCHNS::assemble_psi_equation_matrix</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering, const dealii::Table&lt; 2, dealii::DoFTools::Coupling &gt; &amp;coupling_table, const ScratchData &amp;scratch, MatrixType &amp;local_matrix)</argsstring>
+        <name>assemble_psi_equation_matrix</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::assemble_psi_equation_matrix</qualifiedname>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const dealii::Table&lt; 2, dealii::DoFTools::Coupling &gt; &amp;</type>
+          <declname>coupling_table</declname>
+        </param>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch</declname>
+        </param>
+        <param>
+          <type>MatrixType &amp;</type>
+          <declname>local_matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="149" column="17" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="149" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_incompressible_c_h_n_s_1a289cd65a37b01e8202a9b44b578e54cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>typename ScratchData</type>
+          </param>
+          <param>
+            <type>typename CopyData</type>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>with_moving_mesh</declname>
+            <defname>with_moving_mesh</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>with_enlarged</declname>
+            <defname>with_enlarged</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Assembly::IncompressibleCHNS::setup_assemblers</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering, const Table&lt; 2, DoFTools::Coupling &gt; &amp;coupling_table, std::vector&lt; std::unique_ptr&lt; AssemblerBase&lt; ScratchData, CopyData &gt; &gt; &gt; &amp;assemblers)</argsstring>
+        <name>setup_assemblers</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::setup_assemblers</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const Table&lt; 2, DoFTools::Coupling &gt; &amp;</type>
+          <declname>coupling_table</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::unique_ptr&lt; AssemblerBase&lt; ScratchData, CopyData &gt; &gt; &gt; &amp;</type>
+          <declname>assemblers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the volume and relevant boundary assemblers, and store them as unique pointers in <computeroutput>assemblers</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="369" column="10" bodyfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" bodystart="369" bodyend="470" declfile="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" declline="246" declcolumn="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A namespace gathering the assembly routines for the (quasi-)incompressible Cahn-Hilliard Navier-Stokes models. </para>
+    </detaileddescription>
+    <location file="snapshots/prod/include/assembly/incompressible_chns_assemblers.h" line="22" column="3"/>
+  </compounddef>
+</doxygen>

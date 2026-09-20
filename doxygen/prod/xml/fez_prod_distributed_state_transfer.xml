@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="fez_prod_distributed_state_transfer" kind="page">
+    <compoundname>fez_prod_distributed_state_transfer</compoundname>
+    <title>Motif — transporter un état distribué qui contient sa géométrie</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="fez_prod_distributed_state_transfer_1md_guides_2prod_2patterns_2distributed-state-transfer"/></para>
+<para><blockquote><para>Branche personnelle ; commit <computeroutput>35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858</computeroutput>. Constat statique confirmé sur les fonctions citées. Les effets numériques et le comportement MPI doivent encore être exécutés sur un build local. </para>
+</blockquote></para>
+<sect1 id="fez_prod_distributed_state_transfer_1autotoc_md16">
+<title>Résumé pour reprendre rapidement</title><para>L&apos;AMR ne transporte pas simplement « le vecteur solution ». Il transporte une <bold>famille d&apos;états à des dates différentes</bold> vers un nouveau maillage distribué. En ALE, chaque état contient aussi une position de maillage. La topologie change, les DoFs changent, et les contraintes doivent retrouver une géométrie cohérente avant d&apos;être évaluées.</para>
+<para>La couche <computeroutput><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref></computeroutput> est un alias compilé vers les vecteurs MPI PETSc ou Trilinos, selon les macros. Il faut donc distinguer le contrat FEZ de l&apos;implémentation du backend. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/include/types.h#L8-L25">types.h</ulink></para>
+</sect1>
+<sect1 id="fez_prod_distributed_state_transfer_1autotoc_md17">
+<title>Les objets et leurs contrats</title><para><table rows="7" cols="2"><row>
+<entry thead="yes"><para>Objet  </para>
+</entry><entry thead="yes"><para>Rôle dans le transport  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>present_solution</computeroutput>  </para>
+</entry><entry thead="no"><para>État courant, position ALE comprise  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>previous_solutions</computeroutput>  </para>
+</entry><entry thead="no"><para>États aux dates BDF antérieures, donc positions antérieures comprises  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>additional_solution</computeroutput>  </para>
+</entry><entry thead="no"><para>État historique supplémentaire, exposé par le contrôleur temporel si disponible  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>evaluation_point</computeroutput>  </para>
+</entry><entry thead="no"><para>Vecteur auquel <computeroutput>MappingFEField</computeroutput> est lié ; les positions qu&apos;il contient déterminent la géométrie courante  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>SolutionTransfer</computeroutput>  </para>
+</entry><entry thead="no"><para>Prépare l&apos;interpolation avant le changement de topologie, puis l&apos;effectue après recréation des DoFs  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>locally_owned_dofs</computeroutput> / <computeroutput>locally_relevant_dofs</computeroutput>  </para>
+</entry><entry thead="no"><para>Partition détenue par le rang et DoFs requis localement, y compris les fantômes  </para>
+</entry></row>
+</table>
+</para>
+<para>La liaison géométrique est explicite : <computeroutput>MappingFEField(*dof_handler, evaluation_point, position_mask)</computeroutput>. Il ne suffit donc pas qu&apos;un autre vecteur contienne les bonnes positions. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L521-L550">setup_mappings</ulink></para>
+</sect1>
+<sect1 id="fez_prod_distributed_state_transfer_1autotoc_md18">
+<title>Séquence observée</title><para><orderedlist>
+<listitem><para><computeroutput><ref refid="class_navier_stokes_solver_1a9a4264d51d48627a356452430441413b" kindref="member">NavierStokesSolver::adapt_mesh()</ref></computeroutput> obtient <computeroutput>time_handler.get_additional_solution()</computeroutput>. Le résultat peut être nul si aucun estimateur n&apos;existe ou si son vecteur n&apos;est pas encore initialisé. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1433-L1443">Appel</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284">getter</ulink></para>
+</listitem><listitem><para><computeroutput><ref refid="class_transient_fixed_point_data_1a890bd79923e8fa2ebe5370004c22729f" kindref="member">TransientFixedPointData::adapt_mesh_with_dealii_routines()</ref></computeroutput> construit la liste <computeroutput>all_in</computeroutput> : courant, historiques, puis supplémentaire. Il vérifie la taille et la présence de fantômes. Les champs physiques et positions voyagent dans les mêmes vecteurs. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L900-L918">Préparation</ulink></para>
+</listitem><listitem><para>Le code appelle successivement <computeroutput>prepare_coarsening_and_refinement()</computeroutput>, <computeroutput>solution_transfer-&gt;prepare_for_coarsening_and_refinement(all_in)</computeroutput>, puis <computeroutput>execute_coarsening_and_refinement()</computeroutput>. Ce chemin est conditionné par <computeroutput>DEAL_II_WITH_P4EST</computeroutput>. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L920-L934">Modification topologique</ulink></para>
+</listitem><listitem><para>Le solveur réexécute <computeroutput>setup_dofs()</computeroutput> et <computeroutput>setup_mappings()</computeroutput>. Le transport interpole vers des vecteurs ne contenant que les DoFs possédés. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1448-L1451">Recréation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L565-L581">sorties possédées</ulink></para>
+</listitem><listitem><para>Le transfert distribue les contraintes reçues sur le courant, mais seulement les contraintes de nœuds pendants sur les historiques et le supplémentaire. Le supplémentaire est réinitialisé avec les nouveaux ensembles possédés/pertinents avant copie. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L583-L613">Restauration</ulink></para>
+</listitem><listitem><para>En ALE, l&apos;appelant transmet d&apos;abord uniquement des contraintes de nœuds pendants. Il réimpose ensuite les positions courantes de bord, recopie vers <computeroutput>evaluation_point</computeroutput>, reconstruit les contraintes physiques et les structures algébriques, puis contraint le courant. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L1453-L1516">Ordre ALE complet</ulink></para>
+</listitem></orderedlist>
+</para>
+<para>Il n&apos;y a pas d&apos;appel explicite à <computeroutput>repartition()</computeroutput> dans ces passages : la mutation distribuée est confiée à <computeroutput>execute_coarsening_and_refinement()</computeroutput>. Le message du commit mentionne p4est et le repartitionnement ; une preuve dynamique d&apos;un changement effectif de propriétaire des cellules reste à produire.</para>
+</sect1>
+<sect1 id="fez_prod_distributed_state_transfer_1autotoc_md19">
+<title>Trois invariants à conserver</title><sect2 id="fez_prod_distributed_state_transfer_1autotoc_md20">
+<title>1. Même index, même sens, même instant</title><para>Les états de <computeroutput>all_in</computeroutput> et <computeroutput>all_out</computeroutput> doivent conserver le même ordre. Une nouvelle catégorie d&apos;état nécessite de modifier préparation et restauration ensemble. Les positions historiques ne doivent pas recevoir les valeurs de bord imposées au temps courant. Le commentaire du transport rappelle explicitement cette différence. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L906-L912">Ordre des états</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L587-L604">temps des contraintes</ulink></para>
+</sect2>
+<sect2 id="fez_prod_distributed_state_transfer_1autotoc_md21">
+<title>2. Géométrie reconstruite avant ses consommateurs</title><para>Les conditions physiques, points de quadrature et poids de pression dépendent de la géométrie. Restaurer seulement <computeroutput>present_solution</computeroutput> sans mettre à jour <computeroutput>evaluation_point</computeroutput> ne respecte pas la liaison observée de <computeroutput>MappingFEField</computeroutput>. Le test de bord évalue la vitesse imposée contre les points de quadrature du mapping mobile. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L40-L76">Test de géométrie de bord</ulink></para>
+</sect2>
+<sect2 id="fez_prod_distributed_state_transfer_1autotoc_md22">
+<title>3. État temporel au-delà du BDF nominal</title><para><computeroutput><ref refid="class_time_handler_1ac78eebc6fb6cdc751662f3d2c0bf62a4" kindref="member">TimeHandler::rotate_solutions()</ref></computeroutput> copie d&apos;abord le dernier historique vers l&apos;estimateur de pas de temps, puis décale l&apos;historique BDF. Ce vecteur supplémentaire fait donc partie de la mémoire du calcul et doit suivre l&apos;AMR. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L262-L275">Rotation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/timestep_adaptation.cpp#L49-L59">stockage supplémentaire</ulink></para>
+</sect2>
+</sect1>
+<sect1 id="fez_prod_distributed_state_transfer_1autotoc_md23">
+<title>Échos déjà identifiés</title><para><itemizedlist>
+<listitem><para><bold>Injection presolver → CHNS</bold> : autre changement de représentation d&apos;état. <computeroutput>extract_subsolution</computeroutput> remappe les composants de position et éventuellement <computeroutput>psi</computeroutput>, puis compresse les insertions et met à jour <computeroutput>evaluation_point</computeroutput>. Même exigence de cohérence géométrique, mais ce n&apos;est pas le même algorithme que le transport AMR. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L865-L905">Injection</ulink></para>
+</listitem><listitem><para><bold>Initialisation des champs physiques</bold> : la position est évaluée en premier ; vitesse et <computeroutput>phi</computeroutput> sont ensuite interpolés sur le mapping mobile. Même dépendance géométrie → évaluation physique. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L792-L856">Initialisation</ulink></para>
+</listitem><listitem><para><bold>Préraffinement du calcul comprimé</bold> : les champs initiaux peuvent être reconstruits tout en préservant la position déjà transportée. Même vecteur, mais certaines composantes sont conservées tandis que d&apos;autres sont réinterpolées. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L803-L846">Branche preserve_mesh_position</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/navier_stokes_solver.cpp#L328-L342">appel</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para>Ces rapprochements sont confirmés par les appels et copies lus. Ils ne signifient pas que les opérations soient interchangeables.</para>
+</sect1>
+<sect1 id="fez_prod_distributed_state_transfer_1autotoc_md24">
+<title>Ce qui pourrait casser si le motif évolue</title><para><table rows="7" cols="2"><row>
+<entry thead="yes"><para>Changement  </para>
+</entry><entry thead="yes"><para>Conséquence à examiner, encore hypothétique  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Ajout d&apos;un champ stocké en dehors du vecteur principal  </para>
+</entry><entry thead="no"><para>Il peut rester sur l&apos;ancien maillage si aucun transfert dédié ne l&apos;inclut  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Réduction de l&apos;historique transporté  </para>
+</entry><entry thead="no"><para>Incohérence du schéma ou de l&apos;estimateur temporel après adaptation  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Application des BC courantes à tous les historiques  </para>
+</entry><entry thead="no"><para>Altération de la dépendance temporelle des positions et des champs  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Mise à jour tardive de <computeroutput>evaluation_point</computeroutput>  </para>
+</entry><entry thead="no"><para>Conditions physiques calculées sur la mauvaise géométrie  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Changement de backend PETSc/Trilinos  </para>
+</entry><entry thead="no"><para>Revalider copie, fantômes, compression et réinitialisation sous ce backend  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Remplacement de l&apos;interpolation par une projection conservative  </para>
+</entry><entry thead="no"><para>Revoir exactitude polynomiale, contraintes et comportement de masse au déraffinement  </para>
+</entry></row>
+</table>
+</para>
+<para>Aucune de ces lignes n&apos;est un bug diagnostiqué. Elles donnent les chemins à suivre lors d&apos;une future modification.</para>
+</sect1>
+<sect1 id="fez_prod_distributed_state_transfer_1autotoc_md25">
+<title>Preuves testables déjà dans le dépôt</title><para>Le test <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L80-L148">amr_ale_transfer</ulink> vérifie deux raffinements puis un déraffinement d&apos;états représentables, les historiques aux dates distinctes, les positions mappées et <computeroutput>evaluation_point</computeroutput>. Son <computeroutput>main</computeroutput> couvre les variantes standard/enlarged, avec et sans pression moyenne. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/amr_ale_transfer.cc#L218-L244">Configurations</ulink></para>
+<para>Le test <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/chns_presolver_amr.cc#L118-L154">chns_presolver_amr</ulink> vérifie l&apos;état initial comprimé après adaptation et contrôle explicitement <computeroutput>additional_solution</computeroutput>. Il exige la conservation de la masse représentée au raffinement de sa fixture, mais seulement une masse finie et bornée au déraffinement : aucune garantie générale de conservation exacte de masse ne découle de ce test.</para>
+<para>À exécuter ensuite : ces fixtures sur 1 et 4 rangs, instrumentation du propriétaire des cellules avant/après et contrôle du transfert avec pas de temps adaptatif effectivement utilisé. Aujourd&apos;hui : sources lues, exécution non effectuée.</para>
+</sect1>
+<sect1 id="fez_prod_distributed_state_transfer_1autotoc_md26">
+<title>Exercice C++ de lecture</title><para>Dans la signature suivante, pourquoi le dernier paramètre est-il un pointeur initialisable à <computeroutput>nullptr</computeroutput>, alors que les contraintes sont passées par référence constante ?</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>transfer_solution_between_refinements(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IndexSet<sp/>&amp;locally_relevant_dofs,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>AffineConstraints&lt;double&gt;<sp/>&amp;nonzero_constraints,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>*additional_solution);</highlight></codeline>
+</programlisting></para>
+<para><bold>Réponse :</bold> l&apos;état supplémentaire est optionnel et mutable : le code teste sa présence puis le réinitialise et le remplit. Les deux références désignent des objets obligatoires, consultés sans modifier leur interface. Un pointeur ne signifie pas ici un transfert de propriété : le propriétaire de l&apos;état reste l&apos;estimateur temporel. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613">Implémentation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284">accès à l&apos;état</ulink> </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/prod/patterns/distributed-state-transfer.md"/>
+  </compounddef>
+</doxygen>

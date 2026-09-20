@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="index_8md" kind="file" language="Markdown">
+    <compoundname>index.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>FEZ<sp/>—<sp/>CHNS<sp/>ALE<sp/>et<sp/>AMR</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Jour<sp/>1<sp/>·<sp/>branche<sp/>chns-ding-horriche-master-form<sp/>·<sp/>[35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858](https://github.com/arthurbawin/fez/tree/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858).**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Cette<sp/>référence<sp/>porte<sp/>sur<sp/>un<sp/>**snapshot<sp/>partiel<sp/>et<sp/>distinct<sp/>de<sp/>master**.<sp/>La<sp/>lecture<sp/>du<sp/>jour<sp/>privilégie<sp/>le<sp/>couplage<sp/>entre<sp/>géométrie<sp/>ALE,<sp/>pré-solveur,<sp/>AMR<sp/>et<sp/>état<sp/>temporel.<sp/>Aucun<sp/>build<sp/>FEZ<sp/>ni<sp/>test<sp/>numérique<sp/>n’a<sp/>été<sp/>lancé.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Parcours<sp/>de<sp/>lecture</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[CHNS<sp/>ALE,<sp/>pré-solveur<sp/>et<sp/>AMR](features/chns-ale-amr.md)<sp/>:<sp/>ordre<sp/>de<sp/>construction<sp/>de<sp/>la<sp/>géométrie,<sp/>indicateurs<sp/>et<sp/>adaptation.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[Transfert<sp/>d’un<sp/>état<sp/>distribué](patterns/distributed-state-transfer.md)<sp/>:<sp/>solution<sp/>courante,<sp/>historiques<sp/>BDF,<sp/>état<sp/>supplémentaire<sp/>et<sp/>contraintes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Entrées<sp/>dans<sp/>l’API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>CHNSSolver<sp/>:<sp/>variantes<sp/>avec<sp/>maillage<sp/>mobile<sp/>et<sp/>système<sp/>enlarged.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>NavierStokesSolver<sp/>:<sp/>initialisation,<sp/>adaptation,<sp/>mappings<sp/>et<sp/>orchestrations<sp/>communes.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ElasticitySolver<sp/>:<sp/>pré-solveur<sp/>de<sp/>pseudo-solide.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>TimeHandler<sp/>et<sp/>BDFErrorEstimator<sp/>:<sp/>état<sp/>temporel<sp/>et<sp/>estimation<sp/>d’erreur<sp/>pour<sp/>l’adaptation<sp/>du<sp/>pas.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ScratchDataCHNS<sp/>:<sp/>données<sp/>préparées<sp/>pour<sp/>l’assemblage.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Les<sp/>fonctions<sp/>d’adaptation<sp/>sont<sp/>accessibles<sp/>dans<sp/>mesh_adaptation_tools.h<sp/>et<sp/>son<sp/>implémentation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Les<sp/>headers<sp/>de<sp/>base<sp/>sont<sp/>inclus<sp/>au<sp/>même<sp/>SHA<sp/>afin<sp/>de<sp/>rendre<sp/>les<sp/>signatures<sp/>et<sp/>l’héritage<sp/>lisibles.<sp/>Leur<sp/>inclusion<sp/>ne<sp/>signifie<sp/>pas<sp/>que<sp/>l’intégralité<sp/>de<sp/>leur<sp/>implémentation<sp/>a<sp/>été<sp/>auditée.<sp/>Les<sp/>dépendances<sp/>absentes<sp/>du<sp/>snapshot<sp/>restent<sp/>susceptibles<sp/>de<sp/>produire<sp/>des<sp/>références<sp/>non<sp/>résolues.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Le<sp/>contrat<sp/>qui<sp/>relie<sp/>ces<sp/>parties</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Une<sp/>adaptation<sp/>change<sp/>à<sp/>la<sp/>fois<sp/>le<sp/>maillage,<sp/>la<sp/>numérotation<sp/>et<sp/>les<sp/>objets<sp/>qui<sp/>en<sp/>dépendent.<sp/>Le<sp/>chemin<sp/>ALE<sp/>relu<sp/>restaure<sp/>la<sp/>position<sp/>transportée<sp/>avant<sp/>de<sp/>reconstruire<sp/>les<sp/>conditions<sp/>physiques<sp/>sur<sp/>la<sp/>géométrie<sp/>actualisée.<sp/>Les<sp/>historiques<sp/>ne<sp/>doivent<sp/>pas<sp/>recevoir<sp/>à<sp/>tort<sp/>les<sp/>valeurs<sp/>de<sp/>bord<sp/>du<sp/>temps<sp/>courant.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Les<sp/>deux<sp/>tests<sp/>amr_ale_transfer.cc<sp/>et<sp/>chns_presolver_amr.cc<sp/>sont<sp/>conservés<sp/>dans<sp/>le<sp/>snapshot<sp/>pour<sp/>la<sp/>reprise<sp/>sur<sp/>le<sp/>PC<sp/>de<sp/>calcul.<sp/>Ils<sp/>sont<sp/>des<sp/>sources<sp/>lues,<sp/>pas<sp/>des<sp/>tests<sp/>exécutés<sp/>aujourd’hui.<sp/>Ils<sp/>sont<sp/>exclus<sp/>de<sp/>l’index<sp/>API<sp/>pour<sp/>que<sp/>les<sp/>fixtures<sp/>et<sp/>fonctions<sp/>main<sp/>ne<sp/>dominent<sp/>pas<sp/>les<sp/>symboles<sp/>du<sp/>solveur.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Ce<sp/>qui<sp/>reste<sp/>à<sp/>vérifier</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Le<sp/>déraffinement<sp/>par<sp/>interpolation<sp/>ne<sp/>garantit<sp/>pas<sp/>la<sp/>conservation<sp/>de<sp/>masse.<sp/>Les<sp/>caractéristiques<sp/>de<sp/>l’indicateur<sp/>d’interface,<sp/>les<sp/>approximations<sp/>géométriques<sp/>et<sp/>la<sp/>gestion<sp/>des<sp/>historiques<sp/>sont<sp/>documentées<sp/>dans<sp/>les<sp/>guides,<sp/>avec<sp/>leurs<sp/>limites<sp/>explicites.<sp/>La<sp/>cohérence<sp/>mathématique<sp/>de<sp/>tous<sp/>les<sp/>termes<sp/>et<sp/>Jacobiennes<sp/>reste<sp/>à<sp/>étudier.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Cette<sp/>édition<sp/>n’inclut<sp/>pas<sp/>de<sp/>graphes<sp/>d’appels<sp/>produits<sp/>par<sp/>Graphviz.<sp/>Les<sp/>liens<sp/>Doxygen<sp/>et<sp/>le<sp/>code<sp/>source<sp/>facilitent<sp/>la<sp/>lecture<sp/>;<sp/>l’atlas<sp/>interactif<sp/>expose<sp/>les<sp/>parcours<sp/>analysés<sp/>séparément.</highlight></codeline>
+    </programlisting>
+    <location file="guides/prod/index.md"/>
+  </compounddef>
+</doxygen>

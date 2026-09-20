@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — master: FSI monolithique : une interface couplée</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — master<span id="projectnumber">&#160;ccf20caa0745 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('fez_master_fsi_monolithic.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">FSI monolithique : une interface couplée </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_guides_2master_2features_2fsi-monolithic"></a></p>
+<p>Lecture ciblée de <span class="tt">master@ccf20caa0745cc2fe640f879d34acf2bf3855e6c</span>. Date de session : 19 septembre 2026 (New York).</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+Où entrer</h1>
+<p>L’<a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/solvers/monolithic_fsi.cpp#L30-L44">exécutable monolithic_fsi.cpp</a> construit <b><a class="el" href="class_f_s_i_solver.html">FSISolver</a></b>, puis appelle <span class="tt">run()</span> ou la boucle MMS. Attention au nom : cette fiche concerne <span class="tt"><a class="el" href="monolithic__fsi__solver_8h.html">monolithic_fsi_solver.h</a>/.cpp</span>. L’autre implémentation <span class="tt">fsi_solver.h/.cpp</span> devra être étudiée séparément.</p>
+<p><a class="el" href="class_f_s_i_solver.html">FSISolver</a> hérite de <span class="tt"><a class="el" href="class_navier_stokes_solver.html">NavierStokesSolver</a>&lt;dim, true&gt;</span>. Son <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L31-L74">système d’éléments finis</a> associe <b>vitesse u, pression p, position x et multiplicateur λ</b>. La position du maillage est donc une inconnue du système.</p>
+<p>Le parcours hérité est visible dans la carte : <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L409-L415">run() initialise puis conduit les sous-intervalles</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L135-L157">initialize() configure les assembleurs par appel virtuel</a>, et <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L344-L365">le sous-intervalle déclenche la résolution non linéaire</a>. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/generic_solver.cpp#L245-L250">GenericSolver délègue à Newton</a>, qui <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L107-L111">appelle assemble_matrix() sur le solveur FSI quand un réassemblage est requis</a>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+Ce qui compose le système</h1>
+<p><a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L207-L225"><span class="tt">setup_assemblers()</span></a> configure trois familles : Navier–Stokes avec <span class="tt">divergence_form | pseudo_solid</span>, multiplicateur de Lagrange sur maillage mobile, élasticité du pseudo-solide. Le constructeur vérifie une seule frontière de non-glissement faible et la compatibilité de son identifiant avec la frontière couplée. Il refuse la pression de moyenne nulle sur maillage mobile dans cette version.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+Le motif commun à CHNS</h1>
+<p><a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L2030-L2099"><span class="tt">assemble_matrix()</span></a> utilise le motif <b>WorkStream → ScratchData → assembleurs → CopyData → contraintes homogènes → matrice globale → compress(add)</b>. Ce motif est aussi présent dans CHNS. La ressemblance porte sur l’organisation du calcul ; elle ne prouve pas que les formulations physiques sont interchangeables.</p>
+<p>Spécificité FSI : une étape de <b>couplage algébrique position–force</b> est appelée après la compression si <span class="tt">enable_coupling</span>. Son <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L2179-L2226">entrée</a> récupère les lignes avant de modifier la matrice. Réordonner ces opérations pourrait modifier l’état d’assemblage requis par les itérateurs : c’est un contrat explicite dans le commentaire du code, pas un bug constaté.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+Force, couple et distribution</h1>
+<p>Le <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/monolithic_fsi_solver.h#L234-L254">header</a> définit les coefficients de force à partir de l’intégrale de −λ et les coefficients de couple intrinsèque par rapport au centre du corps. Le <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L1309-L1335">contrôle de somme des poids de couple</a> effectue une réduction MPI puis vérifie une somme proche de zéro.</p>
+<p>Les indicateurs <span class="tt">has_local_position_master</span>, <span class="tt">has_local_lambda_accumulator</span>, <span class="tt">has_cylinder_velocity_dofs</span> et <span class="tt">has_rotation_angle</span> expriment une intention de stockage local ; ils ne remplacent pas un test de propriété dans <span class="tt">locally_owned_dofs</span>. Dans cette révision, les deux derniers sont activés par la présence d’une face de frontière sur une cellule owned, puis servent à demander des DoFs inutilisés pour la vitesse ou l’angle (<a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L828-L897">calcul des indicateurs</a>). La <a href="https://github.com/arthurbawin/fez/pull/93">PR #93</a> propose précisément de fonder ces deux décisions sur les DoFs de position possédés. Il faut distinguer intention de stockage, propriété effective et disponibilité comme fantôme avant de raisonner sur une lecture ou une écriture MPI. Aucun défaut n’a été reproduit ici.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+Risques de propagation à vérifier</h1>
+<ul>
+<li>Modifier les composantes : vérifier extracteurs, masques et indices des termes couplés.</li>
+<li>Modifier ScratchData/CopyData : relire CHNS <b>et</b> FSI, les deux consomment ce motif.</li>
+<li>Modifier la distribution MPI : vérifier qui possède les DDL spéciaux, qui a leurs valeurs fantômes et qui écrit les lignes.</li>
+<li>Modifier forces/couples : relire l’origine physique de la pression et la convention de signe, ainsi que la stratégie de couplage.</li>
+</ul>
+<p>Ces pistes sont des obligations de revue, pas des défauts démontrés. Aucun calcul FSI n’a été exécuté aujourd’hui. Lecture fine restante : variantes de couplage, rotation, différence entre les deux implémentations FSI, formulations des assembleurs de frontière et cas tests multi-rangs. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

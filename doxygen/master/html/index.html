@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — master: FEZ — référence master</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — master<span id="projectnumber">&#160;ccf20caa0745 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">FEZ — référence master </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_guides_2master_2index"></a></p>
+<p><b>Jour 1 · source immuable : <a href="https://github.com/arthurbawin/fez/tree/ccf20caa0745cc2fe640f879d34acf2bf3855e6c">ccf20caa0745cc2fe640f879d34acf2bf3855e6c</a>.</b></p>
+<p>Cette référence est générée sur un <b>snapshot partiel</b> : le noyau du solveur, le parcours CHNS, l’assemblage et la FSI monolithique. Elle associe les commentaires du code à des guides de lecture rédigés après étude statique. Aucun build FEZ ni test numérique n’a été lancé.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+Commencer par un parcours</h1>
+<ol type="1">
+<li><a class="el" href="fez_master_core_solver.html#md_guides_2master_2features_2core-solver" title="guides/master/features/core-solver.md">Du programme CHNS à Newton</a> : héritage, temps, résidu, incrément et contraintes.</li>
+<li><a class="el" href="fez_master_chns_assembly.html#md_guides_2master_2features_2chns-assembly" title="guides/master/features/chns-assembly.md">Assemblage CHNS</a> : préparation des données, contributions locales, copie globale et Jacobien.</li>
+<li><a class="el" href="fez_master_fsi_monolithic.html#md_guides_2master_2features_2fsi-monolithic" title="guides/master/features/fsi-monolithic.md">FSI monolithique</a> : inconnues de position, multiplicateurs, forces, couples et hypothèses MPI.</li>
+</ol>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+Entrées dans l’API</h1>
+<ul>
+<li><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a> : choix des champs et des assembleurs CHNS.</li>
+<li><a class="el" href="class_navier_stokes_solver.html">NavierStokesSolver</a> : cycle de simulation et structures partagées.</li>
+<li><a class="el" href="class_generic_solver.html">GenericSolver</a> : interface du solveur non linéaire.</li>
+<li><a class="el" href="class_newton_solver.html">NewtonSolver</a> : résolution non linéaire et recherche linéaire.</li>
+<li><a class="el" href="class_f_s_i_solver.html">FSISolver</a> : uniquement l’implémentation monolithic_fsi_solver de ce snapshot.</li>
+<li>ScratchDataCHNS et <a class="el" href="class_copy_data_base.html">CopyDataBase</a> : lecture sur l’élément et résultat local.</li>
+</ul>
+<p>Les noms présents deviennent des liens lorsque Doxygen les résout. Certaines classes externes et dépendances internes absentes du snapshot restent sans référence. L’index « Fichiers » donne accès au code source inclus.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+Lire les liens avec leur preuve</h1>
+<p>Un lien source vers GitHub pointe sur le commit analysé, donc conserve le contexte exact des observations. Les pages API extraites reflètent également des commentaires historiques du dépôt : elles ne garantissent pas qu’une précondition implicite ait été auditée. Les explications validées et les limites sont distinguées dans les guides.</p>
+<p>Le contrat de l’assemblage reste essentiel : le second membre contient le négatif du résidu ; les contraintes homogènes s’appliquent à l’incrément. Le fait de rencontrer le même motif WorkStream dans CHNS et FSI n’autorise pas à transposer les formes physiques entre eux.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+Limites de cette édition</h1>
+<p>La formulation mathématique complète, les spécialisations des templates, la communication PETSc/deal.II et les scénarios MPI n’ont pas tous été audités. Doxygen ne compile ni ne teste ces sources. Les graphes d’appel automatiques ne sont pas générés ; ils seraient incomplets sans toutes les dépendances et ne remplaceraient pas l’analyse de flux de données.</p>
+<p>La branche personnelle possède sa propre référence et son propre snapshot ; aucune signature provenant de cette branche n’a été mélangée à celle-ci. </p>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

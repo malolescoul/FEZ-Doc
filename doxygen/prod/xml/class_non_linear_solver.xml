@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_non_linear_solver" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>NonLinearSolver</compoundname>
+    <derivedcompoundref refid="class_newton_solver" prot="public" virt="non-virtual">NewtonSolver&lt; VectorType &gt;</derivedcompoundref>
+    <includes refid="nonlinear__solver_8h" local="no">nonlinear_solver.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename VectorType</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_non_linear_solver_1acd735065369142f0c54cd51f41b954af" prot="protected" static="no" mutable="no">
+        <type>const Parameters::NonLinearSolver</type>
+        <definition>const Parameters::NonLinearSolver NonLinearSolver&lt; VectorType &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>NonLinearSolver::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/nonlinear_solver.h" line="30" column="37" bodyfile="snapshots/prod/include/nonlinear_solver.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_non_linear_solver_1aa356d9b5dc10c69811f607fdfa7251b8" prot="protected" static="no" mutable="no">
+        <type>ObserverPointer&lt; <ref refid="class_generic_solver" kindref="compound">GenericSolver</ref>&lt; VectorType &gt; &gt;</type>
+        <definition>ObserverPointer&lt;GenericSolver&lt;VectorType&gt; &gt; NonLinearSolver&lt; VectorType &gt;::solver</definition>
+        <argsstring></argsstring>
+        <name>solver</name>
+        <qualifiedname>NonLinearSolver::solver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/nonlinear_solver.h" line="33" column="19" bodyfile="snapshots/prod/include/nonlinear_solver.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_non_linear_solver_1abe5387c6659615475a7f6d225735ee40" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NonLinearSolver&lt; VectorType &gt;::NonLinearSolver</definition>
+        <argsstring>(const Parameters::NonLinearSolver &amp;param, GenericSolver&lt; VectorType &gt; *solver)</argsstring>
+        <name>NonLinearSolver</name>
+        <qualifiedname>NonLinearSolver::NonLinearSolver</qualifiedname>
+        <param>
+          <type>const Parameters::NonLinearSolver &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type><ref refid="class_generic_solver" kindref="compound">GenericSolver</ref>&lt; VectorType &gt; *</type>
+          <declname>solver</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/nonlinear_solver.h" line="39" column="3" bodyfile="snapshots/prod/include/nonlinear_solver.h" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_non_linear_solver_1ab173a3a8d92b805d39af0ceae6d084d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual NonLinearSolver&lt; VectorType &gt;::~NonLinearSolver</definition>
+        <argsstring>()=default</argsstring>
+        <name>~NonLinearSolver</name>
+        <qualifiedname>NonLinearSolver::~NonLinearSolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/nonlinear_solver.h" line="48" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_non_linear_solver_1ab9dba2383dc2918c7e3742da3efc062d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void NonLinearSolver&lt; VectorType &gt;::solve</definition>
+        <argsstring>(const TimeHandler &amp;time_handler)=0</argsstring>
+        <name>solve</name>
+        <qualifiedname>NonLinearSolver::solve</qualifiedname>
+        <reimplementedby refid="class_newton_solver_1af0a5f8ad940d81aef916f6d22a2c17e8">solve</reimplementedby>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the nonlinear problem (with e.g. Newton&apos;s method in the associated derived class).</para>
+<para>If the simulation is steady-state or if adaptive time stepping is disabled, the solver will throw is no solution was found. For unsteady simulations with adaptive time steps, the solver does not throw on failure, to allow trying again with a smaller time step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/nonlinear_solver.h" line="59" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Abstract base class for nonlinear solvers.</para>
+<para>This is required because the <ref refid="class_generic_solver" kindref="compound">GenericSolver</ref> is templated, so the implementation of the <ref refid="class_non_linear_solver_1ab9dba2383dc2918c7e3742da3efc062d" kindref="member">solve()</ref> function should be in the header of the file that implements it (or explicitly instantiated for all VectorTypes...) FIXME: Make this clearer (-: </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>NewtonSolver&lt; VectorType &gt;</label>
+        <link refid="class_newton_solver"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>NonLinearSolver&lt; VectorType &gt;</label>
+        <link refid="class_non_linear_solver"/>
+      </node>
+    </inheritancegraph>
+    <location file="snapshots/prod/include/nonlinear_solver.h" line="27" column="1" bodyfile="snapshots/prod/include/nonlinear_solver.h" bodystart="28" bodyend="60"/>
+    <listofallmembers>
+      <member refid="class_non_linear_solver_1abe5387c6659615475a7f6d225735ee40" prot="public" virt="non-virtual"><scope>NonLinearSolver</scope><name>NonLinearSolver</name></member>
+      <member refid="class_non_linear_solver_1acd735065369142f0c54cd51f41b954af" prot="protected" virt="non-virtual"><scope>NonLinearSolver</scope><name>param</name></member>
+      <member refid="class_non_linear_solver_1ab9dba2383dc2918c7e3742da3efc062d" prot="public" virt="pure-virtual"><scope>NonLinearSolver</scope><name>solve</name></member>
+      <member refid="class_non_linear_solver_1aa356d9b5dc10c69811f607fdfa7251b8" prot="protected" virt="non-virtual"><scope>NonLinearSolver</scope><name>solver</name></member>
+      <member refid="class_non_linear_solver_1ab173a3a8d92b805d39af0ceae6d084d7" prot="public" virt="virtual"><scope>NonLinearSolver</scope><name>~NonLinearSolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

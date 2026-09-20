@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_c_h_n_s_solver_1_1_m_m_s_solution" kind="class" language="C++" prot="protected">
+    <compoundname>CHNSSolver::MMSSolution</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="incompressible__chns__solver_8h" local="no">incompressible_chns_solver.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" prot="protected" static="no" mutable="no">
+        <type>const ComponentOrdering &amp;</type>
+        <definition>const ComponentOrdering&amp; CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>CHNSSolver::MMSSolution::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="308" column="53" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" prot="protected" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::n_components</definition>
+        <argsstring></argsstring>
+        <name>n_components</name>
+        <qualifiedname>CHNSSolver::MMSSolution::n_components</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="309" column="54" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1a038b7f6d588c999774889adc18dba191" prot="protected" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::u_lower</definition>
+        <argsstring></argsstring>
+        <name>u_lower</name>
+        <qualifiedname>CHNSSolver::MMSSolution::u_lower</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="310" column="54" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1adea59a3ffecb477c8578c116f6d32e76" prot="protected" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::p_lower</definition>
+        <argsstring></argsstring>
+        <name>p_lower</name>
+        <qualifiedname>CHNSSolver::MMSSolution::p_lower</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="311" column="54" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1a9b5331a286e1403815646b8568084bba" prot="protected" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::x_lower</definition>
+        <argsstring></argsstring>
+        <name>x_lower</name>
+        <qualifiedname>CHNSSolver::MMSSolution::x_lower</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="312" column="54" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1adfd53ac84695d5e2827962536dfce76c" prot="protected" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::phi_lower</definition>
+        <argsstring></argsstring>
+        <name>phi_lower</name>
+        <qualifiedname>CHNSSolver::MMSSolution::phi_lower</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="313" column="54" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1a3e791bf0b849c0d261bbccf93012542c" prot="protected" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::mu_lower</definition>
+        <argsstring></argsstring>
+        <name>mu_lower</name>
+        <qualifiedname>CHNSSolver::MMSSolution::mu_lower</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="314" column="54" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" prot="protected" static="no" mutable="no">
+        <type>ManufacturedSolutions::ManufacturedSolution&lt; dim &gt;</type>
+        <definition>ManufacturedSolutions::ManufacturedSolution&lt;dim&gt; CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::mms</definition>
+        <argsstring></argsstring>
+        <name>mms</name>
+        <qualifiedname>CHNSSolver::MMSSolution::mms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="315" column="49" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1a860943a13085d2e5e67887a99228385d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::MMSSolution</definition>
+        <argsstring>(const double time, const ComponentOrdering &amp;ordering, const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp;mms)</argsstring>
+        <name>MMSSolution</name>
+        <qualifiedname>CHNSSolver::MMSSolution::MMSSolution</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp;</type>
+          <declname>mms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="206" column="5" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="206" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1a48189592141bc30d295caa5eeac6621e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::set_time</definition>
+        <argsstring>(const double new_time) override</argsstring>
+        <name>set_time</name>
+        <qualifiedname>CHNSSolver::MMSSolution::set_time</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="221" column="18" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="221" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1adcdd892d79f8d9d465b54b76385c6a2f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, const unsigned int component=0) const override</argsstring>
+        <name>value</name>
+        <qualifiedname>CHNSSolver::MMSSolution::value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Setting the individual value function is required for e.g. constraining a pressure point, which calls <ref refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adcdd892d79f8d9d465b54b76385c6a2f" kindref="member">value()</ref> for pressure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="230" column="20" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="230" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1a4d399b9ba84cf40c58eb07af073e8a10" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::vector_value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</argsstring>
+        <name>vector_value</name>
+        <qualifiedname>CHNSSolver::MMSSolution::vector_value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="250" column="18" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="250" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1a246686edca36aa5927003c8338c62a2d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>Tensor&lt; 1, dim &gt;</type>
+        <definition>virtual Tensor&lt; 1, dim &gt; CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::gradient</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, const unsigned int component=0) const override</argsstring>
+        <name>gradient</name>
+        <qualifiedname>CHNSSolver::MMSSolution::gradient</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Required for H1 norm computations on invididual components </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="269" column="5" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="269" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_m_m_s_solution_1ad3d453676a729d5de1f35ecff6d53b25" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution::vector_gradient</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;gradients) const override</argsstring>
+        <name>vector_gradient</name>
+        <qualifiedname>CHNSSolver::MMSSolution::vector_gradient</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;</type>
+          <declname>gradients</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="291" column="5" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="291" bodyend="305"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Exact solution when performing a convergence study with a manufactured solution. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution</label>
+        <link refid="class_c_h_n_s_solver_1_1_m_m_s_solution"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CHNSSolver&lt; dim, with_moving_mesh &gt;::MMSSolution</label>
+        <link refid="class_c_h_n_s_solver_1_1_m_m_s_solution"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/incompressible_chns_solver.h" line="203" column="3" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="204" bodyend="316"/>
+    <listofallmembers>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a246686edca36aa5927003c8338c62a2d" prot="public" virt="virtual"><scope>CHNSSolver::MMSSolution</scope><name>gradient</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ac6bc02bf21117b0f69ea1bc4c2c022c8" prot="protected" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>mms</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a860943a13085d2e5e67887a99228385d" prot="public" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>MMSSolution</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a3e791bf0b849c0d261bbccf93012542c" prot="protected" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>mu_lower</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a231341120c304290233ab230e749de7b" prot="protected" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>n_components</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ab56d07991051a6d678aac5ccd17e8753" prot="protected" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>ordering</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adea59a3ffecb477c8578c116f6d32e76" prot="protected" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>p_lower</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adfd53ac84695d5e2827962536dfce76c" prot="protected" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>phi_lower</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a48189592141bc30d295caa5eeac6621e" prot="public" virt="virtual"><scope>CHNSSolver::MMSSolution</scope><name>set_time</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a038b7f6d588c999774889adc18dba191" prot="protected" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>u_lower</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1adcdd892d79f8d9d465b54b76385c6a2f" prot="public" virt="virtual"><scope>CHNSSolver::MMSSolution</scope><name>value</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1ad3d453676a729d5de1f35ecff6d53b25" prot="public" virt="virtual"><scope>CHNSSolver::MMSSolution</scope><name>vector_gradient</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a4d399b9ba84cf40c58eb07af073e8a10" prot="public" virt="virtual"><scope>CHNSSolver::MMSSolution</scope><name>vector_value</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_m_m_s_solution_1a9b5331a286e1403815646b8568084bba" prot="protected" virt="non-virtual"><scope>CHNSSolver::MMSSolution</scope><name>x_lower</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

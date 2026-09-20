@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_bbcf4d10dc2c11e4f91b65d875fc7b61" kind="dir">
+    <compoundname>snapshots/prod</compoundname>
+    <innerdir refid="dir_cefe8159d9fcf64e4d97dbb6157a91be">snapshots/prod/include</innerdir>
+    <innerdir refid="dir_9ff7ec2cba61d9126680591b3ae28805">snapshots/prod/solvers</innerdir>
+    <innerdir refid="dir_33678157135ff5b3db7b572f92542cc7">snapshots/prod/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/prod/"/>
+  </compounddef>
+</doxygen>

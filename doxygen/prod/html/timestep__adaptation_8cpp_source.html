@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — CHNS ALE · branche personnelle:  Fichier source de snapshots/prod/src/timestep_adaptation.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — CHNS ALE · branche personnelle<span id="projectnumber">&#160;35d43b8e3bc4 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('timestep__adaptation_8cpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">timestep_adaptation.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="timestep__adaptation_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;components_ordering.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;parameters.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="timestep__adaptation_8h.html">timestep_adaptation.h</a>&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="timestep__adaptation_8cpp.html#aab23091f79158e6be74a7b3be020d975">    8</a></span><a class="code hl_function" href="timestep__adaptation_8cpp.html#aab23091f79158e6be74a7b3be020d975">DeclExceptionMsg</a>(ExcDataNotAttached,</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>                 <span class="stringliteral">&quot;You are trying to use a BDFErrorEstimator which has &quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>                 <span class="stringliteral">&quot;uninitialized data. Call attach_data_to_error_estimator() &quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                 <span class="stringliteral">&quot;from the TimeHandler before using the error estimator.&quot;</span>);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#a44a60ea7cd6c0d6af86116315c12b8a6">   13</a></span><a class="code hl_function" href="class_b_d_f_error_estimator.html#a44a60ea7cd6c0d6af86116315c12b8a6">BDFErrorEstimator::BDFErrorEstimator</a>(</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keyword">const</span> Parameters::TimeIntegration &amp;<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a>,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keyword">const</span> <a class="code hl_class" href="class_time_handler.html">TimeHandler</a>                 &amp;time_handler)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  : <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a>(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a>)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  , <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a3d5a3349407eab66ba675c2b4fe24f1f">n_previous_solutions</a>(time_handler.<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a3d5a3349407eab66ba675c2b4fe24f1f">n_previous_solutions</a> + 1)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  , <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>(time_handler.<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>.size() + 1)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  , <a class="code hl_variable" href="class_b_d_f_error_estimator.html#ab9e28330874c1f3d5d1ea03a5e668a93">save_full_error_estimator</a>(</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>      <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a>.adaptation.compute_error_on_estimator)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keywordflow">if</span> (time_handler.<a class="code hl_variable" href="class_time_handler.html#a6e808dba70418db23b85431c96c52602">scheme</a> == Parameters::TimeIntegration::Scheme::BDF1)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a> = 1;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keywordflow">else</span> if (time_handler.<a class="code hl_variable" href="class_time_handler.html#a6e808dba70418db23b85431c96c52602">scheme</a> == Parameters::TimeIntegration::Scheme::BDF2)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a> = 2;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    DEAL_II_NOT_IMPLEMENTED();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#a34b2a41a0226bb2faeaf65e263a87e21">   30</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_b_d_f_error_estimator.html#a34b2a41a0226bb2faeaf65e263a87e21">BDFErrorEstimator::attach_data</a>(</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keyword">const</span> ComponentOrdering          &amp;<a class="code hl_variable" href="class_b_d_f_error_estimator.html#af85f9c9bcc73cbfab1972d38e280a937">ordering</a>,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keyword">const</span> IndexSet                   &amp;<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3">locally_relevant_dofs</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keyword">const</span> std::vector&lt;unsigned char&gt; &amp;<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ac9377e402bbceb911fb1bb5bfd5d045a">dofs_to_component</a>)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  this-&gt;ordering              = &amp;<a class="code hl_variable" href="class_b_d_f_error_estimator.html#af85f9c9bcc73cbfab1972d38e280a937">ordering</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  this-&gt;locally_relevant_dofs = &amp;<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3">locally_relevant_dofs</a>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  this-&gt;dofs_to_component     = &amp;<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ac9377e402bbceb911fb1bb5bfd5d045a">dofs_to_component</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#a4a84e478d0e10ffca1e42da93674330c">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_b_d_f_error_estimator.html#a4a84e478d0e10ffca1e42da93674330c">BDFErrorEstimator::advance</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_time_handler.html">TimeHandler</a> &amp;time_handler)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="comment">// Rotate the times</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keywordflow">if</span> (!time_handler.<a class="code hl_variable" href="class_time_handler.html#a3c3079f08a0b86fe8fbd89c0b0c33a28">rolledback_step</a>)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a3d5a3349407eab66ba675c2b4fe24f1f">n_previous_solutions</a>; i &gt;= 1; --i)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>[i] = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>[i - 1];</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>[0] = time_handler.<a class="code hl_variable" href="class_time_handler.html#a9b3bbdf7c60f579b8f7835ed367a0b17">simulation_times</a>[0];</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#a1362437fcb51abf8e18efea13b8cea53">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_b_d_f_error_estimator.html#a1362437fcb51abf8e18efea13b8cea53">BDFErrorEstimator::rotate_additional_solution</a>(</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keyword">const</span> <a class="code hl_typedef" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;solution)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="comment">// This reinits additional_solution the first time this function is called,</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="comment">// thanks to the crafty operator= for PETSc vectors (petsc_vector.h).</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a6584a19c222b99f49ffb1e8e844d8bc9">additional_solution</a> = solution;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#a6a5c60cc3645fab7592dc77f8ec86428">   57</a></span><a class="code hl_typedef" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;<a class="code hl_function" href="class_b_d_f_error_estimator.html#a6a5c60cc3645fab7592dc77f8ec86428">BDFErrorEstimator::get_additional_solution</a>()</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a6584a19c222b99f49ffb1e8e844d8bc9">additional_solution</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#af83bbd88b98f52168e3fcc51e0a6d00f">   62</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_b_d_f_error_estimator.html#af83bbd88b98f52168e3fcc51e0a6d00f">BDFErrorEstimator::compute_error_estimator</a>(</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keyword">const</span> <a class="code hl_class" href="class_time_handler.html">TimeHandler</a>                    &amp;time_handler,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keyword">const</span> <a class="code hl_typedef" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>              &amp;present_solution,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keyword">const</span> std::vector&lt;LA::ParVectorType&gt; &amp;previous_solutions)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="comment">// Check that attach_data() was called</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  Assert(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#af85f9c9bcc73cbfab1972d38e280a937">ordering</a>, ExcDataNotAttached());</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  Assert(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3">locally_relevant_dofs</a>, ExcDataNotAttached());</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  Assert(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ac9377e402bbceb911fb1bb5bfd5d045a">dofs_to_component</a>, ExcDataNotAttached());</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  AssertDimension(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ac9377e402bbceb911fb1bb5bfd5d045a">dofs_to_component</a>-&gt;size(),</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                  <a class="code hl_variable" href="class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3">locally_relevant_dofs</a>-&gt;n_elements());</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  Assert(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a6584a19c222b99f49ffb1e8e844d8bc9">additional_solution</a>.size() &gt; 0, ExcInternalError());</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  Assert(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ac9377e402bbceb911fb1bb5bfd5d045a">dofs_to_component</a>-&gt;size() &gt; 0,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>         ExcMessage(<span class="stringliteral">&quot;The vector dofs_to_component should be filled before &quot;</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                    <span class="stringliteral">&quot;entering this function.&quot;</span>));</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="comment">// If the full vector of error estimates for each dof must be stored and</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="comment">// it has not yet been initialized, do it now</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a3a7a9ad8fbe30a357bf96014ee6eb13a">error_estimator</a>.size() == 0)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ab9e28330874c1f3d5d1ea03a5e668a93">save_full_error_estimator</a>)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a995c20efe0fbc6ad2b1e502a81e36b6c">locally_owned_elements</a> = present_solution.locally_owned_elements();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a3a7a9ad8fbe30a357bf96014ee6eb13a">error_estimator</a>.reinit(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a995c20efe0fbc6ad2b1e502a81e36b6c">locally_owned_elements</a>,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                             *<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3">locally_relevant_dofs</a>,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                             present_solution.get_mpi_communicator());</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a97f8b58c5c676ec2ae2e8a9b2919e57d">fully_distributed_error_estimator</a>.reinit(</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a995c20efe0fbc6ad2b1e502a81e36b6c">locally_owned_elements</a>, present_solution.get_mpi_communicator());</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="comment">// Set the handled variables the first time we enter here</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c">handled_variables</a>.empty())</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> var : SolverInfo::variable_types)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#af85f9c9bcc73cbfab1972d38e280a937">ordering</a>-&gt;has_variable(var))</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_variable" href="class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c">handled_variables</a>.push_back(var);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>[var] = 0.;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  Assert(!<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c">handled_variables</a>.empty(), ExcInternalError());</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> var : <a class="code hl_variable" href="class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c">handled_variables</a>)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>[var] = 0.;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_sol = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a> + 2;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  AssertDimension(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>.size(), n_sol);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  AssertDimension(previous_solutions.size(), <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a>);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  std::vector&lt;double&gt; times(n_sol), values(n_sol);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_sol; ++i)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    times[i] = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>[i];</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="comment">// Compute the coefficient (-1)^{p+1} * sum_i BDF_coeff_i * (t_{n+1} -</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <span class="comment">// t_{n+1-i})^{p+1} multiplying the divided difference</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  <span class="keyword">const</span> <span class="keyword">auto</span> &amp;alpha = time_handler.<a class="code hl_variable" href="class_time_handler.html#a8d1ce981da4e691eb60a7e9ec2437b73">bdf_coefficients</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="keywordtype">double</span>      coeff = 0.;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt;= <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a>; ++i)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> Hi = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>[0] - <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>[i];</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    coeff += alpha[i] * std::pow(Hi, <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a> + 1);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <span class="comment">// FIXME: Probalby useless if taking the abs below</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  coeff *= (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a> % 2 == 0) ? -1. : 1.;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  <span class="comment">// Current time step</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  <span class="keyword">const</span> <span class="keywordtype">double</span> h = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>[0] - <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">simulation_times</a>[1];</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <span class="comment">// Compute trunaction error for each relevant dof</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;dof : *<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3">locally_relevant_dofs</a>)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">// Solution at times t_{n+1} through t_{n+1-(p+1)}.</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    values[0] = present_solution[dof];</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_sol - 2; ++i)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>      values[i + 1] = previous_solutions[i][dof];</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    values[n_sol - 1] = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a6584a19c222b99f49ffb1e8e844d8bc9">additional_solution</a>[dof];</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="comment">// Compute the divided difference of order p + 1</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">double</span> dd = 0.;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a>.scheme == Parameters::TimeIntegration::Scheme::BDF1)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      dd = divided_difference&lt;2&gt;(times, values);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a>.scheme ==</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>             Parameters::TimeIntegration::Scheme::BDF2)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>      dd = divided_difference&lt;3&gt;(times, values);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> error = std::abs(h * coeff * dd);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ab9e28330874c1f3d5d1ea03a5e668a93">save_full_error_estimator</a>)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a995c20efe0fbc6ad2b1e502a81e36b6c">locally_owned_elements</a>.is_element(dof))</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a97f8b58c5c676ec2ae2e8a9b2919e57d">fully_distributed_error_estimator</a>[dof] = error;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="comment">// Get dof component, then variable associated with this component</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">const</span> <span class="keyword">auto</span> comp =</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>      (*dofs_to_component)[<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3">locally_relevant_dofs</a>-&gt;index_within_set(dof)];</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">const</span> <span class="keyword">auto</span> var    = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#af85f9c9bcc73cbfab1972d38e280a937">ordering</a>-&gt;component_to_variable_type(comp);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>.at(var) = std::max(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>.at(var), error);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ab9e28330874c1f3d5d1ea03a5e668a93">save_full_error_estimator</a>)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a97f8b58c5c676ec2ae2e8a9b2919e57d">fully_distributed_error_estimator</a>.compress(VectorOperation::insert);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a3a7a9ad8fbe30a357bf96014ee6eb13a">error_estimator</a> = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a97f8b58c5c676ec2ae2e8a9b2919e57d">fully_distributed_error_estimator</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>  <span class="comment">// Synchronize the max errors across ranks</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> var : <a class="code hl_variable" href="class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c">handled_variables</a>)</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">auto</span> *<span class="keyword">const</span> comm  = present_solution.get_mpi_communicator();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>.at(var) = Utilities::MPI::max(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>.at(var), comm);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">if</span> (Utilities::MPI::this_mpi_process(comm) == 0 &amp;&amp;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a>.adaptation.verbosity == Parameters::Verbosity::verbose)</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Max error for variable &quot;</span> + SolverInfo::to_string(var)</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                &lt;&lt; <span class="stringliteral">&quot; is &quot;</span> &lt;&lt; <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>.at(var) &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="keyword">const</span> std::map&lt;SolverInfo::VariableType, double&gt; &amp;</div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="}">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#a81b75254435a20475df31b4f360aaee1">  179</a></span><a class="code hl_function" href="class_b_d_f_error_estimator.html#a81b75254435a20475df31b4f360aaee1">BDFErrorEstimator::get_max_errors</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>  Assert(!<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>.empty(), ExcInternalError());</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>}</div>
+</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#abb1080c513f92d5bbfc8499e897799c5">  185</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="class_b_d_f_error_estimator.html#abb1080c513f92d5bbfc8499e897799c5">BDFErrorEstimator::get_next_timestep</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> current_timestep)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>  Assert(!<a class="code hl_variable" href="class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c">handled_variables</a>.empty(), ExcInternalError());</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  Assert(!<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>.empty(), ExcInternalError());</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  std::map&lt;SolverInfo::VariableType, double&gt; target_steps;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  <span class="comment">// Compute next time step ratios</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> var : <a class="code hl_variable" href="class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c">handled_variables</a>)</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  {</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> eps = <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">time_parameters</a>.adaptation.target_error.at(var);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> ratio =</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      std::pow(eps / std::max(1e-15, <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">max_error</a>.at(var)), 1. / (<a class="code hl_variable" href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">bdf_order</a> + 1));</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    target_steps[var] = current_timestep * ratio;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>  }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>  Assert(!target_steps.empty(), ExcInternalError());</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>  <span class="comment">// Get key and value of minimum timestep</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>  <span class="keyword">const</span> <span class="keyword">auto</span> it = std::min_element(target_steps.begin(),</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                                   target_steps.end(),</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                                   [](<span class="keyword">const</span> <span class="keyword">auto</span> &amp;a, <span class="keyword">const</span> <span class="keyword">auto</span> &amp;b) {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                                     return a.second &lt; b.second;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                                   });</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>  <span class="comment">// Return the smallest prescribed timestep</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>  <span class="keywordflow">return</span> it-&gt;second;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>}</div>
+</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="keyword">const</span> <a class="code hl_typedef" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;</div>
+<div class="foldopen" id="foldopen00215" data-start="{" data-end="}">
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="class_b_d_f_error_estimator.html#a3c8eabffb9392ab2aa7e3c7a0a6a5512">  215</a></span><a class="code hl_function" href="class_b_d_f_error_estimator.html#a3c8eabffb9392ab2aa7e3c7a0a6a5512">BDFErrorEstimator::get_error_estimator_as_solution</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>  Assert(<a class="code hl_variable" href="class_b_d_f_error_estimator.html#ab9e28330874c1f3d5d1ea03a5e668a93">save_full_error_estimator</a>, ExcInternalError());</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="class_b_d_f_error_estimator.html#a97f8b58c5c676ec2ae2e8a9b2919e57d">fully_distributed_error_estimator</a>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>}</div>
+</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a02b15767efba4fd6d8d2582223b3bfb5"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a02b15767efba4fd6d8d2582223b3bfb5">BDFErrorEstimator::bdf_order</a></div><div class="ttdeci">unsigned int bdf_order</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00125">timestep_adaptation.h:125</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a1362437fcb51abf8e18efea13b8cea53"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a1362437fcb51abf8e18efea13b8cea53">BDFErrorEstimator::rotate_additional_solution</a></div><div class="ttdeci">void rotate_additional_solution(const LA::ParVectorType &amp;solution)</div><div class="ttdef"><b>Définition</b> <a href="#l00049">timestep_adaptation.cpp:49</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a34b2a41a0226bb2faeaf65e263a87e21"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a34b2a41a0226bb2faeaf65e263a87e21">BDFErrorEstimator::attach_data</a></div><div class="ttdeci">void attach_data(const ComponentOrdering &amp;ordering, const IndexSet &amp;locally_relevant_dofs, const std::vector&lt; unsigned char &gt; &amp;dofs_to_component)</div><div class="ttdef"><b>Définition</b> <a href="#l00030">timestep_adaptation.cpp:30</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a3a7a9ad8fbe30a357bf96014ee6eb13a"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a3a7a9ad8fbe30a357bf96014ee6eb13a">BDFErrorEstimator::error_estimator</a></div><div class="ttdeci">LA::ParVectorType error_estimator</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00152">timestep_adaptation.h:152</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a3c8eabffb9392ab2aa7e3c7a0a6a5512"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a3c8eabffb9392ab2aa7e3c7a0a6a5512">BDFErrorEstimator::get_error_estimator_as_solution</a></div><div class="ttdeci">const LA::ParVectorType &amp; get_error_estimator_as_solution() const</div><div class="ttdef"><b>Définition</b> <a href="#l00215">timestep_adaptation.cpp:215</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a3d5a3349407eab66ba675c2b4fe24f1f"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a3d5a3349407eab66ba675c2b4fe24f1f">BDFErrorEstimator::n_previous_solutions</a></div><div class="ttdeci">const unsigned int n_previous_solutions</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00134">timestep_adaptation.h:134</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a44a60ea7cd6c0d6af86116315c12b8a6"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a44a60ea7cd6c0d6af86116315c12b8a6">BDFErrorEstimator::BDFErrorEstimator</a></div><div class="ttdeci">BDFErrorEstimator(const Parameters::TimeIntegration &amp;time_parameters, const TimeHandler &amp;time_handler)</div><div class="ttdef"><b>Définition</b> <a href="#l00013">timestep_adaptation.cpp:13</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a4a84e478d0e10ffca1e42da93674330c"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a4a84e478d0e10ffca1e42da93674330c">BDFErrorEstimator::advance</a></div><div class="ttdeci">void advance(const TimeHandler &amp;time_handler)</div><div class="ttdef"><b>Définition</b> <a href="#l00040">timestep_adaptation.cpp:40</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a6584a19c222b99f49ffb1e8e844d8bc9"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a6584a19c222b99f49ffb1e8e844d8bc9">BDFErrorEstimator::additional_solution</a></div><div class="ttdeci">LA::ParVectorType additional_solution</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00132">timestep_adaptation.h:132</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a65aae0f5aab27834c91c15e16ee5b928"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a65aae0f5aab27834c91c15e16ee5b928">BDFErrorEstimator::simulation_times</a></div><div class="ttdeci">std::vector&lt; double &gt; simulation_times</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00137">timestep_adaptation.h:137</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a6a5c60cc3645fab7592dc77f8ec86428"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a6a5c60cc3645fab7592dc77f8ec86428">BDFErrorEstimator::get_additional_solution</a></div><div class="ttdeci">LA::ParVectorType &amp; get_additional_solution()</div><div class="ttdef"><b>Définition</b> <a href="#l00057">timestep_adaptation.cpp:57</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a7320a6571325848c3f1a6eed10cdbb13"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a7320a6571325848c3f1a6eed10cdbb13">BDFErrorEstimator::time_parameters</a></div><div class="ttdeci">const Parameters::TimeIntegration &amp; time_parameters</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00117">timestep_adaptation.h:117</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a81b75254435a20475df31b4f360aaee1"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a81b75254435a20475df31b4f360aaee1">BDFErrorEstimator::get_max_errors</a></div><div class="ttdeci">const std::map&lt; SolverInfo::VariableType, double &gt; &amp; get_max_errors() const</div><div class="ttdef"><b>Définition</b> <a href="#l00179">timestep_adaptation.cpp:179</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a91eee24567b110e11082f613c06afb68"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a91eee24567b110e11082f613c06afb68">BDFErrorEstimator::max_error</a></div><div class="ttdeci">std::map&lt; SolverInfo::VariableType, double &gt; max_error</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00143">timestep_adaptation.h:143</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a97f8b58c5c676ec2ae2e8a9b2919e57d"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a97f8b58c5c676ec2ae2e8a9b2919e57d">BDFErrorEstimator::fully_distributed_error_estimator</a></div><div class="ttdeci">LA::ParVectorType fully_distributed_error_estimator</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00153">timestep_adaptation.h:153</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_a995c20efe0fbc6ad2b1e502a81e36b6c"><div class="ttname"><a href="class_b_d_f_error_estimator.html#a995c20efe0fbc6ad2b1e502a81e36b6c">BDFErrorEstimator::locally_owned_elements</a></div><div class="ttdeci">IndexSet locally_owned_elements</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00149">timestep_adaptation.h:149</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_ab9e28330874c1f3d5d1ea03a5e668a93"><div class="ttname"><a href="class_b_d_f_error_estimator.html#ab9e28330874c1f3d5d1ea03a5e668a93">BDFErrorEstimator::save_full_error_estimator</a></div><div class="ttdeci">bool save_full_error_estimator</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00146">timestep_adaptation.h:146</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_abb1080c513f92d5bbfc8499e897799c5"><div class="ttname"><a href="class_b_d_f_error_estimator.html#abb1080c513f92d5bbfc8499e897799c5">BDFErrorEstimator::get_next_timestep</a></div><div class="ttdeci">double get_next_timestep(const double current_timestep) const</div><div class="ttdef"><b>Définition</b> <a href="#l00185">timestep_adaptation.cpp:185</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_ac9377e402bbceb911fb1bb5bfd5d045a"><div class="ttname"><a href="class_b_d_f_error_estimator.html#ac9377e402bbceb911fb1bb5bfd5d045a">BDFErrorEstimator::dofs_to_component</a></div><div class="ttdeci">const std::vector&lt; unsigned char &gt; * dofs_to_component</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00122">timestep_adaptation.h:122</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_adaa97e6b13e4c6f2bec560d4f9d00af3"><div class="ttname"><a href="class_b_d_f_error_estimator.html#adaa97e6b13e4c6f2bec560d4f9d00af3">BDFErrorEstimator::locally_relevant_dofs</a></div><div class="ttdeci">const IndexSet * locally_relevant_dofs</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00121">timestep_adaptation.h:121</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_adbd9253b299b6dcd7cc43e5099a9519c"><div class="ttname"><a href="class_b_d_f_error_estimator.html#adbd9253b299b6dcd7cc43e5099a9519c">BDFErrorEstimator::handled_variables</a></div><div class="ttdeci">std::vector&lt; SolverInfo::VariableType &gt; handled_variables</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00140">timestep_adaptation.h:140</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_af83bbd88b98f52168e3fcc51e0a6d00f"><div class="ttname"><a href="class_b_d_f_error_estimator.html#af83bbd88b98f52168e3fcc51e0a6d00f">BDFErrorEstimator::compute_error_estimator</a></div><div class="ttdeci">void compute_error_estimator(const TimeHandler &amp;time_handler, const LA::ParVectorType &amp;present_solution, const std::vector&lt; LA::ParVectorType &gt; &amp;previous_solutions)</div><div class="ttdef"><b>Définition</b> <a href="#l00062">timestep_adaptation.cpp:62</a></div></div>
+<div class="ttc" id="aclass_b_d_f_error_estimator_html_af85f9c9bcc73cbfab1972d38e280a937"><div class="ttname"><a href="class_b_d_f_error_estimator.html#af85f9c9bcc73cbfab1972d38e280a937">BDFErrorEstimator::ordering</a></div><div class="ttdeci">const ComponentOrdering * ordering</div><div class="ttdef"><b>Définition</b> <a href="timestep__adaptation_8h_source.html#l00120">timestep_adaptation.h:120</a></div></div>
+<div class="ttc" id="aclass_time_handler_html"><div class="ttname"><a href="class_time_handler.html">TimeHandler</a></div><div class="ttdef"><b>Définition</b> <a href="time__handler_8h_source.html#l00023">time_handler.h:24</a></div></div>
+<div class="ttc" id="aclass_time_handler_html_a3c3079f08a0b86fe8fbd89c0b0c33a28"><div class="ttname"><a href="class_time_handler.html#a3c3079f08a0b86fe8fbd89c0b0c33a28">TimeHandler::rolledback_step</a></div><div class="ttdeci">bool rolledback_step</div><div class="ttdef"><b>Définition</b> <a href="time__handler_8h_source.html#l00353">time_handler.h:353</a></div></div>
+<div class="ttc" id="aclass_time_handler_html_a6e808dba70418db23b85431c96c52602"><div class="ttname"><a href="class_time_handler.html#a6e808dba70418db23b85431c96c52602">TimeHandler::scheme</a></div><div class="ttdeci">Parameters::TimeIntegration::Scheme scheme</div><div class="ttdef"><b>Définition</b> <a href="time__handler_8h_source.html#l00334">time_handler.h:334</a></div></div>
+<div class="ttc" id="aclass_time_handler_html_a8d1ce981da4e691eb60a7e9ec2437b73"><div class="ttname"><a href="class_time_handler.html#a8d1ce981da4e691eb60a7e9ec2437b73">TimeHandler::bdf_coefficients</a></div><div class="ttdeci">std::vector&lt; double &gt; bdf_coefficients</div><div class="ttdef"><b>Définition</b> <a href="time__handler_8h_source.html#l00342">time_handler.h:342</a></div></div>
+<div class="ttc" id="aclass_time_handler_html_a9b3bbdf7c60f579b8f7835ed367a0b17"><div class="ttname"><a href="class_time_handler.html#a9b3bbdf7c60f579b8f7835ed367a0b17">TimeHandler::simulation_times</a></div><div class="ttdeci">std::vector&lt; double &gt; simulation_times</div><div class="ttdef"><b>Définition</b> <a href="time__handler_8h_source.html#l00319">time_handler.h:319</a></div></div>
+<div class="ttc" id="anamespace_l_a_html_a71486a471be13e3af27194053d6c8a4b"><div class="ttname"><a href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a></div><div class="ttdeci">dealii::LinearAlgebraPETSc::MPI::Vector ParVectorType</div><div class="ttdef"><b>Définition</b> <a href="types_8h_source.html#l00014">types.h:14</a></div></div>
+<div class="ttc" id="atimestep__adaptation_8cpp_html_aab23091f79158e6be74a7b3be020d975"><div class="ttname"><a href="timestep__adaptation_8cpp.html#aab23091f79158e6be74a7b3be020d975">DeclExceptionMsg</a></div><div class="ttdeci">DeclExceptionMsg(ExcDataNotAttached, &quot;You are trying to use a BDFErrorEstimator which has &quot; &quot;uninitialized data. Call attach_data_to_error_estimator() &quot; &quot;from the TimeHandler before using the error estimator.&quot;)</div></div>
+<div class="ttc" id="atimestep__adaptation_8h_html"><div class="ttname"><a href="timestep__adaptation_8h.html">timestep_adaptation.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_572db43f5fb4bb08ef27a34d9eec3105.html">snapshots</a></li><li class="navelem"><a href="dir_bbcf4d10dc2c11e4f91b65d875fc7b61.html">prod</a></li><li class="navelem"><a href="dir_33678157135ff5b3db7b572f92542cc7.html">src</a></li><li class="navelem"><a href="timestep__adaptation_8cpp.html">timestep_adaptation.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

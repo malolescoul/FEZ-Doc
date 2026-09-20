@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_assembly_1_1_incompressible_c_h_n_s" kind="namespace" language="C++">
+    <compoundname>Assembly::IncompressibleCHNS</compoundname>
+    <innerclass refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base" prot="public">Assembly::IncompressibleCHNS::Base</innerclass>
+    <innerclass refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler" prot="public">Assembly::IncompressibleCHNS::VolumeAssembler</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496" prot="public" static="no" strong="no">
+        <type>unsigned int</type>
+        <name>AssemblyFlags</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::AssemblyFlags</qualifiedname>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496a17efa415900b0b71c06c9a0412965d50" prot="public">
+          <name>chns</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Assemble the incompressible CHNS system without any stabilization. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496ada2e635f57716cd8423be3b19773f6d2" prot="public">
+          <name>stabilization</name>
+          <initializer>= 1 &lt;&lt; 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Add SUPG/PSPG stabilization forms for the Navier-Stokes equations. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496a9efe20614b1d0a141363bfc0b8425ba5" prot="public">
+          <name>tracer_stabilization</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Add SUPG stabilization form for the phase tracer equation. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_assembly_1_1_incompressible_c_h_n_s_1a4f678d197772212243dcc2de1ac9c496ac25e91c7a9f7f0e698a0440d17a851e5" prot="public">
+          <name>moving_mesh</name>
+          <initializer>= 1 &lt;&lt; 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Account for moving mesh contributions (ALE). </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>These flags are used to specify which terms to assemble in addition to the base incompressible CHNS system. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="22" column="5" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="23" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_assembly_1_1_incompressible_c_h_n_s_1a886d5c627820beeb124bffb55d3d4650" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>typename ScratchData</type>
+          </param>
+          <param>
+            <type>typename CopyData</type>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>with_moving_mesh</declname>
+            <defname>with_moving_mesh</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Assembly::IncompressibleCHNS::setup_assemblers</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering, const Table&lt; 2, DoFTools::Coupling &gt; &amp;coupling_table, std::vector&lt; std::unique_ptr&lt; AssemblerBase&lt; ScratchData, CopyData &gt; &gt; &gt; &amp;assemblers)</argsstring>
+        <name>setup_assemblers</name>
+        <qualifiedname>Assembly::IncompressibleCHNS::setup_assemblers</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const Table&lt; 2, DoFTools::Coupling &gt; &amp;</type>
+          <declname>coupling_table</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::unique_ptr&lt; <ref refid="class_assembly_1_1_assembler_base" kindref="compound">AssemblerBase</ref>&lt; ScratchData, CopyData &gt; &gt; &gt; &amp;</type>
+          <declname>assemblers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the volume and relevant boundary assemblers, and store them as unique pointers in <computeroutput>assemblers</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="135" column="10" bodyfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" bodystart="135" bodyend="201" declfile="snapshots/master/include/assembly/incompressible_chns_assemblers.h" declline="53" declcolumn="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A namespace gathering the assembly routines for the (quasi-)incompressible Cahn-Hilliard Navier-Stokes models. </para>
+    </detaileddescription>
+    <location file="snapshots/master/include/assembly/incompressible_chns_assemblers.h" line="16" column="3"/>
+  </compounddef>
+</doxygen>

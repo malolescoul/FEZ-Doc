@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — master: Référence du fichier snapshots/master/src/linear_solver.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — master<span id="projectnumber">&#160;ccf20caa0745 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('linear__solver_8cpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier linear_solver.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;deal.II/base/timer.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="generic__solver_8h_source.html">generic_solver.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="linear__solver_8h_source.html">linear_solver.h</a>&gt;</code><br />
+<code>#include &lt;petscmat.h&gt;</code><br />
+</div>
+<p><a href="linear__solver_8cpp_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aabc846ae3f996b26ddf3402dcf769c39" id="r_aabc846ae3f996b26ddf3402dcf769c39"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aabc846ae3f996b26ddf3402dcf769c39">solve_linear_system_direct</a> (<a class="el" href="class_generic_solver.html">GenericSolver</a>&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *solver, const Parameters::LinearSolver &amp;linear_solver_param, <a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> &amp;system_matrix, const IndexSet &amp;locally_owned_dofs, const AffineConstraints&lt; double &gt; &amp;zero_constraints)</td></tr>
+<tr class="memitem:a0d8043008be9ffb61eb9d2ba96b0e162" id="r_a0d8043008be9ffb61eb9d2ba96b0e162"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0d8043008be9ffb61eb9d2ba96b0e162">solve_linear_system_direct</a> (<a class="el" href="class_generic_solver.html">GenericSolver</a>&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *solver, const Parameters::LinearSolver &amp;linear_solver_param, <a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> &amp;system_matrix, const IndexSet &amp;locally_owned_dofs, const AffineConstraints&lt; double &gt; &amp;zero_constraints, PETScWrappers::SparseDirectMUMPSReuse &amp;direct_solver)</td></tr>
+<tr class="memitem:a6237fd56be93285b4b3fd101cd09c6b8" id="r_a6237fd56be93285b4b3fd101cd09c6b8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6237fd56be93285b4b3fd101cd09c6b8">solve_linear_system_iterative</a> (<a class="el" href="class_generic_solver.html">GenericSolver</a>&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *solver, const Parameters::LinearSolver &amp;linear_solver_param, <a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> &amp;system_matrix, const IndexSet &amp;locally_owned_dofs, const AffineConstraints&lt; double &gt; &amp;zero_constraints)</td></tr>
+<tr class="memitem:a342fbcdc530e9d1fb40e6502fc24add7" id="r_a342fbcdc530e9d1fb40e6502fc24add7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a342fbcdc530e9d1fb40e6502fc24add7">solve_linear_system_cg</a> (<a class="el" href="class_generic_solver.html">GenericSolver</a>&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *solver, const Parameters::LinearSolver &amp;linear_solver_param, <a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> &amp;system_matrix, const IndexSet &amp;locally_owned_dofs, const AffineConstraints&lt; double &gt; &amp;zero_constraints)</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions</h2>
+<a id="a342fbcdc530e9d1fb40e6502fc24add7" name="a342fbcdc530e9d1fb40e6502fc24add7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a342fbcdc530e9d1fb40e6502fc24add7">&#9670;&#160;</a></span>solve_linear_system_cg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void solve_linear_system_cg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_generic_solver.html">GenericSolver</a>&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>solver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Parameters::LinearSolver &amp;</td>          <td class="paramname"><span class="paramname"><em>linear_solver_param</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>system_matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexSet &amp;</td>          <td class="paramname"><span class="paramname"><em>locally_owned_dofs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AffineConstraints&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>zero_constraints</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Conjugate Gradient solver with block Jacobi preconditioner. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="linear__solver_8cpp_source.html#l00153">153</a> du fichier <a class="el" href="linear__solver_8cpp_source.html">linear_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aabc846ae3f996b26ddf3402dcf769c39" name="aabc846ae3f996b26ddf3402dcf769c39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabc846ae3f996b26ddf3402dcf769c39">&#9670;&#160;</a></span>solve_linear_system_direct() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void solve_linear_system_direct </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_generic_solver.html">GenericSolver</a>&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>solver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Parameters::LinearSolver &amp;</td>          <td class="paramname"><span class="paramname"><em>linear_solver_param</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>system_matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexSet &amp;</td>          <td class="paramname"><span class="paramname"><em>locally_owned_dofs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AffineConstraints&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>zero_constraints</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="linear__solver_8cpp_source.html#l00010">10</a> du fichier <a class="el" href="linear__solver_8cpp_source.html">linear_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0d8043008be9ffb61eb9d2ba96b0e162" name="a0d8043008be9ffb61eb9d2ba96b0e162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8043008be9ffb61eb9d2ba96b0e162">&#9670;&#160;</a></span>solve_linear_system_direct() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void solve_linear_system_direct </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_generic_solver.html">GenericSolver</a>&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>solver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Parameters::LinearSolver &amp;</td>          <td class="paramname"><span class="paramname"><em>linear_solver_param</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>system_matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexSet &amp;</td>          <td class="paramname"><span class="paramname"><em>locally_owned_dofs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AffineConstraints&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>zero_constraints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PETScWrappers::SparseDirectMUMPSReuse &amp;</td>          <td class="paramname"><span class="paramname"><em>direct_solver</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="linear__solver_8cpp_source.html#l00052">52</a> du fichier <a class="el" href="linear__solver_8cpp_source.html">linear_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6237fd56be93285b4b3fd101cd09c6b8" name="a6237fd56be93285b4b3fd101cd09c6b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6237fd56be93285b4b3fd101cd09c6b8">&#9670;&#160;</a></span>solve_linear_system_iterative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void solve_linear_system_iterative </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_generic_solver.html">GenericSolver</a>&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *</td>          <td class="paramname"><span class="paramname"><em>solver</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Parameters::LinearSolver &amp;</td>          <td class="paramname"><span class="paramname"><em>linear_solver_param</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>system_matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexSet &amp;</td>          <td class="paramname"><span class="paramname"><em>locally_owned_dofs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AffineConstraints&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>zero_constraints</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="linear__solver_8cpp_source.html#l00095">95</a> du fichier <a class="el" href="linear__solver_8cpp_source.html">linear_solver.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_572db43f5fb4bb08ef27a34d9eec3105.html">snapshots</a></li><li class="navelem"><a href="dir_4e20278f37604c0e64ea9fc77ecf750e.html">master</a></li><li class="navelem"><a href="dir_214b4bb87b5e3abead7e48f679df48e2.html">src</a></li><li class="navelem"><a href="linear__solver_8cpp.html">linear_solver.cpp</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

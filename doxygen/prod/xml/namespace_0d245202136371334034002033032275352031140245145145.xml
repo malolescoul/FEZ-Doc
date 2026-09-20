@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_0d245202136371334034002033032275352031140245145145" kind="namespace" language="C++">
+    <compoundname>@245202136371334034002033032275352031140245145145</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/prod/src/elasticity_solver.cpp" line="38" column="1"/>
+  </compounddef>
+</doxygen>

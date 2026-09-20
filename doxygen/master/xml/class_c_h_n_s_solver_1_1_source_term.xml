@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_c_h_n_s_solver_1_1_source_term" kind="class" language="C++" prot="protected">
+    <compoundname>CHNSSolver::SourceTerm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="incompressible__chns__solver_8h" local="no">incompressible_chns_solver.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" prot="protected" static="no" mutable="no">
+        <type>const ComponentOrdering &amp;</type>
+        <definition>const ComponentOrdering&amp; CHNSSolver&lt; dim, with_moving_mesh &gt;::SourceTerm::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>CHNSSolver::SourceTerm::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="195" column="33" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" prot="protected" static="no" mutable="no">
+        <type>Parameters::SourceTerms&lt; dim &gt;</type>
+        <definition>Parameters::SourceTerms&lt;dim&gt; CHNSSolver&lt; dim, with_moving_mesh &gt;::SourceTerm::source_terms</definition>
+        <argsstring></argsstring>
+        <name>source_terms</name>
+        <qualifiedname>CHNSSolver::SourceTerm::source_terms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="196" column="29" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_source_term_1a772f96df58f4a6db3131a4d854c8b21a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CHNSSolver&lt; dim, with_moving_mesh &gt;::SourceTerm::SourceTerm</definition>
+        <argsstring>(const double time, const ComponentOrdering &amp;ordering, const Parameters::SourceTerms&lt; dim &gt; &amp;source_terms)</argsstring>
+        <name>SourceTerm</name>
+        <qualifiedname>CHNSSolver::SourceTerm::SourceTerm</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const Parameters::SourceTerms&lt; dim &gt; &amp;</type>
+          <declname>source_terms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="164" column="5" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="164" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_source_term_1a6871b159ea1ff98df2b4af58552853b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CHNSSolver&lt; dim, with_moving_mesh &gt;::SourceTerm::set_time</definition>
+        <argsstring>(const double new_time) override</argsstring>
+        <name>set_time</name>
+        <qualifiedname>CHNSSolver::SourceTerm::set_time</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="172" column="18" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="172" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_source_term_1a1477428bc74ed9d71b098c78455162a1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CHNSSolver&lt; dim, with_moving_mesh &gt;::SourceTerm::vector_value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</argsstring>
+        <name>vector_value</name>
+        <qualifiedname>CHNSSolver::SourceTerm::vector_value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/incompressible_chns_solver.h" line="177" column="18" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="177" bodyend="192"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Source term. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CHNSSolver&lt; dim, with_moving_mesh &gt;::SourceTerm</label>
+        <link refid="class_c_h_n_s_solver_1_1_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CHNSSolver&lt; dim, with_moving_mesh &gt;::SourceTerm</label>
+        <link refid="class_c_h_n_s_solver_1_1_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/incompressible_chns_solver.h" line="161" column="3" bodyfile="snapshots/master/include/incompressible_chns_solver.h" bodystart="162" bodyend="197"/>
+    <listofallmembers>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1a7331514912cfda23f33a826bedb92a58" prot="protected" virt="non-virtual"><scope>CHNSSolver::SourceTerm</scope><name>ordering</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1a6871b159ea1ff98df2b4af58552853b2" prot="public" virt="virtual"><scope>CHNSSolver::SourceTerm</scope><name>set_time</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1a2a3f9389f9f1e63a18b4757ecfb76ceb" prot="protected" virt="non-virtual"><scope>CHNSSolver::SourceTerm</scope><name>source_terms</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1a772f96df58f4a6db3131a4d854c8b21a" prot="public" virt="non-virtual"><scope>CHNSSolver::SourceTerm</scope><name>SourceTerm</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1a1477428bc74ed9d71b098c78455162a1" prot="public" virt="virtual"><scope>CHNSSolver::SourceTerm</scope><name>vector_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

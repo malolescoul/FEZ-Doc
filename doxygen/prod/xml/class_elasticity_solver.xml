@@ -1,0 +1,1237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_elasticity_solver" kind="class" language="C++" prot="public">
+    <compoundname>ElasticitySolver</compoundname>
+    <basecompoundref refid="class_generic_solver" prot="public" virt="non-virtual">GenericSolver&lt; LA::ParVectorType &gt;</basecompoundref>
+    <includes refid="elasticity__solver_8h" local="no">elasticity_solver.h</includes>
+    <innerclass refid="class_elasticity_solver_1_1_m_m_s_source_term" prot="protected">ElasticitySolver::MMSSourceTerm</innerclass>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" prot="private" static="no">
+        <type>ScratchDataElasticity&lt; dim &gt;</type>
+        <definition>using ElasticitySolver&lt; dim &gt;::ScratchData = ScratchDataElasticity&lt;dim&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchData</name>
+        <qualifiedname>ElasticitySolver::ScratchData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="59" column="3" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" prot="private" static="no">
+        <type><ref refid="class_copy_data_base" kindref="compound">CopyDataBase</ref>&lt; 1 &gt;</type>
+        <definition>using ElasticitySolver&lt; dim &gt;::CopyData = CopyDataBase&lt;1&gt;</definition>
+        <argsstring></argsstring>
+        <name>CopyData</name>
+        <qualifiedname>ElasticitySolver::CopyData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="60" column="3" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_elasticity_solver_1a2f69c195e6bd6231e538b9f23f360c29" prot="private" static="no">
+        <type>Assembly::AssemblerBase&lt; <ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref>, <ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref> &gt;</type>
+        <definition>using ElasticitySolver&lt; dim &gt;::Assembler = Assembly::AssemblerBase&lt;ScratchData, CopyData&gt;</definition>
+        <argsstring></argsstring>
+        <name>Assembler</name>
+        <qualifiedname>ElasticitySolver::Assembler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="61" column="3" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_elasticity_solver_1a3018e1a90a32546df04473947c2d140a" prot="protected" static="no" mutable="no">
+        <type>ComponentOrdering</type>
+        <definition>ComponentOrdering ElasticitySolver&lt; dim &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>ElasticitySolver::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="199" column="21" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1ae73f694336b37068a896439c79c2f38e" prot="protected" static="no" mutable="no">
+        <type>ParameterReader&lt; dim &gt;</type>
+        <definition>ParameterReader&lt;dim&gt; ElasticitySolver&lt; dim &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>ElasticitySolver::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="201" column="19" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1acc52291d7ce98cba6e7473dee8550f39" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; FESystem&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;FESystem&lt;dim&gt; &gt; ElasticitySolver&lt; dim &gt;::fe</definition>
+        <argsstring></argsstring>
+        <name>fe</name>
+        <qualifiedname>ElasticitySolver::fe</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="203" column="19" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a25c73f925c03d403cff6cc81a82e42c8" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Quadrature&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Quadrature&lt;dim&gt; &gt; ElasticitySolver&lt; dim &gt;::quadrature</definition>
+        <argsstring></argsstring>
+        <name>quadrature</name>
+        <qualifiedname>ElasticitySolver::quadrature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="205" column="23" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1ae3ebbd3acc79c60b0ee4b1f7e28b32fb" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Quadrature&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Quadrature&lt;dim&gt; &gt; ElasticitySolver&lt; dim &gt;::error_quadrature</definition>
+        <argsstring></argsstring>
+        <name>error_quadrature</name>
+        <qualifiedname>ElasticitySolver::error_quadrature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="206" column="23" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1ac5132e8cb7bde48515cb2f99df08a739" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Quadrature&lt; dim - 1 &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Quadrature&lt;dim - 1&gt; &gt; ElasticitySolver&lt; dim &gt;::face_quadrature</definition>
+        <argsstring></argsstring>
+        <name>face_quadrature</name>
+        <qualifiedname>ElasticitySolver::face_quadrature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="207" column="19" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a5ee6adbb2257bac32742b4bdb96f156b" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Quadrature&lt; dim - 1 &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Quadrature&lt;dim - 1&gt; &gt; ElasticitySolver&lt; dim &gt;::error_face_quadrature</definition>
+        <argsstring></argsstring>
+        <name>error_face_quadrature</name>
+        <qualifiedname>ElasticitySolver::error_face_quadrature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="208" column="19" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a1dcf3ff502e49f43d55386a1bcc09775" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; parallel::fullydistributed::Triangulation&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;parallel::fullydistributed::Triangulation&lt;dim&gt; &gt; ElasticitySolver&lt; dim &gt;::owned_triangulation</definition>
+        <argsstring></argsstring>
+        <name>owned_triangulation</name>
+        <qualifiedname>ElasticitySolver::owned_triangulation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="211" column="5" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1aed81f42590a08cef6834ad06dfc75e9e" prot="protected" static="no" mutable="no">
+        <type>parallel::DistributedTriangulationBase&lt; dim &gt; &amp;</type>
+        <definition>parallel::DistributedTriangulationBase&lt;dim&gt;&amp; ElasticitySolver&lt; dim &gt;::triangulation</definition>
+        <argsstring></argsstring>
+        <name>triangulation</name>
+        <qualifiedname>ElasticitySolver::triangulation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="212" column="42" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1ade5225c53fbea0eb62e6900908577224" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Mapping&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Mapping&lt;dim&gt; &gt; ElasticitySolver&lt; dim &gt;::mapping</definition>
+        <argsstring></argsstring>
+        <name>mapping</name>
+        <qualifiedname>ElasticitySolver::mapping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="213" column="36" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1ae700ebccff5640cb67605abb9e824680" prot="protected" static="no" mutable="no">
+        <type>DoFHandler&lt; dim &gt;</type>
+        <definition>DoFHandler&lt;dim&gt; ElasticitySolver&lt; dim &gt;::dof_handler</definition>
+        <argsstring></argsstring>
+        <name>dof_handler</name>
+        <qualifiedname>ElasticitySolver::dof_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="214" column="45" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a570ffefedddf70672a4cc8bd9ca60038" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_time_handler" kindref="compound">TimeHandler</ref></type>
+        <definition>TimeHandler ElasticitySolver&lt; dim &gt;::time_handler</definition>
+        <argsstring></argsstring>
+        <name>time_handler</name>
+        <qualifiedname>ElasticitySolver::time_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="215" column="50" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a80c69dea235ddbaf7345728fe0304bb4" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ScratchData&gt; ElasticitySolver&lt; dim &gt;::scratch_data</definition>
+        <argsstring></argsstring>
+        <name>scratch_data</name>
+        <qualifiedname>ElasticitySolver::scratch_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="217" column="30" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1ac03be4dfa4fc7913f246932d87676974" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="class_elasticity_solver_1a2f69c195e6bd6231e538b9f23f360c29" kindref="member">Assembler</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;Assembler&gt; &gt; ElasticitySolver&lt; dim &gt;::assemblers</definition>
+        <argsstring></argsstring>
+        <name>assemblers</name>
+        <qualifiedname>ElasticitySolver::assemblers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="218" column="15" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1ac91873de9c9fc59da6c08d549b8fe2e0" prot="protected" static="no" mutable="no">
+        <type>const bool</type>
+        <definition>const bool ElasticitySolver&lt; dim &gt;::with_enlarged_psi</definition>
+        <argsstring></argsstring>
+        <name>with_enlarged_psi</name>
+        <qualifiedname>ElasticitySolver::with_enlarged_psi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="222" column="14" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1ab96239577fcadcec954d09b5cb6330ee" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Vector</type>
+        <definition>FEValuesExtractors::Vector ElasticitySolver&lt; dim &gt;::position_extractor</definition>
+        <argsstring></argsstring>
+        <name>position_extractor</name>
+        <qualifiedname>ElasticitySolver::position_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="224" column="30" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a1427b3519554fbdbae581d6b6db5ff57" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask ElasticitySolver&lt; dim &gt;::position_mask</definition>
+        <argsstring></argsstring>
+        <name>position_mask</name>
+        <qualifiedname>ElasticitySolver::position_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="225" column="30" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a870ce327ba9c0e779c43ec9d846a20ba" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Scalar</type>
+        <definition>FEValuesExtractors::Scalar ElasticitySolver&lt; dim &gt;::psi_extractor</definition>
+        <argsstring></argsstring>
+        <name>psi_extractor</name>
+        <qualifiedname>ElasticitySolver::psi_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="226" column="30" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a1d1708654aa52974ed63c854591c173c" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask ElasticitySolver&lt; dim &gt;::psi_mask</definition>
+        <argsstring></argsstring>
+        <name>psi_mask</name>
+        <qualifiedname>ElasticitySolver::psi_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="227" column="30" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a1aa8ab3774fc3c666659398060dbdb4c" prot="protected" static="no" mutable="no">
+        <type>IndexSet</type>
+        <definition>IndexSet ElasticitySolver&lt; dim &gt;::locally_owned_dofs</definition>
+        <argsstring></argsstring>
+        <name>locally_owned_dofs</name>
+        <qualifiedname>ElasticitySolver::locally_owned_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="229" column="12" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1acdf653f43c19810db68b78af1afc8943" prot="protected" static="no" mutable="no">
+        <type>IndexSet</type>
+        <definition>IndexSet ElasticitySolver&lt; dim &gt;::locally_relevant_dofs</definition>
+        <argsstring></argsstring>
+        <name>locally_relevant_dofs</name>
+        <qualifiedname>ElasticitySolver::locally_relevant_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="230" column="12" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a144802f2303c3acfc9cf0a2ddf83d509" prot="protected" static="no" mutable="no">
+        <type>AffineConstraints&lt; double &gt;</type>
+        <definition>AffineConstraints&lt;double&gt; ElasticitySolver&lt; dim &gt;::zero_constraints</definition>
+        <argsstring></argsstring>
+        <name>zero_constraints</name>
+        <qualifiedname>ElasticitySolver::zero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="232" column="21" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a084edf58836f20c334d3809e574d9139" prot="protected" static="no" mutable="no">
+        <type>AffineConstraints&lt; double &gt;</type>
+        <definition>AffineConstraints&lt;double&gt; ElasticitySolver&lt; dim &gt;::nonzero_constraints</definition>
+        <argsstring></argsstring>
+        <name>nonzero_constraints</name>
+        <qualifiedname>ElasticitySolver::nonzero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="233" column="21" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1adbfce27d36b8cfbac31b9f10d942fb2b" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespace_l_a_1a6cde9743803c7530f2daf44e83812bb0" kindref="member">LA::ParMatrixType</ref></type>
+        <definition>LA::ParMatrixType ElasticitySolver&lt; dim &gt;::system_matrix</definition>
+        <argsstring></argsstring>
+        <name>system_matrix</name>
+        <qualifiedname>ElasticitySolver::system_matrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="235" column="21" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a116f2927544d74272852960c3eff81be" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref></type>
+        <definition>LA::ParVectorType ElasticitySolver&lt; dim &gt;::present_solution</definition>
+        <argsstring></argsstring>
+        <name>present_solution</name>
+        <qualifiedname>ElasticitySolver::present_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="237" column="21" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1af7bf0a777cd5e64e2ae95779b8b7c0da" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Function&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Function&lt;dim&gt; &gt; ElasticitySolver&lt; dim &gt;::source_terms</definition>
+        <argsstring></argsstring>
+        <name>source_terms</name>
+        <qualifiedname>ElasticitySolver::source_terms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="239" column="19" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1aa7b44ab0d3551282c056407f67494ee1" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Function&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Function&lt;dim&gt; &gt; ElasticitySolver&lt; dim &gt;::exact_solution</definition>
+        <argsstring></argsstring>
+        <name>exact_solution</name>
+        <qualifiedname>ElasticitySolver::exact_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="240" column="19" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a4494c2c4229b56a2f0232ea76d7d4ee2" prot="protected" static="no" mutable="no">
+        <type>SolverControl</type>
+        <definition>SolverControl ElasticitySolver&lt; dim &gt;::solver_control</definition>
+        <argsstring></argsstring>
+        <name>solver_control</name>
+        <qualifiedname>ElasticitySolver::solver_control</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="242" column="58" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1a32987c34b31effdc82cfb0e7938e2145" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PETScWrappers::SparseDirectMUMPSReuse &gt;</type>
+        <definition>std::unique_ptr&lt;PETScWrappers::SparseDirectMUMPSReuse&gt; ElasticitySolver&lt; dim &gt;::direct_solver_reuse</definition>
+        <argsstring></argsstring>
+        <name>direct_solver_reuse</name>
+        <qualifiedname>ElasticitySolver::direct_solver_reuse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="243" column="19" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_elasticity_solver_1ad8d35f51a4e1c1f5cf9428cd8af6f527" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ElasticitySolver&lt; dim &gt;::ElasticitySolver</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const bool with_enlarged_psi=false, parallel::DistributedTriangulationBase&lt; dim &gt; *reference_triangulation=nullptr)</argsstring>
+        <name>ElasticitySolver</name>
+        <qualifiedname>ElasticitySolver::ElasticitySolver</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>with_enlarged_psi</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>parallel::DistributedTriangulationBase&lt; dim &gt; *</type>
+          <declname>reference_triangulation</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor. With <computeroutput>with_enlarged_psi</computeroutput> the presolver also carries the enlarged Cahn-Hilliard marker psi as an extra finite-element field (hybrid mode: analytic phi source, psi FE unknown), so the presolved mesh matches the equilibrium of the enlarged CHNS-ALE solver. The physical tracer phi stays analytic. The CHNS handoff copies the mesh position and, for the enlarged solver, the reconstructed psi field. An optional reference triangulation is borrowed and must outlive the solver. Its topology and reference vertices are left unchanged. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="74" column="3" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="97" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1aede390cb69ac7cc8d1be3c5a8689e4c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ElasticitySolver&lt; dim &gt;::~ElasticitySolver</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ElasticitySolver</name>
+        <qualifiedname>ElasticitySolver::~ElasticitySolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="79" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a6cc0f96caadba38b0f0b8e41cc19b4b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <qualifiedname>ElasticitySolver::run</qualifiedname>
+        <reimplements refid="class_generic_solver_1a2c32e98d67b14ce3e442f3e0d7187508">run</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the elasticity problem </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Cahn-Hilliard moving-mesh forcing. The compression forcing is steep, so its multiplier is ramped from a small fraction up to its physical value (1) with a continuation method. The user-source multipliers are disabled.</para>
+<para>Continuation method to handle possibly steep source terms evaluated on the current (deformed) mesh.</para>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="85" column="16" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="258" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a231fea58e0578e5d5c9108eba592f4e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>ElasticitySolver::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="87" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="224" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1abb36609a30ab9e2afdb5d53ae89a7b21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::set_time</definition>
+        <argsstring>()</argsstring>
+        <name>set_time</name>
+        <qualifiedname>ElasticitySolver::set_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="89" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="245" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a70dbcd1af15ed158ec496aecf9654662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::setup_dofs</definition>
+        <argsstring>()</argsstring>
+        <name>setup_dofs</name>
+        <qualifiedname>ElasticitySolver::setup_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="91" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="376" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1ad561fb21ea86e0ad9c241d3cfca6d141" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::create_base_constraints</definition>
+        <argsstring>(const bool homogeneous, AffineConstraints&lt; double &gt; &amp;constraints)</argsstring>
+        <name>create_base_constraints</name>
+        <qualifiedname>ElasticitySolver::create_base_constraints</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>homogeneous</declname>
+        </param>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="93" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="401" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a3b9ea70e85a810f4c3a94ff0a97bebac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::create_zero_constraints</definition>
+        <argsstring>()</argsstring>
+        <name>create_zero_constraints</name>
+        <qualifiedname>ElasticitySolver::create_zero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="96" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="424" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a0a1a5b722fecb31fc62013b156a2031c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::create_nonzero_constraints</definition>
+        <argsstring>()</argsstring>
+        <name>create_nonzero_constraints</name>
+        <qualifiedname>ElasticitySolver::create_nonzero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="97" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="430" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a2ed165a75656de8aee4d481a6a315dc5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>AffineConstraints&lt; double &gt; &amp;</type>
+        <definition>virtual AffineConstraints&lt; double &gt; &amp; ElasticitySolver&lt; dim &gt;::get_nonzero_constraints</definition>
+        <argsstring>() override</argsstring>
+        <name>get_nonzero_constraints</name>
+        <qualifiedname>ElasticitySolver::get_nonzero_constraints</qualifiedname>
+        <reimplements refid="class_generic_solver_1a2db2deb0a61ee9c5d808739b738057f3">get_nonzero_constraints</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the nonzero constraints of the derived solver, that is, the inhomogeneous boundary conditions and constraints on the dofs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="99" column="29" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1aeea585ff35b347469f876f7197a72b15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::update_boundary_conditions</definition>
+        <argsstring>()</argsstring>
+        <name>update_boundary_conditions</name>
+        <qualifiedname>ElasticitySolver::update_boundary_conditions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="104" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="480" bodyend="487"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1ac9fcaea678cc00a76dcc6860928f85e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::setup_assemblers</definition>
+        <argsstring>()</argsstring>
+        <name>setup_assemblers</name>
+        <qualifiedname>ElasticitySolver::setup_assemblers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the volume and boundary assemblers for this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="109" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="368" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1ab278fcc7afc5bf5c21323eb1fd77513a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::create_sparsity_pattern</definition>
+        <argsstring>()</argsstring>
+        <name>create_sparsity_pattern</name>
+        <qualifiedname>ElasticitySolver::create_sparsity_pattern</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="111" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="436" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a19204da8473b6b0f2e866fbb19b03703" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::set_initial_conditions</definition>
+        <argsstring>()</argsstring>
+        <name>set_initial_conditions</name>
+        <qualifiedname>ElasticitySolver::set_initial_conditions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="113" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="454" bodyend="465"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a2c2e4a47a42a1a25a2afa26dded8014e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::set_exact_solution</definition>
+        <argsstring>()</argsstring>
+        <name>set_exact_solution</name>
+        <qualifiedname>ElasticitySolver::set_exact_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="114" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="468" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a956be6cddfce1e397cfd84f1a4e42d11" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::solve_linear_system</definition>
+        <argsstring>() override</argsstring>
+        <name>solve_linear_system</name>
+        <qualifiedname>ElasticitySolver::solve_linear_system</qualifiedname>
+        <reimplements refid="class_generic_solver_1a159647810108fce121cc20c712f8ae28">solve_linear_system</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the linear system described by the assembly functions above. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="116" column="16" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="639" bodyend="681"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1ae79c5e1925644615584c69c0ecc44640" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::assemble_matrix</definition>
+        <argsstring>() override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>ElasticitySolver::assemble_matrix</qualifiedname>
+        <reimplements refid="class_generic_solver_1ac5925ccdeda32d728e8947224e011ed9">assemble_matrix</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the Jacobian matrix of the nonlinear problem, that is, its linearization at the current solution. This function is overloaded by each derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="118" column="16" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="490" bodyend="520"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a1d86ac561109ae3a5f8c82f21caadf98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::assemble_local_matrix</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</argsstring>
+        <name>assemble_local_matrix</name>
+        <qualifiedname>ElasticitySolver::assemble_local_matrix</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref> &amp;</type>
+          <declname>scratchData</declname>
+        </param>
+        <param>
+          <type><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="120" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="537" bodyend="557"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1ab48df5222a268507224b0e8fc6546d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::assemble_local_matrix_finite_differences</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</argsstring>
+        <name>assemble_local_matrix_finite_differences</name>
+        <qualifiedname>ElasticitySolver::assemble_local_matrix_finite_differences</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref> &amp;</type>
+          <declname>scratchData</declname>
+        </param>
+        <param>
+          <type><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="125" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="523" bodyend="534"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a2afb2ad7643379f6b7bc6679e3471b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::copy_local_to_global_matrix</definition>
+        <argsstring>(const CopyData &amp;copy_data)</argsstring>
+        <name>copy_local_to_global_matrix</name>
+        <qualifiedname>ElasticitySolver::copy_local_to_global_matrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="130" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="560" bodyend="568"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a16ad89cb0fc55553b0bd64e50ac7ba82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::compare_analytical_matrix_with_fd</definition>
+        <argsstring>()</argsstring>
+        <name>compare_analytical_matrix_with_fd</name>
+        <qualifiedname>ElasticitySolver::compare_analytical_matrix_with_fd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="132" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="571" bodyend="581"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1ad07a6b420bf602c7811663225ecf7003" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::assemble_rhs</definition>
+        <argsstring>() override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>ElasticitySolver::assemble_rhs</qualifiedname>
+        <reimplements refid="class_generic_solver_1a2ef873f5575b35c23fa5fd742b8725aa">assemble_rhs</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the (negative of the) nonlinear residual -NL(U), evaluated at the current solution. This function is overloaded by each derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="134" column="16" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="584" bodyend="602"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1afba6f391b59a80283de71b24bd43732e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::assemble_local_rhs</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</argsstring>
+        <name>assemble_local_rhs</name>
+        <qualifiedname>ElasticitySolver::assemble_local_rhs</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref> &amp;</type>
+          <declname>scratchData</declname>
+        </param>
+        <param>
+          <type><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="137" column="3" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="605" bodyend="625"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a371baf864c330c5dd6e89d7ca8cff8b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::copy_local_to_global_rhs</definition>
+        <argsstring>(const CopyData &amp;copy_data)</argsstring>
+        <name>copy_local_to_global_rhs</name>
+        <qualifiedname>ElasticitySolver::copy_local_to_global_rhs</qualifiedname>
+        <param>
+          <type>const <ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="141" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="628" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a560678263ad53f901cb648f15a50db6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::move_mesh</definition>
+        <argsstring>()</argsstring>
+        <name>move_mesh</name>
+        <qualifiedname>ElasticitySolver::move_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="143" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="733" bodyend="748"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1af97b88740776a1e1e8b0c8eee29e12b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::write_final_msh</definition>
+        <argsstring>()</argsstring>
+        <name>write_final_msh</name>
+        <qualifiedname>ElasticitySolver::write_final_msh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the final deformed mesh in Gmsh format while preserving the entities and physical groups from the input mesh. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="149" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="751" bodyend="936"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1afed746a871fc3dbd7dae95b773f241d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ElasticitySolver&lt; dim &gt;::try_load_presolved_mesh_cache</definition>
+        <argsstring>()</argsstring>
+        <name>try_load_presolved_mesh_cache</name>
+        <qualifiedname>ElasticitySolver::try_load_presolved_mesh_cache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Try to load the presolved mesh position from the disk cache. The cache is keyed by support-point location (so it is reusable with a different number of MPI processes) and guarded by a fingerprint of the presolver-defining parameters. In reuse mode, returns true on success and false when the caller must recompute the presolved fields. Reads the mesh and sets up the DoFs as a side effect. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="159" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="1029" bodyend="1131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1acbc352cc6ab5b353edfb627c6276819e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::write_presolved_mesh_cache</definition>
+        <argsstring>() const</argsstring>
+        <name>write_presolved_mesh_cache</name>
+        <qualifiedname>ElasticitySolver::write_presolved_mesh_cache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the presolved mesh position to the disk cache. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="164" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="975" bodyend="1026"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1ad48b721f131fc783a860b53ee4615e2d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string ElasticitySolver&lt; dim &gt;::presolved_mesh_fingerprint</definition>
+        <argsstring>() const</argsstring>
+        <name>presolved_mesh_fingerprint</name>
+        <qualifiedname>ElasticitySolver::presolved_mesh_fingerprint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Canonical fingerprint of all parameters that affect the presolved mesh position, used to invalidate a stale cache. Requires the DoFs to be set up. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="170" column="15" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="939" bodyend="972"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1ab8b04ecaf400d415782c08e78d84132a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::postprocess_solution</definition>
+        <argsstring>()</argsstring>
+        <name>postprocess_solution</name>
+        <qualifiedname>ElasticitySolver::postprocess_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="172" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="1161" bodyend="1179"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a432d90d15bdba54b75f5fb4eb5b7333a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::compute_errors</definition>
+        <argsstring>()</argsstring>
+        <name>compute_errors</name>
+        <qualifiedname>ElasticitySolver::compute_errors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="174" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="1134" bodyend="1158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a1fcc661956a9c26211a2fe94bd191497" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::output_results</definition>
+        <argsstring>()</argsstring>
+        <name>output_results</name>
+        <qualifiedname>ElasticitySolver::output_results</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="176" column="16" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="684" bodyend="687"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1aa4e1a3d9c9f9db6f9b6be785d1bcaefd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::output_results</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;output_mapping)</argsstring>
+        <name>output_results</name>
+        <qualifiedname>ElasticitySolver::output_results</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>output_mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="178" column="8" bodyfile="snapshots/prod/src/elasticity_solver.cpp" bodystart="690" bodyend="730"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1aedbc211bad177f090120eff68ad909aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt; dim &gt; &amp; ElasticitySolver&lt; dim &gt;::get_parameters</definition>
+        <argsstring>() const</argsstring>
+        <name>get_parameters</name>
+        <qualifiedname>ElasticitySolver::get_parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="183" column="25" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="291" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1acf4b6a3edeb9348673ab7f7ef9a3c5c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DoFHandler&lt; dim &gt; &amp;</type>
+        <definition>const DoFHandler&lt; dim &gt; &amp; ElasticitySolver&lt; dim &gt;::get_dof_handler</definition>
+        <argsstring>() const</argsstring>
+        <name>get_dof_handler</name>
+        <qualifiedname>ElasticitySolver::get_dof_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="188" column="20" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="297" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1a9edef44cc094f7d0cbdd382b62035e9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &amp;</type>
+        <definition>virtual LA::ParVectorType &amp; ElasticitySolver&lt; dim &gt;::get_present_solution</definition>
+        <argsstring>() override</argsstring>
+        <name>get_present_solution</name>
+        <qualifiedname>ElasticitySolver::get_present_solution</qualifiedname>
+        <reimplements refid="class_generic_solver_1aa6de7b705441dab1ec9cba1a1225a275">get_present_solution</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the (ghosted) solution vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/prod/include/elasticity_solver.h" line="193" column="29" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="193" bodyend="196"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Solve the linear elasticity equation written for the mesh position :</para>
+<para><itemizedlist>
+<listitem><para>\nabla \cdot \sigma(x) + f = 0,</para>
+</listitem></itemizedlist>
+</para>
+<para>with \sigma(x) = 2\mu\epsilon(x) + \lambda\tr{\epsilon(x)} I. The infinitesimal strain tensor \epsilon(x) is written in terms of the mesh position, and not in terms of displacement u, and thus writes:</para>
+<para>\epsilon(x) = (\nabla(u) + \nabla(u)^T)/2 = (\nabla(x) + \nabla(x)^T)/2 - I</para>
+<para>The source term f can either be evaluated on the reference configuration X, or on the current configuration x(X), yielding a nonlinear problem. For the latter, the nonlinear solver may fail to find a solution if the source term on the current mesh is too steep. To counteract this, a continuation method is used, to progressively account for the source term, and we actually solve :</para>
+<para><itemizedlist>
+<listitem><para>\nabla \cdot \sigma(x) + alpha * f(x(X)) = 0.</para>
+</listitem></itemizedlist>
+</para>
+<para>This feature is controlled by the &quot;Elasticity&quot; subsection of the parameter file. The continuation parameter alpha lies in the provided [min_coeff, max_coeff] bracket, so that the last solved position field satisfies :</para>
+<para><itemizedlist>
+<listitem><para>\nabla \cdot \sigma(x) + max_coeff * f(x(X)) = 0. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ElasticitySolver&lt; dim &gt;</label>
+        <link refid="class_elasticity_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="2">
+        <label>GenericSolver&lt; LA::ParVectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ElasticitySolver&lt; dim &gt;</label>
+        <link refid="class_elasticity_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>time_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="2">
+        <label>GenericSolver&lt; LA::ParVectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TimeHandler</label>
+        <link refid="class_time_handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/prod/include/elasticity_solver.h" line="57" column="1" bodyfile="snapshots/prod/include/elasticity_solver.h" bodystart="58" bodyend="286"/>
+    <listofallmembers>
+      <member refid="class_generic_solver_1a816d5c35c0b826188ed43c9d41e93347" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>adapt_mesh</name></member>
+      <member refid="class_elasticity_solver_1a1d86ac561109ae3a5f8c82f21caadf98" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>assemble_local_matrix</name></member>
+      <member refid="class_elasticity_solver_1ab48df5222a268507224b0e8fc6546d01" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>assemble_local_matrix_finite_differences</name></member>
+      <member refid="class_elasticity_solver_1afba6f391b59a80283de71b24bd43732e" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>assemble_local_rhs</name></member>
+      <member refid="class_elasticity_solver_1ae79c5e1925644615584c69c0ecc44640" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>assemble_matrix</name></member>
+      <member refid="class_elasticity_solver_1ad07a6b420bf602c7811663225ecf7003" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>assemble_rhs</name></member>
+      <member refid="class_elasticity_solver_1a2f69c195e6bd6231e538b9f23f360c29" prot="private" virt="non-virtual"><scope>ElasticitySolver</scope><name>Assembler</name></member>
+      <member refid="class_elasticity_solver_1ac03be4dfa4fc7913f246932d87676974" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>assemblers</name></member>
+      <member refid="class_elasticity_solver_1a16ad89cb0fc55553b0bd64e50ac7ba82" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>compare_analytical_matrix_with_fd</name></member>
+      <member refid="class_elasticity_solver_1a432d90d15bdba54b75f5fb4eb5b7333a" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>compute_errors</name></member>
+      <member refid="class_generic_solver_1a19c3628c086e6a0d5a35560b1ce30ed3" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>computing_timer</name></member>
+      <member refid="class_elasticity_solver_1a2afb2ad7643379f6b7bc6679e3471b43" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>copy_local_to_global_matrix</name></member>
+      <member refid="class_elasticity_solver_1a371baf864c330c5dd6e89d7ca8cff8b4" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>copy_local_to_global_rhs</name></member>
+      <member refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" prot="private" virt="non-virtual"><scope>ElasticitySolver</scope><name>CopyData</name></member>
+      <member refid="class_elasticity_solver_1ad561fb21ea86e0ad9c241d3cfca6d141" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>create_base_constraints</name></member>
+      <member refid="class_elasticity_solver_1a0a1a5b722fecb31fc62013b156a2031c" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>create_nonzero_constraints</name></member>
+      <member refid="class_elasticity_solver_1ab278fcc7afc5bf5c21323eb1fd77513a" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>create_sparsity_pattern</name></member>
+      <member refid="class_elasticity_solver_1a3b9ea70e85a810f4c3a94ff0a97bebac" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>create_zero_constraints</name></member>
+      <member refid="class_elasticity_solver_1a32987c34b31effdc82cfb0e7938e2145" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>direct_solver_reuse</name></member>
+      <member refid="class_generic_solver_1a7201687f3387085e6c02204ffb9e123b" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>distribute_nonzero_constraints</name></member>
+      <member refid="class_elasticity_solver_1ae700ebccff5640cb67605abb9e824680" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>dof_handler</name></member>
+      <member refid="class_elasticity_solver_1ad8d35f51a4e1c1f5cf9428cd8af6f527" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>ElasticitySolver</name></member>
+      <member refid="class_elasticity_solver_1a5ee6adbb2257bac32742b4bdb96f156b" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>error_face_quadrature</name></member>
+      <member refid="class_generic_solver_1a600ed6d3b56b637ec1015f38aea35163" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>error_handlers</name></member>
+      <member refid="class_elasticity_solver_1ae3ebbd3acc79c60b0ee4b1f7e28b32fb" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>error_quadrature</name></member>
+      <member refid="class_generic_solver_1a5734bd74a0b0d2d3c5950b1f08f28526" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>evaluation_point</name></member>
+      <member refid="class_elasticity_solver_1aa7b44ab0d3551282c056407f67494ee1" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>exact_solution</name></member>
+      <member refid="class_elasticity_solver_1ac5132e8cb7bde48515cb2f99df08a739" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>face_quadrature</name></member>
+      <member refid="class_elasticity_solver_1acc52291d7ce98cba6e7473dee8550f39" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>fe</name></member>
+      <member refid="class_generic_solver_1a3ccc78d2ec40e5074088217f9178ea22" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>GenericSolver</name></member>
+      <member refid="class_elasticity_solver_1acf4b6a3edeb9348673ab7f7ef9a3c5c6" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>get_dof_handler</name></member>
+      <member refid="class_generic_solver_1a71829c00801e12ba31b20d6d8936aeeb" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>get_error_handler</name></member>
+      <member refid="class_generic_solver_1a0b29381b97f14de5c24762a480d712fd" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>get_evaluation_point</name></member>
+      <member refid="class_generic_solver_1a7821dbf5c15a665d3b7726d000c6bc96" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>get_local_evaluation_point</name></member>
+      <member refid="class_generic_solver_1af1efb1d4ee238c5148ee58283ea0fae9" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>get_newton_update</name></member>
+      <member refid="class_elasticity_solver_1a2ed165a75656de8aee4d481a6a315dc5" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>get_nonzero_constraints</name></member>
+      <member refid="class_elasticity_solver_1aedbc211bad177f090120eff68ad909aa" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>get_parameters</name></member>
+      <member refid="class_elasticity_solver_1a9edef44cc094f7d0cbdd382b62035e9d" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>get_present_solution</name></member>
+      <member refid="class_generic_solver_1a10a1261c26aa9c11ceda08a574cec3a5" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>get_system_rhs</name></member>
+      <member refid="class_generic_solver_1af955926ba01980b191dd5e1b6ecff617" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>get_time_parameters</name></member>
+      <member refid="class_generic_solver_1a36c8d8067040f336a898ceeff371c0c6" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>local_evaluation_point</name></member>
+      <member refid="class_elasticity_solver_1a1aa8ab3774fc3c666659398060dbdb4c" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>locally_owned_dofs</name></member>
+      <member refid="class_elasticity_solver_1acdf653f43c19810db68b78af1afc8943" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>locally_relevant_dofs</name></member>
+      <member refid="class_elasticity_solver_1ade5225c53fbea0eb62e6900908577224" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>mapping</name></member>
+      <member refid="class_generic_solver_1a5c62d177cd9a249c85fb05190ad9975e" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>mesh_param</name></member>
+      <member refid="class_generic_solver_1a231b6929535d7e1834e9072f920d618b" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>mms_param</name></member>
+      <member refid="class_elasticity_solver_1a560678263ad53f901cb648f15a50db6b" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>move_mesh</name></member>
+      <member refid="class_generic_solver_1a1d5beb4d77eb4f820b70542dedd31b99" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>mpi_communicator</name></member>
+      <member refid="class_generic_solver_1a6d6e03777028e3b4da9266d39bd28c20" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>mpi_rank</name></member>
+      <member refid="class_generic_solver_1a8758bd19d74796cfdd2c73d3d2a264c0" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>mpi_size</name></member>
+      <member refid="class_generic_solver_1a3867a896778ee8b20ab6b78804cf1d9d" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>newton_update</name></member>
+      <member refid="class_generic_solver_1a4f4d1b5947c354c1db5fa3b955a84b7e" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>nonlinear_solver</name></member>
+      <member refid="class_elasticity_solver_1a084edf58836f20c334d3809e574d9139" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>nonzero_constraints</name></member>
+      <member refid="class_elasticity_solver_1a3018e1a90a32546df04473947c2d140a" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>ordering</name></member>
+      <member refid="class_generic_solver_1a407d5fd2bb57b9cbeb0b1fcac2079a6c" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>output_param</name></member>
+      <member refid="class_elasticity_solver_1a1fcc661956a9c26211a2fe94bd191497" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>output_results</name></member>
+      <member refid="class_elasticity_solver_1aa4e1a3d9c9f9db6f9b6be785d1bcaefd" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>output_results</name></member>
+      <member refid="class_elasticity_solver_1a1dcf3ff502e49f43d55386a1bcc09775" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>owned_triangulation</name></member>
+      <member refid="class_elasticity_solver_1ae73f694336b37068a896439c79c2f38e" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>param</name></member>
+      <member refid="class_generic_solver_1af8d752e99fe0e3ab145f1d2fa67e0f9a" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>pcout</name></member>
+      <member refid="class_elasticity_solver_1ab96239577fcadcec954d09b5cb6330ee" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>position_extractor</name></member>
+      <member refid="class_elasticity_solver_1a1427b3519554fbdbae581d6b6db5ff57" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>position_mask</name></member>
+      <member refid="class_elasticity_solver_1ab8b04ecaf400d415782c08e78d84132a" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>postprocess_solution</name></member>
+      <member refid="class_elasticity_solver_1a116f2927544d74272852960c3eff81be" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>present_solution</name></member>
+      <member refid="class_elasticity_solver_1ad48b721f131fc783a860b53ee4615e2d" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>presolved_mesh_fingerprint</name></member>
+      <member refid="class_elasticity_solver_1a870ce327ba9c0e779c43ec9d846a20ba" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>psi_extractor</name></member>
+      <member refid="class_elasticity_solver_1a1d1708654aa52974ed63c854591c173c" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>psi_mask</name></member>
+      <member refid="class_elasticity_solver_1a25c73f925c03d403cff6cc81a82e42c8" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>quadrature</name></member>
+      <member refid="class_elasticity_solver_1a231fea58e0578e5d5c9108eba592f4e3" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>reset</name></member>
+      <member refid="class_elasticity_solver_1a6cc0f96caadba38b0f0b8e41cc19b4b7" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>run</name></member>
+      <member refid="class_generic_solver_1a5533697ed91d5aa53c0a342870db8859" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>run_convergence_loop</name></member>
+      <member refid="class_generic_solver_1a3bbafb4d601a4a6963e37f18e66aec5f" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>run_fixed_point_loop</name></member>
+      <member refid="class_elasticity_solver_1a80c69dea235ddbaf7345728fe0304bb4" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>scratch_data</name></member>
+      <member refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" prot="private" virt="non-virtual"><scope>ElasticitySolver</scope><name>ScratchData</name></member>
+      <member refid="class_elasticity_solver_1a2c2e4a47a42a1a25a2afa26dded8014e" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>set_exact_solution</name></member>
+      <member refid="class_elasticity_solver_1a19204da8473b6b0f2e866fbb19b03703" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>set_initial_conditions</name></member>
+      <member refid="class_elasticity_solver_1abb36609a30ab9e2afdb5d53ae89a7b21" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>set_time</name></member>
+      <member refid="class_elasticity_solver_1ac9fcaea678cc00a76dcc6860928f85e0" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>setup_assemblers</name></member>
+      <member refid="class_elasticity_solver_1a70dbcd1af15ed158ec496aecf9654662" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>setup_dofs</name></member>
+      <member refid="class_generic_solver_1aad9e83b6d58debd0043c81ef0576784a" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>should_adapt_mesh_at_end_of_intervals</name></member>
+      <member refid="class_generic_solver_1ad9e777cd9ea0fef97216ec5107d666f3" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>should_adapt_tree_based_mesh</name></member>
+      <member refid="class_generic_solver_1a80d40646517e427fe65d8a11c501bad6" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>should_add_error_reference_data</name></member>
+      <member refid="class_generic_solver_1a06abfb955b08ff4d9d3cf21b63cd2845" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>should_check_weakly_enforced_velocity</name></member>
+      <member refid="class_generic_solver_1aae2724c6791b3d8b3c975af67e2675d1" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>should_compute_errors</name></member>
+      <member refid="class_generic_solver_1a052b5e859d6e6bef845f8cd368404cad" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>should_compute_reconstructions</name></member>
+      <member refid="class_generic_solver_1a81f5fb8ad56aa3588879cc94f9eaeb4a" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>should_compute_riemannian_metric</name></member>
+      <member refid="class_generic_solver_1a789347ad0a51b96848195c525f5f0869" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>should_create_triangulation</name></member>
+      <member refid="class_generic_solver_1a960f6b636879bfba12b9ef77549bb995" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>should_scale_and_grade_riemannian_metric</name></member>
+      <member refid="class_elasticity_solver_1a956be6cddfce1e397cfd84f1a4e42d11" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>solve_linear_system</name></member>
+      <member refid="class_generic_solver_1a7aaed7416c745ba959ad6f5bb3061b60" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>solve_nonlinear_problem</name></member>
+      <member refid="class_elasticity_solver_1a4494c2c4229b56a2f0232ea76d7d4ee2" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>solver_control</name></member>
+      <member refid="class_generic_solver_1a3176c6c1e6f72c16fa3d0d43ede8757f" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>solver_type</name></member>
+      <member refid="class_elasticity_solver_1af7bf0a777cd5e64e2ae95779b8b7c0da" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>source_terms</name></member>
+      <member refid="class_elasticity_solver_1adbfce27d36b8cfbac31b9f10d942fb2b" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>system_matrix</name></member>
+      <member refid="class_generic_solver_1ac75de63dc7e91e671ce8540996c58b5f" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>system_rhs</name></member>
+      <member refid="class_elasticity_solver_1a570ffefedddf70672a4cc8bd9ca60038" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>time_handler</name></member>
+      <member refid="class_generic_solver_1a8988f9b2fb2ac2cc17a220cc5e26dd1e" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>time_param</name></member>
+      <member refid="class_elasticity_solver_1aed81f42590a08cef6834ad06dfc75e9e" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>triangulation</name></member>
+      <member refid="class_elasticity_solver_1afed746a871fc3dbd7dae95b773f241d0" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>try_load_presolved_mesh_cache</name></member>
+      <member refid="class_elasticity_solver_1aeea585ff35b347469f876f7197a72b15" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>update_boundary_conditions</name></member>
+      <member refid="class_generic_solver_1a544e6606e1ce4b218cc532fc43347c8c" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>update_constraints_for_evaluation_point</name></member>
+      <member refid="class_generic_solver_1aa7de51f079b8a6d22818789efcc8f776" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>update_simulation_parameters</name></member>
+      <member refid="class_elasticity_solver_1ac91873de9c9fc59da6c08d549b8fe2e0" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>with_enlarged_psi</name></member>
+      <member refid="class_elasticity_solver_1af97b88740776a1e1e8b0c8eee29e12b2" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>write_final_msh</name></member>
+      <member refid="class_elasticity_solver_1acbc352cc6ab5b353edfb627c6276819e" prot="public" virt="non-virtual"><scope>ElasticitySolver</scope><name>write_presolved_mesh_cache</name></member>
+      <member refid="class_elasticity_solver_1a144802f2303c3acfc9cf0a2ddf83d509" prot="protected" virt="non-virtual"><scope>ElasticitySolver</scope><name>zero_constraints</name></member>
+      <member refid="class_elasticity_solver_1aede390cb69ac7cc8d1be3c5a8689e4c0" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>~ElasticitySolver</name></member>
+      <member refid="class_generic_solver_1afbeabded407d0ea9875045cc9c2a61d4" prot="public" virt="virtual"><scope>ElasticitySolver</scope><name>~GenericSolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

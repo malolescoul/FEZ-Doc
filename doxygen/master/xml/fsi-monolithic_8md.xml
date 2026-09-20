@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="fsi-monolithic_8md" kind="file" language="Markdown">
+    <compoundname>fsi-monolithic.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>FSI<sp/>monolithique<sp/>:<sp/>une<sp/>interface<sp/>couplée<sp/>{#fez_master_fsi_monolithic}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Lecture<sp/>ciblée<sp/>de<sp/>`master@ccf20caa0745cc2fe640f879d34acf2bf3855e6c`.<sp/>Date<sp/>de<sp/>session<sp/>:<sp/>19<sp/>septembre<sp/>2026<sp/>(New<sp/>York).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Où<sp/>entrer</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">L’[exécutable<sp/>monolithic_fsi.cpp](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/solvers/monolithic_fsi.cpp#L30-L44)<sp/>construit<sp/>**FSISolver**,<sp/>puis<sp/>appelle<sp/>`run()`<sp/>ou<sp/>la<sp/>boucle<sp/>MMS.<sp/>Attention<sp/>au<sp/>nom<sp/>:<sp/>cette<sp/>fiche<sp/>concerne<sp/>`monolithic_fsi_solver.h/.cpp`.<sp/>L’autre<sp/>implémentation<sp/>`fsi_solver.h/.cpp`<sp/>devra<sp/>être<sp/>étudiée<sp/>séparément.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FSISolver<sp/>hérite<sp/>de<sp/>`NavierStokesSolver&lt;dim,<sp/>true&gt;`.<sp/>Son<sp/>[système<sp/>d’éléments<sp/>finis](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L31-L74)<sp/>associe<sp/>**vitesse<sp/>u,<sp/>pression<sp/>p,<sp/>position<sp/>x<sp/>et<sp/>multiplicateur<sp/>λ**.<sp/>La<sp/>position<sp/>du<sp/>maillage<sp/>est<sp/>donc<sp/>une<sp/>inconnue<sp/>du<sp/>système.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Le<sp/>parcours<sp/>hérité<sp/>est<sp/>visible<sp/>dans<sp/>la<sp/>carte<sp/>:<sp/>[run()<sp/>initialise<sp/>puis<sp/>conduit<sp/>les<sp/>sous-intervalles](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L409-L415),<sp/>[initialize()<sp/>configure<sp/>les<sp/>assembleurs<sp/>par<sp/>appel<sp/>virtuel](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L135-L157),<sp/>et<sp/>[le<sp/>sous-intervalle<sp/>déclenche<sp/>la<sp/>résolution<sp/>non<sp/>linéaire](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L344-L365).<sp/>[GenericSolver<sp/>délègue<sp/>à<sp/>Newton](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/generic_solver.cpp#L245-L250),<sp/>qui<sp/>[appelle<sp/>assemble_matrix()<sp/>sur<sp/>le<sp/>solveur<sp/>FSI<sp/>quand<sp/>un<sp/>réassemblage<sp/>est<sp/>requis](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L107-L111).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Ce<sp/>qui<sp/>compose<sp/>le<sp/>système</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[`setup_assemblers()`](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L207-L225)<sp/>configure<sp/>trois<sp/>familles<sp/>:<sp/>Navier–Stokes<sp/>avec<sp/>`divergence_form<sp/>|<sp/>pseudo_solid`,<sp/>multiplicateur<sp/>de<sp/>Lagrange<sp/>sur<sp/>maillage<sp/>mobile,<sp/>élasticité<sp/>du<sp/>pseudo-solide.<sp/>Le<sp/>constructeur<sp/>vérifie<sp/>une<sp/>seule<sp/>frontière<sp/>de<sp/>non-glissement<sp/>faible<sp/>et<sp/>la<sp/>compatibilité<sp/>de<sp/>son<sp/>identifiant<sp/>avec<sp/>la<sp/>frontière<sp/>couplée.<sp/>Il<sp/>refuse<sp/>la<sp/>pression<sp/>de<sp/>moyenne<sp/>nulle<sp/>sur<sp/>maillage<sp/>mobile<sp/>dans<sp/>cette<sp/>version.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Le<sp/>motif<sp/>commun<sp/>à<sp/>CHNS</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[`assemble_matrix()`](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L2030-L2099)<sp/>utilise<sp/>le<sp/>motif<sp/>**WorkStream<sp/>→<sp/>ScratchData<sp/>→<sp/>assembleurs<sp/>→<sp/>CopyData<sp/>→<sp/>contraintes<sp/>homogènes<sp/>→<sp/>matrice<sp/>globale<sp/>→<sp/>compress(add)**.<sp/>Ce<sp/>motif<sp/>est<sp/>aussi<sp/>présent<sp/>dans<sp/>CHNS.<sp/>La<sp/>ressemblance<sp/>porte<sp/>sur<sp/>l’organisation<sp/>du<sp/>calcul<sp/>;<sp/>elle<sp/>ne<sp/>prouve<sp/>pas<sp/>que<sp/>les<sp/>formulations<sp/>physiques<sp/>sont<sp/>interchangeables.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Spécificité<sp/>FSI<sp/>:<sp/>une<sp/>étape<sp/>de<sp/>**couplage<sp/>algébrique<sp/>position–force**<sp/>est<sp/>appelée<sp/>après<sp/>la<sp/>compression<sp/>si<sp/>`enable_coupling`.<sp/>Son<sp/>[entrée](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L2179-L2226)<sp/>récupère<sp/>les<sp/>lignes<sp/>avant<sp/>de<sp/>modifier<sp/>la<sp/>matrice.<sp/>Réordonner<sp/>ces<sp/>opérations<sp/>pourrait<sp/>modifier<sp/>l’état<sp/>d’assemblage<sp/>requis<sp/>par<sp/>les<sp/>itérateurs<sp/>:<sp/>c’est<sp/>un<sp/>contrat<sp/>explicite<sp/>dans<sp/>le<sp/>commentaire<sp/>du<sp/>code,<sp/>pas<sp/>un<sp/>bug<sp/>constaté.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Force,<sp/>couple<sp/>et<sp/>distribution</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Le<sp/>[header](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/monolithic_fsi_solver.h#L234-L254)<sp/>définit<sp/>les<sp/>coefficients<sp/>de<sp/>force<sp/>à<sp/>partir<sp/>de<sp/>l’intégrale<sp/>de<sp/>−λ<sp/>et<sp/>les<sp/>coefficients<sp/>de<sp/>couple<sp/>intrinsèque<sp/>par<sp/>rapport<sp/>au<sp/>centre<sp/>du<sp/>corps.<sp/>Le<sp/>[contrôle<sp/>de<sp/>somme<sp/>des<sp/>poids<sp/>de<sp/>couple](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L1309-L1335)<sp/>effectue<sp/>une<sp/>réduction<sp/>MPI<sp/>puis<sp/>vérifie<sp/>une<sp/>somme<sp/>proche<sp/>de<sp/>zéro.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Les<sp/>indicateurs<sp/>`has_local_position_master`,<sp/>`has_local_lambda_accumulator`,<sp/>`has_cylinder_velocity_dofs`<sp/>et<sp/>`has_rotation_angle`<sp/>expriment<sp/>une<sp/>intention<sp/>de<sp/>stockage<sp/>local<sp/>;<sp/>ils<sp/>ne<sp/>remplacent<sp/>pas<sp/>un<sp/>test<sp/>de<sp/>propriété<sp/>dans<sp/>`locally_owned_dofs`.<sp/>Dans<sp/>cette<sp/>révision,<sp/>les<sp/>deux<sp/>derniers<sp/>sont<sp/>activés<sp/>par<sp/>la<sp/>présence<sp/>d’une<sp/>face<sp/>de<sp/>frontière<sp/>sur<sp/>une<sp/>cellule<sp/>owned,<sp/>puis<sp/>servent<sp/>à<sp/>demander<sp/>des<sp/>DoFs<sp/>inutilisés<sp/>pour<sp/>la<sp/>vitesse<sp/>ou<sp/>l’angle<sp/>([calcul<sp/>des<sp/>indicateurs](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/monolithic_fsi_solver.cpp#L828-L897)).<sp/>La<sp/>[PR<sp/>#93](https://github.com/arthurbawin/fez/pull/93)<sp/>propose<sp/>précisément<sp/>de<sp/>fonder<sp/>ces<sp/>deux<sp/>décisions<sp/>sur<sp/>les<sp/>DoFs<sp/>de<sp/>position<sp/>possédés.<sp/>Il<sp/>faut<sp/>distinguer<sp/>intention<sp/>de<sp/>stockage,<sp/>propriété<sp/>effective<sp/>et<sp/>disponibilité<sp/>comme<sp/>fantôme<sp/>avant<sp/>de<sp/>raisonner<sp/>sur<sp/>une<sp/>lecture<sp/>ou<sp/>une<sp/>écriture<sp/>MPI.<sp/>Aucun<sp/>défaut<sp/>n’a<sp/>été<sp/>reproduit<sp/>ici.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Risques<sp/>de<sp/>propagation<sp/>à<sp/>vérifier</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Modifier<sp/>les<sp/>composantes<sp/>:<sp/>vérifier<sp/>extracteurs,<sp/>masques<sp/>et<sp/>indices<sp/>des<sp/>termes<sp/>couplés.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Modifier<sp/>ScratchData/CopyData<sp/>:<sp/>relire<sp/>CHNS<sp/>**et**<sp/>FSI,<sp/>les<sp/>deux<sp/>consomment<sp/>ce<sp/>motif.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Modifier<sp/>la<sp/>distribution<sp/>MPI<sp/>:<sp/>vérifier<sp/>qui<sp/>possède<sp/>les<sp/>DDL<sp/>spéciaux,<sp/>qui<sp/>a<sp/>leurs<sp/>valeurs<sp/>fantômes<sp/>et<sp/>qui<sp/>écrit<sp/>les<sp/>lignes.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Modifier<sp/>forces/couples<sp/>:<sp/>relire<sp/>l’origine<sp/>physique<sp/>de<sp/>la<sp/>pression<sp/>et<sp/>la<sp/>convention<sp/>de<sp/>signe,<sp/>ainsi<sp/>que<sp/>la<sp/>stratégie<sp/>de<sp/>couplage.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Ces<sp/>pistes<sp/>sont<sp/>des<sp/>obligations<sp/>de<sp/>revue,<sp/>pas<sp/>des<sp/>défauts<sp/>démontrés.<sp/>Aucun<sp/>calcul<sp/>FSI<sp/>n’a<sp/>été<sp/>exécuté<sp/>aujourd’hui.<sp/>Lecture<sp/>fine<sp/>restante<sp/>:<sp/>variantes<sp/>de<sp/>couplage,<sp/>rotation,<sp/>différence<sp/>entre<sp/>les<sp/>deux<sp/>implémentations<sp/>FSI,<sp/>formulations<sp/>des<sp/>assembleurs<sp/>de<sp/>frontière<sp/>et<sp/>cas<sp/>tests<sp/>multi-rangs.</highlight></codeline>
+    </programlisting>
+    <location file="guides/master/features/fsi-monolithic.md"/>
+  </compounddef>
+</doxygen>

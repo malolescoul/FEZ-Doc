@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_214b4bb87b5e3abead7e48f679df48e2" kind="dir">
+    <compoundname>snapshots/master/src</compoundname>
+    <innerdir refid="dir_40ce8006fd9faa2796e03c7e96a9dd4f">snapshots/master/src/assembly</innerdir>
+    <innerdir refid="dir_8d3aa6bda4b928dcde7f0a11e0d3e23a">snapshots/master/src/mesh_adaptation</innerdir>
+    <innerfile refid="generic__solver_8cpp">generic_solver.cpp</innerfile>
+    <innerfile refid="incompressible__chns__solver_8cpp">incompressible_chns_solver.cpp</innerfile>
+    <innerfile refid="linear__solver_8cpp">linear_solver.cpp</innerfile>
+    <innerfile refid="monolithic__fsi__solver_8cpp">monolithic_fsi_solver.cpp</innerfile>
+    <innerfile refid="navier__stokes__solver_8cpp">navier_stokes_solver.cpp</innerfile>
+    <innerfile refid="scratch__data_8cpp">scratch_data.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/master/src/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_mesh_tools_1_1_0d362027103217222207326372225271127351301203373205" kind="namespace" language="C++">
+    <compoundname>MeshTools::@362027103217222207326372225271127351301203373205</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/prod/src/mesh_adaptation_tools.cpp" line="133" column="3"/>
+  </compounddef>
+</doxygen>

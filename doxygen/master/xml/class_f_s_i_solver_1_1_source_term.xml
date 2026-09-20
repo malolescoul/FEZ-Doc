@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_f_s_i_solver_1_1_source_term" kind="class" language="C++" prot="public">
+    <compoundname>FSISolver::SourceTerm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="monolithic__fsi__solver_8h" local="no">monolithic_fsi_solver.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_f_s_i_solver_1_1_source_term_1a7f4d330922e53898f2b5a5d5dfdad53c" prot="protected" static="no" mutable="no">
+        <type>const ComponentOrdering &amp;</type>
+        <definition>const ComponentOrdering&amp; FSISolver&lt; dim &gt;::SourceTerm::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>FSISolver::SourceTerm::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="360" column="33" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_s_i_solver_1_1_source_term_1ad78b1ae4257c10022d4437e8a315f64d" prot="protected" static="no" mutable="no">
+        <type>Parameters::SourceTerms&lt; dim &gt;</type>
+        <definition>Parameters::SourceTerms&lt;dim&gt; FSISolver&lt; dim &gt;::SourceTerm::source_terms</definition>
+        <argsstring></argsstring>
+        <name>source_terms</name>
+        <qualifiedname>FSISolver::SourceTerm::source_terms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="361" column="29" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_s_i_solver_1_1_source_term_1a3328f6bc536cb7c6a8c62d0dd02ba712" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FSISolver&lt; dim &gt;::SourceTerm::SourceTerm</definition>
+        <argsstring>(const double time, const ComponentOrdering &amp;ordering, const Parameters::SourceTerms&lt; dim &gt; &amp;source_terms)</argsstring>
+        <name>SourceTerm</name>
+        <qualifiedname>FSISolver::SourceTerm::SourceTerm</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const ComponentOrdering &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const Parameters::SourceTerms&lt; dim &gt; &amp;</type>
+          <declname>source_terms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="334" column="5" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="334" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1_1_source_term_1a1e4039765bb1747e9639a72ce4b57e0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FSISolver&lt; dim &gt;::SourceTerm::set_time</definition>
+        <argsstring>(const double new_time) override</argsstring>
+        <name>set_time</name>
+        <qualifiedname>FSISolver::SourceTerm::set_time</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="342" column="18" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="342" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_s_i_solver_1_1_source_term_1a5c930a74136157c7dc46bbb703b10382" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FSISolver&lt; dim &gt;::SourceTerm::vector_value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</argsstring>
+        <name>vector_value</name>
+        <qualifiedname>FSISolver::SourceTerm::vector_value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/monolithic_fsi_solver.h" line="347" column="18" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="347" bodyend="357"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Source term. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FSISolver&lt; dim &gt;::SourceTerm</label>
+        <link refid="class_f_s_i_solver_1_1_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FSISolver&lt; dim &gt;::SourceTerm</label>
+        <link refid="class_f_s_i_solver_1_1_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/monolithic_fsi_solver.h" line="331" column="3" bodyfile="snapshots/master/include/monolithic_fsi_solver.h" bodystart="332" bodyend="362"/>
+    <listofallmembers>
+      <member refid="class_f_s_i_solver_1_1_source_term_1a7f4d330922e53898f2b5a5d5dfdad53c" prot="protected" virt="non-virtual"><scope>FSISolver::SourceTerm</scope><name>ordering</name></member>
+      <member refid="class_f_s_i_solver_1_1_source_term_1a1e4039765bb1747e9639a72ce4b57e0a" prot="public" virt="virtual"><scope>FSISolver::SourceTerm</scope><name>set_time</name></member>
+      <member refid="class_f_s_i_solver_1_1_source_term_1ad78b1ae4257c10022d4437e8a315f64d" prot="protected" virt="non-virtual"><scope>FSISolver::SourceTerm</scope><name>source_terms</name></member>
+      <member refid="class_f_s_i_solver_1_1_source_term_1a3328f6bc536cb7c6a8c62d0dd02ba712" prot="public" virt="non-virtual"><scope>FSISolver::SourceTerm</scope><name>SourceTerm</name></member>
+      <member refid="class_f_s_i_solver_1_1_source_term_1a5c930a74136157c7dc46bbb703b10382" prot="public" virt="virtual"><scope>FSISolver::SourceTerm</scope><name>vector_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

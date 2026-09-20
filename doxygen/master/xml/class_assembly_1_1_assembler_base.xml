@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_assembler_base" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Assembly::AssemblerBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">EnableObserverPointer</basecompoundref>
+    <derivedcompoundref refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base" prot="public" virt="non-virtual">Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, chns &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base" prot="public" virt="non-virtual">Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;</derivedcompoundref>
+    <includes refid="assembler_8h" local="no">assembler.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_assembler_base_1a71374e6143201432559d73028bea33ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;::assemble_matrix</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const =0</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>Assembly::AssemblerBase::assemble_matrix</qualifiedname>
+        <reimplementedby refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1aee783129eeda6e499e90598bd34461d7">assemble_matrix</reimplementedby>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the local matrix on an element, and store the result in the <computeroutput>copy_data</computeroutput>. The <computeroutput>scratch_data</computeroutput> must have been reinit&apos;ed on that element before calling this function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/assembler.h" line="29" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_assembler_base_1a1e07a5108f263f3c6ecc5c22ec2f5f13" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;::assemble_rhs</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const =0</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>Assembly::AssemblerBase::assemble_rhs</qualifiedname>
+        <reimplementedby refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler_1abf9c5d6c11e19d6090c98f405b3f38b6">assemble_rhs</reimplementedby>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the local right-hand side on an element, and store the result in the <computeroutput>copy_data</computeroutput>. The <computeroutput>scratch_data</computeroutput> must have been reinit&apos;ed on that element before calling this function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/assembly/assembler.h" line="37" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base class for an object whose job is to assemble equations on an element, that is, to increment the local matrix and right-hand side vector.</para>
+<para>This design is borrowed from the chaos-polymtl/lethe project. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_assembler_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, assembly_flags &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Assembly::IncompressibleCHNS::Base&lt; ScratchData, CopyData, chns &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_base"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Assembly::IncompressibleCHNS::VolumeAssembler&lt; dim, ScratchData, CopyData, assembly_flags &gt;</label>
+        <link refid="class_assembly_1_1_incompressible_c_h_n_s_1_1_volume_assembler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EnableObserverPointer</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Assembly::AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_assembler_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EnableObserverPointer</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/assembly/assembler.h" line="21" column="3" bodyfile="snapshots/master/include/assembly/assembler.h" bodystart="22" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_assembler_base_1a71374e6143201432559d73028bea33ed" prot="public" virt="pure-virtual"><scope>Assembly::AssemblerBase</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_assembler_base_1a1e07a5108f263f3c6ecc5c22ec2f5f13" prot="public" virt="pure-virtual"><scope>Assembly::AssemblerBase</scope><name>assemble_rhs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

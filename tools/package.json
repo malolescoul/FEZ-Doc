@@ -1,0 +1,1 @@
+{"private":true,"type":"module","scripts":{"refresh":"node refresh-atlas.mjs"},"dependencies":{"marked":"17.0.5"}}

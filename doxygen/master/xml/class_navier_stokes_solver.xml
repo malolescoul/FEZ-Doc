@@ -1,0 +1,2129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_navier_stokes_solver" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>NavierStokesSolver</compoundname>
+    <basecompoundref refid="class_generic_solver" prot="public" virt="non-virtual">GenericSolver&lt; LA::ParVectorType &gt;</basecompoundref>
+    <includes refid="navier__stokes__solver_8h" local="no">navier_stokes_solver.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>with_moving_mesh</declname>
+        <defname>with_moving_mesh</defname>
+        <defval>false</defval>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; ComponentOrdering &gt;</type>
+        <definition>std::unique_ptr&lt;ComponentOrdering&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>NavierStokesSolver::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="559" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="559" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" prot="protected" static="no" mutable="no">
+        <type>ParameterReader&lt; dim &gt;</type>
+        <definition>ParameterReader&lt;dim&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>NavierStokesSolver::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="561" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="561" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a0ba946c47c6ff4ca89845e24002a40ac" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Quadrature&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Quadrature&lt;dim&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::quadrature</definition>
+        <argsstring></argsstring>
+        <name>quadrature</name>
+        <qualifiedname>NavierStokesSolver::quadrature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="564" column="23" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="564" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1aa447a0ead82d0e128722b448c4ae9f88" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Quadrature&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Quadrature&lt;dim&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::error_quadrature</definition>
+        <argsstring></argsstring>
+        <name>error_quadrature</name>
+        <qualifiedname>NavierStokesSolver::error_quadrature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="565" column="23" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="565" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a4461fe7fde1bcf852e55865ef36c1122" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Quadrature&lt; dim - 1 &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Quadrature&lt;dim - 1&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::face_quadrature</definition>
+        <argsstring></argsstring>
+        <name>face_quadrature</name>
+        <qualifiedname>NavierStokesSolver::face_quadrature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="566" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="566" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a8e95dcd6b28cb54b7cb418a3cc7952c2" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Quadrature&lt; dim - 1 &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Quadrature&lt;dim - 1&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::error_face_quadrature</definition>
+        <argsstring></argsstring>
+        <name>error_face_quadrature</name>
+        <qualifiedname>NavierStokesSolver::error_face_quadrature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="567" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="567" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1acac54510d82fbc7827a993e203f64996" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_time_handler" kindref="compound">TimeHandler</ref></type>
+        <definition>TimeHandler NavierStokesSolver&lt; dim, with_moving_mesh &gt;::time_handler</definition>
+        <argsstring></argsstring>
+        <name>time_handler</name>
+        <qualifiedname>NavierStokesSolver::time_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="569" column="15" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="569" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a5017c45f4c928ef4ed088dddeacaceb2" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_transient_fixed_point_data" kindref="compound">TransientFixedPointData</ref>&lt; dim &gt;</type>
+        <definition>TransientFixedPointData&lt;dim&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::transient_fixed_point_data</definition>
+        <argsstring></argsstring>
+        <name>transient_fixed_point_data</name>
+        <qualifiedname>NavierStokesSolver::transient_fixed_point_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="571" column="27" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="571" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1aa63fee077d836891cc947a8603e10083" prot="protected" static="no" mutable="no">
+        <type>parallel::DistributedTriangulationBase&lt; dim &gt; *</type>
+        <definition>parallel::DistributedTriangulationBase&lt;dim&gt;* NavierStokesSolver&lt; dim, with_moving_mesh &gt;::triangulation</definition>
+        <argsstring></argsstring>
+        <name>triangulation</name>
+        <qualifiedname>NavierStokesSolver::triangulation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="573" column="42" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="573" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a57ad356a2c7e351f4e566da0da44edbd" prot="protected" static="no" mutable="no">
+        <type>DoFHandler&lt; dim &gt; *</type>
+        <definition>DoFHandler&lt;dim&gt;* NavierStokesSolver&lt; dim, with_moving_mesh &gt;::dof_handler</definition>
+        <argsstring></argsstring>
+        <name>dof_handler</name>
+        <qualifiedname>NavierStokesSolver::dof_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="574" column="42" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="574" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a853d232cdcd773e23d8c121236e59990" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Mapping&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Mapping&lt;dim&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::fixed_mapping</definition>
+        <argsstring></argsstring>
+        <name>fixed_mapping</name>
+        <qualifiedname>NavierStokesSolver::fixed_mapping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="576" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="576" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1adef518f0f93e6c57f183c81fb54538a3" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Mapping&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Mapping&lt;dim&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::moving_mapping</definition>
+        <argsstring></argsstring>
+        <name>moving_mapping</name>
+        <qualifiedname>NavierStokesSolver::moving_mapping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="577" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="577" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1af18e19729cac8012b78ea9941fdda6f6" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; unsigned char &gt;</type>
+        <definition>std::vector&lt;unsigned char&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::dofs_to_component</definition>
+        <argsstring></argsstring>
+        <name>dofs_to_component</name>
+        <qualifiedname>NavierStokesSolver::dofs_to_component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="579" column="15" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="579" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1af4bb9d20328ea7c4fcccb095c40fe83d" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Vector</type>
+        <definition>FEValuesExtractors::Vector NavierStokesSolver&lt; dim, with_moving_mesh &gt;::velocity_extractor</definition>
+        <argsstring></argsstring>
+        <name>velocity_extractor</name>
+        <qualifiedname>NavierStokesSolver::velocity_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="581" column="30" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="581" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a0a9538db2db7e5c525ead47c96f21c23" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Scalar</type>
+        <definition>FEValuesExtractors::Scalar NavierStokesSolver&lt; dim, with_moving_mesh &gt;::pressure_extractor</definition>
+        <argsstring></argsstring>
+        <name>pressure_extractor</name>
+        <qualifiedname>NavierStokesSolver::pressure_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="582" column="30" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="582" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1afd40ae81ab35ab49cadc86183ef0b328" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Vector</type>
+        <definition>FEValuesExtractors::Vector NavierStokesSolver&lt; dim, with_moving_mesh &gt;::position_extractor</definition>
+        <argsstring></argsstring>
+        <name>position_extractor</name>
+        <qualifiedname>NavierStokesSolver::position_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="583" column="30" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="583" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a620b3b1798cf6be70ea217b76c92abc0" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask NavierStokesSolver&lt; dim, with_moving_mesh &gt;::velocity_mask</definition>
+        <argsstring></argsstring>
+        <name>velocity_mask</name>
+        <qualifiedname>NavierStokesSolver::velocity_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="585" column="17" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="585" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a803369529100d844b35b4af36cf355c1" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask NavierStokesSolver&lt; dim, with_moving_mesh &gt;::pressure_mask</definition>
+        <argsstring></argsstring>
+        <name>pressure_mask</name>
+        <qualifiedname>NavierStokesSolver::pressure_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="586" column="17" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="586" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a8d1017421dea4fcd148174fdf9360193" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask NavierStokesSolver&lt; dim, with_moving_mesh &gt;::position_mask</definition>
+        <argsstring></argsstring>
+        <name>position_mask</name>
+        <qualifiedname>NavierStokesSolver::position_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="587" column="17" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="587" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a31515fe1d1c8531b73dfe24a55fa43cb" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; std::string, ComponentMask &gt;</type>
+        <definition>std::map&lt;std::string, ComponentMask&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::field_names_and_masks</definition>
+        <argsstring></argsstring>
+        <name>field_names_and_masks</name>
+        <qualifiedname>NavierStokesSolver::field_names_and_masks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="590" column="12" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="590" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1aa5e335226e4dfd5ac042e68ca4aba589" prot="protected" static="no" mutable="no">
+        <type>Table&lt; 2, DoFTools::Coupling &gt;</type>
+        <definition>Table&lt;2, DoFTools::Coupling&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::coupling_table</definition>
+        <argsstring></argsstring>
+        <name>coupling_table</name>
+        <qualifiedname>NavierStokesSolver::coupling_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="592" column="9" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="592" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1aca82502b50d8dc56d9665f6800fee627" prot="protected" static="no" mutable="no">
+        <type>IndexSet</type>
+        <definition>IndexSet NavierStokesSolver&lt; dim, with_moving_mesh &gt;::locally_owned_dofs</definition>
+        <argsstring></argsstring>
+        <name>locally_owned_dofs</name>
+        <qualifiedname>NavierStokesSolver::locally_owned_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="594" column="12" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="594" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a45de4bf57641d0c79c6ae1843e520a2a" prot="protected" static="no" mutable="no">
+        <type>IndexSet</type>
+        <definition>IndexSet NavierStokesSolver&lt; dim, with_moving_mesh &gt;::locally_relevant_dofs</definition>
+        <argsstring></argsstring>
+        <name>locally_relevant_dofs</name>
+        <qualifiedname>NavierStokesSolver::locally_relevant_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="595" column="12" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="595" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a83144de4cd395115d8ce483d90fa3c9b" prot="protected" static="no" mutable="no">
+        <type>AffineConstraints&lt; double &gt;</type>
+        <definition>AffineConstraints&lt;double&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::zero_constraints</definition>
+        <argsstring></argsstring>
+        <name>zero_constraints</name>
+        <qualifiedname>NavierStokesSolver::zero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="597" column="21" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="597" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a7616f51da557a2c45781a988d484bc71" prot="protected" static="no" mutable="no">
+        <type>AffineConstraints&lt; double &gt;</type>
+        <definition>AffineConstraints&lt;double&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::nonzero_constraints</definition>
+        <argsstring></argsstring>
+        <name>nonzero_constraints</name>
+        <qualifiedname>NavierStokesSolver::nonzero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="598" column="21" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="598" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1af11d9066fd86476f350b310342de81d7" prot="protected" static="no" mutable="no">
+        <type>types::global_dof_index</type>
+        <definition>types::global_dof_index NavierStokesSolver&lt; dim, with_moving_mesh &gt;::constrained_pressure_dof</definition>
+        <argsstring></argsstring>
+        <name>constrained_pressure_dof</name>
+        <qualifiedname>NavierStokesSolver::constrained_pressure_dof</qualifiedname>
+        <initializer>= numbers::invalid_dof_index</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="600" column="27" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="600" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a4a73b2b2b34f3c6452e895f86dbb9e27" prot="protected" static="no" mutable="no">
+        <type>Point&lt; dim &gt;</type>
+        <definition>Point&lt;dim&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::constrained_pressure_support_point</definition>
+        <argsstring></argsstring>
+        <name>constrained_pressure_support_point</name>
+        <qualifiedname>NavierStokesSolver::constrained_pressure_support_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="601" column="22" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="601" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a3cfc34184fdb2e76e5c94056181a6f36" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; types::global_dof_index, double &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;types::global_dof_index, double&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::zero_mean_pressure_weights</definition>
+        <argsstring></argsstring>
+        <name>zero_mean_pressure_weights</name>
+        <qualifiedname>NavierStokesSolver::zero_mean_pressure_weights</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="603" column="5" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="603" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a1dd90c0881dba50dadb41a36997b0232" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; types::global_dof_index, Point&lt; dim &gt; &gt;</type>
+        <definition>std::map&lt;types::global_dof_index, Point&lt;dim&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::initial_positions</definition>
+        <argsstring></argsstring>
+        <name>initial_positions</name>
+        <qualifiedname>NavierStokesSolver::initial_positions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="605" column="12" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="605" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1aff6918feda6fe6e68191218707781534" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespace_l_a_1a6cde9743803c7530f2daf44e83812bb0" kindref="member">LA::ParMatrixType</ref></type>
+        <definition>LA::ParMatrixType NavierStokesSolver&lt; dim, with_moving_mesh &gt;::system_matrix</definition>
+        <argsstring></argsstring>
+        <name>system_matrix</name>
+        <qualifiedname>NavierStokesSolver::system_matrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="607" column="21" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="607" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a7e929c748cfd613281099981a2397183" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> *</type>
+        <definition>LA::ParVectorType* NavierStokesSolver&lt; dim, with_moving_mesh &gt;::present_solution</definition>
+        <argsstring></argsstring>
+        <name>present_solution</name>
+        <qualifiedname>NavierStokesSolver::present_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="609" column="34" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="609" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1ac08db329fa72e8dba6851dcefbced4e1" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &gt; *</type>
+        <definition>std::vector&lt;LA::ParVectorType&gt;* NavierStokesSolver&lt; dim, with_moving_mesh &gt;::previous_solutions</definition>
+        <argsstring></argsstring>
+        <name>previous_solutions</name>
+        <qualifiedname>NavierStokesSolver::previous_solutions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="610" column="15" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="610" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1aed0a59b7f03471a20c716614927585c7" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Function&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Function&lt;dim&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::source_terms</definition>
+        <argsstring></argsstring>
+        <name>source_terms</name>
+        <qualifiedname>NavierStokesSolver::source_terms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="612" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="612" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1adb04b0cf420d23e5317cf2d7e7b5c4d5" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Function&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Function&lt;dim&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::exact_solution</definition>
+        <argsstring></argsstring>
+        <name>exact_solution</name>
+        <qualifiedname>NavierStokesSolver::exact_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="613" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="613" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a6e29882c15507afc264d6fb344ea6ee2" prot="protected" static="no" mutable="no">
+        <type>SolverControl</type>
+        <definition>SolverControl NavierStokesSolver&lt; dim, with_moving_mesh &gt;::solver_control</definition>
+        <argsstring></argsstring>
+        <name>solver_control</name>
+        <qualifiedname>NavierStokesSolver::solver_control</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="615" column="58" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="615" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1ac44eafeceecc0a4dfa0f31e98bb326ea" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PETScWrappers::SparseDirectMUMPSReuse &gt;</type>
+        <definition>std::unique_ptr&lt;PETScWrappers::SparseDirectMUMPSReuse&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::direct_solver_reuse</definition>
+        <argsstring></argsstring>
+        <name>direct_solver_reuse</name>
+        <qualifiedname>NavierStokesSolver::direct_solver_reuse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="616" column="19" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="616" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a1188bf7e95093f1f575067d945b0b621" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PostProcessingHandler&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;PostProcessingHandler&lt;dim&gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::postproc_handler</definition>
+        <argsstring></argsstring>
+        <name>postproc_handler</name>
+        <qualifiedname>NavierStokesSolver::postproc_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="618" column="23" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="618" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a6bcb217150afb70c898fccf317665211" prot="protected" static="no" mutable="no">
+        <type>PostProcessingHandler&lt; dim &gt;::PrefixData</type>
+        <definition>PostProcessingHandler&lt;dim&gt;::PrefixData NavierStokesSolver&lt; dim, with_moving_mesh &gt;::prefix_data</definition>
+        <argsstring></argsstring>
+        <name>prefix_data</name>
+        <qualifiedname>NavierStokesSolver::prefix_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="619" column="47" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="619" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a65d271a1b17628765931b62fb45b12fe" prot="protected" static="no" mutable="no">
+        <type>MetricField&lt; dim &gt; *</type>
+        <definition>MetricField&lt;dim&gt;* NavierStokesSolver&lt; dim, with_moving_mesh &gt;::metric_for_adaptation</definition>
+        <argsstring></argsstring>
+        <name>metric_for_adaptation</name>
+        <qualifiedname>NavierStokesSolver::metric_for_adaptation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="621" column="15" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="621" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1adcdb121026de77bb7b420633747649ce" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; MetricField&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;MetricField&lt;dim&gt; &gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::metrics</definition>
+        <argsstring></argsstring>
+        <name>metrics</name>
+        <qualifiedname>NavierStokesSolver::metrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="623" column="15" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="623" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a2bfa9a69b85a6d34bec0e49b89cc2c79" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; ErrorEstimation::PatchHandler&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;ErrorEstimation::PatchHandler&lt;dim&gt; &gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::patch_handlers</definition>
+        <argsstring></argsstring>
+        <name>patch_handlers</name>
+        <qualifiedname>NavierStokesSolver::patch_handlers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="625" column="5" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="625" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a9811d0e6351914629f41c6cff297281e" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; ErrorEstimation::SolutionRecovery::Scalar&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;ErrorEstimation::SolutionRecovery::Scalar&lt;dim&gt; &gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::recoveries</definition>
+        <argsstring></argsstring>
+        <name>recoveries</name>
+        <qualifiedname>NavierStokesSolver::recoveries</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="627" column="5" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="627" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_navier_stokes_solver_1a5b4478f4b460ada98850dc3a1180d169" prot="protected" static="no" mutable="no">
+        <type>Vector&lt; float &gt;</type>
+        <definition>Vector&lt;float&gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::cellwise_refinement_criterion</definition>
+        <argsstring></argsstring>
+        <name>cellwise_refinement_criterion</name>
+        <qualifiedname>NavierStokesSolver::cellwise_refinement_criterion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cellwise error used to adapt the mesh when tree-based adaptation is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="633" column="10" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="633" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_navier_stokes_solver_1a0ae187dd8edd09f50bcb1f010d9120dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NavierStokesSolver&lt; dim, with_moving_mesh &gt;::NavierStokesSolver</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param)</argsstring>
+        <name>NavierStokesSolver</name>
+        <qualifiedname>NavierStokesSolver::NavierStokesSolver</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="64" column="3" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="21" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1ade74be154a84e6766c6e15e2ef04d4bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual NavierStokesSolver&lt; dim, with_moving_mesh &gt;::~NavierStokesSolver</definition>
+        <argsstring>()=default</argsstring>
+        <name>~NavierStokesSolver</name>
+        <qualifiedname>NavierStokesSolver::~NavierStokesSolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="66" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a628c47919d75c5c48da43dadb4d57985" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <qualifiedname>NavierStokesSolver::run</qualifiedname>
+        <reimplements refid="class_generic_solver_1a2c32e98d67b14ce3e442f3e0d7187508">run</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve: either solve for the steady-state solution, or integrate in time until the end of the simulation. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>If using a riemannian metric to adapt the mesh(es), perform all the adaptations at the end of all time intervals (as it requires a global scaling factor).</para>
+<para>If using tree-based adaptation with a steady-state convergence study, adapt the mesh here.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="73" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="409" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a3318116cc7ffc61996bead7c4a5eb1e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::set_interval_data</definition>
+        <argsstring>(const unsigned int interval_index)</argsstring>
+        <name>set_interval_data</name>
+        <qualifiedname>NavierStokesSolver::set_interval_data</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the mesh file for the current interval, and assigns the pointers to the triangulation, dof_handler, solutions and metric field for this time interval from the transient fixed-point data (responsible of ownership) to this object&apos;s non-owning pointers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="81" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="211" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a7890aef62800dcff0ab182d769a593ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::run_time_subinterval</definition>
+        <argsstring>(const unsigned int interval_index)</argsstring>
+        <name>run_time_subinterval</name>
+        <qualifiedname>NavierStokesSolver::run_time_subinterval</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the main &quot;solve&quot; function, which solves the Navier-Stokes related problem on the current time subinterval [t_i, t_i+1], taking the previous interval as initial conditions. For unsteady simulations that do not use metric-based mesh adaptation, this simply runs the simulation for the full simulation interval [0,T]. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>If starting from zero, read the mesh then setup the dof_handler and vectors. If restarting, <ref refid="class_navier_stokes_solver_1a151d69c8e5e7c3e4bbfc5fc7c17ce747" kindref="member">setup_dofs()</ref> is called in the <ref refid="class_navier_stokes_solver_1a9609ff15f6e0213153985cbe767e9f91" kindref="member">restart()</ref> function, after loading the mesh.</para>
+<para>Apply initial refinement.</para>
+<para>Adapt the tree-based mesh during an unsteady simulation, if the current time step iteration matches the prescribed frequency.</para>
+<para>For steady-state simulations, the mesh is adapted after the <ref refid="class_navier_stokes_solver_1a48d998501630eeecc71a49375accfa0a" kindref="member">finalize()</ref> function is called, so that the registered number of mesh elements and dofs matches the computed error for convergence studies.</para>
+<para>Write checkpoint. Checkpoint is written <emphasis>after</emphasis> the solutions were rotated, which amounts to writing the current solution twice... For some applications or postprocessing, maybe it would be useful to checkpoint before rotating, to actually save the last N solutions. In that case, the solutions would need to be rotated right after <ref refid="class_navier_stokes_solver_1a9609ff15f6e0213153985cbe767e9f91" kindref="member">restart()</ref>.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="90" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="260" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1ab7aaf49c836df3ec7573fcbbff8bd1d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>NavierStokesSolver::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset the solver between two runs. This is typically useful when running convergence studies, to properly reset the mesh, time integration data, etc. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="97" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="82" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a422eeda679e285bc9fc4951dccb99519" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::reset_solver_specific_data</definition>
+        <argsstring>()</argsstring>
+        <name>reset_solver_specific_data</name>
+        <qualifiedname>NavierStokesSolver::reset_solver_specific_data</qualifiedname>
+        <reimplementedby refid="class_f_s_i_solver_1aeb81cbf49e434cc39452d64d329e8cdc">reset_solver_specific_data</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset data specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="103" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a56c44260e048cba5ba6ccd3202cde8b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::initialize</definition>
+        <argsstring>()</argsstring>
+        <name>initialize</name>
+        <qualifiedname>NavierStokesSolver::initialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize data requiring information from the derived solver, such as the names of the model variables in addition to velocity, pressure and mesh position. These data cannot be initialized in the base class constructor, so they are initialized in this function instead. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="111" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="136" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a48d998501630eeecc71a49375accfa0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::finalize</definition>
+        <argsstring>()</argsstring>
+        <name>finalize</name>
+        <qualifiedname>NavierStokesSolver::finalize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Perform actions after the end of the simulation loop, such as writing .pvd output. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="117" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1247" bodyend="1272"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1ad2fa476671e05775879fe5eb27243a68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::initialize_interval</definition>
+        <argsstring>(const unsigned interval_index)</argsstring>
+        <name>initialize_interval</name>
+        <qualifiedname>NavierStokesSolver::initialize_interval</qualifiedname>
+        <param>
+          <type>const unsigned</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize data on the current time interval. This function initializes data which require a well-formed triangulation and dof handler, and must be called after read_mesh(), <ref refid="class_navier_stokes_solver_1a151d69c8e5e7c3e4bbfc5fc7c17ce747" kindref="member">setup_dofs()</ref> and <ref refid="class_navier_stokes_solver_1aa59464653668d93b905e16d3d6ce5d18" kindref="member">setup_mappings()</ref> have been called, as opposed to <ref refid="class_navier_stokes_solver_1a3318116cc7ffc61996bead7c4a5eb1e2" kindref="member">set_interval_data()</ref> which dispatches pointers to empty triangulation and dof handler. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Create the relevant patch handler and reconstruction data for each metric</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="126" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="160" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a117e5b8a7b08bc942db33cae5b7e87f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::initialize_interval_solver_specific</definition>
+        <argsstring>(const unsigned)</argsstring>
+        <name>initialize_interval_solver_specific</name>
+        <qualifiedname>NavierStokesSolver::initialize_interval_solver_specific</qualifiedname>
+        <param>
+          <type>const unsigned</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize data on current time interval specific to each derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="132" column="3" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a3d1f36ecc6b89311f6825baef0e946cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::finalize_interval</definition>
+        <argsstring>(const unsigned interval_index)</argsstring>
+        <name>finalize_interval</name>
+        <qualifiedname>NavierStokesSolver::finalize_interval</qualifiedname>
+        <param>
+          <type>const unsigned</type>
+          <declname>interval_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Perform end-of-interval actions, such as copying the metrics from the metric field used for mesh adaptation into the dedicated metric field. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="138" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="191" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1ab1d01282a47026cfa98089f117e473ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::finalize_interval_solver_specific</definition>
+        <argsstring>(const unsigned)</argsstring>
+        <name>finalize_interval_solver_specific</name>
+        <qualifiedname>NavierStokesSolver::finalize_interval_solver_specific</qualifiedname>
+        <param>
+          <type>const unsigned</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Perform end-of-interval actions specific to each derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="144" column="3" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aa9f9eb2ad3a5f3505d22feffc604da8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::set_time</definition>
+        <argsstring>()</argsstring>
+        <name>set_time</name>
+        <qualifiedname>NavierStokesSolver::set_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update time in all relevant structures:<itemizedlist>
+<listitem><para>boundary conditions</para>
+</listitem><listitem><para>source terms</para>
+</listitem><listitem><para>exact solution</para>
+</listitem><listitem><para>physical properties </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="153" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="116" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aa4e70ef690324141933b0dfb8b9ee795" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::set_solver_specific_time</definition>
+        <argsstring>()</argsstring>
+        <name>set_solver_specific_time</name>
+        <qualifiedname>NavierStokesSolver::set_solver_specific_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set time in the relevant structures of each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="159" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="159" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a151d69c8e5e7c3e4bbfc5fc7c17ce747" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::setup_dofs</definition>
+        <argsstring>()</argsstring>
+        <name>setup_dofs</name>
+        <qualifiedname>NavierStokesSolver::setup_dofs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Distribute (number) the degrees of freedom and allocate the parallel matrix and vectors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="165" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="438" bodyend="476"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aa59464653668d93b905e16d3d6ce5d18" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::setup_mappings</definition>
+        <argsstring>()</argsstring>
+        <name>setup_mappings</name>
+        <qualifiedname>NavierStokesSolver::setup_mappings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For solvers with a moving mesh, initialize the MappingFEField from the mesh position part of the solution vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="171" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="479" bodyend="520"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a10026a09e34b50769a92b683d081c6ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_scratch_data</definition>
+        <argsstring>()=0</argsstring>
+        <name>create_scratch_data</name>
+        <qualifiedname>NavierStokesSolver::create_scratch_data</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1aefa3611a2cbe5a4b35462ca38901c281">create_scratch_data</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1a4297d8ca7da958607b7d50e1b78351dc">create_scratch_data</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the scratch data structure for this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="176" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a808f73d3ad29c693c0f415369c51720e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::setup_assemblers</definition>
+        <argsstring>()=0</argsstring>
+        <name>setup_assemblers</name>
+        <qualifiedname>NavierStokesSolver::setup_assemblers</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a73ee4dc321c27f227e0067d9f7ca7ebe">setup_assemblers</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1aeaea9e99e7990592d868213cacdec7c2">setup_assemblers</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the volume and boundary assemblers for this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="181" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a0c3e2dd7a4efe2be406e0715fb212172" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::set_active_fe_indices</definition>
+        <argsstring>()</argsstring>
+        <name>set_active_fe_indices</name>
+        <qualifiedname>NavierStokesSolver::set_active_fe_indices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For solvers with hp capabilities, set the active fe index on each owned mesh element.</para>
+<para>This function is not pure virtual because non-hp solvers do not need it, but it should be overriden by hp solvers, and it will throw an error if called from this class.</para>
+<para>FIXME: A proper base class should be added for hp solver, to avoid this. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="193" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="639" bodyend="642"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1ab7062c48b694b7e668d6059217b147c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::reinit_ghosted_vectors</definition>
+        <argsstring>()</argsstring>
+        <name>reinit_ghosted_vectors</name>
+        <qualifiedname>NavierStokesSolver::reinit_ghosted_vectors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reinitialize the ghosted parallel vectors. This should be called whenever additional ghost dofs are explicitly added to the vector of locally relevant dofs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="200" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="523" bodyend="546"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1af1ef0a882f6592af774f2ac6cf9059e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_zero_mean_pressure_constraints_data</definition>
+        <argsstring>()</argsstring>
+        <name>create_zero_mean_pressure_constraints_data</name>
+        <qualifiedname>NavierStokesSolver::create_zero_mean_pressure_constraints_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the data needed to enforce zero-mean pressure.</para>
+<para>Note that, as it is done for now, enforcing zero-mean is an expensive operation, because it couples a pressure dof on a partition to <emphasis>all</emphasis> other pressure dofs, thus filling its matrix entries. See also the comments in boundary_conditions.h. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="210" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="550" bodyend="572"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a8e2e814f67722048bcccd664b1a890df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_solver_specific_constraints_data</definition>
+        <argsstring>()</argsstring>
+        <name>create_solver_specific_constraints_data</name>
+        <qualifiedname>NavierStokesSolver::create_solver_specific_constraints_data</qualifiedname>
+        <reimplementedby refid="class_f_s_i_solver_1a7eebadbe0da1adac1199940b73e4039d">create_solver_specific_constraints_data</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If a derived solver requires additional constraints data that need to be created only once, they should be created within an overload of this function. For instance, the FSI solver creates here the data to couple the fluid forces on an obstacle to the mesh position. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="218" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="218" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a60c13153c2602289fce8101fc2ee18bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_base_constraints</definition>
+        <argsstring>(const bool homogeneous, AffineConstraints&lt; double &gt; &amp;constraints)</argsstring>
+        <name>create_base_constraints</name>
+        <qualifiedname>NavierStokesSolver::create_base_constraints</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>homogeneous</declname>
+        </param>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the velocity, pressure and mesh position boundary conditions. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Set whole field from exact solution if required, and add the associated constraints for the volume and boundary dofs.</para>
+<para>Do this before applying other constraints (e.g., fluxes).</para>
+<para>Setting mesh position first is already accounted for in <ref refid="class_navier_stokes_solver_1a21f77a3d73741b0f47a8e021f1cdba9f" kindref="member">update_boundary_conditions()</ref>. During the second run, the moving mapping has been updated with the exact position at the current time, and the other fields can be constrained based on the exact solution evaluated on the moving mapping.</para>
+<para>If relevant, apply mesh boundary conditions first, as they affect the evaluation of the fields on the moving mesh.</para>
+<para>Do not close the constraints here, as derived solvers may need to add boundary conditions on their own fields (e.g., Cahn Hilliard)</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="223" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="575" bodyend="702"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a35ef1df1a519597491e1cf7afd627d56" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_zero_constraints</definition>
+        <argsstring>()</argsstring>
+        <name>create_zero_constraints</name>
+        <qualifiedname>NavierStokesSolver::create_zero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the homogeneous boundary conditions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="229" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="705" bodyend="710"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1afa4fac4d184896dd78290fe22a1dd3c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_solver_specific_zero_constraints</definition>
+        <argsstring>()</argsstring>
+        <name>create_solver_specific_zero_constraints</name>
+        <qualifiedname>NavierStokesSolver::create_solver_specific_zero_constraints</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1aa6db2afadd6f4c7d0cf76bfd77411c8f">create_solver_specific_zero_constraints</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1a7a4cb0c649af698107383db4fea2f29c">create_solver_specific_zero_constraints</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the additional homogeneous boundary conditions specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="236" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a21572945b0e2ae106a26158edf83bfd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_nonzero_constraints</definition>
+        <argsstring>()</argsstring>
+        <name>create_nonzero_constraints</name>
+        <qualifiedname>NavierStokesSolver::create_nonzero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the inhomogeneous boundary conditions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="241" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="713" bodyend="718"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a67e465bff87c6b3af531142c589c8593" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_solver_specific_nonzero_constraints</definition>
+        <argsstring>()</argsstring>
+        <name>create_solver_specific_nonzero_constraints</name>
+        <qualifiedname>NavierStokesSolver::create_solver_specific_nonzero_constraints</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a31011142a046c91f4077d8337419eaa9">create_solver_specific_nonzero_constraints</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1aa8099dc6e0b28e3f8d7e60645ba17026">create_solver_specific_nonzero_constraints</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the additional inhomogeneous boundary conditions specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="248" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="248" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a8f79696461bc9a69f2d20fedd9ada3af" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>AffineConstraints&lt; double &gt; &amp;</type>
+        <definition>AffineConstraints&lt; double &gt; &amp; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_nonzero_constraints</definition>
+        <argsstring>() override</argsstring>
+        <name>get_nonzero_constraints</name>
+        <qualifiedname>NavierStokesSolver::get_nonzero_constraints</qualifiedname>
+        <reimplements refid="class_generic_solver_1a2db2deb0a61ee9c5d808739b738057f3">get_nonzero_constraints</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the inhomogeneous constraints. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="253" column="29" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="646" bodyend="649"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a21f77a3d73741b0f47a8e021f1cdba9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::update_boundary_conditions</definition>
+        <argsstring>()</argsstring>
+        <name>update_boundary_conditions</name>
+        <qualifiedname>NavierStokesSolver::update_boundary_conditions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the inhomogeneous boundary conditions for the current time, after time has been updated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="259" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="831" bodyend="855"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a80efe337ed26751e91e2a73f30810a37" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::create_sparsity_pattern</definition>
+        <argsstring>()=0</argsstring>
+        <name>create_sparsity_pattern</name>
+        <qualifiedname>NavierStokesSolver::create_sparsity_pattern</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a9fe80cf41815db9ed9babcf6e1d7ad37">create_sparsity_pattern</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1a873658e23dd5b24d17f465a7a328c374">create_sparsity_pattern</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the matrix sparsity pattern, given the finite element spaces and constraints. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="265" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a75a77470e2a16504007bc7c31c58a244" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::set_initial_conditions</definition>
+        <argsstring>(const bool rotate_solutions=true)</argsstring>
+        <name>set_initial_conditions</name>
+        <qualifiedname>NavierStokesSolver::set_initial_conditions</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>rotate_solutions</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply the initial conditions for velocity, pressure and mesh position. Initial conditions on additional fields must be set in the solver-specific overload. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Mesh position should be evaluated and updated <emphasis>BEFORE</emphasis> evaluating fields on moving mapping. This matters in the rare cases when the initial mesh position is <emphasis>not</emphasis> the fixed_mapping.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="272" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="721" bodyend="766"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1af4c774a72958594b894f856e0e1938aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::set_solver_specific_initial_conditions</definition>
+        <argsstring>()</argsstring>
+        <name>set_solver_specific_initial_conditions</name>
+        <qualifiedname>NavierStokesSolver::set_solver_specific_initial_conditions</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a94bee516702c66be4ebedc604bf072f2">set_solver_specific_initial_conditions</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1a80dbee1d0ec57c123eb15bb15f47cbaf">set_solver_specific_initial_conditions</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the additional initial conditions specific to each derived solver. These initial conditions should be written in the newton_update vector. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="279" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="279" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a99f8e64420e39e780a8adb8dfff0e5cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::set_exact_solution</definition>
+        <argsstring>()</argsstring>
+        <name>set_exact_solution</name>
+        <qualifiedname>NavierStokesSolver::set_exact_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Idem as initial conditions, but applies the prescribed exact solution. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="284" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="769" bodyend="828"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1ada61577eefe77d58162f46d170522878" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::set_solver_specific_exact_solution</definition>
+        <argsstring>()</argsstring>
+        <name>set_solver_specific_exact_solution</name>
+        <qualifiedname>NavierStokesSolver::set_solver_specific_exact_solution</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a9167aad8f3c2094b5e18a0d3961ac481">set_solver_specific_exact_solution</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies the exact solution for the the additional fields specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="291" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="291" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a39a2aba0a8595430a78946323db80e7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compare_analytical_matrix_with_fd</definition>
+        <argsstring>()=0</argsstring>
+        <name>compare_analytical_matrix_with_fd</name>
+        <qualifiedname>NavierStokesSolver::compare_analytical_matrix_with_fd</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a8014af98b030db585b12e3cb861f2720">compare_analytical_matrix_with_fd</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1a8e6131d2b605eda83c7357d91ca6aa6a">compare_analytical_matrix_with_fd</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compare each Jacobian matrix computed in assemble_local_matrix to its finite differences approximation obtained by perturbing the right-hand side (Newton residual). To allow comparing for multiple Newton iterations and/or time steps, this function does not throw if the difference between the analytical matrix entries and their FD counterpart exceeds a prescribed tolerance, but instead prints the local matrices and the problematic entries. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="302" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a6c0b9eb16162e7b27f5548544a376a51" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::solve_linear_system</definition>
+        <argsstring>() override</argsstring>
+        <name>solve_linear_system</name>
+        <qualifiedname>NavierStokesSolver::solve_linear_system</qualifiedname>
+        <reimplements refid="class_generic_solver_1a159647810108fce121cc20c712f8ae28">solve_linear_system</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the linear system for a single nonlinear solver iteration. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="307" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="858" bodyend="894"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a2f9cb465dbf409f20d7606cea7ad22f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::postprocess_solution</definition>
+        <argsstring>()</argsstring>
+        <name>postprocess_solution</name>
+        <qualifiedname>NavierStokesSolver::postprocess_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Post-process the numerical solution: output for visualization, compute errors, forces, etc. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="313" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1156" bodyend="1180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a428e0f14c79d154f6b4c6149193d1745" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_field_integrals</definition>
+        <argsstring>()</argsstring>
+        <name>compute_field_integrals</name>
+        <qualifiedname>NavierStokesSolver::compute_field_integrals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the volume integrals of the selected finite element variables. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="318" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1147" bodyend="1153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a6b6e103541171b2e0c8c735b6fa517f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::solver_specific_post_processing</definition>
+        <argsstring>()</argsstring>
+        <name>solver_specific_post_processing</name>
+        <qualifiedname>NavierStokesSolver::solver_specific_post_processing</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1aab4fb13a67bc3f68519ab94f5602b06a">solver_specific_post_processing</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1a120fb6080ca1f62c82ffd943612da4a4">solver_specific_post_processing</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Post-process the additional data specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="324" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="324" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aa270aec15ebda01ec5f7a9d5865aecc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_and_add_errors</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;mapping, const Function&lt; dim &gt; &amp;exact_solution, Vector&lt; double &gt; &amp;cellwise_errors, const ComponentSelectFunction&lt; dim &gt; &amp;comp_function, const std::string &amp;field_name)</argsstring>
+        <name>compute_and_add_errors</name>
+        <qualifiedname>NavierStokesSolver::compute_and_add_errors</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>cellwise_errors</declname>
+        </param>
+        <param>
+          <type>const ComponentSelectFunction&lt; dim &gt; &amp;</type>
+          <declname>comp_function</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>field_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For each prescribed Sobolev norm, compute the error on the given field and add it to the error handler. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="330" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="897" bodyend="919"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1afa56c0602f888c59a996977a7db4efb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_and_add_errors</definition>
+        <argsstring>(const hp::MappingCollection&lt; dim &gt; &amp;mapping_collection, const Function&lt; dim &gt; &amp;exact_solution, Vector&lt; double &gt; &amp;cellwise_errors, const ComponentSelectFunction&lt; dim &gt; &amp;comp_function, const std::string &amp;field_name)</argsstring>
+        <name>compute_and_add_errors</name>
+        <qualifiedname>NavierStokesSolver::compute_and_add_errors</qualifiedname>
+        <param>
+          <type>const hp::MappingCollection&lt; dim &gt; &amp;</type>
+          <declname>mapping_collection</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>cellwise_errors</declname>
+        </param>
+        <param>
+          <type>const ComponentSelectFunction&lt; dim &gt; &amp;</type>
+          <declname>comp_function</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>field_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>hp version of the function above. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="340" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aa3407d3736ce147c9be14cfa61543530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_errors</definition>
+        <argsstring>()</argsstring>
+        <name>compute_errors</name>
+        <qualifiedname>NavierStokesSolver::compute_errors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the error on the velocity, pressure and mesh position for each of the prescribed Sobolev norms. Errors on additional fields must be computed in the overloaded function. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Set the function pointer to use, depending on whether the mean pressure should be subtracted or not.</para>
+<para>Compute errors on velocity, pressure and position if applicable</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="351" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="923" bodyend="1009"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a91b18b78b3a012db616a3cda4c418914" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_solver_specific_errors</definition>
+        <argsstring>()</argsstring>
+        <name>compute_solver_specific_errors</name>
+        <qualifiedname>NavierStokesSolver::compute_solver_specific_errors</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1aeb167c7b4685b92d00a0d812487798f4">compute_solver_specific_errors</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1a12368548fada71f20eafb684e765db5c">compute_solver_specific_errors</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the error norms over the additional fields specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="358" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="358" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a0210d51142aaa5501a531976047c947e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_dof_based_postprocessing</definition>
+        <argsstring>()</argsstring>
+        <name>compute_dof_based_postprocessing</name>
+        <qualifiedname>NavierStokesSolver::compute_dof_based_postprocessing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Postprocess the solution to obtain fields with a dof-based representation, such as the mesh velocity or an L2 projection of the vorticity.</para>
+<para>These fields are added to the visualization file, so this function must be called before <ref refid="class_navier_stokes_solver_1aa968f4117bc673e64b6daecae156cd71" kindref="member">output_results()</ref> for consistency. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="367" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1138" bodyend="1144"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aa968f4117bc673e64b6daecae156cd71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::output_results</definition>
+        <argsstring>()</argsstring>
+        <name>output_results</name>
+        <qualifiedname>NavierStokesSolver::output_results</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the results to a vtu/pvtu file for visualization. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="372" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1012" bodyend="1029"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a56d282940881b16ba0d4b787578fad86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::add_solver_specific_postprocessing_data</definition>
+        <argsstring>()</argsstring>
+        <name>add_solver_specific_postprocessing_data</name>
+        <qualifiedname>NavierStokesSolver::add_solver_specific_postprocessing_data</qualifiedname>
+        <reimplementedby refid="class_f_s_i_solver_1ab7f26a4c8251b1b77948d2cef19fa5b8">add_solver_specific_postprocessing_data</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add additional postprocessing data specific to each derived solver to the postprocessing handler. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="379" column="16" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="379" bodyend="379"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a17702caa0151ca48f8df11b91d907d63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_max_cfl</definition>
+        <argsstring>()</argsstring>
+        <name>compute_max_cfl</name>
+        <qualifiedname>NavierStokesSolver::compute_max_cfl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the maximum CFL number based on the current mesh and solution. This is the max over all mesh elements and quadrature nodes of</para>
+<para>CFL = ||u|| * dt/ h,</para>
+<para>where ||u|| is the velocity norm and h is the (isotropic) cell size. The result is stored in the <ref refid="class_time_handler" kindref="compound">TimeHandler</ref>, to be used for time step adaptation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="391" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1032" bodyend="1048"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a0f2e7343205d5c45fe3a3e410af13477" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_forces</definition>
+        <argsstring>()</argsstring>
+        <name>compute_forces</name>
+        <qualifiedname>NavierStokesSolver::compute_forces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the hydrodynamic forces on the desired boundary. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="396" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1051" bodyend="1073"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1ab5f02acd1f1a5421214a193455371005" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::write_forces</definition>
+        <argsstring>(std::ostream &amp;out=std::cout) const</argsstring>
+        <name>write_forces</name>
+        <qualifiedname>NavierStokesSolver::write_forces</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+          <defval>std::cout</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the forces table to stream. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="401" column="8" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="652" bodyend="656"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a192f1dc5048e69f422281f1f20162d58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_structure_mean_position</definition>
+        <argsstring>()</argsstring>
+        <name>compute_structure_mean_position</name>
+        <qualifiedname>NavierStokesSolver::compute_structure_mean_position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If solving a fluid-structure interaction problem, compute the position of the geometric center of the structure described by the given boundary id. This is done by evaluating the average of the position field on that boundary. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="409" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1077" bodyend="1098"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a697e78827fb176e1f8a1a124fc2f00d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::write_structure_mean_position</definition>
+        <argsstring>(std::ostream &amp;out=std::cout) const</argsstring>
+        <name>write_structure_mean_position</name>
+        <qualifiedname>NavierStokesSolver::write_structure_mean_position</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+          <defval>std::cout</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the structure mean position table to stream. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="414" column="8" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="659" bodyend="663"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a65f73d005afdbcd89e6bd6de3bae75e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_reconstructions</definition>
+        <argsstring>()</argsstring>
+        <name>compute_reconstructions</name>
+        <qualifiedname>NavierStokesSolver::compute_reconstructions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the solution or derivatives reconstructions of the required fields. Currently, this is only for the fields from which a metric field is computed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="421" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1101" bodyend="1112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a85b2c88e68995dd276bcf55a1d230152" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_riemannian_metric</definition>
+        <argsstring>()</argsstring>
+        <name>compute_riemannian_metric</name>
+        <qualifiedname>NavierStokesSolver::compute_riemannian_metric</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the required metric fields. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="426" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1115" bodyend="1134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1abd7642da5120f6259c9c0a04066fbf05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::compute_error_estimate</definition>
+        <argsstring>()</argsstring>
+        <name>compute_error_estimate</name>
+        <qualifiedname>NavierStokesSolver::compute_error_estimate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the cellwise error estimate used as refinement/coarsening criterion. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="432" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1183" bodyend="1206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a9a4264d51d48627a356452430441413b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::adapt_mesh</definition>
+        <argsstring>() override</argsstring>
+        <name>adapt_mesh</name>
+        <qualifiedname>NavierStokesSolver::adapt_mesh</qualifiedname>
+        <reimplements refid="class_generic_solver_1ae7e75ae44f7be722d322c1cfac371436">adapt_mesh</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adapt the mesh (metric-based remeshing only for now). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="437" column="16" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1209" bodyend="1244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a9f882e8f71210bce6392b45f18d77479" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::checkpoint</definition>
+        <argsstring>()</argsstring>
+        <name>checkpoint</name>
+        <qualifiedname>NavierStokesSolver::checkpoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the current state of the simulation to compressed save files. This method and the <ref refid="class_navier_stokes_solver_1a9609ff15f6e0213153985cbe767e9f91" kindref="member">restart()</ref> are based on deal.II&apos;s step 83. The written data are the mesh, the current and previous solutions, and the content of the time handler. All other data (dof_handler, finite element spaces, constraints, etc.) can be recomputed when the simulation restarts. See also step 83 for a discussion on this topic. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="447" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1332" bodyend="1361"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a9609ff15f6e0213153985cbe767e9f91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::restart</definition>
+        <argsstring>()</argsstring>
+        <name>restart</name>
+        <qualifiedname>NavierStokesSolver::restart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restart the simulation from saved checkpoint files, written by <ref refid="class_navier_stokes_solver_1a9f882e8f71210bce6392b45f18d77479" kindref="member">checkpoint()</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="453" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1364" bodyend="1391"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aeb497ba90ab310ad63ce6fa478c9e593" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Archive</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::save</definition>
+        <argsstring>(Archive &amp;ar, const unsigned int version) const</argsstring>
+        <name>save</name>
+        <qualifiedname>NavierStokesSolver::save</qualifiedname>
+        <param>
+          <type>Archive &amp;</type>
+          <declname>ar</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>version</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Save this object to file. See also the comments for the <ref refid="class_navier_stokes_solver_1a9f882e8f71210bce6392b45f18d77479" kindref="member">checkpoint()</ref> function. This function currently only saves the present and previous solution vectors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="461" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1276" bodyend="1284"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aecd54ac9fb4df200fbd06bd594dc64ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Archive</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void NavierStokesSolver&lt; dim, with_moving_mesh &gt;::load</definition>
+        <argsstring>(Archive &amp;ar, const unsigned int version)</argsstring>
+        <name>load</name>
+        <qualifiedname>NavierStokesSolver::load</qualifiedname>
+        <param>
+          <type>Archive &amp;</type>
+          <declname>ar</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>version</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load the present and previous solution vectors from checkpointed data. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="467" column="8" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="1288" bodyend="1329"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a75d7ec3ea3ddd9ae973bcb584877596f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt; dim &gt; &amp; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_parameters</definition>
+        <argsstring>() const</argsstring>
+        <name>get_parameters</name>
+        <qualifiedname>NavierStokesSolver::get_parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tell Boost to use the split save/load functions above rather than a unique serialize function for both saving and loading. Return the set of simulation parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="478" column="25" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="667" bodyend="670"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1ac2909be372168e3d315b6762e2ec8fa4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DoFHandler&lt; dim &gt; &amp;</type>
+        <definition>const DoFHandler&lt; dim &gt; &amp; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_dof_handler</definition>
+        <argsstring>() const</argsstring>
+        <name>get_dof_handler</name>
+        <qualifiedname>NavierStokesSolver::get_dof_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the dof_handler used by this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="483" column="20" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="674" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a4f9a3ac9c20593f184559fce1ef48894" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref> &amp;</type>
+        <definition>LA::ParVectorType &amp; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_present_solution</definition>
+        <argsstring>() override</argsstring>
+        <name>get_present_solution</name>
+        <qualifiedname>NavierStokesSolver::get_present_solution</qualifiedname>
+        <reimplements refid="class_generic_solver_1aa6de7b705441dab1ec9cba1a1225a275">get_present_solution</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the (ghosted) solution vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="488" column="29" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="681" bodyend="684"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a947b8e83ba4d32ab1cf00533998eef3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ComponentMask</type>
+        <definition>ComponentMask NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_component_mask</definition>
+        <argsstring>(const SolverInfo::VariableType variable) const</argsstring>
+        <name>get_component_mask</name>
+        <qualifiedname>NavierStokesSolver::get_component_mask</qualifiedname>
+        <param>
+          <type>const SolverInfo::VariableType</type>
+          <declname>variable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a component mask for the given <computeroutput>variable</computeroutput>. Throws an error if the solver does not solve for this variable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="495" column="3" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="687" bodyend="703"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_navier_stokes_solver_1a472a8376b286f4934100b9f68695ccc5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_variables_description</definition>
+        <argsstring>() const</argsstring>
+        <name>get_variables_description</name>
+        <qualifiedname>NavierStokesSolver::get_variables_description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the complete description (names and numbers of components) of the variables handled by this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="503" column="3" bodyfile="snapshots/master/src/navier_stokes_solver.cpp" bodystart="68" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_navier_stokes_solver_1af11dda60a13c7688cf79a2ef88280027" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt;</type>
+        <definition>virtual std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_additional_variables_description</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_additional_variables_description</name>
+        <qualifiedname>NavierStokesSolver::get_additional_variables_description</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a863c85dd93a776a32c90fb76a28c7ba9">get_additional_variables_description</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1afb9b0d1c2eab370ff5e3dbe7d6d1f349">get_additional_variables_description</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the descriptions (name and number of components) of the variables solved for in the derived solvers, aside from velocity, pressure and mesh position. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="512" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a0f4f2ec48c7cc61661743d43cacbadf6" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const FESystem&lt; dim &gt; &amp;</type>
+        <definition>virtual const FESystem&lt; dim &gt; &amp; NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_fe_system</definition>
+        <argsstring>() const =0</argsstring>
+        <name>get_fe_system</name>
+        <qualifiedname>NavierStokesSolver::get_fe_system</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1ad3fa24bf0babaa9b3473b5693f9a07c7">get_fe_system</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1ab1232ce6c338b38fdd4cf226959d4b15">get_fe_system</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the FESystem of the derived solver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="517" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aebcfb0cd753eec7fc661717354ade6f4" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool NavierStokesSolver&lt; dim, with_moving_mesh &gt;::uses_hp_capabilities</definition>
+        <argsstring>() const =0</argsstring>
+        <name>uses_hp_capabilities</name>
+        <qualifiedname>NavierStokesSolver::uses_hp_capabilities</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1acefa2150f7b983d6bbb3a3670adca0a0">uses_hp_capabilities</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1aa5d0379be7d4cb46f1a56f87aa99e85b">uses_hp_capabilities</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if this solver uses hp capabilities </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="522" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a7c8785f651d71c39c4833296e596f00d" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const hp::FECollection&lt; dim &gt; *</type>
+        <definition>const hp::FECollection&lt; dim &gt; * NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_fe_collection</definition>
+        <argsstring>() const</argsstring>
+        <name>get_fe_collection</name>
+        <qualifiedname>NavierStokesSolver::get_fe_collection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the finite element collection used by this solver.</para>
+<para>This function, as well as the get_*_collection functions below, is not pure virtual because non-hp solvers do not need it, but it should be overriden by hp solvers, and it will throw an error if called from this class.</para>
+<para>FIXME: A proper base class should be added for hp solver, to avoid this. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="533" column="34" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="707" bodyend="711"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1aebc219b364ba562f68527e27a3563b99" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const hp::MappingCollection&lt; dim &gt; *</type>
+        <definition>const hp::MappingCollection&lt; dim &gt; * NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_fixed_mapping_collection</definition>
+        <argsstring>() const</argsstring>
+        <name>get_fixed_mapping_collection</name>
+        <qualifiedname>NavierStokesSolver::get_fixed_mapping_collection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the collection of fixed mappings used by this solver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="539" column="3" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="715" bodyend="719"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a5a02e9504844b887bfe709c718489164" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const hp::MappingCollection&lt; dim &gt; *</type>
+        <definition>const hp::MappingCollection&lt; dim &gt; * NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_moving_mapping_collection</definition>
+        <argsstring>() const</argsstring>
+        <name>get_moving_mapping_collection</name>
+        <qualifiedname>NavierStokesSolver::get_moving_mapping_collection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the collection of moving mappings used by this solver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="545" column="3" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="723" bodyend="727"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a72d36789fc5b37dd6b0881b9b4beded3" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const hp::QCollection&lt; dim &gt; *</type>
+        <definition>const hp::QCollection&lt; dim &gt; * NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_cell_quadrature_collection</definition>
+        <argsstring>() const</argsstring>
+        <name>get_cell_quadrature_collection</name>
+        <qualifiedname>NavierStokesSolver::get_cell_quadrature_collection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the cell quadrature collection used by this solver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="550" column="33" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="731" bodyend="736"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navier_stokes_solver_1a51cb051475656a0525a354aec094b974" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const hp::QCollection&lt; dim - 1 &gt; *</type>
+        <definition>const hp::QCollection&lt; dim - 1 &gt; * NavierStokesSolver&lt; dim, with_moving_mesh &gt;::get_face_quadrature_collection</definition>
+        <argsstring>() const</argsstring>
+        <name>get_face_quadrature_collection</name>
+        <qualifiedname>NavierStokesSolver::get_face_quadrature_collection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the face quadrature collection used by this solver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/navier_stokes_solver.h" line="556" column="3" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="740" bodyend="745"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A base class for Navier-Stokes solvers.</para>
+<para>This class handles the common tasks to all Navier-Stokes related solvers, namely :</para>
+<para><itemizedlist>
+<listitem><para>creating and handling the mesh (fixed and/or moving)</para>
+</listitem><listitem><para>creating the system parallel matrix and vectors</para>
+</listitem><listitem><para>creating the mesh- and NS-related boundary conditions (constraints)</para>
+</listitem><listitem><para>advancing the time integration and solving the nonlinear system</para>
+</listitem><listitem><para>computing errors on velocity, pressure and mesh position, if applicable</para>
+</listitem></itemizedlist>
+</para>
+<para>Solver-specific tasks (additional boundary conditions, outputting results, computing errors, etc.) are handled by overloading the &quot;solver_specific&quot; routines, which by default do nothing in this base class. Other functions, such as setup_dofs, are marked virtual to allow overloading by solvers requiring a specific treatment, but not all solvers are required to overload these functions.</para>
+<para>This class does <emphasis>not</emphasis> handle the following, which must then be implemented by each derived solver:</para>
+<para><itemizedlist>
+<listitem><para>creation of the FiniteElements (e.g., FESystem or FECollection), which depend on the fields layout and specificities of each solver</para>
+</listitem><listitem><para>matrix and rhs assembly FIXME: This means that currently, each solver assembles its whole set of equations. In particular, the Navier-Stokes eq. are duplicated across the solvers, which is not ideal. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="2">
+        <label>GenericSolver&lt; LA::ParVectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>NavierStokesSolver&lt; dim, with_moving_mesh &gt;</label>
+        <link refid="class_navier_stokes_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="2">
+        <label>GenericSolver&lt; LA::ParVectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>NavierStokesSolver&lt; dim, with_moving_mesh &gt;</label>
+        <link refid="class_navier_stokes_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>time_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TimeHandler</label>
+        <link refid="class_time_handler"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/navier_stokes_solver.h" line="61" column="1" bodyfile="snapshots/master/include/navier_stokes_solver.h" bodystart="62" bodyend="634"/>
+    <listofallmembers>
+      <member refid="class_navier_stokes_solver_1a9a4264d51d48627a356452430441413b" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>adapt_mesh</name></member>
+      <member refid="class_navier_stokes_solver_1a56d282940881b16ba0d4b787578fad86" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>add_solver_specific_postprocessing_data</name></member>
+      <member refid="class_generic_solver_1ac5925ccdeda32d728e8947224e011ed9" prot="public" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>assemble_matrix</name></member>
+      <member refid="class_generic_solver_1a2ef873f5575b35c23fa5fd742b8725aa" prot="public" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>assemble_rhs</name></member>
+      <member refid="class_navier_stokes_solver_1a5b4478f4b460ada98850dc3a1180d169" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>cellwise_refinement_criterion</name></member>
+      <member refid="class_navier_stokes_solver_1a9f882e8f71210bce6392b45f18d77479" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>checkpoint</name></member>
+      <member refid="class_navier_stokes_solver_1a39a2aba0a8595430a78946323db80e7e" prot="public" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>compare_analytical_matrix_with_fd</name></member>
+      <member refid="class_navier_stokes_solver_1aa270aec15ebda01ec5f7a9d5865aecc6" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_and_add_errors</name></member>
+      <member refid="class_navier_stokes_solver_1afa56c0602f888c59a996977a7db4efb0" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_and_add_errors</name></member>
+      <member refid="class_navier_stokes_solver_1a0210d51142aaa5501a531976047c947e" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_dof_based_postprocessing</name></member>
+      <member refid="class_navier_stokes_solver_1abd7642da5120f6259c9c0a04066fbf05" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_error_estimate</name></member>
+      <member refid="class_navier_stokes_solver_1aa3407d3736ce147c9be14cfa61543530" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_errors</name></member>
+      <member refid="class_navier_stokes_solver_1a428e0f14c79d154f6b4c6149193d1745" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_field_integrals</name></member>
+      <member refid="class_navier_stokes_solver_1a0f2e7343205d5c45fe3a3e410af13477" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_forces</name></member>
+      <member refid="class_navier_stokes_solver_1a17702caa0151ca48f8df11b91d907d63" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_max_cfl</name></member>
+      <member refid="class_navier_stokes_solver_1a65f73d005afdbcd89e6bd6de3bae75e6" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>compute_reconstructions</name></member>
+      <member refid="class_navier_stokes_solver_1a85b2c88e68995dd276bcf55a1d230152" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>compute_riemannian_metric</name></member>
+      <member refid="class_navier_stokes_solver_1a91b18b78b3a012db616a3cda4c418914" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>compute_solver_specific_errors</name></member>
+      <member refid="class_navier_stokes_solver_1a192f1dc5048e69f422281f1f20162d58" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>compute_structure_mean_position</name></member>
+      <member refid="class_generic_solver_1a19c3628c086e6a0d5a35560b1ce30ed3" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>computing_timer</name></member>
+      <member refid="class_navier_stokes_solver_1af11d9066fd86476f350b310342de81d7" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>constrained_pressure_dof</name></member>
+      <member refid="class_navier_stokes_solver_1a4a73b2b2b34f3c6452e895f86dbb9e27" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>constrained_pressure_support_point</name></member>
+      <member refid="class_navier_stokes_solver_1aa5e335226e4dfd5ac042e68ca4aba589" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>coupling_table</name></member>
+      <member refid="class_navier_stokes_solver_1a60c13153c2602289fce8101fc2ee18bf" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>create_base_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a21572945b0e2ae106a26158edf83bfd7" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>create_nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a10026a09e34b50769a92b683d081c6ca" prot="public" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>create_scratch_data</name></member>
+      <member refid="class_navier_stokes_solver_1a8e2e814f67722048bcccd664b1a890df" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>create_solver_specific_constraints_data</name></member>
+      <member refid="class_navier_stokes_solver_1a67e465bff87c6b3af531142c589c8593" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>create_solver_specific_nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1afa4fac4d184896dd78290fe22a1dd3c5" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>create_solver_specific_zero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a80efe337ed26751e91e2a73f30810a37" prot="public" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>create_sparsity_pattern</name></member>
+      <member refid="class_navier_stokes_solver_1a35ef1df1a519597491e1cf7afd627d56" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>create_zero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1af1ef0a882f6592af774f2ac6cf9059e0" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>create_zero_mean_pressure_constraints_data</name></member>
+      <member refid="class_navier_stokes_solver_1ac44eafeceecc0a4dfa0f31e98bb326ea" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>direct_solver_reuse</name></member>
+      <member refid="class_generic_solver_1a7201687f3387085e6c02204ffb9e123b" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>distribute_nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a57ad356a2c7e351f4e566da0da44edbd" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>dof_handler</name></member>
+      <member refid="class_navier_stokes_solver_1af18e19729cac8012b78ea9941fdda6f6" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>dofs_to_component</name></member>
+      <member refid="class_navier_stokes_solver_1a8e95dcd6b28cb54b7cb418a3cc7952c2" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>error_face_quadrature</name></member>
+      <member refid="class_generic_solver_1a600ed6d3b56b637ec1015f38aea35163" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>error_handlers</name></member>
+      <member refid="class_navier_stokes_solver_1aa447a0ead82d0e128722b448c4ae9f88" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>error_quadrature</name></member>
+      <member refid="class_generic_solver_1a5734bd74a0b0d2d3c5950b1f08f28526" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1adb04b0cf420d23e5317cf2d7e7b5c4d5" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>exact_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a4461fe7fde1bcf852e55865ef36c1122" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>face_quadrature</name></member>
+      <member refid="class_navier_stokes_solver_1a31515fe1d1c8531b73dfe24a55fa43cb" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>field_names_and_masks</name></member>
+      <member refid="class_navier_stokes_solver_1a48d998501630eeecc71a49375accfa0a" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>finalize</name></member>
+      <member refid="class_navier_stokes_solver_1a3d1f36ecc6b89311f6825baef0e946cb" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>finalize_interval</name></member>
+      <member refid="class_navier_stokes_solver_1ab1d01282a47026cfa98089f117e473ea" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>finalize_interval_solver_specific</name></member>
+      <member refid="class_navier_stokes_solver_1a853d232cdcd773e23d8c121236e59990" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>fixed_mapping</name></member>
+      <member refid="class_generic_solver_1a3ccc78d2ec40e5074088217f9178ea22" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>GenericSolver</name></member>
+      <member refid="class_navier_stokes_solver_1af11dda60a13c7688cf79a2ef88280027" prot="protected" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>get_additional_variables_description</name></member>
+      <member refid="class_navier_stokes_solver_1a72d36789fc5b37dd6b0881b9b4beded3" prot="protected" virt="virtual"><scope>NavierStokesSolver</scope><name>get_cell_quadrature_collection</name></member>
+      <member refid="class_navier_stokes_solver_1a947b8e83ba4d32ab1cf00533998eef3c" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_component_mask</name></member>
+      <member refid="class_navier_stokes_solver_1ac2909be372168e3d315b6762e2ec8fa4" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_dof_handler</name></member>
+      <member refid="class_generic_solver_1a71829c00801e12ba31b20d6d8936aeeb" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_error_handler</name></member>
+      <member refid="class_generic_solver_1a0b29381b97f14de5c24762a480d712fd" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1a51cb051475656a0525a354aec094b974" prot="protected" virt="virtual"><scope>NavierStokesSolver</scope><name>get_face_quadrature_collection</name></member>
+      <member refid="class_navier_stokes_solver_1a7c8785f651d71c39c4833296e596f00d" prot="protected" virt="virtual"><scope>NavierStokesSolver</scope><name>get_fe_collection</name></member>
+      <member refid="class_navier_stokes_solver_1a0f4f2ec48c7cc61661743d43cacbadf6" prot="protected" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>get_fe_system</name></member>
+      <member refid="class_navier_stokes_solver_1aebc219b364ba562f68527e27a3563b99" prot="protected" virt="virtual"><scope>NavierStokesSolver</scope><name>get_fixed_mapping_collection</name></member>
+      <member refid="class_generic_solver_1a7821dbf5c15a665d3b7726d000c6bc96" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_local_evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1a5a02e9504844b887bfe709c718489164" prot="protected" virt="virtual"><scope>NavierStokesSolver</scope><name>get_moving_mapping_collection</name></member>
+      <member refid="class_generic_solver_1af1efb1d4ee238c5148ee58283ea0fae9" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_newton_update</name></member>
+      <member refid="class_navier_stokes_solver_1a8f79696461bc9a69f2d20fedd9ada3af" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>get_nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a75d7ec3ea3ddd9ae973bcb584877596f" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_parameters</name></member>
+      <member refid="class_navier_stokes_solver_1a4f9a3ac9c20593f184559fce1ef48894" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>get_present_solution</name></member>
+      <member refid="class_generic_solver_1a10a1261c26aa9c11ceda08a574cec3a5" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_system_rhs</name></member>
+      <member refid="class_generic_solver_1af955926ba01980b191dd5e1b6ecff617" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_time_parameters</name></member>
+      <member refid="class_navier_stokes_solver_1a472a8376b286f4934100b9f68695ccc5" prot="private" virt="non-virtual"><scope>NavierStokesSolver</scope><name>get_variables_description</name></member>
+      <member refid="class_navier_stokes_solver_1a1dd90c0881dba50dadb41a36997b0232" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>initial_positions</name></member>
+      <member refid="class_navier_stokes_solver_1a56c44260e048cba5ba6ccd3202cde8b6" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>initialize</name></member>
+      <member refid="class_navier_stokes_solver_1ad2fa476671e05775879fe5eb27243a68" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>initialize_interval</name></member>
+      <member refid="class_navier_stokes_solver_1a117e5b8a7b08bc942db33cae5b7e87f1" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>initialize_interval_solver_specific</name></member>
+      <member refid="class_navier_stokes_solver_1aecd54ac9fb4df200fbd06bd594dc64ec" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>load</name></member>
+      <member refid="class_generic_solver_1a36c8d8067040f336a898ceeff371c0c6" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>local_evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1aca82502b50d8dc56d9665f6800fee627" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>locally_owned_dofs</name></member>
+      <member refid="class_navier_stokes_solver_1a45de4bf57641d0c79c6ae1843e520a2a" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>locally_relevant_dofs</name></member>
+      <member refid="class_generic_solver_1a5c62d177cd9a249c85fb05190ad9975e" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>mesh_param</name></member>
+      <member refid="class_navier_stokes_solver_1a65d271a1b17628765931b62fb45b12fe" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>metric_for_adaptation</name></member>
+      <member refid="class_navier_stokes_solver_1adcdb121026de77bb7b420633747649ce" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>metrics</name></member>
+      <member refid="class_generic_solver_1a231b6929535d7e1834e9072f920d618b" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>mms_param</name></member>
+      <member refid="class_navier_stokes_solver_1adef518f0f93e6c57f183c81fb54538a3" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>moving_mapping</name></member>
+      <member refid="class_generic_solver_1a1d5beb4d77eb4f820b70542dedd31b99" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>mpi_communicator</name></member>
+      <member refid="class_generic_solver_1a6d6e03777028e3b4da9266d39bd28c20" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>mpi_rank</name></member>
+      <member refid="class_generic_solver_1a8758bd19d74796cfdd2c73d3d2a264c0" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>mpi_size</name></member>
+      <member refid="class_navier_stokes_solver_1a0ae187dd8edd09f50bcb1f010d9120dc" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>NavierStokesSolver</name></member>
+      <member refid="class_generic_solver_1a3867a896778ee8b20ab6b78804cf1d9d" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>newton_update</name></member>
+      <member refid="class_generic_solver_1a4f4d1b5947c354c1db5fa3b955a84b7e" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>nonlinear_solver</name></member>
+      <member refid="class_navier_stokes_solver_1a7616f51da557a2c45781a988d484bc71" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>ordering</name></member>
+      <member refid="class_generic_solver_1a407d5fd2bb57b9cbeb0b1fcac2079a6c" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>output_param</name></member>
+      <member refid="class_navier_stokes_solver_1aa968f4117bc673e64b6daecae156cd71" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>output_results</name></member>
+      <member refid="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>param</name></member>
+      <member refid="class_navier_stokes_solver_1a2bfa9a69b85a6d34bec0e49b89cc2c79" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>patch_handlers</name></member>
+      <member refid="class_generic_solver_1af8d752e99fe0e3ab145f1d2fa67e0f9a" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>pcout</name></member>
+      <member refid="class_navier_stokes_solver_1afd40ae81ab35ab49cadc86183ef0b328" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>position_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a8d1017421dea4fcd148174fdf9360193" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>position_mask</name></member>
+      <member refid="class_navier_stokes_solver_1a1188bf7e95093f1f575067d945b0b621" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>postproc_handler</name></member>
+      <member refid="class_navier_stokes_solver_1a2f9cb465dbf409f20d7606cea7ad22f5" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>postprocess_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a6bcb217150afb70c898fccf317665211" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>prefix_data</name></member>
+      <member refid="class_navier_stokes_solver_1a7e929c748cfd613281099981a2397183" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>present_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a0a9538db2db7e5c525ead47c96f21c23" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>pressure_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a803369529100d844b35b4af36cf355c1" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>pressure_mask</name></member>
+      <member refid="class_navier_stokes_solver_1ac08db329fa72e8dba6851dcefbced4e1" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>previous_solutions</name></member>
+      <member refid="class_navier_stokes_solver_1a0ba946c47c6ff4ca89845e24002a40ac" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>quadrature</name></member>
+      <member refid="class_navier_stokes_solver_1a9811d0e6351914629f41c6cff297281e" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>recoveries</name></member>
+      <member refid="class_navier_stokes_solver_1ab7062c48b694b7e668d6059217b147c4" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>reinit_ghosted_vectors</name></member>
+      <member refid="class_navier_stokes_solver_1ab7aaf49c836df3ec7573fcbbff8bd1d4" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>reset</name></member>
+      <member refid="class_navier_stokes_solver_1a422eeda679e285bc9fc4951dccb99519" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>reset_solver_specific_data</name></member>
+      <member refid="class_navier_stokes_solver_1a9609ff15f6e0213153985cbe767e9f91" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>restart</name></member>
+      <member refid="class_navier_stokes_solver_1a628c47919d75c5c48da43dadb4d57985" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>run</name></member>
+      <member refid="class_generic_solver_1aa535110f9d2518ba39bb8250afe78a1d" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>run_convergence_loop</name></member>
+      <member refid="class_generic_solver_1a3bbafb4d601a4a6963e37f18e66aec5f" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>run_fixed_point_loop</name></member>
+      <member refid="class_navier_stokes_solver_1a7890aef62800dcff0ab182d769a593ab" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>run_time_subinterval</name></member>
+      <member refid="class_navier_stokes_solver_1aeb497ba90ab310ad63ce6fa478c9e593" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>save</name></member>
+      <member refid="class_navier_stokes_solver_1a0c3e2dd7a4efe2be406e0715fb212172" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>set_active_fe_indices</name></member>
+      <member refid="class_navier_stokes_solver_1a99f8e64420e39e780a8adb8dfff0e5cd" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>set_exact_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a75a77470e2a16504007bc7c31c58a244" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>set_initial_conditions</name></member>
+      <member refid="class_navier_stokes_solver_1a3318116cc7ffc61996bead7c4a5eb1e2" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>set_interval_data</name></member>
+      <member refid="class_navier_stokes_solver_1ada61577eefe77d58162f46d170522878" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>set_solver_specific_exact_solution</name></member>
+      <member refid="class_navier_stokes_solver_1af4c774a72958594b894f856e0e1938aa" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>set_solver_specific_initial_conditions</name></member>
+      <member refid="class_navier_stokes_solver_1aa4e70ef690324141933b0dfb8b9ee795" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>set_solver_specific_time</name></member>
+      <member refid="class_navier_stokes_solver_1aa9f9eb2ad3a5f3505d22feffc604da8b" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>set_time</name></member>
+      <member refid="class_navier_stokes_solver_1a808f73d3ad29c693c0f415369c51720e" prot="public" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>setup_assemblers</name></member>
+      <member refid="class_navier_stokes_solver_1a151d69c8e5e7c3e4bbfc5fc7c17ce747" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>setup_dofs</name></member>
+      <member refid="class_navier_stokes_solver_1aa59464653668d93b905e16d3d6ce5d18" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>setup_mappings</name></member>
+      <member refid="class_generic_solver_1aad9e83b6d58debd0043c81ef0576784a" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>should_adapt_mesh_at_end_of_intervals</name></member>
+      <member refid="class_generic_solver_1ab1bcebb5aef831308a26d02d9af66879" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>should_adapt_tree_based_mesh</name></member>
+      <member refid="class_generic_solver_1a2b74324644565115a5d2d0e5515036d0" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>should_add_error_reference_data</name></member>
+      <member refid="class_generic_solver_1a8cd14a62dfd77ec022e3936cac118e9e" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>should_check_weakly_enforced_velocity</name></member>
+      <member refid="class_generic_solver_1a6965c82680272a2a4e79c7a87458cc2c" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>should_compute_errors</name></member>
+      <member refid="class_generic_solver_1a6125f84dde8e1b6fc456f61cdc8771fa" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>should_compute_reconstructions</name></member>
+      <member refid="class_generic_solver_1a14dadc93a6d552e17f43fdedd4cf1ec7" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>should_compute_riemannian_metric</name></member>
+      <member refid="class_generic_solver_1aa13c027ad117c5e03368d87021ffd9f6" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>should_create_triangulation</name></member>
+      <member refid="class_generic_solver_1a5a183941ee012a911f4fcee469630e3a" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>should_scale_and_grade_riemannian_metric</name></member>
+      <member refid="class_navier_stokes_solver_1a6c0b9eb16162e7b27f5548544a376a51" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>solve_linear_system</name></member>
+      <member refid="class_generic_solver_1a7aaed7416c745ba959ad6f5bb3061b60" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>solve_nonlinear_problem</name></member>
+      <member refid="class_navier_stokes_solver_1a6e29882c15507afc264d6fb344ea6ee2" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>solver_control</name></member>
+      <member refid="class_navier_stokes_solver_1a6b6e103541171b2e0c8c735b6fa517f4" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>solver_specific_post_processing</name></member>
+      <member refid="class_generic_solver_1a3176c6c1e6f72c16fa3d0d43ede8757f" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>solver_type</name></member>
+      <member refid="class_navier_stokes_solver_1aed0a59b7f03471a20c716614927585c7" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>source_terms</name></member>
+      <member refid="class_navier_stokes_solver_1aff6918feda6fe6e68191218707781534" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>system_matrix</name></member>
+      <member refid="class_generic_solver_1ac75de63dc7e91e671ce8540996c58b5f" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>system_rhs</name></member>
+      <member refid="class_navier_stokes_solver_1acac54510d82fbc7827a993e203f64996" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>time_handler</name></member>
+      <member refid="class_generic_solver_1a8988f9b2fb2ac2cc17a220cc5e26dd1e" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>time_param</name></member>
+      <member refid="class_navier_stokes_solver_1a5017c45f4c928ef4ed088dddeacaceb2" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>transient_fixed_point_data</name></member>
+      <member refid="class_navier_stokes_solver_1aa63fee077d836891cc947a8603e10083" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>triangulation</name></member>
+      <member refid="class_navier_stokes_solver_1a21f77a3d73741b0f47a8e021f1cdba9f" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>update_boundary_conditions</name></member>
+      <member refid="class_generic_solver_1aa7de51f079b8a6d22818789efcc8f776" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>update_simulation_parameters</name></member>
+      <member refid="class_navier_stokes_solver_1aebcfb0cd753eec7fc661717354ade6f4" prot="protected" virt="pure-virtual"><scope>NavierStokesSolver</scope><name>uses_hp_capabilities</name></member>
+      <member refid="class_navier_stokes_solver_1af4bb9d20328ea7c4fcccb095c40fe83d" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>velocity_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a620b3b1798cf6be70ea217b76c92abc0" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>velocity_mask</name></member>
+      <member refid="class_navier_stokes_solver_1ab5f02acd1f1a5421214a193455371005" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>write_forces</name></member>
+      <member refid="class_navier_stokes_solver_1a697e78827fb176e1f8a1a124fc2f00d4" prot="public" virt="non-virtual"><scope>NavierStokesSolver</scope><name>write_structure_mean_position</name></member>
+      <member refid="class_navier_stokes_solver_1a83144de4cd395115d8ce483d90fa3c9b" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>zero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a3cfc34184fdb2e76e5c94056181a6f36" prot="protected" virt="non-virtual"><scope>NavierStokesSolver</scope><name>zero_mean_pressure_weights</name></member>
+      <member refid="class_generic_solver_1afbeabded407d0ea9875045cc9c2a61d4" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>~GenericSolver</name></member>
+      <member refid="class_navier_stokes_solver_1ade74be154a84e6766c6e15e2ef04d4bb" prot="public" virt="virtual"><scope>NavierStokesSolver</scope><name>~NavierStokesSolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

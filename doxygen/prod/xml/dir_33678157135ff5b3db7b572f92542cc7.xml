@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_33678157135ff5b3db7b572f92542cc7" kind="dir">
+    <compoundname>snapshots/prod/src</compoundname>
+    <innerdir refid="dir_c5bb3389ab3b3b0992f911a8c762bf31">snapshots/prod/src/assembly</innerdir>
+    <innerdir refid="dir_e0b731d08f783df3fb3d679cbf6537d8">snapshots/prod/src/mesh_adaptation</innerdir>
+    <innerfile refid="elasticity__solver_8cpp">elasticity_solver.cpp</innerfile>
+    <innerfile refid="incompressible__chns__solver_8cpp">incompressible_chns_solver.cpp</innerfile>
+    <innerfile refid="mesh__adaptation__tools_8cpp">mesh_adaptation_tools.cpp</innerfile>
+    <innerfile refid="navier__stokes__solver_8cpp">navier_stokes_solver.cpp</innerfile>
+    <innerfile refid="time__handler_8cpp">time_handler.cpp</innerfile>
+    <innerfile refid="timestep__adaptation_8cpp">timestep_adaptation.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/prod/src/"/>
+  </compounddef>
+</doxygen>

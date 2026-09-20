@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="index_8md" kind="file" language="Markdown">
+    <compoundname>index.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>FEZ<sp/>—<sp/>référence<sp/>master</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Jour<sp/>1<sp/>·<sp/>source<sp/>immuable<sp/>:<sp/>[ccf20caa0745cc2fe640f879d34acf2bf3855e6c](https://github.com/arthurbawin/fez/tree/ccf20caa0745cc2fe640f879d34acf2bf3855e6c).**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Cette<sp/>référence<sp/>est<sp/>générée<sp/>sur<sp/>un<sp/>**snapshot<sp/>partiel**<sp/>:<sp/>le<sp/>noyau<sp/>du<sp/>solveur,<sp/>le<sp/>parcours<sp/>CHNS,<sp/>l’assemblage<sp/>et<sp/>la<sp/>FSI<sp/>monolithique.<sp/>Elle<sp/>associe<sp/>les<sp/>commentaires<sp/>du<sp/>code<sp/>à<sp/>des<sp/>guides<sp/>de<sp/>lecture<sp/>rédigés<sp/>après<sp/>étude<sp/>statique.<sp/>Aucun<sp/>build<sp/>FEZ<sp/>ni<sp/>test<sp/>numérique<sp/>n’a<sp/>été<sp/>lancé.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Commencer<sp/>par<sp/>un<sp/>parcours</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[Du<sp/>programme<sp/>CHNS<sp/>à<sp/>Newton](features/core-solver.md)<sp/>:<sp/>héritage,<sp/>temps,<sp/>résidu,<sp/>incrément<sp/>et<sp/>contraintes.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[Assemblage<sp/>CHNS](features/chns-assembly.md)<sp/>:<sp/>préparation<sp/>des<sp/>données,<sp/>contributions<sp/>locales,<sp/>copie<sp/>globale<sp/>et<sp/>Jacobien.</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>[FSI<sp/>monolithique](features/fsi-monolithic.md)<sp/>:<sp/>inconnues<sp/>de<sp/>position,<sp/>multiplicateurs,<sp/>forces,<sp/>couples<sp/>et<sp/>hypothèses<sp/>MPI.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Entrées<sp/>dans<sp/>l’API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>CHNSSolver<sp/>:<sp/>choix<sp/>des<sp/>champs<sp/>et<sp/>des<sp/>assembleurs<sp/>CHNS.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>NavierStokesSolver<sp/>:<sp/>cycle<sp/>de<sp/>simulation<sp/>et<sp/>structures<sp/>partagées.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>GenericSolver<sp/>:<sp/>interface<sp/>du<sp/>solveur<sp/>non<sp/>linéaire.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>NewtonSolver<sp/>:<sp/>résolution<sp/>non<sp/>linéaire<sp/>et<sp/>recherche<sp/>linéaire.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>FSISolver<sp/>:<sp/>uniquement<sp/>l’implémentation<sp/>monolithic_fsi_solver<sp/>de<sp/>ce<sp/>snapshot.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ScratchDataCHNS<sp/>et<sp/>CopyDataBase<sp/>:<sp/>lecture<sp/>sur<sp/>l’élément<sp/>et<sp/>résultat<sp/>local.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Les<sp/>noms<sp/>présents<sp/>deviennent<sp/>des<sp/>liens<sp/>lorsque<sp/>Doxygen<sp/>les<sp/>résout.<sp/>Certaines<sp/>classes<sp/>externes<sp/>et<sp/>dépendances<sp/>internes<sp/>absentes<sp/>du<sp/>snapshot<sp/>restent<sp/>sans<sp/>référence.<sp/>L’index<sp/>«<sp/>Fichiers<sp/>»<sp/>donne<sp/>accès<sp/>au<sp/>code<sp/>source<sp/>inclus.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Lire<sp/>les<sp/>liens<sp/>avec<sp/>leur<sp/>preuve</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Un<sp/>lien<sp/>source<sp/>vers<sp/>GitHub<sp/>pointe<sp/>sur<sp/>le<sp/>commit<sp/>analysé,<sp/>donc<sp/>conserve<sp/>le<sp/>contexte<sp/>exact<sp/>des<sp/>observations.<sp/>Les<sp/>pages<sp/>API<sp/>extraites<sp/>reflètent<sp/>également<sp/>des<sp/>commentaires<sp/>historiques<sp/>du<sp/>dépôt<sp/>:<sp/>elles<sp/>ne<sp/>garantissent<sp/>pas<sp/>qu’une<sp/>précondition<sp/>implicite<sp/>ait<sp/>été<sp/>auditée.<sp/>Les<sp/>explications<sp/>validées<sp/>et<sp/>les<sp/>limites<sp/>sont<sp/>distinguées<sp/>dans<sp/>les<sp/>guides.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Le<sp/>contrat<sp/>de<sp/>l’assemblage<sp/>reste<sp/>essentiel<sp/>:<sp/>le<sp/>second<sp/>membre<sp/>contient<sp/>le<sp/>négatif<sp/>du<sp/>résidu<sp/>;<sp/>les<sp/>contraintes<sp/>homogènes<sp/>s’appliquent<sp/>à<sp/>l’incrément.<sp/>Le<sp/>fait<sp/>de<sp/>rencontrer<sp/>le<sp/>même<sp/>motif<sp/>WorkStream<sp/>dans<sp/>CHNS<sp/>et<sp/>FSI<sp/>n’autorise<sp/>pas<sp/>à<sp/>transposer<sp/>les<sp/>formes<sp/>physiques<sp/>entre<sp/>eux.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Limites<sp/>de<sp/>cette<sp/>édition</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">La<sp/>formulation<sp/>mathématique<sp/>complète,<sp/>les<sp/>spécialisations<sp/>des<sp/>templates,<sp/>la<sp/>communication<sp/>PETSc/deal.II<sp/>et<sp/>les<sp/>scénarios<sp/>MPI<sp/>n’ont<sp/>pas<sp/>tous<sp/>été<sp/>audités.<sp/>Doxygen<sp/>ne<sp/>compile<sp/>ni<sp/>ne<sp/>teste<sp/>ces<sp/>sources.<sp/>Les<sp/>graphes<sp/>d’appel<sp/>automatiques<sp/>ne<sp/>sont<sp/>pas<sp/>générés<sp/>;<sp/>ils<sp/>seraient<sp/>incomplets<sp/>sans<sp/>toutes<sp/>les<sp/>dépendances<sp/>et<sp/>ne<sp/>remplaceraient<sp/>pas<sp/>l’analyse<sp/>de<sp/>flux<sp/>de<sp/>données.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">La<sp/>branche<sp/>personnelle<sp/>possède<sp/>sa<sp/>propre<sp/>référence<sp/>et<sp/>son<sp/>propre<sp/>snapshot<sp/>;<sp/>aucune<sp/>signature<sp/>provenant<sp/>de<sp/>cette<sp/>branche<sp/>n’a<sp/>été<sp/>mélangée<sp/>à<sp/>celle-ci.</highlight></codeline>
+    </programlisting>
+    <location file="guides/master/index.md"/>
+  </compounddef>
+</doxygen>

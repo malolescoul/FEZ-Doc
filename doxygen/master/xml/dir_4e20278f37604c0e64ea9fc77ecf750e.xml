@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_4e20278f37604c0e64ea9fc77ecf750e" kind="dir">
+    <compoundname>snapshots/master</compoundname>
+    <innerdir refid="dir_a82a73d3250b13bc1cde7501cc67b00c">snapshots/master/include</innerdir>
+    <innerdir refid="dir_dbe53985f38c5b58d3757435c73a1b66">snapshots/master/solvers</innerdir>
+    <innerdir refid="dir_214b4bb87b5e3abead7e48f679df48e2">snapshots/master/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/master/"/>
+  </compounddef>
+</doxygen>

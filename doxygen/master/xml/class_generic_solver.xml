@@ -1,0 +1,922 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_generic_solver" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>GenericSolver</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">EnableObserverPointer</basecompoundref>
+    <includes refid="generic__solver_8h" local="no">generic_solver.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename VectorType</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_generic_solver_1a1d5beb4d77eb4f820b70542dedd31b99" prot="public" static="no" mutable="no">
+        <type>MPI_Comm</type>
+        <definition>MPI_Comm GenericSolver&lt; VectorType &gt;::mpi_communicator</definition>
+        <argsstring></argsstring>
+        <name>mpi_communicator</name>
+        <qualifiedname>GenericSolver::mpi_communicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="260" column="12" bodyfile="snapshots/master/include/generic_solver.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a6d6e03777028e3b4da9266d39bd28c20" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int GenericSolver&lt; VectorType &gt;::mpi_rank</definition>
+        <argsstring></argsstring>
+        <name>mpi_rank</name>
+        <qualifiedname>GenericSolver::mpi_rank</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="263" column="22" bodyfile="snapshots/master/include/generic_solver.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a8758bd19d74796cfdd2c73d3d2a264c0" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int GenericSolver&lt; VectorType &gt;::mpi_size</definition>
+        <argsstring></argsstring>
+        <name>mpi_size</name>
+        <qualifiedname>GenericSolver::mpi_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="266" column="22" bodyfile="snapshots/master/include/generic_solver.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1af8d752e99fe0e3ab145f1d2fa67e0f9a" prot="public" static="no" mutable="no">
+        <type>ConditionalOStream</type>
+        <definition>ConditionalOStream GenericSolver&lt; VectorType &gt;::pcout</definition>
+        <argsstring></argsstring>
+        <name>pcout</name>
+        <qualifiedname>GenericSolver::pcout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="269" column="22" bodyfile="snapshots/master/include/generic_solver.h" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a19c3628c086e6a0d5a35560b1ce30ed3" prot="public" static="no" mutable="no">
+        <type>TimerOutput</type>
+        <definition>TimerOutput GenericSolver&lt; VectorType &gt;::computing_timer</definition>
+        <argsstring></argsstring>
+        <name>computing_timer</name>
+        <qualifiedname>GenericSolver::computing_timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="272" column="15" bodyfile="snapshots/master/include/generic_solver.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_generic_solver_1a3176c6c1e6f72c16fa3d0d43ede8757f" prot="protected" static="no" mutable="no">
+        <type>SolverInfo::SolverType</type>
+        <definition>SolverInfo::SolverType GenericSolver&lt; VectorType &gt;::solver_type</definition>
+        <argsstring></argsstring>
+        <name>solver_type</name>
+        <qualifiedname>GenericSolver::solver_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solver type </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="278" column="26" bodyfile="snapshots/master/include/generic_solver.h" bodystart="278" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a5734bd74a0b0d2d3c5950b1f08f28526" prot="protected" static="no" mutable="no">
+        <type>VectorType</type>
+        <definition>VectorType GenericSolver&lt; VectorType &gt;::evaluation_point</definition>
+        <argsstring></argsstring>
+        <name>evaluation_point</name>
+        <qualifiedname>GenericSolver::evaluation_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copy of the (ghosted) solution that is modified during the nonlinear solve, whereas the solution vector is modified only at the end of the nonlinear solve, or during the line search (if applicable). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="285" column="14" bodyfile="snapshots/master/include/generic_solver.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a36c8d8067040f336a898ceeff371c0c6" prot="protected" static="no" mutable="no">
+        <type>VectorType</type>
+        <definition>VectorType GenericSolver&lt; VectorType &gt;::local_evaluation_point</definition>
+        <argsstring></argsstring>
+        <name>local_evaluation_point</name>
+        <qualifiedname>GenericSolver::local_evaluation_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fully distributed (i.e., without ghost entries) evaluation point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="290" column="14" bodyfile="snapshots/master/include/generic_solver.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a3867a896778ee8b20ab6b78804cf1d9d" prot="protected" static="no" mutable="no">
+        <type>VectorType</type>
+        <definition>VectorType GenericSolver&lt; VectorType &gt;::newton_update</definition>
+        <argsstring></argsstring>
+        <name>newton_update</name>
+        <qualifiedname>GenericSolver::newton_update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fully distributed increment in the Newton-Raphson method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="295" column="14" bodyfile="snapshots/master/include/generic_solver.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1ac75de63dc7e91e671ce8540996c58b5f" prot="protected" static="no" mutable="no">
+        <type>VectorType</type>
+        <definition>VectorType GenericSolver&lt; VectorType &gt;::system_rhs</definition>
+        <argsstring></argsstring>
+        <name>system_rhs</name>
+        <qualifiedname>GenericSolver::system_rhs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fully distributed right-hand side in the Newton-Raphson method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="300" column="14" bodyfile="snapshots/master/include/generic_solver.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a4f4d1b5947c354c1db5fa3b955a84b7e" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_non_linear_solver" kindref="compound">NonLinearSolver</ref>&lt; VectorType &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;NonLinearSolver&lt;VectorType&gt; &gt; GenericSolver&lt; VectorType &gt;::nonlinear_solver</definition>
+        <argsstring></argsstring>
+        <name>nonlinear_solver</name>
+        <qualifiedname>GenericSolver::nonlinear_solver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Nonlinear solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="305" column="19" bodyfile="snapshots/master/include/generic_solver.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a407d5fd2bb57b9cbeb0b1fcac2079a6c" prot="protected" static="no" mutable="no">
+        <type>const Parameters::Output &amp;</type>
+        <definition>const Parameters::Output&amp; GenericSolver&lt; VectorType &gt;::output_param</definition>
+        <argsstring></argsstring>
+        <name>output_param</name>
+        <qualifiedname>GenericSolver::output_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data to perform a space and/or time convergence study Some must be modified during the convergence loop, so store a copy </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="311" column="30" bodyfile="snapshots/master/include/generic_solver.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a5c62d177cd9a249c85fb05190ad9975e" prot="protected" static="no" mutable="no">
+        <type>Parameters::Mesh</type>
+        <definition>Parameters::Mesh GenericSolver&lt; VectorType &gt;::mesh_param</definition>
+        <argsstring></argsstring>
+        <name>mesh_param</name>
+        <qualifiedname>GenericSolver::mesh_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="312" column="31" bodyfile="snapshots/master/include/generic_solver.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a8988f9b2fb2ac2cc17a220cc5e26dd1e" prot="protected" static="no" mutable="no">
+        <type>Parameters::TimeIntegration</type>
+        <definition>Parameters::TimeIntegration GenericSolver&lt; VectorType &gt;::time_param</definition>
+        <argsstring></argsstring>
+        <name>time_param</name>
+        <qualifiedname>GenericSolver::time_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="313" column="31" bodyfile="snapshots/master/include/generic_solver.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a231b6929535d7e1834e9072f920d618b" prot="protected" static="no" mutable="no">
+        <type>Parameters::MMS</type>
+        <definition>Parameters::MMS GenericSolver&lt; VectorType &gt;::mms_param</definition>
+        <argsstring></argsstring>
+        <name>mms_param</name>
+        <qualifiedname>GenericSolver::mms_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="314" column="31" bodyfile="snapshots/master/include/generic_solver.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_generic_solver_1a600ed6d3b56b637ec1015f38aea35163" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; VectorTools::NormType, ErrorHandler &gt;</type>
+        <definition>std::map&lt;VectorTools::NormType, ErrorHandler&gt; GenericSolver&lt; VectorType &gt;::error_handlers</definition>
+        <argsstring></argsstring>
+        <name>error_handlers</name>
+        <qualifiedname>GenericSolver::error_handlers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ErrorHandlers, one for each required norm. Each ErrorHandler stores the error in the prescribed norm for all fields. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="320" column="12" bodyfile="snapshots/master/include/generic_solver.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_generic_solver_1aa3f72047db688e6105c39b22f7675d94" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class NewtonSolver&lt; VectorType &gt;</definition>
+        <argsstring></argsstring>
+        <name>NewtonSolver&lt; VectorType &gt;</name>
+        <qualifiedname>GenericSolver::NewtonSolver&lt; VectorType &gt;</qualifiedname>
+        <param>
+          <type><ref refid="class_newton_solver" kindref="compound">NewtonSolver</ref>&lt; VectorType &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="320" column="12" bodyfile="snapshots/master/include/generic_solver.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_generic_solver_1a3ccc78d2ec40e5074088217f9178ea22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GenericSolver&lt; VectorType &gt;::GenericSolver</definition>
+        <argsstring>(const Parameters::Output &amp;output_param, const Parameters::NonLinearSolver &amp;nonlinear_solver_param, const Parameters::Timer &amp;timer_param, const Parameters::Mesh &amp;mesh_param, const Parameters::TimeIntegration &amp;time_param, const Parameters::MMS &amp;mms_param, const SolverInfo::SolverType solver_type)</argsstring>
+        <name>GenericSolver</name>
+        <qualifiedname>GenericSolver::GenericSolver</qualifiedname>
+        <param>
+          <type>const Parameters::Output &amp;</type>
+          <declname>output_param</declname>
+        </param>
+        <param>
+          <type>const Parameters::NonLinearSolver &amp;</type>
+          <declname>nonlinear_solver_param</declname>
+        </param>
+        <param>
+          <type>const Parameters::Timer &amp;</type>
+          <declname>timer_param</declname>
+        </param>
+        <param>
+          <type>const Parameters::Mesh &amp;</type>
+          <declname>mesh_param</declname>
+        </param>
+        <param>
+          <type>const Parameters::TimeIntegration &amp;</type>
+          <declname>time_param</declname>
+        </param>
+        <param>
+          <type>const Parameters::MMS &amp;</type>
+          <declname>mms_param</declname>
+        </param>
+        <param>
+          <type>const SolverInfo::SolverType</type>
+          <declname>solver_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="40" column="3" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="7" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1afbeabded407d0ea9875045cc9c2a61d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual GenericSolver&lt; VectorType &gt;::~GenericSolver</definition>
+        <argsstring>()=default</argsstring>
+        <name>~GenericSolver</name>
+        <qualifiedname>GenericSolver::~GenericSolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="51" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a2c32e98d67b14ce3e442f3e0d7187508" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void GenericSolver&lt; VectorType &gt;::run</definition>
+        <argsstring>()=0</argsstring>
+        <name>run</name>
+        <qualifiedname>GenericSolver::run</qualifiedname>
+        <reimplementedby refid="class_navier_stokes_solver_1a628c47919d75c5c48da43dadb4d57985">run</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a628c47919d75c5c48da43dadb4d57985">run</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a628c47919d75c5c48da43dadb4d57985">run</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the problem. This function is the only one that is called in the solvers&apos; main function, and thus contains all the steps required to solve the problem at hand, namely, create the mesh, setup the matrix and vectors, handle the time integration loop, postprocess the solution, etc.</para>
+<para>It must be overloaded by the various derived solvers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="61" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1aa535110f9d2518ba39bb8250afe78a1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>template void GenericSolver&lt; VectorType &gt;::run_convergence_loop&lt; 3 &gt;</definition>
+        <argsstring>()</argsstring>
+        <name>run_convergence_loop</name>
+        <qualifiedname>GenericSolver::run_convergence_loop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Run a convergence study with manufactured or exact solutions. This function is run instead of the <ref refid="class_generic_solver_1a2c32e98d67b14ce3e442f3e0d7187508" kindref="member">run()</ref> above if the &quot;Manufactured solution&quot; is enabled in the parameter file. This functions takes care of refining the time step and/or replacing the name of the mesh file by the refined one at each step of the convergence study, stores the computed errors in error tables, and output the convergence rates. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="72" column="8" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="45" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a3bbafb4d601a4a6963e37f18e66aec5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GenericSolver&lt; VectorType &gt;::run_fixed_point_loop</definition>
+        <argsstring>()</argsstring>
+        <name>run_fixed_point_loop</name>
+        <qualifiedname>GenericSolver::run_fixed_point_loop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Run the problem within a fixed point loop, performing (possibly) anisotropic mesh adaptation based on a Riemannian metric. The aim of the fixed point loop is to converge the solution-mesh pair together.</para>
+<para>This function is called within the main function of each executable if mesh adaptation with a Riemannian metric is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="82" column="8" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="219" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1aa7de51f079b8a6d22818789efcc8f776" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void GenericSolver&lt; VectorType &gt;::update_simulation_parameters</definition>
+        <argsstring>(const unsigned int)</argsstring>
+        <name>update_simulation_parameters</name>
+        <qualifiedname>GenericSolver::update_simulation_parameters</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a64aefd5523f26fa2ecbb4f1dd4b78603">update_simulation_parameters</reimplementedby>
+        <param>
+          <type>const unsigned int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When running a fixed-point adaptation loop, this function updates the parameters specified in the parameter file, given the current iteration number.This allows for instance to reduce the interface thickness of a CHNS simulation as the mesh is refined. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="91" column="3" bodyfile="snapshots/master/include/generic_solver.h" bodystart="91" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1ac5925ccdeda32d728e8947224e011ed9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void GenericSolver&lt; VectorType &gt;::assemble_matrix</definition>
+        <argsstring>()=0</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>GenericSolver::assemble_matrix</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a70ff54d615ba71803c2e0ea0d031b96b">assemble_matrix</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1a6133d4d41523f7d60f74cb64d26f67ad">assemble_matrix</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the Jacobian matrix of the nonlinear problem, that is, its linearization at the current solution. This function is overloaded by each derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="99" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a2ef873f5575b35c23fa5fd742b8725aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void GenericSolver&lt; VectorType &gt;::assemble_rhs</definition>
+        <argsstring>()=0</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>GenericSolver::assemble_rhs</qualifiedname>
+        <reimplementedby refid="class_c_h_n_s_solver_1a36ac83923a682c7ea61c38cb91be626a">assemble_rhs</reimplementedby>
+        <reimplementedby refid="class_f_s_i_solver_1aa1c68162a2759bfbb46b8b7d36e15998">assemble_rhs</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the (negative of the) nonlinear residual -NL(U), evaluated at the current solution. This function is overloaded by each derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="105" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a159647810108fce121cc20c712f8ae28" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void GenericSolver&lt; VectorType &gt;::solve_linear_system</definition>
+        <argsstring>()=0</argsstring>
+        <name>solve_linear_system</name>
+        <qualifiedname>GenericSolver::solve_linear_system</qualifiedname>
+        <reimplementedby refid="class_navier_stokes_solver_1a6c0b9eb16162e7b27f5548544a376a51">solve_linear_system</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a6c0b9eb16162e7b27f5548544a376a51">solve_linear_system</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a6c0b9eb16162e7b27f5548544a376a51">solve_linear_system</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the linear system described by the assembly functions above. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="110" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a7aaed7416c745ba959ad6f5bb3061b60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GenericSolver&lt; VectorType &gt;::solve_nonlinear_problem</definition>
+        <argsstring>(const TimeHandler &amp;time_handler)</argsstring>
+        <name>solve_nonlinear_problem</name>
+        <qualifiedname>GenericSolver::solve_nonlinear_problem</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Solve the nonlinear problem NL(U) = 0, where NL is the weak formulation of the system of PDEs of interest, typically the Navier-Stokes equations augmented with additional equations for the mesh movement, phase tracer, etc., depending on the derived solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="118" column="8" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="246" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a2db2deb0a61ee9c5d808739b738057f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>AffineConstraints&lt; double &gt; &amp;</type>
+        <definition>virtual AffineConstraints&lt; double &gt; &amp; GenericSolver&lt; VectorType &gt;::get_nonzero_constraints</definition>
+        <argsstring>()=0</argsstring>
+        <name>get_nonzero_constraints</name>
+        <qualifiedname>GenericSolver::get_nonzero_constraints</qualifiedname>
+        <reimplementedby refid="class_navier_stokes_solver_1a8f79696461bc9a69f2d20fedd9ada3af">get_nonzero_constraints</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a8f79696461bc9a69f2d20fedd9ada3af">get_nonzero_constraints</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a8f79696461bc9a69f2d20fedd9ada3af">get_nonzero_constraints</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the nonzero constraints of the derived solver, that is, the inhomogeneous boundary conditions and constraints on the dofs. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="124" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a7201687f3387085e6c02204ffb9e123b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GenericSolver&lt; VectorType &gt;::distribute_nonzero_constraints</definition>
+        <argsstring>()</argsstring>
+        <name>distribute_nonzero_constraints</name>
+        <qualifiedname>GenericSolver::distribute_nonzero_constraints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply the inhomogeneous boundary conditions and constraints to the local evaluation point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="130" column="8" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="253" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1ae7e75ae44f7be722d322c1cfac371436" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void GenericSolver&lt; VectorType &gt;::adapt_mesh</definition>
+        <argsstring>()</argsstring>
+        <name>adapt_mesh</name>
+        <qualifiedname>GenericSolver::adapt_mesh</qualifiedname>
+        <reimplementedby refid="class_navier_stokes_solver_1a9a4264d51d48627a356452430441413b">adapt_mesh</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a9a4264d51d48627a356452430441413b">adapt_mesh</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a9a4264d51d48627a356452430441413b">adapt_mesh</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="135" column="16" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="260" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1aa13c027ad117c5e03368d87021ffd9f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool GenericSolver&lt; VectorType &gt;::should_create_triangulation</definition>
+        <argsstring>() const</argsstring>
+        <name>should_create_triangulation</name>
+        <qualifiedname>GenericSolver::should_create_triangulation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the triangulation should be (re-)created on this time interval. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>A new mesh is always created (at the beginning of a time interval), unless this is a convergence study where the mesh is adapted using deal.II&apos;s routines and p4est. In that case, the subsequent refinements and coarsenings are performed on the same triangulation object, and no new mesh is created.</para>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="141" column="16" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="266" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1ab1bcebb5aef831308a26d02d9af66879" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool GenericSolver&lt; VectorType &gt;::should_adapt_tree_based_mesh</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_adapt_tree_based_mesh</name>
+        <qualifiedname>GenericSolver::should_adapt_tree_based_mesh</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the triangulation should be refined, i.e., if the simulation is unsteady and this is a time step matching the prescribed frequency. Only used to adapt tree-based meshes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="149" column="3" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="290" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1aad9e83b6d58debd0043c81ef0576784a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GenericSolver&lt; VectorType &gt;::should_adapt_mesh_at_end_of_intervals</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_adapt_mesh_at_end_of_intervals</name>
+        <qualifiedname>GenericSolver::should_adapt_mesh_at_end_of_intervals</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the mesh(es) should be adapted, after all time steps have been computed on all time subintervals.</para>
+<para>With metric-based mesh adaptation, this is always true, as the transient fixed-point method requires scaling the metrics with a global scaling factor that can only be computed at the end of a fixed-point iteration (i.e., the whole simulation time interval).</para>
+<para>With tree-based adaptation, this is true only for steady-state convergence studies, and if there is another convergence step after this one. Because the number of mesh cells changes when calling the refinement and coarsening routines, this function should be called <emphasis>after</emphasis> registering the number of cells/dofs in the error handler (with add_reference_adata(...), which is typically done in a finalize() function), to provide matching cells/dofs and measured error norms in the convergence table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="169" column="3" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="323" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a6965c82680272a2a4e79c7a87458cc2c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool GenericSolver&lt; VectorType &gt;::should_compute_errors</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_compute_errors</name>
+        <qualifiedname>GenericSolver::should_compute_errors</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the solver should evaluate error norms. This is typically always true, except when adapting the mesh with a Riemannian metric, in which case a few fixed-point iterations are performed to converge to a mesh-solution pair, and the errors are computed only on the last solution. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="177" column="16" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="338" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a2b74324644565115a5d2d0e5515036d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool GenericSolver&lt; VectorType &gt;::should_add_error_reference_data</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_add_error_reference_data</name>
+        <qualifiedname>GenericSolver::should_add_error_reference_data</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if reference data (number of mesh elements, vertices, dofs, time step, ...) should be added to the error handler. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="184" column="3" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="357" bodyend="383"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a8cd14a62dfd77ec022e3936cac118e9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool GenericSolver&lt; VectorType &gt;::should_check_weakly_enforced_velocity</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_check_weakly_enforced_velocity</name>
+        <qualifiedname>GenericSolver::should_check_weakly_enforced_velocity</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if velocity constraints enforced with a Lagrange multiplier should be checked for accuracy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="191" column="3" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="386" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a6125f84dde8e1b6fc456f61cdc8771fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>template bool GenericSolver&lt; VectorType &gt;::should_compute_reconstructions</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_compute_reconstructions</name>
+        <qualifiedname>GenericSolver::should_compute_reconstructions</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the solver should reconstruct the solution (and optionally its derivatives) with the polynomial-preserving operator. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="198" column="8" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="426" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a14dadc93a6d552e17f43fdedd4cf1ec7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>template bool GenericSolver&lt; VectorType &gt;::should_compute_riemannian_metric</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_compute_riemannian_metric</name>
+        <qualifiedname>GenericSolver::should_compute_riemannian_metric</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the solver should compute or update its Riemannian metric(s). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="206" column="8" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="443" bodyend="466"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a5a183941ee012a911f4fcee469630e3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>template bool GenericSolver&lt; VectorType &gt;::should_scale_and_grade_riemannian_metric</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_scale_and_grade_riemannian_metric</name>
+        <qualifiedname>GenericSolver::should_scale_and_grade_riemannian_metric</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the Riemannian metric used for mesh adaptation should be scaled to reach a target number of vertices, and if gradation should be applied. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="215" column="8" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="470" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1aa6de7b705441dab1ec9cba1a1225a275" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>VectorType &amp;</type>
+        <definition>virtual VectorType &amp; GenericSolver&lt; VectorType &gt;::get_present_solution</definition>
+        <argsstring>()=0</argsstring>
+        <name>get_present_solution</name>
+        <qualifiedname>GenericSolver::get_present_solution</qualifiedname>
+        <reimplementedby refid="class_navier_stokes_solver_1a4f9a3ac9c20593f184559fce1ef48894">get_present_solution</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a4f9a3ac9c20593f184559fce1ef48894">get_present_solution</reimplementedby>
+        <reimplementedby refid="class_navier_stokes_solver_1a4f9a3ac9c20593f184559fce1ef48894">get_present_solution</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the (ghosted) solution vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="222" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a0b29381b97f14de5c24762a480d712fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VectorType &amp;</type>
+        <definition>VectorType &amp; GenericSolver&lt; VectorType &gt;::get_evaluation_point</definition>
+        <argsstring>()</argsstring>
+        <name>get_evaluation_point</name>
+        <qualifiedname>GenericSolver::get_evaluation_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the (ghosted) evaluation point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="227" column="14" bodyfile="snapshots/master/include/generic_solver.h" bodystart="330" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a7821dbf5c15a665d3b7726d000c6bc96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VectorType &amp;</type>
+        <definition>VectorType &amp; GenericSolver&lt; VectorType &gt;::get_local_evaluation_point</definition>
+        <argsstring>()</argsstring>
+        <name>get_local_evaluation_point</name>
+        <qualifiedname>GenericSolver::get_local_evaluation_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the (fully distributed) evaluation point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="232" column="14" bodyfile="snapshots/master/include/generic_solver.h" bodystart="336" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1af1efb1d4ee238c5148ee58283ea0fae9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VectorType &amp;</type>
+        <definition>VectorType &amp; GenericSolver&lt; VectorType &gt;::get_newton_update</definition>
+        <argsstring>()</argsstring>
+        <name>get_newton_update</name>
+        <qualifiedname>GenericSolver::get_newton_update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the (fully distributed) newton update. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="237" column="14" bodyfile="snapshots/master/include/generic_solver.h" bodystart="342" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a10a1261c26aa9c11ceda08a574cec3a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VectorType &amp;</type>
+        <definition>VectorType &amp; GenericSolver&lt; VectorType &gt;::get_system_rhs</definition>
+        <argsstring>()</argsstring>
+        <name>get_system_rhs</name>
+        <qualifiedname>GenericSolver::get_system_rhs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the (fully distributed) system right-hand side. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="242" column="14" bodyfile="snapshots/master/include/generic_solver.h" bodystart="348" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1af955926ba01980b191dd5e1b6ecff617" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const Parameters::TimeIntegration &amp;</type>
+        <definition>const Parameters::TimeIntegration &amp; GenericSolver&lt; VectorType &gt;::get_time_parameters</definition>
+        <argsstring>() const</argsstring>
+        <name>get_time_parameters</name>
+        <qualifiedname>GenericSolver::get_time_parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the time integration parameters. Currently, this is only used by the Newton solver to determine the reassembly heuristic, as the system is always reassembled for steady-state computations for instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="249" column="37" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="481" bodyend="484"/>
+      </memberdef>
+      <memberdef kind="function" id="class_generic_solver_1a71829c00801e12ba31b20d6d8936aeeb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const ErrorHandler &amp;</type>
+        <definition>const ErrorHandler &amp; GenericSolver&lt; VectorType &gt;::get_error_handler</definition>
+        <argsstring>(const VectorTools::NormType type) const</argsstring>
+        <name>get_error_handler</name>
+        <qualifiedname>GenericSolver::get_error_handler</qualifiedname>
+        <param>
+          <type>const VectorTools::NormType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a pointer to the ErrorHandler associated to the given norm <computeroutput>type</computeroutput>. Throws an error if the given type was not stored, i.e., if it was not specified in the parameter file in the &quot;Manufactured solution&quot; section. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/master/include/generic_solver.h" line="256" column="22" bodyfile="snapshots/master/src/generic_solver.cpp" bodystart="487" bodyend="499"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Abstract base class for a generic solver with the following common members:</para>
+<para><itemizedlist>
+<listitem><para>simulation parameters</para>
+</listitem><listitem><para>mpi communicator</para>
+</listitem><listitem><para>nonlinear solver </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="1">
+        <label>GenericSolver&lt; VectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="1">
+        <label>GenericSolver&lt; VectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/master/include/generic_solver.h" line="34" column="1" bodyfile="snapshots/master/include/generic_solver.h" bodystart="35" bodyend="325"/>
+    <listofallmembers>
+      <member refid="class_generic_solver_1ae7e75ae44f7be722d322c1cfac371436" prot="public" virt="virtual"><scope>GenericSolver</scope><name>adapt_mesh</name></member>
+      <member refid="class_generic_solver_1ac5925ccdeda32d728e8947224e011ed9" prot="public" virt="pure-virtual"><scope>GenericSolver</scope><name>assemble_matrix</name></member>
+      <member refid="class_generic_solver_1a2ef873f5575b35c23fa5fd742b8725aa" prot="public" virt="pure-virtual"><scope>GenericSolver</scope><name>assemble_rhs</name></member>
+      <member refid="class_generic_solver_1a19c3628c086e6a0d5a35560b1ce30ed3" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>computing_timer</name></member>
+      <member refid="class_generic_solver_1a7201687f3387085e6c02204ffb9e123b" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>distribute_nonzero_constraints</name></member>
+      <member refid="class_generic_solver_1a600ed6d3b56b637ec1015f38aea35163" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>error_handlers</name></member>
+      <member refid="class_generic_solver_1a5734bd74a0b0d2d3c5950b1f08f28526" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>evaluation_point</name></member>
+      <member refid="class_generic_solver_1a3ccc78d2ec40e5074088217f9178ea22" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>GenericSolver</name></member>
+      <member refid="class_generic_solver_1a71829c00801e12ba31b20d6d8936aeeb" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>get_error_handler</name></member>
+      <member refid="class_generic_solver_1a0b29381b97f14de5c24762a480d712fd" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>get_evaluation_point</name></member>
+      <member refid="class_generic_solver_1a7821dbf5c15a665d3b7726d000c6bc96" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>get_local_evaluation_point</name></member>
+      <member refid="class_generic_solver_1af1efb1d4ee238c5148ee58283ea0fae9" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>get_newton_update</name></member>
+      <member refid="class_generic_solver_1a2db2deb0a61ee9c5d808739b738057f3" prot="public" virt="pure-virtual"><scope>GenericSolver</scope><name>get_nonzero_constraints</name></member>
+      <member refid="class_generic_solver_1aa6de7b705441dab1ec9cba1a1225a275" prot="public" virt="pure-virtual"><scope>GenericSolver</scope><name>get_present_solution</name></member>
+      <member refid="class_generic_solver_1a10a1261c26aa9c11ceda08a574cec3a5" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>get_system_rhs</name></member>
+      <member refid="class_generic_solver_1af955926ba01980b191dd5e1b6ecff617" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>get_time_parameters</name></member>
+      <member refid="class_generic_solver_1a36c8d8067040f336a898ceeff371c0c6" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>local_evaluation_point</name></member>
+      <member refid="class_generic_solver_1a5c62d177cd9a249c85fb05190ad9975e" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>mesh_param</name></member>
+      <member refid="class_generic_solver_1a231b6929535d7e1834e9072f920d618b" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>mms_param</name></member>
+      <member refid="class_generic_solver_1a1d5beb4d77eb4f820b70542dedd31b99" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>mpi_communicator</name></member>
+      <member refid="class_generic_solver_1a6d6e03777028e3b4da9266d39bd28c20" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>mpi_rank</name></member>
+      <member refid="class_generic_solver_1a8758bd19d74796cfdd2c73d3d2a264c0" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>mpi_size</name></member>
+      <member refid="class_generic_solver_1a3867a896778ee8b20ab6b78804cf1d9d" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>newton_update</name></member>
+      <member refid="class_generic_solver_1aa3f72047db688e6105c39b22f7675d94" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>NewtonSolver&lt; VectorType &gt;</name></member>
+      <member refid="class_generic_solver_1a4f4d1b5947c354c1db5fa3b955a84b7e" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>nonlinear_solver</name></member>
+      <member refid="class_generic_solver_1a407d5fd2bb57b9cbeb0b1fcac2079a6c" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>output_param</name></member>
+      <member refid="class_generic_solver_1af8d752e99fe0e3ab145f1d2fa67e0f9a" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>pcout</name></member>
+      <member refid="class_generic_solver_1a2c32e98d67b14ce3e442f3e0d7187508" prot="public" virt="pure-virtual"><scope>GenericSolver</scope><name>run</name></member>
+      <member refid="class_generic_solver_1aa535110f9d2518ba39bb8250afe78a1d" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>run_convergence_loop</name></member>
+      <member refid="class_generic_solver_1a3bbafb4d601a4a6963e37f18e66aec5f" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>run_fixed_point_loop</name></member>
+      <member refid="class_generic_solver_1aad9e83b6d58debd0043c81ef0576784a" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>should_adapt_mesh_at_end_of_intervals</name></member>
+      <member refid="class_generic_solver_1ab1bcebb5aef831308a26d02d9af66879" prot="public" virt="virtual"><scope>GenericSolver</scope><name>should_adapt_tree_based_mesh</name></member>
+      <member refid="class_generic_solver_1a2b74324644565115a5d2d0e5515036d0" prot="public" virt="virtual"><scope>GenericSolver</scope><name>should_add_error_reference_data</name></member>
+      <member refid="class_generic_solver_1a8cd14a62dfd77ec022e3936cac118e9e" prot="public" virt="virtual"><scope>GenericSolver</scope><name>should_check_weakly_enforced_velocity</name></member>
+      <member refid="class_generic_solver_1a6965c82680272a2a4e79c7a87458cc2c" prot="public" virt="virtual"><scope>GenericSolver</scope><name>should_compute_errors</name></member>
+      <member refid="class_generic_solver_1a6125f84dde8e1b6fc456f61cdc8771fa" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>should_compute_reconstructions</name></member>
+      <member refid="class_generic_solver_1a14dadc93a6d552e17f43fdedd4cf1ec7" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>should_compute_riemannian_metric</name></member>
+      <member refid="class_generic_solver_1aa13c027ad117c5e03368d87021ffd9f6" prot="public" virt="virtual"><scope>GenericSolver</scope><name>should_create_triangulation</name></member>
+      <member refid="class_generic_solver_1a5a183941ee012a911f4fcee469630e3a" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>should_scale_and_grade_riemannian_metric</name></member>
+      <member refid="class_generic_solver_1a159647810108fce121cc20c712f8ae28" prot="public" virt="pure-virtual"><scope>GenericSolver</scope><name>solve_linear_system</name></member>
+      <member refid="class_generic_solver_1a7aaed7416c745ba959ad6f5bb3061b60" prot="public" virt="non-virtual"><scope>GenericSolver</scope><name>solve_nonlinear_problem</name></member>
+      <member refid="class_generic_solver_1a3176c6c1e6f72c16fa3d0d43ede8757f" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>solver_type</name></member>
+      <member refid="class_generic_solver_1ac75de63dc7e91e671ce8540996c58b5f" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>system_rhs</name></member>
+      <member refid="class_generic_solver_1a8988f9b2fb2ac2cc17a220cc5e26dd1e" prot="protected" virt="non-virtual"><scope>GenericSolver</scope><name>time_param</name></member>
+      <member refid="class_generic_solver_1aa7de51f079b8a6d22818789efcc8f776" prot="public" virt="virtual"><scope>GenericSolver</scope><name>update_simulation_parameters</name></member>
+      <member refid="class_generic_solver_1afbeabded407d0ea9875045cc9c2a61d4" prot="public" virt="virtual"><scope>GenericSolver</scope><name>~GenericSolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="types_8h" kind="file" language="C++">
+    <compoundname>types.h</compoundname>
+    <includes local="no">deal.II/lac/generic_linear_algebra.h</includes>
+    <includes local="no">deal.II/lac/petsc_sparse_matrix.h</includes>
+    <includes local="no">deal.II/lac/trilinos_sparse_matrix.h</includes>
+    <includedby refid="elasticity__solver_8h" local="no">snapshots/prod/include/elasticity_solver.h</includedby>
+    <includedby refid="generic__solver_8h" local="no">snapshots/prod/include/generic_solver.h</includedby>
+    <includedby refid="linear__solver_8h" local="no">snapshots/prod/include/linear_solver.h</includedby>
+    <includedby refid="transient__fixed__point_8h" local="no">snapshots/prod/include/mesh_adaptation/transient_fixed_point.h</includedby>
+    <includedby refid="navier__stokes__solver_8h" local="no">snapshots/prod/include/navier_stokes_solver.h</includedby>
+    <includedby refid="scratch__data_8h" local="no">snapshots/prod/include/scratch_data.h</includedby>
+    <includedby refid="time__handler_8h" local="no">snapshots/prod/include/time_handler.h</includedby>
+    <includedby refid="timestep__adaptation_8h" local="no">snapshots/prod/include/timestep_adaptation.h</includedby>
+    <includedby refid="transient__fixed__point_8cpp" local="no">snapshots/prod/src/mesh_adaptation/transient_fixed_point.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>snapshots/prod/include/types.h</label>
+        <link refid="types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>deal.II/lac/generic_linear_algebra.h</label>
+      </node>
+      <node id="3">
+        <label>deal.II/lac/petsc_sparse_matrix.h</label>
+      </node>
+      <node id="4">
+        <label>deal.II/lac/trilinos_sparse_matrix.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>snapshots/prod/include/elasticity_solver.h</label>
+        <link refid="elasticity__solver_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>snapshots/prod/include/generic_solver.h</label>
+        <link refid="generic__solver_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>snapshots/prod/include/incompressible_chns_solver.h</label>
+        <link refid="incompressible__chns__solver_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>snapshots/prod/include/linear_solver.h</label>
+        <link refid="linear__solver_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>snapshots/prod/include/mesh_adaptation/transient_fixed_point.h</label>
+        <link refid="transient__fixed__point_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>snapshots/prod/include/navier_stokes_solver.h</label>
+        <link refid="navier__stokes__solver_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>snapshots/prod/include/newton_solver.h</label>
+        <link refid="newton__solver_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>snapshots/prod/include/nonlinear_solver.h</label>
+        <link refid="nonlinear__solver_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>snapshots/prod/include/presolver_tools.h</label>
+        <link refid="presolver__tools_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>snapshots/prod/include/scratch_data.h</label>
+        <link refid="scratch__data_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>snapshots/prod/include/time_handler.h</label>
+        <link refid="time__handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>snapshots/prod/include/timestep_adaptation.h</label>
+        <link refid="timestep__adaptation_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>snapshots/prod/include/types.h</label>
+        <link refid="types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>snapshots/prod/solvers/incompressible_chns_ale.cpp</label>
+        <link refid="incompressible__chns__ale_8cpp"/>
+      </node>
+      <node id="5">
+        <label>snapshots/prod/solvers/incompressible_chns_ale_enlarged.cpp</label>
+        <link refid="incompressible__chns__ale__enlarged_8cpp"/>
+      </node>
+      <node id="16">
+        <label>snapshots/prod/src/assembly/incompressible_chns_assemblers.cpp</label>
+        <link refid="incompressible__chns__assemblers_8cpp"/>
+      </node>
+      <node id="7">
+        <label>snapshots/prod/src/elasticity_solver.cpp</label>
+        <link refid="elasticity__solver_8cpp"/>
+      </node>
+      <node id="6">
+        <label>snapshots/prod/src/incompressible_chns_solver.cpp</label>
+        <link refid="incompressible__chns__solver_8cpp"/>
+      </node>
+      <node id="14">
+        <label>snapshots/prod/src/mesh_adaptation/transient_fixed_point.cpp</label>
+        <link refid="transient__fixed__point_8cpp"/>
+      </node>
+      <node id="8">
+        <label>snapshots/prod/src/navier_stokes_solver.cpp</label>
+        <link refid="navier__stokes__solver_8cpp"/>
+      </node>
+      <node id="21">
+        <label>snapshots/prod/src/time_handler.cpp</label>
+        <link refid="time__handler_8cpp"/>
+      </node>
+      <node id="22">
+        <label>snapshots/prod/src/timestep_adaptation.cpp</label>
+        <link refid="timestep__adaptation_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespace_l_a">LA</innernamespace>
+    <innernamespace refid="namespacedealii_1_1_linear_algebra_p_e_t_sc">dealii::LinearAlgebraPETSc</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/generic_linear_algebra.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/petsc_sparse_matrix.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/trilinos_sparse_matrix.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Linear<sp/>algebra</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="namespace_l_a" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_l_a" kindref="compound">LA</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(FEZ_WITH_PETSC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii::LinearAlgebraPETSc;</highlight></codeline>
+<codeline lineno="13" refid="namespace_l_a_1a6cde9743803c7530f2daf44e83812bb0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_l_a_1a6cde9743803c7530f2daf44e83812bb0" kindref="member">ParMatrixType</ref><sp/>=<sp/>dealii::LinearAlgebraPETSc::MPI::SparseMatrix;</highlight></codeline>
+<codeline lineno="14" refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">ParVectorType</ref><sp/>=<sp/>dealii::LinearAlgebraPETSc::MPI::Vector;</highlight></codeline>
+<codeline lineno="15" refid="namespace_l_a_1a1f131a80ee6342422c6e7cf434644726" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_l_a_1a1f131a80ee6342422c6e7cf434644726" kindref="member">ConstMatrixIterator</ref><sp/>=</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>dealii::PETScWrappers::MatrixIterators::const_iterator;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(FEZ_WITH_TRILINOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii::LinearAlgebraTrilinos;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_l_a_1a6cde9743803c7530f2daf44e83812bb0" kindref="member">ParMatrixType</ref><sp/>=<sp/>dealii::LinearAlgebraTrilinos::MPI::SparseMatrix;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">ParVectorType</ref><sp/>=<sp/>dealii::LinearAlgebraTrilinos::MPI::Vector;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_l_a_1a1f131a80ee6342422c6e7cf434644726" kindref="member">ConstMatrixIterator</ref><sp/>=</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>dealii::TrilinosWrappers::SparseMatrixIterators::Iterator&lt;true&gt;;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>error<sp/>FEZ_WITH_PETSC<sp/>or<sp/>FEZ_WITH_TRILINOS<sp/>required</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>LA</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/prod/include/types.h"/>
+  </compounddef>
+</doxygen>

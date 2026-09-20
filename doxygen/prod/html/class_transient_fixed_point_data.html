@@ -1,0 +1,1218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — CHNS ALE · branche personnelle: Référence du modèle de la classe TransientFixedPointData&lt; dim &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — CHNS ALE · branche personnelle<span id="projectnumber">&#160;35d43b8e3bc4 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_transient_fixed_point_data.html','','class_transient_fixed_point_data-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du modèle de la classe TransientFixedPointData&lt; dim &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a3fa7c0d1448fa9f45ad569fa7f40b2b2" id="r_a3fa7c0d1448fa9f45ad569fa7f40b2b2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3fa7c0d1448fa9f45ad569fa7f40b2b2">TransientFixedPointData</a> (const ParameterReader&lt; dim &gt; &amp;param, TimerOutput &amp;timer, const unsigned int n_time_intervals, const MPI_Comm mpi_communicator, parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;triangulation, DoFHandler&lt; dim &gt; *&amp;dof_handler, <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *&amp;present_solution, std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *&amp;solver_previous_solutions, MetricField&lt; dim &gt; *&amp;metric_for_adaptation)</td></tr>
+<tr class="memitem:ad59031a31ce379d13b5005198e62d5d6" id="r_ad59031a31ce379d13b5005198e62d5d6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad59031a31ce379d13b5005198e62d5d6">reinit</a> (const unsigned int n_time_intervals, parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;triangulation, DoFHandler&lt; dim &gt; *&amp;dof_handler, <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *&amp;present_solution, std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *&amp;solver_previous_solutions, MetricField&lt; dim &gt; *&amp;metric_for_adaptation)</td></tr>
+<tr class="memitem:a5cc88c1aaf28b68cb0c635f6c1c52630" id="r_a5cc88c1aaf28b68cb0c635f6c1c52630"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5cc88c1aaf28b68cb0c635f6c1c52630">set_interval_data</a> (const unsigned int interval_index, parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;triangulation, DoFHandler&lt; dim &gt; *&amp;dof_handler, <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *&amp;present_solution, std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *&amp;solver_previous_solutions, MetricField&lt; dim &gt; *&amp;metric_for_adaptation)</td></tr>
+<tr class="memitem:a04f51c3783cef9a175533843b4b2a277" id="r_a04f51c3783cef9a175533843b4b2a277"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a04f51c3783cef9a175533843b4b2a277">get_n_time_intervals</a> () const</td></tr>
+<tr class="memitem:a1e18170c5ea7c8b9422e112f0b63f855" id="r_a1e18170c5ea7c8b9422e112f0b63f855"><td class="memItemLeft">parallel::DistributedTriangulationBase&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="#a1e18170c5ea7c8b9422e112f0b63f855">get_triangulation</a> (const unsigned int interval_index)</td></tr>
+<tr class="memitem:aaa545cf174272395c2fcaa9966e8e9d7" id="r_aaa545cf174272395c2fcaa9966e8e9d7"><td class="memItemLeft">DoFHandler&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="#aaa545cf174272395c2fcaa9966e8e9d7">get_dof_handler</a> (const unsigned int interval_index)</td></tr>
+<tr class="memitem:a351ef269d1f07461f554074645356a73" id="r_a351ef269d1f07461f554074645356a73"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a351ef269d1f07461f554074645356a73">get_present_solution</a> (const unsigned int interval_index)</td></tr>
+<tr class="memitem:a35c6b2b0412e057e3d434828f08bd8b2" id="r_a35c6b2b0412e057e3d434828f08bd8b2"><td class="memItemLeft">std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *&#160;</td><td class="memItemRight"><a class="el" href="#a35c6b2b0412e057e3d434828f08bd8b2">get_previous_solutions</a> (const unsigned int interval_index)</td></tr>
+<tr class="memitem:aaf255d2db0ccbc410521596646ff6d87" id="r_aaf255d2db0ccbc410521596646ff6d87"><td class="memItemLeft">MetricField&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="#aaf255d2db0ccbc410521596646ff6d87">get_metric_field</a> (const unsigned int interval_index)</td></tr>
+<tr class="memitem:a65cd3ac83fb5b42b1708caef03c87c20" id="r_a65cd3ac83fb5b42b1708caef03c87c20"><td class="memItemLeft">const MetricField&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="#a65cd3ac83fb5b42b1708caef03c87c20">get_metric_field</a> (const unsigned int interval_index) const</td></tr>
+<tr class="memitem:a0c663bafe3a27d8bcaca38ca9d5aa46f" id="r_a0c663bafe3a27d8bcaca38ca9d5aa46f"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a0c663bafe3a27d8bcaca38ca9d5aa46f">get_meshfile_name</a> (const unsigned int interval_index) const</td></tr>
+<tr class="memitem:abb451d408867c77fe6b1654ab0375f59" id="r_abb451d408867c77fe6b1654ab0375f59"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#abb451d408867c77fe6b1654ab0375f59">get_sum_of_active_cells</a> () const</td></tr>
+<tr class="memitem:abe3b88138201b081de941f16f1b5ab7f" id="r_abe3b88138201b081de941f16f1b5ab7f"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#abe3b88138201b081de941f16f1b5ab7f">get_sum_of_vertices</a> () const</td></tr>
+<tr class="memitem:a8788e3d9b1930b9d8ad5945127e7e9ea" id="r_a8788e3d9b1930b9d8ad5945127e7e9ea"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a8788e3d9b1930b9d8ad5945127e7e9ea">get_sum_of_dofs</a> () const</td></tr>
+<tr class="memitem:ad5570dce77267bceab8bf5e6d351503f" id="r_ad5570dce77267bceab8bf5e6d351503f"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#ad5570dce77267bceab8bf5e6d351503f">get_effective_space_time_complexity</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:a4a810569aa193095a031d6ea79277cd8" id="r_a4a810569aa193095a031d6ea79277cd8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4a810569aa193095a031d6ea79277cd8">transfer_solution_between_intervals</a> (const unsigned int interval_index, const Mapping&lt; dim &gt; &amp;mapping, Function&lt; dim &gt; &amp;exact_solution, const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler, const IndexSet &amp;locally_relevant_dofs, const std::vector&lt; unsigned char &gt; &amp;dofs_to_component)</td></tr>
+<tr class="memitem:a9ad2eb98e86bf811e9bc0b6f5d8605f7" id="r_a9ad2eb98e86bf811e9bc0b6f5d8605f7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9ad2eb98e86bf811e9bc0b6f5d8605f7">transfer_solution_between_refinements</a> (const IndexSet &amp;locally_relevant_dofs, const AffineConstraints&lt; double &gt; &amp;nonzero_constraints, <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *additional_solution=nullptr)</td></tr>
+<tr class="memitem:a76bcb050b324bb30d21024306836c40a" id="r_a76bcb050b324bb30d21024306836c40a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a76bcb050b324bb30d21024306836c40a">scale_metrics</a> (const unsigned int metric_index, const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler)</td></tr>
+<tr class="memitem:a0e8cf6bb4fb4cf5f3f0eb1566bfc0459" id="r_a0e8cf6bb4fb4cf5f3f0eb1566bfc0459"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0e8cf6bb4fb4cf5f3f0eb1566bfc0459">apply_gradation_to_metrics</a> ()</td></tr>
+<tr class="memitem:a626ab1c7afbd39e6925e5596e3fcb650" id="r_a626ab1c7afbd39e6925e5596e3fcb650"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a626ab1c7afbd39e6925e5596e3fcb650">adapt_meshes</a> (const Vector&lt; float &gt; &amp;criteria, const std::vector&lt; Vector&lt; float &gt; &gt; &amp;field_criteria={}, <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *additional_solution=nullptr)</td></tr>
+<tr class="memitem:a32d5ea055a6ba756405e12d6e70a9b41" id="r_a32d5ea055a6ba756405e12d6e70a9b41"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a32d5ea055a6ba756405e12d6e70a9b41">clear</a> ()</td></tr>
+<tr class="memitem:a4b23ed3cd0a894ae44a38d691c542018" id="r_a4b23ed3cd0a894ae44a38d691c542018"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4b23ed3cd0a894ae44a38d691c542018">write_summary</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler, std::ostream &amp;out=std::cout) const</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr class="memitem:a5655602c8d5a09f5ed5a0e573ca28903" id="r_a5655602c8d5a09f5ed5a0e573ca28903"><td class="memTemplParams" colspan="2">template&lt;int n_components&gt; </td></tr>
+<tr class="memitem:a5655602c8d5a09f5ed5a0e573ca28903 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5655602c8d5a09f5ed5a0e573ca28903">do_solution_transfer</a> (const unsigned int interval_index, const Mapping&lt; dim &gt; &amp;mapping, Function&lt; dim &gt; &amp;exact_solution, const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler, const IndexSet &amp;locally_relevant_dofs, const std::vector&lt; unsigned char &gt; &amp;dofs_to_component)</td></tr>
+<tr class="memitem:aa476068819068cbf50b4ea872fb92b27" id="r_aa476068819068cbf50b4ea872fb92b27"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa476068819068cbf50b4ea872fb92b27">adapt_meshes_with_mmg</a> ()</td></tr>
+<tr class="memitem:a890bd79923e8fa2ebe5370004c22729f" id="r_a890bd79923e8fa2ebe5370004c22729f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a890bd79923e8fa2ebe5370004c22729f">adapt_mesh_with_dealii_routines</a> (const Vector&lt; float &gt; &amp;criteria, const std::vector&lt; Vector&lt; float &gt; &gt; &amp;field_criteria, <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *additional_solution)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr class="memitem:a12e32a41100e26620327a9ba99cd0c09" id="r_a12e32a41100e26620327a9ba99cd0c09"><td class="memItemLeft">const ParameterReader&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a12e32a41100e26620327a9ba99cd0c09">param</a></td></tr>
+<tr class="memitem:ad7d92524a64c2bef8a55653290f98cd4" id="r_ad7d92524a64c2bef8a55653290f98cd4"><td class="memItemLeft">TimerOutput &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad7d92524a64c2bef8a55653290f98cd4">timer</a></td></tr>
+<tr class="memitem:abc864f694fe2e6629a455d67f54ba52b" id="r_abc864f694fe2e6629a455d67f54ba52b"><td class="memItemLeft">MPI_Comm&#160;</td><td class="memItemRight"><a class="el" href="#abc864f694fe2e6629a455d67f54ba52b">mpi_communicator</a></td></tr>
+<tr class="memitem:a694e06de4266e30adf4c895bfac022af" id="r_a694e06de4266e30adf4c895bfac022af"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a694e06de4266e30adf4c895bfac022af">n_time_intervals</a></td></tr>
+<tr class="memitem:abf709f87b3745550c2f6f0c3067412ac" id="r_abf709f87b3745550c2f6f0c3067412ac"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; parallel::DistributedTriangulationBase&lt; dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abf709f87b3745550c2f6f0c3067412ac">triangulations</a></td></tr>
+<tr class="memitem:a0af5d5f04292880de883573c37627123" id="r_a0af5d5f04292880de883573c37627123"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; DoFHandler&lt; dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0af5d5f04292880de883573c37627123">dof_handlers</a></td></tr>
+<tr class="memitem:ace389050d531523b9f6fea94990bfccb" id="r_ace389050d531523b9f6fea94990bfccb"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ace389050d531523b9f6fea94990bfccb">present_solutions</a></td></tr>
+<tr class="memitem:a208b111181da622e58e26fccf8dcb4b8" id="r_a208b111181da622e58e26fccf8dcb4b8"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a208b111181da622e58e26fccf8dcb4b8">previous_solutions</a></td></tr>
+<tr class="memitem:a9c443fb56abe64b550606ad021bf3ac3" id="r_a9c443fb56abe64b550606ad021bf3ac3"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; MetricField&lt; dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9c443fb56abe64b550606ad021bf3ac3">metrics_for_adaptation</a></td></tr>
+<tr class="memitem:a72f7b9b03f7809cb95ff19aabee2729f" id="r_a72f7b9b03f7809cb95ff19aabee2729f"><td class="memItemLeft">std::unique_ptr&lt; SolutionTransfer&lt; dim, <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a72f7b9b03f7809cb95ff19aabee2729f">solution_transfer</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;int dim&gt;<br />
+class TransientFixedPointData&lt; dim &gt;</div><p>A class storing the data that need to be duplicated for each time subinterval when using the transient fixed point mesh adaptation method for unsteady simulations. To use a common interface, this structure is also used for non-adaptive simulations, either steady or unsteady, in which case this class stores the data for the single, full simulation time interval.</p>
+<p>This class stores and owns (in the sense of memory management) the triangulations and dof handlers, present and previous solutions vectors, as well as the Riemannian metrics needed for anisotropic mesh adaptation.</p>
+<p>The intended use of this class is to have each solver own one such object, and store "observer" pointers, in the form of raw, non-owning pointers, to the triangulation, dof handler, etc. associated with the index-th time subinterval.</p>
+<p>A more fitting name for this class would maybe be "SolverDataCollection". </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00034">34</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a3fa7c0d1448fa9f45ad569fa7f40b2b2" name="a3fa7c0d1448fa9f45ad569fa7f40b2b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa7c0d1448fa9f45ad569fa7f40b2b2">&#9670;&#160;</a></span>TransientFixedPointData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::TransientFixedPointData </td>
+          <td>(</td>
+          <td class="paramtype">const ParameterReader&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>param</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TimerOutput &amp;</td>          <td class="paramname"><span class="paramname"><em>timer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>n_time_intervals</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const MPI_Comm</td>          <td class="paramname"><span class="paramname"><em>mpi_communicator</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>triangulation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DoFHandler&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>dof_handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *&amp;</td>          <td class="paramname"><span class="paramname"><em>present_solution</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>solver_previous_solutions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MetricField&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>metric_for_adaptation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor. Initializes the data for <code class="param">n</code> subintervals. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00023">23</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="a890bd79923e8fa2ebe5370004c22729f" name="a890bd79923e8fa2ebe5370004c22729f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a890bd79923e8fa2ebe5370004c22729f">&#9670;&#160;</a></span>adapt_mesh_with_dealii_routines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::adapt_mesh_with_dealii_routines </td>
+          <td>(</td>
+          <td class="paramtype">const Vector&lt; float &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>criteria</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; Vector&lt; float &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>field_criteria</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *</td>          <td class="paramname"><span class="paramname"><em>additional_solution</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Adapt the mesh using deal.II's adaptation routines. This function assumes a single time interval, and adapts the mesh associated with the first interval. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00780">780</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a626ab1c7afbd39e6925e5596e3fcb650" name="a626ab1c7afbd39e6925e5596e3fcb650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a626ab1c7afbd39e6925e5596e3fcb650">&#9670;&#160;</a></span>adapt_meshes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::adapt_meshes </td>
+          <td>(</td>
+          <td class="paramtype">const Vector&lt; float &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>criteria</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; Vector&lt; float &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>field_criteria</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *</td>          <td class="paramname"><span class="paramname"><em>additional_solution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adapt the meshes on all subintervals. <code class="param">additional_solution</code> optionally extends the BDF history prepared for tree-based solution transfer. </p>
+<p>For each time interval, adapt the associated mesh with mmg, using the designated Riemannian metric.</p>
+<p>Adapt the triangulation with the routines from deal.II.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00708">708</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa476068819068cbf50b4ea872fb92b27" name="aa476068819068cbf50b4ea872fb92b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa476068819068cbf50b4ea872fb92b27">&#9670;&#160;</a></span>adapt_meshes_with_mmg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::adapt_meshes_with_mmg </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Adapt the mesh for each time interval with the mmg library. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00743">743</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0e8cf6bb4fb4cf5f3f0eb1566bfc0459" name="a0e8cf6bb4fb4cf5f3f0eb1566bfc0459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e8cf6bb4fb4cf5f3f0eb1566bfc0459">&#9670;&#160;</a></span>apply_gradation_to_metrics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::apply_gradation_to_metrics </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Apply gradation to all metric fields. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00701">701</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a32d5ea055a6ba756405e12d6e70a9b41" name="a32d5ea055a6ba756405e12d6e70a9b41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32d5ea055a6ba756405e12d6e70a9b41">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clear the data for each subinterval. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00938">938</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5655602c8d5a09f5ed5a0e573ca28903" name="a5655602c8d5a09f5ed5a0e573ca28903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5655602c8d5a09f5ed5a0e573ca28903">&#9670;&#160;</a></span>do_solution_transfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<div class="memtemplate">
+template&lt;int n_components&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::do_solution_transfer </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Mapping&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>mapping</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Function&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>exact_solution</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time_handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexSet &amp;</td>          <td class="paramname"><span class="paramname"><em>locally_relevant_dofs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; unsigned char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dofs_to_component</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function that actually performs the solution transfer in parallel. It uses VectorTools::point_values() which is templated on the number of components in the FESystem, so this function is templated similarly. </p>
+<p>Transfer solution from the previous interval in parallel, using the Utilities::MPI::RemotePointEvaluation tools.</p>
+<p>This is (a priori) the worst possible case for solution transfer, as we use different fully_distributed triangulations across intervals, whose partitions are completely unrelated.</p>
+<p>This function is not expected to scale well, but it is only called N_intervals - 1 times, where N_intervals is typically small compared to the number of time steps per interval.</p>
+<p>The VectorTools::point_values() function takes a vector of evaluation points and returns the interpolated values in the same order, then we need to assign them in the solution vector.</p>
+<p>Here we create the vectors of evaluation points and of dofs at these points for each component from the map of (locally relevant) support points.</p>
+<p>For FESystems with more than one component, <em>all</em> components will be interpolated at <em>all</em> evaluation points, but not all these components have corresponding dofs (e.g., with a P2-P1 Taylor-Hood element, pressure dofs will be interpolated at P2 dofs support points even if there is no pressure dof there). Set the dofs to invalid by default for all components, then overwrite and only transfer in the solution vector if the dof is valid for that component.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00248">248</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aaa545cf174272395c2fcaa9966e8e9d7" name="aaa545cf174272395c2fcaa9966e8e9d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa545cf174272395c2fcaa9966e8e9d7">&#9670;&#160;</a></span>get_dof_handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">DoFHandler&lt; dim &gt; * <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_dof_handler </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the raw pointer to the <code class="param">interval_index-th</code> dof handler. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00136">136</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad5570dce77267bceab8bf5e6d351503f" name="ad5570dce77267bceab8bf5e6d351503f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5570dce77267bceab8bf5e6d351503f">&#9670;&#160;</a></span>get_effective_space_time_complexity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_effective_space_time_complexity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time_handler</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the effective space-time complexity associated with the collection of triangulations stored in object and the given <code class="param">time_handler</code>. This quantity is defined by:</p>
+<p>N_st := sum_intervals n_mesh_vertices_i * n_time_steps_i,</p>
+<p>where n_time_steps_i is the number of time steps spent in the i-th time interval. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00232">232</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0c663bafe3a27d8bcaca38ca9d5aa46f" name="a0c663bafe3a27d8bcaca38ca9d5aa46f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c663bafe3a27d8bcaca38ca9d5aa46f">&#9670;&#160;</a></span>get_meshfile_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_meshfile_name </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the name of the mesh file to be used for this time interval. If this is the first fixed-point iteration, this is the initial mesh file. Otherwise, this is the name of the adapted mesh on this interval. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00176">176</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aaf255d2db0ccbc410521596646ff6d87" name="aaf255d2db0ccbc410521596646ff6d87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf255d2db0ccbc410521596646ff6d87">&#9670;&#160;</a></span>get_metric_field() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">MetricField&lt; dim &gt; * <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_metric_field </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the raw pointer to the <code class="param">interval_index-th</code> Riemannian metric. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00160">160</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a65cd3ac83fb5b42b1708caef03c87c20" name="a65cd3ac83fb5b42b1708caef03c87c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65cd3ac83fb5b42b1708caef03c87c20">&#9670;&#160;</a></span>get_metric_field() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const MetricField&lt; dim &gt; * <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_metric_field </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Const version of the above </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00168">168</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a04f51c3783cef9a175533843b4b2a277" name="a04f51c3783cef9a175533843b4b2a277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f51c3783cef9a175533843b4b2a277">&#9670;&#160;</a></span>get_n_time_intervals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_n_time_intervals </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the number of time intervals stored in this object. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00120">120</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a351ef269d1f07461f554074645356a73" name="a351ef269d1f07461f554074645356a73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351ef269d1f07461f554074645356a73">&#9670;&#160;</a></span>get_present_solution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> * <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_present_solution </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the raw pointer to the <code class="param">interval_index-th</code> solution vector. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00143">143</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a35c6b2b0412e057e3d434828f08bd8b2" name="a35c6b2b0412e057e3d434828f08bd8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c6b2b0412e057e3d434828f08bd8b2">&#9670;&#160;</a></span>get_previous_solutions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; * <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_previous_solutions </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the raw pointer to the <code class="param">interval_index-th</code> vector of previous solution vectors. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00152">152</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abb451d408867c77fe6b1654ab0375f59" name="abb451d408867c77fe6b1654ab0375f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb451d408867c77fe6b1654ab0375f59">&#9670;&#160;</a></span>get_sum_of_active_cells()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_sum_of_active_cells </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the sum of the active cells among the triangulations of all time intervals. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00205">205</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8788e3d9b1930b9d8ad5945127e7e9ea" name="a8788e3d9b1930b9d8ad5945127e7e9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8788e3d9b1930b9d8ad5945127e7e9ea">&#9670;&#160;</a></span>get_sum_of_dofs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_sum_of_dofs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the sum of all dofs among the dof handlers of all time intervals. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00223">223</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abe3b88138201b081de941f16f1b5ab7f" name="abe3b88138201b081de941f16f1b5ab7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe3b88138201b081de941f16f1b5ab7f">&#9670;&#160;</a></span>get_sum_of_vertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_sum_of_vertices </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the sum of the mesh vertices among the triangulations of all time intervals. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00214">214</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1e18170c5ea7c8b9422e112f0b63f855" name="a1e18170c5ea7c8b9422e112f0b63f855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e18170c5ea7c8b9422e112f0b63f855">&#9670;&#160;</a></span>get_triangulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">parallel::DistributedTriangulationBase&lt; dim &gt; * <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::get_triangulation </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the raw pointer to the <code class="param">interval_index-th</code> triangulation. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00127">127</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad59031a31ce379d13b5005198e62d5d6" name="ad59031a31ce379d13b5005198e62d5d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad59031a31ce379d13b5005198e62d5d6">&#9670;&#160;</a></span>reinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::reinit </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>n_time_intervals</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>triangulation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DoFHandler&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>dof_handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *&amp;</td>          <td class="paramname"><span class="paramname"><em>present_solution</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>solver_previous_solutions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MetricField&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>metric_for_adaptation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reinitialize this object to hold data for <code class="param">n_time_intervals</code> intervals. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00047">47</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a76bcb050b324bb30d21024306836c40a" name="a76bcb050b324bb30d21024306836c40a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76bcb050b324bb30d21024306836c40a">&#9670;&#160;</a></span>scale_metrics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::scale_metrics </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>metric_index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time_handler</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Apply a local and global scaling to all metric fields. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00617">617</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5cc88c1aaf28b68cb0c635f6c1c52630" name="a5cc88c1aaf28b68cb0c635f6c1c52630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc88c1aaf28b68cb0c635f6c1c52630">&#9670;&#160;</a></span>set_interval_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::set_interval_data </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">parallel::DistributedTriangulationBase&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>triangulation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DoFHandler&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>dof_handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *&amp;</td>          <td class="paramname"><span class="paramname"><em>present_solution</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>solver_previous_solutions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MetricField&lt; dim &gt; *&amp;</td>          <td class="paramname"><span class="paramname"><em>metric_for_adaptation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Assign the data associated with the interval_index-th time interval to the given pointers. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00102">102</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4a810569aa193095a031d6ea79277cd8" name="a4a810569aa193095a031d6ea79277cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a810569aa193095a031d6ea79277cd8">&#9670;&#160;</a></span>transfer_solution_between_intervals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::transfer_solution_between_intervals </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>interval_index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Mapping&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>mapping</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Function&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>exact_solution</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time_handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IndexSet &amp;</td>          <td class="paramname"><span class="paramname"><em>locally_relevant_dofs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; unsigned char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dofs_to_component</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transfer the current and previous solution from the (interval_index - 1)-th interval to the <code class="param">interval_index-th</code> interval. </p>
+<p>VectorTools::point_values&lt;n_components&gt; needs the number of components at compile time, which we currently do not have access to from the NS base class.</p>
+<p>FIXME: would be cleaner to have a way to get it, but that probably involves adding a template parameter to the NS base class...</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00434">434</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9ad2eb98e86bf811e9bc0b6f5d8605f7" name="a9ad2eb98e86bf811e9bc0b6f5d8605f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad2eb98e86bf811e9bc0b6f5d8605f7">&#9670;&#160;</a></span>transfer_solution_between_refinements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::transfer_solution_between_refinements </td>
+          <td>(</td>
+          <td class="paramtype">const IndexSet &amp;</td>          <td class="paramname"><span class="paramname"><em>locally_relevant_dofs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AffineConstraints&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>nonzero_constraints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *</td>          <td class="paramname"><span class="paramname"><em>additional_solution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transfer the solutions associated with the previous state of refinement of the triangulation to the solutions associated with its current state. This function is used when using the deal.II refinement and coarsening routines, and thus expects a single time interval (i.e., a single triangulation) for now.</p>
+<p>This function interpolates the data stored in the SolutionTransfer object, which must have been previously (re-)initialized in <a class="el" href="#a626ab1c7afbd39e6925e5596e3fcb650">adapt_meshes()</a>. When supplied, <code class="param">additional_solution</code> is transferred with the BDF history. </p>
+<p>At this point, we only have the nonzero_constraints for the current time available, but not for the previous times, see also the discussion in step-86.cc (transfer_solution_vectors_to_new_mesh).</p>
+<p>What we can do, however, is create the hanging node constraints for the current mesh, and apply them to the previous solutions.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00558">558</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4b23ed3cd0a894ae44a38d691c542018" name="a4b23ed3cd0a894ae44a38d691c542018"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b23ed3cd0a894ae44a38d691c542018">&#9670;&#160;</a></span>write_summary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::write_summary </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>time_handler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;</td>          <td class="paramname"><span class="paramname"><em>out</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::cout</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write a summary of the data stored in this object, such as the number of intervals, their starting and ending times, the number of time steps spent in each interval, the number of mesh vertices, of dofs, etc. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8cpp_source.html#l00951">951</a> du fichier <a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="a0af5d5f04292880de883573c37627123" name="a0af5d5f04292880de883573c37627123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0af5d5f04292880de883573c37627123">&#9670;&#160;</a></span>dof_handlers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;DoFHandler&lt;dim&gt; &gt; &gt; <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::dof_handlers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00269">269</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="a9c443fb56abe64b550606ad021bf3ac3" name="a9c443fb56abe64b550606ad021bf3ac3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c443fb56abe64b550606ad021bf3ac3">&#9670;&#160;</a></span>metrics_for_adaptation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;MetricField&lt;dim&gt; &gt; &gt; <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::metrics_for_adaptation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00285">285</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="abc864f694fe2e6629a455d67f54ba52b" name="abc864f694fe2e6629a455d67f54ba52b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc864f694fe2e6629a455d67f54ba52b">&#9670;&#160;</a></span>mpi_communicator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MPI_Comm <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::mpi_communicator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00253">253</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="a694e06de4266e30adf4c895bfac022af" name="a694e06de4266e30adf4c895bfac022af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a694e06de4266e30adf4c895bfac022af">&#9670;&#160;</a></span>n_time_intervals</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::n_time_intervals</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00258">258</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="a12e32a41100e26620327a9ba99cd0c09" name="a12e32a41100e26620327a9ba99cd0c09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12e32a41100e26620327a9ba99cd0c09">&#9670;&#160;</a></span>param</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ParameterReader&lt;dim&gt;&amp; <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::param</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00243">243</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="ace389050d531523b9f6fea94990bfccb" name="ace389050d531523b9f6fea94990bfccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace389050d531523b9f6fea94990bfccb">&#9670;&#160;</a></span>present_solutions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&gt; &gt; <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::present_solutions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00274">274</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="a208b111181da622e58e26fccf8dcb4b8" name="a208b111181da622e58e26fccf8dcb4b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a208b111181da622e58e26fccf8dcb4b8">&#9670;&#160;</a></span>previous_solutions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;std::vector&lt;<a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&gt; &gt; &gt; <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::previous_solutions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00280">280</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="a72f7b9b03f7809cb95ff19aabee2729f" name="a72f7b9b03f7809cb95ff19aabee2729f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72f7b9b03f7809cb95ff19aabee2729f">&#9670;&#160;</a></span>solution_transfer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;SolutionTransfer&lt;dim, <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&gt; &gt; <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::solution_transfer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00290">290</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="ad7d92524a64c2bef8a55653290f98cd4" name="ad7d92524a64c2bef8a55653290f98cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7d92524a64c2bef8a55653290f98cd4">&#9670;&#160;</a></span>timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TimerOutput&amp; <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::timer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00248">248</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<a id="abf709f87b3745550c2f6f0c3067412ac" name="abf709f87b3745550c2f6f0c3067412ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf709f87b3745550c2f6f0c3067412ac">&#9670;&#160;</a></span>triangulations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;parallel::DistributedTriangulationBase&lt;dim&gt; &gt; &gt; <a class="el" href="class_transient_fixed_point_data.html">TransientFixedPointData</a>&lt; dim &gt;::triangulations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="transient__fixed__point_8h_source.html#l00264">264</a> du fichier <a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/prod/include/mesh_adaptation/<a class="el" href="transient__fixed__point_8h_source.html">transient_fixed_point.h</a></li>
+<li>snapshots/prod/src/mesh_adaptation/<a class="el" href="transient__fixed__point_8cpp_source.html">transient_fixed_point.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_transient_fixed_point_data.html">TransientFixedPointData</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

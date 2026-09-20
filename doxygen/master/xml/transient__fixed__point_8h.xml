@@ -1,0 +1,418 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="transient__fixed__point_8h" kind="file" language="C++">
+    <compoundname>transient_fixed_point.h</compoundname>
+    <includes local="no">deal.II/base/timer.h</includes>
+    <includes local="no">deal.II/distributed/fully_distributed_tria.h</includes>
+    <includes local="no">deal.II/distributed/tria.h</includes>
+    <includes local="no">deal.II/dofs/dof_handler.h</includes>
+    <includes local="no">deal.II/lac/affine_constraints.h</includes>
+    <includes local="no">deal.II/numerics/solution_transfer.h</includes>
+    <includes local="no">metric_field.h</includes>
+    <includes local="no">parameter_reader.h</includes>
+    <includes refid="time__handler_8h" local="no">time_handler.h</includes>
+    <includes refid="types_8h" local="no">types.h</includes>
+    <includedby refid="transient__fixed__point_8cpp" local="no">snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>snapshots/master/include/mesh_adaptation/transient_fixed_point.h</label>
+        <link refid="transient__fixed__point_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>time_handler.h</label>
+        <link refid="time__handler_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>components_ordering.h</label>
+      </node>
+      <node id="12">
+        <label>deal.II/base/conditional_ostream.h</label>
+      </node>
+      <node id="2">
+        <label>deal.II/base/timer.h</label>
+      </node>
+      <node id="13">
+        <label>deal.II/base/types.h</label>
+      </node>
+      <node id="3">
+        <label>deal.II/distributed/fully_distributed_tria.h</label>
+      </node>
+      <node id="4">
+        <label>deal.II/distributed/tria.h</label>
+      </node>
+      <node id="5">
+        <label>deal.II/dofs/dof_handler.h</label>
+      </node>
+      <node id="6">
+        <label>deal.II/lac/affine_constraints.h</label>
+      </node>
+      <node id="16">
+        <label>deal.II/lac/generic_linear_algebra.h</label>
+      </node>
+      <node id="17">
+        <label>deal.II/lac/petsc_sparse_matrix.h</label>
+      </node>
+      <node id="18">
+        <label>deal.II/lac/trilinos_sparse_matrix.h</label>
+      </node>
+      <node id="7">
+        <label>deal.II/numerics/solution_transfer.h</label>
+      </node>
+      <node id="8">
+        <label>metric_field.h</label>
+      </node>
+      <node id="9">
+        <label>parameter_reader.h</label>
+      </node>
+      <node id="14">
+        <label>parameters.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>snapshots/master/include/mesh_adaptation/transient_fixed_point.h</label>
+        <link refid="transient__fixed__point_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>snapshots/master/src/mesh_adaptation/transient_fixed_point.cpp</label>
+        <link refid="transient__fixed__point_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_transient_fixed_point_data" prot="public">TransientFixedPointData</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TRANSIENT_FIXED_POINT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TRANSIENT_FIXED_POINT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/base/timer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/distributed/fully_distributed_tria.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/distributed/tria.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/dofs/dof_handler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/affine_constraints.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/numerics/solution_transfer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;metric_field.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;parameter_reader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="time__handler_8h" kindref="compound">time_handler.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="types_8h" kindref="compound">types.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>A<sp/>class<sp/>storing<sp/>the<sp/>data<sp/>that<sp/>need<sp/>to<sp/>be<sp/>duplicated<sp/>for<sp/>each<sp/>time</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>subinterval<sp/>when<sp/>using<sp/>the<sp/>transient<sp/>fixed<sp/>point<sp/>mesh<sp/>adaptation<sp/>method<sp/>for</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>unsteady<sp/>simulations.<sp/>To<sp/>use<sp/>a<sp/>common<sp/>interface,<sp/>this<sp/>structure<sp/>is<sp/>also<sp/>used</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>for<sp/>non-adaptive<sp/>simulations,<sp/>either<sp/>steady<sp/>or<sp/>unsteady,<sp/>in<sp/>which<sp/>case</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>this<sp/>class<sp/>stores<sp/>the<sp/>data<sp/>for<sp/>the<sp/>single,<sp/>full<sp/>simulation<sp/>time<sp/>interval.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>This<sp/>class<sp/>stores<sp/>and<sp/>owns<sp/>(in<sp/>the<sp/>sense<sp/>of<sp/>memory<sp/>management)<sp/>the</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>triangulations<sp/>and<sp/>dof<sp/>handlers,<sp/>present<sp/>and<sp/>previous<sp/>solutions<sp/>vectors,<sp/>as</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>well<sp/>as<sp/>the<sp/>Riemannian<sp/>metrics<sp/>needed<sp/>for<sp/>anisotropic<sp/>mesh<sp/>adaptation.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>The<sp/>intended<sp/>use<sp/>of<sp/>this<sp/>class<sp/>is<sp/>to<sp/>have<sp/>each<sp/>solver<sp/>own<sp/>one<sp/>such<sp/>object,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>and<sp/>store<sp/>&quot;observer&quot;<sp/>pointers,<sp/>in<sp/>the<sp/>form<sp/>of</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>raw,<sp/>non-owning<sp/>pointers,<sp/>to<sp/>the<sp/>triangulation,<sp/>dof<sp/>handler,<sp/>etc.<sp/>associated</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>with<sp/>the<sp/>index-th<sp/>time<sp/>subinterval.</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>A<sp/>more<sp/>fitting<sp/>name<sp/>for<sp/>this<sp/>class<sp/>would<sp/>maybe<sp/>be<sp/>&quot;SolverDataCollection&quot;.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="34" refid="class_transient_fixed_point_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_transient_fixed_point_data_1a3fa7c0d1448fa9f45ad569fa7f40b2b2" kindref="member">TransientFixedPointData</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Constructor.<sp/>Initializes<sp/>the<sp/>data<sp/>for<sp/>@p<sp/>n<sp/>subintervals.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="class_transient_fixed_point_data_1a3fa7c0d1448fa9f45ad569fa7f40b2b2" kindref="member">TransientFixedPointData</ref>(</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_transient_fixed_point_data_1a12e32a41100e26620327a9ba99cd0c09" kindref="member">param</ref>,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>TimerOutput<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_transient_fixed_point_data_1ad7d92524a64c2bef8a55653290f98cd4" kindref="member">timer</ref>,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_transient_fixed_point_data_1a694e06de4266e30adf4c895bfac022af" kindref="member">n_time_intervals</ref>,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>MPI_Comm<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_transient_fixed_point_data_1abc864f694fe2e6629a455d67f54ba52b" kindref="member">mpi_communicator</ref>,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>parallel::DistributedTriangulationBase&lt;dim&gt;<sp/>*&amp;triangulation,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>DoFHandler&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;dof_handler,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;present_solution,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;LA::ParVectorType&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;solver_previous_solutions,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>MetricField&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;metric_for_adaptation);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Reinitialize<sp/>this<sp/>object<sp/>to<sp/>hold<sp/>data<sp/>for<sp/>@p<sp/>n_time_intervals<sp/>intervals.</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1ad59031a31ce379d13b5005198e62d5d6" kindref="member">reinit</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_transient_fixed_point_data_1a694e06de4266e30adf4c895bfac022af" kindref="member">n_time_intervals</ref>,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parallel::DistributedTriangulationBase&lt;dim&gt;<sp/>*&amp;triangulation,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DoFHandler&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;dof_handler,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;present_solution,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;LA::ParVectorType&gt;<sp/>*&amp;solver_previous_solutions,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MetricField&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;metric_for_adaptation);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Assign<sp/>the<sp/>data<sp/>associated<sp/>with<sp/>the<sp/>interval_index-th<sp/>time<sp/>interval<sp/>to<sp/>the</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/>*<sp/>given<sp/>pointers.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="class_transient_fixed_point_data_1a5cc88c1aaf28b68cb0c635f6c1c52630" kindref="member">set_interval_data</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interval_index,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parallel::DistributedTriangulationBase&lt;dim&gt;<sp/>*&amp;triangulation,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DoFHandler&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;dof_handler,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;present_solution,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;LA::ParVectorType&gt;<sp/>*&amp;solver_previous_solutions,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MetricField&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&amp;metric_for_adaptation);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>the<sp/>number<sp/>of<sp/>time<sp/>intervals<sp/>stored<sp/>in<sp/>this<sp/>object.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a04f51c3783cef9a175533843b4b2a277" kindref="member">get_n_time_intervals</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Get<sp/>the<sp/>raw<sp/>pointer<sp/>to<sp/>the<sp/>@p<sp/>interval_index-th<sp/>triangulation.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>parallel::DistributedTriangulationBase&lt;dim&gt;<sp/>*</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="class_transient_fixed_point_data_1a1e18170c5ea7c8b9422e112f0b63f855" kindref="member">get_triangulation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interval_index);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Get<sp/>the<sp/>raw<sp/>pointer<sp/>to<sp/>the<sp/>@p<sp/>interval_index-th<sp/>dof<sp/>handler.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>DoFHandler&lt;dim&gt;<sp/>*<ref refid="class_transient_fixed_point_data_1aaa545cf174272395c2fcaa9966e8e9d7" kindref="member">get_dof_handler</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interval_index);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Get<sp/>the<sp/>raw<sp/>pointer<sp/>to<sp/>the<sp/>@p<sp/>interval_index-th<sp/>solution<sp/>vector.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>*<ref refid="class_transient_fixed_point_data_1a351ef269d1f07461f554074645356a73" kindref="member">get_present_solution</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interval_index);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Get<sp/>the<sp/>raw<sp/>pointer<sp/>to<sp/>the<sp/>@p<sp/>interval_index-th<sp/>vector<sp/>of<sp/>previous<sp/>solution</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/>*<sp/>vectors.</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>std::vector&lt;LA::ParVectorType&gt;<sp/>*</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="class_transient_fixed_point_data_1a35c6b2b0412e057e3d434828f08bd8b2" kindref="member">get_previous_solutions</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interval_index);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Get<sp/>the<sp/>raw<sp/>pointer<sp/>to<sp/>the<sp/>@p<sp/>interval_index-th<sp/>Riemannian<sp/>metric.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>MetricField&lt;dim&gt;<sp/>*<ref refid="class_transient_fixed_point_data_1aaf255d2db0ccbc410521596646ff6d87" kindref="member">get_metric_field</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interval_index);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Const<sp/>version<sp/>of<sp/>the<sp/>above</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>MetricField&lt;dim&gt;<sp/>*</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><ref refid="class_transient_fixed_point_data_1aaf255d2db0ccbc410521596646ff6d87" kindref="member">get_metric_field</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interval_index)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>the<sp/>name<sp/>of<sp/>the<sp/>mesh<sp/>file<sp/>to<sp/>be<sp/>used<sp/>for<sp/>this<sp/>time<sp/>interval.</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/>*<sp/>If<sp/>this<sp/>is<sp/>the<sp/>first<sp/>fixed-point<sp/>iteration,<sp/>this<sp/>is<sp/>the<sp/>initial<sp/>mesh<sp/>file.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Otherwise,<sp/>this<sp/>is<sp/>the<sp/>name<sp/>of<sp/>the<sp/>adapted<sp/>mesh<sp/>on<sp/>this<sp/>interval.</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="class_transient_fixed_point_data_1a0c663bafe3a27d8bcaca38ca9d5aa46f" kindref="member">get_meshfile_name</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>interval_index)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>the<sp/>sum<sp/>of<sp/>the<sp/>active<sp/>cells<sp/>among<sp/>the<sp/>triangulations<sp/>of<sp/>all<sp/>time</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/><sp/>*<sp/>intervals.</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1abb451d408867c77fe6b1654ab0375f59" kindref="member">get_sum_of_active_cells</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>the<sp/>sum<sp/>of<sp/>the<sp/>mesh<sp/>vertices<sp/>among<sp/>the<sp/>triangulations<sp/>of<sp/>all<sp/>time</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/><sp/><sp/>*<sp/>intervals.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1abe3b88138201b081de941f16f1b5ab7f" kindref="member">get_sum_of_vertices</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>the<sp/>sum<sp/>of<sp/>all<sp/>dofs<sp/>among<sp/>the<sp/>dof<sp/>handlers<sp/>of<sp/>all<sp/>time<sp/>intervals.</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a8788e3d9b1930b9d8ad5945127e7e9ea" kindref="member">get_sum_of_dofs</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>the<sp/>effective<sp/>space-time<sp/>complexity<sp/>associated<sp/>with<sp/>the<sp/>collection</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/>*<sp/>of<sp/>triangulations<sp/>stored<sp/>in<sp/>object<sp/>and<sp/>the<sp/>given<sp/>@p<sp/>time_handler.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>quantity<sp/>is<sp/>defined<sp/>by:</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/><sp/><sp/>*<sp/><sp/><sp/>N_st<sp/>:=<sp/>sum_intervals<sp/>n_mesh_vertices_i<sp/>*<sp/>n_time_steps_i,</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/><sp/><sp/>*<sp/>where<sp/>n_time_steps_i<sp/>is<sp/>the<sp/>number<sp/>of<sp/>time<sp/>steps<sp/>spent<sp/>in<sp/>the<sp/>i-th<sp/>time</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/>*<sp/>interval.</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><ref refid="class_transient_fixed_point_data_1ad5570dce77267bceab8bf5e6d351503f" kindref="member">get_effective_space_time_complexity</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/>&amp;time_handler)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Transfer<sp/>the<sp/>current<sp/>and<sp/>previous<sp/>solution<sp/>from<sp/>the<sp/>(interval_index<sp/>-<sp/>1)-th</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/>*<sp/>interval<sp/>to<sp/>the<sp/>@p<sp/>interval_index-th<sp/>interval.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a4a810569aa193095a031d6ea79277cd8" kindref="member">transfer_solution_between_intervals</ref>(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interval_index,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Mapping&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;mapping,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>Function&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;exact_solution,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;time_handler,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IndexSet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;locally_relevant_dofs,</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>char&gt;<sp/>&amp;dofs_to_component);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Transfer<sp/>the<sp/>solutions<sp/>associated<sp/>with<sp/>the<sp/>previous<sp/>state<sp/>of<sp/>refinement<sp/>of</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/>*<sp/>the<sp/>triangulation<sp/>to<sp/>the<sp/>solutions<sp/>associated<sp/>with<sp/>its<sp/>current<sp/>state.<sp/>This</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/><sp/>*<sp/>function<sp/>is<sp/>used<sp/>when<sp/>using<sp/>the<sp/>deal.II<sp/>refinement<sp/>and<sp/>coarsening<sp/>routines,</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/><sp/>*<sp/>and<sp/>thus<sp/>expects<sp/>a<sp/>single<sp/>time<sp/>interval<sp/>(i.e.,<sp/>a<sp/>single<sp/>triangulation)<sp/>for</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/>*<sp/>now.</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>functions<sp/>interpolates<sp/>the<sp/>data<sp/>stored<sp/>in<sp/>the<sp/>SolutionTransfer<sp/>object,</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/>*<sp/>which<sp/>must<sp/>have<sp/>been<sp/>previously<sp/>(re-)initialized<sp/>in<sp/>adapt_meshes().</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a490a0a16f0746df6be9237fbbf9a3d36" kindref="member">transfer_solution_between_refinements</ref>(</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IndexSet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;locally_relevant_dofs,</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>AffineConstraints&lt;double&gt;<sp/>&amp;nonzero_constraints);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Apply<sp/>a<sp/>local<sp/>and<sp/>global<sp/>scaling<sp/>to<sp/>all<sp/>metric<sp/>fields.</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a76bcb050b324bb30d21024306836c40a" kindref="member">scale_metrics</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>metric_index,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/>&amp;time_handler);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Apply<sp/>gradation<sp/>to<sp/>all<sp/>metric<sp/>fields.</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a0e8cf6bb4fb4cf5f3f0eb1566bfc0459" kindref="member">apply_gradation_to_metrics</ref>();</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Adapt<sp/>the<sp/>meshes<sp/>on<sp/>all<sp/>subintervals.</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a7d9012291e63eaab87b3f2ec8d6c3235" kindref="member">adapt_meshes</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vector&lt;float&gt;<sp/>&amp;criteria);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Clear<sp/>the<sp/>data<sp/>for<sp/>each<sp/>subinterval.</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a32d5ea055a6ba756405e12d6e70a9b41" kindref="member">clear</ref>();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Write<sp/>a<sp/>summary<sp/>of<sp/>the<sp/>data<sp/>stored<sp/>in<sp/>this<sp/>object,<sp/>such<sp/>as<sp/>the<sp/>number<sp/>of</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/><sp/><sp/>*<sp/>intervals,<sp/>their<sp/>starting<sp/>and<sp/>ending<sp/>times,<sp/>the<sp/>number<sp/>of<sp/>time<sp/>steps<sp/>spent</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/><sp/><sp/>*<sp/>in<sp/>each<sp/>interval,<sp/>the<sp/>number<sp/>of<sp/>mesh<sp/>vertices,<sp/>of<sp/>dofs,<sp/>etc.</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a4b23ed3cd0a894ae44a38d691c542018" kindref="member">write_summary</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/>&amp;time_handler,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::ostream<sp/><sp/><sp/><sp/><sp/><sp/>&amp;out<sp/>=<sp/>std::cout)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Function<sp/>that<sp/>actually<sp/>performs<sp/>the<sp/>solution<sp/>transfer<sp/>in<sp/>parallel.</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/><sp/><sp/>*<sp/>It<sp/>uses<sp/>VectorTools::point_values()<sp/>which<sp/>is<sp/>templated<sp/>on<sp/>the<sp/>number<sp/>of</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/><sp/><sp/>*<sp/>components<sp/>in<sp/>the<sp/>FESystem,<sp/>so<sp/>this<sp/>function<sp/>is<sp/>templated<sp/>similarly.</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_components&gt;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><ref refid="class_transient_fixed_point_data_1a5655602c8d5a09f5ed5a0e573ca28903" kindref="member">do_solution_transfer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interval_index,</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Mapping&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;mapping,</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Function&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;exact_solution,</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;time_handler,</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IndexSet<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;locally_relevant_dofs,</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;unsigned<sp/>char&gt;<sp/>&amp;dofs_to_component);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Adapt<sp/>the<sp/>mesh<sp/>for<sp/>each<sp/>time<sp/>interval<sp/>with<sp/>the<sp/>mmg<sp/>library.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1aa476068819068cbf50b4ea872fb92b27" kindref="member">adapt_meshes_with_mmg</ref>();</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Adapt<sp/>the<sp/>mesh<sp/>using<sp/>deal.II&apos;s<sp/>adaptation<sp/>routines.</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>function<sp/>assumes<sp/>a<sp/>single<sp/>time<sp/>interval,<sp/>and<sp/>adapts<sp/>the<sp/>mesh</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/><sp/><sp/>*<sp/>associated<sp/>with<sp/>the<sp/>first<sp/>interval.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a5521e6f464505e7ebe7e36b2fb766a96" kindref="member">adapt_mesh_with_dealii_routines</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vector&lt;float&gt;<sp/>&amp;criteria);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235" refid="class_transient_fixed_point_data_1a12e32a41100e26620327a9ba99cd0c09" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/>&amp;<ref refid="class_transient_fixed_point_data_1a12e32a41100e26620327a9ba99cd0c09" kindref="member">param</ref>;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240" refid="class_transient_fixed_point_data_1ad7d92524a64c2bef8a55653290f98cd4" refkind="member"><highlight class="normal"><sp/><sp/>TimerOutput<sp/>&amp;<ref refid="class_transient_fixed_point_data_1ad7d92524a64c2bef8a55653290f98cd4" kindref="member">timer</ref>;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245" refid="class_transient_fixed_point_data_1abc864f694fe2e6629a455d67f54ba52b" refkind="member"><highlight class="normal"><sp/><sp/>MPI_Comm<sp/><ref refid="class_transient_fixed_point_data_1abc864f694fe2e6629a455d67f54ba52b" kindref="member">mpi_communicator</ref>;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250" refid="class_transient_fixed_point_data_1a694e06de4266e30adf4c895bfac022af" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_transient_fixed_point_data_1a694e06de4266e30adf4c895bfac022af" kindref="member">n_time_intervals</ref>;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>std::vector&lt;std::unique_ptr&lt;parallel::DistributedTriangulationBase&lt;dim&gt;&gt;&gt;</highlight></codeline>
+<codeline lineno="256" refid="class_transient_fixed_point_data_1abf709f87b3745550c2f6f0c3067412ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_transient_fixed_point_data_1abf709f87b3745550c2f6f0c3067412ac" kindref="member">triangulations</ref>;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261" refid="class_transient_fixed_point_data_1a0af5d5f04292880de883573c37627123" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;std::unique_ptr&lt;DoFHandler&lt;dim&gt;&gt;&gt;<sp/><ref refid="class_transient_fixed_point_data_1a0af5d5f04292880de883573c37627123" kindref="member">dof_handlers</ref>;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="class_transient_fixed_point_data_1ace389050d531523b9f6fea94990bfccb" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;std::unique_ptr&lt;LA::ParVectorType&gt;&gt;<sp/><ref refid="class_transient_fixed_point_data_1ace389050d531523b9f6fea94990bfccb" kindref="member">present_solutions</ref>;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/>std::vector&lt;std::unique_ptr&lt;std::vector&lt;LA::ParVectorType&gt;&gt;&gt;</highlight></codeline>
+<codeline lineno="272" refid="class_transient_fixed_point_data_1a208b111181da622e58e26fccf8dcb4b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_transient_fixed_point_data_1a208b111181da622e58e26fccf8dcb4b8" kindref="member">previous_solutions</ref>;</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="class_transient_fixed_point_data_1a9c443fb56abe64b550606ad021bf3ac3" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;std::unique_ptr&lt;MetricField&lt;dim&gt;&gt;&gt;<sp/><ref refid="class_transient_fixed_point_data_1a9c443fb56abe64b550606ad021bf3ac3" kindref="member">metrics_for_adaptation</ref>;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282" refid="class_transient_fixed_point_data_1a72f7b9b03f7809cb95ff19aabee2729f" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;SolutionTransfer&lt;dim,<sp/>LA::ParVectorType&gt;&gt;<sp/><ref refid="class_transient_fixed_point_data_1a72f7b9b03f7809cb95ff19aabee2729f" kindref="member">solution_transfer</ref>;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/master/include/mesh_adaptation/transient_fixed_point.h"/>
+  </compounddef>
+</doxygen>

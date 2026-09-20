@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['u_5flower_0',['u_lower',['../class_c_h_n_s_solver_1_1_m_m_s_solution.html#a038b7f6d588c999774889adc18dba191',1,'CHNSSolver::MMSSolution::u_lower'],['../class_c_h_n_s_solver_1_1_m_m_s_source_term.html#aab8aad9ee31450e0f5c35ab55c735b0f',1,'CHNSSolver::MMSSourceTerm::u_lower'],['../class_navier_stokes_scratch_1_1_scratch_data.html#a1d29f7084bd517586078be1de17cdd00',1,'NavierStokesScratch::ScratchData::u_lower']]],
+  ['use_5fquads_1',['use_quads',['../class_navier_stokes_scratch_1_1_scratch_data.html#aa49adfa8f4f9170d71494a3cbbc8cbac',1,'NavierStokesScratch::ScratchData']]]
+];

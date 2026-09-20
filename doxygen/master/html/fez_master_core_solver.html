@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — master: Parcours du solveur CHNS — master, jour 1</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — master<span id="projectnumber">&#160;ccf20caa0745 · Jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('fez_master_core_solver.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Parcours du solveur CHNS — master, jour 1 </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_guides_2master_2features_2core-solver"></a></p>
+<p>Révision : <span class="tt">ccf20caa0745cc2fe640f879d34acf2bf3855e6c</span>. Méthode : lecture statique de GitHub. Aucun build ni calcul FEZ exécuté. Les liens désignent cette révision, pas une branche mobile.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Ce que cette fiche permet de retrouver</h1>
+<p>Le symbole C++ réel est <b><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a></b>, défini dans <span class="tt"><a class="el" href="incompressible__chns__solver_8h.html">include/incompressible_chns_solver.h</a></span>. Il hérite de <b><a class="el" href="class_navier_stokes_solver.html">NavierStokesSolver</a></b>, qui hérite de <b><span class="tt"><a class="el" href="class_generic_solver.html">GenericSolver</a>&lt;<a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&gt;</span></b>. Le premier choisit les champs et les formes CHNS ; le deuxième organise une simulation Navier–Stokes et ses variantes ; le troisième fournit l'interface utilisée par Newton et les boucles de convergence/adaptation. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/incompressible_chns_solver.h#L16-L22">Héritage CHNS</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/navier_stokes_solver.h#L32-L73">héritage NS</a>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Entrée → simulation → Newton</h1>
+<ol type="1">
+<li><span class="tt"><a class="el" href="incompressible__chns_8cpp.html">solvers/incompressible_chns.cpp</a>::main</span> initialise MPI avec un thread, lit le fichier de paramètres et choisit une instanciation 2D ou 3D. Il construit <span class="tt"><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt;dim&gt;</span>, donc la variante au paramètre <span class="tt">with_moving_mesh=false</span> par défaut. Il choisit ensuite étude MMS, boucle de point fixe métrique, ou <span class="tt">run()</span>. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/solvers/incompressible_chns.cpp#L6-L65">Entrée</a>.</li>
+<li><span class="tt"><a class="el" href="class_navier_stokes_solver.html#a628c47919d75c5c48da43dadb4d57985">NavierStokesSolver::run</a></span> appelle <span class="tt">reset</span>, <span class="tt">initialize</span>, puis <span class="tt">run_time_subinterval</span> pour chaque intervalle, et <span class="tt">finalize</span>. Le travail métrique final est conditionnel. <span class="tt">initialize</span> appelle la méthode virtuelle <span class="tt">setup_assemblers</span>, ici celle de CHNS. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L409-L434">Cycle</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L135-L157">initialisation</a>.</li>
+<li>Un sous-intervalle lit ou restaure le maillage, distribue les DoFs, crée mappings, scratch, contraintes et structure creuse. À chaque pas : avancer le temps, appliquer les conditions aux limites, résoudre ou utiliser la solution exacte, puis accepter/recommencer le pas. Les solutions BDF sont tournées après post-traitement et adaptation éventuelle. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L260-L386">Sous-intervalle</a>.</li>
+<li><span class="tt"><a class="el" href="class_generic_solver.html#a7aaed7416c745ba959ad6f5bb3061b60">GenericSolver::solve_nonlinear_problem</a></span> délègue à l'objet Newton créé dans son constructeur. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/generic_solver.cpp#L29-L35">Création</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/generic_solver.cpp#L245-L257">délégation</a>.</li>
+<li>Newton évalue le second membre, en calcule la norme <b>L2</b>, vérifie la tolérance, décide de réassembler la matrice, puis résout le système linéaire. Il applique ensuite l'incrément, éventuellement avec recherche linéaire, et redistribue les contraintes non homogènes. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L57-L129">Itération</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L186-L212">mise à jour</a>.</li>
+</ol>
+<p><b>Précision importante :</b> <span class="tt">assemble_rhs</span> représente le <b>négatif du résidu non linéaire</b>. Le contrat de <span class="tt"><a class="el" href="class_generic_solver.html">GenericSolver</a></span> l'explicite. On lit donc conceptuellement J(U) δU = −R(U), puis U ← U + α δU. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/generic_solver.h#L94-L118">Contrat</a>. La matrice n'est pas nécessairement recalculée à chaque itération : une heuristique dépend du régime stationnaire et de la réduction du résidu. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/newton_solver.h#L215-L235">Heuristique</a>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Les vecteurs : la distinction à retenir</h1>
+<p><span class="tt">setup_dofs</span> initialise <span class="tt">present_solution</span>, <span class="tt">evaluation_point</span> et les solutions précédentes avec les ensembles owned <b>et relevant</b>. <span class="tt">local_evaluation_point</span>, <span class="tt">newton_update</span> et <span class="tt">system_rhs</span> sont initialisés avec owned seulement. Cette différence est visible dans les appels ; elle doit rester explicite dans toute analyse MPI. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L438-L475">Initialisation</a>.</p>
+<p>L'assemblage lit <span class="tt">evaluation_point</span>. La mise à jour s'effectue dans <span class="tt">local_evaluation_point</span>, puis ce dernier est affecté à <span class="tt">evaluation_point</span>. Il faut donc tracer <b>qui écrit, qui lit, et quand les données sont échangées</b>, sans déduire une communication précise seulement du nom d'un vecteur. Le détail des communications internes au wrapper deal.II/PETSc n'a pas été audité aujourd'hui.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Résolution linéaire</h1>
+<p><span class="tt"><a class="el" href="class_navier_stokes_solver.html#a6c0b9eb16162e7b27f5548544a376a51">NavierStokesSolver::solve_linear_system</a></span> sélectionne MUMPS direct (avec ou sans objet réutilisable) ou GMRES. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/navier_stokes_solver.cpp#L857-L894">Sélection</a>.</p>
+<p>Les fonctions de <span class="tt"><a class="el" href="linear__solver_8cpp.html">src/linear_solver.cpp</a></span> résolvent dans <span class="tt">completely_distributed_solution</span>, construit sur les DoFs owned. Elles affectent ensuite <span class="tt">newton_update</span> et appliquent les <b>contraintes homogènes</b> à l'incrément. Le chemin GMRES sélectionne ILU sous PETSc et AMG dans l'autre branche de compilation. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/linear_solver.cpp#L10-L50">Direct</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/linear_solver.cpp#L95-L150">GMRES</a>.</p>
+<p>Les alias <span class="tt"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a></span> et <span class="tt"><a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a></span> sont définis par <span class="tt">FEZ_WITH_PETSC</span> ou <span class="tt">FEZ_WITH_TRILINOS</span>. Cette lecture ne prouve pas que toutes les configurations de compilation fonctionnent. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/include/types.h#L8-L27">Types</a>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Impacts à suivre lors d'une modification</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Modification  </th><th class="markdownTableHeadNone">Relire ensemble  </th><th class="markdownTableHeadNone">Pourquoi  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Ajout d'un champ  </td><td class="markdownTableBodyNone">FESystem, ordering, extracteurs, masques, scratch, sparsité  </td><td class="markdownTableBodyNone">Tous désignent la même organisation des composantes.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Changement du résidu  </td><td class="markdownTableBodyNone">assemble_rhs, assemble_matrix, vérification différences finies  </td><td class="markdownTableBodyNone">Préserver le signe et la cohérence du Jacobien.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Conditions aux limites  </td><td class="markdownTableBodyNone">zero/nonzero constraints, incrément, mise à jour de U  </td><td class="markdownTableBodyNone">L'incrément et la solution n'obéissent pas aux mêmes données imposées.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Redistribution du maillage ou des DoFs  </td><td class="markdownTableBodyNone">setup_dofs, mappings, scratch, transfert des solutions  </td><td class="markdownTableBodyNone">Les indices, espaces de lecture et historiques doivent rester compatibles.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Recherche linéaire/Newton  </td><td class="markdownTableBodyNone">evaluation_point, present_solution, résidu, statut du pas  </td><td class="markdownTableBodyNone">L'état utilisé pour accepter le pas doit correspondre à l'état évalué.  </td></tr>
+</table>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+Limites et prochaine lecture</h1>
+<p>Le chemin CHNS fixe est établi. Les mécanismes internes de <span class="tt"><a class="el" href="class_time_handler.html">TimeHandler</a></span>, transferts entre maillages, réutilisation MUMPS et conditions FSI restent à analyser. Les variantes ALE sont repérées mais non validées numériquement. Aucun défaut d'exécution n'est conclu à partir de cette seule lecture. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>
