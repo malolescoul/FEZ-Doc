@@ -65,7 +65,7 @@
 </sect2>
 </sect1>
 <sect1 id="fez_prod_chns_ale_amr_1autotoc_md6">
-<title>Parcours 3 — transporter, puis reconstruire</title><para><computeroutput>adapt_mesh()</computeroutput> récupère l&apos;éventuel état supplémentaire du contrôleur temporel. La couche d&apos;adaptation prépare <computeroutput>present_solution + previous_solutions + additional_solution</computeroutput> avec des vecteurs fantômes avant <computeroutput>execute_coarsening_and_refinement()</computeroutput>. Après redistribution des DoFs, elle interpole vers des vecteurs ne contenant que les DoFs possédés, applique les contraintes, puis recopie vers les états du solveur. Voir la fiche <ref refid="fez_prod_distributed_state_transfer_1md_guides_2prod_2patterns_2distributed-state-transfer" kindref="member">transfert d&apos;état distribué</ref>.</para>
+<title>Parcours 3 — transporter, puis reconstruire</title><para><computeroutput>adapt_mesh()</computeroutput> récupère l&apos;éventuel état supplémentaire du contrôleur temporel. La couche d&apos;adaptation prépare <computeroutput>present_solution + previous_solutions + additional_solution</computeroutput> avec des vecteurs fantômes avant <computeroutput>execute_coarsening_and_refinement()</computeroutput>. Après redistribution des DoFs, elle interpole vers des vecteurs ne contenant que les DoFs possédés, applique les contraintes, puis recopie vers les états du solveur. Voir la fiche <ulink url="../../prod/html/fez_prod_distributed_state_transfer.html">transfert d&apos;état distribué</ulink>.</para>
 <para>Le point sensible est l&apos;ordre ALE :</para>
 <para><itemizedlist>
 <listitem><para>transporter d&apos;abord tous les états avec seulement les contraintes de nœuds pendants ;</para>
@@ -143,7 +143,8 @@
 </entry></row>
 </table>
 </para>
-<para><bold>Prochaine validation sur le PC de calcul :</bold> exécuter les fixtures ciblées sur 1 et 4 rangs, relever les versions deal.II/PETSc/p4est et mesurer une situation où des cellules changent effectivement de propriétaire MPI. Aucun bug nouveau n&apos;est affirmé à ce stade. </para>
+<para><bold>Prochaine validation sur le PC de calcul :</bold> exécuter les fixtures ciblées sur 1 et 4 rangs, relever les versions deal.II/PETSc/p4est et mesurer une situation où des cellules changent effectivement de propriétaire MPI. Aucun bug nouveau n&apos;est affirmé à ce stade.</para>
+<para> </para>
 </sect1>
     </detaileddescription>
     <location file="guides/prod/features/chns-ale-amr.md"/>

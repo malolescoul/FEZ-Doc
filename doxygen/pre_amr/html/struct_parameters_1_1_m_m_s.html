@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence de la structure Parameters::MMS</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('struct_parameters_1_1_m_m_s.html','','struct_parameters_1_1_m_m_s-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la structure Parameters::MMS</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="parameters_8h_source.html">parameters.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:a57853a2f738bbf5cd5c0266df2e291bc" id="r_a57853a2f738bbf5cd5c0266df2e291bc"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a57853a2f738bbf5cd5c0266df2e291bc">Type</a> { <a class="el" href="#a57853a2f738bbf5cd5c0266df2e291bcaff2364a0be3d20e46cc69efb36afe9a5">space</a>
+, <a class="el" href="#a57853a2f738bbf5cd5c0266df2e291bca07cc694b9b3fc636710fa08b6922c42b">time</a>
+, <a class="el" href="#a57853a2f738bbf5cd5c0266df2e291bca63f4d9345f8f1f8a94ab6beb46ffa5fd">spacetime</a>
+ }</td></tr>
+<tr class="memitem:a5662a80cffc912a6e13e55e88b4aea9a" id="r_a5662a80cffc912a6e13e55e88b4aea9a"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a5662a80cffc912a6e13e55e88b4aea9a">TimeLpNorm</a> { <a class="el" href="#a5662a80cffc912a6e13e55e88b4aea9aa9ec4c0afd450ceac7adb81c3bcfc9732">L1</a>
+, <a class="el" href="#a5662a80cffc912a6e13e55e88b4aea9aa7e6aa2d53f6ee2b1a34b017fa403cb76">L2</a>
+, <a class="el" href="#a5662a80cffc912a6e13e55e88b4aea9aae35febae1a418727baccfd61e7876208">Linfty</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a6ae703f936953823e02b5953ff2f791d" id="r_a6ae703f936953823e02b5953ff2f791d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6ae703f936953823e02b5953ff2f791d">override_mesh_filename</a> (<a class="el" href="struct_parameters_1_1_mesh.html">Mesh</a> &amp;mesh_param, const unsigned int index)</td></tr>
+<tr class="memitem:ac15c82ac4f57da1b7c59c99c7699ed43" id="r_ac15c82ac4f57da1b7c59c99c7699ed43"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac15c82ac4f57da1b7c59c99c7699ed43">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="memitem:ae2028e665a89a2349ff693691893b076" id="r_ae2028e665a89a2349ff693691893b076"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae2028e665a89a2349ff693691893b076">read_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a3e1d2286f7136520ba1dc2f74ab64ffa" id="r_a3e1d2286f7136520ba1dc2f74ab64ffa"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3e1d2286f7136520ba1dc2f74ab64ffa">enable</a></td></tr>
+<tr class="memitem:af0dcd9d11de85b5582258a4fb2e07a8a" id="r_af0dcd9d11de85b5582258a4fb2e07a8a"><td class="memItemLeft">enum <a class="el" href="#a57853a2f738bbf5cd5c0266df2e291bc">Parameters::MMS::Type</a>&#160;</td><td class="memItemRight"><a class="el" href="#af0dcd9d11de85b5582258a4fb2e07a8a">type</a></td></tr>
+<tr class="memitem:a20741f385c645bb22ae3e9f1a150cc80" id="r_a20741f385c645bb22ae3e9f1a150cc80"><td class="memItemLeft">enum <a class="el" href="#a5662a80cffc912a6e13e55e88b4aea9a">Parameters::MMS::TimeLpNorm</a>&#160;</td><td class="memItemRight"><a class="el" href="#a20741f385c645bb22ae3e9f1a150cc80">time_norm</a></td></tr>
+<tr class="memitem:a3cd13d759b8a69b59c9bfc8b243734c3" id="r_a3cd13d759b8a69b59c9bfc8b243734c3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3cd13d759b8a69b59c9bfc8b243734c3">subtract_mean_pressure</a></td></tr>
+<tr class="memitem:a777d9db3d2cb6d9edaafaa9eb4f0831f" id="r_a777d9db3d2cb6d9edaafaa9eb4f0831f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a777d9db3d2cb6d9edaafaa9eb4f0831f">force_source_term</a></td></tr>
+<tr class="memitem:ae08f0d1ca3d4d21f5a52fcc10307636d" id="r_ae08f0d1ca3d4d21f5a52fcc10307636d"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#ae08f0d1ca3d4d21f5a52fcc10307636d">n_convergence</a></td></tr>
+<tr class="memitem:af33a33372a1638516851c9e294455eb8" id="r_af33a33372a1638516851c9e294455eb8"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#af33a33372a1638516851c9e294455eb8">current_step</a> = 0</td></tr>
+<tr class="memitem:aa93fed5773e8e33a7e630575be5b33f0" id="r_aa93fed5773e8e33a7e630575be5b33f0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa93fed5773e8e33a7e630575be5b33f0">run_only_step</a></td></tr>
+<tr class="memitem:a066090f9626f713da589b905aba38174" id="r_a066090f9626f713da589b905aba38174"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a066090f9626f713da589b905aba38174">use_deal_ii_cube_mesh</a></td></tr>
+<tr class="memitem:a182d1022ca28749d5649ee6945072914" id="r_a182d1022ca28749d5649ee6945072914"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a182d1022ca28749d5649ee6945072914">use_deal_ii_holed_plate_mesh</a></td></tr>
+<tr class="memitem:ae6162b63176591c30606ab4ebee52453" id="r_ae6162b63176591c30606ab4ebee52453"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#ae6162b63176591c30606ab4ebee52453">mesh_prefix</a></td></tr>
+<tr class="memitem:a6c1a8d99d3590c711c6668d72dae185e" id="r_a6c1a8d99d3590c711c6668d72dae185e"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a6c1a8d99d3590c711c6668d72dae185e">first_mesh_index</a></td></tr>
+<tr class="memitem:aa64e5f86bbb960552c5f8ce8601d93f7" id="r_aa64e5f86bbb960552c5f8ce8601d93f7"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#aa64e5f86bbb960552c5f8ce8601d93f7">mesh_suffix</a> = 0</td></tr>
+<tr class="memitem:aa179ff1d0cb2d28ff658238b630d5569" id="r_aa179ff1d0cb2d28ff658238b630d5569"><td class="memItemLeft">std::vector&lt; VectorTools::NormType &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa179ff1d0cb2d28ff658238b630d5569">norms_to_compute</a></td></tr>
+<tr class="memitem:a44c30991064aaef8bc4e79f46a451626" id="r_a44c30991064aaef8bc4e79f46a451626"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a44c30991064aaef8bc4e79f46a451626">use_space_convergence_mesh</a></td></tr>
+<tr class="memitem:a1a486aa1d2b5dcfb9721e996e215df80" id="r_a1a486aa1d2b5dcfb9721e996e215df80"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a1a486aa1d2b5dcfb9721e996e215df80">spatial_mesh_index</a></td></tr>
+<tr class="memitem:a6dfddfc3b1d42af481598956ef372955" id="r_a6dfddfc3b1d42af481598956ef372955"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a6dfddfc3b1d42af481598956ef372955">time_step_reduction_factor</a></td></tr>
+<tr class="memitem:aef733460e49b515c4fbb1a5c358e7dd8" id="r_aef733460e49b515c4fbb1a5c358e7dd8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aef733460e49b515c4fbb1a5c358e7dd8">write_convergence_table_to_file</a></td></tr>
+<tr class="memitem:a59f12c0b0044eba1055115015909f8e5" id="r_a59f12c0b0044eba1055115015909f8e5"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a59f12c0b0044eba1055115015909f8e5">convergence_file_prefix</a></td></tr>
+<tr class="memitem:a480ba815a817ffce2c6c9e8e95306353" id="r_a480ba815a817ffce2c6c9e8e95306353"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a480ba815a817ffce2c6c9e8e95306353">compute_rates_only_at_end</a></td></tr>
+<tr class="memitem:a4de555cb5d994489c34ffca51ad453a4" id="r_a4de555cb5d994489c34ffca51ad453a4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4de555cb5d994489c34ffca51ad453a4">print_unsteady_errors_to_console</a></td></tr>
+<tr class="memitem:aad93f0b7339763ab8394f3173efa84f7" id="r_aad93f0b7339763ab8394f3173efa84f7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aad93f0b7339763ab8394f3173efa84f7">print_unsteady_errors_to_file</a></td></tr>
+<tr class="memitem:a3751c9e31eae2084de925dac10e878f2" id="r_a3751c9e31eae2084de925dac10e878f2"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a3751c9e31eae2084de925dac10e878f2">unsteady_errors_file_prefix</a></td></tr>
+<tr class="memitem:adbfcd982d11b75a4d69308440554e0f4" id="r_adbfcd982d11b75a4d69308440554e0f4"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#adbfcd982d11b75a4d69308440554e0f4">n_target_vertices</a></td></tr>
+<tr class="memitem:adc3694b5fae806072b406892daeca97e" id="r_adc3694b5fae806072b406892daeca97e"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#adc3694b5fae806072b406892daeca97e">n_target_vertices_multiplier</a></td></tr>
+<tr class="memitem:a45f65aeb0ab12140c936b3c7471c5a77" id="r_a45f65aeb0ab12140c936b3c7471c5a77"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a45f65aeb0ab12140c936b3c7471c5a77">n_time_intervals_multiplier</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock">
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01024">1024</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation des énumérations membres</h2>
+<a id="a5662a80cffc912a6e13e55e88b4aea9a" name="a5662a80cffc912a6e13e55e88b4aea9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5662a80cffc912a6e13e55e88b4aea9a">&#9670;&#160;</a></span>TimeLpNorm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a5662a80cffc912a6e13e55e88b4aea9a">Parameters::MMS::TimeLpNorm</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a5662a80cffc912a6e13e55e88b4aea9aa9ec4c0afd450ceac7adb81c3bcfc9732" name="a5662a80cffc912a6e13e55e88b4aea9aa9ec4c0afd450ceac7adb81c3bcfc9732"></a>L1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5662a80cffc912a6e13e55e88b4aea9aa7e6aa2d53f6ee2b1a34b017fa403cb76" name="a5662a80cffc912a6e13e55e88b4aea9aa7e6aa2d53f6ee2b1a34b017fa403cb76"></a>L2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5662a80cffc912a6e13e55e88b4aea9aae35febae1a418727baccfd61e7876208" name="a5662a80cffc912a6e13e55e88b4aea9aae35febae1a418727baccfd61e7876208"></a>Linfty&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01039">1039</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a57853a2f738bbf5cd5c0266df2e291bc" name="a57853a2f738bbf5cd5c0266df2e291bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57853a2f738bbf5cd5c0266df2e291bc">&#9670;&#160;</a></span>Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a57853a2f738bbf5cd5c0266df2e291bc">Parameters::MMS::Type</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a57853a2f738bbf5cd5c0266df2e291bcaff2364a0be3d20e46cc69efb36afe9a5" name="a57853a2f738bbf5cd5c0266df2e291bcaff2364a0be3d20e46cc69efb36afe9a5"></a>space&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a57853a2f738bbf5cd5c0266df2e291bca07cc694b9b3fc636710fa08b6922c42b" name="a57853a2f738bbf5cd5c0266df2e291bca07cc694b9b3fc636710fa08b6922c42b"></a>time&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a57853a2f738bbf5cd5c0266df2e291bca63f4d9345f8f1f8a94ab6beb46ffa5fd" name="a57853a2f738bbf5cd5c0266df2e291bca63f4d9345f8f1f8a94ab6beb46ffa5fd"></a>spacetime&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01029">1029</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="ac15c82ac4f57da1b7c59c99c7699ed43" name="ac15c82ac4f57da1b7c59c99c7699ed43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac15c82ac4f57da1b7c59c99c7699ed43">&#9670;&#160;</a></span>declare_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parameters::MMS::declare_parameters </td>
+          <td>(</td>
+          <td class="paramtype">ParameterHandler &amp;</td>          <td class="paramname"><span class="paramname"><em>prm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8cpp_source.html#l02096">2096</a> du fichier <a class="el" href="parameters_8cpp_source.html">parameters.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6ae703f936953823e02b5953ff2f791d" name="a6ae703f936953823e02b5953ff2f791d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ae703f936953823e02b5953ff2f791d">&#9670;&#160;</a></span>override_mesh_filename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parameters::MMS::override_mesh_filename </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_parameters_1_1_mesh.html">Mesh</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>mesh_param</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>index</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01095">1095</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ae2028e665a89a2349ff693691893b076" name="ae2028e665a89a2349ff693691893b076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2028e665a89a2349ff693691893b076">&#9670;&#160;</a></span>read_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parameters::MMS::read_parameters </td>
+          <td>(</td>
+          <td class="paramtype">ParameterHandler &amp;</td>          <td class="paramname"><span class="paramname"><em>prm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8cpp_source.html#l02231">2231</a> du fichier <a class="el" href="parameters_8cpp_source.html">parameters.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="a480ba815a817ffce2c6c9e8e95306353" name="a480ba815a817ffce2c6c9e8e95306353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a480ba815a817ffce2c6c9e8e95306353">&#9670;&#160;</a></span>compute_rates_only_at_end</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::compute_rates_only_at_end</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01079">1079</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a59f12c0b0044eba1055115015909f8e5" name="a59f12c0b0044eba1055115015909f8e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59f12c0b0044eba1055115015909f8e5">&#9670;&#160;</a></span>convergence_file_prefix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parameters::MMS::convergence_file_prefix</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01078">1078</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="af33a33372a1638516851c9e294455eb8" name="af33a33372a1638516851c9e294455eb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af33a33372a1638516851c9e294455eb8">&#9670;&#160;</a></span>current_step</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::MMS::current_step = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01059">1059</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a3e1d2286f7136520ba1dc2f74ab64ffa" name="a3e1d2286f7136520ba1dc2f74ab64ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1d2286f7136520ba1dc2f74ab64ffa">&#9670;&#160;</a></span>enable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::enable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01026">1026</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a6c1a8d99d3590c711c6668d72dae185e" name="a6c1a8d99d3590c711c6668d72dae185e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c1a8d99d3590c711c6668d72dae185e">&#9670;&#160;</a></span>first_mesh_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::MMS::first_mesh_index</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01067">1067</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a777d9db3d2cb6d9edaafaa9eb4f0831f" name="a777d9db3d2cb6d9edaafaa9eb4f0831f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a777d9db3d2cb6d9edaafaa9eb4f0831f">&#9670;&#160;</a></span>force_source_term</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::force_source_term</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01056">1056</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ae6162b63176591c30606ab4ebee52453" name="ae6162b63176591c30606ab4ebee52453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6162b63176591c30606ab4ebee52453">&#9670;&#160;</a></span>mesh_prefix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parameters::MMS::mesh_prefix</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01066">1066</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aa64e5f86bbb960552c5f8ce8601d93f7" name="aa64e5f86bbb960552c5f8ce8601d93f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa64e5f86bbb960552c5f8ce8601d93f7">&#9670;&#160;</a></span>mesh_suffix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::MMS::mesh_suffix = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01068">1068</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ae08f0d1ca3d4d21f5a52fcc10307636d" name="ae08f0d1ca3d4d21f5a52fcc10307636d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae08f0d1ca3d4d21f5a52fcc10307636d">&#9670;&#160;</a></span>n_convergence</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::MMS::n_convergence</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01058">1058</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="adbfcd982d11b75a4d69308440554e0f4" name="adbfcd982d11b75a4d69308440554e0f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbfcd982d11b75a4d69308440554e0f4">&#9670;&#160;</a></span>n_target_vertices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::MMS::n_target_vertices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01090">1090</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="adc3694b5fae806072b406892daeca97e" name="adc3694b5fae806072b406892daeca97e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3694b5fae806072b406892daeca97e">&#9670;&#160;</a></span>n_target_vertices_multiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::MMS::n_target_vertices_multiplier</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01091">1091</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a45f65aeb0ab12140c936b3c7471c5a77" name="a45f65aeb0ab12140c936b3c7471c5a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f65aeb0ab12140c936b3c7471c5a77">&#9670;&#160;</a></span>n_time_intervals_multiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::MMS::n_time_intervals_multiplier</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01093">1093</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aa179ff1d0cb2d28ff658238b630d5569" name="aa179ff1d0cb2d28ff658238b630d5569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa179ff1d0cb2d28ff658238b630d5569">&#9670;&#160;</a></span>norms_to_compute</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;VectorTools::NormType&gt; Parameters::MMS::norms_to_compute</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01070">1070</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a4de555cb5d994489c34ffca51ad453a4" name="a4de555cb5d994489c34ffca51ad453a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4de555cb5d994489c34ffca51ad453a4">&#9670;&#160;</a></span>print_unsteady_errors_to_console</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::print_unsteady_errors_to_console</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01082">1082</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aad93f0b7339763ab8394f3173efa84f7" name="aad93f0b7339763ab8394f3173efa84f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad93f0b7339763ab8394f3173efa84f7">&#9670;&#160;</a></span>print_unsteady_errors_to_file</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::print_unsteady_errors_to_file</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01083">1083</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aa93fed5773e8e33a7e630575be5b33f0" name="aa93fed5773e8e33a7e630575be5b33f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa93fed5773e8e33a7e630575be5b33f0">&#9670;&#160;</a></span>run_only_step</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parameters::MMS::run_only_step</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01060">1060</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a1a486aa1d2b5dcfb9721e996e215df80" name="a1a486aa1d2b5dcfb9721e996e215df80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a486aa1d2b5dcfb9721e996e215df80">&#9670;&#160;</a></span>spatial_mesh_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::MMS::spatial_mesh_index</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01073">1073</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a3cd13d759b8a69b59c9bfc8b243734c3" name="a3cd13d759b8a69b59c9bfc8b243734c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd13d759b8a69b59c9bfc8b243734c3">&#9670;&#160;</a></span>subtract_mean_pressure</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::subtract_mean_pressure</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01050">1050</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a20741f385c645bb22ae3e9f1a150cc80" name="a20741f385c645bb22ae3e9f1a150cc80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20741f385c645bb22ae3e9f1a150cc80">&#9670;&#160;</a></span>time_norm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a5662a80cffc912a6e13e55e88b4aea9a">Parameters::MMS::TimeLpNorm</a> Parameters::MMS::time_norm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6dfddfc3b1d42af481598956ef372955" name="a6dfddfc3b1d42af481598956ef372955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dfddfc3b1d42af481598956ef372955">&#9670;&#160;</a></span>time_step_reduction_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::MMS::time_step_reduction_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01074">1074</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="af0dcd9d11de85b5582258a4fb2e07a8a" name="af0dcd9d11de85b5582258a4fb2e07a8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0dcd9d11de85b5582258a4fb2e07a8a">&#9670;&#160;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a57853a2f738bbf5cd5c0266df2e291bc">Parameters::MMS::Type</a> Parameters::MMS::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3751c9e31eae2084de925dac10e878f2" name="a3751c9e31eae2084de925dac10e878f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3751c9e31eae2084de925dac10e878f2">&#9670;&#160;</a></span>unsteady_errors_file_prefix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parameters::MMS::unsteady_errors_file_prefix</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01084">1084</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a066090f9626f713da589b905aba38174" name="a066090f9626f713da589b905aba38174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a066090f9626f713da589b905aba38174">&#9670;&#160;</a></span>use_deal_ii_cube_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::use_deal_ii_cube_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01063">1063</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a182d1022ca28749d5649ee6945072914" name="a182d1022ca28749d5649ee6945072914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a182d1022ca28749d5649ee6945072914">&#9670;&#160;</a></span>use_deal_ii_holed_plate_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::use_deal_ii_holed_plate_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01064">1064</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a44c30991064aaef8bc4e79f46a451626" name="a44c30991064aaef8bc4e79f46a451626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44c30991064aaef8bc4e79f46a451626">&#9670;&#160;</a></span>use_space_convergence_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::use_space_convergence_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01072">1072</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aef733460e49b515c4fbb1a5c358e7dd8" name="aef733460e49b515c4fbb1a5c358e7dd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef733460e49b515c4fbb1a5c358e7dd8">&#9670;&#160;</a></span>write_convergence_table_to_file</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::MMS::write_convergence_table_to_file</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l01077">1077</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+<li>snapshots/pre_amr/src/<a class="el" href="parameters_8cpp_source.html">parameters.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_parameters.html">Parameters</a></li><li class="navelem"><a href="struct_parameters_1_1_m_m_s.html">MMS</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

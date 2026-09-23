@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler" kind="class" language="C++" prot="public">
+    <compoundname>Assembly::Elasticity::CurrentMeshSourceAssembler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AssemblerBase&lt; ScratchData, CopyData &gt;</basecompoundref>
+    <includes refid="elasticity__assemblers_8h" local="no">elasticity_assemblers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1a8d784c90f2eafebb6d1c06ce5925257b" prot="public" static="no" mutable="no">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt;dim&gt;&amp; Assembly::Elasticity::CurrentMeshSourceAssembler&lt; dim, ScratchData, CopyData &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>Assembly::Elasticity::CurrentMeshSourceAssembler::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="321" column="29" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1a4efeaf50368ab22c60e31bd486e594ac" prot="public" static="no" mutable="no">
+        <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+        <definition>const ComponentOrdering&amp; Assembly::Elasticity::CurrentMeshSourceAssembler&lt; dim, ScratchData, CopyData &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>Assembly::Elasticity::CurrentMeshSourceAssembler::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="322" column="34" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1afddda2946daa575225cebf17634cc551" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Assembly::Elasticity::CurrentMeshSourceAssembler&lt; dim, ScratchData, CopyData &gt;::CurrentMeshSourceAssembler</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering)</argsstring>
+        <name>CurrentMeshSourceAssembler</name>
+        <qualifiedname>Assembly::Elasticity::CurrentMeshSourceAssembler::CurrentMeshSourceAssembler</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="301" column="7" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="301" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1ac7d55ccd9cb5b1750043a172b40811d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::CurrentMeshSourceAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_matrix</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>Assembly::Elasticity::CurrentMeshSourceAssembler::assemble_matrix</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="310" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="287" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1a0ae72e1e730d1936e714da8aa316d203" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void Assembly::Elasticity::CurrentMeshSourceAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_rhs</definition>
+        <argsstring>(const ScratchData &amp;, CopyData &amp;) const override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>Assembly::Elasticity::CurrentMeshSourceAssembler::assemble_rhs</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This assembler has no additional rhs to assemble, as the source term is already assembled in the main elasticity assembler. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="317" column="20" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="317" bodyend="318"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Assemble the extra matrix contribution when the source term depends on the current mesh position f(x(X)). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::CurrentMeshSourceAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::CurrentMeshSourceAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ordering</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="297" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="299" bodyend="323"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1ac7d55ccd9cb5b1750043a172b40811d6" prot="public" virt="virtual"><scope>Assembly::Elasticity::CurrentMeshSourceAssembler</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1a0ae72e1e730d1936e714da8aa316d203" prot="public" virt="virtual"><scope>Assembly::Elasticity::CurrentMeshSourceAssembler</scope><name>assemble_rhs</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1afddda2946daa575225cebf17634cc551" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::CurrentMeshSourceAssembler</scope><name>CurrentMeshSourceAssembler</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1a4efeaf50368ab22c60e31bd486e594ac" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::CurrentMeshSourceAssembler</scope><name>ordering</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler_1a8d784c90f2eafebb6d1c06ce5925257b" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::CurrentMeshSourceAssembler</scope><name>param</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

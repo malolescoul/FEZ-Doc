@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_stabilization" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Stabilization</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_stabilization_1a23af2c2a9cf04ea7eeed2dfe1eff7e4a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Stabilization::enable_supg</definition>
+        <argsstring></argsstring>
+        <name>enable_supg</name>
+        <qualifiedname>Parameters::Stabilization::enable_supg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="832" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="832" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_stabilization_1aca688252073bfc5fe845da5d8b48335d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Stabilization::enable_tracer_supg</definition>
+        <argsstring></argsstring>
+        <name>enable_tracer_supg</name>
+        <qualifiedname>Parameters::Stabilization::enable_tracer_supg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="836" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="836" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_stabilization_1a261bd4541d40d34a4a0a35a6b287c7ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Stabilization::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::Stabilization::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="838" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1609" bodyend="1626"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_stabilization_1a84daeff2015da07d12f4f143b120a04a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Stabilization::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::Stabilization::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="839" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1628" bodyend="1636"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="829" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="830" bodyend="840"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_stabilization_1a261bd4541d40d34a4a0a35a6b287c7ec" prot="public" virt="non-virtual"><scope>Parameters::Stabilization</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_stabilization_1a23af2c2a9cf04ea7eeed2dfe1eff7e4a" prot="public" virt="non-virtual"><scope>Parameters::Stabilization</scope><name>enable_supg</name></member>
+      <member refid="struct_parameters_1_1_stabilization_1aca688252073bfc5fe845da5d8b48335d" prot="public" virt="non-virtual"><scope>Parameters::Stabilization</scope><name>enable_tracer_supg</name></member>
+      <member refid="struct_parameters_1_1_stabilization_1a84daeff2015da07d12f4f143b120a04a" prot="public" virt="non-virtual"><scope>Parameters::Stabilization</scope><name>read_parameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

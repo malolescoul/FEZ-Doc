@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="fez_pre_amr_models" kind="page">
+    <compoundname>fez_pre_amr_models</compoundname>
+    <title>Physique CHNS avant la nouvelle adaptation h</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="fez_pre_amr_models_1md_guides_2pre__amr_2features_2chns-models-pre-amr"/></para>
+<para><bold>État de référence : <computeroutput>cc8dace141900b82e5790fa878e39d9c54898784</computeroutput>.</bold> Cette page décrit ce que cet instantané assemble réellement. « Pré-AMR » signifie avant le nouveau chantier CHNS h-adaptatif ; cela ne signifie pas que l&apos;arbre ne contient aucun ancien code d&apos;adaptation. Les sources et les patches ont été lus ; aucun solveur ni test C++ n&apos;a été exécuté pour cette analyse.</para>
+<para>Le parcours général et le passage du présolveur au solveur sont décrits dans <ref refid="fez_pre_amr_workflow_1md_guides_2pre__amr_2features_2workflow-pre-amr" kindref="member">le workflow</ref>. Les lois de mobilité, leurs révisions et le contrôle du temps sont détaillés dans <ref refid="fez_pre_amr_mobility_1md_guides_2pre__amr_2patterns_2mobility-corrections-timestep" kindref="member">mobilité, correction, pas de temps</ref>.</para>
+<sect1 id="fez_pre_amr_models_1autotoc_md0">
+<title>Trois axes de configuration indépendants</title><para><table rows="4" cols="3"><row>
+<entry thead="yes"><para>Axe  </para>
+</entry><entry thead="yes"><para>Variantes à cette référence  </para>
+</entry><entry thead="yes"><para>Ce qui change  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Solveur / géométrie  </para>
+</entry><entry thead="no"><para><computeroutput><ref refid="class_c_h_n_s_solver" kindref="compound">CHNSSolver</ref>&lt;dim,false&gt;</computeroutput>, <computeroutput>&lt;dim,true&gt;</computeroutput>, <computeroutput>&lt;dim,true,true&gt;</computeroutput>  </para>
+</entry><entry thead="no"><para>CHNS fixe ; CHNS avec position de maillage ALE ; ALE avec marqueur élargi ψ  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Modèle physique  </para>
+</entry><entry thead="no"><para><computeroutput>abels</computeroutput>, <computeroutput>ding_horriche</computeroutput>, <computeroutput>abels_nlm</computeroutput>  </para>
+</entry><entry thead="no"><para>Énergie/potentiel, force capillaire, inertie diffusive et variable matérielle transportée  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Mobilité / correction  </para>
+</entry><entry thead="no"><para>constante, dégénérée, adaptatives 1/2/3 ; <computeroutput>none/profile/profile_flux</computeroutput>  </para>
+</entry><entry thead="no"><para>Flux diffusif et ses dépendances, avec des gardes de compatibilité  </para>
+</entry></row>
+</table>
+</para>
+<para>L&apos;ordre des composantes est <bold>u, p, x si ALE, φ, μ, ψ si enlarged</bold>. ψ est ajouté après μ, et l&apos;option enlarged est statiquement limitée à ALE. Ce n&apos;est ni le remplacement de φ, ni un raffinement h : φ demeure l&apos;inconnue de phase physique. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/components_ordering.h#L399-L459">Ordre des composantes</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/incompressible_chns_assemblers.h#L375-L386">garde enlarged</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L1923-L1929">instanciations</ulink>.</para>
+</sect1>
+<sect1 id="fez_pre_amr_models_1autotoc_md1">
+<title>Les équations : partir du résidu assemblé</title><para>Notation : <formula id="0">$\widetilde\sigma=3\sigma/(2\sqrt2)$</formula>, <formula id="1">$m=m(\phi)$</formula>, <formula id="2">$v=u-\dot x$</formula> en ALE et <formula id="3">$v=u$</formula> sur maillage fixe. En ignorant ici les sources manufacturées et les termes de bord, la lecture des lignes φ et μ donne :</para>
+<para><formula id="4">\[D_t^{ALE}m+v\cdot\nabla m-\nabla\cdot K_\phi=0,\qquad
+m&apos;(\phi)\mu=A\,\phi(\phi^2-1)-B\,\Delta\phi .
+\]</formula></para>
+<para>Sans correction, <formula id="5">$K_\phi=M\nabla\mu$</formula>. La ligne test du traceur contient <formula id="6">$w_\phi(D_tm+v\cdot\nabla m)+\nabla w_\phi\cdot K_\phi$</formula>. Le vecteur local stocke <bold>−R</bold> et la matrice <bold>dR</bold> : ce signe est essentiel pour comparer une formule physique à <computeroutput>local_rhs -= ...</computeroutput>. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L122-L246">Assemblage volume, lignes φ/μ</ulink>.</para>
+<para><table rows="4" cols="6"><row>
+<entry thead="yes"><para>Modèle  </para>
+</entry><entry thead="yes"><para>Marqueur transporté et matériaux  </para>
+</entry><entry thead="yes"><para><formula id="7">$A;B$</formula>  </para>
+</entry><entry thead="yes"><para>Terme capillaire dans le résidu momentum  </para>
+</entry><entry thead="yes"><para>Inertie diffusive  </para>
+</entry><entry thead="yes"><para>Pression reconstruite  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Abels  </para>
+</entry><entry thead="no"><para><formula id="8">$m=\phi$</formula> ; propriétés affines en φ filtré si limiteur actif  </para>
+</entry><entry thead="no"><para><formula id="9">$\widetilde\sigma/\epsilon;\widetilde\sigma\epsilon$</formula>  </para>
+</entry><entry thead="no"><para><formula id="10">$+\phi\nabla\mu$</formula>  </para>
+</entry><entry thead="no"><para>Oui  </para>
+</entry><entry thead="no"><para><formula id="11">$p+\phi\mu$</formula>, <computeroutput>pressure_abels</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Ding–Horriche  </para>
+</entry><entry thead="no"><para><formula id="8">$m=\phi$</formula>  </para>
+</entry><entry thead="no"><para><formula id="12">$1;\epsilon^2$</formula>  </para>
+</entry><entry thead="no"><para><formula id="13">$-\gamma\mu\nabla\phi,\ \gamma=\widetilde\sigma/\epsilon$</formula>  </para>
+</entry><entry thead="no"><para>Non  </para>
+</entry><entry thead="no"><para><formula id="14">$p$</formula>, <computeroutput>pressure_hat</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Abels NLM  </para>
+</entry><entry thead="no"><para><formula id="15">$m=q=\tanh(k\phi)/\tanh k$</formula> ; propriétés affines en q  </para>
+</entry><entry thead="no"><para>mêmes A, B qu&apos;Abels  </para>
+</entry><entry thead="no"><para><formula id="16">$+q\nabla\mu_q$</formula>  </para>
+</entry><entry thead="no"><para>Oui  </para>
+</entry><entry thead="no"><para><formula id="17">$p+q\mu_q$</formula>, <computeroutput>pressure_sharp</computeroutput>  </para>
+</entry></row>
+</table>
+</para>
+<para>Ces signes sont ceux du résidu, pas d&apos;une force recopiée isolément au second membre. La différence Ding–Horriche est une branche <computeroutput>if constexpr</computeroutput> du masque d&apos;assemblage : coefficients du potentiel, capillarité et inertie changent ensemble. NLM conserve la structure Abels et sélectionne au démarrage des pointeurs de fonctions <formula id="18">$m,m&apos;,m&apos;&apos;$</formula>. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L359-L431">Coefficients et modèles</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/incompressible_chns_assemblers.h#L405-L455">choix de l&apos;assembleur</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L122-L168">forces</ulink>.</para>
+<para>Le terme <computeroutput>diffusive_flux[q]</computeroutput> du scratch est déjà la contribution d&apos;inertie <formula id="19">$(\nabla u)J$</formula>, avec <formula id="20">$J=(\rho_1-\rho_0)K_\phi/2$</formula>, et non seulement le vecteur de flux <formula id="21">$J$</formula>. La même expression <formula id="22">$K_\phi$</formula> est utilisée dans la diffusion de phase et, quand une correction est active, dans cette inertie Abels. Cela évite de lire la correction comme une source ajoutée uniquement à φ. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h#L1172-L1198">Calcul du flux et de l&apos;inertie</ulink>.</para>
+<sect2 id="fez_pre_amr_models_1autotoc_md2">
+<title>Pourquoi NLM garde φ et μ comme inconnues</title><para>Pour <computeroutput>abels_nlm</computeroutput>, μ est conjugué à q : <formula id="23">$\mu=\mu_q$</formula>, et <formula id="24">$\mu_\phi=m&apos;(\phi)\mu_q$</formula>. Le programme <bold>multiplie</bold> donc μ par <formula id="25">$m&apos;$</formula> dans la ligne potentiel ; il n&apos;y divise pas par une dérivée qui devient petite dans les phases pures. φ reste une inconnue, q est reconstruit. Le BDF est appliqué à <bold>m des états présents et passés</bold>, pas à <formula id="26">$m&apos;(\phi)\,\mathrm{BDF}(\phi)$</formula>, deux opérations généralement différentes en discret. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L874-L887">Rationale dans les helpers</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h#L1084-L1112">BDF sur m</ulink>.</para>
+<para>Il faut distinguer trois usages du traceur : m brut pour transport/capillarité ; m du traceur filtré pour densité et viscosité ; argument propre à la mobilité après son limiteur indépendant. La mobilité dégénérée prend m (donc q en NLM), tandis que les mobilités adaptatives prennent φ. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h#L1114-L1171">Scratch et règle de chaîne</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L587-L612">sélection de l&apos;argument</ulink>.</para>
+</sect2>
+</sect1>
+<sect1 id="fez_pre_amr_models_1autotoc_md3">
+<title>ψ : un problème de Helmholtz couplé à la géométrie</title><para>Avec <formula id="27">$L=\texttt{psi interface width factor}\,\epsilon$</formula>, le résidu effectivement codé est</para>
+<para><formula id="28">\[R_{\psi,i}=\int_{\Omega(x)}
+w_i\{\psi-\phi+s_\psi-c_\mu(1-\phi^2)^2\mu\}
++L^2\nabla w_i\cdot\nabla\psi,
+\quad c_\mu=\alpha_\mu L^2/(\epsilon\widetilde\sigma).
+\]</formula></para>
+<para>Les valeurs par défaut sont facteur de largeur 1 et <formula id="29">$\alpha_\mu=0$</formula>. Sans source et sans correction μ, cela donne <formula id="30">$\psi-L^2\Delta\psi=\phi$</formula> : un lissage spatial instantané de φ, sans équation temporelle propre. ψ fournit un marqueur moins étroit pour déplacer le maillage autour de l&apos;interface ; les termes de CHNS physiques continuent d&apos;utiliser φ ou m(φ). <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/incompressible_chns_assemblers.h#L82-L142">Résidu exact et préfacteur</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1774-L1801">paramètres</ulink>.</para>
+<para>La Jacobienne ajoute les blocs ψ←ψ, ψ←φ, ψ←μ et ψ←x. Pour la variation de x, les valeurs nodales sont gardées, mais les gradients varient comme <formula id="31">$-G^T\nabla f$</formula> et la mesure comme <formula id="32">$\operatorname{tr}(G)JxW$</formula>. Ces dérivées sont nécessaires même si ψ n&apos;est qu&apos;un « marqueur de maillage » : son opérateur est intégré sur la géométrie déformée. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/incompressible_chns_assemblers.h#L149-L233">Jacobienne ψ</ulink>.</para>
+<para><bold>Limite documentaire localisée.</bold> Le commentaire d&apos;en-tête écrit <formula id="33">$\phi-\text{mu\_correction}$</formula>, alors que les instructions du résidu ci-dessus placent <formula id="34">$-\text{mu\_correction}$</formula> à gauche, donc un signe plus à droite sans source. Le préfacteur reste la forme Abels, sans branche Ding–Horriche dans cette fonction ; un commentaire y annonce encore une variante future. La page conserve l&apos;expression exécutable sans conclure à un défaut numérique non reproduit. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/incompressible_chns_assemblers.h#L65-L142">Commentaire et implémentation côte à côte</ulink>.</para>
+<para>Le forçage élargi fait intervenir le gradient de ψ et une transformation du marqueur par <formula id="35">$\operatorname{sign}(\psi)\vert \psi\vert ^q$</formula>, alors que le forçage de compression physique utilise φ. Les détails de normalisation des lobes et du présolveur sont dans <ref refid="fez_pre_amr_presolver_1md_guides_2pre__amr_2patterns_2presolver-cache-geometry" kindref="member">présolveur et géométrie</ref>. ψ n&apos;est donc pas une seconde fraction de phase conservée, et la mobilité n&apos;est pas calculée à partir de ψ.</para>
+</sect1>
+<sect1 id="fez_pre_amr_models_1autotoc_md4">
+<title>Stabilisation : résidu fort, tests modifiés, géométrie ALE</title><para><computeroutput>enable supg</computeroutput> active SUPG vitesse et PSPG pression ; <computeroutput>enable tracer supg</computeroutput> active séparément SUPG sur le transport de m. Le résidu fort momentum est conservé en unités de force : <formula id="36">$\rho(D_tu+\nabla u\,v-f)+(\nabla u)J+F_c+\nabla p-\eta(\Delta u+\nabla\nabla\cdot u)-2\eta_\phi D(u)\nabla\phi$</formula>, en tenant compte du modèle. Les opérateurs de test associés sont <formula id="37">$v\cdot\nabla w_u$</formula> et <formula id="38">$\nabla w_p/\rho$</formula>. Le résidu fort de phase inclut <formula id="39">$M\Delta\mu+M_\phi\nabla\phi\cdot\nabla\mu$</formula> pour mobilité dépendant du marqueur. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L154-L231">Expressions assemblées</ulink>.</para>
+<para>Le paramètre <formula id="40">$\tau$</formula> combine temps, convection et diffusion :    <formula id="41">\[\tau^{-2}=\Delta t^{-2}+(2|v|p/h)^2+
+9(4Dp^2/h^2)^2.
+\]</formula> Le terme temporel est omis en stationnaire. En 2D, h est directionnel ; en 3D cette implémentation utilise le diamètre de cellule. Le scratch fournit <formula id="42">$D=\eta/\rho$</formula> pour la vitesse et le scalaire membre <computeroutput>mobility</computeroutput> (paramètre constant) pour τ du traceur. Cette dernière expression n&apos;est pas <computeroutput>mobility_values[q]</computeroutput> : ne pas supposer une diffusion chimique locale automatiquement recalculée dans τ. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/stabilization_tools.h#L110-L189">Formule effective de τ</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h#L1200-L1251">appels vitesse et traceur</ulink>.</para>
+<para>La Jacobienne fige τ, tout en dérivant le résidu fort et l&apos;opérateur de test. Les tests Jacobienne SUPG expliquent ainsi pourquoi une différence analytique/finie n&apos;est pas attendue à zéro et emploient des tolérances explicites ; ce n&apos;est pas une preuve automatique d&apos;erreur de Jacobienne. Les blocs ALE dérivent aussi gradients, Hessiennes, mesure et vitesse convective. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L617-L674">τ figé</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L676-L820">variation de géométrie</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/jacobian_matrix_supg_abels_nlm.prm#L21-L50">explication du test NLM</ulink>.</para>
+<para><table rows="6" cols="2"><row>
+<entry thead="yes"><para>Combinaison  </para>
+</entry><entry thead="yes"><para>Garde réellement présente  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Abels, Ding–Horriche, NLM + constante/dégénérée  </para>
+</entry><entry thead="no"><para>Pas d&apos;interdiction de tracer SUPG dans la sélection  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Adaptative 1 ou 2  </para>
+</entry><entry thead="no"><para>Tracer SUPG interdit ; ALE permis  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Adaptative 3  </para>
+</entry><entry thead="no"><para>Pas bloquée par cette garde spécifique  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>profile</computeroutput> ou <computeroutput>profile_flux</computeroutput>  </para>
+</entry><entry thead="no"><para>Seulement <computeroutput>abels</computeroutput>, tracer SUPG désactivé ; NLM est également refusé  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Enlarged sans ALE  </para>
+</entry><entry thead="no"><para>Refus à la compilation  </para>
+</entry></row>
+</table>
+</para>
+<para>Ce tableau décrit la sélection et ses gardes, pas une validation numérique exhaustive du produit cartésien des options. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/incompressible_chns_assemblers.h#L375-L404">Gardes centralisées</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L236-L249">garde corrections</ulink>.</para>
+</sect1>
+<sect1 id="fez_pre_amr_models_1autotoc_md5">
+<title>Pression et diagnostics : comparer les bonnes quantités</title><para>La pression résolue p n&apos;a pas le même sens de reconstruction dans les trois modèles. La sortie continue nodale calcule les quantités du tableau de modèles ; NLM expose aussi <computeroutput>q</computeroutput> et <computeroutput>potential_phi=m&apos;μ</computeroutput>. Le degré de l&apos;espace de sortie est le maximum de 1 et des degrés p/φ/μ. Cette reconstruction ponctuelle évite la marche en escalier d&apos;une moyenne DG0. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L995-L1085">Sortie continue</ulink>.</para>
+<para>La table d&apos;échelles de temps est un <bold>diagnostic Abels à mobilité constante de référence</bold> : <formula id="43">$D_\phi=2\,\texttt{chp.mobility}\,\widetilde\sigma/\epsilon$</formula>, <formula id="44">$V=\int(1-\phi)/2$</formula>, rayon équivalent disque/sphère, <formula id="45">$U=\max\vert u\vert $</formula>, <formula id="46">$U_\sigma=\sigma/\eta_{ref}$</formula>. Elle produit notamment <formula id="47">$R/U$</formula>, <formula id="48">$R^2/D_\phi$</formula>, <formula id="49">$\epsilon^2/D_\phi$</formula>, <formula id="50">$\eta R/\sigma$</formula>, <formula id="51">$\sqrt{\rho R^3/\sigma}$</formula>, Pe, Cn, Ca, Re et <formula id="52">$S=\sqrt{M\eta}/\epsilon$</formula>. Elle ne commute pas vers <formula id="53">$M_{\max}$</formula>, ni vers une fraction basée sur q en NLM. Pour une mobilité adaptative, le critère temporel dédié décrit dans l&apos;autre page est un calcul distinct. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L1777-L1919">Calcul et export</ulink>.</para>
+<para>Le fichier porte l&apos;extension <computeroutput>.csv</computeroutput>, mais <computeroutput>TableHandler::write_text</computeroutput> y écrit une table <bold>séparée par espaces</bold>. Le commentaire l&apos;indique explicitement. Le code prend les propriétés de <computeroutput>fluids[0]</computeroutput> comme référence, sans que cela suffise à identifier universellement une goutte : le choix dépend de la convention de phase de la configuration. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L1788-L1802">Référence physique</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L1913-L1919">format</ulink>.</para>
+</sect1>
+<sect1 id="fez_pre_amr_models_1autotoc_md6">
+<title>Douze jalons à relire dans les patches</title><para>Ces jalons ont été rapprochés du code final ; ils ne sont pas une simple liste de titres de commits.</para>
+<para><table rows="13" cols="3"><row>
+<entry thead="yes"><para>Étape  </para>
+</entry><entry thead="yes"><para>Introduction / révisions  </para>
+</entry><entry thead="yes"><para>Ce qui persiste à la référence  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>1. Stabilisation  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/3fc75123bcac5bce6430b7bc865e534a472b63cc">3fc7512</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/238e0afeb84181c30be57484d5cc3a259782f56e">238e0af</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/558a30efd84acd37148fa853d6fc0e533d7d7fb2">558a30e</ulink>  </para>
+</entry><entry thead="no"><para>SUPG/PSPG puis résidu en force et bloc ALE/Hessiennes ; l&apos;interdiction initiale de stabiliser ALE disparaît  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>2. ψ enlarged  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/d0090cc234fa78b0b720c2cd9c62ad9b4b45a178">d0090cc</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/157c4412a7a7d2c66e3f62aede5d4fe544ac9f98">157c441</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/8a5926785bb87f770b9b641d5b1fc6c58e36e253">8a59267</ulink>  </para>
+</entry><entry thead="no"><para>Composante supplémentaire → Helmholtz → ψ pilote le forçage et ajoute le bloc x←ψ  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>3. Diagnostic physique  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/7804d3cc1b2f0532ff3f7577b7273a8c0429b28a">7804d3c</ulink>  </para>
+</entry><entry thead="no"><para>Pression Abels nodale et table d&apos;échelles ; les reconstructions de pression sont ensuite adaptées aux autres modèles  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>4. Mobilité dégénérée  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/b5cf71ddebbed225631a071ed6c24758ea430dfd">b5cf71d</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/6c555a0ccc1a7721a0206134674391612a7a61ca">6c555a0</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/5a180ff8919f948f69d67621e9fb6f4b62187d14">5a180ff</ulink>  </para>
+</entry><entry thead="no"><para>Fonction parsée et deux dérivées, diffusion/SUPG/inertie/MMS cohérents, tests dédiés ; parsing du modèle constant rectifié  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>5. Ding–Horriche  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/50096a2f72370286561ebeea47ecca231ed62bff">50096a2</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/afe2c57688b00be848c331e9739966625c71119e">afe2c57</ulink>  </para>
+</entry><entry thead="no"><para>Masque d&apos;assemblage, coefficients 1/ε², force −γμ∇φ et retrait de l&apos;inertie diffusive ; MMS et FD  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>6. Abels NLM  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/438fb453383bac7444d53843c5d5fff9f0ca9085">438fb45</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/213f11b9347d5c63d04de1097c8089f04fe3f338">213f11b</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/714d55984b3286e6e0afa7d7520fa81948c07e8b">714d559</ulink>  </para>
+</entry><entry thead="no"><para>Abstraction m/m&apos;/m&apos;&apos;, BDF sur m, μq ; suppression ultérieure des variables dφ/dt devenues inutilisées  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>7. Adaptative 1 et ALE  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/5a5a98e8a016f5d503cfa943c1ce4e8bd6db49da">5a5a98e</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/e6ff32bf737dc0fc657829fca4ee06d3d95810ca">e6ff32b</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/28f26adfd976ed172876aa4a2f771c747ce9ee4d">28f26ad</ulink>  </para>
+</entry><entry thead="no"><para>Structure unifiée MobilityEvaluation ; variation géométrique autorisant ALE ; terme additionnel en <formula id="54">$\vert ∇φ\vert ²$</formula>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>8. Adaptatives 2/3  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/0571b9a8fad2b473bd2cec2f6e5c6545f56eb854">0571b9a</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/5f58194c708077a2697e6eaff777d494415a850c">5f58194</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/179630afa97e542988f47dbebb0fc80503b44fbc">179630a</ulink>  </para>
+</entry><entry thead="no"><para>Deux nouvelles lois ; sortie de mobilité corrigée pour employer le coefficient et δ du modèle sélectionné  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>9. Temps adaptatif  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/d4e8bb48bd99e944fd76d03f223f37b7946a5946">d4e8bb4</ulink>  </para>
+</entry><entry thead="no"><para>Maximum quadrature/MPI de M, nombre <formula id="55">$Δt\widetildeσM_{max}/ε³$</formula>, acceptation/rejet et prédiction  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>10. Mobilité 2 révisée  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/a101eab4d59fb63e9ecca87eeccac8702ea126b2">a101eab</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/cfaec11e1efe4b94fa15111249f6496f3ce8872d">cfaec11</ulink>  </para>
+</entry><entry thead="no"><para>L&apos;extension des queues est remplacée par une restriction au cœur ; la formule initiale <formula id="56">$\vert ∇φ\vert ²\\vert u\\vert $</formula> n&apos;est plus la formule finale  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>11. Corrections d&apos;interface  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/96ea49a422b724d3df1778feddac31716614c087">96ea49a</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/9d885bab795c3ef6c0d77973948338acc7ea5b2f">9d885ba</ulink>  </para>
+</entry><entry thead="no"><para>Flux commun phase/inertie ; puis activations quintiques, normale pondérée et régularisation préservant l&apos;équilibre tanh  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>12. Échelle de correction  </para>
+</entry><entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/3353420c2331dbbecdb240a7b8dd77e7dec7fff6">3353420</ulink>, <ulink url="https://github.com/arthurbawin/fez/commit/74d9e06ed2fcff3d614600a8029d5b3642cf1156">74d9e06</ulink>  </para>
+</entry><entry thead="no"><para>La tentative <formula id="57">$M_{PC}=ε^p$</formula> est retirée ; κ et dκ dépendent à nouveau de la mobilité locale  </para>
+</entry></row>
+</table>
+</para>
+</sect1>
+<sect1 id="fez_pre_amr_models_1autotoc_md7">
+<title>Lire les tests avec leur portée</title><para><table rows="6" cols="3"><row>
+<entry thead="yes"><para>Source présente  </para>
+</entry><entry thead="yes"><para>Ce qu&apos;elle couvre explicitement  </para>
+</entry><entry thead="yes"><para>Limite de conclusion  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/mms_chns_2d_spacetime_degenerate_mobility.prm#L1-L85">MMS mobilité dégénérée</ulink>  </para>
+</entry><entry thead="no"><para>Mobilité parsée, convergence spatio-temporelle prévue par la configuration  </para>
+</entry><entry thead="no"><para>Présence du test, pas réussite constatée ici  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/jacobian_matrix_supg_ding_horriche.prm#L21-L101">Jacobian SUPG Ding–Horriche</ulink>  </para>
+</entry><entry thead="no"><para>Deux stabilisations et modèle DH, tolérance absolue 1e−1 expliquée par τ figé  </para>
+</entry><entry thead="no"><para>Ne pas la comparer naïvement à une tolérance Galerkin non stabilisée  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/jacobian_matrix_supg_abels_nlm.prm#L21-L102">Jacobian SUPG NLM</ulink>  </para>
+</entry><entry thead="no"><para>NLM à k=3, mobilité constante, SUPG/PSPG et tracer SUPG  </para>
+</entry><entry thead="no"><para>Ne démontre pas toutes les lois de mobilité avec NLM  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale_enlarged/mms_chns_ale_enlarged_2d_spacetime.prm#L1-L90">MMS ALE enlarged</ulink>  </para>
+</entry><entry thead="no"><para>Système avec ψ et géométrie mobile  </para>
+</entry><entry thead="no"><para>Ce test ne valide pas à lui seul la correction μ opt-in  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility_2.prm#L27-L102">Jacobian adaptative 2 enlarged</ulink>  </para>
+</entry><entry thead="no"><para>Traceur initial traversant transition/coupure χ et gradient non nul  </para>
+</entry><entry thead="no"><para>Lire la configuration finale, pas l&apos;ancien titre « tail »  </para>
+</entry></row>
+</table>
+</para>
+<para>La condition de contact statique ajoute un flux de bord à la ligne μ, <formula id="58">$n\cdot∇φ=-\cos θ(1-φ²)/(\sqrt2ε)$</formula>, avec dérivées φ et géométrie. Elle n&apos;est pas une quatrième loi de mobilité ni une reconstruction ψ. Son parcours de configuration est traité dans le workflow. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L500-L537">Helpers contact</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L1245-L1333">assembleur de bord</ulink>.</para>
+<para> </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/pre_amr/features/chns-models-pre-amr.md"/>
+  </compounddef>
+</doxygen>

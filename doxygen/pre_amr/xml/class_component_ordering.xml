@@ -1,0 +1,673 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_component_ordering" kind="class" language="C++" prot="public">
+    <compoundname>ComponentOrdering</compoundname>
+    <derivedcompoundref refid="class_component_ordering_c_h_n_s" prot="public" virt="non-virtual">ComponentOrderingCHNS&lt; dim, with_moving_mesh, with_enlarged &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_component_ordering_compressible_n_s" prot="public" virt="non-virtual">ComponentOrderingCompressibleNS&lt; dim &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_component_ordering_elasticity" prot="public" virt="non-virtual">ComponentOrderingElasticity&lt; dim, with_enlarged_psi &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_component_ordering_f_s_i" prot="public" virt="non-virtual">ComponentOrderingFSI&lt; dim &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_component_ordering_heat" prot="public" virt="non-virtual">ComponentOrderingHeat</derivedcompoundref>
+    <derivedcompoundref refid="class_component_ordering_n_s" prot="public" virt="non-virtual">ComponentOrderingNS&lt; dim &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_component_ordering_n_s_lambda" prot="public" virt="non-virtual">ComponentOrderingNSLambda&lt; dim &gt;</derivedcompoundref>
+    <includes refid="components__ordering_8h" local="no">components_ordering.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::invalid</definition>
+        <argsstring></argsstring>
+        <name>invalid</name>
+        <qualifiedname>ComponentOrdering::invalid</qualifiedname>
+        <initializer>= dealii::numbers::invalid_unsigned_int</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="23" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_component_ordering_1aaba7aa635e1b292ee033be8ffcbf5fbe" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::n_components</definition>
+        <argsstring></argsstring>
+        <name>n_components</name>
+        <qualifiedname>ComponentOrdering::n_components</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="25" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a5f2989031bded44d4411a6d1d70915c7" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::u_lower</definition>
+        <argsstring></argsstring>
+        <name>u_lower</name>
+        <qualifiedname>ComponentOrdering::u_lower</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="28" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a2cb0e80099b90762ff388f2cb01093f3" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::u_upper</definition>
+        <argsstring></argsstring>
+        <name>u_upper</name>
+        <qualifiedname>ComponentOrdering::u_upper</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="29" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a4ff302d5fefd358b16da9bbba4aab005" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::p_lower</definition>
+        <argsstring></argsstring>
+        <name>p_lower</name>
+        <qualifiedname>ComponentOrdering::p_lower</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="32" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a2a99c0e6dfe5a6b61412649ac812b854" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::p_upper</definition>
+        <argsstring></argsstring>
+        <name>p_upper</name>
+        <qualifiedname>ComponentOrdering::p_upper</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="33" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a4937d2a0c47a930ab93be09a4a787953" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::x_lower</definition>
+        <argsstring></argsstring>
+        <name>x_lower</name>
+        <qualifiedname>ComponentOrdering::x_lower</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="36" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a4c49326b4bf3db4752141bf0d978be8d" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::x_upper</definition>
+        <argsstring></argsstring>
+        <name>x_upper</name>
+        <qualifiedname>ComponentOrdering::x_upper</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="37" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1af4394a8337f4c5617ab90946f7fa9d6d" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::l_lower</definition>
+        <argsstring></argsstring>
+        <name>l_lower</name>
+        <qualifiedname>ComponentOrdering::l_lower</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="40" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a7b331d251d195392021acaa50fb582eb" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::l_upper</definition>
+        <argsstring></argsstring>
+        <name>l_upper</name>
+        <qualifiedname>ComponentOrdering::l_upper</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="41" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a85c2e997a88a0b8533abe594800375eb" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::phi_lower</definition>
+        <argsstring></argsstring>
+        <name>phi_lower</name>
+        <qualifiedname>ComponentOrdering::phi_lower</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="44" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a641c188ee8ed88932efab3eb382831ed" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::phi_upper</definition>
+        <argsstring></argsstring>
+        <name>phi_upper</name>
+        <qualifiedname>ComponentOrdering::phi_upper</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="45" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a2858a3c4ddbe05eb3cc4273c3f0daa01" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::mu_lower</definition>
+        <argsstring></argsstring>
+        <name>mu_lower</name>
+        <qualifiedname>ComponentOrdering::mu_lower</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="48" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a20ebc6cbbe4a68647781f4038e535b57" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::mu_upper</definition>
+        <argsstring></argsstring>
+        <name>mu_upper</name>
+        <qualifiedname>ComponentOrdering::mu_upper</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="49" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a29314b667aa88d74c2757bf3478ad94d" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::psi_lower</definition>
+        <argsstring></argsstring>
+        <name>psi_lower</name>
+        <qualifiedname>ComponentOrdering::psi_lower</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="52" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a0268594c999f4914854f056f2a2c4f43" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::psi_upper</definition>
+        <argsstring></argsstring>
+        <name>psi_upper</name>
+        <qualifiedname>ComponentOrdering::psi_upper</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="53" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1a163b18e1368f0ea6d07ce8eade87e5a6" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::t_lower</definition>
+        <argsstring></argsstring>
+        <name>t_lower</name>
+        <qualifiedname>ComponentOrdering::t_lower</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="56" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_component_ordering_1ac7eec71a17e3a44d3e54891dfdee7c18" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::t_upper</definition>
+        <argsstring></argsstring>
+        <name>t_upper</name>
+        <qualifiedname>ComponentOrdering::t_upper</qualifiedname>
+        <initializer>= <ref refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" kindref="member">invalid</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="57" column="16" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_component_ordering_1a00e24d030c014eeffd1432fde4298559" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ComponentOrdering::ComponentOrdering</definition>
+        <argsstring>()=default</argsstring>
+        <name>ComponentOrdering</name>
+        <qualifiedname>ComponentOrdering::ComponentOrdering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="21" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a2cb36bb2b9a67dd927038e60d8544d50" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_velocity</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>is_velocity</name>
+        <qualifiedname>ComponentOrdering::is_velocity</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if <computeroutput>component</computeroutput> is the queried variable </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="62" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1acb1ecd9fedefc84f096c442d511e9713" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_pressure</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>is_pressure</name>
+        <qualifiedname>ComponentOrdering::is_pressure</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="66" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a65c3768ccd50642d0cfaceca9fd7a95c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_position</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>is_position</name>
+        <qualifiedname>ComponentOrdering::is_position</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="70" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1aa5b8bd88895565cb69e1d5d644a218ea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_lambda</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>is_lambda</name>
+        <qualifiedname>ComponentOrdering::is_lambda</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="74" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a8c49c7b46a5a205d7431f1be7aa2deca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_tracer</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>is_tracer</name>
+        <qualifiedname>ComponentOrdering::is_tracer</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="78" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1ae1be7dc1204d47ff7a83eeb037731100" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_potential</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>is_potential</name>
+        <qualifiedname>ComponentOrdering::is_potential</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="82" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1aee52c5417b7963923349efff19efe6bb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_psi</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>is_psi</name>
+        <qualifiedname>ComponentOrdering::is_psi</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="86" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a323b5ce034b15c71906eae1bf8171167" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_temperature</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>is_temperature</name>
+        <qualifiedname>ComponentOrdering::is_temperature</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="90" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a5444a0a11d9a1a012a8be7f0fba32480" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::has_variable</definition>
+        <argsstring>(const SolverInfo::VariableType variable_type) const</argsstring>
+        <name>has_variable</name>
+        <qualifiedname>ComponentOrdering::has_variable</qualifiedname>
+        <param>
+          <type>const SolverInfo::VariableType</type>
+          <declname>variable_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the solver with this ordering support the queried variable </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="98" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="98" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a450d0a2a479b44cd0feedbfa5511b707" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ComponentOrdering::variable_to_first_component</definition>
+        <argsstring>(const SolverInfo::VariableType variable_type) const</argsstring>
+        <name>variable_to_first_component</name>
+        <qualifiedname>ComponentOrdering::variable_to_first_component</qualifiedname>
+        <param>
+          <type>const SolverInfo::VariableType</type>
+          <declname>variable_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the first variable component. Return an invalid number if the solver does not store the required variable, so it&apos;s best to check first if <ref refid="class_component_ordering_1a5444a0a11d9a1a012a8be7f0fba32480" kindref="member">has_variable()</ref> above returns true for that variable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="127" column="23" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="127" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1ab030978c4860fd8d18d17ea2fd7676da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>SolverInfo::VariableType</type>
+        <definition>SolverInfo::VariableType ComponentOrdering::component_to_variable_type</definition>
+        <argsstring>(const unsigned int component) const</argsstring>
+        <name>component_to_variable_type</name>
+        <qualifiedname>ComponentOrdering::component_to_variable_type</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="153" column="3" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="153" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a7d26e1e7b98f7e1d0fbb8817cb4560f7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_scalar</definition>
+        <argsstring>(const SolverInfo::VariableType variable_type) const</argsstring>
+        <name>is_scalar</name>
+        <qualifiedname>ComponentOrdering::is_scalar</qualifiedname>
+        <param>
+          <type>const SolverInfo::VariableType</type>
+          <declname>variable_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the variable is scalar-valued, false otherwise. Used to return a FEValueExtractor::Scalar. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="179" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="179" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a6efee15bac0a2fd27543707880ca02e1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>dealii::FEValuesExtractors::Scalar</type>
+        <definition>dealii::FEValuesExtractors::Scalar ComponentOrdering::get_scalar_extractor</definition>
+        <argsstring>(const SolverInfo::VariableType variable_type) const</argsstring>
+        <name>get_scalar_extractor</name>
+        <qualifiedname>ComponentOrdering::get_scalar_extractor</qualifiedname>
+        <param>
+          <type>const SolverInfo::VariableType</type>
+          <declname>variable_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a FEValueExtractor::Scalar for this variable. Expects a scalar-valued variable, which can be checked with the function above. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="207" column="3" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="207" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1afc3179efe0b16ef06b0352f2d1f3db46" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ComponentOrdering::is_vector</definition>
+        <argsstring>(const SolverInfo::VariableType variable_type) const</argsstring>
+        <name>is_vector</name>
+        <qualifiedname>ComponentOrdering::is_vector</qualifiedname>
+        <param>
+          <type>const SolverInfo::VariableType</type>
+          <declname>variable_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the variable is vector-valued, false otherwise. Used to return a FEValueExtractor::Vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="239" column="15" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="239" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="class_component_ordering_1a33cc23cc4edf0a6071850870b159b772" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>dealii::FEValuesExtractors::Vector</type>
+        <definition>dealii::FEValuesExtractors::Vector ComponentOrdering::get_vector_extractor</definition>
+        <argsstring>(const SolverInfo::VariableType variable_type) const</argsstring>
+        <name>get_vector_extractor</name>
+        <qualifiedname>ComponentOrdering::get_vector_extractor</qualifiedname>
+        <param>
+          <type>const SolverInfo::VariableType</type>
+          <declname>variable_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a FEValueExtractor::Vector for this variable. Expects a vector-valued variable, which can be checked with the function above. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="250" column="3" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="250" bodyend="276"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> describes the lower and upper component indices for a given solver. For now, all solvers work in a monolithic fashion, solving their complete system of PDEs in a unique coupled system.</para>
+<para>Each derived class must specify the [lower, upper) interval for its variables.</para>
+<para>FIXME: These orderings should be known at compile time. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+      <node id="2">
+        <label>ComponentOrderingCHNS&lt; dim, with_moving_mesh, with_enlarged &gt;</label>
+        <link refid="class_component_ordering_c_h_n_s"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ComponentOrderingCompressibleNS&lt; dim &gt;</label>
+        <link refid="class_component_ordering_compressible_n_s"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ComponentOrderingElasticity&lt; dim, with_enlarged_psi &gt;</label>
+        <link refid="class_component_ordering_elasticity"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ComponentOrderingFSI&lt; dim &gt;</label>
+        <link refid="class_component_ordering_f_s_i"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ComponentOrderingHeat</label>
+        <link refid="class_component_ordering_heat"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ComponentOrderingNS&lt; dim &gt;</label>
+        <link refid="class_component_ordering_n_s"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>ComponentOrderingNSLambda&lt; dim &gt;</label>
+        <link refid="class_component_ordering_n_s_lambda"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="snapshots/pre_amr/include/components_ordering.h" line="18" column="1" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="19" bodyend="277"/>
+    <listofallmembers>
+      <member refid="class_component_ordering_1ab030978c4860fd8d18d17ea2fd7676da" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>component_to_variable_type</name></member>
+      <member refid="class_component_ordering_1a00e24d030c014eeffd1432fde4298559" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>ComponentOrdering</name></member>
+      <member refid="class_component_ordering_1a6efee15bac0a2fd27543707880ca02e1" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>get_scalar_extractor</name></member>
+      <member refid="class_component_ordering_1a33cc23cc4edf0a6071850870b159b772" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>get_vector_extractor</name></member>
+      <member refid="class_component_ordering_1a5444a0a11d9a1a012a8be7f0fba32480" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>has_variable</name></member>
+      <member refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>invalid</name></member>
+      <member refid="class_component_ordering_1aa5b8bd88895565cb69e1d5d644a218ea" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_lambda</name></member>
+      <member refid="class_component_ordering_1a65c3768ccd50642d0cfaceca9fd7a95c" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_position</name></member>
+      <member refid="class_component_ordering_1ae1be7dc1204d47ff7a83eeb037731100" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_potential</name></member>
+      <member refid="class_component_ordering_1acb1ecd9fedefc84f096c442d511e9713" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_pressure</name></member>
+      <member refid="class_component_ordering_1aee52c5417b7963923349efff19efe6bb" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_psi</name></member>
+      <member refid="class_component_ordering_1a7d26e1e7b98f7e1d0fbb8817cb4560f7" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_scalar</name></member>
+      <member refid="class_component_ordering_1a323b5ce034b15c71906eae1bf8171167" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_temperature</name></member>
+      <member refid="class_component_ordering_1a8c49c7b46a5a205d7431f1be7aa2deca" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_tracer</name></member>
+      <member refid="class_component_ordering_1afc3179efe0b16ef06b0352f2d1f3db46" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_vector</name></member>
+      <member refid="class_component_ordering_1a2cb36bb2b9a67dd927038e60d8544d50" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>is_velocity</name></member>
+      <member refid="class_component_ordering_1af4394a8337f4c5617ab90946f7fa9d6d" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>l_lower</name></member>
+      <member refid="class_component_ordering_1a7b331d251d195392021acaa50fb582eb" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>l_upper</name></member>
+      <member refid="class_component_ordering_1a2858a3c4ddbe05eb3cc4273c3f0daa01" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>mu_lower</name></member>
+      <member refid="class_component_ordering_1a20ebc6cbbe4a68647781f4038e535b57" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>mu_upper</name></member>
+      <member refid="class_component_ordering_1aaba7aa635e1b292ee033be8ffcbf5fbe" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>n_components</name></member>
+      <member refid="class_component_ordering_1a4ff302d5fefd358b16da9bbba4aab005" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>p_lower</name></member>
+      <member refid="class_component_ordering_1a2a99c0e6dfe5a6b61412649ac812b854" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>p_upper</name></member>
+      <member refid="class_component_ordering_1a85c2e997a88a0b8533abe594800375eb" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>phi_lower</name></member>
+      <member refid="class_component_ordering_1a641c188ee8ed88932efab3eb382831ed" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>phi_upper</name></member>
+      <member refid="class_component_ordering_1a29314b667aa88d74c2757bf3478ad94d" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>psi_lower</name></member>
+      <member refid="class_component_ordering_1a0268594c999f4914854f056f2a2c4f43" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>psi_upper</name></member>
+      <member refid="class_component_ordering_1a163b18e1368f0ea6d07ce8eade87e5a6" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>t_lower</name></member>
+      <member refid="class_component_ordering_1ac7eec71a17e3a44d3e54891dfdee7c18" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>t_upper</name></member>
+      <member refid="class_component_ordering_1a5f2989031bded44d4411a6d1d70915c7" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>u_lower</name></member>
+      <member refid="class_component_ordering_1a2cb0e80099b90762ff388f2cb01093f3" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>u_upper</name></member>
+      <member refid="class_component_ordering_1a450d0a2a479b44cd0feedbfa5511b707" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>variable_to_first_component</name></member>
+      <member refid="class_component_ordering_1a4937d2a0c47a930ab93be09a4a787953" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>x_lower</name></member>
+      <member refid="class_component_ordering_1a4c49326b4bf3db4752141bf0d978be8d" prot="public" virt="non-virtual"><scope>ComponentOrdering</scope><name>x_upper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

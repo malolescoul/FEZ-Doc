@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</compoundname>
+    <derivedcompoundref refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness" prot="public" virt="non-virtual">Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</derivedcompoundref>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base_1ac82ce452e59d58eafc4254ac0f085877" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase::enable</definition>
+        <argsstring></argsstring>
+        <name>enable</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase::enable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="195" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base_1a1f312ec71a7d221a6a0de0817431ed83" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase::update_frequency</definition>
+        <argsstring></argsstring>
+        <name>update_frequency</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase::update_frequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="198" column="26" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base_1a6876a7b41cc03d3d4bcd8f66045dabdc" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase::factor</definition>
+        <argsstring></argsstring>
+        <name>factor</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase::factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="201" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base_1a505f42bd6f3cf10ece3d36cc3e75dce2" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase::constant_name</definition>
+        <argsstring></argsstring>
+        <name>constant_name</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase::constant_name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="205" column="25" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base struct for quantities updated during fixed point loop. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base"/>
+      </node>
+    </inheritancegraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="192" column="11" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="193" bodyend="206"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base_1a505f42bd6f3cf10ece3d36cc3e75dce2" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</scope><name>constant_name</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base_1ac82ce452e59d58eafc4254ac0f085877" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base_1a6876a7b41cc03d3d4bcd8f66045dabdc" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</scope><name>factor</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base_1a1f312ec71a7d221a6a0de0817431ed83" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</scope><name>update_frequency</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

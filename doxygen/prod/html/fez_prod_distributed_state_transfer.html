@@ -17,6 +17,8 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+
+
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -202,7 +204,8 @@ Exercice C++ de lecture</h1>
 <div class="line">  <span class="keyword">const</span> AffineConstraints&lt;double&gt; &amp;nonzero_constraints,</div>
 <div class="line">  <a class="code hl_typedef" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *additional_solution);</div>
 <div class="ttc" id="anamespace_l_a_html_a71486a471be13e3af27194053d6c8a4b"><div class="ttname"><a href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a></div><div class="ttdeci">dealii::LinearAlgebraPETSc::MPI::Vector ParVectorType</div><div class="ttdef"><b>Définition</b> <a href="types_8h_source.html#l00014">types.h:14</a></div></div>
-</div><!-- fragment --><p><b>Réponse :</b> l'état supplémentaire est optionnel et mutable : le code teste sa présence puis le réinitialise et le remplit. Les deux références désignent des objets obligatoires, consultés sans modifier leur interface. Un pointeur ne signifie pas ici un transfert de propriété : le propriétaire de l'état reste l'estimateur temporel. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613">Implémentation</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284">accès à l'état</a> </p>
+</div><!-- fragment --><p><b>Réponse :</b> l'état supplémentaire est optionnel et mutable : le code teste sa présence puis le réinitialise et le remplit. Les deux références désignent des objets obligatoires, consultés sans modifier leur interface. Un pointeur ne signifie pas ici un transfert de propriété : le propriétaire de l'état reste l'estimateur temporel. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613">Implémentation</a>, <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284">accès à l'état</a></p>
+<p><span id="fez-guide-end-fez_prod_distributed_state_transfer"></span> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

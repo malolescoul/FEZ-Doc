@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence du modèle de la classe Parameters::CahnHilliard&lt; dim &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_parameters_1_1_cahn_hilliard.html','','class_parameters_1_1_cahn_hilliard-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du modèle de la classe Parameters::CahnHilliard&lt; dim &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="parameters_8h_source.html">parameters.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:ae1cc548e57c7c87c0d72015be160d3df" id="r_ae1cc548e57c7c87c0d72015be160d3df"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ae1cc548e57c7c87c0d72015be160d3df">CHNSModel</a> { <a class="el" href="#ae1cc548e57c7c87c0d72015be160d3dfae9743ef966d6671bf38b9ae6757a7d6f">abels</a>
+, <a class="el" href="#ae1cc548e57c7c87c0d72015be160d3dfa5cf74ca86db61c99c507386a6a5764ff">ding_horriche</a>
+, <a class="el" href="#ae1cc548e57c7c87c0d72015be160d3dfab25b4358d6b19a20111a1cc08514dbba">abels_nlm</a>
+ }</td></tr>
+<tr class="memitem:af6d1d0761c12923e197a8dd3fc881402" id="r_af6d1d0761c12923e197a8dd3fc881402"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#af6d1d0761c12923e197a8dd3fc881402">MobilityModel</a> { <br />
+&#160;&#160;<a class="el" href="#af6d1d0761c12923e197a8dd3fc881402a617ac08757d38a5a7ed91c224f0e90a0">constant</a>
+, <a class="el" href="#af6d1d0761c12923e197a8dd3fc881402aff412e499efcfbbb2da4c22b01b39ab5">degenerate</a>
+, <a class="el" href="#af6d1d0761c12923e197a8dd3fc881402a8cb043b2dace9afc0680e6bae5cd316f">adaptive</a>
+, <a class="el" href="#af6d1d0761c12923e197a8dd3fc881402a588396a4841ade426b36d7039704518b">adaptive_mobility_2</a>
+, <br />
+&#160;&#160;<a class="el" href="#af6d1d0761c12923e197a8dd3fc881402a95835278884379dc30d675e4add50132">adaptive_mobility_3</a>
+<br />
+ }</td></tr>
+<tr class="memitem:a74eea52a001402fd7001858c3c7c7e1f" id="r_a74eea52a001402fd7001858c3c7c7e1f"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a74eea52a001402fd7001858c3c7c7e1f">InterfaceProfileCorrection</a> { <a class="el" href="#a74eea52a001402fd7001858c3c7c7e1fa334c4a4c42fdb79d7ebc3e73b517e6f8">none</a>
+, <a class="el" href="#a74eea52a001402fd7001858c3c7c7e1fa7d97481b1fe66f4b51db90da7e794d9f">profile</a>
+, <a class="el" href="#a74eea52a001402fd7001858c3c7c7e1fa640381b892650035eb3279378cbb63b2">profile_flux</a>
+ }</td></tr>
+<tr class="memitem:a7b7a4394e96c8c9c62d6bcccbb8151af" id="r_a7b7a4394e96c8c9c62d6bcccbb8151af"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a7b7a4394e96c8c9c62d6bcccbb8151af">MeshForcingSourceTerm</a> { <a class="el" href="#a7b7a4394e96c8c9c62d6bcccbb8151afa3262d48df5d75e3452f0f16b313b7808">off</a>
+, <a class="el" href="#a7b7a4394e96c8c9c62d6bcccbb8151afab423313fd11737f9592c697aed207c82">chns_form</a>
+, <a class="el" href="#a7b7a4394e96c8c9c62d6bcccbb8151afa8b9035807842a4e4dbe009f3f1478127">custom</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:aff7257eaa5458c5017482415be2d33d3" id="r_aff7257eaa5458c5017482415be2d33d3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aff7257eaa5458c5017482415be2d33d3">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="memitem:ab07731c2015cd4fe2bd542e1b5018307" id="r_ab07731c2015cd4fe2bd542e1b5018307"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab07731c2015cd4fe2bd542e1b5018307">read_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a62741e7d18521e119ac4e4526ac8b814" id="r_a62741e7d18521e119ac4e4526ac8b814"><td class="memItemLeft">enum <a class="el" href="#ae1cc548e57c7c87c0d72015be160d3df">Parameters::CahnHilliard::CHNSModel</a>&#160;</td><td class="memItemRight"><a class="el" href="#a62741e7d18521e119ac4e4526ac8b814">chns_model</a> = <a class="el" href="#ae1cc548e57c7c87c0d72015be160d3dfae9743ef966d6671bf38b9ae6757a7d6f">CHNSModel::abels</a></td></tr>
+<tr class="memitem:a965f3069bcc57c40faa511ccfe9e019b" id="r_a965f3069bcc57c40faa511ccfe9e019b"><td class="memItemLeft">enum <a class="el" href="#af6d1d0761c12923e197a8dd3fc881402">Parameters::CahnHilliard::MobilityModel</a>&#160;</td><td class="memItemRight"><a class="el" href="#a965f3069bcc57c40faa511ccfe9e019b">mobility_model</a></td></tr>
+<tr class="memitem:ab39060b414749eea5e82c55915fc8453" id="r_ab39060b414749eea5e82c55915fc8453"><td class="memItemLeft">enum <a class="el" href="#a74eea52a001402fd7001858c3c7c7e1f">Parameters::CahnHilliard::InterfaceProfileCorrection</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab39060b414749eea5e82c55915fc8453">interface_profile_correction</a> = <a class="el" href="#a74eea52a001402fd7001858c3c7c7e1fa334c4a4c42fdb79d7ebc3e73b517e6f8">InterfaceProfileCorrection::none</a></td></tr>
+<tr class="memitem:ae1e190b5c29f6eb56757c0ab780a2fd2" id="r_ae1e190b5c29f6eb56757c0ab780a2fd2"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae1e190b5c29f6eb56757c0ab780a2fd2">profile_correction_strength</a></td></tr>
+<tr class="memitem:a4019544541d5f7867a51fc74d7dd8783" id="r_a4019544541d5f7867a51fc74d7dd8783"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a4019544541d5f7867a51fc74d7dd8783">mobility</a></td></tr>
+<tr class="memitem:ac1f5cf04c9b92673c9da95ea3cf38af3" id="r_ac1f5cf04c9b92673c9da95ea3cf38af3"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ac1f5cf04c9b92673c9da95ea3cf38af3">adaptive_mobility_n</a></td></tr>
+<tr class="memitem:a7735ef858772611f909222d6444ed57c" id="r_a7735ef858772611f909222d6444ed57c"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a7735ef858772611f909222d6444ed57c">adaptive_mobility_m</a></td></tr>
+<tr class="memitem:a500a6f360b4b63080df5697d64a9839d" id="r_a500a6f360b4b63080df5697d64a9839d"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a500a6f360b4b63080df5697d64a9839d">adaptive_mobility_2_n</a></td></tr>
+<tr class="memitem:a58aaf3a68c5a1d2028d4245bb5df8193" id="r_a58aaf3a68c5a1d2028d4245bb5df8193"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a58aaf3a68c5a1d2028d4245bb5df8193">adaptive_mobility_2_delta</a></td></tr>
+<tr class="memitem:a2084f749bb98da4464a0437baad81edc" id="r_a2084f749bb98da4464a0437baad81edc"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a2084f749bb98da4464a0437baad81edc">adaptive_mobility_3_n</a></td></tr>
+<tr class="memitem:a0edbafa6a5127df6ab35ac2394800b1f" id="r_a0edbafa6a5127df6ab35ac2394800b1f"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a0edbafa6a5127df6ab35ac2394800b1f">adaptive_mobility_3_delta</a></td></tr>
+<tr class="memitem:ae77ad23f8f9d76025c16f4b1afbb8f3c" id="r_ae77ad23f8f9d76025c16f4b1afbb8f3c"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae77ad23f8f9d76025c16f4b1afbb8f3c">adaptive_mobility_delta</a></td></tr>
+<tr class="memitem:a20370bd1c8b01eb4bae328a6687dbf2f" id="r_a20370bd1c8b01eb4bae328a6687dbf2f"><td class="memItemLeft">std::shared_ptr&lt; ManufacturedSolutions::ParsedFunctionSDBase&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a20370bd1c8b01eb4bae328a6687dbf2f">degenerate_mobility</a></td></tr>
+<tr class="memitem:a8fa0b018f048933b3a42749cd0be45af" id="r_a8fa0b018f048933b3a42749cd0be45af"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8fa0b018f048933b3a42749cd0be45af">mobility_tracer_limiter</a></td></tr>
+<tr class="memitem:a26714e5c3d5fc418043d5aba23b150ba" id="r_a26714e5c3d5fc418043d5aba23b150ba"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a26714e5c3d5fc418043d5aba23b150ba">surface_tension</a></td></tr>
+<tr class="memitem:a1a085ab8ef522316a0f587330c5aa4b6" id="r_a1a085ab8ef522316a0f587330c5aa4b6"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a1a085ab8ef522316a0f587330c5aa4b6">epsilon_interface</a></td></tr>
+<tr class="memitem:af0691b6e0377436c6a8b4976b119f2f6" id="r_af0691b6e0377436c6a8b4976b119f2f6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af0691b6e0377436c6a8b4976b119f2f6">with_tracer_limiter</a></td></tr>
+<tr class="memitem:a366fc19a00bb82bb190a197b93bd8d69" id="r_a366fc19a00bb82bb190a197b93bd8d69"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a366fc19a00bb82bb190a197b93bd8d69">tanh_mixing_steepness</a></td></tr>
+<tr class="memitem:ab79444c4221e40a69ded0f68eb5aaba0" id="r_ab79444c4221e40a69ded0f68eb5aaba0"><td class="memItemLeft">enum <a class="el" href="#a7b7a4394e96c8c9c62d6bcccbb8151af">Parameters::CahnHilliard::MeshForcingSourceTerm</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab79444c4221e40a69ded0f68eb5aaba0">mff_source_term</a></td></tr>
+<tr class="memitem:acab7a64b822e378c3bbcab8f096a6a10" id="r_acab7a64b822e378c3bbcab8f096a6a10"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#acab7a64b822e378c3bbcab8f096a6a10">mff_physics_compression_factor</a></td></tr>
+<tr class="memitem:ab1d624bef92aff1d6af7ead1c365b133" id="r_ab1d624bef92aff1d6af7ead1c365b133"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ab1d624bef92aff1d6af7ead1c365b133">mff_transport_factor</a></td></tr>
+<tr class="memitem:a2e3e6bc6fcf407e8a536d63f81135165" id="r_a2e3e6bc6fcf407e8a536d63f81135165"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a2e3e6bc6fcf407e8a536d63f81135165">mff_regularization_gamma</a></td></tr>
+<tr class="memitem:ab422996730d90a3e02a997d335b3dae5" id="r_ab422996730d90a3e02a997d335b3dae5"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ab422996730d90a3e02a997d335b3dae5">psi_interface_width_factor</a></td></tr>
+<tr class="memitem:a83ffb35f184e60b808c9459195a608e8" id="r_a83ffb35f184e60b808c9459195a608e8"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a83ffb35f184e60b808c9459195a608e8">psi_mu_correction_factor</a></td></tr>
+<tr class="memitem:ae1a24b4b7e3e2eba8ab6fe6d49a3653a" id="r_ae1a24b4b7e3e2eba8ab6fe6d49a3653a"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae1a24b4b7e3e2eba8ab6fe6d49a3653a">mff_enlarged_compression_factor</a></td></tr>
+<tr class="memitem:ac315eed06d1a9073549a7bfd5fb4b1fa" id="r_ac315eed06d1a9073549a7bfd5fb4b1fa"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ac315eed06d1a9073549a7bfd5fb4b1fa">mff_enlarged_lobe_position_exponent</a></td></tr>
+<tr class="memitem:aef9d592f54f4c70c36ca3a186afc271e" id="r_aef9d592f54f4c70c36ca3a186afc271e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aef9d592f54f4c70c36ca3a186afc271e">use_presolver</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;int dim&gt;<br />
+class Parameters::CahnHilliard&lt; dim &gt;</div>
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00843">843</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation des énumérations membres</h2>
+<a id="ae1cc548e57c7c87c0d72015be160d3df" name="ae1cc548e57c7c87c0d72015be160d3df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1cc548e57c7c87c0d72015be160d3df">&#9670;&#160;</a></span>CHNSModel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ae1cc548e57c7c87c0d72015be160d3df">Parameters::CahnHilliard::CHNSModel</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ae1cc548e57c7c87c0d72015be160d3dfae9743ef966d6671bf38b9ae6757a7d6f" name="ae1cc548e57c7c87c0d72015be160d3dfae9743ef966d6671bf38b9ae6757a7d6f"></a>abels&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae1cc548e57c7c87c0d72015be160d3dfa5cf74ca86db61c99c507386a6a5764ff" name="ae1cc548e57c7c87c0d72015be160d3dfa5cf74ca86db61c99c507386a6a5764ff"></a>ding_horriche&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae1cc548e57c7c87c0d72015be160d3dfab25b4358d6b19a20111a1cc08514dbba" name="ae1cc548e57c7c87c0d72015be160d3dfab25b4358d6b19a20111a1cc08514dbba"></a>abels_nlm&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00855">855</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a74eea52a001402fd7001858c3c7c7e1f" name="a74eea52a001402fd7001858c3c7c7e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74eea52a001402fd7001858c3c7c7e1f">&#9670;&#160;</a></span>InterfaceProfileCorrection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a74eea52a001402fd7001858c3c7c7e1f">Parameters::CahnHilliard::InterfaceProfileCorrection</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a74eea52a001402fd7001858c3c7c7e1fa334c4a4c42fdb79d7ebc3e73b517e6f8" name="a74eea52a001402fd7001858c3c7c7e1fa334c4a4c42fdb79d7ebc3e73b517e6f8"></a>none&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a74eea52a001402fd7001858c3c7c7e1fa7d97481b1fe66f4b51db90da7e794d9f" name="a74eea52a001402fd7001858c3c7c7e1fa7d97481b1fe66f4b51db90da7e794d9f"></a>profile&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a74eea52a001402fd7001858c3c7c7e1fa640381b892650035eb3279378cbb63b2" name="a74eea52a001402fd7001858c3c7c7e1fa640381b892650035eb3279378cbb63b2"></a>profile_flux&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00874">874</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a7b7a4394e96c8c9c62d6bcccbb8151af" name="a7b7a4394e96c8c9c62d6bcccbb8151af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b7a4394e96c8c9c62d6bcccbb8151af">&#9670;&#160;</a></span>MeshForcingSourceTerm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a7b7a4394e96c8c9c62d6bcccbb8151af">Parameters::CahnHilliard::MeshForcingSourceTerm</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a7b7a4394e96c8c9c62d6bcccbb8151afa3262d48df5d75e3452f0f16b313b7808" name="a7b7a4394e96c8c9c62d6bcccbb8151afa3262d48df5d75e3452f0f16b313b7808"></a>off&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7b7a4394e96c8c9c62d6bcccbb8151afab423313fd11737f9592c697aed207c82" name="a7b7a4394e96c8c9c62d6bcccbb8151afab423313fd11737f9592c697aed207c82"></a>chns_form&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7b7a4394e96c8c9c62d6bcccbb8151afa8b9035807842a4e4dbe009f3f1478127" name="a7b7a4394e96c8c9c62d6bcccbb8151afa8b9035807842a4e4dbe009f3f1478127"></a>custom&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00927">927</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="af6d1d0761c12923e197a8dd3fc881402" name="af6d1d0761c12923e197a8dd3fc881402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6d1d0761c12923e197a8dd3fc881402">&#9670;&#160;</a></span>MobilityModel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#af6d1d0761c12923e197a8dd3fc881402">Parameters::CahnHilliard::MobilityModel</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="af6d1d0761c12923e197a8dd3fc881402a617ac08757d38a5a7ed91c224f0e90a0" name="af6d1d0761c12923e197a8dd3fc881402a617ac08757d38a5a7ed91c224f0e90a0"></a>constant&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af6d1d0761c12923e197a8dd3fc881402aff412e499efcfbbb2da4c22b01b39ab5" name="af6d1d0761c12923e197a8dd3fc881402aff412e499efcfbbb2da4c22b01b39ab5"></a>degenerate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af6d1d0761c12923e197a8dd3fc881402a8cb043b2dace9afc0680e6bae5cd316f" name="af6d1d0761c12923e197a8dd3fc881402a8cb043b2dace9afc0680e6bae5cd316f"></a>adaptive&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af6d1d0761c12923e197a8dd3fc881402a588396a4841ade426b36d7039704518b" name="af6d1d0761c12923e197a8dd3fc881402a588396a4841ade426b36d7039704518b"></a>adaptive_mobility_2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af6d1d0761c12923e197a8dd3fc881402a95835278884379dc30d675e4add50132" name="af6d1d0761c12923e197a8dd3fc881402a95835278884379dc30d675e4add50132"></a>adaptive_mobility_3&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00862">862</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="aff7257eaa5458c5017482415be2d33d3" name="aff7257eaa5458c5017482415be2d33d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff7257eaa5458c5017482415be2d33d3">&#9670;&#160;</a></span>declare_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::declare_parameters </td>
+          <td>(</td>
+          <td class="paramtype">ParameterHandler &amp;</td>          <td class="paramname"><span class="paramname"><em>prm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8cpp_source.html#l01639">1639</a> du fichier <a class="el" href="parameters_8cpp_source.html">parameters.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab07731c2015cd4fe2bd542e1b5018307" name="ab07731c2015cd4fe2bd542e1b5018307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07731c2015cd4fe2bd542e1b5018307">&#9670;&#160;</a></span>read_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::read_parameters </td>
+          <td>(</td>
+          <td class="paramtype">ParameterHandler &amp;</td>          <td class="paramname"><span class="paramname"><em>prm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8cpp_source.html#l01813">1813</a> du fichier <a class="el" href="parameters_8cpp_source.html">parameters.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="a58aaf3a68c5a1d2028d4245bb5df8193" name="a58aaf3a68c5a1d2028d4245bb5df8193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58aaf3a68c5a1d2028d4245bb5df8193">&#9670;&#160;</a></span>adaptive_mobility_2_delta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::adaptive_mobility_2_delta</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00898">898</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a500a6f360b4b63080df5697d64a9839d" name="a500a6f360b4b63080df5697d64a9839d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a500a6f360b4b63080df5697d64a9839d">&#9670;&#160;</a></span>adaptive_mobility_2_n</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::adaptive_mobility_2_n</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00895">895</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a0edbafa6a5127df6ab35ac2394800b1f" name="a0edbafa6a5127df6ab35ac2394800b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0edbafa6a5127df6ab35ac2394800b1f">&#9670;&#160;</a></span>adaptive_mobility_3_delta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::adaptive_mobility_3_delta</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00904">904</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a2084f749bb98da4464a0437baad81edc" name="a2084f749bb98da4464a0437baad81edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2084f749bb98da4464a0437baad81edc">&#9670;&#160;</a></span>adaptive_mobility_3_n</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::adaptive_mobility_3_n</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00901">901</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ae77ad23f8f9d76025c16f4b1afbb8f3c" name="ae77ad23f8f9d76025c16f4b1afbb8f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae77ad23f8f9d76025c16f4b1afbb8f3c">&#9670;&#160;</a></span>adaptive_mobility_delta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::adaptive_mobility_delta</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00907">907</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a7735ef858772611f909222d6444ed57c" name="a7735ef858772611f909222d6444ed57c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7735ef858772611f909222d6444ed57c">&#9670;&#160;</a></span>adaptive_mobility_m</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::adaptive_mobility_m</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00891">891</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ac1f5cf04c9b92673c9da95ea3cf38af3" name="ac1f5cf04c9b92673c9da95ea3cf38af3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1f5cf04c9b92673c9da95ea3cf38af3">&#9670;&#160;</a></span>adaptive_mobility_n</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::adaptive_mobility_n</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00888">888</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a62741e7d18521e119ac4e4526ac8b814" name="a62741e7d18521e119ac4e4526ac8b814"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62741e7d18521e119ac4e4526ac8b814">&#9670;&#160;</a></span>chns_model</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ae1cc548e57c7c87c0d72015be160d3df">Parameters::CahnHilliard::CHNSModel</a> <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::chns_model = <a class="el" href="#ae1cc548e57c7c87c0d72015be160d3dfae9743ef966d6671bf38b9ae6757a7d6f">CHNSModel::abels</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20370bd1c8b01eb4bae328a6687dbf2f" name="a20370bd1c8b01eb4bae328a6687dbf2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20370bd1c8b01eb4bae328a6687dbf2f">&#9670;&#160;</a></span>degenerate_mobility</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;ManufacturedSolutions::ParsedFunctionSDBase&lt;dim&gt; &gt; <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::degenerate_mobility</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00912">912</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a1a085ab8ef522316a0f587330c5aa4b6" name="a1a085ab8ef522316a0f587330c5aa4b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a085ab8ef522316a0f587330c5aa4b6">&#9670;&#160;</a></span>epsilon_interface</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::epsilon_interface</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00916">916</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ab39060b414749eea5e82c55915fc8453" name="ab39060b414749eea5e82c55915fc8453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39060b414749eea5e82c55915fc8453">&#9670;&#160;</a></span>interface_profile_correction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a74eea52a001402fd7001858c3c7c7e1f">Parameters::CahnHilliard::InterfaceProfileCorrection</a> <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::interface_profile_correction = <a class="el" href="#a74eea52a001402fd7001858c3c7c7e1fa334c4a4c42fdb79d7ebc3e73b517e6f8">InterfaceProfileCorrection::none</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1a24b4b7e3e2eba8ab6fe6d49a3653a" name="ae1a24b4b7e3e2eba8ab6fe6d49a3653a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1a24b4b7e3e2eba8ab6fe6d49a3653a">&#9670;&#160;</a></span>mff_enlarged_compression_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mff_enlarged_compression_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00952">952</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ac315eed06d1a9073549a7bfd5fb4b1fa" name="ac315eed06d1a9073549a7bfd5fb4b1fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac315eed06d1a9073549a7bfd5fb4b1fa">&#9670;&#160;</a></span>mff_enlarged_lobe_position_exponent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mff_enlarged_lobe_position_exponent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00957">957</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="acab7a64b822e378c3bbcab8f096a6a10" name="acab7a64b822e378c3bbcab8f096a6a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acab7a64b822e378c3bbcab8f096a6a10">&#9670;&#160;</a></span>mff_physics_compression_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mff_physics_compression_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00935">935</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a2e3e6bc6fcf407e8a536d63f81135165" name="a2e3e6bc6fcf407e8a536d63f81135165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e3e6bc6fcf407e8a536d63f81135165">&#9670;&#160;</a></span>mff_regularization_gamma</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mff_regularization_gamma</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00939">939</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ab79444c4221e40a69ded0f68eb5aaba0" name="ab79444c4221e40a69ded0f68eb5aaba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab79444c4221e40a69ded0f68eb5aaba0">&#9670;&#160;</a></span>mff_source_term</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a7b7a4394e96c8c9c62d6bcccbb8151af">Parameters::CahnHilliard::MeshForcingSourceTerm</a> <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mff_source_term</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1d624bef92aff1d6af7ead1c365b133" name="ab1d624bef92aff1d6af7ead1c365b133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d624bef92aff1d6af7ead1c365b133">&#9670;&#160;</a></span>mff_transport_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mff_transport_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00937">937</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a4019544541d5f7867a51fc74d7dd8783" name="a4019544541d5f7867a51fc74d7dd8783"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4019544541d5f7867a51fc74d7dd8783">&#9670;&#160;</a></span>mobility</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mobility</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00885">885</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a965f3069bcc57c40faa511ccfe9e019b" name="a965f3069bcc57c40faa511ccfe9e019b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a965f3069bcc57c40faa511ccfe9e019b">&#9670;&#160;</a></span>mobility_model</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af6d1d0761c12923e197a8dd3fc881402">Parameters::CahnHilliard::MobilityModel</a> <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mobility_model</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fa0b018f048933b3a42749cd0be45af" name="a8fa0b018f048933b3a42749cd0be45af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa0b018f048933b3a42749cd0be45af">&#9670;&#160;</a></span>mobility_tracer_limiter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::mobility_tracer_limiter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00913">913</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ae1e190b5c29f6eb56757c0ab780a2fd2" name="ae1e190b5c29f6eb56757c0ab780a2fd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1e190b5c29f6eb56757c0ab780a2fd2">&#9670;&#160;</a></span>profile_correction_strength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::profile_correction_strength</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00883">883</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ab422996730d90a3e02a997d335b3dae5" name="ab422996730d90a3e02a997d335b3dae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab422996730d90a3e02a997d335b3dae5">&#9670;&#160;</a></span>psi_interface_width_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::psi_interface_width_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00945">945</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a83ffb35f184e60b808c9459195a608e8" name="a83ffb35f184e60b808c9459195a608e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83ffb35f184e60b808c9459195a608e8">&#9670;&#160;</a></span>psi_mu_correction_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::psi_mu_correction_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00948">948</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a26714e5c3d5fc418043d5aba23b150ba" name="a26714e5c3d5fc418043d5aba23b150ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26714e5c3d5fc418043d5aba23b150ba">&#9670;&#160;</a></span>surface_tension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::surface_tension</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00915">915</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a366fc19a00bb82bb190a197b93bd8d69" name="a366fc19a00bb82bb190a197b93bd8d69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a366fc19a00bb82bb190a197b93bd8d69">&#9670;&#160;</a></span>tanh_mixing_steepness</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::tanh_mixing_steepness</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00922">922</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aef9d592f54f4c70c36ca3a186afc271e" name="aef9d592f54f4c70c36ca3a186afc271e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef9d592f54f4c70c36ca3a186afc271e">&#9670;&#160;</a></span>use_presolver</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::use_presolver</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00961">961</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="af0691b6e0377436c6a8b4976b119f2f6" name="af0691b6e0377436c6a8b4976b119f2f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0691b6e0377436c6a8b4976b119f2f6">&#9670;&#160;</a></span>with_tracer_limiter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt;::with_tracer_limiter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00917">917</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+<li>snapshots/pre_amr/src/<a class="el" href="parameters_8cpp_source.html">parameters.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_parameters.html">Parameters</a></li><li class="navelem"><a href="class_parameters_1_1_cahn_hilliard.html">CahnHilliard</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

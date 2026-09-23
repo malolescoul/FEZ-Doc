@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_constexpr_component_ordering_f_s_i" kind="class" language="C++" prot="public">
+    <compoundname>ConstexprComponentOrderingFSI</compoundname>
+    <includes refid="components__ordering_8h" local="no">components_ordering.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1addad9d4070a50a5a74a5d9e219a7186c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::n_components</definition>
+        <argsstring></argsstring>
+        <name>n_components</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::n_components</qualifiedname>
+        <initializer>= 3 * dim + 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="381" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="381" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1ab1d5ff89dad0ceda3d13e1d11bf18917" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::u_lower</definition>
+        <argsstring></argsstring>
+        <name>u_lower</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::u_lower</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="382" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="382" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1a984780b2f699756f78c0f357a6054128" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::u_upper</definition>
+        <argsstring></argsstring>
+        <name>u_upper</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::u_upper</qualifiedname>
+        <initializer>= dim</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="383" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="383" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1ad26b90738589c1e5db92b8331df70683" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::p_lower</definition>
+        <argsstring></argsstring>
+        <name>p_lower</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::p_lower</qualifiedname>
+        <initializer>= dim</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="384" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="384" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1a9cc628ddb4560b4af01f48739d0984b0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::p_upper</definition>
+        <argsstring></argsstring>
+        <name>p_upper</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::p_upper</qualifiedname>
+        <initializer>= dim + 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="385" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1a1fb2f495e145bd929a097c65ba9d686a" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::x_lower</definition>
+        <argsstring></argsstring>
+        <name>x_lower</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::x_lower</qualifiedname>
+        <initializer>= dim + 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="386" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1afe192aeb1aa004094f61e2bd08f38fcf" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::x_upper</definition>
+        <argsstring></argsstring>
+        <name>x_upper</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::x_upper</qualifiedname>
+        <initializer>= 2 * dim + 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="387" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1a8469e5568d345cdfb70a0ef6ce3745e1" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::l_lower</definition>
+        <argsstring></argsstring>
+        <name>l_lower</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::l_lower</qualifiedname>
+        <initializer>= 2 * dim + 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="388" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_constexpr_component_ordering_f_s_i_1aab3c787ee50a33e76d28aeab61c3ef70" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int ConstexprComponentOrderingFSI&lt; dim &gt;::l_upper</definition>
+        <argsstring></argsstring>
+        <name>l_upper</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::l_upper</qualifiedname>
+        <initializer>= 3 * dim + 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="389" column="33" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_constexpr_component_ordering_f_s_i_1a94509622288770409e3fe4690596eb2d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>ConstexprComponentOrderingFSI&lt; dim &gt;::ConstexprComponentOrderingFSI</definition>
+        <argsstring>()=default</argsstring>
+        <name>ConstexprComponentOrderingFSI</name>
+        <qualifiedname>ConstexprComponentOrderingFSI::ConstexprComponentOrderingFSI</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="379" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/components_ordering.h" line="376" column="1" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="377" bodyend="390"/>
+    <listofallmembers>
+      <member refid="class_constexpr_component_ordering_f_s_i_1a94509622288770409e3fe4690596eb2d" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>ConstexprComponentOrderingFSI</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1a8469e5568d345cdfb70a0ef6ce3745e1" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>l_lower</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1aab3c787ee50a33e76d28aeab61c3ef70" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>l_upper</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1addad9d4070a50a5a74a5d9e219a7186c" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>n_components</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1ad26b90738589c1e5db92b8331df70683" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>p_lower</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1a9cc628ddb4560b4af01f48739d0984b0" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>p_upper</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1ab1d5ff89dad0ceda3d13e1d11bf18917" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>u_lower</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1a984780b2f699756f78c0f357a6054128" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>u_upper</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1a1fb2f495e145bd929a097c65ba9d686a" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>x_lower</name></member>
+      <member refid="class_constexpr_component_ordering_f_s_i_1afe192aeb1aa004094f61e2bd08f38fcf" prot="public" virt="non-virtual"><scope>ConstexprComponentOrderingFSI</scope><name>x_upper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

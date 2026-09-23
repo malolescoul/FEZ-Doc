@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_output" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Output</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_output_1_1_fixed_point_method" prot="public">Parameters::Output::FixedPointMethod</innerclass>
+    <innerclass refid="struct_parameters_1_1_output_1_1_skin" prot="public">Parameters::Output::Skin</innerclass>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1ac01f514f58c2cb20ea298afd31cc8633" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Output::write_results</definition>
+        <argsstring></argsstring>
+        <name>write_results</name>
+        <qualifiedname>Parameters::Output::write_results</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="265" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1a4190309e50e66119be9ffb17e3d96277" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Output::output_dir</definition>
+        <argsstring></argsstring>
+        <name>output_dir</name>
+        <qualifiedname>Parameters::Output::output_dir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="266" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1aabea4202d3e5ac4f4e56e188c98a8384" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Output::output_prefix</definition>
+        <argsstring></argsstring>
+        <name>output_prefix</name>
+        <qualifiedname>Parameters::Output::output_prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="267" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1a717570f5c3aa38f36bf12838dd2fa757" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Output::vtu_output_frequency</definition>
+        <argsstring></argsstring>
+        <name>vtu_output_frequency</name>
+        <qualifiedname>Parameters::Output::vtu_output_frequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="268" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1ab29216bfd53e53a148e736fbfdf58315" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Output::n_vtu_groups</definition>
+        <argsstring></argsstring>
+        <name>n_vtu_groups</name>
+        <qualifiedname>Parameters::Output::n_vtu_groups</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="271" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1a6f00477ed003b7200e31f788d14505bb" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Output::n_subdivisions</definition>
+        <argsstring></argsstring>
+        <name>n_subdivisions</name>
+        <qualifiedname>Parameters::Output::n_subdivisions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="274" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1ade50d53f6370bb5d5b131b64ed65ad9a" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_parameters_1_1_output_1_1_fixed_point_method" kindref="compound">Parameters::Output::FixedPointMethod</ref></type>
+        <definition>struct Parameters::Output::FixedPointMethod Parameters::Output::fixed_point</definition>
+        <argsstring></argsstring>
+        <name>fixed_point</name>
+        <qualifiedname>Parameters::Output::fixed_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="295" column="17"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1a97ae50fc1c65262939af887971f611d5" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_parameters_1_1_output_1_1_skin" kindref="compound">Parameters::Output::Skin</ref></type>
+        <definition>struct Parameters::Output::Skin Parameters::Output::skin</definition>
+        <argsstring></argsstring>
+        <name>skin</name>
+        <qualifiedname>Parameters::Output::skin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="305" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="struct_parameters_1_1_output_1ab194ad8294dcdb594ccb8fec590aba2c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Output::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::Output::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="307" column="17" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="363" bodyend="434"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_output_1a7c739941ef55d47dee42e138315ad9f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Output::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::Output::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="308" column="17" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="436" bodyend="463"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::Output</label>
+        <link refid="struct_parameters_1_1_output"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>fixed_point</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::Output::FixedPointMethod</label>
+        <link refid="struct_parameters_1_1_output_1_1_fixed_point_method"/>
+      </node>
+      <node id="3">
+        <label>Parameters::Output::Skin</label>
+        <link refid="struct_parameters_1_1_output_1_1_skin"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="263" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="264" bodyend="309"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_output_1ab194ad8294dcdb594ccb8fec590aba2c" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_output_1ade50d53f6370bb5d5b131b64ed65ad9a" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>fixed_point</name></member>
+      <member refid="struct_parameters_1_1_output_1a6f00477ed003b7200e31f788d14505bb" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>n_subdivisions</name></member>
+      <member refid="struct_parameters_1_1_output_1ab29216bfd53e53a148e736fbfdf58315" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>n_vtu_groups</name></member>
+      <member refid="struct_parameters_1_1_output_1a4190309e50e66119be9ffb17e3d96277" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>output_dir</name></member>
+      <member refid="struct_parameters_1_1_output_1aabea4202d3e5ac4f4e56e188c98a8384" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>output_prefix</name></member>
+      <member refid="struct_parameters_1_1_output_1a7c739941ef55d47dee42e138315ad9f6" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_output_1a97ae50fc1c65262939af887971f611d5" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>skin</name></member>
+      <member refid="struct_parameters_1_1_output_1a717570f5c3aa38f36bf12838dd2fa757" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>vtu_output_frequency</name></member>
+      <member refid="struct_parameters_1_1_output_1ac01f514f58c2cb20ea298afd31cc8633" prot="public" virt="non-virtual"><scope>Parameters::Output</scope><name>write_results</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,876 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_scratch_data_elasticity" kind="class" language="C++" prot="public">
+    <compoundname>ScratchDataElasticity</compoundname>
+    <includes refid="scratch__data__elasticity_8h" local="no">scratch_data_elasticity.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1aab5b1a34c996b53a6b43ff4e80167336" prot="private" static="no" mutable="no">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt;dim&gt;&amp; ScratchDataElasticity&lt; dim &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>ScratchDataElasticity::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="289" column="25" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a1d7c930afc6aca1a07720d06a47e965a" prot="private" static="no" mutable="no">
+        <type>FEValues&lt; dim &gt;</type>
+        <definition>FEValues&lt;dim&gt; ScratchDataElasticity&lt; dim &gt;::fe_values</definition>
+        <argsstring></argsstring>
+        <name>fe_values</name>
+        <qualifiedname>ScratchDataElasticity::fe_values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="292" column="12" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1af28b1a12857635abca8a8f4fb93879ed" prot="private" static="no" mutable="no">
+        <type>const bool</type>
+        <definition>const bool ScratchDataElasticity&lt; dim &gt;::evaluate_chns_forcing</definition>
+        <argsstring></argsstring>
+        <name>evaluate_chns_forcing</name>
+        <qualifiedname>ScratchDataElasticity::evaluate_chns_forcing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="296" column="14" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a2fb370c9f1da596aec468f2ab42dfa6c" prot="private" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask ScratchDataElasticity&lt; dim &gt;::position_mask</definition>
+        <argsstring></argsstring>
+        <name>position_mask</name>
+        <qualifiedname>ScratchDataElasticity::position_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="300" column="17" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a57b7386b16d9816149107169366609b9" prot="public" static="no" mutable="no">
+        <type>const bool</type>
+        <definition>const bool ScratchDataElasticity&lt; dim &gt;::with_enlarged_psi</definition>
+        <argsstring></argsstring>
+        <name>with_enlarged_psi</name>
+        <qualifiedname>ScratchDataElasticity::with_enlarged_psi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="306" column="14" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="306" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a35626c93b212b480aa9a0541c867ae66" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int ScratchDataElasticity&lt; dim &gt;::active_fe_index</definition>
+        <argsstring></argsstring>
+        <name>active_fe_index</name>
+        <qualifiedname>ScratchDataElasticity::active_fe_index</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="308" column="22" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1ab6fbe56f6e0e30509b81432002f8e887" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int ScratchDataElasticity&lt; dim &gt;::n_q_points</definition>
+        <argsstring></argsstring>
+        <name>n_q_points</name>
+        <qualifiedname>ScratchDataElasticity::n_q_points</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="310" column="22" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a2c5e8cf296e624892cd7e044a3084e96" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int ScratchDataElasticity&lt; dim &gt;::n_faces</definition>
+        <argsstring></argsstring>
+        <name>n_faces</name>
+        <qualifiedname>ScratchDataElasticity::n_faces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="311" column="22" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a791236f9b44faae2ae9a1131eb311d5d" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int ScratchDataElasticity&lt; dim &gt;::n_faces_q_points</definition>
+        <argsstring></argsstring>
+        <name>n_faces_q_points</name>
+        <qualifiedname>ScratchDataElasticity::n_faces_q_points</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="312" column="22" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1af3cb216351dfea3f4120045b3b04877d" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int ScratchDataElasticity&lt; dim &gt;::dofs_per_cell</definition>
+        <argsstring></argsstring>
+        <name>dofs_per_cell</name>
+        <qualifiedname>ScratchDataElasticity::dofs_per_cell</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="313" column="22" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a86a784c82be8a84c2a70edaeb71c847e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; unsigned int &gt;</type>
+        <definition>std::vector&lt;unsigned int&gt; ScratchDataElasticity&lt; dim &gt;::components</definition>
+        <argsstring></argsstring>
+        <name>components</name>
+        <qualifiedname>ScratchDataElasticity::components</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="315" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a6a8871723597db92d83c032bdf5e15f9" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ScratchDataElasticity&lt; dim &gt;::JxW_fixed</definition>
+        <argsstring></argsstring>
+        <name>JxW_fixed</name>
+        <qualifiedname>ScratchDataElasticity::JxW_fixed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="317" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1ae2d51583771c524b41fb83a2147f089d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ScratchDataElasticity&lt; dim &gt;::lame_mu</definition>
+        <argsstring></argsstring>
+        <name>lame_mu</name>
+        <qualifiedname>ScratchDataElasticity::lame_mu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="318" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a742594b8642c9809c729e7060f665e94" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ScratchDataElasticity&lt; dim &gt;::lame_lambda</definition>
+        <argsstring></argsstring>
+        <name>lame_lambda</name>
+        <qualifiedname>ScratchDataElasticity::lame_lambda</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="319" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a9f7777083c7319e7fd555cd864a77bb8" prot="public" static="no" mutable="no">
+        <type>FEValuesExtractors::Vector</type>
+        <definition>FEValuesExtractors::Vector ScratchDataElasticity&lt; dim &gt;::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>ScratchDataElasticity::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="321" column="30" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a4a20a3780c5dd86fdcc8f69b5288af7c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 1, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;1, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::position_values</definition>
+        <argsstring></argsstring>
+        <name>position_values</name>
+        <qualifiedname>ScratchDataElasticity::position_values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="323" column="24" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1aaa64c9848b8d94d12925644eb0273eda" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 2, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;2, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::present_position_gradients</definition>
+        <argsstring></argsstring>
+        <name>present_position_gradients</name>
+        <qualifiedname>ScratchDataElasticity::present_position_gradients</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="324" column="24" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a8053d8d53489554d568665d11a075208" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; SymmetricTensor&lt; 2, dim &gt; &gt;</type>
+        <definition>std::vector&lt;SymmetricTensor&lt;2, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::position_sym_gradients</definition>
+        <argsstring></argsstring>
+        <name>position_sym_gradients</name>
+        <qualifiedname>ScratchDataElasticity::position_sym_gradients</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="325" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a9f5b6bb730d5e8cd93d6587937955fab" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ScratchDataElasticity&lt; dim &gt;::present_position_J</definition>
+        <argsstring></argsstring>
+        <name>present_position_J</name>
+        <qualifiedname>ScratchDataElasticity::present_position_J</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="328" column="23" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a85c145b04f3191b224cdba0fdcde5745" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 2, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;2, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::present_position_inverse_gradients</definition>
+        <argsstring></argsstring>
+        <name>present_position_inverse_gradients</name>
+        <qualifiedname>ScratchDataElasticity::present_position_inverse_gradients</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="329" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a44bc8f2ac6e41fb42afd2a720af965fc" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 2, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;2, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::present_position_inverse_gradients_T</definition>
+        <argsstring></argsstring>
+        <name>present_position_inverse_gradients_T</name>
+        <qualifiedname>ScratchDataElasticity::present_position_inverse_gradients_T</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="330" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1ab0841e2b7642594148487172b1b314d6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;Tensor&lt;1, dim&gt; &gt; &gt; ScratchDataElasticity&lt; dim &gt;::phi_x</definition>
+        <argsstring></argsstring>
+        <name>phi_x</name>
+        <qualifiedname>ScratchDataElasticity::phi_x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="332" column="24" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a975077226e6c2051d786c0031b73bb24" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; Tensor&lt; 2, dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;Tensor&lt;2, dim&gt; &gt; &gt; ScratchDataElasticity&lt; dim &gt;::grad_phi_x</definition>
+        <argsstring></argsstring>
+        <name>grad_phi_x</name>
+        <qualifiedname>ScratchDataElasticity::grad_phi_x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="333" column="24" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1ac0a916f2ad3f8e6321e4aab4a9e16676" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; SymmetricTensor&lt; 2, dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;SymmetricTensor&lt;2, dim&gt; &gt; &gt; ScratchDataElasticity&lt; dim &gt;::sym_grad_phi_x</definition>
+        <argsstring></argsstring>
+        <name>sym_grad_phi_x</name>
+        <qualifiedname>ScratchDataElasticity::sym_grad_phi_x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="334" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1ad998e9e4da43a429b803a2447855d145" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; ScratchDataElasticity&lt; dim &gt;::div_phi_x</definition>
+        <argsstring></argsstring>
+        <name>div_phi_x</name>
+        <qualifiedname>ScratchDataElasticity::div_phi_x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="335" column="32" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1acbcaefe55de97738a90fe63a158ce1d6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ScratchDataElasticity&lt; dim &gt;::chns_tracer_values</definition>
+        <argsstring></argsstring>
+        <name>chns_tracer_values</name>
+        <qualifiedname>ScratchDataElasticity::chns_tracer_values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="339" column="32" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a2bcaaff09860b0073c6f8ed1744ddbe1" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 1, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;1, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::chns_tracer_gradients</definition>
+        <argsstring></argsstring>
+        <name>chns_tracer_gradients</name>
+        <qualifiedname>ScratchDataElasticity::chns_tracer_gradients</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="340" column="24" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1addf774a346b11f71e8391579e73df7c8" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; SymmetricTensor&lt; 2, dim &gt; &gt;</type>
+        <definition>std::vector&lt;SymmetricTensor&lt;2, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::chns_tracer_hessians</definition>
+        <argsstring></argsstring>
+        <name>chns_tracer_hessians</name>
+        <qualifiedname>ScratchDataElasticity::chns_tracer_hessians</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="341" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1acc8eb4a24f8b0c86914d3d9455c1f1e6" prot="public" static="no" mutable="no">
+        <type>FEValuesExtractors::Scalar</type>
+        <definition>FEValuesExtractors::Scalar ScratchDataElasticity&lt; dim &gt;::psi</definition>
+        <argsstring></argsstring>
+        <name>psi</name>
+        <qualifiedname>ScratchDataElasticity::psi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="347" column="44" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1ac008a214973fd6c868d1496b010cf4b5" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ScratchDataElasticity&lt; dim &gt;::JxW_moving</definition>
+        <argsstring></argsstring>
+        <name>JxW_moving</name>
+        <qualifiedname>ScratchDataElasticity::JxW_moving</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="348" column="36" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a70d847539d51782a6d5cd19d8e43ec1e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ScratchDataElasticity&lt; dim &gt;::psi_values</definition>
+        <argsstring></argsstring>
+        <name>psi_values</name>
+        <qualifiedname>ScratchDataElasticity::psi_values</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="349" column="36" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a250f8aa9c248c61a190c28abd3714837" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 1, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;1, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::psi_gradients</definition>
+        <argsstring></argsstring>
+        <name>psi_gradients</name>
+        <qualifiedname>ScratchDataElasticity::psi_gradients</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="350" column="28" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1ac42a0549c870fb592342630ea9488b01" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; ScratchDataElasticity&lt; dim &gt;::shape_psi</definition>
+        <argsstring></argsstring>
+        <name>shape_psi</name>
+        <qualifiedname>ScratchDataElasticity::shape_psi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="351" column="23" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a17a7ffd2f7dc494888e9ac4682c4d8f1" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;Tensor&lt;1, dim&gt; &gt; &gt; ScratchDataElasticity&lt; dim &gt;::grad_shape_psi</definition>
+        <argsstring></argsstring>
+        <name>grad_shape_psi</name>
+        <qualifiedname>ScratchDataElasticity::grad_shape_psi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="352" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1adca42a463a1553f60efe17e7cacd99bd" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; Tensor&lt; 2, dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;Tensor&lt;2, dim&gt; &gt; &gt; ScratchDataElasticity&lt; dim &gt;::grad_phi_x_moving</definition>
+        <argsstring></argsstring>
+        <name>grad_phi_x_moving</name>
+        <qualifiedname>ScratchDataElasticity::grad_phi_x_moving</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="355" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a98d6b2db6ebc2c4b266bf526beeead66" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ScratchDataElasticity&lt; dim &gt;::psi_length_scale_sq</definition>
+        <argsstring></argsstring>
+        <name>psi_length_scale_sq</name>
+        <qualifiedname>ScratchDataElasticity::psi_length_scale_sq</qualifiedname>
+        <initializer>= 0.</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="359" column="10" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a8e63cba64775e4b547ad83b762d1c647" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ScratchDataElasticity&lt; dim &gt;::epsilon</definition>
+        <argsstring></argsstring>
+        <name>epsilon</name>
+        <qualifiedname>ScratchDataElasticity::epsilon</qualifiedname>
+        <initializer>= 0.</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="360" column="10" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a70a7048647a663d12543cbcfce997e1b" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;Vector&lt;double&gt; &gt; ScratchDataElasticity&lt; dim &gt;::source_term_full</definition>
+        <argsstring></argsstring>
+        <name>source_term_full</name>
+        <qualifiedname>ScratchDataElasticity::source_term_full</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluation of the given source term on the fixed mesh, that is, of f(X). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="365" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a00dd619b0777d87668378629e25a5aad" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 1, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;1, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::source_term_position_fixed_mesh</definition>
+        <argsstring></argsstring>
+        <name>source_term_position_fixed_mesh</name>
+        <qualifiedname>ScratchDataElasticity::source_term_position_fixed_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="366" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a84f3d5d2fad0ba55c451705c7d6e12ee" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Point&lt; dim &gt; &gt;</type>
+        <definition>std::vector&lt;Point&lt;dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::qpoints_current_mesh</definition>
+        <argsstring></argsstring>
+        <name>qpoints_current_mesh</name>
+        <qualifiedname>ScratchDataElasticity::qpoints_current_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluation of the given source term on the current mesh, that is, of f(x(X)). This is useful when one has access to the source term on the current configuration only, whereas the linear elasticity equation is solved on the reference configuration. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="374" column="32" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a9cda91d7c6b6d0e1c6a902d7b3c84e19" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;Vector&lt;double&gt; &gt; ScratchDataElasticity&lt; dim &gt;::source_term_full_current_mesh</definition>
+        <argsstring></argsstring>
+        <name>source_term_full_current_mesh</name>
+        <qualifiedname>ScratchDataElasticity::source_term_full_current_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="375" column="28" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="375" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a398d735cdc4e2b3641631874d69457dd" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 1, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;1, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::source_term_position_current_mesh</definition>
+        <argsstring></argsstring>
+        <name>source_term_position_current_mesh</name>
+        <qualifiedname>ScratchDataElasticity::source_term_position_current_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="376" column="28" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a3c12225f8d7bb5329439ff7a5d6fb178" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;Tensor&lt;1, dim&gt; &gt; &gt; ScratchDataElasticity&lt; dim &gt;::grad_source_term_full_current_mesh</definition>
+        <argsstring></argsstring>
+        <name>grad_source_term_full_current_mesh</name>
+        <qualifiedname>ScratchDataElasticity::grad_source_term_full_current_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="377" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a5c7e17a37298ce8b6cfa49e1d48314e5" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 2, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;2, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::grad_source_term_position_current_mesh</definition>
+        <argsstring></argsstring>
+        <name>grad_source_term_position_current_mesh</name>
+        <qualifiedname>ScratchDataElasticity::grad_source_term_position_current_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="378" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a83a460e7abca582c46928155c4f1d70f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ScratchDataElasticity&lt; dim &gt;::source_term_fixed_mesh_multiplier</definition>
+        <argsstring></argsstring>
+        <name>source_term_fixed_mesh_multiplier</name>
+        <qualifiedname>ScratchDataElasticity::source_term_fixed_mesh_multiplier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The source term that is effectively used, defined by</para>
+<para>a * source_term_position_fixed_mesh + b * source_term_position_current_mesh,</para>
+<para>with a = source_term_fixed_mesh_multiplier and b = source_term_moving_mesh_multiplier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="389" column="31" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1ab2b33216d4d85cccc4dbd87d34fe2896" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ScratchDataElasticity&lt; dim &gt;::source_term_moving_mesh_multiplier</definition>
+        <argsstring></argsstring>
+        <name>source_term_moving_mesh_multiplier</name>
+        <qualifiedname>ScratchDataElasticity::source_term_moving_mesh_multiplier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="390" column="31" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a3e2d6c901c090a7cce3ccefd7aa3e52f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ScratchDataElasticity&lt; dim &gt;::chns_compression_multiplier</definition>
+        <argsstring></argsstring>
+        <name>chns_compression_multiplier</name>
+        <qualifiedname>ScratchDataElasticity::chns_compression_multiplier</qualifiedname>
+        <initializer>= 1.</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="394" column="10" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scratch_data_elasticity_1a34ebb44402980a2e2d789421858401da" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; Tensor&lt; 1, dim &gt; &gt;</type>
+        <definition>std::vector&lt;Tensor&lt;1, dim&gt; &gt; ScratchDataElasticity&lt; dim &gt;::source_term_position</definition>
+        <argsstring></argsstring>
+        <name>source_term_position</name>
+        <qualifiedname>ScratchDataElasticity::source_term_position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="396" column="15" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="396" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_scratch_data_elasticity_1a5d37ce440e206421a6aaccd017b6ff0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ScratchDataElasticity&lt; dim &gt;::ScratchDataElasticity</definition>
+        <argsstring>(const FESystem&lt; dim &gt; &amp;fe, const Mapping&lt; dim &gt; &amp;mapping, const Quadrature&lt; dim &gt; &amp;cell_quadrature, const Quadrature&lt; dim - 1 &gt; &amp;face_quadrature, const ParameterReader&lt; dim &gt; &amp;param, const bool evaluate_chns_forcing=false, const bool with_enlarged_psi=false)</argsstring>
+        <name>ScratchDataElasticity</name>
+        <qualifiedname>ScratchDataElasticity::ScratchDataElasticity</qualifiedname>
+        <param>
+          <type>const FESystem&lt; dim &gt; &amp;</type>
+          <declname>fe</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Quadrature&lt; dim &gt; &amp;</type>
+          <declname>cell_quadrature</declname>
+        </param>
+        <param>
+          <type>const Quadrature&lt; dim - 1 &gt; &amp;</type>
+          <declname>face_quadrature</declname>
+        </param>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>evaluate_chns_forcing</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>with_enlarged_psi</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="27" column="3" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="27" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scratch_data_elasticity_1aa7738f842e03873cd21d482da5139882" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ScratchDataElasticity&lt; dim &gt;::ScratchDataElasticity</definition>
+        <argsstring>(const ScratchDataElasticity &amp;other)</argsstring>
+        <name>ScratchDataElasticity</name>
+        <qualifiedname>ScratchDataElasticity::ScratchDataElasticity</qualifiedname>
+        <param>
+          <type>const <ref refid="class_scratch_data_elasticity" kindref="compound">ScratchDataElasticity</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copy constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="64" column="3" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="64" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scratch_data_elasticity_1adc48eb7c292aa075937af94acb5a9b2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void ScratchDataElasticity&lt; dim &gt;::reinit</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, const VectorType &amp;current_solution, const std::shared_ptr&lt; Function&lt; dim &gt; &gt; &amp;source_terms, const std::shared_ptr&lt; Function&lt; dim &gt; &gt; &amp;)</argsstring>
+        <name>reinit</name>
+        <qualifiedname>ScratchDataElasticity::reinit</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>current_solution</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; Function&lt; dim &gt; &gt; &amp;</type>
+          <declname>source_terms</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; Function&lt; dim &gt; &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Volume contributions</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="147" column="8" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="147" bodyend="286"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_scratch_data_elasticity_1a9f804f6afcd89379f26a622269a4b311" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScratchDataElasticity&lt; dim &gt;::allocate</definition>
+        <argsstring>()</argsstring>
+        <name>allocate</name>
+        <qualifiedname>ScratchDataElasticity::allocate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="93" column="8" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="93" bodyend="143"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Small scratch data for the linear elasticity equation on fixed mesh. </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/scratch_data_elasticity.h" line="21" column="1" bodyfile="snapshots/pre_amr/include/scratch_data_elasticity.h" bodystart="22" bodyend="397"/>
+    <listofallmembers>
+      <member refid="class_scratch_data_elasticity_1a35626c93b212b480aa9a0541c867ae66" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>active_fe_index</name></member>
+      <member refid="class_scratch_data_elasticity_1a9f804f6afcd89379f26a622269a4b311" prot="private" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>allocate</name></member>
+      <member refid="class_scratch_data_elasticity_1a3e2d6c901c090a7cce3ccefd7aa3e52f" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>chns_compression_multiplier</name></member>
+      <member refid="class_scratch_data_elasticity_1a2bcaaff09860b0073c6f8ed1744ddbe1" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>chns_tracer_gradients</name></member>
+      <member refid="class_scratch_data_elasticity_1addf774a346b11f71e8391579e73df7c8" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>chns_tracer_hessians</name></member>
+      <member refid="class_scratch_data_elasticity_1acbcaefe55de97738a90fe63a158ce1d6" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>chns_tracer_values</name></member>
+      <member refid="class_scratch_data_elasticity_1a86a784c82be8a84c2a70edaeb71c847e" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>components</name></member>
+      <member refid="class_scratch_data_elasticity_1ad998e9e4da43a429b803a2447855d145" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>div_phi_x</name></member>
+      <member refid="class_scratch_data_elasticity_1af3cb216351dfea3f4120045b3b04877d" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>dofs_per_cell</name></member>
+      <member refid="class_scratch_data_elasticity_1a8e63cba64775e4b547ad83b762d1c647" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>epsilon</name></member>
+      <member refid="class_scratch_data_elasticity_1af28b1a12857635abca8a8f4fb93879ed" prot="private" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>evaluate_chns_forcing</name></member>
+      <member refid="class_scratch_data_elasticity_1a1d7c930afc6aca1a07720d06a47e965a" prot="private" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>fe_values</name></member>
+      <member refid="class_scratch_data_elasticity_1a975077226e6c2051d786c0031b73bb24" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>grad_phi_x</name></member>
+      <member refid="class_scratch_data_elasticity_1adca42a463a1553f60efe17e7cacd99bd" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>grad_phi_x_moving</name></member>
+      <member refid="class_scratch_data_elasticity_1a17a7ffd2f7dc494888e9ac4682c4d8f1" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>grad_shape_psi</name></member>
+      <member refid="class_scratch_data_elasticity_1a3c12225f8d7bb5329439ff7a5d6fb178" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>grad_source_term_full_current_mesh</name></member>
+      <member refid="class_scratch_data_elasticity_1a5c7e17a37298ce8b6cfa49e1d48314e5" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>grad_source_term_position_current_mesh</name></member>
+      <member refid="class_scratch_data_elasticity_1a6a8871723597db92d83c032bdf5e15f9" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>JxW_fixed</name></member>
+      <member refid="class_scratch_data_elasticity_1ac008a214973fd6c868d1496b010cf4b5" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>JxW_moving</name></member>
+      <member refid="class_scratch_data_elasticity_1a742594b8642c9809c729e7060f665e94" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>lame_lambda</name></member>
+      <member refid="class_scratch_data_elasticity_1ae2d51583771c524b41fb83a2147f089d" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>lame_mu</name></member>
+      <member refid="class_scratch_data_elasticity_1a2c5e8cf296e624892cd7e044a3084e96" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>n_faces</name></member>
+      <member refid="class_scratch_data_elasticity_1a791236f9b44faae2ae9a1131eb311d5d" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>n_faces_q_points</name></member>
+      <member refid="class_scratch_data_elasticity_1ab6fbe56f6e0e30509b81432002f8e887" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>n_q_points</name></member>
+      <member refid="class_scratch_data_elasticity_1aab5b1a34c996b53a6b43ff4e80167336" prot="private" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>param</name></member>
+      <member refid="class_scratch_data_elasticity_1ab0841e2b7642594148487172b1b314d6" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>phi_x</name></member>
+      <member refid="class_scratch_data_elasticity_1a9f7777083c7319e7fd555cd864a77bb8" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>position</name></member>
+      <member refid="class_scratch_data_elasticity_1a2fb370c9f1da596aec468f2ab42dfa6c" prot="private" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>position_mask</name></member>
+      <member refid="class_scratch_data_elasticity_1a8053d8d53489554d568665d11a075208" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>position_sym_gradients</name></member>
+      <member refid="class_scratch_data_elasticity_1a4a20a3780c5dd86fdcc8f69b5288af7c" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>position_values</name></member>
+      <member refid="class_scratch_data_elasticity_1aaa64c9848b8d94d12925644eb0273eda" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>present_position_gradients</name></member>
+      <member refid="class_scratch_data_elasticity_1a85c145b04f3191b224cdba0fdcde5745" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>present_position_inverse_gradients</name></member>
+      <member refid="class_scratch_data_elasticity_1a44bc8f2ac6e41fb42afd2a720af965fc" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>present_position_inverse_gradients_T</name></member>
+      <member refid="class_scratch_data_elasticity_1a9f5b6bb730d5e8cd93d6587937955fab" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>present_position_J</name></member>
+      <member refid="class_scratch_data_elasticity_1acc8eb4a24f8b0c86914d3d9455c1f1e6" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>psi</name></member>
+      <member refid="class_scratch_data_elasticity_1a250f8aa9c248c61a190c28abd3714837" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>psi_gradients</name></member>
+      <member refid="class_scratch_data_elasticity_1a98d6b2db6ebc2c4b266bf526beeead66" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>psi_length_scale_sq</name></member>
+      <member refid="class_scratch_data_elasticity_1a70d847539d51782a6d5cd19d8e43ec1e" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>psi_values</name></member>
+      <member refid="class_scratch_data_elasticity_1a84f3d5d2fad0ba55c451705c7d6e12ee" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>qpoints_current_mesh</name></member>
+      <member refid="class_scratch_data_elasticity_1adc48eb7c292aa075937af94acb5a9b2b" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>reinit</name></member>
+      <member refid="class_scratch_data_elasticity_1a5d37ce440e206421a6aaccd017b6ff0f" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>ScratchDataElasticity</name></member>
+      <member refid="class_scratch_data_elasticity_1aa7738f842e03873cd21d482da5139882" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>ScratchDataElasticity</name></member>
+      <member refid="class_scratch_data_elasticity_1ac42a0549c870fb592342630ea9488b01" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>shape_psi</name></member>
+      <member refid="class_scratch_data_elasticity_1a83a460e7abca582c46928155c4f1d70f" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>source_term_fixed_mesh_multiplier</name></member>
+      <member refid="class_scratch_data_elasticity_1a70a7048647a663d12543cbcfce997e1b" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>source_term_full</name></member>
+      <member refid="class_scratch_data_elasticity_1a9cda91d7c6b6d0e1c6a902d7b3c84e19" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>source_term_full_current_mesh</name></member>
+      <member refid="class_scratch_data_elasticity_1ab2b33216d4d85cccc4dbd87d34fe2896" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>source_term_moving_mesh_multiplier</name></member>
+      <member refid="class_scratch_data_elasticity_1a34ebb44402980a2e2d789421858401da" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>source_term_position</name></member>
+      <member refid="class_scratch_data_elasticity_1a398d735cdc4e2b3641631874d69457dd" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>source_term_position_current_mesh</name></member>
+      <member refid="class_scratch_data_elasticity_1a00dd619b0777d87668378629e25a5aad" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>source_term_position_fixed_mesh</name></member>
+      <member refid="class_scratch_data_elasticity_1ac0a916f2ad3f8e6321e4aab4a9e16676" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>sym_grad_phi_x</name></member>
+      <member refid="class_scratch_data_elasticity_1a57b7386b16d9816149107169366609b9" prot="public" virt="non-virtual"><scope>ScratchDataElasticity</scope><name>with_enlarged_psi</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_output_1_1_fixed_point_method" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Output::FixedPointMethod</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1_1_fixed_point_method_1abbf99bdec0c62c999cf48527075092a3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Output::FixedPointMethod::single_pvd</definition>
+        <argsstring></argsstring>
+        <name>single_pvd</name>
+        <qualifiedname>Parameters::Output::FixedPointMethod::single_pvd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="283" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1_1_fixed_point_method_1a2a24377d0fdf440d3dcbc2f7c9427ce4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Output::FixedPointMethod::show_solution_transfer</definition>
+        <argsstring></argsstring>
+        <name>show_solution_transfer</name>
+        <qualifiedname>Parameters::Output::FixedPointMethod::show_solution_transfer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="294" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="294" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="278" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="279" bodyend="295"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_output_1_1_fixed_point_method_1a2a24377d0fdf440d3dcbc2f7c9427ce4" prot="public" virt="non-virtual"><scope>Parameters::Output::FixedPointMethod</scope><name>show_solution_transfer</name></member>
+      <member refid="struct_parameters_1_1_output_1_1_fixed_point_method_1abbf99bdec0c62c999cf48527075092a3" prot="public" virt="non-virtual"><scope>Parameters::Output::FixedPointMethod</scope><name>single_pvd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

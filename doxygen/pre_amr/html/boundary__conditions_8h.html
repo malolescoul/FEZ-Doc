@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence du fichier snapshots/pre_amr/include/boundary_conditions.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('boundary__conditions_8h.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier boundary_conditions.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;deal.II/base/parameter_handler.h&gt;</code><br />
+<code>#include &lt;deal.II/base/parsed_function.h&gt;</code><br />
+<code>#include &lt;deal.II/dofs/dof_tools.h&gt;</code><br />
+<code>#include &lt;deal.II/fe/component_mask.h&gt;</code><br />
+<code>#include &lt;deal.II/fe/mapping.h&gt;</code><br />
+<code>#include &lt;deal.II/lac/affine_constraints.h&gt;</code><br />
+<code>#include &lt;deal.II/lac/vector.h&gt;</code><br />
+<code>#include &lt;deal.II/numerics/vector_tools.h&gt;</code><br />
+<code>#include &lt;deal.II/numerics/vector_tools_interpolate.h&gt;</code><br />
+<code>#include &lt;utilities.h&gt;</code><br />
+</div>
+<p><a href="boundary__conditions_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:BoundaryConditions_3A_3ABoundaryCondition" id="r_BoundaryConditions_3A_3ABoundaryCondition"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_boundary_conditions_1_1_boundary_condition.html">BoundaryConditions::BoundaryCondition</a></td></tr>
+<tr class="memitem:BoundaryConditions_3A_3AFluidBC_3C_20dim_20_3E" id="r_BoundaryConditions_3A_3AFluidBC_3C_20dim_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_boundary_conditions_1_1_fluid_b_c.html">BoundaryConditions::FluidBC&lt; dim &gt;</a></td></tr>
+<tr class="memitem:BoundaryConditions_3A_3APseudosolidBC_3C_20dim_20_3E" id="r_BoundaryConditions_3A_3APseudosolidBC_3C_20dim_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_boundary_conditions_1_1_pseudosolid_b_c.html">BoundaryConditions::PseudosolidBC&lt; dim &gt;</a></td></tr>
+<tr class="memitem:BoundaryConditions_3A_3ACahnHilliardBC_3C_20dim_20_3E" id="r_BoundaryConditions_3A_3ACahnHilliardBC_3C_20dim_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_boundary_conditions_1_1_cahn_hilliard_b_c.html">BoundaryConditions::CahnHilliardBC&lt; dim &gt;</a></td></tr>
+<tr class="memitem:BoundaryConditions_3A_3AHeatBC_3C_20dim_20_3E" id="r_BoundaryConditions_3A_3AHeatBC_3C_20dim_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_boundary_conditions_1_1_heat_b_c.html">BoundaryConditions::HeatBC&lt; dim &gt;</a></td></tr>
+<tr class="memitem:ScalarFunctionFromComponents_3C_20dim_20_3E" id="r_ScalarFunctionFromComponents_3C_20dim_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_scalar_function_from_components.html">ScalarFunctionFromComponents&lt; dim &gt;</a></td></tr>
+<tr class="memitem:VectorFunctionFromComponents_3C_20dim_20_3E" id="r_VectorFunctionFromComponents_3C_20dim_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_vector_function_from_components.html">VectorFunctionFromComponents&lt; dim &gt;</a></td></tr>
+<tr class="memitem:FixedMeshPosition_3C_20dim_20_3E" id="r_FixedMeshPosition_3C_20dim_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_fixed_mesh_position.html">FixedMeshPosition&lt; dim &gt;</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Espaces de nommage</h2></td></tr>
+<tr class="memitem:BoundaryConditions" id="r_BoundaryConditions"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html">BoundaryConditions</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:a2ceabfadfe413235556c06447666b6a2" id="r_a2ceabfadfe413235556c06447666b6a2"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2">BoundaryConditions::PhysicsType</a> { <a class="el" href="namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2a5cfea13ba1397f696bea7b2ff62c0188">BoundaryConditions::fluid</a>
+, <a class="el" href="namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2aa42e9ecb6bd054a5dbf434aef6dbc3a2">BoundaryConditions::pseudosolid</a>
+, <a class="el" href="namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2a38e549ddbcbb4f7d726c4c4b0741a99b">BoundaryConditions::cahn_hilliard</a>
+, <a class="el" href="namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2a5d6eb4f1340c4c66e3adff7fdab1c931">BoundaryConditions::heat</a>
+ }</td></tr>
+<tr class="memitem:a0362ea5f33d44f9610fbb37cbb49068d" id="r_a0362ea5f33d44f9610fbb37cbb49068d"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068d">BoundaryConditions::Type</a> { <br />
+&#160;&#160;<a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da334c4a4c42fdb79d7ebc3e73b517e6f8">BoundaryConditions::none</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da8c53512eb093df5c2fb175288fc219a4">BoundaryConditions::input_function</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da49e3ed927cb368c65ee1e74a67c3baef">BoundaryConditions::dirichlet_mms</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dacac0c32caf84a889ec9b2b4cb2d56972">BoundaryConditions::outflow</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dac72288dad8f6137a6624b858d2864a49">BoundaryConditions::no_tangential_flow</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da659e746e12cb20543973cf940afd7ccb">BoundaryConditions::no_slip</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dae8ae4d39d9327013f4c12547b28f051f">BoundaryConditions::weak_no_slip</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da3daec8dea85232fa2baef18aeb2334d8">BoundaryConditions::slip</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da896c8e45fbe11e29e4e2675c3e3d2c2e">BoundaryConditions::weak_pressure</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dadd7bbf7e2f4f8dad08b3d95867cb3ff2">BoundaryConditions::dirichlet_pressure</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da3441eaecc51197025b98795f499658dd">BoundaryConditions::no_tangential_flow_with_weak_pressure</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da7ac7745320f505b3cb4835da8aaf047a">BoundaryConditions::velocity_mms</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068daaa9188db7d27b6569f1ad8d15d238346">BoundaryConditions::velocity_flux_mms</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068daeb086481f4f1f5deb5a93164a855d519">BoundaryConditions::pressure_mms</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da600c01aa3b1d7df50da9e73dab10bd31">BoundaryConditions::open_mms</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da1ba46c76c5b10230de40d96b2260cd7c">BoundaryConditions::heat_flux</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dacec315e3d0975e5cc2811d5d8725f149">BoundaryConditions::fixed</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da120f4eba86577b74f19a61a20e1614ae">BoundaryConditions::coupled_to_fluid</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da389a2a29b2003c6d126c94d9a95640d0">BoundaryConditions::no_flux</a>
+, <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da396c8faaac12fcb572c804fe45a432d6">BoundaryConditions::position_mms</a>
+, <br />
+&#160;&#160;<a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dabafc8f466a815230b8d00248835a5e3f">BoundaryConditions::position_flux_mms</a>
+<br />
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a31a3878b4f0fc720ad8a2e42d5a5cb64" id="r_a31a3878b4f0fc720ad8a2e42d5a5cb64"><td class="memTemplParams" colspan="2">template&lt;typename BCType&gt; </td></tr>
+<tr class="memitem:a31a3878b4f0fc720ad8a2e42d5a5cb64 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a31a3878b4f0fc720ad8a2e42d5a5cb64">BoundaryConditions::declare_boundary_conditions</a> (ParameterHandler &amp;prm, const unsigned int n_bc, const std::string &amp;bc_type_name)</td></tr>
+<tr class="memitem:aa4644751dc02c915a996d29199738c89" id="r_aa4644751dc02c915a996d29199738c89"><td class="memTemplParams" colspan="2">template&lt;typename BCType&gt; </td></tr>
+<tr class="memitem:aa4644751dc02c915a996d29199738c89 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#aa4644751dc02c915a996d29199738c89">BoundaryConditions::read_boundary_conditions</a> (ParameterHandler &amp;prm, const unsigned int n_bc, const std::string &amp;bc_type_name, std::map&lt; types::boundary_id, BCType &gt; &amp;boundary_conditions)</td></tr>
+<tr class="memitem:a47c449fdc3cd073f435debb5c847f3cf" id="r_a47c449fdc3cd073f435debb5c847f3cf"><td class="memTemplParams" colspan="2">template&lt;typename BCType&gt; </td></tr>
+<tr class="memitem:a47c449fdc3cd073f435debb5c847f3cf template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a47c449fdc3cd073f435debb5c847f3cf">BoundaryConditions::has_boundary_condition</a> (const std::map&lt; types::boundary_id, BCType &gt; &amp;boundary_conditions, const <a class="el" href="namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068d">Type</a> type)</td></tr>
+<tr class="memitem:a9cdf1ae1e3c1692cca424c4e140d3b87" id="r_a9cdf1ae1e3c1692cca424c4e140d3b87"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:a9cdf1ae1e3c1692cca424c4e140d3b87 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a9cdf1ae1e3c1692cca424c4e140d3b87">BoundaryConditions::apply_velocity_boundary_conditions</a> (const bool homogeneous, const unsigned int u_lower, const unsigned int n_components, const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const std::map&lt; types::boundary_id, <a class="el" href="class_boundary_conditions_1_1_fluid_b_c.html">BoundaryConditions::FluidBC</a>&lt; dim &gt; &gt; &amp;fluid_bc, const Function&lt; dim &gt; &amp;exact_solution, const Function&lt; dim &gt; &amp;exact_velocity, AffineConstraints&lt; double &gt; &amp;constraints)</td></tr>
+<tr class="memitem:a7012d280dc80389eaf9a2f6b0201d61d" id="r_a7012d280dc80389eaf9a2f6b0201d61d"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:a7012d280dc80389eaf9a2f6b0201d61d template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a7012d280dc80389eaf9a2f6b0201d61d">BoundaryConditions::apply_pressure_boundary_conditions</a> (const bool homogeneous, const unsigned int p_lower, const unsigned int n_components, const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const std::map&lt; types::boundary_id, <a class="el" href="class_boundary_conditions_1_1_fluid_b_c.html">BoundaryConditions::FluidBC</a>&lt; dim &gt; &gt; &amp;fluid_bc, const Function&lt; dim &gt; &amp;exact_solution, AffineConstraints&lt; double &gt; &amp;constraints)</td></tr>
+<tr class="memitem:aaf6d1b4702378507717c8d2bfe2f2a34" id="r_aaf6d1b4702378507717c8d2bfe2f2a34"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:aaf6d1b4702378507717c8d2bfe2f2a34 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#aaf6d1b4702378507717c8d2bfe2f2a34">BoundaryConditions::apply_mesh_position_boundary_conditions</a> (const bool homogeneous, const unsigned int x_lower, const unsigned int n_components, const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const std::map&lt; types::boundary_id, <a class="el" href="class_boundary_conditions_1_1_pseudosolid_b_c.html">BoundaryConditions::PseudosolidBC</a>&lt; dim &gt; &gt; &amp;pseudosolid_bc, const Function&lt; dim &gt; &amp;exact_solution, const Function&lt; dim &gt; &amp;exact_mesh_position, AffineConstraints&lt; double &gt; &amp;constraints)</td></tr>
+<tr class="memitem:a35cc1270e56965c9c2461701ca833e69" id="r_a35cc1270e56965c9c2461701ca833e69"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:a35cc1270e56965c9c2461701ca833e69 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a35cc1270e56965c9c2461701ca833e69">BoundaryConditions::constrain_pressure_point</a> (const DoFHandler&lt; dim &gt; &amp;dof_handler, const IndexSet &amp;locally_relevant_dofs, const Mapping&lt; dim &gt; &amp;mapping, const Function&lt; dim &gt; &amp;exact_solution, const unsigned int p_lower, const bool set_to_zero, AffineConstraints&lt; double &gt; &amp;constraints, types::global_dof_index &amp;constrained_pressure_dof, Point&lt; dim &gt; &amp;constrained_pressure_support_point, const Point&lt; dim &gt; &amp;reference_point=Point&lt; dim &gt;())</td></tr>
+<tr class="memitem:a1f26f383440ba69581df63f9216f6ca5" id="r_a1f26f383440ba69581df63f9216f6ca5"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:a1f26f383440ba69581df63f9216f6ca5 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a1f26f383440ba69581df63f9216f6ca5">BoundaryConditions::create_zero_mean_pressure_constraints_data</a> (const Triangulation&lt; dim &gt; &amp;tria, const DoFHandler&lt; dim &gt; &amp;dof_handler, IndexSet &amp;locally_relevant_dofs, std::vector&lt; unsigned char &gt; &amp;dofs_to_component, const Mapping&lt; dim &gt; &amp;mapping, const Quadrature&lt; dim &gt; &amp;quadrature, const unsigned int p_lower, types::global_dof_index &amp;constrained_pressure_dof, std::vector&lt; std::pair&lt; types::global_dof_index, double &gt; &gt; &amp;constraint_weights)</td></tr>
+<tr class="memitem:add90f56793bd67bc6f860cb683769bdc" id="r_add90f56793bd67bc6f860cb683769bdc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#add90f56793bd67bc6f860cb683769bdc">BoundaryConditions::add_zero_mean_pressure_constraints</a> (AffineConstraints&lt; double &gt; &amp;constraints, const IndexSet &amp;locally_relevant_dofs, const types::global_dof_index &amp;constrained_pressure_dof, const std::vector&lt; std::pair&lt; types::global_dof_index, double &gt; &gt; &amp;constraint_weights)</td></tr>
+<tr class="memitem:a61619c15560372647e4108237faf26d9" id="r_a61619c15560372647e4108237faf26d9"><td class="memTemplParams" colspan="2">template&lt;int dim, typename VectorType&gt; </td></tr>
+<tr class="memitem:a61619c15560372647e4108237faf26d9 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a61619c15560372647e4108237faf26d9">BoundaryConditions::remove_mean_pressure</a> (const ComponentMask &amp;pressure_mask, const DoFHandler&lt; dim &gt; &amp;dof_handler, const double mean_pressure, VectorType &amp;solution)</td></tr>
+<tr class="memitem:a557107d9cda59203d0fe67f5b40e579b" id="r_a557107d9cda59203d0fe67f5b40e579b"><td class="memTemplParams" colspan="2">template&lt;int dim, typename VectorType&gt; </td></tr>
+<tr class="memitem:a557107d9cda59203d0fe67f5b40e579b template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="namespace_boundary_conditions.html#a557107d9cda59203d0fe67f5b40e579b">BoundaryConditions::apply_field_as_solution_on_volume_and_boundaries</a> (const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const Function&lt; dim &gt; &amp;exact_solution, VectorType &amp;present_solution, VectorType &amp;local_present_solution, const IndexSet &amp;locally_relevant_dofs, std::vector&lt; unsigned char &gt; &amp;dofs_to_component, const ComponentMask &amp;component_mask, const bool homogeneous, AffineConstraints&lt; double &gt; &amp;constraints)</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_572db43f5fb4bb08ef27a34d9eec3105.html">snapshots</a></li><li class="navelem"><a href="dir_c3399bd66e5cabf482dbd94d16f696da.html">pre_amr</a></li><li class="navelem"><a href="dir_c2c57fcb88379b3cf62d1ec2417626a9.html">include</a></li><li class="navelem"><a href="boundary__conditions_8h.html">boundary_conditions.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

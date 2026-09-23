@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="mesh__and__dof__tools_8h" kind="file" language="C++">
+    <compoundname>mesh_and_dof_tools.h</compoundname>
+    <includes local="no">deal.II/dofs/dof_handler.h</includes>
+    <includes local="no">deal.II/lac/vector.h</includes>
+    <includes local="no">utilities.h</includes>
+    <includes local="no">map</includes>
+    <includedby refid="incompressible__chns__solver_8cpp" local="no">snapshots/pre_amr/src/incompressible_chns_solver.cpp</includedby>
+    <includedby refid="mesh__and__dof__tools_8cpp" local="no">snapshots/pre_amr/src/mesh_and_dof_tools.cpp</includedby>
+    <includedby refid="navier__stokes__solver_8cpp" local="no">snapshots/pre_amr/src/navier_stokes_solver.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>snapshots/pre_amr/include/mesh_and_dof_tools.h</label>
+        <link refid="mesh__and__dof__tools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>deal.II/dofs/dof_handler.h</label>
+      </node>
+      <node id="3">
+        <label>deal.II/lac/vector.h</label>
+      </node>
+      <node id="5">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>utilities.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>snapshots/pre_amr/include/mesh_and_dof_tools.h</label>
+        <link refid="mesh__and__dof__tools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>snapshots/pre_amr/src/incompressible_chns_solver.cpp</label>
+        <link refid="incompressible__chns__solver_8cpp"/>
+      </node>
+      <node id="3">
+        <label>snapshots/pre_amr/src/mesh_and_dof_tools.cpp</label>
+        <link refid="mesh__and__dof__tools_8cpp"/>
+      </node>
+      <node id="4">
+        <label>snapshots/pre_amr/src/navier_stokes_solver.cpp</label>
+        <link refid="navier__stokes__solver_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="mesh__and__dof__tools_8h_1a6db3de4523b1a69dafaa3ccbb3f8b1f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void get_owned_mesh_vertices</definition>
+        <argsstring>(const Triangulation&lt; dim &gt; &amp;triangulation, const types::subdomain_id subdomain_id, std::vector&lt; bool &gt; &amp;owned_vertices)</argsstring>
+        <name>get_owned_mesh_vertices</name>
+        <param>
+          <type>const Triangulation&lt; dim &gt; &amp;</type>
+          <declname>triangulation</declname>
+        </param>
+        <param>
+          <type>const types::subdomain_id</type>
+          <declname>subdomain_id</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; bool &gt; &amp;</type>
+          <declname>owned_vertices</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fill <computeroutput>owned_vertices</computeroutput> with a flag stating if the i-th local mesh vertex is owned or not on the partition <computeroutput>subdomain_id</computeroutput>.</para>
+<para>This function exists because GridTools::get_locally_owned_vertices(triangulation) provides mesh vertices with multiple owners at the boundary of a partition, where we would want a single owner. This function leaves out vertices touching ONLY ghost-cells, which would be marked as owned with GridTools::get_locally_owned_vertices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/mesh_and_dof_tools.h" line="23" column="6" bodyfile="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" bodystart="6" bodyend="25" declfile="snapshots/pre_amr/include/mesh_and_dof_tools.h" declline="23" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="mesh__and__dof__tools_8h_1acf683d4d7c329d77c71154c3124d5785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>std::set&lt; Point&lt; dim &gt;, PointComparator&lt; dim &gt; &gt;</type>
+        <definition>std::set&lt; Point&lt; dim &gt;, PointComparator&lt; dim &gt; &gt; get_mesh_vertices_on_boundary</definition>
+        <argsstring>(const DoFHandler&lt; dim &gt; &amp;dof_handler, const types::boundary_id boundary_id)</argsstring>
+        <name>get_mesh_vertices_on_boundary</name>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const types::boundary_id</type>
+          <declname>boundary_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the set of mesh vertices which belong to cell faces on the given boundary &quot;boundary_id&quot;. Mesh vertex indices are not unique across MPI ranks, so this returns a set of Points instead of a more manageable global vertex index. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/mesh_and_dof_tools.h" line="35" column="1" bodyfile="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" bodystart="36" bodyend="58" declfile="snapshots/pre_amr/include/mesh_and_dof_tools.h" declline="35" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="mesh__and__dof__tools_8h_1ad5c3f0283601c343fa3e5b638ca8ce72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void extract_subsolution</definition>
+        <argsstring>(const DoFHandler&lt; dim &gt; &amp;dof_handler_source, const DoFHandler&lt; dim &gt; &amp;dof_handler_destination, const VectorType &amp;source, VectorType &amp;destination, const std::map&lt; unsigned int, unsigned int &gt; &amp;source_comp_to_dest_comp)</argsstring>
+        <name>extract_subsolution</name>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler_source</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler_destination</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>VectorType &amp;</type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; unsigned int, unsigned int &gt; &amp;</type>
+          <declname>source_comp_to_dest_comp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Copy selected components of a finite-element solution from a source DoFHandler to a destination DoFHandler defined on the <emphasis>same</emphasis> triangulation (hence the same parallel partition), possibly with different component layouts. <computeroutput>source_comp_to_dest_comp</computeroutput> maps source components to destination components; mapped components must share their unit support points.</para>
+<para>Only locally owned destination cells are written. Because both DoFHandlers share the triangulation, a locally owned destination cell corresponds to a locally owned source cell, so the source values are always available (no ghost exchange is required). The caller must compress <computeroutput>destination</computeroutput> after the call. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/mesh_and_dof_tools.h" line="52" column="6" bodyfile="snapshots/pre_amr/include/mesh_and_dof_tools.h" bodystart="52" bodyend="123"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MESH_AND_DOF_TOOLS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MESH_AND_DOF_TOOLS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/dofs/dof_handler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/vector.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utilities.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="12"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>Fill<sp/>@p<sp/>owned_vertices<sp/>with<sp/>a<sp/>flag<sp/>stating<sp/>if<sp/>the<sp/>i-th<sp/>local<sp/>mesh<sp/>vertex</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>is<sp/>owned<sp/>or<sp/>not<sp/>on<sp/>the<sp/>partition<sp/>@p<sp/>subdomain_id.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>This<sp/>function<sp/>exists<sp/>because</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>GridTools::get_locally_owned_vertices(triangulation)<sp/>provides<sp/>mesh<sp/>vertices</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>with<sp/>multiple<sp/>owners<sp/>at<sp/>the<sp/>boundary<sp/>of<sp/>a<sp/>partition,<sp/>where<sp/>we<sp/>would<sp/>want<sp/>a</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>single<sp/>owner.<sp/>This<sp/>function<sp/>leaves<sp/>out<sp/>vertices<sp/>touching<sp/>ONLY<sp/>ghost-cells,</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>which<sp/>would<sp/>be<sp/>marked<sp/>as<sp/>owned<sp/>with<sp/>GridTools::get_locally_owned_vertices.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mesh__and__dof__tools_8h_1a6db3de4523b1a69dafaa3ccbb3f8b1f5" kindref="member">get_owned_mesh_vertices</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Triangulation&lt;dim&gt;<sp/>&amp;triangulation,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>types::subdomain_id<sp/>subdomain_id,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;bool&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;owned_vertices);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>Return<sp/>the<sp/>set<sp/>of<sp/>mesh<sp/>vertices<sp/>which<sp/>belong<sp/>to<sp/>cell<sp/>faces<sp/>on<sp/>the<sp/>given</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>boundary<sp/>&quot;boundary_id&quot;.<sp/>Mesh<sp/>vertex<sp/>indices<sp/>are<sp/>not<sp/>unique<sp/>across<sp/>MPI<sp/>ranks,</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>so<sp/>this<sp/>returns<sp/>a<sp/>set<sp/>of<sp/>Points<sp/>instead<sp/>of<sp/>a<sp/>more<sp/>manageable<sp/>global<sp/>vertex</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>index.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">std::set&lt;Point&lt;dim&gt;,<sp/>PointComparator&lt;dim&gt;&gt;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="mesh__and__dof__tools_8h_1acf683d4d7c329d77c71154c3124d5785" kindref="member">get_mesh_vertices_on_boundary</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;<sp/><sp/><sp/>&amp;dof_handler,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>types::boundary_id<sp/>boundary_id);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="38"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>Copy<sp/>selected<sp/>components<sp/>of<sp/>a<sp/>finite-element<sp/>solution<sp/>from<sp/>a<sp/>source</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>DoFHandler<sp/>to<sp/>a<sp/>destination<sp/>DoFHandler<sp/>defined<sp/>on<sp/>the<sp/>*same*<sp/>triangulation</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>(hence<sp/>the<sp/>same<sp/>parallel<sp/>partition),<sp/>possibly<sp/>with<sp/>different<sp/>component</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>layouts.<sp/>@p<sp/>source_comp_to_dest_comp<sp/>maps<sp/>source<sp/>components<sp/>to<sp/>destination</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>components;<sp/>mapped<sp/>components<sp/>must<sp/>share<sp/>their<sp/>unit<sp/>support<sp/>points.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>Only<sp/>locally<sp/>owned<sp/>destination<sp/>cells<sp/>are<sp/>written.<sp/>Because<sp/>both<sp/>DoFHandlers</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>share<sp/>the<sp/>triangulation,<sp/>a<sp/>locally<sp/>owned<sp/>destination<sp/>cell<sp/>corresponds<sp/>to<sp/>a</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>locally<sp/>owned<sp/>source<sp/>cell,<sp/>so<sp/>the<sp/>source<sp/>values<sp/>are<sp/>always<sp/>available<sp/>(no</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>ghost<sp/>exchange<sp/>is<sp/>required).<sp/>The<sp/>caller<sp/>must<sp/>compress<sp/>@p<sp/>destination<sp/>after</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>the<sp/>call.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>VectorType&gt;</highlight></codeline>
+<codeline lineno="52" refid="mesh__and__dof__tools_8h_1ad5c3f0283601c343fa3e5b638ca8ce72" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mesh__and__dof__tools_8h_1ad5c3f0283601c343fa3e5b638ca8ce72" kindref="member">extract_subsolution</ref>(</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;dof_handler_source,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;dof_handler_destination,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VectorType<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;source,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>VectorType<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;destination,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::map&lt;unsigned<sp/>int,<sp/>unsigned<sp/>int&gt;<sp/>&amp;source_comp_to_dest_comp)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;fe_source<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dof_handler_source.get_fe();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;fe_destination<sp/>=<sp/>dof_handler_destination.get_fe();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Precompute,<sp/>once,<sp/>the<sp/>source-dof<sp/>-&gt;<sp/>destination-local-dof<sp/>correspondence</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>(identical<sp/>for<sp/>every<sp/>cell<sp/>of<sp/>a<sp/>non-hp<sp/>discretization).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>std::vector&lt;unsigned<sp/>int&gt;<sp/>source_to_destination(</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>fe_source.dofs_per_cell,<sp/>numbers::invalid_unsigned_int);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;source_support_points<sp/>=<sp/>fe_source.get_unit_support_points();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;destination_support_points<sp/>=</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>fe_destination.get_unit_support_points();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>fe_source.dofs_per_cell;<sp/>++i)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>source_component<sp/>=</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>fe_source.system_to_component_index(i).first;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mapped_component<sp/>=</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>source_comp_to_dest_comp.find(source_component);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mapped_component<sp/>==<sp/>source_comp_to_dest_comp.end())</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>fe_destination.dofs_per_cell;<sp/>++j)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fe_destination.system_to_component_index(j).first<sp/>==</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mapped_component-&gt;second<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source_support_points[i].distance(destination_support_points[j])<sp/>&lt;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1e-12)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source_to_destination[i]<sp/>=<sp/>j;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>AssertThrow(source_to_destination[i]<sp/>!=<sp/>numbers::invalid_unsigned_int,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ExcMessage(</highlight><highlight class="stringliteral">&quot;Could<sp/>not<sp/>match<sp/>a<sp/>source<sp/>support<sp/>point<sp/>in<sp/>the<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;destination<sp/>finite-element<sp/>system.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>source_cell<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>dof_handler_source.begin_active();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>destination_cell<sp/>=<sp/>dof_handler_destination.begin_active();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>Vector&lt;double&gt;<sp/>source_local_values(fe_source.dofs_per_cell);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>std::vector&lt;types::global_dof_index&gt;<sp/>destination_local_indices(</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>fe_destination.dofs_per_cell);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>source_cell<sp/>!=<sp/>dof_handler_source.end();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++source_cell,<sp/>++destination_cell)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>AssertThrow(destination_cell<sp/>!=<sp/>dof_handler_destination.end(),</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ExcMessage(</highlight><highlight class="stringliteral">&quot;Source<sp/>and<sp/>destination<sp/>triangulations<sp/>have<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;different<sp/>active-cell<sp/>layouts.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!destination_cell-&gt;is_locally_owned())</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>source_cell-&gt;get_dof_values(source,<sp/>source_local_values);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>destination_cell-&gt;get_dof_indices(destination_local_indices);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>fe_source.dofs_per_cell;<sp/>++i)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(source_to_destination[i]<sp/>!=<sp/>numbers::invalid_unsigned_int)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>destination[destination_local_indices[source_to_destination[i]]]<sp/>=</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source_local_values[i];</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>AssertThrow(destination_cell<sp/>==<sp/>dof_handler_destination.end(),</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ExcMessage(</highlight><highlight class="stringliteral">&quot;Source<sp/>and<sp/>destination<sp/>triangulations<sp/>have<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;different<sp/>numbers<sp/>of<sp/>active<sp/>cells.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/pre_amr/include/mesh_and_dof_tools.h"/>
+  </compounddef>
+</doxygen>

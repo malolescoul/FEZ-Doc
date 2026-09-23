@@ -1,0 +1,1742 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_post_processing_handler" kind="class" language="C++" prot="public">
+    <compoundname>PostProcessingHandler</compoundname>
+    <includes refid="post__processing__handler_8h" local="no">post_processing_handler.h</includes>
+    <innerclass refid="struct_post_processing_handler_1_1_prefix_data" prot="public">PostProcessingHandler::PrefixData</innerclass>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_post_processing_handler_1a50ca03426a560fdd0e773df1f8997d0e" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+        <definition>const ComponentOrdering&amp; PostProcessingHandler&lt; dim &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>PostProcessingHandler::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="500" column="27" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="500" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1aa45b8a96890bcc546d3e4d8e81512b58" prot="private" static="no" mutable="no">
+        <type>const <ref refid="struct_parameters_1_1_post_processing" kindref="compound">Parameters::PostProcessing</ref> &amp;</type>
+        <definition>const Parameters::PostProcessing&amp; PostProcessingHandler&lt; dim &gt;::post_proc_param</definition>
+        <argsstring></argsstring>
+        <name>post_proc_param</name>
+        <qualifiedname>PostProcessingHandler::post_proc_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="502" column="45" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="502" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1adc7499d85d14639592b793199b85bb9b" prot="private" static="no" mutable="no">
+        <type>const <ref refid="struct_parameters_1_1_output" kindref="compound">Parameters::Output</ref> &amp;</type>
+        <definition>const Parameters::Output&amp; PostProcessingHandler&lt; dim &gt;::output_param</definition>
+        <argsstring></argsstring>
+        <name>output_param</name>
+        <qualifiedname>PostProcessingHandler::output_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="503" column="45" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="503" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a22f3bef89780f798b38c28391740fb8f" prot="private" static="no" mutable="no">
+        <type>const <ref refid="class_parameters_1_1_physical_properties" kindref="compound">Parameters::PhysicalProperties</ref>&lt; dim &gt; &amp;</type>
+        <definition>const Parameters::PhysicalProperties&lt;dim&gt;&amp; PostProcessingHandler&lt; dim &gt;::physical_properties</definition>
+        <argsstring></argsstring>
+        <name>physical_properties</name>
+        <qualifiedname>PostProcessingHandler::physical_properties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="504" column="40" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="504" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1aaac82b6175e1055874b844d582806284" prot="private" static="no" mutable="no">
+        <type>const <ref refid="struct_parameters_1_1_m_m_s" kindref="compound">Parameters::MMS</ref> &amp;</type>
+        <definition>const Parameters::MMS&amp; PostProcessingHandler&lt; dim &gt;::mms_param</definition>
+        <argsstring></argsstring>
+        <name>mms_param</name>
+        <qualifiedname>PostProcessingHandler::mms_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="505" column="45" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="505" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1af40b1cf5b6bc6b74280d0d20cae4a674" prot="private" static="no" mutable="no">
+        <type>const <ref refid="struct_parameters_1_1_finite_elements" kindref="compound">Parameters::FiniteElements</ref>&lt; dim &gt; &amp;</type>
+        <definition>const Parameters::FiniteElements&lt;dim&gt;&amp; PostProcessingHandler&lt; dim &gt;::fe_param</definition>
+        <argsstring></argsstring>
+        <name>fe_param</name>
+        <qualifiedname>PostProcessingHandler::fe_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="506" column="40" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="506" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a0c7c8529efdd280344177fbc7920e72a" prot="private" static="no" mutable="no">
+        <type>ObserverPointer&lt; const Triangulation&lt; dim &gt;, <ref refid="class_post_processing_handler" kindref="compound">PostProcessingHandler</ref>&lt; dim &gt; &gt;</type>
+        <definition>ObserverPointer&lt;const Triangulation&lt;dim&gt;, PostProcessingHandler&lt;dim&gt; &gt; PostProcessingHandler&lt; dim &gt;::triangulation</definition>
+        <argsstring></argsstring>
+        <name>triangulation</name>
+        <qualifiedname>PostProcessingHandler::triangulation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="509" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="509" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a5db30310bb309d44e0255fc2de59d5eb" prot="private" static="no" mutable="no">
+        <type>ObserverPointer&lt; const DoFHandler&lt; dim &gt;, <ref refid="class_post_processing_handler" kindref="compound">PostProcessingHandler</ref>&lt; dim &gt; &gt;</type>
+        <definition>ObserverPointer&lt;const DoFHandler&lt;dim&gt;, PostProcessingHandler&lt;dim&gt; &gt; PostProcessingHandler&lt; dim &gt;::dof_handler</definition>
+        <argsstring></argsstring>
+        <name>dof_handler</name>
+        <qualifiedname>PostProcessingHandler::dof_handler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="511" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="511" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a89738e4fe4e5391bcd75dfb8f67d87e7" prot="private" static="no" mutable="no">
+        <type>MPI_Comm</type>
+        <definition>MPI_Comm PostProcessingHandler&lt; dim &gt;::mpi_communicator</definition>
+        <argsstring></argsstring>
+        <name>mpi_communicator</name>
+        <qualifiedname>PostProcessingHandler::mpi_communicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="513" column="22" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="513" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a43ea31075a9dd69723a2a0798aa6280e" prot="private" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int PostProcessingHandler&lt; dim &gt;::mpi_rank</definition>
+        <argsstring></argsstring>
+        <name>mpi_rank</name>
+        <qualifiedname>PostProcessingHandler::mpi_rank</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="514" column="22" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="514" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a1193341f41765a7b8eb31f2317f82fec" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; DataOut&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;DataOut&lt;dim&gt; &gt; PostProcessingHandler&lt; dim &gt;::data_out</definition>
+        <argsstring></argsstring>
+        <name>data_out</name>
+        <qualifiedname>PostProcessingHandler::data_out</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="516" column="19" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="516" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a0e3b6bc37cab6b87491698f8a8a863e9" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PostProcessingTools::DataOutFacesOnBoundary&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;PostProcessingTools::DataOutFacesOnBoundary&lt;dim&gt; &gt; PostProcessingHandler&lt; dim &gt;::data_out_skin</definition>
+        <argsstring></argsstring>
+        <name>data_out_skin</name>
+        <qualifiedname>PostProcessingHandler::data_out_skin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="518" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="518" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a4700a7af652066aee57a5eb5ec1f0a54" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; PostProcessingTools::ContinuousDataField&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;PostProcessingTools::ContinuousDataField&lt;dim&gt; &gt; &gt; PostProcessingHandler&lt; dim &gt;::auxiliary_continuous_fields</definition>
+        <argsstring></argsstring>
+        <name>auxiliary_continuous_fields</name>
+        <qualifiedname>PostProcessingHandler::auxiliary_continuous_fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="523" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="523" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1ac7c86032b7c62f40ebe152c54e4ca662" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; PostProcessingHandler&lt; dim &gt;::solution_names</definition>
+        <argsstring></argsstring>
+        <name>solution_names</name>
+        <qualifiedname>PostProcessingHandler::solution_names</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="526" column="15" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="526" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a8e1d5473e8ef5beb8fec06dd1e6c889c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; DataComponentInterpretation::DataComponentInterpretation &gt;</type>
+        <definition>std::vector&lt;DataComponentInterpretation::DataComponentInterpretation&gt; PostProcessingHandler&lt; dim &gt;::data_component_interpretation</definition>
+        <argsstring></argsstring>
+        <name>data_component_interpretation</name>
+        <qualifiedname>PostProcessingHandler::data_component_interpretation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="528" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="528" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a01b2be366e08968e987e49bccbc03762" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; double, std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;double, std::string&gt; &gt; PostProcessingHandler&lt; dim &gt;::visualization_times_and_names</definition>
+        <argsstring></argsstring>
+        <name>visualization_times_and_names</name>
+        <qualifiedname>PostProcessingHandler::visualization_times_and_names</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="531" column="15" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="531" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a8f5257580337fde87f51f4c5a900cf77" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; double, std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;double, std::string&gt; &gt; PostProcessingHandler&lt; dim &gt;::visualization_times_and_names_skin</definition>
+        <argsstring></argsstring>
+        <name>visualization_times_and_names_skin</name>
+        <qualifiedname>PostProcessingHandler::visualization_times_and_names_skin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="533" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="533" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a1b50279e1bd0b3b13a7edb11ebebedc6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; double, std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;double, std::string&gt; &gt; PostProcessingHandler&lt; dim &gt;::prerefinements_pseudotimes_and_names</definition>
+        <argsstring></argsstring>
+        <name>prerefinements_pseudotimes_and_names</name>
+        <qualifiedname>PostProcessingHandler::prerefinements_pseudotimes_and_names</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="535" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="535" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a7526bbc5b562242f8992109b700c161c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; double, std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;double, std::string&gt; &gt; PostProcessingHandler&lt; dim &gt;::prerefinements_pseudotimes_and_names_skin</definition>
+        <argsstring></argsstring>
+        <name>prerefinements_pseudotimes_and_names_skin</name>
+        <qualifiedname>PostProcessingHandler::prerefinements_pseudotimes_and_names_skin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="537" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="537" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1afc89cc40cf18462e98866d0851712fa2" prot="private" static="no" mutable="no">
+        <type>Vector&lt; float &gt;</type>
+        <definition>Vector&lt;float&gt; PostProcessingHandler&lt; dim &gt;::subdomains</definition>
+        <argsstring></argsstring>
+        <name>subdomains</name>
+        <qualifiedname>PostProcessingHandler::subdomains</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="546" column="10" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="546" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1ae3f58a0be6f04e583c20bbf753ea66e4" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; DataPostprocessor&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;DataPostprocessor&lt;dim&gt; &gt; &gt; PostProcessingHandler&lt; dim &gt;::postprocessors</definition>
+        <argsstring></argsstring>
+        <name>postprocessors</name>
+        <qualifiedname>PostProcessingHandler::postprocessors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="550" column="15" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="550" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a86492c85ef9de9ba58aea1aac0631f13" prot="private" static="no" mutable="no">
+        <type>std::map&lt; PostProcessingTools::PostprocessorAtDofTypes, std::unique_ptr&lt; PostProcessingTools::PostprocessorAtDofBase&lt; dim &gt; &gt; &gt;</type>
+        <definition>std::map&lt;PostProcessingTools::PostprocessorAtDofTypes, std::unique_ptr&lt;PostProcessingTools::PostprocessorAtDofBase&lt;dim&gt; &gt; &gt; PostProcessingHandler&lt; dim &gt;::field_postprocessors</definition>
+        <argsstring></argsstring>
+        <name>field_postprocessors</name>
+        <qualifiedname>PostProcessingHandler::field_postprocessors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="557" column="5" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="557" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1abc0792159715e2708a1aa8b485984d64" prot="private" static="no" mutable="no">
+        <type>TableHandler</type>
+        <definition>TableHandler PostProcessingHandler&lt; dim &gt;::forces_table</definition>
+        <argsstring></argsstring>
+        <name>forces_table</name>
+        <qualifiedname>PostProcessingHandler::forces_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="560" column="17" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="560" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a7809385a7a7a780b47c83add001e206b" prot="private" static="no" mutable="no">
+        <type>Vector&lt; float &gt;</type>
+        <definition>Vector&lt;float&gt; PostProcessingHandler&lt; dim &gt;::slice_indices</definition>
+        <argsstring></argsstring>
+        <name>slice_indices</name>
+        <qualifiedname>PostProcessingHandler::slice_indices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="561" column="10" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="561" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a106e57235d286a25b82ffe82e81a2087" prot="private" static="no" mutable="no">
+        <type>TableHandler</type>
+        <definition>TableHandler PostProcessingHandler&lt; dim &gt;::forces_table_per_slice</definition>
+        <argsstring></argsstring>
+        <name>forces_table_per_slice</name>
+        <qualifiedname>PostProcessingHandler::forces_table_per_slice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="562" column="17" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="562" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a2c0c76f1af3dbad88870c4449daba1ca" prot="private" static="no" mutable="no">
+        <type>TableHandler</type>
+        <definition>TableHandler PostProcessingHandler&lt; dim &gt;::structure_mean_position_table</definition>
+        <argsstring></argsstring>
+        <name>structure_mean_position_table</name>
+        <qualifiedname>PostProcessingHandler::structure_mean_position_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="566" column="16" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="566" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a2e6f2beffa4fb27bff9fd70e2c0c929d" prot="private" static="no" mutable="no">
+        <type>std::map&lt; SolverInfo::VariableType, TableHandler &gt;</type>
+        <definition>std::map&lt;SolverInfo::VariableType, TableHandler&gt; PostProcessingHandler&lt; dim &gt;::field_integral_tables</definition>
+        <argsstring></argsstring>
+        <name>field_integral_tables</name>
+        <qualifiedname>PostProcessingHandler::field_integral_tables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="569" column="12" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="569" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a8bf57bf4eaf45179e9b0ff8501a1f39e" prot="private" static="no" mutable="no">
+        <type>TableHandler</type>
+        <definition>TableHandler PostProcessingHandler&lt; dim &gt;::volume_of_phases</definition>
+        <argsstring></argsstring>
+        <name>volume_of_phases</name>
+        <qualifiedname>PostProcessingHandler::volume_of_phases</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="572" column="16" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="572" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1af87fe10df7947210c07fe627d70d158b" prot="private" static="no" mutable="no">
+        <type>TableHandler</type>
+        <definition>TableHandler PostProcessingHandler&lt; dim &gt;::center_of_mass_phases</definition>
+        <argsstring></argsstring>
+        <name>center_of_mass_phases</name>
+        <qualifiedname>PostProcessingHandler::center_of_mass_phases</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="575" column="16" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="575" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_post_processing_handler_1a0e99cdfe82b9a87cc624ae57d51b8782" prot="private" static="no" mutable="no">
+        <type>TableHandler</type>
+        <definition>TableHandler PostProcessingHandler&lt; dim &gt;::average_velocity_phases</definition>
+        <argsstring></argsstring>
+        <name>average_velocity_phases</name>
+        <qualifiedname>PostProcessingHandler::average_velocity_phases</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="578" column="16" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="578" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_post_processing_handler_1ac04e794a0391d49103e4fbe78e50b737" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PostProcessingHandler&lt; dim &gt;::PostProcessingHandler</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering, const ParameterReader&lt; dim &gt; &amp;param, const Triangulation&lt; dim &gt; &amp;triangulation, const DoFHandler&lt; dim &gt; &amp;dof_handler, const std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt; &amp;fields_description)</argsstring>
+        <name>PostProcessingHandler</name>
+        <qualifiedname>PostProcessingHandler::PostProcessingHandler</qualifiedname>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const Triangulation&lt; dim &gt; &amp;</type>
+          <declname>triangulation</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt; &amp;</type>
+          <declname>fields_description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor.</para>
+<para>This function accepts an empty mesh and dof_handler, so it can be called before read_mesh(...) and dof_handler.distribute_dofs(...), but these functions must be called before calling any visualization-related functions, e.g., before adding data to the underlying DataOut* or outputting fields. Since deal.II&apos;s add_data_vector(...) functions already check that the dof_handler is non-empty, this is not checked here. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="97" column="3" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="61" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a54255405917a179a6917f6ed7ab00ee0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::attach_triangulation_and_dof_handler</definition>
+        <argsstring>(const Triangulation&lt; dim &gt; &amp;triangulation, const DoFHandler&lt; dim &gt; &amp;dof_handler)</argsstring>
+        <name>attach_triangulation_and_dof_handler</name>
+        <qualifiedname>PostProcessingHandler::attach_triangulation_and_dof_handler</qualifiedname>
+        <param>
+          <type>const Triangulation&lt; dim &gt; &amp;</type>
+          <declname>triangulation</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>(Re-)attach a <computeroutput>triangulation</computeroutput> and <computeroutput>dof_handler</computeroutput> to this object.</para>
+<para>The main use of this function is to keep a single post-processing handler even when the domain is completely remeshed during the simulation, such as when using the transient fixed-point method with metric-based remeshing. In that case, multiple unrelated meshes are used throughout the simulation, and the triangulation and dof handler must be updated accordingly to output the results on each mesh.</para>
+<para>As for the constructor, this function accepts an empty mesh and/or dof handler, but they will need to be initialized before adding data vectors to this object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="119" column="3" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="117" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a241bfd39ab036025d77b62537ba6966f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::create_field_postprocessors</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const Mapping&lt; dim &gt; &amp;mapping, const Quadrature&lt; dim &gt; &amp;cell_quadrature, const bool with_moving_mesh)</argsstring>
+        <name>create_field_postprocessors</name>
+        <qualifiedname>PostProcessingHandler::create_field_postprocessors</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Quadrature&lt; dim &gt; &amp;</type>
+          <declname>cell_quadrature</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>with_moving_mesh</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>(Re-)create the dof-based postprocessors, stored in field_postprocessors.</para>
+<para>As for the function above, this function must be called whenever the mesh and dof handler changed, i.e., after mesh adaptation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="128" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="658" bodyend="669"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1aa8b9e3650e69d68a8d294cdb73c6fab0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::add_cell_data_vector</definition>
+        <argsstring>(const VectorType &amp;data, const std::string &amp;name)</argsstring>
+        <name>add_cell_data_vector</name>
+        <qualifiedname>PostProcessingHandler::add_cell_data_vector</qualifiedname>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a cell-based vector of data associated to a field with name &quot;name&quot; to the underlying DataOut object. The vector data should have a size equal to the number of mesh elements on this partitions, e.g., by reinit&apos;ing the vector with triangulation.n_active_cells(). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="140" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="608" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a33716ede31fb7a6c5e6f5cc5c522e09f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::add_dof_data_vector</definition>
+        <argsstring>(const VectorType &amp;data, const std::vector&lt; std::string &gt; &amp;names)</argsstring>
+        <name>add_dof_data_vector</name>
+        <qualifiedname>PostProcessingHandler::add_dof_data_vector</qualifiedname>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>names</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Similar as the function above, but for a dof-based vector of data. A vector of names is needed, as for the deal.II function <ref refid="class_post_processing_handler_1ac70ad7cc1dde55445c7ee61acfa51a18" kindref="member">add_data_vector()</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="147" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="616" bodyend="624"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a29cf12048ef8caf7eab50971d28ea422" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::add_continuous_data_field</definition>
+        <argsstring>(std::unique_ptr&lt; PostProcessingTools::ContinuousDataField&lt; dim &gt; &gt; field)</argsstring>
+        <name>add_continuous_data_field</name>
+        <qualifiedname>PostProcessingHandler::add_continuous_data_field</qualifiedname>
+        <param>
+          <type>std::unique_ptr&lt; PostProcessingTools::ContinuousDataField&lt; dim &gt; &gt;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a continuous (nodal) auxiliary field, built from the solution, to the underlying DataOut. The handler takes ownership of the field and keeps it alive until the next VTU file has been written, after which it is cleared. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="155" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="627" bodyend="637"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ac70ad7cc1dde55445c7ee61acfa51a18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::add_data_vector</definition>
+        <argsstring>(const DoFHandler&lt; dim &gt; &amp;dof_handler, const VectorType &amp;data, const std::vector&lt; std::string &gt; &amp;names, const std::vector&lt; DataComponentInterpretation::DataComponentInterpretation &gt; &amp;data_component_interpretation)</argsstring>
+        <name>add_data_vector</name>
+        <qualifiedname>PostProcessingHandler::add_data_vector</qualifiedname>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>names</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; DataComponentInterpretation::DataComponentInterpretation &gt; &amp;</type>
+          <declname>data_component_interpretation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a dof-based vector of data to the underlying DataOut. Unlike the function above, here an arbitrary dof_handler can be given, to assign data associated with a different field as the one described by the dof_handler associated with this object.</para>
+<para>This function simply forwards the call to the deal.II function with the same signature. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="168" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="641" bodyend="650"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a8cdfd74c29f58c9b0b925699072de7d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::output_fields</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;mapping, const VectorType &amp;solution, const TimeHandler &amp;time_handler, const PrefixData &amp;prefix_data=PrefixData())</argsstring>
+        <name>output_fields</name>
+        <qualifiedname>PostProcessingHandler::output_fields</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_post_processing_handler_1_1_prefix_data" kindref="compound">PrefixData</ref> &amp;</type>
+          <declname>prefix_data</declname>
+          <defval><ref refid="struct_post_processing_handler_1_1_prefix_data" kindref="compound">PrefixData</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Output the fields stored in solution, both in the volume and on the prescribed boundary (skin), if any. Also output the fields that were added to the underlying DataOut and/or DataOutFacesOnBoundary by calling the add_*_data_vector functions above.</para>
+<para>After the fields have been written, the DataOut and DataOutFacesOnBoundary vectors are cleared rightaway, so that one can start the next postprocessing callback by one or more calls to add_*_vector_data.</para>
+<para>This function already checks whether the volume and/or skin fields should be written for the current time step, according to the prescribed frequency. Thus, it can simply be called without additional checks. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="190" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="654" bodyend="686"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ac87ed25dd17bf67ee08db939433fed6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::write_pvd</definition>
+        <argsstring>(const PrefixData &amp;prefix_data=PrefixData()) const</argsstring>
+        <name>write_pvd</name>
+        <qualifiedname>PostProcessingHandler::write_pvd</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_post_processing_handler_1_1_prefix_data" kindref="compound">PrefixData</ref> &amp;</type>
+          <declname>prefix_data</declname>
+          <defval><ref refid="struct_post_processing_handler_1_1_prefix_data" kindref="compound">PrefixData</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the .pvd files (volume and skin, if applicable). Should be called at the end of the simulation.</para>
+<para>If a convergence study with a manufactured solution is being run, a suffix with the current convergence step is appended to the pvd file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="202" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="169" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ae717168b5c4f599f88c1913a99ad2e04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::restore_pvd_entries_until_time</definition>
+        <argsstring>(double max_time, const PrefixData &amp;prefix_data=PrefixData())</argsstring>
+        <name>restore_pvd_entries_until_time</name>
+        <qualifiedname>PostProcessingHandler::restore_pvd_entries_until_time</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>max_time</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_post_processing_handler_1_1_prefix_data" kindref="compound">PrefixData</ref> &amp;</type>
+          <declname>prefix_data</declname>
+          <defval><ref refid="struct_post_processing_handler_1_1_prefix_data" kindref="compound">PrefixData</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reload entries from existing .pvd files up to <computeroutput>max_time</computeroutput>.</para>
+<para>This is used after a checkpoint restart to preserve the visualization history written before the checkpoint. Entries produced after the checkpoint are discarded because they will be recomputed by the restarted simulation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="212" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="208" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1aa259b0e1fccd7818cc099c1668283194" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::compute_field_postprocessors</definition>
+        <argsstring>(TimerOutput &amp;timer, const VectorType &amp;solution, const std::vector&lt; VectorType &gt; &amp;previous_solutions, const TimeHandler &amp;time_handler)</argsstring>
+        <name>compute_field_postprocessors</name>
+        <qualifiedname>PostProcessingHandler::compute_field_postprocessors</qualifiedname>
+        <param>
+          <type>TimerOutput &amp;</type>
+          <declname>timer</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; VectorType &gt; &amp;</type>
+          <declname>previous_solutions</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls the postprocess() function for each of the dof-based postprocessor stored in field_postprocessors, and adds the computed data to the underlying DataOut.</para>
+<para>Some of the fields computed with this function involve a nontrivial compute time (e.g., assemble a mass matrix and rhs, and solve an L2 projection problem). Although they are still much cheaper than the main resolved physics, you might want to set a compute frequency to avoid computing these fields at each time step. To avoid writing visualization files where these fields are present only at the time steps where they were computed, however, their postprocessed field is exported at each step, i.e., the same field is written until it has been computed again, at a time step that matches the prescribed frequency. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="232" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="1027" bodyend="1057"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a72402736a62e079db0b2639f28de4bf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+          <param>
+            <type>typename MappingType</type>
+          </param>
+          <param>
+            <type>typename FaceQuadratureType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::compute_forces</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering, const DoFHandler&lt; dim &gt; &amp;dof_handler, const MappingType &amp;mapping, const FaceQuadratureType &amp;face_quadrature, const VectorType &amp;solution, const TimeHandler &amp;time_handler)</argsstring>
+        <name>compute_forces</name>
+        <qualifiedname>PostProcessingHandler::compute_forces</qualifiedname>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const MappingType &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const FaceQuadratureType &amp;</type>
+          <declname>face_quadrature</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the hydrodynamic forces on the boundary prescribed in the forces postprocessing parameters at the current time step. Adds these forces to the forces table and write the table to the prescribed file if the time step matches the given output frequency.</para>
+<para>This function is templated to work with both hp and non-hp solvers, and MappingType can be either a Mapping&lt;dim&gt; or a hp::MappingCollection&lt;dim&gt;, and similarly for the face quadrature. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="251" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="859" bodyend="1023"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a03e6de89b7a47b992180009e46de622f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+          <param>
+            <type>typename MappingType</type>
+          </param>
+          <param>
+            <type>typename FaceQuadratureType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::compute_structure_mean_position</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering, const DoFHandler&lt; dim &gt; &amp;dof_handler, const MappingType &amp;mapping, const FaceQuadratureType &amp;face_quadrature, const VectorType &amp;solution, const TimeHandler &amp;time_handler)</argsstring>
+        <name>compute_structure_mean_position</name>
+        <qualifiedname>PostProcessingHandler::compute_structure_mean_position</qualifiedname>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const MappingType &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const FaceQuadratureType &amp;</type>
+          <declname>face_quadrature</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the mean position of the structure described by the boundary id in the PostProcessing.StructurePosition parameters, add it to a table and write it to file if required.</para>
+<para>For a cylinder, for instance, this computes the position of the geometric center of the cylinder.</para>
+<para>This function is templated to work with both hp and non-hp solvers, and MappingType can be either a Mapping&lt;dim&gt; or a hp::MappingCollection&lt;dim&gt;, and similarly for the face quadrature. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="274" column="3" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="1063" bodyend="1118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ab39f2437672836ef332fc09f3e1585f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::compute_multiphase_indicators</definition>
+        <argsstring>(const ComponentOrdering &amp;ordering, const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const Quadrature&lt; dim &gt; &amp;quadrature, const VectorType &amp;solution, const TimeHandler &amp;time_handler)</argsstring>
+        <name>compute_multiphase_indicators</name>
+        <qualifiedname>PostProcessingHandler::compute_multiphase_indicators</qualifiedname>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Quadrature&lt; dim &gt; &amp;</type>
+          <declname>quadrature</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute indicators for multiphase computations, namely:</para>
+<para><itemizedlist>
+<listitem><para>the total volume occupied by each fluid phase,</para>
+</listitem><listitem><para>the position of the center of mass of each phase,</para>
+</listitem><listitem><para>the average velocity in each phase.</para>
+</listitem></itemizedlist>
+</para>
+<para>Each of these quantities can be controlled with the dedicated subsections of the Postprocessing parameters.</para>
+<para>Limited to two phases for now.</para>
+<para>This function calls the function with the same name in <ref refid="namespace_post_processing_tools" kindref="compound">PostProcessingTools</ref>, and handles writing the data to tables and outputting then. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="297" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="1192" bodyend="1274"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a07b351e16406c976850f8662956011ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::compute_field_integrals</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;mapping, const Quadrature&lt; dim &gt; &amp;quadrature, const VectorType &amp;solution, const TimeHandler &amp;time_handler)</argsstring>
+        <name>compute_field_integrals</name>
+        <qualifiedname>PostProcessingHandler::compute_field_integrals</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Quadrature&lt; dim &gt; &amp;</type>
+          <declname>quadrature</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the volume integrals of the finite element variables selected in the field integral postprocessing parameters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="309" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="1122" bodyend="1188"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ae94b308633e6774ae7b3480442a5b86e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>PostProcessingHandler::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset the underlying data and vectors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="317" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="283" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ad1525d256b6d9741aca4654cc672ac29" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::should_output_volume_fields</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_output_volume_fields</name>
+        <qualifiedname>PostProcessingHandler::should_output_volume_fields</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the volume fields should be output at this time step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="322" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="322" bodyend="329"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a76b430d837401e8ea07ca662f359056b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::should_output_skin_fields</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_output_skin_fields</name>
+        <qualifiedname>PostProcessingHandler::should_output_skin_fields</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the skin fields should be output at this time step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="334" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="334" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a827625319341d48f8a355ff566aaa605" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::should_output_forces</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_output_forces</name>
+        <qualifiedname>PostProcessingHandler::should_output_forces</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the forces should be output at this time step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="346" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="346" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a6f1edae045b9af139b05357597cb3f89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::should_output_mean_position</definition>
+        <argsstring>(const TimeHandler &amp;time_handler) const</argsstring>
+        <name>should_output_mean_position</name>
+        <qualifiedname>PostProcessingHandler::should_output_mean_position</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the structure&apos;s mean position should be output at this time step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="355" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="355" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ac195a6419d941f18073fd3ca2c081b87" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; std::string &gt; &amp;</type>
+        <definition>const std::vector&lt; std::string &gt; &amp; PostProcessingHandler&lt; dim &gt;::get_field_names</definition>
+        <argsstring>() const</argsstring>
+        <name>get_field_names</name>
+        <qualifiedname>PostProcessingHandler::get_field_names</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the field name of each solution component. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="364" column="21" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="364" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a03a1a52bcd88be90e27df9807b335e0f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; DataComponentInterpretation::DataComponentInterpretation &gt; &amp;</type>
+        <definition>const std::vector&lt; DataComponentInterpretation::DataComponentInterpretation &gt; &amp; PostProcessingHandler&lt; dim &gt;::get_component_interpretations</definition>
+        <argsstring>() const</argsstring>
+        <name>get_component_interpretations</name>
+        <qualifiedname>PostProcessingHandler::get_component_interpretations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the data interpretation of each solution component (scalar, part of vector, or part of tensor). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="374" column="3" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="374" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a7068611dcdabe3b225a7102595f22419" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::write_forces</definition>
+        <argsstring>(std::ostream &amp;out=std::cout) const</argsstring>
+        <name>write_forces</name>
+        <qualifiedname>PostProcessingHandler::write_forces</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+          <defval>std::cout</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the forces table to stream. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="382" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="405" bodyend="408"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a628c6349cd08791db738cf5f98ff0957" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::write_structure_mean_position</definition>
+        <argsstring>(std::ostream &amp;out=std::cout) const</argsstring>
+        <name>write_structure_mean_position</name>
+        <qualifiedname>PostProcessingHandler::write_structure_mean_position</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+          <defval>std::cout</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the structure mean position table to stream. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="387" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="411" bodyend="417"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_post_processing_handler_1a9a3adf6e80254679577dee66a0e94b48" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; PostProcessingTools::PostprocessorAtDofBase&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt; PostProcessingTools::PostprocessorAtDofBase&lt; dim &gt; &gt; PostProcessingHandler&lt; dim &gt;::create_field_postprocessor</definition>
+        <argsstring>(const PostProcessingTools::PostprocessorAtDofTypes type, const ParameterReader&lt; dim &gt; &amp;param, const Mapping&lt; dim &gt; &amp;mapping, const Quadrature&lt; dim &gt; &amp;cell_quadrature, const bool with_moving_mesh)</argsstring>
+        <name>create_field_postprocessor</name>
+        <qualifiedname>PostProcessingHandler::create_field_postprocessor</qualifiedname>
+        <param>
+          <type>const PostProcessingTools::PostprocessorAtDofTypes</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Quadrature&lt; dim &gt; &amp;</type>
+          <declname>cell_quadrature</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>with_moving_mesh</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a unique pointer to a newly created object deriving from PostprocessofAtDofBase. The exact derived class of the created object is determined by both <computeroutput>type</computeroutput> and the associated parameters in param.postprocessing. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="397" column="3" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="421" bodyend="655"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1afd0f8f51504a9d9816a3124c72c14c69" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::should_output_postprocessing</definition>
+        <argsstring>(const TimeHandler &amp;time_handler, const Parameters::PostProcessing::PostProcessingFile &amp;postproc_file) const</argsstring>
+        <name>should_output_postprocessing</name>
+        <qualifiedname>PostProcessingHandler::should_output_postprocessing</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file" kindref="compound">Parameters::PostProcessing::PostProcessingFile</ref> &amp;</type>
+          <declname>postproc_file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the passed postprocessing should be output at this time step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="408" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="408" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a92d588a390906ce1e7d58fafdf733bfe" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::should_compute_postprocessing</definition>
+        <argsstring>(const TimeHandler &amp;time_handler, const Parameters::PostProcessing::PostProcessingBase &amp;postprocessing) const</argsstring>
+        <name>should_compute_postprocessing</name>
+        <qualifiedname>PostProcessingHandler::should_compute_postprocessing</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_base" kindref="compound">Parameters::PostProcessing::PostProcessingBase</ref> &amp;</type>
+          <declname>postprocessing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if the passed dof-based postprocessing should be computed at this time step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="423" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="423" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a52e697505e6575799b085deecc2ee965" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::output_volume_fields</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;mapping, const VectorType &amp;solution, const TimeHandler &amp;time_handler, const PrefixData &amp;prefix_data)</argsstring>
+        <name>output_volume_fields</name>
+        <qualifiedname>PostProcessingHandler::output_volume_fields</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_post_processing_handler_1_1_prefix_data" kindref="compound">PrefixData</ref> &amp;</type>
+          <declname>prefix_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Output the volume fields for visualization. This includes the fields in the passed <computeroutput>solution</computeroutput> vector, the subdomain (partition) IDs and the additional data that were added with add_cell_data_vector and/or add_dof_data_vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>When using more than one time subinterval, we currently output at the end of an interval the solution on both the previous and current interval, to assess the quality of the solution transfer between meshes. These solutions are associated with the same time, and ParaView does not seem to show both solutions if the &quot;timestep&quot; in the same in the .pvd file. The &quot;part&quot; keyword does not seem to help either.</para>
+<para>Instead, the timestep at the beginning of an interval is set to t + epsilon.</para>
+<para>If steady, use time step counter as pseudo-time, otherwise use current time.</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="440" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="690" bodyend="764"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ad97be602ea9ad5387ad05508217d28d7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::output_skin_fields</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;mapping, const VectorType &amp;solution, const TimeHandler &amp;time_handler, const PrefixData &amp;prefix_data)</argsstring>
+        <name>output_skin_fields</name>
+        <qualifiedname>PostProcessingHandler::output_skin_fields</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_post_processing_handler_1_1_prefix_data" kindref="compound">PrefixData</ref> &amp;</type>
+          <declname>prefix_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Output the fields defined on the skin for visualization. This includes the same fields as in output_volume_fields, with additionally the slice indices, if the boundary associated to the skin was sliced. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>When using more than one time subinterval, we currently output at the end of an interval the solution on both the previous and current interval, to assess the quality of the solution transfer between meshes. These solutions are associated with the same time, and ParaView does not seem to show both solutions if the &quot;timestep&quot; in the same in the .pvd file. The &quot;part&quot; keyword does not seem to help either.</para>
+<para>Instead, the timestep at the beginning of an interval is set to t + epsilon.</para>
+<para>If steady, use time step counter as pseudo-time, otherwise use current time.</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="451" column="8" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="768" bodyend="853"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a8a7319b0b994b73c4b4cd558ff0df6a3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::add_force_to_table</definition>
+        <argsstring>(const Tensor&lt; 1, dim &gt; &amp;forces, const TimeHandler &amp;time_handler, TableHandler &amp;force_table, const unsigned int i_slice=numbers::invalid_unsigned_int)</argsstring>
+        <name>add_force_to_table</name>
+        <qualifiedname>PostProcessingHandler::add_force_to_table</qualifiedname>
+        <param>
+          <type>const Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>forces</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>TableHandler &amp;</type>
+          <declname>force_table</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>i_slice</declname>
+          <defval>numbers::invalid_unsigned_int</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add the computed forces to the passed table with required formatting. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="459" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="297" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a715f1b794e686ef09a559006140efa3f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::add_position_to_table</definition>
+        <argsstring>(const Tensor&lt; 1, dim &gt; &amp;center_position, const TimeHandler &amp;time_handler, TableHandler &amp;position_table)</argsstring>
+        <name>add_position_to_table</name>
+        <qualifiedname>PostProcessingHandler::add_position_to_table</qualifiedname>
+        <param>
+          <type>const Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>center_position</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>TableHandler &amp;</type>
+          <declname>position_table</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add the computed position of the structure&apos;s geometric center to the passed table with required formatting. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="469" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="318" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a9cb51dd6703b88308be402115d38c80f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename DataType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>template void PostProcessingHandler&lt; dim &gt;::add_multiphase_data_to_table</definition>
+        <argsstring>(const std::array&lt; DataType, 2 &gt; &amp;data_for_phases, const TimeHandler &amp;time_handler, TableHandler &amp;table, const Parameters::PostProcessing::PostProcessingFile &amp;pp_param)</argsstring>
+        <name>add_multiphase_data_to_table</name>
+        <qualifiedname>PostProcessingHandler::add_multiphase_data_to_table</qualifiedname>
+        <param>
+          <type>const std::array&lt; DataType, 2 &gt; &amp;</type>
+          <declname>data_for_phases</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>TableHandler &amp;</type>
+          <declname>table</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file" kindref="compound">Parameters::PostProcessing::PostProcessingFile</ref> &amp;</type>
+          <declname>pp_param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add data available for each fluid phase to <computeroutput>table</computeroutput>, according to the options stored in <computeroutput>pp_param</computeroutput>.</para>
+<para>Only handles two phases. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="480" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="337" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a06352eea0ee42e63ef7cb391934b4782" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::write_table</definition>
+        <argsstring>(std::ostream &amp;out, const TableHandler &amp;table, const Parameters::PostProcessing::PostProcessingFile &amp;postproc_file) const</argsstring>
+        <name>write_table</name>
+        <qualifiedname>PostProcessingHandler::write_table</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const TableHandler &amp;</type>
+          <declname>table</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file" kindref="compound">Parameters::PostProcessing::PostProcessingFile</ref> &amp;</type>
+          <declname>postproc_file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the given table to the out stream. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="489" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="392" bodyend="402"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1ad36843217709b7cb418561c7a8db28fe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::create_slices</definition>
+        <argsstring>()</argsstring>
+        <name>create_slices</name>
+        <qualifiedname>PostProcessingHandler::create_slices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assign a slice index to the faces on the sliced boundary. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="497" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="247" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="class_post_processing_handler_1a2e09206bc5f82e131fe1dd72c0bc5a13" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::remove_visualization_record</definition>
+        <argsstring>(std::vector&lt; std::pair&lt; double, std::string &gt; &gt; &amp;visualization_records, double time, const std::string &amp;filename) const</argsstring>
+        <name>remove_visualization_record</name>
+        <qualifiedname>PostProcessingHandler::remove_visualization_record</qualifiedname>
+        <param>
+          <type>std::vector&lt; std::pair&lt; double, std::string &gt; &gt; &amp;</type>
+          <declname>visualization_records</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Remove an existing visualization record at the same time or filename. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="540" column="8" bodyfile="snapshots/pre_amr/src/post_processing_handler.cpp" bodystart="230" bodyend="244"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class handles post-processing operations, such as exporting the solution for visualization, or computing forces on boundaries.</para>
+<para>FIXME: these are quite different, and maybe we should split this class </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+      <node id="28">
+        <label>Parameters::MMS</label>
+        <link refid="struct_parameters_1_1_m_m_s"/>
+      </node>
+      <node id="25">
+        <label>Parameters::Output</label>
+        <link refid="struct_parameters_1_1_output"/>
+        <childnode refid="26" relation="usage">
+          <edgelabel>fixed_point</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Parameters::Output::FixedPointMethod</label>
+        <link refid="struct_parameters_1_1_output_1_1_fixed_point_method"/>
+      </node>
+      <node id="27">
+        <label>Parameters::Output::Skin</label>
+        <link refid="struct_parameters_1_1_output_1_1_skin"/>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing</label>
+        <link refid="struct_parameters_1_1_post_processing"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>field_integral</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>forces</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>structure_position</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>slices</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>line_probe</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>time_scales</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>chns_volumes</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>chns_center_mass</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>chns_avg_velocity</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>vorticity</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>q_criterion</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>mesh_velocity</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>density</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>mobility</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>mff_physics_compression</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>mff_enlarged_compression</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>mff_transport</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Parameters::PostProcessing::CHNSPhasesAvgVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_avg_velocity"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Parameters::PostProcessing::CHNSPhasesCenterOfMass</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_center_of_mass"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Parameters::PostProcessing::CHNSPhasesVolume</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_volume"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Parameters::PostProcessing::Density</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_density"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Parameters::PostProcessing::FieldIntegral</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_field_integral"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Parameters::PostProcessing::Forces</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_forces"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Parameters::PostProcessing::LineProbe</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_line_probe"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>Parameters::PostProcessing::MFFEnlargedCompression</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_enlarged_compression"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Parameters::PostProcessing::MFFPhysicsCompression</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_physics_compression"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>Parameters::PostProcessing::MFFTransport</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_transport"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Parameters::PostProcessing::MeshVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>Parameters::PostProcessing::Mobility</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mobility"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="17">
+        <label>Parameters::PostProcessing::PostProcessingField</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_field"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Parameters::PostProcessing::PostProcessingFileBoundary</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Parameters::PostProcessing::QCriterion</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_q_criterion"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Parameters::PostProcessing::Slices</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_slices"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Parameters::PostProcessing::StructurePosition</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_structure_position"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Parameters::PostProcessing::TimeScales</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_time_scales"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Parameters::PostProcessing::Vorticity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_vorticity"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>PostProcessingHandler&lt; dim &gt;</label>
+        <link refid="class_post_processing_handler"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ordering</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>post_proc_param</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>output_param</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>mms_param</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/post_processing_handler.h" line="29" column="1" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="30" bodyend="579"/>
+    <listofallmembers>
+      <member refid="class_post_processing_handler_1aa8b9e3650e69d68a8d294cdb73c6fab0" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>add_cell_data_vector</name></member>
+      <member refid="class_post_processing_handler_1a29cf12048ef8caf7eab50971d28ea422" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>add_continuous_data_field</name></member>
+      <member refid="class_post_processing_handler_1ac70ad7cc1dde55445c7ee61acfa51a18" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>add_data_vector</name></member>
+      <member refid="class_post_processing_handler_1a33716ede31fb7a6c5e6f5cc5c522e09f" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>add_dof_data_vector</name></member>
+      <member refid="class_post_processing_handler_1a8a7319b0b994b73c4b4cd558ff0df6a3" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>add_force_to_table</name></member>
+      <member refid="class_post_processing_handler_1a9cb51dd6703b88308be402115d38c80f" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>add_multiphase_data_to_table</name></member>
+      <member refid="class_post_processing_handler_1a715f1b794e686ef09a559006140efa3f" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>add_position_to_table</name></member>
+      <member refid="class_post_processing_handler_1a54255405917a179a6917f6ed7ab00ee0" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>attach_triangulation_and_dof_handler</name></member>
+      <member refid="class_post_processing_handler_1a4700a7af652066aee57a5eb5ec1f0a54" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>auxiliary_continuous_fields</name></member>
+      <member refid="class_post_processing_handler_1a0e99cdfe82b9a87cc624ae57d51b8782" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>average_velocity_phases</name></member>
+      <member refid="class_post_processing_handler_1af87fe10df7947210c07fe627d70d158b" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>center_of_mass_phases</name></member>
+      <member refid="class_post_processing_handler_1ae94b308633e6774ae7b3480442a5b86e" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>clear</name></member>
+      <member refid="class_post_processing_handler_1a07b351e16406c976850f8662956011ce" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>compute_field_integrals</name></member>
+      <member refid="class_post_processing_handler_1aa259b0e1fccd7818cc099c1668283194" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>compute_field_postprocessors</name></member>
+      <member refid="class_post_processing_handler_1a72402736a62e079db0b2639f28de4bf8" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>compute_forces</name></member>
+      <member refid="class_post_processing_handler_1ab39f2437672836ef332fc09f3e1585f4" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>compute_multiphase_indicators</name></member>
+      <member refid="class_post_processing_handler_1a03e6de89b7a47b992180009e46de622f" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>compute_structure_mean_position</name></member>
+      <member refid="class_post_processing_handler_1a9a3adf6e80254679577dee66a0e94b48" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>create_field_postprocessor</name></member>
+      <member refid="class_post_processing_handler_1a241bfd39ab036025d77b62537ba6966f" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>create_field_postprocessors</name></member>
+      <member refid="class_post_processing_handler_1ad36843217709b7cb418561c7a8db28fe" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>create_slices</name></member>
+      <member refid="class_post_processing_handler_1a8e1d5473e8ef5beb8fec06dd1e6c889c" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>data_component_interpretation</name></member>
+      <member refid="class_post_processing_handler_1a1193341f41765a7b8eb31f2317f82fec" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>data_out</name></member>
+      <member refid="class_post_processing_handler_1a0e3b6bc37cab6b87491698f8a8a863e9" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>data_out_skin</name></member>
+      <member refid="class_post_processing_handler_1a5db30310bb309d44e0255fc2de59d5eb" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>dof_handler</name></member>
+      <member refid="class_post_processing_handler_1af40b1cf5b6bc6b74280d0d20cae4a674" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>fe_param</name></member>
+      <member refid="class_post_processing_handler_1a2e6f2beffa4fb27bff9fd70e2c0c929d" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>field_integral_tables</name></member>
+      <member refid="class_post_processing_handler_1a86492c85ef9de9ba58aea1aac0631f13" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>field_postprocessors</name></member>
+      <member refid="class_post_processing_handler_1abc0792159715e2708a1aa8b485984d64" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>forces_table</name></member>
+      <member refid="class_post_processing_handler_1a106e57235d286a25b82ffe82e81a2087" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>forces_table_per_slice</name></member>
+      <member refid="class_post_processing_handler_1a03a1a52bcd88be90e27df9807b335e0f" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>get_component_interpretations</name></member>
+      <member refid="class_post_processing_handler_1ac195a6419d941f18073fd3ca2c081b87" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>get_field_names</name></member>
+      <member refid="class_post_processing_handler_1aaac82b6175e1055874b844d582806284" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>mms_param</name></member>
+      <member refid="class_post_processing_handler_1a89738e4fe4e5391bcd75dfb8f67d87e7" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>mpi_communicator</name></member>
+      <member refid="class_post_processing_handler_1a43ea31075a9dd69723a2a0798aa6280e" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>mpi_rank</name></member>
+      <member refid="class_post_processing_handler_1a50ca03426a560fdd0e773df1f8997d0e" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>ordering</name></member>
+      <member refid="class_post_processing_handler_1a8cdfd74c29f58c9b0b925699072de7d3" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>output_fields</name></member>
+      <member refid="class_post_processing_handler_1adc7499d85d14639592b793199b85bb9b" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>output_param</name></member>
+      <member refid="class_post_processing_handler_1ad97be602ea9ad5387ad05508217d28d7" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>output_skin_fields</name></member>
+      <member refid="class_post_processing_handler_1a52e697505e6575799b085deecc2ee965" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>output_volume_fields</name></member>
+      <member refid="class_post_processing_handler_1a22f3bef89780f798b38c28391740fb8f" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>physical_properties</name></member>
+      <member refid="class_post_processing_handler_1aa45b8a96890bcc546d3e4d8e81512b58" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>post_proc_param</name></member>
+      <member refid="class_post_processing_handler_1ac04e794a0391d49103e4fbe78e50b737" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>PostProcessingHandler</name></member>
+      <member refid="class_post_processing_handler_1ae3f58a0be6f04e583c20bbf753ea66e4" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>postprocessors</name></member>
+      <member refid="class_post_processing_handler_1a1b50279e1bd0b3b13a7edb11ebebedc6" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>prerefinements_pseudotimes_and_names</name></member>
+      <member refid="class_post_processing_handler_1a7526bbc5b562242f8992109b700c161c" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>prerefinements_pseudotimes_and_names_skin</name></member>
+      <member refid="class_post_processing_handler_1a2e09206bc5f82e131fe1dd72c0bc5a13" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>remove_visualization_record</name></member>
+      <member refid="class_post_processing_handler_1ae717168b5c4f599f88c1913a99ad2e04" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>restore_pvd_entries_until_time</name></member>
+      <member refid="class_post_processing_handler_1a92d588a390906ce1e7d58fafdf733bfe" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>should_compute_postprocessing</name></member>
+      <member refid="class_post_processing_handler_1a827625319341d48f8a355ff566aaa605" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>should_output_forces</name></member>
+      <member refid="class_post_processing_handler_1a6f1edae045b9af139b05357597cb3f89" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>should_output_mean_position</name></member>
+      <member refid="class_post_processing_handler_1afd0f8f51504a9d9816a3124c72c14c69" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>should_output_postprocessing</name></member>
+      <member refid="class_post_processing_handler_1a76b430d837401e8ea07ca662f359056b" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>should_output_skin_fields</name></member>
+      <member refid="class_post_processing_handler_1ad1525d256b6d9741aca4654cc672ac29" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>should_output_volume_fields</name></member>
+      <member refid="class_post_processing_handler_1a7809385a7a7a780b47c83add001e206b" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>slice_indices</name></member>
+      <member refid="class_post_processing_handler_1ac7c86032b7c62f40ebe152c54e4ca662" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>solution_names</name></member>
+      <member refid="class_post_processing_handler_1a2c0c76f1af3dbad88870c4449daba1ca" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>structure_mean_position_table</name></member>
+      <member refid="class_post_processing_handler_1afc89cc40cf18462e98866d0851712fa2" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>subdomains</name></member>
+      <member refid="class_post_processing_handler_1a0c7c8529efdd280344177fbc7920e72a" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>triangulation</name></member>
+      <member refid="class_post_processing_handler_1a01b2be366e08968e987e49bccbc03762" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>visualization_times_and_names</name></member>
+      <member refid="class_post_processing_handler_1a8f5257580337fde87f51f4c5a900cf77" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>visualization_times_and_names_skin</name></member>
+      <member refid="class_post_processing_handler_1a8bf57bf4eaf45179e9b0ff8501a1f39e" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>volume_of_phases</name></member>
+      <member refid="class_post_processing_handler_1a7068611dcdabe3b225a7102595f22419" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>write_forces</name></member>
+      <member refid="class_post_processing_handler_1ac87ed25dd17bf67ee08db939433fed6e" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>write_pvd</name></member>
+      <member refid="class_post_processing_handler_1a628c6349cd08791db738cf5f98ff0957" prot="public" virt="non-virtual"><scope>PostProcessingHandler</scope><name>write_structure_mean_position</name></member>
+      <member refid="class_post_processing_handler_1a06352eea0ee42e63ef7cb391934b4782" prot="private" virt="non-virtual"><scope>PostProcessingHandler</scope><name>write_table</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_f_s_i_1_1_rigid_body_rotation" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::FSI::RigidBodyRotation</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1_1_rigid_body_rotation_1aa05c5a5e3d453fa2d1df276c76f4db8d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::FSI&lt; dim &gt;::RigidBodyRotation::enable</definition>
+        <argsstring></argsstring>
+        <name>enable</name>
+        <qualifiedname>Parameters::FSI::RigidBodyRotation::enable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1138" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1_1_rigid_body_rotation_1abe0dfc27f84e251fb3c3fedc13d367e4" prot="public" static="no" mutable="no">
+        <type>Point&lt; dim &gt;</type>
+        <definition>Point&lt;dim&gt; Parameters::FSI&lt; dim &gt;::RigidBodyRotation::center</definition>
+        <argsstring></argsstring>
+        <name>center</name>
+        <qualifiedname>Parameters::FSI::RigidBodyRotation::center</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1141" column="13" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1141" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespace_parameters" kindref="compound">Parameters</ref> controlling the rigid body rotation of the solid. Only implemented for the zero-mass model for now. </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="1135" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1136" bodyend="1142"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_f_s_i_1_1_rigid_body_rotation_1abe0dfc27f84e251fb3c3fedc13d367e4" prot="public" virt="non-virtual"><scope>Parameters::FSI::RigidBodyRotation</scope><name>center</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1_1_rigid_body_rotation_1aa05c5a5e3d453fa2d1df276c76f4db8d" prot="public" virt="non-virtual"><scope>Parameters::FSI::RigidBodyRotation</scope><name>enable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

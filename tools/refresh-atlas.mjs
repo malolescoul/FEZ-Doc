@@ -3,8 +3,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
+import katex from '../assets/vendor/katex/dist/katex.mjs';
+// Parse mathematical delimiters before Markdown treats their backslashes as escapes.
+// Generated HTML and MathML are embedded, so reading needs no external service.
+marked.use({extensions:[
+ {name:'fezBlockMath',level:'block',start(src){return src.indexOf('\\[');},tokenizer(src){const m=/^\\\[([\s\S]*?)\\\](?:\s*\n|$)/.exec(src);if(m)return{type:'fezBlockMath',raw:m[0],text:m[1]};},renderer(t){return katex.renderToString(t.text,{displayMode:true,throwOnError:true,trust:false})+'\n';}},
+ {name:'fezInlineMath',level:'inline',start(src){return src.indexOf('\\(');},tokenizer(src){const m=/^\\\(([\s\S]*?)\\\)/.exec(src);if(m)return{type:'fezInlineMath',raw:m[0],text:m[1]};},renderer(t){return katex.renderToString(t.text,{throwOnError:true,trust:false});}}
+]});
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const file=path.join(root,'data/atlas.json'),data=JSON.parse(fs.readFileSync(file,'utf8'));
+data.history=JSON.parse(fs.readFileSync(path.join(root,'data/history-ledger.json'),'utf8'));
 const documents=[];
 function walk(dir){for(const f of fs.readdirSync(dir,{withFileTypes:true})){const filename=path.join(dir,f.name);if(f.isDirectory())walk(filename);else if(f.name.endsWith('.md')){const raw=fs.readFileSync(filename,'utf8'),rel=path.relative(root,filename).replaceAll('\\','/');let html=marked.parse(raw,{gfm:true});html=html.replace(/href="([^"#][^"]*)"/g,(m,url)=>/^(https?:|mailto:)/.test(url)?m:'href="'+path.posix.normalize(path.posix.join(path.posix.dirname(rel),url))+'"');documents.push({path:rel,title:raw.match(/^#\s+(.+)/m)?.[1]||f.name,html});}}}
 walk(path.join(root,'knowledge'));walk(path.join(root,'pedagogie'));data.documents=documents;

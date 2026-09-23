@@ -17,6 +17,8 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+
+
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -161,7 +163,7 @@ Bande autour de l'interface</h2>
 <p>Les critères valent +1 pour raffiner, 0 pour conserver et −1 pour demander un déraffinement. Les marges 1,1 sur la bande et 0,9 sur le diamètre limitent les oscillations ; le diamètre d'un parent ALE inactif est estimé à deux fois celui de l'enfant. Cela reste une approximation géométrique, explicitement codée. <a href="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation_tools.cpp#L271-L325">Décision</a></p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 Parcours 3 — transporter, puis reconstruire</h1>
-<p><span class="tt">adapt_mesh()</span> récupère l'éventuel état supplémentaire du contrôleur temporel. La couche d'adaptation prépare <span class="tt">present_solution + previous_solutions + additional_solution</span> avec des vecteurs fantômes avant <span class="tt">execute_coarsening_and_refinement()</span>. Après redistribution des DoFs, elle interpole vers des vecteurs ne contenant que les DoFs possédés, applique les contraintes, puis recopie vers les états du solveur. Voir la fiche <a class="el" href="fez_prod_distributed_state_transfer.html#md_guides_2prod_2patterns_2distributed-state-transfer" title="guides/prod/patterns/distributed-state-transfer.md">transfert d'état distribué</a>.</p>
+<p><span class="tt">adapt_mesh()</span> récupère l'éventuel état supplémentaire du contrôleur temporel. La couche d'adaptation prépare <span class="tt">present_solution + previous_solutions + additional_solution</span> avec des vecteurs fantômes avant <span class="tt">execute_coarsening_and_refinement()</span>. Après redistribution des DoFs, elle interpole vers des vecteurs ne contenant que les DoFs possédés, applique les contraintes, puis recopie vers les états du solveur. Voir la fiche <a href="../../prod/html/fez_prod_distributed_state_transfer.html">transfert d'état distribué</a>.</p>
 <p>Le point sensible est l'ordre ALE :</p>
 <ul>
 <li>transporter d'abord tous les états avec seulement les contraintes de nœuds pendants ;</li>
@@ -213,7 +215,8 @@ Impacts à surveiller et suite de lecture</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Maillage très courbe ou interface complexe  </td><td class="markdownTableBodyNone">Approximation entre sommets, échantillonnage du zéro, coût du rassemblement global des segments  </td></tr>
 </table>
-<p><b>Prochaine validation sur le PC de calcul :</b> exécuter les fixtures ciblées sur 1 et 4 rangs, relever les versions deal.II/PETSc/p4est et mesurer une situation où des cellules changent effectivement de propriétaire MPI. Aucun bug nouveau n'est affirmé à ce stade. </p>
+<p><b>Prochaine validation sur le PC de calcul :</b> exécuter les fixtures ciblées sur 1 et 4 rangs, relever les versions deal.II/PETSc/p4est et mesurer une situation où des cellules changent effectivement de propriétaire MPI. Aucun bug nouveau n'est affirmé à ce stade.</p>
+<p><span id="fez-guide-end-fez_prod_chns_ale_amr"></span> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

@@ -17,6 +17,8 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+
+
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -146,7 +148,8 @@ Sparsité et cohérence du Jacobien</h1>
 <p>Le code propose deux voies de contrôle : assembler le Jacobien par différences finies, ou comparer le Jacobien analytique à cette approximation. Elles sont repérées, <b>non exécutées</b>. Un test pertinent après changement de forme doit tenir compte des choix de linéarisation, notamment τ gelé. <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L436-L460">Points d'entrée</a>, <a href="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L503-L513">comparaison</a>.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 À vérifier dans une session avec build</h1>
-<p>Commencer par une configuration CHNS fixe sans stabilisation, puis une configuration stabilisée ; contrôler Jacobien et convergence MMS avant d'élargir à ALE et MPI. Les dossiers <span class="tt">tests/incompressible_chns</span> et <span class="tt">tests/incompressible_chns_ale</span> sont présents dans l'arbre Git ; leurs sorties existantes ne sont pas un résultat de cette session. </p>
+<p>Commencer par une configuration CHNS fixe sans stabilisation, puis une configuration stabilisée ; contrôler Jacobien et convergence MMS avant d'élargir à ALE et MPI. Les dossiers <span class="tt">tests/incompressible_chns</span> et <span class="tt">tests/incompressible_chns_ale</span> sont présents dans l'arbre Git ; leurs sorties existantes ne sont pas un résultat de cette session.</p>
+<p><span id="fez-guide-end-fez_master_chns_assembly"></span> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

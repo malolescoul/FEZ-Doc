@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler" kind="class" language="C++" prot="public">
+    <compoundname>Assembly::Elasticity::PresolverPsiAssembler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AssemblerBase&lt; ScratchData, CopyData &gt;</basecompoundref>
+    <includes refid="elasticity__assemblers_8h" local="no">elasticity_assemblers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1a72beb30e8fa638c35d4abb4462c062b0" prot="public" static="no" mutable="no">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt;dim&gt;&amp; Assembly::Elasticity::PresolverPsiAssembler&lt; dim, ScratchData, CopyData &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>Assembly::Elasticity::PresolverPsiAssembler::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="415" column="29" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="415" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1ac383cae116c61f359ac3a9e077827ac2" prot="public" static="no" mutable="no">
+        <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+        <definition>const ComponentOrdering&amp; Assembly::Elasticity::PresolverPsiAssembler&lt; dim, ScratchData, CopyData &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>Assembly::Elasticity::PresolverPsiAssembler::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="416" column="34" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="416" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1a40a44571f0ab14c6b5b2d5692e9e5c49" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Assembly::Elasticity::PresolverPsiAssembler&lt; dim, ScratchData, CopyData &gt;::PresolverPsiAssembler</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering)</argsstring>
+        <name>PresolverPsiAssembler</name>
+        <qualifiedname>Assembly::Elasticity::PresolverPsiAssembler::PresolverPsiAssembler</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="402" column="7" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="402" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1aa17ae3c50415e466ff179081ee89e6d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::PresolverPsiAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_matrix</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>Assembly::Elasticity::PresolverPsiAssembler::assemble_matrix</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="408" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="702" bodyend="762"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1a388dd750fdb594d8ed02d10a1d47be32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::PresolverPsiAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_rhs</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>Assembly::Elasticity::PresolverPsiAssembler::assemble_rhs</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="411" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="675" bodyend="699"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Enlarged-presolver reconstruction of the widened marker psi by the Helmholtz equation <verbatim>psi - L^2 lap(psi) = phi_0,
+</verbatim></para>
+<para>assembled on the moving (deformed) configuration, exactly as in the full CHNS solver (see assemble_psi_equation_* in incompressible_chns_assemblers .h). The crucial difference is that here phi_0 is an <emphasis>analytic</emphasis> function (the prescribed Cahn-Hilliard initial condition), not a finite-element unknown, so:<itemizedlist>
+<listitem><para>there is no psi&lt;-phi nor psi&lt;-mu coupling and no mu-correction;</para>
+</listitem><listitem><para>the psi&lt;-x block carries the extra source variation delta phi_0 = grad(phi_0) . delta x, which the field-mode CHNS assembler omits (there phi is an FE field, so its value does not transform). This is the third assembly case (hybrid: analytic phi, FE psi); it must not be confused with the field-mode CHNS solver. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::PresolverPsiAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::PresolverPsiAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ordering</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="399" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="400" bodyend="417"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1aa17ae3c50415e466ff179081ee89e6d5" prot="public" virt="virtual"><scope>Assembly::Elasticity::PresolverPsiAssembler</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1a388dd750fdb594d8ed02d10a1d47be32" prot="public" virt="virtual"><scope>Assembly::Elasticity::PresolverPsiAssembler</scope><name>assemble_rhs</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1ac383cae116c61f359ac3a9e077827ac2" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::PresolverPsiAssembler</scope><name>ordering</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1a72beb30e8fa638c35d4abb4462c062b0" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::PresolverPsiAssembler</scope><name>param</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler_1a40a44571f0ab14c6b5b2d5692e9e5c49" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::PresolverPsiAssembler</scope><name>PresolverPsiAssembler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

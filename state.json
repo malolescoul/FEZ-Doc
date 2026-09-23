@@ -333,6 +333,307 @@
       "sha": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
       "path": "include/elasticity_solver.h",
       "scope": "déclarations de classes et membres pour la hiérarchie"
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/assembly/elasticity_assemblers.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/assembly/incompressible_chns_assemblers.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/cahn_hilliard.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/components_ordering.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/copy_data.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/elasticity_solver.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/generic_solver.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/incompressible_chns_solver.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/mesh_and_dof_tools.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/navier_stokes_solver.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/newton_solver.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/parameters.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/post_processing_handler.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/presolver_tools.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/scratch_data.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/scratch_data_elasticity.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/stabilization_tools.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/time_handler.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "include/timestep_adaptation.h",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "solvers/incompressible_chns_ale.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "solvers/incompressible_chns_ale_enlarged.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/assembly/elasticity_assemblers.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/assembly/incompressible_chns_assemblers.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/boundary_conditions.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/elasticity_solver.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/incompressible_chns_solver.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/navier_stokes_solver.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/parameters.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/post_processing_handler.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/scratch_data.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "src/time_handler.cpp",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/elasticity/presolver_forcing_jacobian.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns/adaptive_mobility_timestep.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns/jacobian_matrix_supg_abels_nlm.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns/jacobian_matrix_supg_ding_horriche.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns/mms_chns_2d_spacetime_degenerate_mobility.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns_ale/presolver_injection.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility_2.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns_ale_enlarged/mms_chns_ale_enlarged_2d_spacetime.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/incompressible_chns_ale_enlarged/presolver_psi_jacobian.prm",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/unit_tests/profile_correction.cc",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
+    },
+    {
+      "key": "pre_amr",
+      "branch": "pre-amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "path": "tests/unit_tests/time_handler_adaptive_mobility.cc",
+      "scope": "Lecture ciblée des déclarations, fonctions ou configurations citées dans les fiches pré-AMR."
     }
   ],
   "graphs": [
@@ -371,6 +672,30 @@
       "branch": "chns-ding-horriche-master-form",
       "nodes": 8,
       "edges": 11
+    },
+    {
+      "id": "hierarchy-pre-amr",
+      "branch": "pre-amr",
+      "nodes": 8,
+      "edges": 11
+    },
+    {
+      "id": "pre-amr-features",
+      "branch": "pre-amr",
+      "nodes": 3,
+      "edges": 2
+    },
+    {
+      "id": "pre-amr-workflow",
+      "branch": "pre-amr",
+      "nodes": 35,
+      "edges": 45
+    },
+    {
+      "id": "pre-amr-physics",
+      "branch": "pre-amr",
+      "nodes": 30,
+      "edges": 41
     }
   ],
   "reviewedPullRequests": [
@@ -413,9 +738,40 @@
     "doxygen": "voir doxygen/README.md"
   },
   "next": [
-    "Vérifier les nouveaux SHA et comparer les commits avant de réutiliser les conclusions.",
-    "Reproduire tests amr_ale_transfer et chns_presolver_amr sur le PC FEZ avec 1 puis plusieurs rangs.",
-    "Suivre #92 et #93 ; distinguer proposition, fusion et présence dans la branche personnelle.",
-    "Étudier conservation au transfert et Jacobien CHNS standard/enlarged."
-  ]
+    "Relire START_HERE et vérifier HEADs, clone, paramètres du cas personnel et SHA des builds.",
+    "Reproduire un workflow de référence sans AMR puis comparer le HEAD avec AMR désactivé avant de l’activer.",
+    "Vérifier presolver x/ψ, cache, mappings et BC avec les tests cités, puis Jacobien et adaptation de pas selon les options du cas.",
+    "Poursuivre les tests AMR de transfert et conservation sur 1 puis plusieurs rangs MPI.",
+    "Actualiser le statut des PR #92/#93 et les fiches touchées par tout nouveau commit."
+  ],
+  "updatedAt": "2026-09-20T04:35:04.006375+00:00",
+  "edition": "Jour 1 avec complément historique pré-AMR",
+  "historicalReferences": [
+    {
+      "name": "pre-amr",
+      "short": "avant AMR · référence",
+      "key": "pre_amr",
+      "sha": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "kind": "historical-snapshot",
+      "gitBranch": "chns-ding-horriche-master-form",
+      "date": "2026-09-16T15:06:15Z"
+    }
+  ],
+  "history": {
+    "origin": "fcb028e4c10c253a30c387b3665f9b38cde2bf3e",
+    "baseline": "cc8dace141900b82e5790fa878e39d9c54898784",
+    "ownCommits": 61,
+    "masterImports": 13,
+    "merges": 5,
+    "ordering": "parent-first",
+    "ledger": "data/history-ledger.json",
+    "scope": "Diffs sélectionnés par commit et reconstitution des capacités ; limites de patch explicitement conservées."
+  },
+  "documentationRepository": {
+    "path": "C:/Users/Malol/OneDrive/Bureau/FEZ Doc",
+    "url": "https://github.com/malolescoul/FEZ-Doc",
+    "observedPriorCommit": "332d857",
+    "baselineStatusAtStart": "main...origin/main; working tree clean",
+    "currentEditionCommitted": false
+  }
 }

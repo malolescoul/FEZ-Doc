@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_c_h_n_s_solver_1_1_source_term" kind="class" language="C++" prot="protected">
+    <compoundname>CHNSSolver::SourceTerm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="incompressible__chns__solver_8h" local="no">incompressible_chns_solver.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_source_term_1af688ff4c20cfa86e4f07a80f4c27ae21" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+        <definition>const ComponentOrdering&amp; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::SourceTerm::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>CHNSSolver::SourceTerm::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="253" column="33" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1_1_source_term_1a79e687da1305306831494f80e61611ea" prot="protected" static="no" mutable="no">
+        <type>Parameters::SourceTerms&lt; dim &gt;</type>
+        <definition>Parameters::SourceTerms&lt;dim&gt; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::SourceTerm::source_terms</definition>
+        <argsstring></argsstring>
+        <name>source_terms</name>
+        <qualifiedname>CHNSSolver::SourceTerm::source_terms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="254" column="29" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_source_term_1ab8c4cf7c24ba68e243bf89b8f58900e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::SourceTerm::SourceTerm</definition>
+        <argsstring>(const double time, const ComponentOrdering &amp;ordering, const Parameters::SourceTerms&lt; dim &gt; &amp;source_terms)</argsstring>
+        <name>SourceTerm</name>
+        <qualifiedname>CHNSSolver::SourceTerm::SourceTerm</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>const Parameters::SourceTerms&lt; dim &gt; &amp;</type>
+          <declname>source_terms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="218" column="5" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="218" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_source_term_1a1db8d04400c6aca4a5fde10b385e5dbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::SourceTerm::set_time</definition>
+        <argsstring>(const double new_time) override</argsstring>
+        <name>set_time</name>
+        <qualifiedname>CHNSSolver::SourceTerm::set_time</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="226" column="18" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="226" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1_1_source_term_1a0f99ed3a57ea662528a1da555e71a20f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::SourceTerm::vector_value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</argsstring>
+        <name>vector_value</name>
+        <qualifiedname>CHNSSolver::SourceTerm::vector_value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="231" column="18" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="231" bodyend="250"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Source term. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::SourceTerm</label>
+        <link refid="class_c_h_n_s_solver_1_1_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::SourceTerm</label>
+        <link refid="class_c_h_n_s_solver_1_1_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ordering</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="215" column="3" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="216" bodyend="255"/>
+    <listofallmembers>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1af688ff4c20cfa86e4f07a80f4c27ae21" prot="protected" virt="non-virtual"><scope>CHNSSolver::SourceTerm</scope><name>ordering</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1a1db8d04400c6aca4a5fde10b385e5dbe" prot="public" virt="virtual"><scope>CHNSSolver::SourceTerm</scope><name>set_time</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1a79e687da1305306831494f80e61611ea" prot="protected" virt="non-virtual"><scope>CHNSSolver::SourceTerm</scope><name>source_terms</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1ab8c4cf7c24ba68e243bf89b8f58900e3" prot="public" virt="non-virtual"><scope>CHNSSolver::SourceTerm</scope><name>SourceTerm</name></member>
+      <member refid="class_c_h_n_s_solver_1_1_source_term_1a0f99ed3a57ea662528a1da555e71a20f" prot="public" virt="virtual"><scope>CHNSSolver::SourceTerm</scope><name>vector_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

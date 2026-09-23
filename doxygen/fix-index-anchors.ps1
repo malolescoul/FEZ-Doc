@@ -2,7 +2,7 @@
 # Only generated HTML is changed; source snapshots and API text are untouched.
 $ErrorActionPreference = 'Stop'
 $utf8 = [System.Text.UTF8Encoding]::new($false)
-foreach ($branch in @('master', 'prod')) {
+foreach ($branch in @('master', 'prod', 'pre_amr')) {
     $htmlRoot = Join-Path $PSScriptRoot ($branch + '/html')
     $changedFiles = 0
     foreach ($page in Get-ChildItem -LiteralPath $htmlRoot -Filter '*.html' -File) {

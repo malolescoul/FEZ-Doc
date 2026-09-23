@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_post_processing_1_1_structure_position" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::PostProcessing::StructurePosition</compoundname>
+    <basecompoundref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary" prot="public" virt="non-virtual">Parameters::PostProcessing::PostProcessingFileBoundary</basecompoundref>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingFileBoundary</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Parameters::PostProcessing::StructurePosition</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_structure_position"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingFileBoundary</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Parameters::PostProcessing::StructurePosition</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_structure_position"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="367" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="368" bodyend="370"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary_1a0438b1d7f26bf032df528700493be512" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::StructurePosition</scope><name>boundary_id</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a921eee483d06be1b60f73ad5194704cf" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::StructurePosition</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a5a598c5e51421aaa8a2afc09c4b04389" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::StructurePosition</scope><name>output_frequency</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1a04b33f78a97a8d9b7053fc0e5527c3f2" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::StructurePosition</scope><name>output_prefix</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1af05555db5e66180d6ea56bfb8e8b0133" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::StructurePosition</scope><name>precision</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a3379bfae8b9213020cae832594e8de6f" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::StructurePosition</scope><name>verbosity</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1a3b1bbd30bdb3387fc31432d37c47550d" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::StructurePosition</scope><name>write_results</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

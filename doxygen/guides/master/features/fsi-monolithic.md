@@ -34,3 +34,6 @@ Les indicateurs `has_local_position_master`, `has_local_lambda_accumulator`, `ha
 - Modifier forces/couples : relire l’origine physique de la pression et la convention de signe, ainsi que la stratégie de couplage.
 
 Ces pistes sont des obligations de revue, pas des défauts démontrés. Aucun calcul FSI n’a été exécuté aujourd’hui. Lecture fine restante : variantes de couplage, rotation, différence entre les deux implémentations FSI, formulations des assembleurs de frontière et cas tests multi-rangs.
+
+
+<span id="fez-guide-end-fez_master_fsi_monolithic"></span>

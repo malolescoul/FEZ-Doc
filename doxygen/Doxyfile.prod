@@ -39,3 +39,6 @@ WARNINGS               = YES
 WARN_IF_UNDOCUMENTED   = NO
 WARN_IF_DOC_ERROR      = YES
 WARN_LOGFILE           = "logs/prod-warnings.log"
+
+# Emit protected formula spans; render-math.mjs turns them into local KaTeX HTML.
+USE_MATHJAX           = YES

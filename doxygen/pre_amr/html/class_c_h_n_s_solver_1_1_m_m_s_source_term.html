@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence de la classe CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_c_h_n_s_solver_1_1_m_m_s_source_term.html','','class_c_h_n_s_solver_1_1_m_m_s_source_term-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la classe CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe d'héritage de CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_c_h_n_s_solver_1_1_m_m_s_source_term.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:ad984c01333c93b241e0b6041e2b05dec" id="r_ad984c01333c93b241e0b6041e2b05dec"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad984c01333c93b241e0b6041e2b05dec">MMSSourceTerm</a> (const double time, const <a class="el" href="class_component_ordering.html">ComponentOrdering</a> &amp;ordering, const ParameterReader&lt; dim &gt; &amp;param)</td></tr>
+<tr class="memitem:ac1e43c933eec8f13f905e90109e1fd90" id="r_ac1e43c933eec8f13f905e90109e1fd90"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ac1e43c933eec8f13f905e90109e1fd90">set_time</a> (const double new_time) override</td></tr>
+<tr class="memitem:ae74642158e938413c0582d3b61a22ecd" id="r_ae74642158e938413c0582d3b61a22ecd"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae74642158e938413c0582d3b61a22ecd">vector_value</a> (const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</td></tr>
+<tr class="memitem:ac30be01b55756cec9f5aedf53e61c57c" id="r_ac30be01b55756cec9f5aedf53e61c57c"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ac30be01b55756cec9f5aedf53e61c57c">vector_gradient</a> (const Point&lt; dim &gt; &amp;p, std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;gradients) const override</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a513c2792904ed0ae1fb313fdaaa7d7db" id="r_a513c2792904ed0ae1fb313fdaaa7d7db"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a513c2792904ed0ae1fb313fdaaa7d7db">n_components</a></td></tr>
+<tr class="memitem:ae1ec636a1fd4b97f05614c9352405742" id="r_ae1ec636a1fd4b97f05614c9352405742"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#ae1ec636a1fd4b97f05614c9352405742">u_lower</a></td></tr>
+<tr class="memitem:acbe2d249a7982f047f6c5186c497ba86" id="r_acbe2d249a7982f047f6c5186c497ba86"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#acbe2d249a7982f047f6c5186c497ba86">p_lower</a></td></tr>
+<tr class="memitem:aa4ca7b3d4f5b03a362a2936e06f933ad" id="r_aa4ca7b3d4f5b03a362a2936e06f933ad"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#aa4ca7b3d4f5b03a362a2936e06f933ad">x_lower</a></td></tr>
+<tr class="memitem:ad86d0000d4bdf5944c011524dff4e6e0" id="r_ad86d0000d4bdf5944c011524dff4e6e0"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#ad86d0000d4bdf5944c011524dff4e6e0">phi_lower</a></td></tr>
+<tr class="memitem:aa8015656380ba2410623c328b8c0a31e" id="r_aa8015656380ba2410623c328b8c0a31e"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#aa8015656380ba2410623c328b8c0a31e">mu_lower</a></td></tr>
+<tr class="memitem:a51d8e3bcd5fd05a83c12f1e1adacf2b8" id="r_a51d8e3bcd5fd05a83c12f1e1adacf2b8"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a51d8e3bcd5fd05a83c12f1e1adacf2b8">psi_lower</a></td></tr>
+<tr class="memitem:af5f1f6c9aae1b4d4b2d7c70ef297794d" id="r_af5f1f6c9aae1b4d4b2d7c70ef297794d"><td class="memItemLeft">const <a class="el" href="class_parameters_1_1_physical_properties.html">Parameters::PhysicalProperties</a>&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af5f1f6c9aae1b4d4b2d7c70ef297794d">physical_properties</a></td></tr>
+<tr class="memitem:afb4e4948490a6ebc7c457c9be1ac8522" id="r_afb4e4948490a6ebc7c457c9be1ac8522"><td class="memItemLeft">const <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afb4e4948490a6ebc7c457c9be1ac8522">cahn_hilliard_param</a></td></tr>
+<tr class="memitem:a8e0954811cb77a3bafc343ae4c4176ba" id="r_a8e0954811cb77a3bafc343ae4c4176ba"><td class="memItemLeft">ManufacturedSolutions::ManufacturedSolution&lt; dim &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8e0954811cb77a3bafc343ae4c4176ba">mms</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt;<br />
+class CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm</div><p>Source term called when performing a convergence study. This function calls the derivatives functions from the given pre-set manufactured solution. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00391">391</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="ad984c01333c93b241e0b6041e2b05dec" name="ad984c01333c93b241e0b6041e2b05dec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad984c01333c93b241e0b6041e2b05dec">&#9670;&#160;</a></span>MMSSourceTerm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::MMSSourceTerm </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_component_ordering.html">ComponentOrdering</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ordering</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ParameterReader&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>param</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00394">394</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="ac1e43c933eec8f13f905e90109e1fd90" name="ac1e43c933eec8f13f905e90109e1fd90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e43c933eec8f13f905e90109e1fd90">&#9670;&#160;</a></span>set_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::set_time </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>new_time</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00411">411</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ac30be01b55756cec9f5aedf53e61c57c" name="ac30be01b55756cec9f5aedf53e61c57c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac30be01b55756cec9f5aedf53e61c57c">&#9670;&#160;</a></span>vector_gradient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::vector_gradient </td>
+          <td>(</td>
+          <td class="paramtype">const Point&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>gradients</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gradient of source term, using finite differences </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00423">423</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ae74642158e938413c0582d3b61a22ecd" name="ae74642158e938413c0582d3b61a22ecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae74642158e938413c0582d3b61a22ecd">&#9670;&#160;</a></span>vector_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::vector_value </td>
+          <td>(</td>
+          <td class="paramtype">const Point&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>values</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00325">325</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="afb4e4948490a6ebc7c457c9be1ac8522" name="afb4e4948490a6ebc7c457c9be1ac8522"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb4e4948490a6ebc7c457c9be1ac8522">&#9670;&#160;</a></span>cahn_hilliard_param</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_parameters_1_1_cahn_hilliard.html">Parameters::CahnHilliard</a>&lt;dim&gt;&amp; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::cahn_hilliard_param</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00454">454</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a8e0954811cb77a3bafc343ae4c4176ba" name="a8e0954811cb77a3bafc343ae4c4176ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0954811cb77a3bafc343ae4c4176ba">&#9670;&#160;</a></span>mms</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ManufacturedSolutions::ManufacturedSolution&lt;dim&gt; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::mms</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00455">455</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="aa8015656380ba2410623c328b8c0a31e" name="aa8015656380ba2410623c328b8c0a31e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8015656380ba2410623c328b8c0a31e">&#9670;&#160;</a></span>mu_lower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::mu_lower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00451">451</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a513c2792904ed0ae1fb313fdaaa7d7db" name="a513c2792904ed0ae1fb313fdaaa7d7db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a513c2792904ed0ae1fb313fdaaa7d7db">&#9670;&#160;</a></span>n_components</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::n_components</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00446">446</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="acbe2d249a7982f047f6c5186c497ba86" name="acbe2d249a7982f047f6c5186c497ba86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe2d249a7982f047f6c5186c497ba86">&#9670;&#160;</a></span>p_lower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::p_lower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00448">448</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ad86d0000d4bdf5944c011524dff4e6e0" name="ad86d0000d4bdf5944c011524dff4e6e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad86d0000d4bdf5944c011524dff4e6e0">&#9670;&#160;</a></span>phi_lower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::phi_lower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00450">450</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="af5f1f6c9aae1b4d4b2d7c70ef297794d" name="af5f1f6c9aae1b4d4b2d7c70ef297794d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5f1f6c9aae1b4d4b2d7c70ef297794d">&#9670;&#160;</a></span>physical_properties</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_parameters_1_1_physical_properties.html">Parameters::PhysicalProperties</a>&lt;dim&gt;&amp; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::physical_properties</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00453">453</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a51d8e3bcd5fd05a83c12f1e1adacf2b8" name="a51d8e3bcd5fd05a83c12f1e1adacf2b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d8e3bcd5fd05a83c12f1e1adacf2b8">&#9670;&#160;</a></span>psi_lower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::psi_lower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00452">452</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ae1ec636a1fd4b97f05614c9352405742" name="ae1ec636a1fd4b97f05614c9352405742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1ec636a1fd4b97f05614c9352405742">&#9670;&#160;</a></span>u_lower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::u_lower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00447">447</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="aa4ca7b3d4f5b03a362a2936e06f933ad" name="aa4ca7b3d4f5b03a362a2936e06f933ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ca7b3d4f5b03a362a2936e06f933ad">&#9670;&#160;</a></span>x_lower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::MMSSourceTerm::x_lower</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00449">449</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a></li>
+<li>snapshots/pre_amr/src/<a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_c_h_n_s_solver.html">CHNSSolver</a></li><li class="navelem"><a href="class_c_h_n_s_solver_1_1_m_m_s_source_term.html">MMSSourceTerm</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

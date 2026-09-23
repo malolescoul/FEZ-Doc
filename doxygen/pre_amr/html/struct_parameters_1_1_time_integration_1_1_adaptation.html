@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence de la structure Parameters::TimeIntegration::Adaptation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('struct_parameters_1_1_time_integration_1_1_adaptation.html','','struct_parameters_1_1_time_integration_1_1_adaptation-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la structure Parameters::TimeIntegration::Adaptation</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="parameters_8h_source.html">parameters.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:a2c0dda93373a7559bb75dfdfec28e71d" id="r_a2c0dda93373a7559bb75dfdfec28e71d"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a2c0dda93373a7559bb75dfdfec28e71d">AdaptationStrategy</a> { <a class="el" href="#a2c0dda93373a7559bb75dfdfec28e71da46606c362d34561957d333ad275ffee7">BDFTruncationError</a>
+, <a class="el" href="#a2c0dda93373a7559bb75dfdfec28e71dafdbf8bb275d7d5ca01cfa7dcbd4f8ed1">CFL</a>
+, <a class="el" href="#a2c0dda93373a7559bb75dfdfec28e71dab2052fa07283ee49fa379fd6b453cf1a">AdaptiveMobility</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a02fefaf62572f0c85c0cc448ae11acc8" id="r_a02fefaf62572f0c85c0cc448ae11acc8"><td class="memItemLeft"><a class="el" href="namespace_parameters.html#ad408350a21239600add83c5e91fcfa26">Verbosity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a02fefaf62572f0c85c0cc448ae11acc8">verbosity</a></td></tr>
+<tr class="memitem:acc254110595231229708357a67d8746d" id="r_acc254110595231229708357a67d8746d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acc254110595231229708357a67d8746d">enable</a></td></tr>
+<tr class="memitem:a7766d63a4183f26b8f7717309e383a30" id="r_a7766d63a4183f26b8f7717309e383a30"><td class="memItemLeft">enum <a class="el" href="#a2c0dda93373a7559bb75dfdfec28e71d">Parameters::TimeIntegration::Adaptation::AdaptationStrategy</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7766d63a4183f26b8f7717309e383a30">strategy</a></td></tr>
+<tr class="memitem:afdaed0bbea662737cdaa3726e99e2846" id="r_afdaed0bbea662737cdaa3726e99e2846"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#afdaed0bbea662737cdaa3726e99e2846">max_timestep</a></td></tr>
+<tr class="memitem:afdbb1ae0046a0d53d15c480d7819827c" id="r_afdbb1ae0046a0d53d15c480d7819827c"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#afdbb1ae0046a0d53d15c480d7819827c">min_timestep</a></td></tr>
+<tr class="memitem:a0515767b6ee7edb98265b1576c82bd3b" id="r_a0515767b6ee7edb98265b1576c82bd3b"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a0515767b6ee7edb98265b1576c82bd3b">max_timestep_increase</a></td></tr>
+<tr class="memitem:a96678406b30120c144e184efcef33e7b" id="r_a96678406b30120c144e184efcef33e7b"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a96678406b30120c144e184efcef33e7b">max_timestep_reduction</a></td></tr>
+<tr class="memitem:ae47c4d49e3f69ee507af2d8b0414424d" id="r_ae47c4d49e3f69ee507af2d8b0414424d"><td class="memItemLeft">std::map&lt; SolverInfo::VariableType, double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae47c4d49e3f69ee507af2d8b0414424d">target_error</a></td></tr>
+<tr class="memitem:afe6590022a3d758df80ccee4c445ab05" id="r_afe6590022a3d758df80ccee4c445ab05"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afe6590022a3d758df80ccee4c445ab05">reject_timestep_with_large_error</a></td></tr>
+<tr class="memitem:a3feb9065efa9bc96ca33a1838b887aa4" id="r_a3feb9065efa9bc96ca33a1838b887aa4"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3feb9065efa9bc96ca33a1838b887aa4">reject_error_factor</a></td></tr>
+<tr class="memitem:a7710d0bdeeda6b06ec19915020653bd7" id="r_a7710d0bdeeda6b06ec19915020653bd7"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a7710d0bdeeda6b06ec19915020653bd7">target_cfl</a></td></tr>
+<tr class="memitem:a7b6bc187dede461b79981d1a2b4d1d69" id="r_a7b6bc187dede461b79981d1a2b4d1d69"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7b6bc187dede461b79981d1a2b4d1d69">reject_timestep_with_large_cfl</a></td></tr>
+<tr class="memitem:adf6deda3c7333a97c7e251eaa1697196" id="r_adf6deda3c7333a97c7e251eaa1697196"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#adf6deda3c7333a97c7e251eaa1697196">reject_cfl_factor</a></td></tr>
+<tr class="memitem:a4a89dfa20346c21d414a86371c33678b" id="r_a4a89dfa20346c21d414a86371c33678b"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a4a89dfa20346c21d414a86371c33678b">target_adaptive_mobility_number</a></td></tr>
+<tr class="memitem:a51649b8a14c0f2d61bce3dc79b373d43" id="r_a51649b8a14c0f2d61bce3dc79b373d43"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a51649b8a14c0f2d61bce3dc79b373d43">reject_timestep_with_large_adaptive_mobility</a></td></tr>
+<tr class="memitem:a12fed9ae1b28d9ad07e9972afa8370c5" id="r_a12fed9ae1b28d9ad07e9972afa8370c5"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a12fed9ae1b28d9ad07e9972afa8370c5">reject_adaptive_mobility_factor</a></td></tr>
+<tr class="memitem:aeba1154f4e91257d06aaa837b8d4109e" id="r_aeba1154f4e91257d06aaa837b8d4109e"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aeba1154f4e91257d06aaa837b8d4109e">required_times</a></td></tr>
+<tr class="memitem:afeb8edcc6b57ed2df284b2792cd2af50" id="r_afeb8edcc6b57ed2df284b2792cd2af50"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afeb8edcc6b57ed2df284b2792cd2af50">compute_error_on_estimator</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock">
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00767">767</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation des énumérations membres</h2>
+<a id="a2c0dda93373a7559bb75dfdfec28e71d" name="a2c0dda93373a7559bb75dfdfec28e71d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c0dda93373a7559bb75dfdfec28e71d">&#9670;&#160;</a></span>AdaptationStrategy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a2c0dda93373a7559bb75dfdfec28e71d">Parameters::TimeIntegration::Adaptation::AdaptationStrategy</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a2c0dda93373a7559bb75dfdfec28e71da46606c362d34561957d333ad275ffee7" name="a2c0dda93373a7559bb75dfdfec28e71da46606c362d34561957d333ad275ffee7"></a>BDFTruncationError&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c0dda93373a7559bb75dfdfec28e71dafdbf8bb275d7d5ca01cfa7dcbd4f8ed1" name="a2c0dda93373a7559bb75dfdfec28e71dafdbf8bb275d7d5ca01cfa7dcbd4f8ed1"></a>CFL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2c0dda93373a7559bb75dfdfec28e71dab2052fa07283ee49fa379fd6b453cf1a" name="a2c0dda93373a7559bb75dfdfec28e71dab2052fa07283ee49fa379fd6b453cf1a"></a>AdaptiveMobility&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00778">778</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="afeb8edcc6b57ed2df284b2792cd2af50" name="afeb8edcc6b57ed2df284b2792cd2af50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeb8edcc6b57ed2df284b2792cd2af50">&#9670;&#160;</a></span>compute_error_on_estimator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::TimeIntegration::Adaptation::compute_error_on_estimator</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00813">813</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="acc254110595231229708357a67d8746d" name="acc254110595231229708357a67d8746d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc254110595231229708357a67d8746d">&#9670;&#160;</a></span>enable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::TimeIntegration::Adaptation::enable</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00771">771</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="afdaed0bbea662737cdaa3726e99e2846" name="afdaed0bbea662737cdaa3726e99e2846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdaed0bbea662737cdaa3726e99e2846">&#9670;&#160;</a></span>max_timestep</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::max_timestep</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00785">785</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a0515767b6ee7edb98265b1576c82bd3b" name="a0515767b6ee7edb98265b1576c82bd3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0515767b6ee7edb98265b1576c82bd3b">&#9670;&#160;</a></span>max_timestep_increase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::max_timestep_increase</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00787">787</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a96678406b30120c144e184efcef33e7b" name="a96678406b30120c144e184efcef33e7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96678406b30120c144e184efcef33e7b">&#9670;&#160;</a></span>max_timestep_reduction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::max_timestep_reduction</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00788">788</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="afdbb1ae0046a0d53d15c480d7819827c" name="afdbb1ae0046a0d53d15c480d7819827c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdbb1ae0046a0d53d15c480d7819827c">&#9670;&#160;</a></span>min_timestep</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::min_timestep</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00786">786</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a12fed9ae1b28d9ad07e9972afa8370c5" name="a12fed9ae1b28d9ad07e9972afa8370c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12fed9ae1b28d9ad07e9972afa8370c5">&#9670;&#160;</a></span>reject_adaptive_mobility_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::reject_adaptive_mobility_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00803">803</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="adf6deda3c7333a97c7e251eaa1697196" name="adf6deda3c7333a97c7e251eaa1697196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf6deda3c7333a97c7e251eaa1697196">&#9670;&#160;</a></span>reject_cfl_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::reject_cfl_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00798">798</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a3feb9065efa9bc96ca33a1838b887aa4" name="a3feb9065efa9bc96ca33a1838b887aa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3feb9065efa9bc96ca33a1838b887aa4">&#9670;&#160;</a></span>reject_error_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::reject_error_factor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00793">793</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a51649b8a14c0f2d61bce3dc79b373d43" name="a51649b8a14c0f2d61bce3dc79b373d43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51649b8a14c0f2d61bce3dc79b373d43">&#9670;&#160;</a></span>reject_timestep_with_large_adaptive_mobility</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_adaptive_mobility</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00802">802</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a7b6bc187dede461b79981d1a2b4d1d69" name="a7b6bc187dede461b79981d1a2b4d1d69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b6bc187dede461b79981d1a2b4d1d69">&#9670;&#160;</a></span>reject_timestep_with_large_cfl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_cfl</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00797">797</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="afe6590022a3d758df80ccee4c445ab05" name="afe6590022a3d758df80ccee4c445ab05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe6590022a3d758df80ccee4c445ab05">&#9670;&#160;</a></span>reject_timestep_with_large_error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_error</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00792">792</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aeba1154f4e91257d06aaa837b8d4109e" name="aeba1154f4e91257d06aaa837b8d4109e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeba1154f4e91257d06aaa837b8d4109e">&#9670;&#160;</a></span>required_times</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; Parameters::TimeIntegration::Adaptation::required_times</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00812">812</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a7766d63a4183f26b8f7717309e383a30" name="a7766d63a4183f26b8f7717309e383a30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7766d63a4183f26b8f7717309e383a30">&#9670;&#160;</a></span>strategy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a2c0dda93373a7559bb75dfdfec28e71d">Parameters::TimeIntegration::Adaptation::AdaptationStrategy</a> Parameters::TimeIntegration::Adaptation::strategy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a89dfa20346c21d414a86371c33678b" name="a4a89dfa20346c21d414a86371c33678b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a89dfa20346c21d414a86371c33678b">&#9670;&#160;</a></span>target_adaptive_mobility_number</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::target_adaptive_mobility_number</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00801">801</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a7710d0bdeeda6b06ec19915020653bd7" name="a7710d0bdeeda6b06ec19915020653bd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7710d0bdeeda6b06ec19915020653bd7">&#9670;&#160;</a></span>target_cfl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::TimeIntegration::Adaptation::target_cfl</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00796">796</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ae47c4d49e3f69ee507af2d8b0414424d" name="ae47c4d49e3f69ee507af2d8b0414424d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae47c4d49e3f69ee507af2d8b0414424d">&#9670;&#160;</a></span>target_error</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;SolverInfo::VariableType, double&gt; Parameters::TimeIntegration::Adaptation::target_error</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00791">791</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a02fefaf62572f0c85c0cc448ae11acc8" name="a02fefaf62572f0c85c0cc448ae11acc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02fefaf62572f0c85c0cc448ae11acc8">&#9670;&#160;</a></span>verbosity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_parameters.html#ad408350a21239600add83c5e91fcfa26">Verbosity</a> Parameters::TimeIntegration::Adaptation::verbosity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00769">769</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_parameters.html">Parameters</a></li><li class="navelem"><a href="struct_parameters_1_1_time_integration.html">TimeIntegration</a></li><li class="navelem"><a href="struct_parameters_1_1_time_integration_1_1_adaptation.html">Adaptation</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

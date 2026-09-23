@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_non_linear_solver" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::NonLinearSolver</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1aa0d2b84e88dec6d288e527924401cc72" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::NonLinearSolver::tolerance</definition>
+        <argsstring></argsstring>
+        <name>tolerance</name>
+        <qualifiedname>Parameters::NonLinearSolver::tolerance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="682" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="682" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1a5c35253a6e00edb9992b9d7460dcfa3e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::NonLinearSolver::divergence_tolerance</definition>
+        <argsstring></argsstring>
+        <name>divergence_tolerance</name>
+        <qualifiedname>Parameters::NonLinearSolver::divergence_tolerance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="683" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="683" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1a159998944968650b5017cf4dc263f79f" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::NonLinearSolver::max_iterations</definition>
+        <argsstring></argsstring>
+        <name>max_iterations</name>
+        <qualifiedname>Parameters::NonLinearSolver::max_iterations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="684" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="684" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1a54501d4c6a906739d09ba2965590cf14" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::NonLinearSolver::enable_line_search</definition>
+        <argsstring></argsstring>
+        <name>enable_line_search</name>
+        <qualifiedname>Parameters::NonLinearSolver::enable_line_search</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="685" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="685" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1aaa13743f2291d776fc3db5cb3457f40e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::NonLinearSolver::analytic_jacobian</definition>
+        <argsstring></argsstring>
+        <name>analytic_jacobian</name>
+        <qualifiedname>Parameters::NonLinearSolver::analytic_jacobian</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="686" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="686" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1a53c5e476f6fb740ac7857c276ad25122" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::NonLinearSolver::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::NonLinearSolver::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="687" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="687" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1a07fd2d5cf8f387e0f640ed57acebe1e1" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::NonLinearSolver::reassembly_decrease_tol</definition>
+        <argsstring></argsstring>
+        <name>reassembly_decrease_tol</name>
+        <qualifiedname>Parameters::NonLinearSolver::reassembly_decrease_tol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="689" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="689" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1a918d86624b23dd992062534f1cc9545f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::NonLinearSolver::compare_jacobian_with_finite_differences</definition>
+        <argsstring></argsstring>
+        <name>compare_jacobian_with_finite_differences</name>
+        <qualifiedname>Parameters::NonLinearSolver::compare_jacobian_with_finite_differences</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="693" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="693" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1a6f029a79a5698809c5cc378434a7dc96" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::NonLinearSolver::analytical_jacobian_absolute_tolerance</definition>
+        <argsstring></argsstring>
+        <name>analytical_jacobian_absolute_tolerance</name>
+        <qualifiedname>Parameters::NonLinearSolver::analytical_jacobian_absolute_tolerance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="694" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="694" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1aedaecc21e71e0a12ac078632edab846c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::NonLinearSolver::analytical_jacobian_relative_tolerance</definition>
+        <argsstring></argsstring>
+        <name>analytical_jacobian_relative_tolerance</name>
+        <qualifiedname>Parameters::NonLinearSolver::analytical_jacobian_relative_tolerance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="695" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="695" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_non_linear_solver_1a60c39d9498bcc492951dbd789deb0b54" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::NonLinearSolver::write_problematic_elements</definition>
+        <argsstring></argsstring>
+        <name>write_problematic_elements</name>
+        <qualifiedname>Parameters::NonLinearSolver::write_problematic_elements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="696" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="696" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_non_linear_solver_1a5ac9bcdd38ec856ac0805e9274c00dce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NonLinearSolver::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::NonLinearSolver::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="698" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1236" bodyend="1294"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_non_linear_solver_1a8943e1f2eb8171bca9373f663728f78b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NonLinearSolver::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::NonLinearSolver::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="699" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1296" bodyend="1320"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="680" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="681" bodyend="700"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_non_linear_solver_1aaa13743f2291d776fc3db5cb3457f40e" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>analytic_jacobian</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a6f029a79a5698809c5cc378434a7dc96" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>analytical_jacobian_absolute_tolerance</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1aedaecc21e71e0a12ac078632edab846c" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>analytical_jacobian_relative_tolerance</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a918d86624b23dd992062534f1cc9545f" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>compare_jacobian_with_finite_differences</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a5ac9bcdd38ec856ac0805e9274c00dce" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a5c35253a6e00edb9992b9d7460dcfa3e" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>divergence_tolerance</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a54501d4c6a906739d09ba2965590cf14" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>enable_line_search</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a159998944968650b5017cf4dc263f79f" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>max_iterations</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a8943e1f2eb8171bca9373f663728f78b" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a07fd2d5cf8f387e0f640ed57acebe1e1" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>reassembly_decrease_tol</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1aa0d2b84e88dec6d288e527924401cc72" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>tolerance</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a53c5e476f6fb740ac7857c276ad25122" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>verbosity</name></member>
+      <member refid="struct_parameters_1_1_non_linear_solver_1a60c39d9498bcc492951dbd789deb0b54" prot="public" virt="non-virtual"><scope>Parameters::NonLinearSolver</scope><name>write_problematic_elements</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

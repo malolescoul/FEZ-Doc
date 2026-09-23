@@ -1,0 +1,48 @@
+var namespace_boundary_conditions =
+[
+    [ "BoundaryCondition", "class_boundary_conditions_1_1_boundary_condition.html", "class_boundary_conditions_1_1_boundary_condition" ],
+    [ "FluidBC", "class_boundary_conditions_1_1_fluid_b_c.html", "class_boundary_conditions_1_1_fluid_b_c" ],
+    [ "PseudosolidBC", "class_boundary_conditions_1_1_pseudosolid_b_c.html", "class_boundary_conditions_1_1_pseudosolid_b_c" ],
+    [ "CahnHilliardBC", "class_boundary_conditions_1_1_cahn_hilliard_b_c.html", "class_boundary_conditions_1_1_cahn_hilliard_b_c" ],
+    [ "HeatBC", "class_boundary_conditions_1_1_heat_b_c.html", "class_boundary_conditions_1_1_heat_b_c" ],
+    [ "PhysicsType", "namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2", [
+      [ "fluid", "namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2a5cfea13ba1397f696bea7b2ff62c0188", null ],
+      [ "pseudosolid", "namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2aa42e9ecb6bd054a5dbf434aef6dbc3a2", null ],
+      [ "cahn_hilliard", "namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2a38e549ddbcbb4f7d726c4c4b0741a99b", null ],
+      [ "heat", "namespace_boundary_conditions.html#a2ceabfadfe413235556c06447666b6a2a5d6eb4f1340c4c66e3adff7fdab1c931", null ]
+    ] ],
+    [ "Type", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068d", [
+      [ "none", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da334c4a4c42fdb79d7ebc3e73b517e6f8", null ],
+      [ "input_function", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da8c53512eb093df5c2fb175288fc219a4", null ],
+      [ "dirichlet_mms", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da49e3ed927cb368c65ee1e74a67c3baef", null ],
+      [ "outflow", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dacac0c32caf84a889ec9b2b4cb2d56972", null ],
+      [ "no_tangential_flow", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dac72288dad8f6137a6624b858d2864a49", null ],
+      [ "no_slip", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da659e746e12cb20543973cf940afd7ccb", null ],
+      [ "weak_no_slip", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dae8ae4d39d9327013f4c12547b28f051f", null ],
+      [ "slip", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da3daec8dea85232fa2baef18aeb2334d8", null ],
+      [ "weak_pressure", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da896c8e45fbe11e29e4e2675c3e3d2c2e", null ],
+      [ "dirichlet_pressure", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dadd7bbf7e2f4f8dad08b3d95867cb3ff2", null ],
+      [ "no_tangential_flow_with_weak_pressure", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da3441eaecc51197025b98795f499658dd", null ],
+      [ "velocity_mms", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da7ac7745320f505b3cb4835da8aaf047a", null ],
+      [ "velocity_flux_mms", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068daaa9188db7d27b6569f1ad8d15d238346", null ],
+      [ "pressure_mms", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068daeb086481f4f1f5deb5a93164a855d519", null ],
+      [ "open_mms", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da600c01aa3b1d7df50da9e73dab10bd31", null ],
+      [ "heat_flux", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da1ba46c76c5b10230de40d96b2260cd7c", null ],
+      [ "fixed", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dacec315e3d0975e5cc2811d5d8725f149", null ],
+      [ "coupled_to_fluid", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da120f4eba86577b74f19a61a20e1614ae", null ],
+      [ "no_flux", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da389a2a29b2003c6d126c94d9a95640d0", null ],
+      [ "position_mms", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068da396c8faaac12fcb572c804fe45a432d6", null ],
+      [ "position_flux_mms", "namespace_boundary_conditions.html#a0362ea5f33d44f9610fbb37cbb49068dabafc8f466a815230b8d00248835a5e3f", null ]
+    ] ],
+    [ "add_zero_mean_pressure_constraints", "namespace_boundary_conditions.html#add90f56793bd67bc6f860cb683769bdc", null ],
+    [ "apply_field_as_solution_on_volume_and_boundaries", "namespace_boundary_conditions.html#a557107d9cda59203d0fe67f5b40e579b", null ],
+    [ "apply_mesh_position_boundary_conditions", "namespace_boundary_conditions.html#aaf6d1b4702378507717c8d2bfe2f2a34", null ],
+    [ "apply_pressure_boundary_conditions", "namespace_boundary_conditions.html#a7012d280dc80389eaf9a2f6b0201d61d", null ],
+    [ "apply_velocity_boundary_conditions", "namespace_boundary_conditions.html#a9cdf1ae1e3c1692cca424c4e140d3b87", null ],
+    [ "constrain_pressure_point", "namespace_boundary_conditions.html#a35cc1270e56965c9c2461701ca833e69", null ],
+    [ "create_zero_mean_pressure_constraints_data", "namespace_boundary_conditions.html#a1f26f383440ba69581df63f9216f6ca5", null ],
+    [ "declare_boundary_conditions", "namespace_boundary_conditions.html#a31a3878b4f0fc720ad8a2e42d5a5cb64", null ],
+    [ "has_boundary_condition", "namespace_boundary_conditions.html#a47c449fdc3cd073f435debb5c847f3cf", null ],
+    [ "read_boundary_conditions", "namespace_boundary_conditions.html#aa4644751dc02c915a996d29199738c89", null ],
+    [ "remove_mean_pressure", "namespace_boundary_conditions.html#a61619c15560372647e4108237faf26d9", null ]
+];

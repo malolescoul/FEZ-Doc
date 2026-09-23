@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_scalar_function_from_components" kind="class" language="C++" prot="public">
+    <compoundname>ScalarFunctionFromComponents</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="boundary__conditions_8h" local="no">boundary_conditions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_scalar_function_from_components_1a7040430093feeb68890f3c11f0bdacfd" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int ScalarFunctionFromComponents&lt; dim &gt;::field_component</definition>
+        <argsstring></argsstring>
+        <name>field_component</name>
+        <qualifiedname>ScalarFunctionFromComponents::field_component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="474" column="41" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="474" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scalar_function_from_components_1a2e04330282eec2a3b9f3b1c7fcf6a469" prot="public" static="no" mutable="no">
+        <type>const Functions::ParsedFunction&lt; dim &gt; &amp;</type>
+        <definition>const Functions::ParsedFunction&lt;dim&gt;&amp; ScalarFunctionFromComponents&lt; dim &gt;::field_fun</definition>
+        <argsstring></argsstring>
+        <name>field_fun</name>
+        <qualifiedname>ScalarFunctionFromComponents::field_fun</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="475" column="35" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="475" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_scalar_function_from_components_1a8a6751951fdb108aed993f1447318ad3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ScalarFunctionFromComponents&lt; dim &gt;::ScalarFunctionFromComponents</definition>
+        <argsstring>(const unsigned int field_component, const unsigned int n_components, const Functions::ParsedFunction&lt; dim &gt; &amp;field_fun)</argsstring>
+        <name>ScalarFunctionFromComponents</name>
+        <qualifiedname>ScalarFunctionFromComponents::ScalarFunctionFromComponents</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>field_component</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_components</declname>
+        </param>
+        <param>
+          <type>const Functions::ParsedFunction&lt; dim &gt; &amp;</type>
+          <declname>field_fun</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="477" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="477" bodyend="483"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scalar_function_from_components_1a7d9ad38f38de1a6271fb793e6d400ff1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double ScalarFunctionFromComponents&lt; dim &gt;::value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, const unsigned int component=0) const override</argsstring>
+        <name>value</name>
+        <qualifiedname>ScalarFunctionFromComponents::value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>component</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="485" column="18" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="485" bodyend="491"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A function with <computeroutput>n_components</computeroutput>, but whose goal is only to be called for the component <computeroutput>field_component</computeroutput>, for which it returns the value return by the given callback <computeroutput>field_fun</computeroutput>.</para>
+<para>It returns 0 for all other vector components. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+      <node id="1">
+        <label>ScalarFunctionFromComponents&lt; dim &gt;</label>
+        <link refid="class_scalar_function_from_components"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+      <node id="1">
+        <label>ScalarFunctionFromComponents&lt; dim &gt;</label>
+        <link refid="class_scalar_function_from_components"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/boundary_conditions.h" line="471" column="1" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="472" bodyend="492"/>
+    <listofallmembers>
+      <member refid="class_scalar_function_from_components_1a7040430093feeb68890f3c11f0bdacfd" prot="public" virt="non-virtual"><scope>ScalarFunctionFromComponents</scope><name>field_component</name></member>
+      <member refid="class_scalar_function_from_components_1a2e04330282eec2a3b9f3b1c7fcf6a469" prot="public" virt="non-virtual"><scope>ScalarFunctionFromComponents</scope><name>field_fun</name></member>
+      <member refid="class_scalar_function_from_components_1a8a6751951fdb108aed993f1447318ad3" prot="public" virt="non-virtual"><scope>ScalarFunctionFromComponents</scope><name>ScalarFunctionFromComponents</name></member>
+      <member refid="class_scalar_function_from_components_1a7d9ad38f38de1a6271fb793e6d400ff1" prot="public" virt="virtual"><scope>ScalarFunctionFromComponents</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

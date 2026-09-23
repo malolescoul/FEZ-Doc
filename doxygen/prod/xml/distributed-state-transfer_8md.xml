@@ -97,6 +97,9 @@
 <codeline></codeline>
 <codeline><highlight class="normal">**Réponse<sp/>:**<sp/>l&apos;état<sp/>supplémentaire<sp/>est<sp/>optionnel<sp/>et<sp/>mutable<sp/>:<sp/>le<sp/>code<sp/>teste<sp/>sa<sp/>présence<sp/>puis<sp/>le<sp/>réinitialise<sp/>et<sp/>le<sp/>remplit.<sp/>Les<sp/>deux<sp/>références<sp/>désignent<sp/>des<sp/>objets<sp/>obligatoires,<sp/>consultés<sp/>sans<sp/>modifier<sp/>leur<sp/>interface.<sp/>Un<sp/>pointeur<sp/>ne<sp/>signifie<sp/>pas<sp/>ici<sp/>un<sp/>transfert<sp/>de<sp/>propriété<sp/>:<sp/>le<sp/>propriétaire<sp/>de<sp/>l&apos;état<sp/>reste<sp/>l&apos;estimateur<sp/>temporel.<sp/>[Implémentation](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613),<sp/>[accès<sp/>à<sp/>l&apos;état](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284)</highlight></codeline>
 <codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;span<sp/>id=&quot;fez-guide-end-fez_prod_distributed_state_transfer&quot;&gt;&lt;/span&gt;</highlight></codeline>
     </programlisting>
     <location file="guides/prod/patterns/distributed-state-transfer.md"/>
   </compounddef>

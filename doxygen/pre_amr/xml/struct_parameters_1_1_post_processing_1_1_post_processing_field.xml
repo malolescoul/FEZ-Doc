@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_post_processing_1_1_post_processing_field" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::PostProcessing::PostProcessingField</compoundname>
+    <basecompoundref refid="struct_parameters_1_1_post_processing_1_1_post_processing_base" prot="public" virt="non-virtual">Parameters::PostProcessing::PostProcessingBase</basecompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_density" prot="public" virt="non-virtual">Parameters::PostProcessing::Density</derivedcompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_m_f_f_enlarged_compression" prot="public" virt="non-virtual">Parameters::PostProcessing::MFFEnlargedCompression</derivedcompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_m_f_f_physics_compression" prot="public" virt="non-virtual">Parameters::PostProcessing::MFFPhysicsCompression</derivedcompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_m_f_f_transport" prot="public" virt="non-virtual">Parameters::PostProcessing::MFFTransport</derivedcompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity" prot="public" virt="non-virtual">Parameters::PostProcessing::MeshVelocity</derivedcompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_mobility" prot="public" virt="non-virtual">Parameters::PostProcessing::Mobility</derivedcompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_q_criterion" prot="public" virt="non-virtual">Parameters::PostProcessing::QCriterion</derivedcompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_vorticity" prot="public" virt="non-virtual">Parameters::PostProcessing::Vorticity</derivedcompoundref>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a126e3c8ee8426e3770713fdc5e573642" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ComputationMethod</name>
+        <qualifiedname>Parameters::PostProcessing::PostProcessingField::ComputationMethod</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a126e3c8ee8426e3770713fdc5e573642a5d0c72e53471642349f8c98884f71177" prot="public">
+          <name>discontinuous</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Use a class derived from DataPostprocessor to evaluate this field. The term &quot;discontinuous&quot; is kind of a misnomer, as it is really only discontinuous if we are postprocessing derivatives of a finite element approximation (i.e., postprocessing the values of a continuous field will still yield a continuous field). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a126e3c8ee8426e3770713fdc5e573642a0b6ea85f648ec8a979e9652709a4e48e" prot="public">
+          <name>l2_projection</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Compute an L2 projection of the original (usually discontinuous) field. The resulting field is continuous is using a CG approximation to represent the projection. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a126e3c8ee8426e3770713fdc5e573642ae190b13e98ada41b7e7dd1cde2549cc2" prot="public">
+          <name>weighted_average</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Compute a weighted average of the original field. See the individual implementations for more information about the weights. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Available computation methods to compute the field. Not all methods are implemented for all derived <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_field" kindref="compound">PostProcessingField</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="430" column="7" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="431" bodyend="453"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a7bdf65979ff96d1241781371de4a18ea" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a126e3c8ee8426e3770713fdc5e573642" kindref="member">Parameters::PostProcessing::PostProcessingField::ComputationMethod</ref></type>
+        <definition>enum Parameters::PostProcessing::PostProcessingField::ComputationMethod Parameters::PostProcessing::PostProcessingField::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <qualifiedname>Parameters::PostProcessing::PostProcessingField::method</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="453" column="14"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a55891c47979c3ea6096363c72eaa8fc1" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::PostProcessing::PostProcessingField::degree</definition>
+        <argsstring></argsstring>
+        <name>degree</name>
+        <qualifiedname>Parameters::PostProcessing::PostProcessingField::degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="457" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="457" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A base struct for postprocessing tools which produce a field, which is typically written to the visualization file alongside the solution (e.g., vorticity, Q-criterion, mesh velocity, ...).</para>
+<para>This field can either be defined with a DataPostprocessor (outputted at visualization nodes directly), or with a PostprocessorAtDofBase, in which case the field is described as the degrees of freedom of some finite element approximation (e.g., an L2 projection). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Parameters::PostProcessing::Density</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_density"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Parameters::PostProcessing::MFFEnlargedCompression</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_enlarged_compression"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Parameters::PostProcessing::MFFPhysicsCompression</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_physics_compression"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Parameters::PostProcessing::MFFTransport</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_transport"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Parameters::PostProcessing::MeshVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Parameters::PostProcessing::Mobility</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mobility"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="1">
+        <label>Parameters::PostProcessing::PostProcessingField</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Parameters::PostProcessing::QCriterion</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_q_criterion"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Parameters::PostProcessing::Vorticity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_vorticity"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="1">
+        <label>Parameters::PostProcessing::PostProcessingField</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="424" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="425" bodyend="458"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a126e3c8ee8426e3770713fdc5e573642" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingField</scope><name>ComputationMethod</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a55891c47979c3ea6096363c72eaa8fc1" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingField</scope><name>degree</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a921eee483d06be1b60f73ad5194704cf" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingField</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a7bdf65979ff96d1241781371de4a18ea" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingField</scope><name>method</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a5a598c5e51421aaa8a2afc09c4b04389" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingField</scope><name>output_frequency</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a3379bfae8b9213020cae832594e8de6f" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingField</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

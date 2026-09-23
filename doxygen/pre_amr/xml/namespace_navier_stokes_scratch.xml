@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_navier_stokes_scratch" kind="namespace" language="C++">
+    <compoundname>NavierStokesScratch</compoundname>
+    <innerclass refid="class_navier_stokes_scratch_1_1_scratch_data" prot="public">NavierStokesScratch::ScratchData</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deb" prot="public" static="no" strong="no">
+        <type>unsigned int</type>
+        <name>ScratchFlags</name>
+        <qualifiedname>NavierStokesScratch::ScratchFlags</qualifiedname>
+        <enumvalue id="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba6d29b6a5b4b359554b73c66b37d2fd6f" prot="public">
+          <name>ns_only</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reinit data required to assemble the incompressible Navier-Stokes system. The gradients needed for both the laplacian form and the divergence form are computed (velocity gradients and symmetric gradients).</para>
+<para>This is always active and does not need to be specified. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901debac4e3ac7223a96787471906417d9ef604" prot="public">
+          <name>pseudo_solid</name>
+          <initializer>= 1 &lt;&lt; 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reinit data to assemble the mesh movement elasticity equation. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba244a39a080b0297b97d624ecbd222528" prot="public">
+          <name>lagrange_multiplier</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reinit data to assemble constraints using a Lagrange multiplier. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba9bfe4523e8ef430a54b04b442862540b" prot="public">
+          <name>cahn_hilliard</name>
+          <initializer>= 1 &lt;&lt; 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reinit data to assemble the Cahn-Hilliard system, used to form the CHNS system. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba676ede19d9d044ed52a43fb0db7bc55f" prot="public">
+          <name>compressible</name>
+          <initializer>= 1 &lt;&lt; 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reinit data to assemble the compressible Navier-Stokes system (including the energy equation). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba637dd27ea2496399b12257d0abb91396" prot="public">
+          <name>with_hp_capabilities</name>
+          <initializer>= 1 &lt;&lt; 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Specifies if this <ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref> is for a solver using the hp tools. In that case, hp::FEValues/FEFaceValues are stored and the appropriate FEValues/FEFaceValues are selected on the current cell when the scratch is reinit&apos;ed.</para>
+<para>Not an update flag per se, but avoids defining an extra template parameter. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901debaba6c2558c2538d0d25acf41badfdc92f" prot="public">
+          <name>enlarged</name>
+          <initializer>= 1 &lt;&lt; 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Reinit data to assemble the enlarged (psi) tracer reconstruction, used by the enlarged CHNS solver. Implies cahn_hilliard. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>These flags are used to specify which updates are needed when calling the reinit function of the <ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref> template below. These are similar to deal.II&apos;s UpdateFlags, which are used to reinit FEValues and such, and they are used in the same way.</para>
+<para>For instance, <ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref>&lt;dim, pseudo_solid | cahn_hilliard&gt; specifies that both the pseudo-solid and Cahn-Hilliard related data (physical properties, shape functions, current values and gradients, etc.) should be computed for this scratch, in addition to the data related to the incompressible Navier- Stokes system, which are always computed. This combinations of flags is used for the incompressible CHNS solver with mesh movement, for instance.</para>
+<para>Enabling SUPG/PSPG stabilization is for now not a template flag, but a run time option passed to the constructor of the <ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref>. This allows enabling/disabling stabilization without refactoring either the scratch base class, or the solvers (although such a refactor will probably happen to reduce the number of assemblers instantiations needed).</para>
+<para>To add another value, one simply needs to add a bitshift to the list. The limit is the number of bits in the representation of an unsigned int (32 or 64), which should be plenty (-: </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data.h" line="61" column="3" bodyfile="snapshots/pre_amr/include/scratch_data.h" bodystart="62" bodyend="111"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespace_navier_stokes_scratch_1af3e6428b01d15de8bc2c91008cc51fc3" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref>&lt; dim &gt;</type>
+        <definition>using NavierStokesScratch::ScratchDataIncompressibleNS = ScratchData&lt;dim&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchDataIncompressibleNS</name>
+        <qualifiedname>NavierStokesScratch::ScratchDataIncompressibleNS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scratch data for the incompressible NS solver on fixed mesh. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data.h" line="121" column="3" bodyfile="snapshots/pre_amr/include/scratch_data.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_navier_stokes_scratch_1a1a57153a5f717fc9cfaca42953003dfa" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref>&lt; dim, <ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba676ede19d9d044ed52a43fb0db7bc55f" kindref="member">compressible</ref> &gt;</type>
+        <definition>using NavierStokesScratch::ScratchDataCompressibleNS = ScratchData&lt;dim, compressible&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchDataCompressibleNS</name>
+        <qualifiedname>NavierStokesScratch::ScratchDataCompressibleNS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scratch data for the compressible NS solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data.h" line="127" column="3" bodyfile="snapshots/pre_amr/include/scratch_data.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_navier_stokes_scratch_1a91dc2ec73e8654a5c77717e316b2b421" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref>&lt; dim, <ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba244a39a080b0297b97d624ecbd222528" kindref="member">lagrange_multiplier</ref>|<ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba637dd27ea2496399b12257d0abb91396" kindref="member">with_hp_capabilities</ref> &gt;</type>
+        <definition>using NavierStokesScratch::ScratchDataIncompressibleNSLambda = 
+ScratchData&lt;dim, lagrange_multiplier | with_hp_capabilities&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchDataIncompressibleNSLambda</name>
+        <qualifiedname>NavierStokesScratch::ScratchDataIncompressibleNSLambda</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>hp Scratch data for the incompressible NS solver with Lagrange multiplier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data.h" line="133" column="3" bodyfile="snapshots/pre_amr/include/scratch_data.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_navier_stokes_scratch_1a071bd6c0e17f9c1f2e577012605d3006" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref>&lt; dim, <ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901debac4e3ac7223a96787471906417d9ef604" kindref="member">pseudo_solid</ref>|<ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba244a39a080b0297b97d624ecbd222528" kindref="member">lagrange_multiplier</ref> &gt;</type>
+        <definition>using NavierStokesScratch::ScratchDataFSI = ScratchData&lt;dim, pseudo_solid | lagrange_multiplier&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchDataFSI</name>
+        <qualifiedname>NavierStokesScratch::ScratchDataFSI</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scratch data for the FSI solver on moving mesh. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data.h" line="140" column="3" bodyfile="snapshots/pre_amr/include/scratch_data.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_navier_stokes_scratch_1a3bbf4ae5a81eac838a1930580bcfc4e3" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref>&lt; dim, <ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901debac4e3ac7223a96787471906417d9ef604" kindref="member">pseudo_solid</ref>|<ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba244a39a080b0297b97d624ecbd222528" kindref="member">lagrange_multiplier</ref>|<ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba637dd27ea2496399b12257d0abb91396" kindref="member">with_hp_capabilities</ref> &gt;</type>
+        <definition>using NavierStokesScratch::ScratchDataFSI_hp = 
+ScratchData&lt;dim, pseudo_solid | lagrange_multiplier | with_hp_capabilities&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchDataFSI_hp</name>
+        <qualifiedname>NavierStokesScratch::ScratchDataFSI_hp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>hp Scratch data for the FSI solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data.h" line="146" column="3" bodyfile="snapshots/pre_amr/include/scratch_data.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_navier_stokes_scratch_1a9f317cd569f43828f1277d345a662ed2" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>with_moving_mesh</declname>
+            <defname>with_moving_mesh</defname>
+            <defval>false</defval>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>with_enlarged</declname>
+            <defname>with_enlarged</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref>&lt; dim,(with_moving_mesh ? <ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901debac4e3ac7223a96787471906417d9ef604" kindref="member">pseudo_solid</ref> :<ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba6d29b6a5b4b359554b73c66b37d2fd6f" kindref="member">ns_only</ref>)|<ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba9bfe4523e8ef430a54b04b442862540b" kindref="member">cahn_hilliard</ref>|(with_enlarged ? <ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901debaba6c2558c2538d0d25acf41badfdc92f" kindref="member">enlarged</ref> :<ref refid="namespace_navier_stokes_scratch_1aaec3efb35b9cdbb6cfce54f6c2901deba6d29b6a5b4b359554b73c66b37d2fd6f" kindref="member">ns_only</ref>)&gt;</type>
+        <definition>using NavierStokesScratch::ScratchDataCHNS = 
+ScratchData&lt;dim,
+            (with_moving_mesh ? pseudo_solid : ns_only) | cahn_hilliard |
+              (with_enlarged ? enlarged : ns_only)&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchDataCHNS</name>
+        <qualifiedname>NavierStokesScratch::ScratchDataCHNS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scratch data for the quasi-incompressible Cahn_hilliard Navier-Stokes solver on fixed mesh. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/scratch_data.h" line="154" column="3" bodyfile="snapshots/pre_amr/include/scratch_data.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_navier_stokes_scratch_1af82be7f14b26477be67c265da20c0027" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>unsigned int</type>
+            <declname>update_flags</declname>
+            <defname>update_flags</defname>
+          </param>
+        </templateparamlist>
+        <type>UpdateFlags</type>
+        <definition>UpdateFlags NavierStokesScratch::get_cell_update_flags</definition>
+        <argsstring>(const bool enable_stabilization)</argsstring>
+        <name>get_cell_update_flags</name>
+        <qualifiedname>NavierStokesScratch::get_cell_update_flags</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>enable_stabilization</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the update flags for the FEValues, depending on the enabled features. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/scratch_data.cpp" line="11" column="15" bodyfile="snapshots/pre_amr/src/scratch_data.cpp" bodystart="11" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_navier_stokes_scratch_1a7194081bbcf5c6bb425b5bea97ec1593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>unsigned int</type>
+            <declname>update_flags</declname>
+            <defname>update_flags</defname>
+          </param>
+        </templateparamlist>
+        <type>UpdateFlags</type>
+        <definition>UpdateFlags NavierStokesScratch::get_face_update_flags</definition>
+        <argsstring>(const bool enable_stabilization)</argsstring>
+        <name>get_face_update_flags</name>
+        <qualifiedname>NavierStokesScratch::get_face_update_flags</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>enable_stabilization</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the update flags for the FEFaceValues. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/scratch_data.cpp" line="32" column="15" bodyfile="snapshots/pre_amr/src/scratch_data.cpp" bodystart="32" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A namespace for the <ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref> used in the Navier-Stokes derived solvers.</para>
+<para>ScratchDatas are helper temporary structures containing all sorts of quantities that must be computed on each elements and faces during assembly, e.g., the current solution and its gradients interpolated at the quadrature nodes, the shape functions and their derivatives, among many others. See also the deal.II doc of meshworker/scratch_data.h and the run() functions in work_stream.h. A <ref refid="class_navier_stokes_scratch_1_1_scratch_data" kindref="compound">ScratchData</ref> is thus essentially a collection of FEValues and FEFaceValues, together with vectors of data used for assembly. </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/scratch_data.h" line="34" column="1"/>
+  </compounddef>
+</doxygen>

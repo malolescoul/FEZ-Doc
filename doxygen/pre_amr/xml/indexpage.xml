@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>FEZ — workflow de référence avant le couplage CHNS–ALE AMR</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_guides_2pre__amr_2index"/></para>
+<para>Révision figée : <ulink url="https://github.com/arthurbawin/fez/tree/cc8dace141900b82e5790fa878e39d9c54898784">cc8dace141900b82e5790fa878e39d9c54898784</ulink>, 16 septembre 2026. Elle précède le nouveau couplage AMR de la branche personnelle, mais contient déjà des infrastructures AMR importées de master.</para>
+<para>Cette référence partielle isole le socle de travail antérieur : presolver élastique, géométrie ALE, système enlarged avec ψ, formulations et mobilités, reprises et diagnostics. Les fichiers sont issus de cette révision précise ; aucune compilation FEZ n&apos;a été effectuée.</para>
+<sect1 id="index_1autotoc_md19">
+<title>Parcours conseillé</title><para><orderedlist>
+<listitem><para><ref refid="fez_pre_amr_workflow_1md_guides_2pre__amr_2features_2workflow-pre-amr" kindref="member">Du lancement au redémarrage</ref>.</para>
+</listitem><listitem><para><ref refid="fez_pre_amr_models_1md_guides_2pre__amr_2features_2chns-models-pre-amr" kindref="member">Modèles CHNS et variantes enlarged</ref>.</para>
+</listitem><listitem><para><ref refid="fez_pre_amr_presolver_1md_guides_2pre__amr_2patterns_2presolver-cache-geometry" kindref="member">Presolver, cache et géométrie</ref>.</para>
+</listitem><listitem><para><ref refid="fez_pre_amr_mobility_1md_guides_2pre__amr_2patterns_2mobility-corrections-timestep" kindref="member">Mobilité, corrections et contrôle du pas</ref>.</para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md20">
+<title>Repères dans l&apos;API</title><para><ref refid="class_c_h_n_s_solver" kindref="compound">CHNSSolver</ref> hérite de <ref refid="class_navier_stokes_solver" kindref="compound">NavierStokesSolver</ref> et sélectionne les assembleurs. <ref refid="class_elasticity_solver" kindref="compound">ElasticitySolver</ref> prépare un état géométrique avant le calcul. ScratchDataCHNS contient les champs nécessaires aux contributions locales. <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> reçoit les informations utilisées par le contrôle de pas.</para>
+<para>Les commentaires sources sont conservés tels quels. La fiche workflow signale notamment un commentaire périmé sur l&apos;injection de ψ ; la fiche physique distingue le résidu réellement assemblé de certains commentaires de signes. Ces divergences documentaires ne constituent pas des bugs numériques reproduits.</para>
+<para>Les tests présents dans le snapshot sont des cas à relancer sur le PC FEZ. Le registre des 61 commits et les 13 imports de master sont accessibles dans le Journal de l&apos;atlas, séparément de cette référence d&apos;API. </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/pre_amr/index.md"/>
+  </compounddef>
+</doxygen>

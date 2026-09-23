@@ -3,6 +3,11 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 DATA=json.loads((ROOT/'data/atlas.json').read_text(encoding='utf-8'))
 class AtlasEvidence(unittest.TestCase):
+    def test_node_details_are_paragraphs_not_a_character_stream(self):
+        for graph in DATA['graphs']:
+            for node in graph['nodes']:
+                self.assertIsInstance(node.get('details',[]),list,node['id'])
+                self.assertTrue(all(isinstance(p,str) for p in node.get('details',[])))
     def test_all_relations_have_endpoints_and_known_types(self):
         for graph in DATA['graphs']:
             ids=[n['id'] for n in graph['nodes']]

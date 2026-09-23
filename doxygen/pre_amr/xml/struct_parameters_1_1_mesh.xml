@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_mesh" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Mesh</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_mesh_1_1_adaptation" prot="public">Parameters::Mesh::Adaptation</innerclass>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1a47e80576fcad2eabbe70a1b4435db8d5" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::Mesh::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::Mesh::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="93" column="15" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1a32838ee2215565214ab260c13613bb64" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Mesh::filename</definition>
+        <argsstring></argsstring>
+        <name>filename</name>
+        <qualifiedname>Parameters::Mesh::filename</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="96" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1aa37730c1aaf73508e1853f8c8607d85b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Mesh::use_deal_ii_cube_mesh</definition>
+        <argsstring></argsstring>
+        <name>use_deal_ii_cube_mesh</name>
+        <qualifiedname>Parameters::Mesh::use_deal_ii_cube_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="98" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1ae5e1fe33a60127284ac514b7dea1e086" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Mesh::deal_ii_preset_mesh</definition>
+        <argsstring></argsstring>
+        <name>deal_ii_preset_mesh</name>
+        <qualifiedname>Parameters::Mesh::deal_ii_preset_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="99" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1aa45e69e6e9540faa1d943f03b8cdf770" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Mesh::deal_ii_mesh_param</definition>
+        <argsstring></argsstring>
+        <name>deal_ii_mesh_param</name>
+        <qualifiedname>Parameters::Mesh::deal_ii_mesh_param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="100" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1a28fff9db648d6bc133f3eb54bb42ab93" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Mesh::refinement_level</definition>
+        <argsstring></argsstring>
+        <name>refinement_level</name>
+        <qualifiedname>Parameters::Mesh::refinement_level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="101" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1a6d3a4884bd25529125fd2b320e22e868" prot="public" static="no" mutable="no">
+        <type>std::map&lt; types::boundary_id, std::string &gt;</type>
+        <definition>std::map&lt;types::boundary_id, std::string&gt; Parameters::Mesh::id2name</definition>
+        <argsstring></argsstring>
+        <name>id2name</name>
+        <qualifiedname>Parameters::Mesh::id2name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="104" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1a50d2b6c64a5a124ff00e2a5e388cc891" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, types::boundary_id &gt;</type>
+        <definition>std::map&lt;std::string, types::boundary_id&gt; Parameters::Mesh::name2id</definition>
+        <argsstring></argsstring>
+        <name>name2id</name>
+        <qualifiedname>Parameters::Mesh::name2id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="105" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1a6eb432a39c41bb4020b6c983d5bc2441" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_parameters_1_1_mesh_1_1_adaptation" kindref="compound">Parameters::Mesh::Adaptation</ref></type>
+        <definition>struct Parameters::Mesh::Adaptation Parameters::Mesh::adaptation</definition>
+        <argsstring></argsstring>
+        <name>adaptation</name>
+        <qualifiedname>Parameters::Mesh::adaptation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="257" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_mesh_1a2da8500930944afefabe86488197f9f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Mesh::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm, const int dim)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::Mesh::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>dim</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="259" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="119" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_mesh_1a13563202126f47111d8e61a7d7a40b5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Mesh::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::Mesh::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="260" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="259" bodyend="361"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::Mesh</label>
+        <link refid="struct_parameters_1_1_mesh"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>adaptation</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::Mesh::Adaptation</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>metric</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>tree_amr</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::Mesh::Adaptation::Metric</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>fixed_point_updates</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>chns_interface_thickness</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base"/>
+      </node>
+      <node id="7">
+        <label>Parameters::Mesh::Adaptation::TreeAMR</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_tree_a_m_r"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="91" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="92" bodyend="261"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_mesh_1a6eb432a39c41bb4020b6c983d5bc2441" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>adaptation</name></member>
+      <member refid="struct_parameters_1_1_mesh_1aa45e69e6e9540faa1d943f03b8cdf770" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>deal_ii_mesh_param</name></member>
+      <member refid="struct_parameters_1_1_mesh_1ae5e1fe33a60127284ac514b7dea1e086" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>deal_ii_preset_mesh</name></member>
+      <member refid="struct_parameters_1_1_mesh_1a2da8500930944afefabe86488197f9f0" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_mesh_1a32838ee2215565214ab260c13613bb64" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>filename</name></member>
+      <member refid="struct_parameters_1_1_mesh_1a6d3a4884bd25529125fd2b320e22e868" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>id2name</name></member>
+      <member refid="struct_parameters_1_1_mesh_1a50d2b6c64a5a124ff00e2a5e388cc891" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>name2id</name></member>
+      <member refid="struct_parameters_1_1_mesh_1a13563202126f47111d8e61a7d7a40b5c" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_mesh_1a28fff9db648d6bc133f3eb54bb42ab93" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>refinement_level</name></member>
+      <member refid="struct_parameters_1_1_mesh_1aa37730c1aaf73508e1853f8c8607d85b" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>use_deal_ii_cube_mesh</name></member>
+      <member refid="struct_parameters_1_1_mesh_1a47e80576fcad2eabbe70a1b4435db8d5" prot="public" virt="non-virtual"><scope>Parameters::Mesh</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

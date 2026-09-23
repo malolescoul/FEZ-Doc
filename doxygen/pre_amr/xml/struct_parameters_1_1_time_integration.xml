@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_time_integration" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::TimeIntegration</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_time_integration_1_1_adaptation" prot="public">Parameters::TimeIntegration::Adaptation</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_time_integration_1abac5092c39bb6a063b7d76794e28b263" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Scheme</name>
+        <qualifiedname>Parameters::TimeIntegration::Scheme</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_time_integration_1abac5092c39bb6a063b7d76794e28b263a5720141848b4fc132781830d07983ee3" prot="public">
+          <name>stationary</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_time_integration_1abac5092c39bb6a063b7d76794e28b263abbec671208b40d67e1f5ae9ef82c3377" prot="public">
+          <name>BDF1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_time_integration_1abac5092c39bb6a063b7d76794e28b263abbee23d8755020956d188ee92325ce09" prot="public">
+          <name>BDF2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="750" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="751" bodyend="755"/>
+      </memberdef>
+      <memberdef kind="enum" id="struct_parameters_1_1_time_integration_1a9bd9ebbfa4a9a97fd545d76ea3d11fcb" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>BDFStart</name>
+        <qualifiedname>Parameters::TimeIntegration::BDFStart</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_time_integration_1a9bd9ebbfa4a9a97fd545d76ea3d11fcbabbec671208b40d67e1f5ae9ef82c3377" prot="public">
+          <name>BDF1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_time_integration_1a9bd9ebbfa4a9a97fd545d76ea3d11fcba2f6a6f79dff6f5f9afbcebea60d66ed1" prot="public">
+          <name>initial_condition</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="757" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="758" bodyend="761"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1a6f07cab8f92032b434d8246d04683e2f" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::TimeIntegration::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::TimeIntegration::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="744" column="15" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="744" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1ad7a4a07477ca82689c3b3066702315c7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::dt</definition>
+        <argsstring></argsstring>
+        <name>dt</name>
+        <qualifiedname>Parameters::TimeIntegration::dt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="746" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="746" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1a8be25f69badd9776f4bdbae8a9eab90f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::t_initial</definition>
+        <argsstring></argsstring>
+        <name>t_initial</name>
+        <qualifiedname>Parameters::TimeIntegration::t_initial</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="747" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="747" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1a96d8d16df7dfed8bce7652172ecbdb4e" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::t_end</definition>
+        <argsstring></argsstring>
+        <name>t_end</name>
+        <qualifiedname>Parameters::TimeIntegration::t_end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="748" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="748" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1a7f5818420b9870a5573d95cc5f8f702d" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_time_integration_1abac5092c39bb6a063b7d76794e28b263" kindref="member">Parameters::TimeIntegration::Scheme</ref></type>
+        <definition>enum Parameters::TimeIntegration::Scheme Parameters::TimeIntegration::scheme</definition>
+        <argsstring></argsstring>
+        <name>scheme</name>
+        <qualifiedname>Parameters::TimeIntegration::scheme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="755" column="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1acdae62898cb1a2623c3c02f720ea9ed1" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_time_integration_1a9bd9ebbfa4a9a97fd545d76ea3d11fcb" kindref="member">Parameters::TimeIntegration::BDFStart</ref></type>
+        <definition>enum Parameters::TimeIntegration::BDFStart Parameters::TimeIntegration::bdfstart</definition>
+        <argsstring></argsstring>
+        <name>bdfstart</name>
+        <qualifiedname>Parameters::TimeIntegration::bdfstart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="761" column="14"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1a788029bf09b77d522d85def96322e6ae" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::bdf_starting_step_ratio</definition>
+        <argsstring></argsstring>
+        <name>bdf_starting_step_ratio</name>
+        <qualifiedname>Parameters::TimeIntegration::bdf_starting_step_ratio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="765" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="765" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1af6d3d1be53a31832e6976742e3ba9ea3" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_parameters_1_1_time_integration_1_1_adaptation" kindref="compound">Parameters::TimeIntegration::Adaptation</ref></type>
+        <definition>struct Parameters::TimeIntegration::Adaptation Parameters::TimeIntegration::adaptation</definition>
+        <argsstring></argsstring>
+        <name>adaptation</name>
+        <qualifiedname>Parameters::TimeIntegration::adaptation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="814" column="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1a95e04c9b6a5c7112e9dc1d9781c676e8" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::TimeIntegration::n_time_intervals</definition>
+        <argsstring></argsstring>
+        <name>n_time_intervals</name>
+        <qualifiedname>Parameters::TimeIntegration::n_time_intervals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If using the transient fixed point mesh adaptation method, this is the number of subintervals into which the overall simulation interval is split. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="821" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="821" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1a159285d372bc80215d78357cd9a42dd9" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::TimeIntegration::n_steady_adaptation_steps</definition>
+        <argsstring></argsstring>
+        <name>n_steady_adaptation_steps</name>
+        <qualifiedname>Parameters::TimeIntegration::n_steady_adaptation_steps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="822" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="822" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_time_integration_1a1bbc75837d116f6ad4cabf8993198791" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::TimeIntegration::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::TimeIntegration::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="824" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1376" bodyend="1506"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_time_integration_1a0ca4a34faec69619c498f352edeaea89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::TimeIntegration::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::TimeIntegration::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="825" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1508" bodyend="1607"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_time_integration_1a8a244e50b524ef1a14a3b3eebd964c29" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Parameters::TimeIntegration::is_steady</definition>
+        <argsstring>() const</argsstring>
+        <name>is_steady</name>
+        <qualifiedname>Parameters::TimeIntegration::is_steady</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="826" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="826" bodyend="826"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::TimeIntegration</label>
+        <link refid="struct_parameters_1_1_time_integration"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>adaptation</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::TimeIntegration::Adaptation</label>
+        <link refid="struct_parameters_1_1_time_integration_1_1_adaptation"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="742" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="743" bodyend="827"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_time_integration_1af6d3d1be53a31832e6976742e3ba9ea3" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>adaptation</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a788029bf09b77d522d85def96322e6ae" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>bdf_starting_step_ratio</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a9bd9ebbfa4a9a97fd545d76ea3d11fcb" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>BDFStart</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1acdae62898cb1a2623c3c02f720ea9ed1" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>bdfstart</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a1bbc75837d116f6ad4cabf8993198791" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1ad7a4a07477ca82689c3b3066702315c7" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>dt</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a8a244e50b524ef1a14a3b3eebd964c29" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>is_steady</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a159285d372bc80215d78357cd9a42dd9" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>n_steady_adaptation_steps</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a95e04c9b6a5c7112e9dc1d9781c676e8" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>n_time_intervals</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a0ca4a34faec69619c498f352edeaea89" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1abac5092c39bb6a063b7d76794e28b263" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>Scheme</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a7f5818420b9870a5573d95cc5f8f702d" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>scheme</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a96d8d16df7dfed8bce7652172ecbdb4e" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>t_end</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a8be25f69badd9776f4bdbae8a9eab90f" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>t_initial</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1a6f07cab8f92032b434d8246d04683e2f" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

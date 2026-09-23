@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor" kind="struct" language="C++" prot="public">
+    <compoundname>Assembly::Elasticity::MeshForcingFactor</compoundname>
+    <includes refid="elasticity__assemblers_8h" local="no">elasticity_assemblers.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor_1aaffa58834ba051f87c883930ed78c74c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Assembly::Elasticity::MeshForcingFactor::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>Assembly::Elasticity::MeshForcingFactor::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="29" column="14" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor_1a45fd58faec2f75b8bb29df0699bed659" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Assembly::Elasticity::MeshForcingFactor::derivative</definition>
+        <argsstring></argsstring>
+        <name>derivative</name>
+        <qualifiedname>Assembly::Elasticity::MeshForcingFactor::derivative</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="30" column="14" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Regularized compression coefficient of the Cahn-Hilliard moving-mesh forcing. The raw coefficient phi / (1 - gamma^2 phi^2) is singular as gamma*phi -&gt; 1, so phi is saturated through a tanh before being used. Both the value and its derivative w.r.t. the phase are returned (the derivative is used to linearize the forcing). </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="27" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="28" bodyend="31"/>
+    <listofallmembers>
+      <member refid="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor_1a45fd58faec2f75b8bb29df0699bed659" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::MeshForcingFactor</scope><name>derivative</name></member>
+      <member refid="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor_1aaffa58834ba051f87c883930ed78c74c" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::MeshForcingFactor</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

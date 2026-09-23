@@ -53,6 +53,9 @@
 <codeline></codeline>
 <codeline><highlight class="normal">Le<sp/>chemin<sp/>CHNS<sp/>fixe<sp/>est<sp/>établi.<sp/>Les<sp/>mécanismes<sp/>internes<sp/>de<sp/>`TimeHandler`,<sp/>transferts<sp/>entre<sp/>maillages,<sp/>réutilisation<sp/>MUMPS<sp/>et<sp/>conditions<sp/>FSI<sp/>restent<sp/>à<sp/>analyser.<sp/>Les<sp/>variantes<sp/>ALE<sp/>sont<sp/>repérées<sp/>mais<sp/>non<sp/>validées<sp/>numériquement.<sp/>Aucun<sp/>défaut<sp/>d&apos;exécution<sp/>n&apos;est<sp/>conclu<sp/>à<sp/>partir<sp/>de<sp/>cette<sp/>seule<sp/>lecture.</highlight></codeline>
 <codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;span<sp/>id=&quot;fez-guide-end-fez_master_core_solver&quot;&gt;&lt;/span&gt;</highlight></codeline>
     </programlisting>
     <location file="guides/master/features/core-solver.md"/>
   </compounddef>

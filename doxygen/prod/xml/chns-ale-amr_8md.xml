@@ -56,7 +56,7 @@
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Parcours<sp/>3<sp/>—<sp/>transporter,<sp/>puis<sp/>reconstruire</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">`adapt_mesh()`<sp/>récupère<sp/>l&apos;éventuel<sp/>état<sp/>supplémentaire<sp/>du<sp/>contrôleur<sp/>temporel.<sp/>La<sp/>couche<sp/>d&apos;adaptation<sp/>prépare<sp/>`present_solution<sp/>+<sp/>previous_solutions<sp/>+<sp/>additional_solution`<sp/>avec<sp/>des<sp/>vecteurs<sp/>fantômes<sp/>avant<sp/>`execute_coarsening_and_refinement()`.<sp/>Après<sp/>redistribution<sp/>des<sp/>DoFs,<sp/>elle<sp/>interpole<sp/>vers<sp/>des<sp/>vecteurs<sp/>ne<sp/>contenant<sp/>que<sp/>les<sp/>DoFs<sp/>possédés,<sp/>applique<sp/>les<sp/>contraintes,<sp/>puis<sp/>recopie<sp/>vers<sp/>les<sp/>états<sp/>du<sp/>solveur.<sp/>Voir<sp/>la<sp/>fiche<sp/>[transfert<sp/>d&apos;état<sp/>distribué](../patterns/distributed-state-transfer.md).</highlight></codeline>
+<codeline><highlight class="normal">`adapt_mesh()`<sp/>récupère<sp/>l&apos;éventuel<sp/>état<sp/>supplémentaire<sp/>du<sp/>contrôleur<sp/>temporel.<sp/>La<sp/>couche<sp/>d&apos;adaptation<sp/>prépare<sp/>`present_solution<sp/>+<sp/>previous_solutions<sp/>+<sp/>additional_solution`<sp/>avec<sp/>des<sp/>vecteurs<sp/>fantômes<sp/>avant<sp/>`execute_coarsening_and_refinement()`.<sp/>Après<sp/>redistribution<sp/>des<sp/>DoFs,<sp/>elle<sp/>interpole<sp/>vers<sp/>des<sp/>vecteurs<sp/>ne<sp/>contenant<sp/>que<sp/>les<sp/>DoFs<sp/>possédés,<sp/>applique<sp/>les<sp/>contraintes,<sp/>puis<sp/>recopie<sp/>vers<sp/>les<sp/>états<sp/>du<sp/>solveur.<sp/>Voir<sp/>la<sp/>fiche<sp/>[transfert<sp/>d&apos;état<sp/>distribué](../../prod/html/fez_prod_distributed_state_transfer.html).</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Le<sp/>point<sp/>sensible<sp/>est<sp/>l&apos;ordre<sp/>ALE<sp/>:</highlight></codeline>
 <codeline></codeline>
@@ -105,6 +105,9 @@
 <codeline></codeline>
 <codeline><highlight class="normal">**Prochaine<sp/>validation<sp/>sur<sp/>le<sp/>PC<sp/>de<sp/>calcul<sp/>:**<sp/>exécuter<sp/>les<sp/>fixtures<sp/>ciblées<sp/>sur<sp/>1<sp/>et<sp/>4<sp/>rangs,<sp/>relever<sp/>les<sp/>versions<sp/>deal.II/PETSc/p4est<sp/>et<sp/>mesurer<sp/>une<sp/>situation<sp/>où<sp/>des<sp/>cellules<sp/>changent<sp/>effectivement<sp/>de<sp/>propriétaire<sp/>MPI.<sp/>Aucun<sp/>bug<sp/>nouveau<sp/>n&apos;est<sp/>affirmé<sp/>à<sp/>ce<sp/>stade.</highlight></codeline>
 <codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;span<sp/>id=&quot;fez-guide-end-fez_prod_chns_ale_amr&quot;&gt;&lt;/span&gt;</highlight></codeline>
     </programlisting>
     <location file="guides/prod/features/chns-ale-amr.md"/>
   </compounddef>

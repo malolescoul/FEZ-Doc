@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_finite_elements_1_1_quadrature_rule" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::FiniteElements::QuadratureRule</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1a74074f85affbf69a3e374e5e6de03c0b" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>Parameters::FiniteElements::QuadratureRule::Type</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1a74074f85affbf69a3e374e5e6de03c0baa7db4141455ea790ecd317db6822cd62" prot="public">
+          <name>GaussSimplex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1a74074f85affbf69a3e374e5e6de03c0ba1a2b12b2cd19a375bb0966dd631f6ec2" prot="public">
+          <name>WitherdenVincent</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="570" column="7" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="571" bodyend="574"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1aac1509c2b38a866b7cd4853f3d8609e2" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1a74074f85affbf69a3e374e5e6de03c0b" kindref="member">Parameters::FiniteElements::QuadratureRule::Type</ref></type>
+        <definition>enum Parameters::FiniteElements::QuadratureRule::Type Parameters::FiniteElements&lt; dim &gt;::QuadratureRule::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Parameters::FiniteElements::QuadratureRule::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="574" column="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1a4ae10417e85f4c5619653739d28b5e25" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::QuadratureRule::n_pts_1D_simplex_cell_quad</definition>
+        <argsstring></argsstring>
+        <name>n_pts_1D_simplex_cell_quad</name>
+        <qualifiedname>Parameters::FiniteElements::QuadratureRule::n_pts_1D_simplex_cell_quad</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="576" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="576" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1addf7887632d84c37355e1e27c8e72293" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::QuadratureRule::n_pts_1D_simplex_face_quad</definition>
+        <argsstring></argsstring>
+        <name>n_pts_1D_simplex_face_quad</name>
+        <qualifiedname>Parameters::FiniteElements::QuadratureRule::n_pts_1D_simplex_face_quad</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="577" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="577" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="568" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="569" bodyend="578"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1a4ae10417e85f4c5619653739d28b5e25" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements::QuadratureRule</scope><name>n_pts_1D_simplex_cell_quad</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1addf7887632d84c37355e1e27c8e72293" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements::QuadratureRule</scope><name>n_pts_1D_simplex_face_quad</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1a74074f85affbf69a3e374e5e6de03c0b" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements::QuadratureRule</scope><name>Type</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule_1aac1509c2b38a866b7cd4853f3d8609e2" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements::QuadratureRule</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler" kind="class" language="C++" prot="public">
+    <compoundname>Assembly::Elasticity::LinearElasticityAssembler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AssemblerBase&lt; ScratchData, CopyData &gt;</basecompoundref>
+    <includes refid="elasticity__assemblers_8h" local="no">elasticity_assemblers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1a2b9424d21baaf46ec0f1509fb745d98e" prot="public" static="no" mutable="no">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt;dim&gt;&amp; Assembly::Elasticity::LinearElasticityAssembler&lt; dim, ScratchData, CopyData &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>Assembly::Elasticity::LinearElasticityAssembler::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="227" column="29" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1a4b3f0426092a25627de84d129e25e208" prot="public" static="no" mutable="no">
+        <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+        <definition>const ComponentOrdering&amp; Assembly::Elasticity::LinearElasticityAssembler&lt; dim, ScratchData, CopyData &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>Assembly::Elasticity::LinearElasticityAssembler::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="228" column="34" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1a190d6771d2e8143bd2ba392ef8818e2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Assembly::Elasticity::LinearElasticityAssembler&lt; dim, ScratchData, CopyData &gt;::LinearElasticityAssembler</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering)</argsstring>
+        <name>LinearElasticityAssembler</name>
+        <qualifiedname>Assembly::Elasticity::LinearElasticityAssembler::LinearElasticityAssembler</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="208" column="7" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="208" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1af0a26d362899cdf4ddd06bcd0fafffe5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::LinearElasticityAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_matrix</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>Assembly::Elasticity::LinearElasticityAssembler::assemble_matrix</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="217" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="58" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1ab881d4b9414a6b2a32c09644692878b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::LinearElasticityAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_rhs</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>Assembly::Elasticity::LinearElasticityAssembler::assemble_rhs</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local right-hand side vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="223" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="15" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::LinearElasticityAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::LinearElasticityAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ordering</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="204" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="206" bodyend="229"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1af0a26d362899cdf4ddd06bcd0fafffe5" prot="public" virt="virtual"><scope>Assembly::Elasticity::LinearElasticityAssembler</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1ab881d4b9414a6b2a32c09644692878b4" prot="public" virt="virtual"><scope>Assembly::Elasticity::LinearElasticityAssembler</scope><name>assemble_rhs</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1a190d6771d2e8143bd2ba392ef8818e2a" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::LinearElasticityAssembler</scope><name>LinearElasticityAssembler</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1a4b3f0426092a25627de84d129e25e208" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::LinearElasticityAssembler</scope><name>ordering</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler_1a2b9424d21baaf46ec0f1509fb745d98e" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::LinearElasticityAssembler</scope><name>param</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_post_processing_1_1_line_probe" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::PostProcessing::LineProbe</compoundname>
+    <basecompoundref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file" prot="public" virt="non-virtual">Parameters::PostProcessing::PostProcessingFile</basecompoundref>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_line_probe_1a2084514a7efaa545edfa053690065d67" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; Parameters::PostProcessing::LineProbe::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <qualifiedname>Parameters::PostProcessing::LineProbe::start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="385" column="19" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_line_probe_1a87627c92e8dde71ff399e03bf799f54e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; Parameters::PostProcessing::LineProbe::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <qualifiedname>Parameters::PostProcessing::LineProbe::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="386" column="19" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_line_probe_1ae45ef3e670f0ad6a8fbd46b77e760ac5" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::PostProcessing::LineProbe::n_points</definition>
+        <argsstring></argsstring>
+        <name>n_points</name>
+        <qualifiedname>Parameters::PostProcessing::LineProbe::n_points</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="387" column="27" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="387" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Parameters::PostProcessing::LineProbe</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_line_probe"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::PostProcessing::LineProbe</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_line_probe"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="383" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="384" bodyend="388"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a921eee483d06be1b60f73ad5194704cf" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_line_probe_1a87627c92e8dde71ff399e03bf799f54e" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>end</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_line_probe_1ae45ef3e670f0ad6a8fbd46b77e760ac5" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>n_points</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a5a598c5e51421aaa8a2afc09c4b04389" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>output_frequency</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1a04b33f78a97a8d9b7053fc0e5527c3f2" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>output_prefix</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1af05555db5e66180d6ea56bfb8e8b0133" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>precision</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_line_probe_1a2084514a7efaa545edfa053690065d67" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>start</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a3379bfae8b9213020cae832594e8de6f" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>verbosity</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1a3b1bbd30bdb3387fc31432d37c47550d" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::LineProbe</scope><name>write_results</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

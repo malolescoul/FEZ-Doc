@@ -1,0 +1,1281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence du modèle de la classe ScratchDataElasticity&lt; dim &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_scratch_data_elasticity.html','','class_scratch_data_elasticity-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du modèle de la classe ScratchDataElasticity&lt; dim &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a5d37ce440e206421a6aaccd017b6ff0f" id="r_a5d37ce440e206421a6aaccd017b6ff0f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5d37ce440e206421a6aaccd017b6ff0f">ScratchDataElasticity</a> (const FESystem&lt; dim &gt; &amp;fe, const Mapping&lt; dim &gt; &amp;mapping, const Quadrature&lt; dim &gt; &amp;cell_quadrature, const Quadrature&lt; dim - 1 &gt; &amp;face_quadrature, const ParameterReader&lt; dim &gt; &amp;param, const bool evaluate_chns_forcing=false, const bool with_enlarged_psi=false)</td></tr>
+<tr class="memitem:aa7738f842e03873cd21d482da5139882" id="r_aa7738f842e03873cd21d482da5139882"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa7738f842e03873cd21d482da5139882">ScratchDataElasticity</a> (const <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a> &amp;other)</td></tr>
+<tr class="memitem:adc48eb7c292aa075937af94acb5a9b2b" id="r_adc48eb7c292aa075937af94acb5a9b2b"><td class="memTemplParams" colspan="2">template&lt;typename VectorType&gt; </td></tr>
+<tr class="memitem:adc48eb7c292aa075937af94acb5a9b2b template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adc48eb7c292aa075937af94acb5a9b2b">reinit</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, const VectorType &amp;current_solution, const std::shared_ptr&lt; Function&lt; dim &gt; &gt; &amp;source_terms, const std::shared_ptr&lt; Function&lt; dim &gt; &gt; &amp;)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a57b7386b16d9816149107169366609b9" id="r_a57b7386b16d9816149107169366609b9"><td class="memItemLeft">const bool&#160;</td><td class="memItemRight"><a class="el" href="#a57b7386b16d9816149107169366609b9">with_enlarged_psi</a></td></tr>
+<tr class="memitem:a35626c93b212b480aa9a0541c867ae66" id="r_a35626c93b212b480aa9a0541c867ae66"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a35626c93b212b480aa9a0541c867ae66">active_fe_index</a> = 0</td></tr>
+<tr class="memitem:ab6fbe56f6e0e30509b81432002f8e887" id="r_ab6fbe56f6e0e30509b81432002f8e887"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#ab6fbe56f6e0e30509b81432002f8e887">n_q_points</a></td></tr>
+<tr class="memitem:a2c5e8cf296e624892cd7e044a3084e96" id="r_a2c5e8cf296e624892cd7e044a3084e96"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a2c5e8cf296e624892cd7e044a3084e96">n_faces</a></td></tr>
+<tr class="memitem:a791236f9b44faae2ae9a1131eb311d5d" id="r_a791236f9b44faae2ae9a1131eb311d5d"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a791236f9b44faae2ae9a1131eb311d5d">n_faces_q_points</a></td></tr>
+<tr class="memitem:af3cb216351dfea3f4120045b3b04877d" id="r_af3cb216351dfea3f4120045b3b04877d"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#af3cb216351dfea3f4120045b3b04877d">dofs_per_cell</a></td></tr>
+<tr class="memitem:a86a784c82be8a84c2a70edaeb71c847e" id="r_a86a784c82be8a84c2a70edaeb71c847e"><td class="memItemLeft">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a86a784c82be8a84c2a70edaeb71c847e">components</a></td></tr>
+<tr class="memitem:a6a8871723597db92d83c032bdf5e15f9" id="r_a6a8871723597db92d83c032bdf5e15f9"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6a8871723597db92d83c032bdf5e15f9">JxW_fixed</a></td></tr>
+<tr class="memitem:ae2d51583771c524b41fb83a2147f089d" id="r_ae2d51583771c524b41fb83a2147f089d"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae2d51583771c524b41fb83a2147f089d">lame_mu</a></td></tr>
+<tr class="memitem:a742594b8642c9809c729e7060f665e94" id="r_a742594b8642c9809c729e7060f665e94"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a742594b8642c9809c729e7060f665e94">lame_lambda</a></td></tr>
+<tr class="memitem:a9f7777083c7319e7fd555cd864a77bb8" id="r_a9f7777083c7319e7fd555cd864a77bb8"><td class="memItemLeft">FEValuesExtractors::Vector&#160;</td><td class="memItemRight"><a class="el" href="#a9f7777083c7319e7fd555cd864a77bb8">position</a></td></tr>
+<tr class="memitem:a4a20a3780c5dd86fdcc8f69b5288af7c" id="r_a4a20a3780c5dd86fdcc8f69b5288af7c"><td class="memItemLeft">std::vector&lt; Tensor&lt; 1, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4a20a3780c5dd86fdcc8f69b5288af7c">position_values</a></td></tr>
+<tr class="memitem:aaa64c9848b8d94d12925644eb0273eda" id="r_aaa64c9848b8d94d12925644eb0273eda"><td class="memItemLeft">std::vector&lt; Tensor&lt; 2, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aaa64c9848b8d94d12925644eb0273eda">present_position_gradients</a></td></tr>
+<tr class="memitem:a8053d8d53489554d568665d11a075208" id="r_a8053d8d53489554d568665d11a075208"><td class="memItemLeft">std::vector&lt; SymmetricTensor&lt; 2, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8053d8d53489554d568665d11a075208">position_sym_gradients</a></td></tr>
+<tr class="memitem:a9f5b6bb730d5e8cd93d6587937955fab" id="r_a9f5b6bb730d5e8cd93d6587937955fab"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9f5b6bb730d5e8cd93d6587937955fab">present_position_J</a></td></tr>
+<tr class="memitem:a85c145b04f3191b224cdba0fdcde5745" id="r_a85c145b04f3191b224cdba0fdcde5745"><td class="memItemLeft">std::vector&lt; Tensor&lt; 2, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a85c145b04f3191b224cdba0fdcde5745">present_position_inverse_gradients</a></td></tr>
+<tr class="memitem:a44bc8f2ac6e41fb42afd2a720af965fc" id="r_a44bc8f2ac6e41fb42afd2a720af965fc"><td class="memItemLeft">std::vector&lt; Tensor&lt; 2, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a44bc8f2ac6e41fb42afd2a720af965fc">present_position_inverse_gradients_T</a></td></tr>
+<tr class="memitem:ab0841e2b7642594148487172b1b314d6" id="r_ab0841e2b7642594148487172b1b314d6"><td class="memItemLeft">std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ab0841e2b7642594148487172b1b314d6">phi_x</a></td></tr>
+<tr class="memitem:a975077226e6c2051d786c0031b73bb24" id="r_a975077226e6c2051d786c0031b73bb24"><td class="memItemLeft">std::vector&lt; std::vector&lt; Tensor&lt; 2, dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a975077226e6c2051d786c0031b73bb24">grad_phi_x</a></td></tr>
+<tr class="memitem:ac0a916f2ad3f8e6321e4aab4a9e16676" id="r_ac0a916f2ad3f8e6321e4aab4a9e16676"><td class="memItemLeft">std::vector&lt; std::vector&lt; SymmetricTensor&lt; 2, dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac0a916f2ad3f8e6321e4aab4a9e16676">sym_grad_phi_x</a></td></tr>
+<tr class="memitem:ad998e9e4da43a429b803a2447855d145" id="r_ad998e9e4da43a429b803a2447855d145"><td class="memItemLeft">std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad998e9e4da43a429b803a2447855d145">div_phi_x</a></td></tr>
+<tr class="memitem:acbcaefe55de97738a90fe63a158ce1d6" id="r_acbcaefe55de97738a90fe63a158ce1d6"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#acbcaefe55de97738a90fe63a158ce1d6">chns_tracer_values</a></td></tr>
+<tr class="memitem:a2bcaaff09860b0073c6f8ed1744ddbe1" id="r_a2bcaaff09860b0073c6f8ed1744ddbe1"><td class="memItemLeft">std::vector&lt; Tensor&lt; 1, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2bcaaff09860b0073c6f8ed1744ddbe1">chns_tracer_gradients</a></td></tr>
+<tr class="memitem:addf774a346b11f71e8391579e73df7c8" id="r_addf774a346b11f71e8391579e73df7c8"><td class="memItemLeft">std::vector&lt; SymmetricTensor&lt; 2, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#addf774a346b11f71e8391579e73df7c8">chns_tracer_hessians</a></td></tr>
+<tr class="memitem:acc8eb4a24f8b0c86914d3d9455c1f1e6" id="r_acc8eb4a24f8b0c86914d3d9455c1f1e6"><td class="memItemLeft">FEValuesExtractors::Scalar&#160;</td><td class="memItemRight"><a class="el" href="#acc8eb4a24f8b0c86914d3d9455c1f1e6">psi</a></td></tr>
+<tr class="memitem:ac008a214973fd6c868d1496b010cf4b5" id="r_ac008a214973fd6c868d1496b010cf4b5"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac008a214973fd6c868d1496b010cf4b5">JxW_moving</a></td></tr>
+<tr class="memitem:a70d847539d51782a6d5cd19d8e43ec1e" id="r_a70d847539d51782a6d5cd19d8e43ec1e"><td class="memItemLeft">std::vector&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a70d847539d51782a6d5cd19d8e43ec1e">psi_values</a></td></tr>
+<tr class="memitem:a250f8aa9c248c61a190c28abd3714837" id="r_a250f8aa9c248c61a190c28abd3714837"><td class="memItemLeft">std::vector&lt; Tensor&lt; 1, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a250f8aa9c248c61a190c28abd3714837">psi_gradients</a></td></tr>
+<tr class="memitem:ac42a0549c870fb592342630ea9488b01" id="r_ac42a0549c870fb592342630ea9488b01"><td class="memItemLeft">std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac42a0549c870fb592342630ea9488b01">shape_psi</a></td></tr>
+<tr class="memitem:a17a7ffd2f7dc494888e9ac4682c4d8f1" id="r_a17a7ffd2f7dc494888e9ac4682c4d8f1"><td class="memItemLeft">std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a17a7ffd2f7dc494888e9ac4682c4d8f1">grad_shape_psi</a></td></tr>
+<tr class="memitem:adca42a463a1553f60efe17e7cacd99bd" id="r_adca42a463a1553f60efe17e7cacd99bd"><td class="memItemLeft">std::vector&lt; std::vector&lt; Tensor&lt; 2, dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#adca42a463a1553f60efe17e7cacd99bd">grad_phi_x_moving</a></td></tr>
+<tr class="memitem:a98d6b2db6ebc2c4b266bf526beeead66" id="r_a98d6b2db6ebc2c4b266bf526beeead66"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a98d6b2db6ebc2c4b266bf526beeead66">psi_length_scale_sq</a> = 0.</td></tr>
+<tr class="memitem:a8e63cba64775e4b547ad83b762d1c647" id="r_a8e63cba64775e4b547ad83b762d1c647"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a8e63cba64775e4b547ad83b762d1c647">epsilon</a> = 0.</td></tr>
+<tr class="memitem:a70a7048647a663d12543cbcfce997e1b" id="r_a70a7048647a663d12543cbcfce997e1b"><td class="memItemLeft">std::vector&lt; Vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a70a7048647a663d12543cbcfce997e1b">source_term_full</a></td></tr>
+<tr class="memitem:a00dd619b0777d87668378629e25a5aad" id="r_a00dd619b0777d87668378629e25a5aad"><td class="memItemLeft">std::vector&lt; Tensor&lt; 1, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a00dd619b0777d87668378629e25a5aad">source_term_position_fixed_mesh</a></td></tr>
+<tr class="memitem:a84f3d5d2fad0ba55c451705c7d6e12ee" id="r_a84f3d5d2fad0ba55c451705c7d6e12ee"><td class="memItemLeft">std::vector&lt; Point&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a84f3d5d2fad0ba55c451705c7d6e12ee">qpoints_current_mesh</a></td></tr>
+<tr class="memitem:a9cda91d7c6b6d0e1c6a902d7b3c84e19" id="r_a9cda91d7c6b6d0e1c6a902d7b3c84e19"><td class="memItemLeft">std::vector&lt; Vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9cda91d7c6b6d0e1c6a902d7b3c84e19">source_term_full_current_mesh</a></td></tr>
+<tr class="memitem:a398d735cdc4e2b3641631874d69457dd" id="r_a398d735cdc4e2b3641631874d69457dd"><td class="memItemLeft">std::vector&lt; Tensor&lt; 1, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a398d735cdc4e2b3641631874d69457dd">source_term_position_current_mesh</a></td></tr>
+<tr class="memitem:a3c12225f8d7bb5329439ff7a5d6fb178" id="r_a3c12225f8d7bb5329439ff7a5d6fb178"><td class="memItemLeft">std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3c12225f8d7bb5329439ff7a5d6fb178">grad_source_term_full_current_mesh</a></td></tr>
+<tr class="memitem:a5c7e17a37298ce8b6cfa49e1d48314e5" id="r_a5c7e17a37298ce8b6cfa49e1d48314e5"><td class="memItemLeft">std::vector&lt; Tensor&lt; 2, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5c7e17a37298ce8b6cfa49e1d48314e5">grad_source_term_position_current_mesh</a></td></tr>
+<tr class="memitem:a83a460e7abca582c46928155c4f1d70f" id="r_a83a460e7abca582c46928155c4f1d70f"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a83a460e7abca582c46928155c4f1d70f">source_term_fixed_mesh_multiplier</a></td></tr>
+<tr class="memitem:ab2b33216d4d85cccc4dbd87d34fe2896" id="r_ab2b33216d4d85cccc4dbd87d34fe2896"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ab2b33216d4d85cccc4dbd87d34fe2896">source_term_moving_mesh_multiplier</a></td></tr>
+<tr class="memitem:a3e2d6c901c090a7cce3ccefd7aa3e52f" id="r_a3e2d6c901c090a7cce3ccefd7aa3e52f"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3e2d6c901c090a7cce3ccefd7aa3e52f">chns_compression_multiplier</a> = 1.</td></tr>
+<tr class="memitem:a34ebb44402980a2e2d789421858401da" id="r_a34ebb44402980a2e2d789421858401da"><td class="memItemLeft">std::vector&lt; Tensor&lt; 1, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a34ebb44402980a2e2d789421858401da">source_term_position</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr class="memitem:a9f804f6afcd89379f26a622269a4b311" id="r_a9f804f6afcd89379f26a622269a4b311"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9f804f6afcd89379f26a622269a4b311">allocate</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr class="memitem:aab5b1a34c996b53a6b43ff4e80167336" id="r_aab5b1a34c996b53a6b43ff4e80167336"><td class="memItemLeft">const ParameterReader&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aab5b1a34c996b53a6b43ff4e80167336">param</a></td></tr>
+<tr class="memitem:a1d7c930afc6aca1a07720d06a47e965a" id="r_a1d7c930afc6aca1a07720d06a47e965a"><td class="memItemLeft">FEValues&lt; dim &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1d7c930afc6aca1a07720d06a47e965a">fe_values</a></td></tr>
+<tr class="memitem:af28b1a12857635abca8a8f4fb93879ed" id="r_af28b1a12857635abca8a8f4fb93879ed"><td class="memItemLeft">const bool&#160;</td><td class="memItemRight"><a class="el" href="#af28b1a12857635abca8a8f4fb93879ed">evaluate_chns_forcing</a></td></tr>
+<tr class="memitem:a2fb370c9f1da596aec468f2ab42dfa6c" id="r_a2fb370c9f1da596aec468f2ab42dfa6c"><td class="memItemLeft">ComponentMask&#160;</td><td class="memItemRight"><a class="el" href="#a2fb370c9f1da596aec468f2ab42dfa6c">position_mask</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;int dim&gt;<br />
+class ScratchDataElasticity&lt; dim &gt;</div><p>Small scratch data for the linear elasticity equation on fixed mesh. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00021">21</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a5d37ce440e206421a6aaccd017b6ff0f" name="a5d37ce440e206421a6aaccd017b6ff0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d37ce440e206421a6aaccd017b6ff0f">&#9670;&#160;</a></span>ScratchDataElasticity() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::ScratchDataElasticity </td>
+          <td>(</td>
+          <td class="paramtype">const FESystem&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>fe</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Mapping&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>mapping</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Quadrature&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>cell_quadrature</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Quadrature&lt; dim - 1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>face_quadrature</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ParameterReader&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>param</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>evaluate_chns_forcing</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>with_enlarged_psi</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00027">27</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="aa7738f842e03873cd21d482da5139882" name="aa7738f842e03873cd21d482da5139882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7738f842e03873cd21d482da5139882">&#9670;&#160;</a></span>ScratchDataElasticity() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::ScratchDataElasticity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Copy constructor </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00064">64</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="a9f804f6afcd89379f26a622269a4b311" name="a9f804f6afcd89379f26a622269a4b311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f804f6afcd89379f26a622269a4b311">&#9670;&#160;</a></span>allocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::allocate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00093">93</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="adc48eb7c292aa075937af94acb5a9b2b" name="adc48eb7c292aa075937af94acb5a9b2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc48eb7c292aa075937af94acb5a9b2b">&#9670;&#160;</a></span>reinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<div class="memtemplate">
+template&lt;typename VectorType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::reinit </td>
+          <td>(</td>
+          <td class="paramtype">const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</td>          <td class="paramname"><span class="paramname"><em>cell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VectorType &amp;</td>          <td class="paramname"><span class="paramname"><em>current_solution</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; Function&lt; dim &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>source_terms</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; Function&lt; dim &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Volume contributions</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00147">147</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="a35626c93b212b480aa9a0541c867ae66" name="a35626c93b212b480aa9a0541c867ae66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35626c93b212b480aa9a0541c867ae66">&#9670;&#160;</a></span>active_fe_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::active_fe_index = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00308">308</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a3e2d6c901c090a7cce3ccefd7aa3e52f" name="a3e2d6c901c090a7cce3ccefd7aa3e52f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e2d6c901c090a7cce3ccefd7aa3e52f">&#9670;&#160;</a></span>chns_compression_multiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::chns_compression_multiplier = 1.</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00394">394</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a2bcaaff09860b0073c6f8ed1744ddbe1" name="a2bcaaff09860b0073c6f8ed1744ddbe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bcaaff09860b0073c6f8ed1744ddbe1">&#9670;&#160;</a></span>chns_tracer_gradients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;1, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::chns_tracer_gradients</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00340">340</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="addf774a346b11f71e8391579e73df7c8" name="addf774a346b11f71e8391579e73df7c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addf774a346b11f71e8391579e73df7c8">&#9670;&#160;</a></span>chns_tracer_hessians</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;SymmetricTensor&lt;2, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::chns_tracer_hessians</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00341">341</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="acbcaefe55de97738a90fe63a158ce1d6" name="acbcaefe55de97738a90fe63a158ce1d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbcaefe55de97738a90fe63a158ce1d6">&#9670;&#160;</a></span>chns_tracer_values</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::chns_tracer_values</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00339">339</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a86a784c82be8a84c2a70edaeb71c847e" name="a86a784c82be8a84c2a70edaeb71c847e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86a784c82be8a84c2a70edaeb71c847e">&#9670;&#160;</a></span>components</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;unsigned int&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::components</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00315">315</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="ad998e9e4da43a429b803a2447855d145" name="ad998e9e4da43a429b803a2447855d145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad998e9e4da43a429b803a2447855d145">&#9670;&#160;</a></span>div_phi_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;double&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::div_phi_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00335">335</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="af3cb216351dfea3f4120045b3b04877d" name="af3cb216351dfea3f4120045b3b04877d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3cb216351dfea3f4120045b3b04877d">&#9670;&#160;</a></span>dofs_per_cell</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::dofs_per_cell</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00313">313</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a8e63cba64775e4b547ad83b762d1c647" name="a8e63cba64775e4b547ad83b762d1c647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e63cba64775e4b547ad83b762d1c647">&#9670;&#160;</a></span>epsilon</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::epsilon = 0.</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00360">360</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="af28b1a12857635abca8a8f4fb93879ed" name="af28b1a12857635abca8a8f4fb93879ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af28b1a12857635abca8a8f4fb93879ed">&#9670;&#160;</a></span>evaluate_chns_forcing</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::evaluate_chns_forcing</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00296">296</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a1d7c930afc6aca1a07720d06a47e965a" name="a1d7c930afc6aca1a07720d06a47e965a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d7c930afc6aca1a07720d06a47e965a">&#9670;&#160;</a></span>fe_values</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FEValues&lt;dim&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::fe_values</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00292">292</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a975077226e6c2051d786c0031b73bb24" name="a975077226e6c2051d786c0031b73bb24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a975077226e6c2051d786c0031b73bb24">&#9670;&#160;</a></span>grad_phi_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;Tensor&lt;2, dim&gt; &gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::grad_phi_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00333">333</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="adca42a463a1553f60efe17e7cacd99bd" name="adca42a463a1553f60efe17e7cacd99bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adca42a463a1553f60efe17e7cacd99bd">&#9670;&#160;</a></span>grad_phi_x_moving</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;Tensor&lt;2, dim&gt; &gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::grad_phi_x_moving</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00355">355</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a17a7ffd2f7dc494888e9ac4682c4d8f1" name="a17a7ffd2f7dc494888e9ac4682c4d8f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a7ffd2f7dc494888e9ac4682c4d8f1">&#9670;&#160;</a></span>grad_shape_psi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;Tensor&lt;1, dim&gt; &gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::grad_shape_psi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00352">352</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a3c12225f8d7bb5329439ff7a5d6fb178" name="a3c12225f8d7bb5329439ff7a5d6fb178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c12225f8d7bb5329439ff7a5d6fb178">&#9670;&#160;</a></span>grad_source_term_full_current_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;Tensor&lt;1, dim&gt; &gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::grad_source_term_full_current_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00377">377</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a5c7e17a37298ce8b6cfa49e1d48314e5" name="a5c7e17a37298ce8b6cfa49e1d48314e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c7e17a37298ce8b6cfa49e1d48314e5">&#9670;&#160;</a></span>grad_source_term_position_current_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;2, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::grad_source_term_position_current_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00378">378</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a6a8871723597db92d83c032bdf5e15f9" name="a6a8871723597db92d83c032bdf5e15f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a8871723597db92d83c032bdf5e15f9">&#9670;&#160;</a></span>JxW_fixed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::JxW_fixed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00317">317</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="ac008a214973fd6c868d1496b010cf4b5" name="ac008a214973fd6c868d1496b010cf4b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac008a214973fd6c868d1496b010cf4b5">&#9670;&#160;</a></span>JxW_moving</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::JxW_moving</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00348">348</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a742594b8642c9809c729e7060f665e94" name="a742594b8642c9809c729e7060f665e94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a742594b8642c9809c729e7060f665e94">&#9670;&#160;</a></span>lame_lambda</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::lame_lambda</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00319">319</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="ae2d51583771c524b41fb83a2147f089d" name="ae2d51583771c524b41fb83a2147f089d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d51583771c524b41fb83a2147f089d">&#9670;&#160;</a></span>lame_mu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::lame_mu</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00318">318</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a2c5e8cf296e624892cd7e044a3084e96" name="a2c5e8cf296e624892cd7e044a3084e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c5e8cf296e624892cd7e044a3084e96">&#9670;&#160;</a></span>n_faces</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::n_faces</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00311">311</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a791236f9b44faae2ae9a1131eb311d5d" name="a791236f9b44faae2ae9a1131eb311d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a791236f9b44faae2ae9a1131eb311d5d">&#9670;&#160;</a></span>n_faces_q_points</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::n_faces_q_points</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00312">312</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="ab6fbe56f6e0e30509b81432002f8e887" name="ab6fbe56f6e0e30509b81432002f8e887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6fbe56f6e0e30509b81432002f8e887">&#9670;&#160;</a></span>n_q_points</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::n_q_points</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00310">310</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="aab5b1a34c996b53a6b43ff4e80167336" name="aab5b1a34c996b53a6b43ff4e80167336"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab5b1a34c996b53a6b43ff4e80167336">&#9670;&#160;</a></span>param</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ParameterReader&lt;dim&gt;&amp; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::param</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00289">289</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0841e2b7642594148487172b1b314d6" name="ab0841e2b7642594148487172b1b314d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0841e2b7642594148487172b1b314d6">&#9670;&#160;</a></span>phi_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;Tensor&lt;1, dim&gt; &gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::phi_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00332">332</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a9f7777083c7319e7fd555cd864a77bb8" name="a9f7777083c7319e7fd555cd864a77bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f7777083c7319e7fd555cd864a77bb8">&#9670;&#160;</a></span>position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FEValuesExtractors::Vector <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00321">321</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a2fb370c9f1da596aec468f2ab42dfa6c" name="a2fb370c9f1da596aec468f2ab42dfa6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb370c9f1da596aec468f2ab42dfa6c">&#9670;&#160;</a></span>position_mask</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComponentMask <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::position_mask</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00300">300</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a8053d8d53489554d568665d11a075208" name="a8053d8d53489554d568665d11a075208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8053d8d53489554d568665d11a075208">&#9670;&#160;</a></span>position_sym_gradients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;SymmetricTensor&lt;2, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::position_sym_gradients</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00325">325</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a4a20a3780c5dd86fdcc8f69b5288af7c" name="a4a20a3780c5dd86fdcc8f69b5288af7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a20a3780c5dd86fdcc8f69b5288af7c">&#9670;&#160;</a></span>position_values</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;1, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::position_values</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00323">323</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="aaa64c9848b8d94d12925644eb0273eda" name="aaa64c9848b8d94d12925644eb0273eda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa64c9848b8d94d12925644eb0273eda">&#9670;&#160;</a></span>present_position_gradients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;2, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::present_position_gradients</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00324">324</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a85c145b04f3191b224cdba0fdcde5745" name="a85c145b04f3191b224cdba0fdcde5745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c145b04f3191b224cdba0fdcde5745">&#9670;&#160;</a></span>present_position_inverse_gradients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;2, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::present_position_inverse_gradients</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00329">329</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a44bc8f2ac6e41fb42afd2a720af965fc" name="a44bc8f2ac6e41fb42afd2a720af965fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44bc8f2ac6e41fb42afd2a720af965fc">&#9670;&#160;</a></span>present_position_inverse_gradients_T</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;2, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::present_position_inverse_gradients_T</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00330">330</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a9f5b6bb730d5e8cd93d6587937955fab" name="a9f5b6bb730d5e8cd93d6587937955fab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f5b6bb730d5e8cd93d6587937955fab">&#9670;&#160;</a></span>present_position_J</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::present_position_J</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00328">328</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="acc8eb4a24f8b0c86914d3d9455c1f1e6" name="acc8eb4a24f8b0c86914d3d9455c1f1e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc8eb4a24f8b0c86914d3d9455c1f1e6">&#9670;&#160;</a></span>psi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">FEValuesExtractors::Scalar <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::psi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00347">347</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a250f8aa9c248c61a190c28abd3714837" name="a250f8aa9c248c61a190c28abd3714837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a250f8aa9c248c61a190c28abd3714837">&#9670;&#160;</a></span>psi_gradients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;1, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::psi_gradients</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00350">350</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a98d6b2db6ebc2c4b266bf526beeead66" name="a98d6b2db6ebc2c4b266bf526beeead66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98d6b2db6ebc2c4b266bf526beeead66">&#9670;&#160;</a></span>psi_length_scale_sq</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::psi_length_scale_sq = 0.</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00359">359</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a70d847539d51782a6d5cd19d8e43ec1e" name="a70d847539d51782a6d5cd19d8e43ec1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70d847539d51782a6d5cd19d8e43ec1e">&#9670;&#160;</a></span>psi_values</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::psi_values</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00349">349</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a84f3d5d2fad0ba55c451705c7d6e12ee" name="a84f3d5d2fad0ba55c451705c7d6e12ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f3d5d2fad0ba55c451705c7d6e12ee">&#9670;&#160;</a></span>qpoints_current_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Point&lt;dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::qpoints_current_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Evaluation of the given source term on the current mesh, that is, of f(x(X)). This is useful when one has access to the source term on the current configuration only, whereas the linear elasticity equation is solved on the reference configuration. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00374">374</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="ac42a0549c870fb592342630ea9488b01" name="ac42a0549c870fb592342630ea9488b01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac42a0549c870fb592342630ea9488b01">&#9670;&#160;</a></span>shape_psi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;double&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::shape_psi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00351">351</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a83a460e7abca582c46928155c4f1d70f" name="a83a460e7abca582c46928155c4f1d70f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a460e7abca582c46928155c4f1d70f">&#9670;&#160;</a></span>source_term_fixed_mesh_multiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::source_term_fixed_mesh_multiplier</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The source term that is effectively used, defined by</p>
+<p>a * source_term_position_fixed_mesh + b * source_term_position_current_mesh,</p>
+<p>with a = source_term_fixed_mesh_multiplier and b = source_term_moving_mesh_multiplier. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00389">389</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a70a7048647a663d12543cbcfce997e1b" name="a70a7048647a663d12543cbcfce997e1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70a7048647a663d12543cbcfce997e1b">&#9670;&#160;</a></span>source_term_full</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Vector&lt;double&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::source_term_full</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Evaluation of the given source term on the fixed mesh, that is, of f(X). </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00365">365</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a9cda91d7c6b6d0e1c6a902d7b3c84e19" name="a9cda91d7c6b6d0e1c6a902d7b3c84e19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cda91d7c6b6d0e1c6a902d7b3c84e19">&#9670;&#160;</a></span>source_term_full_current_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Vector&lt;double&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::source_term_full_current_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00375">375</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="ab2b33216d4d85cccc4dbd87d34fe2896" name="ab2b33216d4d85cccc4dbd87d34fe2896"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b33216d4d85cccc4dbd87d34fe2896">&#9670;&#160;</a></span>source_term_moving_mesh_multiplier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::source_term_moving_mesh_multiplier</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00390">390</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a34ebb44402980a2e2d789421858401da" name="a34ebb44402980a2e2d789421858401da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34ebb44402980a2e2d789421858401da">&#9670;&#160;</a></span>source_term_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;1, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::source_term_position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00396">396</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a398d735cdc4e2b3641631874d69457dd" name="a398d735cdc4e2b3641631874d69457dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a398d735cdc4e2b3641631874d69457dd">&#9670;&#160;</a></span>source_term_position_current_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;1, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::source_term_position_current_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00376">376</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a00dd619b0777d87668378629e25a5aad" name="a00dd619b0777d87668378629e25a5aad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00dd619b0777d87668378629e25a5aad">&#9670;&#160;</a></span>source_term_position_fixed_mesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;Tensor&lt;1, dim&gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::source_term_position_fixed_mesh</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00366">366</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="ac0a916f2ad3f8e6321e4aab4a9e16676" name="ac0a916f2ad3f8e6321e4aab4a9e16676"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a916f2ad3f8e6321e4aab4a9e16676">&#9670;&#160;</a></span>sym_grad_phi_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;SymmetricTensor&lt;2, dim&gt; &gt; &gt; <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::sym_grad_phi_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00334">334</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<a id="a57b7386b16d9816149107169366609b9" name="a57b7386b16d9816149107169366609b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57b7386b16d9816149107169366609b9">&#9670;&#160;</a></span>with_enlarged_psi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="class_scratch_data_elasticity.html">ScratchDataElasticity</a>&lt; dim &gt;::with_enlarged_psi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="scratch__data__elasticity_8h_source.html#l00306">306</a> du fichier <a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/pre_amr/include/assembly/<a class="el" href="elasticity__assemblers_8h_source.html">elasticity_assemblers.h</a></li>
+<li>snapshots/pre_amr/include/<a class="el" href="scratch__data__elasticity_8h_source.html">scratch_data_elasticity.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_scratch_data_elasticity.html">ScratchDataElasticity</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

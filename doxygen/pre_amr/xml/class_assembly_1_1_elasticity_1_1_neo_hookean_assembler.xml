@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler" kind="class" language="C++" prot="public">
+    <compoundname>Assembly::Elasticity::NeoHookeanAssembler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AssemblerBase&lt; ScratchData, CopyData &gt;</basecompoundref>
+    <includes refid="elasticity__assemblers_8h" local="no">elasticity_assemblers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1a7656c187d2ec073dc898fbc4ad55f27b" prot="public" static="no" mutable="no">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt;dim&gt;&amp; Assembly::Elasticity::NeoHookeanAssembler&lt; dim, ScratchData, CopyData &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>Assembly::Elasticity::NeoHookeanAssembler::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="257" column="29" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1a5da30ac874d8a9604e88bfee08ce76e9" prot="public" static="no" mutable="no">
+        <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+        <definition>const ComponentOrdering&amp; Assembly::Elasticity::NeoHookeanAssembler&lt; dim, ScratchData, CopyData &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>Assembly::Elasticity::NeoHookeanAssembler::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="258" column="34" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1a2b51b3b0cbda558290cd0954bda5a184" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Assembly::Elasticity::NeoHookeanAssembler&lt; dim, ScratchData, CopyData &gt;::NeoHookeanAssembler</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering)</argsstring>
+        <name>NeoHookeanAssembler</name>
+        <qualifiedname>Assembly::Elasticity::NeoHookeanAssembler::NeoHookeanAssembler</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="238" column="7" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="238" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1ab6bd06e3f3d1c9324c2768afcc1787b6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::NeoHookeanAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_matrix</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>Assembly::Elasticity::NeoHookeanAssembler::assemble_matrix</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="247" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="147" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1a393952b8735c86046c81d6dc6046db68" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::NeoHookeanAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_rhs</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>Assembly::Elasticity::NeoHookeanAssembler::assemble_rhs</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local right-hand side vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="253" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="112" bodyend="144"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::NeoHookeanAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::NeoHookeanAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ordering</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="235" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="236" bodyend="259"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1ab6bd06e3f3d1c9324c2768afcc1787b6" prot="public" virt="virtual"><scope>Assembly::Elasticity::NeoHookeanAssembler</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1a393952b8735c86046c81d6dc6046db68" prot="public" virt="virtual"><scope>Assembly::Elasticity::NeoHookeanAssembler</scope><name>assemble_rhs</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1a2b51b3b0cbda558290cd0954bda5a184" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::NeoHookeanAssembler</scope><name>NeoHookeanAssembler</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1a5da30ac874d8a9604e88bfee08ce76e9" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::NeoHookeanAssembler</scope><name>ordering</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler_1a7656c187d2ec073dc898fbc4ad55f27b" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::NeoHookeanAssembler</scope><name>param</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

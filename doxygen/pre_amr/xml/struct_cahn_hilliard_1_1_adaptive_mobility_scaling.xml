@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_cahn_hilliard_1_1_adaptive_mobility_scaling" kind="struct" language="C++" prot="public">
+    <compoundname>CahnHilliard::AdaptiveMobilityScaling</compoundname>
+    <includes refid="cahn__hilliard_8h" local="no">cahn_hilliard.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cahn_hilliard_1_1_adaptive_mobility_scaling_1a36be9ea87c42d48457f88a23643e9ad5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CahnHilliard::AdaptiveMobilityScaling::coefficient</definition>
+        <argsstring></argsstring>
+        <name>coefficient</name>
+        <qualifiedname>CahnHilliard::AdaptiveMobilityScaling::coefficient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="800" column="12" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="800" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cahn_hilliard_1_1_adaptive_mobility_scaling_1aee3fdf4db379679ee78caec47aaf3dc9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CahnHilliard::AdaptiveMobilityScaling::delta</definition>
+        <argsstring></argsstring>
+        <name>delta</name>
+        <qualifiedname>CahnHilliard::AdaptiveMobilityScaling::delta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="801" column="12" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="801" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="798" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="799" bodyend="802"/>
+    <listofallmembers>
+      <member refid="struct_cahn_hilliard_1_1_adaptive_mobility_scaling_1a36be9ea87c42d48457f88a23643e9ad5" prot="public" virt="non-virtual"><scope>CahnHilliard::AdaptiveMobilityScaling</scope><name>coefficient</name></member>
+      <member refid="struct_cahn_hilliard_1_1_adaptive_mobility_scaling_1aee3fdf4db379679ee78caec47aaf3dc9" prot="public" virt="non-virtual"><scope>CahnHilliard::AdaptiveMobilityScaling</scope><name>delta</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2474 @@
+
+#include <field_postprocessors.h>
+#include <parameters.h>
+#include <solver_info.h>
+#include <utilities.h>
+
+#include <cmath>
+
+namespace Parameters
+{
+  /**
+   * These should agree with the declare_entry in utilities.h
+   */
+  void DummyDimension::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Dimension");
+    {
+      // Read in utilities, declared here but not parsed
+      prm.declare_entry("dimension",
+                        "2",
+                        Patterns::Integer(),
+                        "Problem dimension (2 or 3)");
+    }
+    prm.leave_subsection();
+  }
+
+  void DummyDimension::read_parameters(ParameterHandler &)
+  {
+    // Nothing to do, dimension was read in utilities.h
+  }
+
+  void Timer::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Timer");
+    {
+      prm.declare_entry("enable timer",
+                        "false",
+                        Patterns::Bool(),
+                        "Enable summary of elapsed time in solver components");
+    }
+    prm.leave_subsection();
+  }
+
+  void Timer::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Timer");
+    {
+      enable_timer = prm.get_bool("enable timer");
+    }
+    prm.leave_subsection();
+  }
+
+  void BoundaryConditionsData::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Fluid boundary conditions");
+    {
+      DECLARE_VERBOSITY_PARAM(prm, "quiet")
+      prm.declare_entry(
+        "fix pressure constant",
+        "false",
+        Patterns::Bool(),
+        "Fix pressure nullspace by pinning a single pressure point");
+      prm.declare_entry(
+        "enforce zero mean pressure",
+        "false",
+        Patterns::Bool(),
+        "Fix pressure nullspace by enforcing zero-mean pressure");
+    }
+    prm.leave_subsection();
+  }
+
+  void BoundaryConditionsData::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Fluid boundary conditions");
+    {
+      READ_VERBOSITY_PARAM(prm, fluid_verbosity)
+      fix_pressure_constant      = prm.get_bool("fix pressure constant");
+      enforce_zero_mean_pressure = prm.get_bool("enforce zero mean pressure");
+    }
+    prm.leave_subsection();
+  }
+
+  void declare_fixed_point_update_base(ParameterHandler &prm)
+  {
+    prm.declare_entry("enable",
+                      "false",
+                      Patterns::Bool(),
+                      "Enable/disable the update of this quantity");
+    prm.declare_entry("update frequency",
+                      "1",
+                      Patterns::Integer(1),
+                      "Update this quantity every n fixed-point iterations");
+    prm.declare_entry("factor",
+                      "1.",
+                      Patterns::Double(0),
+                      "When updated, multiply this quantity by this value");
+    prm.declare_entry("constant name",
+                      "must_provide_constant_name",
+                      Patterns::Anything(),
+                      "Name of this constant in the function handles");
+  }
+
+  void read_fixed_point_update_base(
+    ParameterHandler                                        &prm,
+    Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase &update_base)
+  {
+    update_base.enable           = prm.get_bool("enable");
+    update_base.update_frequency = prm.get_integer("update frequency");
+    update_base.factor           = prm.get_double("factor");
+    update_base.constant_name    = prm.get("constant name");
+    if (update_base.enable)
+      AssertThrow(update_base.constant_name != "must_provide_constant_name",
+                  ExcMessage(
+                    "A constant name matching the ones in the various function "
+                    "handles must be provided for a quantity that is to be "
+                    "updated in the fixed-point mesh adaptation loop."));
+  }
+
+  void Mesh::declare_parameters(ParameterHandler &prm, const int dim)
+  {
+    prm.enter_subsection("Mesh");
+    {
+      DECLARE_VERBOSITY_PARAM(prm, "verbose")
+      prm.declare_entry("mesh file",
+                        "",
+                        Patterns::FileName(),
+                        "Mesh file in .msh format (Gmsh msh4)");
+      prm.declare_entry("use dealii cube mesh",
+                        "false",
+                        Patterns::Bool(),
+                        "Use cube mesh from deal.II's routines");
+      prm.declare_entry("dealii preset mesh",
+                        "none",
+                        Patterns::Selection(
+                          "none|cube|rectangle|holed plate|uniform channel "
+                          "with cylinder|backward facing step"),
+                        "Use dealii meshing routines for specified geometry");
+      prm.declare_entry("dealii mesh parameters",
+                        "2, 2 : 0., 0. : 1., 1. : false");
+      prm.declare_entry(
+        "refinement level",
+        "1",
+        Patterns::Integer(),
+        "Level of uniform refinement if using deal.II's meshing routines");
+      prm.enter_subsection("Adaptation");
+      {
+        DECLARE_VERBOSITY_PARAM(prm, "verbose")
+        prm.declare_entry("enable",
+                          "false",
+                          Patterns::Bool(),
+                          "Enable mesh adaptation");
+        prm.declare_entry(
+          "adaptation directory",
+          "adaptation",
+          Patterns::Anything(),
+          "Directory into which mesh adaptation-related files are written");
+        prm.declare_entry("adapted meshes extension",
+                          "adapted",
+                          Patterns::Anything(),
+                          "Root extension for the adapted meshes");
+        prm.declare_entry("strategy",
+                          "riemannian metric",
+                          Patterns::Selection(
+                            "riemannian metric|local refinement"),
+                          "Mesh adaptation strategy");
+        prm.enter_subsection("Metric");
+        {
+          prm.declare_entry("n fixed point",
+                            "1",
+                            Patterns::Integer(1),
+                            "Number of fixed point iterations to converge the "
+                            "mesh-solution pair");
+          prm.declare_entry(
+            "transfer solution",
+            "true",
+            Patterns::Bool(),
+            "Enable solution transfer to the adapted mesh (steady-state only, "
+            "always done for unsteady simulations)");
+          prm.declare_entry("mmg verbosity level",
+                            "1",
+                            Patterns::Integer(-1, 10),
+                            "Verbosity level of the MMG library");
+          prm.declare_entry("n time intervals",
+                            "1",
+                            Patterns::Integer(1),
+                            "Number of time sub-intervals for the transient "
+                            "fixed point method");
+          prm.enter_subsection("Fixed point updates");
+          {
+            DECLARE_VERBOSITY_PARAM(prm, "verbose");
+            prm.enter_subsection("CHNS interface thickness");
+            declare_fixed_point_update_base(prm);
+            prm.leave_subsection();
+          }
+          prm.leave_subsection();
+        }
+        prm.leave_subsection();
+        prm.enter_subsection("Local refinement");
+        {
+          prm.declare_entry("refinement strategy",
+                            "fixed number",
+                            Patterns::Selection("fixed number|fixed fraction"),
+                            "Refinement strategy used by deal.II's "
+                            "refine_and_coarsen routines");
+          prm.declare_entry(
+            "variables for adaptation",
+            "velocity",
+            Patterns::List(Patterns::Selection(
+              std::string(SolverInfo::variable_names_for_param))),
+            "Comma-separated list of variables used for mesh adaptation");
+          prm.declare_entry(
+            "fraction to refine",
+            // As suggested in grid_refinement.h, use as default
+            // the fractions that lead to doubling the number of cells
+            // if no coarsening is applied (1/3 and 1/7).
+            // This is of course only valid for the "fixed number" strategy.
+            dim == 2 ? "0.3333333333" : "0.142857143",
+            Patterns::Double(0., 1.),
+            "Fraction of cells or errors to mark for refinement");
+          prm.declare_entry(
+            "fraction to coarsen",
+            "0.",
+            Patterns::Double(0., 1.),
+            "Fraction of cells or errors to mark for coarsening");
+          prm.declare_entry("min grid level",
+                            "0",
+                            Patterns::Integer(0),
+                            "Minimum level of grid refinement allowed");
+          prm.declare_entry("max grid level",
+                            "8",
+                            Patterns::Integer(0),
+                            "Maximum level of grid refinement allowed");
+          prm.declare_entry("max number of cells",
+                            "1000000",
+                            Patterns::Integer(0),
+                            "Maximum number of mesh cells allowed");
+          prm.declare_entry(
+            "number of steady adaptation steps",
+            "0",
+            Patterns::Integer(0),
+            "Number of adaptation steps for steady-state computations");
+          prm.declare_entry(
+            "number of prerefinement steps",
+            "0",
+            Patterns::Integer(0),
+            "Number of refinement steps to obtain the initial mesh");
+          prm.declare_entry("adapt frequency",
+                            "1",
+                            Patterns::Integer(1),
+                            "Adapt the mesh every n time steps");
+        }
+        prm.leave_subsection();
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void Mesh::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Mesh");
+    {
+      READ_VERBOSITY_PARAM(prm, verbosity)
+      filename              = prm.get("mesh file");
+      use_deal_ii_cube_mesh = prm.get_bool("use dealii cube mesh");
+      deal_ii_preset_mesh   = prm.get("dealii preset mesh");
+      deal_ii_mesh_param    = prm.get("dealii mesh parameters");
+      refinement_level      = prm.get_integer("refinement level");
+      prm.enter_subsection("Adaptation");
+      {
+        READ_VERBOSITY_PARAM(prm, adaptation.verbosity)
+        adaptation.enable                 = prm.get_bool("enable");
+        adaptation.adapt_dir              = prm.get("adaptation directory");
+        adaptation.adapted_mesh_extension = prm.get("adapted meshes extension");
+        const std::string parsed_strategy = prm.get("strategy");
+        if (parsed_strategy == "riemannian metric")
+          adaptation.strategy = Adaptation::Strategy::RiemannianMetric;
+        else if (parsed_strategy == "local refinement")
+          adaptation.strategy = Adaptation::Strategy::LocalRefinement;
+        else
+          throw std::runtime_error("Unexpected mesh adaptation strategy: " +
+                                   parsed_strategy);
+
+        prm.enter_subsection("Metric");
+        {
+          adaptation.metric.n_fixed_point = prm.get_integer("n fixed point");
+          adaptation.metric.transfer_solution =
+            prm.get_bool("transfer solution");
+          adaptation.metric.mmg_verbosity =
+            prm.get_integer("mmg verbosity level");
+          adaptation.metric.n_time_intervals =
+            prm.get_integer("n time intervals");
+          prm.enter_subsection("Fixed point updates");
+          {
+            auto &fpu = adaptation.metric.fixed_point_updates;
+            READ_VERBOSITY_PARAM(prm, fpu.verbosity)
+            prm.enter_subsection("CHNS interface thickness");
+            read_fixed_point_update_base(prm, fpu.chns_interface_thickness);
+            prm.leave_subsection();
+          }
+          prm.leave_subsection();
+        }
+        prm.leave_subsection();
+        prm.enter_subsection("Local refinement");
+        {
+          auto &t = adaptation.tree_amr;
+
+          const std::string parsed_strategy = prm.get("refinement strategy");
+          if (parsed_strategy == "fixed number")
+            t.refinement_strategy =
+              Adaptation::TreeAMR::RefinementStrategy::FixedNumber;
+          else if (parsed_strategy == "fixed fraction")
+            t.refinement_strategy =
+              Adaptation::TreeAMR::RefinementStrategy::FixedFraction;
+          else
+            AssertThrow(false,
+                        ExcMessage(
+                          "Unexpected mesh adaptation refinement strategy: " +
+                          parsed_strategy));
+          const auto parsed_variable_list =
+            Utilities::split_string_list(prm.get("variables for adaptation"),
+                                         ",");
+          t.variables_for_adaptation.clear();
+          for (const auto &var : parsed_variable_list)
+          {
+            AssertThrow(
+              var != "none",
+              ExcMessage(
+                "A specified target variable for mesh adaptation is \"none\". "
+                "Please set a valid (not 'none') variable name from among: " +
+                std::string(SolverInfo::variable_names_for_param)));
+            t.variables_for_adaptation.push_back(
+              SolverInfo::to_variable_type(var));
+          }
+          t.fraction_to_refine  = prm.get_double("fraction to refine");
+          t.fraction_to_coarsen = prm.get_double("fraction to coarsen");
+          AssertThrow(t.fraction_to_refine + t.fraction_to_coarsen < 1 + 1e-12,
+                      ExcMessage(
+                        "The sum of the fractions of the cells/cellwise errors "
+                        "to refine and coarsen should not exceed 1."));
+          t.min_level = prm.get_integer("min grid level");
+          t.max_level = prm.get_integer("max grid level");
+          AssertThrow(t.max_level >= t.min_level,
+                      ExcMessage(
+                        "The maximum allowed grid refinement level should be "
+                        "greater than or equal to the minimum allowed level."));
+          t.max_n_cells = prm.get_integer("max number of cells");
+          t.n_steady_adaptation_steps =
+            adaptation.with_tree_based_adaptation() ?
+              prm.get_integer("number of steady adaptation steps") :
+              0;
+          t.n_prerefinement_steps =
+            prm.get_integer("number of prerefinement steps");
+          t.adapt_frequency = prm.get_integer("adapt frequency");
+        }
+        prm.leave_subsection();
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void Output::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Output");
+    {
+      prm.declare_entry("write vtu results",
+                        "false",
+                        Patterns::Bool(),
+                        "Enable/disable vtu output writing.");
+      prm.declare_entry("output directory",
+                        "./",
+                        Patterns::FileName(),
+                        "Output directory.");
+      prm.declare_entry("output prefix",
+                        "solution",
+                        Patterns::FileName(),
+                        "Prefix for the output files.");
+      prm.declare_entry(
+        "vtu output frequency",
+        "1",
+        Patterns::Integer(1),
+        "Frequency (in time steps) for the standard vtu export.");
+      prm.declare_entry("number of vtu groups",
+                        "1",
+                        Patterns::Integer(0),
+                        "Number of groups of VTU files when writing in "
+                        "parallel (0 means one per MPI process).");
+      prm.declare_entry(
+        "number of subdivisions",
+        "2",
+        Patterns::Integer(0),
+        "Number of subdivisions used to build visualization patches.");
+      prm.enter_subsection("fixed point method");
+      {
+        prm.declare_entry("single pvd file",
+                          "true",
+                          Patterns::Bool(),
+                          "Generate a single pvd file when using a fixed-point "
+                          "mesh adaptation method. If false, one pvd file per "
+                          "fixed-point iteration is generated instead.");
+        prm.declare_entry(
+          "show solution transfer",
+          "false",
+          Patterns::Bool(),
+          "Show the solution transfer between subinterval meshes. This "
+          "duplicates the timesteps at the junction of subintervals.");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("skin");
+      {
+        prm.declare_entry(
+          "write vtu results",
+          "false",
+          Patterns::Bool(),
+          "Enable extraction of vtu files on prescribed boundary.");
+        prm.declare_entry("boundary id",
+                          "0",
+                          Patterns::Integer(0),
+                          "Boundary id used to define the skin.");
+        prm.declare_entry("output prefix",
+                          "skin",
+                          Patterns::FileName(),
+                          "Prefix for the output files on the skin");
+        prm.declare_entry("output frequency",
+                          "1",
+                          Patterns::Integer(1),
+                          "Frequency (in time steps) for the exportation of "
+                          "skin-related files");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void Output::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Output");
+    {
+      write_results        = prm.get_bool("write vtu results");
+      output_dir           = prm.get("output directory");
+      output_prefix        = prm.get("output prefix");
+      vtu_output_frequency = prm.get_integer("vtu output frequency");
+      n_vtu_groups         = prm.get_integer("number of vtu groups");
+      n_subdivisions       = prm.get_integer("number of subdivisions");
+      prm.enter_subsection("fixed point method");
+      {
+        fixed_point.single_pvd = prm.get_bool("single pvd file");
+        fixed_point.show_solution_transfer =
+          prm.get_bool("show solution transfer");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("skin");
+      {
+        skin.write_results    = prm.get_bool("write vtu results");
+        skin.boundary_id      = prm.get_integer("boundary id");
+        skin.output_prefix    = prm.get("output prefix");
+        skin.output_frequency = prm.get_integer("output frequency");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void declare_postprocessing_base(ParameterHandler &prm)
+  {
+    DECLARE_VERBOSITY_PARAM(prm, "verbose")
+    prm.declare_entry("enable",
+                      "false",
+                      Patterns::Bool(),
+                      "Enable/disable this postprocessing");
+    prm.declare_entry(
+      "output frequency",
+      "1",
+      Patterns::Integer(1),
+      "Frequency (in time steps) for the exportation of postprocessing files");
+  }
+
+  void declare_postprocessing_file(ParameterHandler &prm)
+  {
+    declare_postprocessing_base(prm);
+    prm.declare_entry("write results",
+                      "true",
+                      Patterns::Bool(),
+                      "Write result of this postprocessing to file");
+    prm.declare_entry("output prefix",
+                      "postprocessed_data",
+                      Patterns::FileName(),
+                      "Prefix for the postprocessing output files");
+    prm.declare_entry("precision",
+                      "6",
+                      Patterns::Integer(1),
+                      "Number of significant digits to print");
+  }
+
+  void declare_postprocessing_file_boundary(ParameterHandler &prm)
+  {
+    declare_postprocessing_file(prm);
+    prm.declare_entry(
+      "boundary id",
+      "0",
+      Patterns::Integer(0),
+      "Boundary id on which this postprocessing should be applied");
+  }
+
+  void declare_postprocessing_field(
+    ParameterHandler  &prm,
+    const std::string &default_method = "discontinuous")
+  {
+    declare_postprocessing_base(prm);
+    prm.declare_entry("computation method",
+                      default_method,
+                      Patterns::Selection(
+                        "discontinuous|l2 projection|weighted average"),
+                      "Computation method");
+    prm.declare_entry(
+      "degree",
+      "1",
+      Patterns::Integer(0),
+      "Degree of the finite element representation of the postprocessed field");
+  }
+
+  void PostProcessing::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Postprocessing");
+    {
+      prm.enter_subsection("forces computation");
+      {
+        declare_postprocessing_file_boundary(prm);
+        prm.declare_entry("computation method",
+                          "stress vector",
+                          Patterns::Selection(
+                            "stress vector|lagrange multiplier"),
+                          "Method used to evaluate the hydrodynamic forces");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("field integral");
+      {
+        declare_postprocessing_file(prm);
+        prm.declare_entry(
+          "variables",
+          "",
+          Patterns::List(Patterns::Selection(
+            std::string(SolverInfo::variable_names_for_param))),
+          "Comma-separated list of finite element variables to integrate over "
+          "the domain. Each variable is written to <output "
+          "prefix>_<variable>.txt");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("structure position");
+      {
+        declare_postprocessing_file_boundary(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("slicing");
+      {
+        declare_postprocessing_file_boundary(prm);
+        prm.declare_entry("along which axis",
+                          "z",
+                          Patterns::Selection("x|y|z"),
+                          "Axis along which the slices are defined");
+        prm.declare_entry("number of slices",
+                          "1",
+                          Patterns::Integer(1),
+                          "Number of slices along the chosen direction");
+        prm.declare_entry(
+          "compute forces",
+          "false",
+          Patterns::Bool(),
+          "Compute and write the hydrodynamic forces on each slice");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("line probe");
+      {
+        declare_postprocessing_file(prm);
+        prm.declare_entry("start point",
+                          "0, 0, 0",
+                          Patterns::Anything(),
+                          "Line-probe start point.");
+        prm.declare_entry("end point",
+                          "1, 0, 0",
+                          Patterns::Anything(),
+                          "Line-probe end point.");
+        prm.declare_entry("number of points",
+                          "101",
+                          Patterns::Integer(2),
+                          "Number of points sampled on the line.");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("time scales");
+      {
+        declare_postprocessing_file(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("chns phase volume");
+      {
+        declare_postprocessing_file(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("chns phase center of mass");
+      {
+        declare_postprocessing_file(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("chns phase average velocity");
+      {
+        declare_postprocessing_file(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("vorticity");
+      {
+        declare_postprocessing_field(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("q_criterion");
+      {
+        declare_postprocessing_field(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mesh velocity");
+      {
+        declare_postprocessing_field(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("density");
+      {
+        declare_postprocessing_field(prm, "weighted average");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mobility");
+      {
+        declare_postprocessing_field(prm, "weighted average");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mff physics compression");
+      {
+        declare_postprocessing_field(prm, "weighted average");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mff enlarged compression");
+      {
+        declare_postprocessing_field(prm, "weighted average");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mff transport");
+      {
+        declare_postprocessing_field(prm, "weighted average");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void read_postprocessing_base(ParameterHandler                   &prm,
+                                PostProcessing::PostProcessingBase &pp_base)
+  {
+    READ_VERBOSITY_PARAM(prm, pp_base.verbosity)
+    pp_base.enable           = prm.get_bool("enable");
+    pp_base.output_frequency = prm.get_integer("output frequency");
+  }
+
+  void read_postprocessing_file(ParameterHandler                   &prm,
+                                PostProcessing::PostProcessingFile &pp_file)
+  {
+    read_postprocessing_base(prm, pp_file);
+    pp_file.write_results = prm.get_bool("write results");
+    pp_file.output_prefix = prm.get("output prefix");
+    pp_file.precision     = prm.get_integer("precision");
+  }
+
+  void read_postprocessing_file_boundary(
+    ParameterHandler                           &prm,
+    PostProcessing::PostProcessingFileBoundary &pp_boundary)
+  {
+    read_postprocessing_file(prm, pp_boundary);
+    pp_boundary.boundary_id = prm.get_integer("boundary id");
+  }
+
+  void read_postprocessing_field(
+    ParameterHandler                                  &prm,
+    PostProcessing::PostProcessingField               &pp_field,
+    const PostProcessingTools::PostprocessorAtDofTypes type,
+    std::map<PostProcessingTools::PostprocessorAtDofTypes,
+             PostProcessing::PostProcessingField *>   &field_postprocessors)
+  {
+    // Add this field postprocessor to the map
+    field_postprocessors.insert({type, &pp_field});
+
+    read_postprocessing_base(prm, pp_field);
+
+    const std::string parsed_method = prm.get("computation method");
+    if (parsed_method == "discontinuous")
+      pp_field.method =
+        PostProcessing::PostProcessingField::ComputationMethod::discontinuous;
+    else if (parsed_method == "l2 projection")
+      pp_field.method =
+        PostProcessing::PostProcessingField::ComputationMethod::l2_projection;
+    else if (parsed_method == "weighted average")
+      pp_field.method = PostProcessing::PostProcessingField::ComputationMethod::
+        weighted_average;
+    else
+      AssertThrow(false,
+                  ExcMessage("Unknown vorticity computation method: " +
+                             parsed_method));
+    pp_field.degree = prm.get_integer("degree");
+  }
+
+  void PostProcessing::read_parameters(ParameterHandler &prm)
+  {
+    using FieldPP = PostProcessingTools::PostprocessorAtDofTypes;
+
+    field_postprocessors.clear();
+
+    prm.enter_subsection("Postprocessing");
+    {
+      prm.enter_subsection("forces computation");
+      {
+        read_postprocessing_file_boundary(prm, forces);
+        const std::string parsed_method = prm.get("computation method");
+        if (parsed_method == "stress vector")
+          forces.method = Forces::ComputationMethod::stress_vector;
+        else if (parsed_method == "lagrange multiplier")
+          forces.method = Forces::ComputationMethod::lagrange_multiplier;
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("field integral");
+      {
+        read_postprocessing_file(prm, field_integral);
+        auto variable_names =
+          Utilities::split_string_list(prm.get("variables"));
+        AssertThrow(!field_integral.enable || !variable_names.empty(),
+                    ExcMessage("At least one variable must be selected when "
+                               "field integral postprocessing is enabled"));
+        for (const auto &name : variable_names)
+          AssertThrow(name != "none",
+                      ExcMessage(
+                        "Field integral variables must not be 'none'"));
+        std::sort(variable_names.begin(), variable_names.end());
+        variable_names.erase(std::unique(variable_names.begin(),
+                                         variable_names.end()),
+                             variable_names.end());
+        field_integral.variables.resize(variable_names.size());
+        std::transform(variable_names.begin(),
+                       variable_names.end(),
+                       field_integral.variables.begin(),
+                       SolverInfo::to_variable_type);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("structure position");
+      {
+        read_postprocessing_file_boundary(prm, structure_position);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("slicing");
+      {
+        read_postprocessing_file_boundary(prm, slices);
+        slices.along_which_axis         = prm.get("along which axis");
+        slices.n_slices                 = prm.get_integer("number of slices");
+        slices.compute_forces_on_slices = prm.get_bool("compute forces");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("line probe");
+      {
+        read_postprocessing_file(prm, line_probe);
+        line_probe.start = Utilities::string_to_double(
+          Utilities::split_string_list(prm.get("start point"), ","));
+        line_probe.end = Utilities::string_to_double(
+          Utilities::split_string_list(prm.get("end point"), ","));
+        line_probe.n_points = prm.get_integer("number of points");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("time scales");
+      {
+        read_postprocessing_file(prm, time_scales);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("chns phase volume");
+      {
+        read_postprocessing_file(prm, chns_volumes);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("chns phase center of mass");
+      {
+        read_postprocessing_file(prm, chns_center_mass);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("chns phase average velocity");
+      {
+        read_postprocessing_file(prm, chns_avg_velocity);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("vorticity");
+      {
+        read_postprocessing_field(prm,
+                                  vorticity,
+                                  FieldPP::vorticity,
+                                  field_postprocessors);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("q_criterion");
+      {
+        read_postprocessing_field(prm,
+                                  q_criterion,
+                                  FieldPP::q_criterion,
+                                  field_postprocessors);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mesh velocity");
+      {
+        read_postprocessing_field(prm,
+                                  mesh_velocity,
+                                  FieldPP::mesh_velocity,
+                                  field_postprocessors);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("density");
+      {
+        read_postprocessing_field(
+          prm, density, FieldPP::density, field_postprocessors);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mobility");
+      {
+        read_postprocessing_field(
+          prm, mobility, FieldPP::mobility, field_postprocessors);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mff physics compression");
+      {
+        read_postprocessing_field(prm,
+                                  mff_physics_compression,
+                                  FieldPP::mff_physics_compression,
+                                  field_postprocessors);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mff enlarged compression");
+      {
+        read_postprocessing_field(prm,
+                                  mff_enlarged_compression,
+                                  FieldPP::mff_enlarged_compression,
+                                  field_postprocessors);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("mff transport");
+      {
+        read_postprocessing_field(
+          prm, mff_transport, FieldPP::mff_transport, field_postprocessors);
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  // Declare the parameters for a quadrature rule.
+  // The default parameters are different for the rule to compute the numerical
+  // solution, and for the rule used to compute error norms.
+  // If default_for_error = true, then this declares the default parameters for
+  // the rule used to compute errors.
+  template <int dim>
+  void declare_quadrature_rule(ParameterHandler &prm,
+                               const bool        default_for_error = false)
+  {
+    prm.declare_entry("rule for simplices",
+                      default_for_error ? "witherden_vincent" : "gauss",
+                      Patterns::Selection("gauss|witherden_vincent"),
+                      "Gauss or Witherden-Vincent (odd order) rule.");
+    prm.declare_entry("number of 1d nodes for cell quadrature",
+                      default_for_error ? ((dim == 2) ? "6" : "5") : "4",
+                      Patterns::Integer(),
+                      "Number of nodes in the base 1d quadrature. Will "
+                      "integrate a polynomial of degree 2n-1.");
+    prm.declare_entry("number of 1d nodes for face quadrature",
+                      default_for_error ? ((dim == 2) ? "6" : "5") : "4",
+                      Patterns::Integer(),
+                      "Number of nodes in the base 1d quadrature. Will "
+                      "integrate a polynomial of degree 2n-1.");
+  }
+
+  template <int dim>
+  void FiniteElements<dim>::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("FiniteElements");
+    {
+      prm.declare_entry("use quads",
+                        "false",
+                        Patterns::Bool(),
+                        "If true, use quads/hexes instead of simplices");
+      prm.declare_entry("Velocity degree",
+                        "2",
+                        Patterns::Integer(),
+                        "Polynomial degree of the velocity interpolant");
+      prm.declare_entry("Pressure degree",
+                        "1",
+                        Patterns::Integer(),
+                        "Polynomial degree of the pressure interpolant");
+      prm.declare_entry("Mesh position degree",
+                        "1",
+                        Patterns::Integer(),
+                        "Polynomial degree of the mesh position interpolant");
+      prm.declare_entry(
+        "Lagrange multiplier degree",
+        "2",
+        Patterns::Integer(),
+        "Polynomial degree of the no-slip Lagrange multiplier interpolant");
+      prm.declare_entry("Tracer degree",
+                        "1",
+                        Patterns::Integer(),
+                        "Polynomial degree of the CHNS tracer interpolant");
+      prm.declare_entry(
+        "Potential degree",
+        "1",
+        Patterns::Integer(),
+        "Polynomial degree of the CHNS chemical potential interpolant");
+      prm.declare_entry("Temperature degree",
+                        "1",
+                        Patterns::Integer(),
+                        "Polynomial degree of the temperature interpolant");
+
+      prm.declare_entry(
+        "mapping degree",
+        "1",
+        Patterns::Selection("isoparametric velocity|1|2|3|4|5"),
+        "Degree of the reference-to-physical mapping, or degree of the "
+        "velocity approximation if set to isoparametric");
+
+      prm.enter_subsection("Quadrature rule");
+      {
+        declare_quadrature_rule<dim>(prm);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("Quadrature rule for error");
+      {
+        declare_quadrature_rule<dim>(prm, true);
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  template <int dim>
+  void read_quadrature_rule(ParameterHandler                             &prm,
+                            typename FiniteElements<dim>::QuadratureRule &rule)
+  {
+    const std::string parsed_rule = prm.get("rule for simplices");
+    if (parsed_rule == "gauss")
+      rule.type = FiniteElements<dim>::QuadratureRule::Type::GaussSimplex;
+    else if (parsed_rule == "witherden_vincent")
+      rule.type = FiniteElements<dim>::QuadratureRule::Type::WitherdenVincent;
+    else
+      throw std::runtime_error("Unknown quadrature rule : " + parsed_rule);
+
+    rule.n_pts_1D_simplex_cell_quad =
+      prm.get_integer("number of 1d nodes for cell quadrature");
+    rule.n_pts_1D_simplex_face_quad =
+      prm.get_integer("number of 1d nodes for face quadrature");
+
+    const unsigned int nc = rule.n_pts_1D_simplex_cell_quad,
+                       nf = rule.n_pts_1D_simplex_face_quad;
+
+    // Test input parameters. For simplices, default is QGaussSimplex with
+    // n_points_1d = 4 (maximum available)
+    if (rule.type == FiniteElements<dim>::QuadratureRule::Type::GaussSimplex)
+    {
+      // Max implemented in deal.ii is n_points_1d = 4
+      AssertThrow(1 <= nc and nc <= 4,
+                  ExcMessage("Gauss quadrature rule on simplicial cells "
+                             "expects n_points_1d in [1,4]."));
+      AssertThrow(1 <= nf and nf <= 4,
+                  ExcMessage("Gauss quadrature rule on simplicial faces "
+                             "expects n_points_1d in [1,4]."));
+    }
+    if (rule.type ==
+        FiniteElements<dim>::QuadratureRule::Type::WitherdenVincent)
+    {
+      // Max implemented in deal.ii is n_points_1d = 7 in 2D and = 5 in 3D
+      if constexpr (dim == 2)
+      {
+        // Max for cells is 7, no max for edges (QGauss 1D rules)
+        AssertThrow(1 <= nc and nc <= 7,
+                    ExcMessage("WitherdenVincent quadrature rule on simplicial "
+                               "cells in 2D expects n_points_1d in [1,7]."));
+        AssertThrow(1 <= nf,
+                    ExcMessage("Quadrature rule on simplicial faces in 1D "
+                               "expects n_points_1d greater than 0."));
+      }
+      else
+      {
+        // Max for cells is 5, max for faces is 7
+        AssertThrow(1 <= nc and nc <= 5,
+                    ExcMessage("WitherdenVincent quadrature rule on simplicial "
+                               "cells in 3D expects n_points_1d in [1,5]."));
+        AssertThrow(1 <= nf and nf <= 7,
+                    ExcMessage("WitherdenVincent quadrature rule on simplicial "
+                               "cells in 2D expects n_points_1d in [1,7]."));
+      }
+    }
+  }
+
+  template <int dim>
+  void FiniteElements<dim>::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("FiniteElements");
+    {
+      use_quads            = prm.get_bool("use quads");
+      velocity_degree      = prm.get_integer("Velocity degree");
+      pressure_degree      = prm.get_integer("Pressure degree");
+      mesh_position_degree = prm.get_integer("Mesh position degree");
+      no_slip_lagrange_mult_degree =
+        prm.get_integer("Lagrange multiplier degree");
+      tracer_degree      = prm.get_integer("Tracer degree");
+      potential_degree   = prm.get_integer("Potential degree");
+      temperature_degree = prm.get_integer("Temperature degree");
+
+      /**
+       * Set the degree of the geometric mapping.
+       * If the mesh position is a variable of the problem, their degree must
+       * match, but we cannot test it here, as we don't know which solver will
+       * be created.
+       */
+      const std::string parsed_mapping_degree = prm.get("mapping degree");
+      if (parsed_mapping_degree == "isoparametric velocity")
+        mapping_degree = velocity_degree;
+      else
+        mapping_degree = Utilities::string_to_int(parsed_mapping_degree);
+
+      prm.enter_subsection("Quadrature rule");
+      {
+        read_quadrature_rule<dim>(prm, rule);
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("Quadrature rule for error");
+      {
+        read_quadrature_rule<dim>(prm, rule_for_error);
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  template struct FiniteElements<2>;
+  template struct FiniteElements<3>;
+
+  void Fluid::declare_parameters(ParameterHandler &prm, unsigned int index)
+  {
+    prm.enter_subsection("Fluid " + std::to_string(index));
+    {
+      prm.declare_entry("density",
+                        "1",
+                        Patterns::Double(0.),
+                        "Fluid density for incompressible solvers and "
+                        "reference density for compressible solvers");
+      prm.declare_entry("kinematic viscosity",
+                        "1",
+                        Patterns::Double(),
+                        "Fluid kinematic viscosity");
+      prm.declare_entry(
+        "dynamic viscosity",
+        "-1",
+        Patterns::Double(),
+        "Fluid dynamic viscosity. If set to a negative value (default), it "
+        "is computed automatically as density * kinematic viscosity.");
+      prm.declare_entry("thermal conductivity",
+                        "1",
+                        Patterns::Double(),
+                        "Fluid thermal conductivity");
+      prm.declare_entry("heat capacity at constant pressure",
+                        "1",
+                        Patterns::Double(),
+                        "Fluid heat capacity at constant pressure");
+      prm.declare_entry("pressure reference",
+                        "1",
+                        Patterns::Double(0.),
+                        "Fluid pressure reference");
+      prm.declare_entry("temperature reference",
+                        "1",
+                        Patterns::Double(0.),
+                        "Fluid temperature reference");
+    }
+    prm.leave_subsection();
+  }
+
+  void Fluid::read_parameters(ParameterHandler &prm, unsigned int index)
+  {
+    prm.enter_subsection("Fluid " + std::to_string(index));
+    {
+      density             = prm.get_double("density");
+      kinematic_viscosity = prm.get_double("kinematic viscosity");
+      dynamic_viscosity   = prm.get_double("dynamic viscosity");
+      if (dynamic_viscosity < 0.)
+        dynamic_viscosity = density * kinematic_viscosity;
+      thermal_conductivity = prm.get_double("thermal conductivity");
+      heat_capacity_at_constant_pressure =
+        prm.get_double("heat capacity at constant pressure");
+      pressure_ref    = prm.get_double("pressure reference");
+      temperature_ref = prm.get_double("temperature reference");
+
+      AssertThrow(
+        std::abs(density * temperature_ref) > 1e-14,
+        ExcMessage(
+          "The product density * reference temperature is too small."));
+
+      gas_constant = pressure_ref / (density * temperature_ref);
+
+      AssertThrow(gas_constant > 0, ExcInternalError());
+    }
+    prm.leave_subsection();
+  }
+
+  template <int dim>
+  void PseudoSolid<dim>::declare_parameters(ParameterHandler &prm,
+                                            unsigned int      index)
+  {
+    lame_lambda_fun =
+      std::make_shared<ManufacturedSolutions::ParsedFunctionSDBase<dim>>(1);
+    lame_mu_fun =
+      std::make_shared<ManufacturedSolutions::ParsedFunctionSDBase<dim>>(1);
+
+    prm.enter_subsection("Pseudosolid " + std::to_string(index));
+    {
+      prm.declare_entry("constitutive model",
+                        "linear elasticity",
+                        Patterns::Selection(
+                          "linear elasticity|neo hookean|ogden"),
+                        "Constitutive model for the pseudosolid");
+      prm.enter_subsection("lame lambda");
+      lame_lambda_fun->declare_parameters(prm);
+      prm.leave_subsection();
+      prm.enter_subsection("lame mu");
+      lame_mu_fun->declare_parameters(prm);
+      prm.leave_subsection();
+      prm.declare_entry("ogden beta",
+                        "1.",
+                        Patterns::Double(),
+                        "Volumetric exponent for the Ogden constitutive model");
+    }
+    prm.leave_subsection();
+  }
+
+  template <int dim>
+  void PseudoSolid<dim>::read_parameters(ParameterHandler &prm,
+                                         unsigned int      index)
+  {
+    prm.enter_subsection("Pseudosolid " + std::to_string(index));
+    {
+      const std::string parsed_model = prm.get("constitutive model");
+      if (parsed_model == "linear elasticity")
+        constitutive_model = ConstitutiveModel::linear_elasticity;
+      else if (parsed_model == "neo hookean")
+        constitutive_model = ConstitutiveModel::neo_hookean;
+      else if (parsed_model == "ogden")
+        constitutive_model = ConstitutiveModel::ogden;
+      else
+        AssertThrow(false,
+                    ExcMessage("Unknown pseudosolid constitutive model"));
+      prm.enter_subsection("lame lambda");
+      lame_lambda_fun->parse_parameters(prm);
+      prm.leave_subsection();
+      prm.enter_subsection("lame mu");
+      lame_mu_fun->parse_parameters(prm);
+      prm.leave_subsection();
+      ogden_beta = prm.get_double("ogden beta");
+      AssertThrow(std::abs(ogden_beta) > 1e-14,
+                  ExcMessage("Ogden model requires a nonzero beta parameter."));
+    }
+    prm.leave_subsection();
+  }
+
+  template class PseudoSolid<2>;
+  template class PseudoSolid<3>;
+
+  template <int dim>
+  void PhysicalProperties<dim>::declare_parameters(ParameterHandler &prm)
+  {
+    const std::string default_point = (dim == 2) ? "0, 0" : "0, 0, 0";
+    prm.enter_subsection("Physical properties");
+    {
+      // Declare the fluid subsections
+      prm.declare_entry("number of fluids",
+                        "1",
+                        Patterns::Integer(),
+                        "Number of fluids");
+
+      fluids.resize(max_fluids);
+      for (unsigned int i = 0; i < max_fluids; ++i)
+        fluids[i].declare_parameters(prm, i);
+
+      // Declare the pseudosolid subsections
+      prm.declare_entry(
+        "number of pseudosolids",
+        "0",
+        Patterns::Integer(),
+        "Number of pseudosolids (linear elastic analogy for mesh movement)");
+
+      pseudosolids.resize(max_pseudosolids);
+      for (unsigned int i = 0; i < max_pseudosolids; ++i)
+        pseudosolids[i].declare_parameters(prm, i);
+
+      prm.declare_entry("body force",
+                        default_point,
+                        Patterns::List(Patterns::Double(), dim, dim, ","),
+                        "Body force vector (e.g., gravity acceleration)");
+    }
+    prm.leave_subsection();
+  }
+
+  template <int dim>
+  void PhysicalProperties<dim>::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Physical properties");
+    {
+      n_fluids = prm.get_integer("number of fluids");
+      AssertThrow(n_fluids <= max_fluids,
+                  ExcMessage("More than " + std::to_string(max_fluids) +
+                             " fluids are specified, which is not supported"));
+
+      for (unsigned int i = 0; i < n_fluids; ++i)
+        fluids[i].read_parameters(prm, i);
+
+      n_pseudosolids = prm.get_integer("number of pseudosolids");
+      AssertThrow(n_pseudosolids <= max_pseudosolids,
+                  ExcMessage("More than " + std::to_string(max_pseudosolids) +
+                             " pseudo-solids (mesh analogy) are specified, "
+                             "which is not supported"));
+
+      for (unsigned int i = 0; i < n_pseudosolids; ++i)
+        pseudosolids[i].read_parameters(prm, i);
+
+      body_force = parse_rank_1_tensor<dim>(prm.get("body force"));
+    }
+    prm.leave_subsection();
+  }
+
+  template class PhysicalProperties<2>;
+  template class PhysicalProperties<3>;
+
+  void NonLinearSolver::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Nonlinear solver");
+    {
+      prm.declare_entry("tolerance",
+                        "1e-10",
+                        Patterns::Double(),
+                        "Stopping tolerance for the Newton solver");
+      prm.declare_entry("divergence_tolerance",
+                        "1e4",
+                        Patterns::Double(),
+                        "Stop nonlinear solver if residual exceeds this value");
+      prm.declare_entry("max_iterations",
+                        "1",
+                        Patterns::Integer(),
+                        "Maximum number of Newton iterations");
+      prm.declare_entry("enable_line_search",
+                        "true",
+                        Patterns::Bool(),
+                        "Enable line search");
+      prm.declare_entry(
+        "analytic_jacobian",
+        "true",
+        Patterns::Bool(),
+        "Compute exact Jacobian matrix. If false, use finite differences.");
+      prm.enter_subsection("reassembly heuristic");
+      {
+        prm.declare_entry(
+          "decrease tolerance",
+          "0.",
+          Patterns::Double(),
+          "If the norm of the current residual is higher than this value times "
+          "the previous residual norm, reassemble the matrix.");
+      }
+      prm.leave_subsection();
+      DECLARE_VERBOSITY_PARAM(prm, "verbose")
+      prm.declare_entry("compare jacobian matrix with finite differences",
+                        "false",
+                        Patterns::Bool(),
+                        "Compare the analytic jacobian with its finite "
+                        "difference approximation on all cells");
+      prm.declare_entry("analytical_jacobian_absolute_tolerance",
+                        "1e-3",
+                        Patterns::Double(),
+                        "If maximum absolute error exceeds this value, print "
+                        "matrices to console");
+      prm.declare_entry("analytical_jacobian_relative_tolerance",
+                        "1e-3",
+                        Patterns::Double(),
+                        "If maximum relative error exceeds this value, print "
+                        "matrices to console");
+      prm.declare_entry("write problematic elements",
+                        "false",
+                        Patterns::Bool(),
+                        "Write mesh elements for which the analytic jacobian "
+                        "differs from its approximation to a Gmsh's .pos file");
+    }
+    prm.leave_subsection();
+  }
+
+  void NonLinearSolver::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Nonlinear solver");
+    {
+      tolerance            = prm.get_double("tolerance");
+      divergence_tolerance = prm.get_double("divergence_tolerance");
+      max_iterations       = prm.get_integer("max_iterations");
+      enable_line_search   = prm.get_bool("enable_line_search");
+      analytic_jacobian    = prm.get_bool("analytic_jacobian");
+      prm.enter_subsection("reassembly heuristic");
+      {
+        reassembly_decrease_tol = prm.get_double("decrease tolerance");
+      }
+      prm.leave_subsection();
+      READ_VERBOSITY_PARAM(prm, verbosity)
+      compare_jacobian_with_finite_differences =
+        prm.get_bool("compare jacobian matrix with finite differences");
+      analytical_jacobian_absolute_tolerance =
+        prm.get_double("analytical_jacobian_absolute_tolerance");
+      analytical_jacobian_relative_tolerance =
+        prm.get_double("analytical_jacobian_relative_tolerance");
+      write_problematic_elements = prm.get_bool("write problematic elements");
+    }
+    prm.leave_subsection();
+  }
+
+  void LinearSolver::declare_parameters(ParameterHandler  &prm,
+                                        const std::string &solver_type)
+  {
+    prm.enter_subsection("Linear solver");
+    {
+      prm.enter_subsection(solver_type);
+      prm.declare_entry("method",
+                        "direct_mumps",
+                        Patterns::Selection("direct_mumps|cg|gmres"),
+                        "Method");
+      prm.declare_entry("tolerance",
+                        "1e-6",
+                        Patterns::Double(),
+                        "Tolerance for iterative solver");
+      prm.declare_entry("max iterations",
+                        "100",
+                        Patterns::Integer(),
+                        "Max number of outer iterations for iterative solver");
+      prm.declare_entry("ilu fill level",
+                        "0",
+                        Patterns::Integer(),
+                        "Max level of fill-in for ILU preconditioner");
+      prm.declare_entry("reuse", "false", Patterns::Bool(), "");
+      DECLARE_VERBOSITY_PARAM(prm, "verbose")
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void LinearSolver::read_parameters(ParameterHandler  &prm,
+                                     const std::string &solver_type)
+  {
+    prm.enter_subsection("Linear solver");
+    {
+      prm.enter_subsection(solver_type);
+      {
+        const std::string parsed_method = prm.get("method");
+        if (parsed_method == "direct_mumps")
+          method = Method::direct_mumps;
+        else if (parsed_method == "cg")
+          method = Method::cg;
+        else if (parsed_method == "gmres")
+          method = Method::gmres;
+        tolerance      = prm.get_double("tolerance");
+        max_iterations = prm.get_integer("max iterations");
+        ilu_fill_level = prm.get_integer("ilu fill level");
+        reuse          = prm.get_bool("reuse");
+        READ_VERBOSITY_PARAM(prm, verbosity)
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void TimeIntegration::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Time integration");
+    {
+      prm.declare_entry("dt", "1", Patterns::Double(), "Time step");
+      prm.declare_entry("t_initial",
+                        "1",
+                        Patterns::Double(),
+                        "Beginning of the simulation time interval");
+      prm.declare_entry("t_end",
+                        "1",
+                        Patterns::Double(),
+                        "End of the simulation time interval");
+      prm.declare_entry("scheme",
+                        "stationary",
+                        Patterns::Selection("stationary|BDF1|BDF2"),
+                        "Time stepping scheme (default is stationary)");
+      prm.declare_entry("bdf start method",
+                        "initial condition",
+                        Patterns::Selection("initial condition|BDF1"),
+                        "Starting method for BDF schemes of order > 1.");
+      prm.declare_entry(
+        "bdf start step ratio",
+        "0.1",
+        Patterns::Double(0.),
+        "If using BDF1 as starting method for the BDF2, the first step is set "
+        "to this vlue times the initial time step");
+      DECLARE_VERBOSITY_PARAM(prm, "verbose")
+
+      // Time adaptation parameters
+      prm.enter_subsection("Adaptation");
+      {
+        DECLARE_VERBOSITY_PARAM(prm, "verbose")
+        prm.declare_entry("enable",
+                          "false",
+                          Patterns::Bool(),
+                          "Enable adaptive time stepping");
+        prm.declare_entry("adaptation strategy",
+                          "bdf truncation error",
+                          Patterns::Selection(
+                            "bdf truncation error|cfl|adaptive mobility"),
+                          "Strategy used to drive timestep adaptation");
+        // Set the maximum absolute time step to the arbitrary value of 100
+        prm.declare_entry("max timestep",
+                          "100.",
+                          Patterns::Double(),
+                          "Maximum time step allowed");
+        // Set the minimum absolute time step to the arbitrary value of 1e-6
+        prm.declare_entry("min timestep",
+                          "1e-6",
+                          Patterns::Double(),
+                          "Minimum time step allowed");
+        prm.declare_entry(
+          "max timestep increase",
+          "10.",
+          Patterns::Double(),
+          "Maximum ratio allowed between increasing time steps");
+        prm.declare_entry(
+          "max timestep reduction",
+          "1e-1",
+          Patterns::Double(),
+          "Minimum ratio allowed between decreasing time steps");
+        prm.declare_entry("required times",
+                          "",
+                          Patterns::List(Patterns::Double()),
+                          "Times that the time integrator must hit exactly");
+
+        for (unsigned int i = 0; i < SolverInfo::n_variables; ++i)
+        {
+          prm.declare_entry("target error on " +
+                              std::string(SolverInfo::variable_names[i]),
+                            "1.",
+                            Patterns::Double(),
+                            "Target temporal error for variable " +
+                              std::string(SolverInfo::variable_names[i]));
+        }
+        prm.declare_entry("reject timestep with large error",
+                          "false",
+                          Patterns::Bool(),
+                          "Reject time steps with error estimate larger than "
+                          "target times given factor");
+        // The reject factor is the ratio (estimated_error / target error),
+        // and if this ratio is too high, the time step is rejected.
+        // The ratio for which a step is rejected should be > 1, since the
+        // step adaptation aims for steps with a ratio = 1.
+        prm.declare_entry("error ratio to reject",
+                          "2.",
+                          Patterns::Double(1.),
+                          "Time step is rejected if its error estimate exceeds "
+                          "this value times the target error");
+        prm.declare_entry("compute error on estimator",
+                          "false",
+                          Patterns::Bool(),
+                          "");
+        prm.declare_entry("target cfl number",
+                          "1.",
+                          Patterns::Double(),
+                          "Target CFL number for timestep adaptation");
+        prm.declare_entry("reject timestep with large cfl",
+                          "false",
+                          Patterns::Bool(),
+                          "Reject time steps with CFL number larger than "
+                          "target times given factor");
+        prm.declare_entry("cfl ratio to reject",
+                          "2.",
+                          Patterns::Double(1.),
+                          "Time step is rejected if its CFL number exceeds "
+                          "this value times the target CFL");
+        prm.declare_entry(
+          "target adaptive mobility number",
+          "1.",
+          Patterns::Double(0., 1.),
+          "Target value of dt*sigma_tilde*M_max/epsilon^3. Values cannot "
+          "exceed one so that dt remains below the mobility time scale.");
+        prm.declare_entry(
+          "reject timestep with large adaptive mobility",
+          "true",
+          Patterns::Bool(),
+          "Reject time steps whose adaptive mobility number exceeds the "
+          "configured rejection threshold.");
+        prm.declare_entry(
+          "adaptive mobility ratio to reject",
+          "1.",
+          Patterns::Double(1.),
+          "Time step is rejected if its adaptive mobility number exceeds "
+          "this value times the target adaptive mobility number.");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void TimeIntegration::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Time integration");
+    {
+      dt        = prm.get_double("dt");
+      t_initial = prm.get_double("t_initial");
+      t_end     = prm.get_double("t_end");
+
+      AssertThrow(dt <= t_end,
+                  ExcMessage("The initial time step should not be greater than "
+                             "the simulation end time."));
+
+      const std::string parsed_scheme = prm.get("scheme");
+      if (parsed_scheme == "stationary")
+        scheme = Scheme::stationary;
+      else if (parsed_scheme == "BDF1")
+        scheme = Scheme::BDF1;
+      else if (parsed_scheme == "BDF2")
+        scheme = Scheme::BDF2;
+      else
+        throw std::runtime_error("Unknown time intergation scheme : " +
+                                 parsed_scheme);
+      const std::string parsed_startup = prm.get("bdf start method");
+      if (parsed_startup == "initial condition")
+        bdfstart = BDFStart::initial_condition;
+      else if (parsed_startup == "BDF1")
+        bdfstart = BDFStart::BDF1;
+      else
+        throw std::runtime_error("Unknown BDF starting method : " +
+                                 parsed_startup);
+      bdf_starting_step_ratio = prm.get_double("bdf start step ratio");
+      READ_VERBOSITY_PARAM(prm, verbosity)
+
+      prm.enter_subsection("Adaptation");
+      {
+        READ_VERBOSITY_PARAM(prm, adaptation.verbosity)
+        adaptation.enable          = prm.get_bool("enable");
+        const auto parsed_strategy = prm.get("adaptation strategy");
+        if (parsed_strategy == "bdf truncation error")
+          adaptation.strategy =
+            Adaptation::AdaptationStrategy::BDFTruncationError;
+        else if (parsed_strategy == "cfl")
+          adaptation.strategy = Adaptation::AdaptationStrategy::CFL;
+        else if (parsed_strategy == "adaptive mobility")
+          adaptation.strategy =
+            Adaptation::AdaptationStrategy::AdaptiveMobility;
+        else
+          throw std::runtime_error("Unknown timestep adaptation method : " +
+                                   parsed_strategy);
+        adaptation.max_timestep = prm.get_double("max timestep");
+        adaptation.min_timestep = prm.get_double("min timestep");
+        adaptation.max_timestep_increase =
+          prm.get_double("max timestep increase");
+        adaptation.max_timestep_reduction =
+          prm.get_double("max timestep reduction");
+        adaptation.required_times = Utilities::string_to_double(
+          Utilities::split_string_list(prm.get("required times"), ","));
+
+        for (const auto time : adaptation.required_times)
+        {
+          AssertThrow(
+            time > t_initial,
+            ExcMessage(
+              "The required times should be greater than the starting time"));
+          AssertThrow(
+            time < t_end,
+            ExcMessage(
+              "The required times should be greater than the final time"));
+        }
+        std::sort(adaptation.required_times.begin(),
+                  adaptation.required_times.end());
+
+        for (unsigned int i = 0; i < SolverInfo::n_variables; ++i)
+          adaptation.target_error[SolverInfo::variable_types[i]] =
+            prm.get_double("target error on " +
+                           std::string(SolverInfo::variable_names[i]));
+        adaptation.reject_timestep_with_large_error =
+          prm.get_bool("reject timestep with large error");
+        adaptation.reject_error_factor =
+          prm.get_double("error ratio to reject");
+        adaptation.compute_error_on_estimator =
+          prm.get_bool("compute error on estimator");
+        adaptation.target_cfl = prm.get_double("target cfl number");
+        adaptation.reject_timestep_with_large_cfl =
+          prm.get_bool("reject timestep with large cfl");
+        adaptation.reject_cfl_factor = prm.get_double("cfl ratio to reject");
+        adaptation.target_adaptive_mobility_number =
+          prm.get_double("target adaptive mobility number");
+        AssertThrow(adaptation.target_adaptive_mobility_number > 0.,
+                    ExcMessage("The target adaptive mobility number must be "
+                               "strictly positive."));
+        adaptation.reject_timestep_with_large_adaptive_mobility = prm.get_bool(
+          "reject timestep with large adaptive mobility");
+        adaptation.reject_adaptive_mobility_factor =
+          prm.get_double("adaptive mobility ratio to reject");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void Stabilization::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Stabilization");
+    {
+      prm.declare_entry("enable supg",
+                        "false",
+                        Patterns::Bool(),
+                        "Enable SUPG/PSPG stabilization for the incompressible "
+                        "Navier-Stokes equations.");
+      prm.declare_entry("enable tracer supg",
+                        "false",
+                        Patterns::Bool(),
+                        "Enable SUPG stabilization for the tracer equation in "
+                        "the Cahn-Hilliard "
+                        "Navier-Stokes equations.");
+    }
+    prm.leave_subsection();
+  }
+
+  void Stabilization::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Stabilization");
+    {
+      enable_supg        = prm.get_bool("enable supg");
+      enable_tracer_supg = prm.get_bool("enable tracer supg");
+    }
+    prm.leave_subsection();
+  }
+
+  template <int dim>
+  void CahnHilliard<dim>::declare_parameters(ParameterHandler &prm)
+  {
+    degenerate_mobility =
+      std::make_shared<ManufacturedSolutions::ParsedFunctionSDBase<dim>>(1);
+
+    prm.enter_subsection("Cahn Hilliard");
+    {
+      prm.declare_entry("CHNS model",
+                        "abels",
+                        Patterns::Selection("abels|ding_horriche|abels_nlm"),
+                        "CHNS model. 'abels' uses the diffuse material marker "
+                        "phi with the phi*grad(mu) capillary force and "
+                        "diffusive inertia; 'ding_horriche' uses the unscaled "
+                        "potential with the mu*grad(phi) capillary force; "
+                        "'abels_nlm' is Abels with material properties affine "
+                        "in q = tanh(k phi)/tanh(k) (non-linear mixing).");
+      prm.declare_entry("tanh mixing steepness",
+                        "5.",
+                        Patterns::Double(0.),
+                        "Steepness k of the non-linear material marker "
+                        "q = tanh(k phi)/tanh(k) used by the abels_nlm model.");
+      prm.declare_entry("mobility model",
+                        "constant",
+                        Patterns::Selection(
+                          "constant|degenerate|adaptative_mobility|adaptative_mobility_2|adaptative_mobility_3"),
+                        "Model for the scalar mobility.");
+      prm.declare_entry(
+        "interface profile correction",
+        "none",
+        Patterns::Selection("none|profile|profile_flux"),
+        "Conservative interface-profile correction. 'profile_flux' also "
+        "projects the chemical-potential flux tangentially to the interface. "
+        "The active modes are supported only by the Abels model and require "
+        "disabled tracer SUPG.");
+      prm.declare_entry(
+        "profile correction strength",
+        "0.3",
+        Patterns::Double(0., 1.),
+        "Dimensionless profile-correction strength in [0,1]. The dimensional "
+        "coefficient and internal profile/flux regularizations are computed "
+        "automatically.");
+      prm.declare_entry("mobility",
+                        "1.",
+                        Patterns::Double(),
+                        "Mobility value if constant");
+      prm.declare_entry(
+        "adaptive mobility n",
+        "10.",
+        Patterns::Double(0.),
+        "Strictly positive multiplier n of adaptative_mobility: "
+        "n*sqrt(2)*(u.grad(phi))*epsilon^3/sigma_tilde.");
+      prm.declare_entry(
+        "adaptive mobility m",
+        "0.",
+        Patterns::Double(),
+        "Coefficient m of the additive gradient term "
+        "m*2*epsilon^2*|grad(phi)|^2 in adaptative_mobility.");
+      prm.declare_entry(
+        "adaptive mobility 2 n",
+        "1.",
+        Patterns::Double(0.),
+        "Positive multiplier n of the restricted adaptative_mobility_2: "
+        "n*sqrt(2)*chi(phi)*(u.grad(phi))*epsilon^3/sigma_tilde, where "
+        "chi is one for |phi|<=0.5 and zero for |phi|>=0.9.");
+      prm.declare_entry(
+        "adaptive mobility 2 delta",
+        "1e-12",
+        Patterns::Double(0.),
+        "Strictly positive mobility floor delta of "
+        "adaptative_mobility_2: M_reg=sqrt(M_raw^2+delta^2).");
+      prm.declare_entry(
+        "adaptive mobility 3 n",
+        "1.",
+        Patterns::Double(0.),
+        "Positive multiplier n of adaptative_mobility_3: "
+        "n*||u||_reg*epsilon^2/sigma_tilde.");
+      prm.declare_entry(
+        "adaptive mobility 3 delta",
+        "1e-12",
+        Patterns::Double(0.),
+        "Strictly positive regularization delta of adaptative_mobility_3: "
+        "||u||_reg = sqrt(u^2 + delta^2).");
+      prm.declare_entry(
+        "adaptive mobility delta",
+        "1e-12",
+        Patterns::Double(0.),
+        "Strictly positive regularization delta of adaptative_mobility: "
+        "M_reg=sqrt(M_raw^2+delta^2).");
+      prm.declare_entry("enable mobility tracer limiter",
+                        "false",
+                        Patterns::Bool(),
+                        "Clamp the tracer to [-1, 1] before evaluating the "
+                        "degenerate mobility M(phi)");
+      prm.enter_subsection("degenerate mobility");
+      {
+        degenerate_mobility->declare_parameters(prm, 1, "(1 - x*x)*(1 - x*x)");
+      }
+      prm.leave_subsection();
+      prm.declare_entry("surface tension",
+                        "1.",
+                        Patterns::Double(),
+                        "Fluid-fluid surface tension");
+      prm.declare_entry("interface thickness",
+                        "1e-2",
+                        Patterns::Double(),
+                        "Interface thickness (epsilon)");
+      prm.declare_entry("enable tracer limiter",
+                        "false",
+                        Patterns::Bool(),
+                        "Enable limiter for the tracer (phase field marker)");
+      // Moving-mesh forcing parameters
+      prm.declare_entry(
+        "mff source term",
+        "off",
+        Patterns::Selection("off|chns form|custom"),
+        "Source term forcing the pseudosolid (mesh) equation: 'off', the "
+        "built-in Cahn-Hilliard compression form ('chns form'), or a "
+        "user-defined 'custom' source term.");
+      prm.declare_entry(
+        "mff physics compression factor",
+        "0.0",
+        Patterns::Double(),
+        "Compression factor of the phi-based forcing factor(phi) * grad(phi). "
+        "Sign convention: a positive factor compresses the mesh towards the "
+        "interface.");
+      prm.declare_entry("mff transport factor",
+                        "0.0",
+                        Patterns::Double(),
+                        "Transport factor of the forcing (u_ALE * grad(phi)) * "
+                        "grad(phi); full CHNS solver only.");
+      prm.declare_entry(
+        "mff regularization gamma",
+        "0.0",
+        Patterns::Double(),
+        "Regularization gamma inside the saturated compression factor.");
+      // Enlarged (psi) solver parameters
+      prm.declare_entry(
+        "psi interface width factor",
+        "1.0",
+        Patterns::Double(),
+        "Widening factor of the enlarged tracer psi: the Helmholtz length is "
+        "L = factor * interface thickness.");
+      prm.declare_entry(
+        "psi mu correction factor",
+        "0.0",
+        Patterns::Double(),
+        "Opt-in mu-correction in the psi equation, localized near the "
+        "interface (0 disables it).");
+      prm.declare_entry(
+        "mff enlarged compression factor",
+        "0.0",
+        Patterns::Double(),
+        "Compression factor of the psi-based forcing factor(psi) * grad(psi) "
+        "(enlarged solver). Same sign convention as 'mff physics compression "
+        "factor': a positive factor compresses the mesh towards the interface.");
+      prm.declare_entry(
+        "mff enlarged lobe position exponent",
+        "1.0",
+        Patterns::Double(0.),
+        "Lobe-position exponent q of the enlarged forcing pre-map "
+        "sign(psi)*|psi|^q (q = 1 is a no-op). Its amplitude is "
+        "automatically normalized to preserve the theoretical Helmholtz-lobe "
+        "peak when q changes.");
+      prm.declare_entry(
+        "use presolver",
+        "false",
+        Patterns::Bool(),
+        "Run an elasticity presolver to pre-position the mesh and inject its "
+        "mesh position as the initial mesh of the CHNS solver.");
+    }
+    prm.leave_subsection();
+  }
+
+  template <int dim>
+  void CahnHilliard<dim>::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Cahn Hilliard");
+    {
+      const std::string parsed_chns_model = prm.get("CHNS model");
+      if (parsed_chns_model == "abels")
+        chns_model = CHNSModel::abels;
+      else if (parsed_chns_model == "ding_horriche")
+        chns_model = CHNSModel::ding_horriche;
+      else if (parsed_chns_model == "abels_nlm")
+        chns_model = CHNSModel::abels_nlm;
+      else
+        AssertThrow(false,
+                    ExcMessage("Unknown CHNS model '" + parsed_chns_model +
+                               "'"));
+
+      tanh_mixing_steepness = prm.get_double("tanh mixing steepness");
+
+      const std::string parsed_mobility_model = prm.get("mobility model");
+      if (parsed_mobility_model == "constant")
+        mobility_model = MobilityModel::constant;
+      else if (parsed_mobility_model == "degenerate")
+        mobility_model = MobilityModel::degenerate;
+      else if (parsed_mobility_model == "adaptative_mobility")
+        mobility_model = MobilityModel::adaptive;
+      else if (parsed_mobility_model == "adaptative_mobility_2")
+        mobility_model = MobilityModel::adaptive_mobility_2;
+      else if (parsed_mobility_model == "adaptative_mobility_3")
+        mobility_model = MobilityModel::adaptive_mobility_3;
+      else
+        AssertThrow(false, ExcMessage("Unknown mobility model"));
+      const std::string parsed_profile_correction =
+        prm.get("interface profile correction");
+      if (parsed_profile_correction == "none")
+        interface_profile_correction = InterfaceProfileCorrection::none;
+      else if (parsed_profile_correction == "profile")
+        interface_profile_correction = InterfaceProfileCorrection::profile;
+      else if (parsed_profile_correction == "profile_flux")
+        interface_profile_correction = InterfaceProfileCorrection::profile_flux;
+      else
+        AssertThrow(false, ExcMessage("Unknown interface profile correction"));
+      profile_correction_strength =
+        prm.get_double("profile correction strength");
+      if (interface_profile_correction != InterfaceProfileCorrection::none)
+        AssertThrow(profile_correction_strength > 0.,
+                    ExcMessage("'profile correction strength' must be "
+                               "strictly positive when correction is active"));
+      mobility                    = prm.get_double("mobility");
+      adaptive_mobility_n         = prm.get_double("adaptive mobility n");
+      adaptive_mobility_m         = prm.get_double("adaptive mobility m");
+      adaptive_mobility_2_n       = prm.get_double("adaptive mobility 2 n");
+      adaptive_mobility_2_delta   = prm.get_double("adaptive mobility 2 delta");
+      adaptive_mobility_3_n       = prm.get_double("adaptive mobility 3 n");
+      adaptive_mobility_3_delta   = prm.get_double("adaptive mobility 3 delta");
+      adaptive_mobility_delta     = prm.get_double("adaptive mobility delta");
+      AssertThrow(adaptive_mobility_n > 0.,
+                  ExcMessage("'adaptive mobility n' must be strictly positive"));
+      AssertThrow(adaptive_mobility_2_n > 0.,
+                  ExcMessage("'adaptive mobility 2 n' must be strictly positive"));
+      AssertThrow(adaptive_mobility_2_delta > 0.,
+                  ExcMessage(
+                    "'adaptive mobility 2 delta' must be strictly positive"));
+      AssertThrow(adaptive_mobility_3_n > 0.,
+                  ExcMessage("'adaptive mobility 3 n' must be strictly positive"));
+      AssertThrow(adaptive_mobility_3_delta > 0.,
+                  ExcMessage(
+                    "'adaptive mobility 3 delta' must be strictly positive"));
+      AssertThrow(adaptive_mobility_delta > 0.,
+                  ExcMessage(
+                    "'adaptive mobility delta' must be strictly positive"));
+      mobility_tracer_limiter = prm.get_bool("enable mobility tracer limiter");
+      prm.enter_subsection("degenerate mobility");
+      {
+        degenerate_mobility->parse_parameters(prm);
+      }
+      prm.leave_subsection();
+      surface_tension     = prm.get_double("surface tension");
+      epsilon_interface   = prm.get_double("interface thickness");
+      if (interface_profile_correction != InterfaceProfileCorrection::none)
+      {
+        AssertThrow(surface_tension > 0.,
+                    ExcMessage("Interface profile correction requires positive "
+                               "surface tension."));
+        AssertThrow(epsilon_interface > 0.,
+                    ExcMessage("Interface profile correction requires positive "
+                               "interface thickness."));
+      }
+      if (mobility_model == MobilityModel::adaptive ||
+          mobility_model == MobilityModel::adaptive_mobility_2 ||
+          mobility_model == MobilityModel::adaptive_mobility_3)
+      {
+        AssertThrow(surface_tension > 0.,
+                    ExcMessage("adaptative_mobility requires positive surface tension"));
+        AssertThrow(epsilon_interface > 0.,
+                    ExcMessage("adaptative_mobility requires positive interface thickness"));
+      }
+      with_tracer_limiter = prm.get_bool("enable tracer limiter");
+      // moving-mesh forcing parameters
+      const std::string parsed_mff_source_term = prm.get("mff source term");
+      if (parsed_mff_source_term == "chns form")
+        mff_source_term = MeshForcingSourceTerm::chns_form;
+      else if (parsed_mff_source_term == "custom")
+        mff_source_term = MeshForcingSourceTerm::custom;
+      else
+        mff_source_term = MeshForcingSourceTerm::off;
+      mff_physics_compression_factor =
+        prm.get_double("mff physics compression factor");
+      mff_transport_factor     = prm.get_double("mff transport factor");
+      mff_regularization_gamma = prm.get_double("mff regularization gamma");
+      psi_interface_width_factor =
+        prm.get_double("psi interface width factor");
+      psi_mu_correction_factor = prm.get_double("psi mu correction factor");
+      mff_enlarged_compression_factor =
+        prm.get_double("mff enlarged compression factor");
+      mff_enlarged_lobe_position_exponent =
+        prm.get_double("mff enlarged lobe position exponent");
+      AssertThrow(mff_enlarged_lobe_position_exponent > 0.,
+                  ExcMessage("'mff enlarged lobe position exponent' "
+                             "must be strictly positive"));
+      use_presolver = prm.get_bool("use presolver");
+    }
+    prm.leave_subsection();
+  }
+
+  template class CahnHilliard<2>;
+  template class CahnHilliard<3>;
+
+  void Elasticity::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Elasticity");
+    {
+      prm.declare_entry(
+        "write final msh",
+        "false",
+        Patterns::Bool(),
+        "If true, write the final deformed mesh as a Gmsh .msh file at the "
+        "end of the elasticity solve.");
+
+      prm.enter_subsection("current mesh source term");
+      {
+        prm.declare_entry(
+          "enable",
+          "false",
+          Patterns::Bool(),
+          "Enable the evaluation of the given position source term on the "
+          "current mesh (and not on the reference mesh as usual)");
+        prm.declare_entry("min multiplier",
+                          "1.",
+                          Patterns::Double(1.),
+                          "Minimum coefficient multiplying the source term "
+                          "evaluated on the current mesh");
+        prm.declare_entry("max multiplier",
+                          "1.",
+                          Patterns::Double(1.),
+                          "Maximum coefficient multiplying the source term "
+                          "evaluated on the current mesh");
+        prm.declare_entry("continuation steps",
+                          "1",
+                          Patterns::Integer(1),
+                          "Number of steps to use in the continuation method");
+      }
+      prm.leave_subsection();
+
+      prm.enter_subsection("presolver");
+      {
+        prm.declare_entry(
+          "initial compression multiplier",
+          "1.",
+          Patterns::Double(0.),
+          "Cahn-Hilliard presolver: initial fraction of the compression "
+          "forcing, ramped up to its physical value (1) by continuation.");
+        prm.declare_entry(
+          "continuation steps",
+          "1",
+          Patterns::Integer(1),
+          "Cahn-Hilliard presolver: number of continuation steps used to ramp "
+          "the compression forcing up to its physical value.");
+      }
+      prm.leave_subsection();
+
+      prm.enter_subsection("presolved mesh position");
+      {
+        prm.declare_entry(
+          "mode",
+          "off",
+          Patterns::Selection("off|reuse|force_recompute"),
+          "Disk cache of the presolved mesh position: 'off' disables caching, "
+          "'reuse' loads a valid cache (and writes one otherwise), "
+          "'force_recompute' always re-solves and refreshes the cache.");
+        prm.declare_entry("file",
+                          "presolved_mesh_position",
+                          Patterns::Anything(),
+                          "File name of the presolved mesh position cache.");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void Elasticity::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Elasticity");
+    {
+      write_final_msh = prm.get_bool("write final msh");
+
+      prm.enter_subsection("current mesh source term");
+      {
+        enable_source_term_on_current_mesh = prm.get_bool("enable");
+        min_current_mesh_source_term_multiplier =
+          prm.get_double("min multiplier");
+        max_current_mesh_source_term_multiplier =
+          prm.get_double("max multiplier");
+        AssertThrow(max_current_mesh_source_term_multiplier >=
+                      min_current_mesh_source_term_multiplier,
+                    ExcMessage("Max source term multiplier should be greater "
+                               "than the min multiplier"));
+        n_continuation_steps = prm.get_integer("continuation steps");
+      }
+      prm.leave_subsection();
+
+      prm.enter_subsection("presolver");
+      {
+        presolver_initial_compression_multiplier =
+          prm.get_double("initial compression multiplier");
+        presolver_continuation_steps =
+          prm.get_integer("continuation steps");
+      }
+      prm.leave_subsection();
+
+      prm.enter_subsection("presolved mesh position");
+      {
+        const std::string parsed_mode = prm.get("mode");
+        if (parsed_mode == "reuse")
+          presolved_mesh_position_mode = PresolvedMeshPositionMode::reuse;
+        else if (parsed_mode == "force_recompute")
+          presolved_mesh_position_mode =
+            PresolvedMeshPositionMode::force_recompute;
+        else
+          presolved_mesh_position_mode = PresolvedMeshPositionMode::off;
+        presolved_mesh_position_file = prm.get("file");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void CheckpointRestart::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Checkpoint Restart");
+    {
+      prm.declare_entry("enable checkpoint",
+                        "false",
+                        Patterns::Bool(),
+                        "Save data periodically to allow restart?");
+      prm.declare_entry("restart",
+                        "false",
+                        Patterns::Bool(),
+                        "Restart simulation from given checkpoint file?");
+      prm.declare_entry(
+        "checkpoint file",
+        "checkpoint",
+        Patterns::Anything(),
+        "Name of the file to write to and read from the checkpoint");
+      prm.declare_entry("checkpoint frequency",
+                        "10",
+                        Patterns::Integer(),
+                        "Write a checkpoint every N time steps");
+    }
+    prm.leave_subsection();
+  }
+
+  void CheckpointRestart::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Checkpoint Restart");
+    {
+      enable_checkpoint    = prm.get_bool("enable checkpoint");
+      restart              = prm.get_bool("restart");
+      filename             = prm.get("checkpoint file");
+      checkpoint_frequency = prm.get_integer("checkpoint frequency");
+    }
+    prm.leave_subsection();
+  }
+
+  void MMS::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Manufactured solution");
+    {
+      prm.declare_entry("enable",
+                        "false",
+                        Patterns::Bool(),
+                        "Enable convergence study for the prescribed "
+                        "manufactured solution. This "
+                        "overrides the given mesh filename.");
+      prm.declare_entry("type",
+                        "space",
+                        Patterns::Selection("space|time|spacetime"),
+                        "Choose between space and/or time convergence study.");
+      prm.declare_entry(
+        "subtract mean pressure",
+        "false",
+        Patterns::Bool(),
+        "Subtract mean pressure for L2 error computation. If disabled and if "
+        "the "
+        "pressure solution is not zero-mean, an error is thrown to avoid "
+        "returning erroneous convergence rates.");
+      prm.declare_entry("force source term",
+                        "false",
+                        Patterns::Bool(),
+                        "Use the provided source term instead of the one "
+                        "computed with symbolic differentiation");
+      prm.declare_entry("convergence steps",
+                        "1",
+                        Patterns::Integer(),
+                        "Number of steps in the convergence study");
+      prm.declare_entry(
+        "run only step",
+        "-1",
+        Patterns::Integer(),
+        "If specified, run only this convergence step (in [0, n_steps])");
+      prm.declare_entry("write convergence table to file",
+                        "false",
+                        Patterns::Bool(),
+                        "Write the convergence table to a file.");
+      prm.declare_entry("convergence file prefix",
+                        "convergence_rates",
+                        Patterns::Anything(),
+                        "Prefix for the convergence file.");
+      prm.declare_entry("compute rates only at end",
+                        "true",
+                        Patterns::Bool(),
+                        "If disabled, compute and write convergence rates at "
+                        "each convergence step.");
+      prm.declare_entry("print error at timesteps in console",
+                        "false",
+                        Patterns::Bool(),
+                        "");
+      prm.declare_entry("print error at timesteps to file",
+                        "false",
+                        Patterns::Bool(),
+                        "");
+      prm.declare_entry("error at timesteps file prefix",
+                        "unsteady_errors",
+                        Patterns::Anything(),
+                        "");
+      prm.enter_subsection("Space convergence");
+      {
+        prm.declare_entry("use dealii cube mesh",
+                          "false",
+                          Patterns::Bool(),
+                          "Use cube mesh from deal.II's routines");
+        prm.declare_entry("use dealii holed plate mesh",
+                          "false",
+                          Patterns::Bool(),
+                          "Use plate with hole mesh from deal.II's routines");
+        prm.declare_entry("mesh prefix",
+                          "",
+                          Patterns::Anything(),
+                          "Prefix (including full path) for the meshes to use "
+                          "for the spatial convergence study");
+        prm.declare_entry("first mesh",
+                          "0",
+                          Patterns::Integer(),
+                          "Index of the first mesh, which will be (mesh "
+                          "prefix)_(first mesh).msh");
+        prm.declare_entry(
+          "norms to compute",
+          "L2_norm",
+          Patterns::List(
+            *Patterns::Tools::Convert<VectorTools::NormType>::to_pattern()),
+          "A comma-separated list of norms (e.g., L2_norm, H1_norm)");
+        prm.declare_entry(
+          "initial target number of vertices",
+          "1000",
+          Patterns::Integer(),
+          "For a convergence study with metric-based anisotropic mesh "
+          "adaptation enabled, the initial target number of vertices in the "
+          "adapted mesh. This value is then doubled at each convergence step.");
+        prm.declare_entry("target vertices multiplier between steps",
+                          "2",
+                          Patterns::Integer(1),
+                          "Between two convergence steps, the target number of "
+                          "mesh vertices is multiplied by this value.");
+        prm.declare_entry("time intervals multiplier between steps",
+                          "2",
+                          Patterns::Integer(1),
+                          "Between two convergence steps, the number of time "
+                          "intervals is multiplied by this value.");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("Time convergence");
+      {
+        prm.declare_entry("norm",
+                          "L1",
+                          Patterns::Selection("L1|L2|Linfty"),
+                          "Lp norm to use for the temporal error.");
+        prm.declare_entry(
+          "use spatial mesh",
+          "false",
+          Patterns::Bool(),
+          "If true, use the mesh provided for the spatial convergence study. "
+          "If "
+          "false, use the provided mesh in the Mesh subsection.");
+        prm.declare_entry("spatial mesh index",
+                          "0",
+                          Patterns::Integer(),
+                          "If use spatial mesh is true, set the index "
+                          "(refinement level) of the used mesh.");
+        prm.declare_entry("time step reduction",
+                          "0.5",
+                          Patterns::Double(),
+                          "Reduction factor between two time steps in a time "
+                          "convergence study.");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  void MMS::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Manufactured solution");
+    {
+      enable                        = prm.get_bool("enable");
+      const std::string parsed_type = prm.get("type");
+      if (parsed_type == "space")
+        type = Type::space;
+      else if (parsed_type == "time")
+        type = Type::time;
+      else if (parsed_type == "spacetime")
+        type = Type::spacetime;
+      subtract_mean_pressure = prm.get_bool("subtract mean pressure");
+      force_source_term      = prm.get_bool("force source term");
+      n_convergence          = prm.get_integer("convergence steps");
+      run_only_step          = prm.get_integer("run only step");
+      write_convergence_table_to_file =
+        prm.get_bool("write convergence table to file");
+      convergence_file_prefix   = prm.get("convergence file prefix");
+      compute_rates_only_at_end = prm.get_bool("compute rates only at end");
+      print_unsteady_errors_to_console =
+        prm.get_bool("print error at timesteps in console");
+      print_unsteady_errors_to_file =
+        prm.get_bool("print error at timesteps to file");
+      unsteady_errors_file_prefix = prm.get("error at timesteps file prefix");
+      prm.enter_subsection("Space convergence");
+      {
+        use_deal_ii_cube_mesh = prm.get_bool("use dealii cube mesh");
+        use_deal_ii_holed_plate_mesh =
+          prm.get_bool("use dealii holed plate mesh");
+        mesh_prefix      = prm.get("mesh prefix");
+        first_mesh_index = prm.get_integer("first mesh");
+        const auto parsed_norms =
+          Utilities::split_string_list(prm.get("norms to compute"));
+        for (const auto &s : parsed_norms)
+          norms_to_compute.push_back(
+            Patterns::Tools::Convert<VectorTools::NormType>::to_value(s));
+        n_target_vertices =
+          prm.get_integer("initial target number of vertices");
+        n_target_vertices_multiplier =
+          prm.get_integer("target vertices multiplier between steps");
+        n_time_intervals_multiplier =
+          prm.get_integer("time intervals multiplier between steps");
+      }
+      prm.leave_subsection();
+      prm.enter_subsection("Time convergence");
+      {
+        const std::string parsed_norm = prm.get("norm");
+        if (parsed_norm == "L1")
+          time_norm = TimeLpNorm::L1;
+        else if (parsed_norm == "L2")
+          time_norm = TimeLpNorm::L2;
+        else if (parsed_norm == "Linfty")
+          time_norm = TimeLpNorm::Linfty;
+        use_space_convergence_mesh = prm.get_bool("use spatial mesh");
+        spatial_mesh_index         = prm.get_integer("spatial mesh index");
+        time_step_reduction_factor = prm.get_double("time step reduction");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  template <int dim>
+  void FSI<dim>::declare_parameters(ParameterHandler &prm)
+  {
+    const std::string default_point = (dim == 2) ? "0, 0" : "0, 0, 0";
+    prm.enter_subsection("FSI");
+    {
+      DECLARE_VERBOSITY_PARAM(prm, "verbose")
+      prm.declare_entry("enable coupling",
+                        "false",
+                        Patterns::Bool(),
+                        "Enable coupling between fluid and solid obstacle");
+      prm.declare_entry(
+        "use zero mass model",
+        "true",
+        Patterns::Bool(),
+        "Use evolution equation for the solid obstacle assuming zero mass");
+      prm.declare_entry("spring constant",
+                        "1",
+                        Patterns::Double(),
+                        "Spring stiffness constant attached to solid object");
+      prm.declare_entry("damping",
+                        "1",
+                        Patterns::Double(),
+                        "Damping coefficient of the studied system");
+      prm.declare_entry("mass",
+                        "1",
+                        Patterns::Double(),
+                        "Mass of the studied system");
+      prm.declare_entry("cylinder radius", "1", Patterns::Double(), "");
+      prm.declare_entry("cylinder length", "1", Patterns::Double(), "");
+      prm.declare_entry("cylinder center",
+                        default_point,
+                        Patterns::List(Patterns::Double(), dim, dim, ","),
+                        "Center of the cylinder");
+      prm.declare_entry("initial velocity",
+                        default_point,
+                        Patterns::List(Patterns::Double(), dim, dim, ","),
+                        "Center of the cylinder");
+      prm.declare_entry("fix z component", "true", Patterns::Bool(), "");
+      prm.declare_entry("compute error on forces",
+                        "false",
+                        Patterns::Bool(),
+                        "");
+      prm.declare_entry(
+        "force-position coupling",
+        "local_position_master_to_all_lambda",
+        Patterns::Selection(
+          "all_position_to_all_lambda|local_position_master_to_all_lambda|"
+          "global_position_master_to_all_lambda|local_position_master_to_"
+          "lambda_accumulators|global_position_master_to_global_accumulator"),
+        "Coupling strategy between force (Lagrange multiplier) "
+        "and position dofs");
+
+      prm.enter_subsection("Rigid body rotation");
+      {
+        prm.declare_entry(
+          "enable",
+          "false",
+          Patterns::Bool(),
+          "Enable rigid-body rotation around center of rotation");
+        prm.declare_entry("center of rotation",
+                          default_point,
+                          Patterns::List(Patterns::Double(), dim, dim, ","),
+                          "Fixed center of rotation");
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  template <int dim>
+  void FSI<dim>::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("FSI");
+    {
+      READ_VERBOSITY_PARAM(prm, verbosity)
+      enable_coupling  = prm.get_bool("enable coupling");
+      zero_mass_model  = prm.get_bool("use zero mass model");
+      spring_constant  = prm.get_double("spring constant");
+      damping          = prm.get_double("damping");
+      mass             = prm.get_double("mass");
+      cylinder_radius  = prm.get_double("cylinder radius");
+      cylinder_length  = prm.get_double("cylinder length");
+      cylinder_center  = parse_rank_1_tensor<dim>(prm.get("cylinder center"));
+      initial_velocity = parse_rank_1_tensor<dim>(prm.get("initial velocity"));
+      fix_z_component  = prm.get_bool("fix z component");
+      compute_error_on_forces = prm.get_bool("compute error on forces");
+      const std::string parsed_coupling = prm.get("force-position coupling");
+      if (parsed_coupling == "all_position_to_all_lambda")
+        coupling = CouplingStrategy::all_position_to_all_lambda;
+      else if (parsed_coupling == "local_position_master_to_all_lambda")
+        coupling = CouplingStrategy::local_position_master_to_all_lambda;
+      else if (parsed_coupling == "global_position_master_to_all_lambda")
+        coupling = CouplingStrategy::global_position_master_to_all_lambda;
+      else if (parsed_coupling ==
+               "local_position_master_to_lambda_accumulators")
+        coupling =
+          CouplingStrategy::local_position_master_to_lambda_accumulators;
+      else if (parsed_coupling ==
+               "global_position_master_to_global_accumulator")
+        coupling =
+          CouplingStrategy::global_position_master_to_global_accumulator;
+      else
+        throw std::runtime_error("Unknown force-position coupling: " +
+                                 parsed_coupling);
+
+      prm.enter_subsection("Rigid body rotation");
+      {
+        rotation.enable = prm.get_bool("enable");
+        if (rotation.enable)
+          AssertThrow(zero_mass_model,
+                      ExcMessage("Rigid-body rotation is only available for "
+                                 "the zero-mass model."));
+        rotation.center =
+          parse_rank_1_tensor<dim>(prm.get("center of rotation"));
+      }
+      prm.leave_subsection();
+    }
+    prm.leave_subsection();
+  }
+
+  template struct FSI<2>;
+  template struct FSI<3>;
+
+  void SolutionRecovery::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Solution recovery");
+    {DECLARE_VERBOSITY_PARAM(prm, "verbose")} prm.leave_subsection();
+  }
+
+  void SolutionRecovery::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Solution recovery");
+    {READ_VERBOSITY_PARAM(prm, verbosity)} prm.leave_subsection();
+  }
+
+  void Debug::declare_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Debug");
+    {
+      DECLARE_VERBOSITY_PARAM(prm, "quiet")
+      prm.declare_entry(
+        "write dealii mesh as msh",
+        "false",
+        Patterns::Bool(),
+        "If using deal.II meshing routines, write the mesh as a .msh file");
+      prm.declare_entry("write partition gmsh",
+                        "false",
+                        Patterns::Bool(),
+                        "Write the mesh partitions as a Gmsh .pos file.");
+      prm.declare_entry("apply exact solution", "false", Patterns::Bool(), "");
+      prm.declare_entry("fsi_apply_erroneous_coupling",
+                        "false",
+                        Patterns::Bool(),
+                        "");
+      prm.declare_entry("fsi_check_mms_on_boundary",
+                        "false",
+                        Patterns::Bool(),
+                        "");
+      prm.declare_entry("fsi_coupling_option", "1", Patterns::Integer(), "");
+    }
+    prm.leave_subsection();
+  }
+
+  void Debug::read_parameters(ParameterHandler &prm)
+  {
+    prm.enter_subsection("Debug");
+    {
+      READ_VERBOSITY_PARAM(prm, verbosity)
+      write_dealii_mesh_as_msh = prm.get_bool("write dealii mesh as msh");
+      write_partition_pos_gmsh = prm.get_bool("write partition gmsh");
+      apply_exact_solution     = prm.get_bool("apply exact solution");
+      fsi_apply_erroneous_coupling =
+        prm.get_bool("fsi_apply_erroneous_coupling");
+      fsi_check_mms_on_boundary = prm.get_bool("fsi_check_mms_on_boundary");
+      fsi_coupling_option       = prm.get_integer("fsi_coupling_option");
+    }
+    prm.leave_subsection();
+  }
+} // namespace Parameters
+

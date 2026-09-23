@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_elasticity_solver_1_1_m_m_s_source_term" kind="class" language="C++" prot="protected">
+    <compoundname>ElasticitySolver::MMSSourceTerm</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="elasticity__solver_8h" local="no">elasticity_solver.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_elasticity_solver_1_1_m_m_s_source_term_1ae781c17c36c0e1ea540450d860967848" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="class_parameters_1_1_physical_properties" kindref="compound">Parameters::PhysicalProperties</ref>&lt; dim &gt; &amp;</type>
+        <definition>const Parameters::PhysicalProperties&lt;dim&gt;&amp; ElasticitySolver&lt; dim &gt;::MMSSourceTerm::physical_properties</definition>
+        <argsstring></argsstring>
+        <name>physical_properties</name>
+        <qualifiedname>ElasticitySolver::MMSSourceTerm::physical_properties</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/elasticity_solver.h" line="275" column="55" bodyfile="snapshots/pre_amr/include/elasticity_solver.h" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_elasticity_solver_1_1_m_m_s_source_term_1a4c6cef3c7671d2c30bcb000c05526e56" prot="protected" static="no" mutable="no">
+        <type>const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp;</type>
+        <definition>const ManufacturedSolutions::ManufacturedSolution&lt;dim&gt;&amp; ElasticitySolver&lt; dim &gt;::MMSSourceTerm::mms</definition>
+        <argsstring></argsstring>
+        <name>mms</name>
+        <qualifiedname>ElasticitySolver::MMSSourceTerm::mms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/elasticity_solver.h" line="276" column="55" bodyfile="snapshots/pre_amr/include/elasticity_solver.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_elasticity_solver_1_1_m_m_s_source_term_1a2ae8314f6a44efddd79350c9662ec843" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ElasticitySolver&lt; dim &gt;::MMSSourceTerm::MMSSourceTerm</definition>
+        <argsstring>(const Parameters::PhysicalProperties&lt; dim &gt; &amp;physical_properties, const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp;mms)</argsstring>
+        <name>MMSSourceTerm</name>
+        <qualifiedname>ElasticitySolver::MMSSourceTerm::MMSSourceTerm</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_physical_properties" kindref="compound">Parameters::PhysicalProperties</ref>&lt; dim &gt; &amp;</type>
+          <declname>physical_properties</declname>
+        </param>
+        <param>
+          <type>const ManufacturedSolutions::ManufacturedSolution&lt; dim &gt; &amp;</type>
+          <declname>mms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/elasticity_solver.h" line="246" column="5" bodyfile="snapshots/pre_amr/include/elasticity_solver.h" bodystart="246" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1_1_m_m_s_source_term_1a3e45debae6578c25974f3ca2c7232187" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ElasticitySolver&lt; dim &gt;::MMSSourceTerm::vector_value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</argsstring>
+        <name>vector_value</name>
+        <qualifiedname>ElasticitySolver::MMSSourceTerm::vector_value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluate source term for the linear elasticity equation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/elasticity_solver.h" line="257" column="18" bodyfile="snapshots/pre_amr/src/elasticity_solver.cpp" bodystart="193" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_elasticity_solver_1_1_m_m_s_source_term_1a641f9629b08a2f5d8cbdaa17c163363c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void ElasticitySolver&lt; dim &gt;::MMSSourceTerm::vector_gradient_list</definition>
+        <argsstring>(const std::vector&lt; Point&lt; dim &gt; &gt; &amp;, std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt; &amp;) const override</argsstring>
+        <name>vector_gradient_list</name>
+        <qualifiedname>ElasticitySolver::MMSSourceTerm::vector_gradient_list</qualifiedname>
+        <param>
+          <type>const std::vector&lt; Point&lt; dim &gt; &gt; &amp;</type>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fill the given list of gradients. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/elasticity_solver.h" line="263" column="18" bodyfile="snapshots/pre_amr/include/elasticity_solver.h" bodystart="263" bodyend="272"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Source term called when performing a convergence study. This function calls the derivatives functions from the given pre-set manufactured solution. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ElasticitySolver&lt; dim &gt;::MMSSourceTerm</label>
+        <link refid="class_elasticity_solver_1_1_m_m_s_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ElasticitySolver&lt; dim &gt;::MMSSourceTerm</label>
+        <link refid="class_elasticity_solver_1_1_m_m_s_source_term"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/elasticity_solver.h" line="243" column="3" bodyfile="snapshots/pre_amr/include/elasticity_solver.h" bodystart="244" bodyend="277"/>
+    <listofallmembers>
+      <member refid="class_elasticity_solver_1_1_m_m_s_source_term_1a4c6cef3c7671d2c30bcb000c05526e56" prot="protected" virt="non-virtual"><scope>ElasticitySolver::MMSSourceTerm</scope><name>mms</name></member>
+      <member refid="class_elasticity_solver_1_1_m_m_s_source_term_1a2ae8314f6a44efddd79350c9662ec843" prot="public" virt="non-virtual"><scope>ElasticitySolver::MMSSourceTerm</scope><name>MMSSourceTerm</name></member>
+      <member refid="class_elasticity_solver_1_1_m_m_s_source_term_1ae781c17c36c0e1ea540450d860967848" prot="protected" virt="non-virtual"><scope>ElasticitySolver::MMSSourceTerm</scope><name>physical_properties</name></member>
+      <member refid="class_elasticity_solver_1_1_m_m_s_source_term_1a641f9629b08a2f5d8cbdaa17c163363c" prot="public" virt="virtual"><scope>ElasticitySolver::MMSSourceTerm</scope><name>vector_gradient_list</name></member>
+      <member refid="class_elasticity_solver_1_1_m_m_s_source_term_1a3e45debae6578c25974f3ca2c7232187" prot="public" virt="virtual"><scope>ElasticitySolver::MMSSourceTerm</scope><name>vector_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

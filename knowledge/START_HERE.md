@@ -2,7 +2,19 @@
 
 Point d’entrée de la mémoire de travail. Session 01 : **19 septembre 2026, heure de New York** ; capture technique le 20 septembre UTC. Sources GitHub uniquement. Les fiches décrivent des lectures ciblées, jamais une couverture complète du dépôt.
 
-## Lire dans cet ordre
+## Référence de travail à privilégier
+
+Le complément historique prend **cc8dace** (16 septembre) comme référence du workflow personnel **avant le nouveau couplage CHNS–ALE AMR**. L'AMR générique importée de master y existe déjà. Le HEAD 35d43b8 demeure suivi séparément. Commencer par le socle ci-dessous pour ne pas attribuer à l'AMR les fonctionnalités plus anciennes.
+
+1. [Workflow pré-AMR](features/workflow-pre-amr.md) : lancement, presolver, x/ψ, mappings, BC, calcul, sorties et reprise.
+2. [Modèles CHNS pré-AMR](features/chns-models-pre-amr.md) : Abels, Ding–Horriche, NLM, enlarged et stabilisation.
+3. [Mobilité, corrections et pas de temps](patterns/mobility-corrections-timestep.md), puis [presolver, cache et géométrie](patterns/presolver-cache-geometry.md) : contrats transversaux.
+4. [Chronologie](history/chronologie-branche.md) : 61 commits propres, 13 imports de master et cinq merges ; chaque entrée relie l'ajout ou le correctif à ses preuves.
+5. [Bilan du complément](journal/complement-pre-amr.md), puis [trois exercices de lecture C++](../pedagogie/lecture-cpp-pre-amr.md).
+
+Le code prouve les chemins supportés, pas les paramètres du cas de production personnel. Le prochain passage sur le PC de calcul devra relever ce cas et ses builds.
+
+## Autres entrées et état actuel
 
 1. [État machine des révisions](../state.json) : SHA observés, périmètre étudié, validations et suites.
 2. [Carte du dépôt et des dépendances](MAP.md) : où trouver une feature et quoi relire avant de la modifier.
@@ -39,7 +51,7 @@ Les références détaillées sont dans les fiches. Les assertions de ce résum�
 
 Aucun build FEZ, test MPI, test de convergence ou cas physique n’a été lancé. Les sorties de tests versionnées sont des données du dépôt, pas une reproduction indépendante. Aucun nouveau bug n’est confirmé.
 
-Restent notamment à approfondir : dérivation complète des formulations CHNS et variantes enlarged, symétrie/signes du Jacobien, toutes les stratégies FSI et l’autre implémentation fsi_solver, adaptation métrique/MMG, redémarrage, garanties de conservation au transfert, performance et robustesse selon les rangs MPI.
+Le complément documente désormais les modèles, enlarged, les corrections et la reprise à cc8dace. Restent à établir : validation mathématique complète des Jacobiennes, reproduction du workflow personnel, toutes les stratégies FSI et l'autre implémentation fsi_solver, adaptation métrique/MMG, garanties de conservation au transfert, performance et robustesse selon les rangs MPI.
 
 ## Conventions de confiance
 

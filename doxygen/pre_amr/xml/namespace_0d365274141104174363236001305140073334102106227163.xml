@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_0d365274141104174363236001305140073334102106227163" kind="namespace" language="C++">
+    <compoundname>@365274141104174363236001305140073334102106227163</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/src/incompressible_chns_solver.cpp" line="37" column="1"/>
+  </compounddef>
+</doxygen>

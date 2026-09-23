@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="index_8md" kind="file" language="Markdown">
+    <compoundname>index.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>FEZ<sp/>—<sp/>workflow<sp/>de<sp/>référence<sp/>avant<sp/>le<sp/>couplage<sp/>CHNS–ALE<sp/>AMR</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Révision<sp/>figée<sp/>:<sp/>[cc8dace141900b82e5790fa878e39d9c54898784](https://github.com/arthurbawin/fez/tree/cc8dace141900b82e5790fa878e39d9c54898784),<sp/>16<sp/>septembre<sp/>2026.<sp/>Elle<sp/>précède<sp/>le<sp/>nouveau<sp/>couplage<sp/>AMR<sp/>de<sp/>la<sp/>branche<sp/>personnelle,<sp/>mais<sp/>contient<sp/>déjà<sp/>des<sp/>infrastructures<sp/>AMR<sp/>importées<sp/>de<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Cette<sp/>référence<sp/>partielle<sp/>isole<sp/>le<sp/>socle<sp/>de<sp/>travail<sp/>antérieur<sp/>:<sp/>presolver<sp/>élastique,<sp/>géométrie<sp/>ALE,<sp/>système<sp/>enlarged<sp/>avec<sp/>ψ,<sp/>formulations<sp/>et<sp/>mobilités,<sp/>reprises<sp/>et<sp/>diagnostics.<sp/>Les<sp/>fichiers<sp/>sont<sp/>issus<sp/>de<sp/>cette<sp/>révision<sp/>précise<sp/>;<sp/>aucune<sp/>compilation<sp/>FEZ<sp/>n&apos;a<sp/>été<sp/>effectuée.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Parcours<sp/>conseillé</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[Du<sp/>lancement<sp/>au<sp/>redémarrage](features/workflow-pre-amr.md).</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[Modèles<sp/>CHNS<sp/>et<sp/>variantes<sp/>enlarged](features/chns-models-pre-amr.md).</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>[Presolver,<sp/>cache<sp/>et<sp/>géométrie](patterns/presolver-cache-geometry.md).</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>[Mobilité,<sp/>corrections<sp/>et<sp/>contrôle<sp/>du<sp/>pas](patterns/mobility-corrections-timestep.md).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Repères<sp/>dans<sp/>l&apos;API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CHNSSolver<sp/>hérite<sp/>de<sp/>NavierStokesSolver<sp/>et<sp/>sélectionne<sp/>les<sp/>assembleurs.<sp/>ElasticitySolver<sp/>prépare<sp/>un<sp/>état<sp/>géométrique<sp/>avant<sp/>le<sp/>calcul.<sp/>ScratchDataCHNS<sp/>contient<sp/>les<sp/>champs<sp/>nécessaires<sp/>aux<sp/>contributions<sp/>locales.<sp/>TimeHandler<sp/>reçoit<sp/>les<sp/>informations<sp/>utilisées<sp/>par<sp/>le<sp/>contrôle<sp/>de<sp/>pas.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Les<sp/>commentaires<sp/>sources<sp/>sont<sp/>conservés<sp/>tels<sp/>quels.<sp/>La<sp/>fiche<sp/>workflow<sp/>signale<sp/>notamment<sp/>un<sp/>commentaire<sp/>périmé<sp/>sur<sp/>l&apos;injection<sp/>de<sp/>ψ<sp/>;<sp/>la<sp/>fiche<sp/>physique<sp/>distingue<sp/>le<sp/>résidu<sp/>réellement<sp/>assemblé<sp/>de<sp/>certains<sp/>commentaires<sp/>de<sp/>signes.<sp/>Ces<sp/>divergences<sp/>documentaires<sp/>ne<sp/>constituent<sp/>pas<sp/>des<sp/>bugs<sp/>numériques<sp/>reproduits.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Les<sp/>tests<sp/>présents<sp/>dans<sp/>le<sp/>snapshot<sp/>sont<sp/>des<sp/>cas<sp/>à<sp/>relancer<sp/>sur<sp/>le<sp/>PC<sp/>FEZ.<sp/>Le<sp/>registre<sp/>des<sp/>61<sp/>commits<sp/>et<sp/>les<sp/>13<sp/>imports<sp/>de<sp/>master<sp/>sont<sp/>accessibles<sp/>dans<sp/>le<sp/>Journal<sp/>de<sp/>l&apos;atlas,<sp/>séparément<sp/>de<sp/>cette<sp/>référence<sp/>d&apos;API.</highlight></codeline>
+    </programlisting>
+    <location file="guides/pre_amr/index.md"/>
+  </compounddef>
+</doxygen>

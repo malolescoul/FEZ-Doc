@@ -1,48 +1,55 @@
-# Référence Doxygen locale — FEZ, jour 1
+# Références Doxygen locales — FEZ
 
-Deux références sont préparées séparément pour éviter de confondre les variantes des classes selon la branche.
+Trois références isolent les états du code étudiés. La référence pré-AMR est le parent immédiat du commit AMR, sur la branche `chns-ding-horriche-master-form`.
 
-- **master** : ccf20caa0745cc2fe640f879d34acf2bf3855e6c.
-- **chns-ding-horriche-master-form** : 35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858.
+| Référence | Commit immuable | Snapshot conservé | Fichiers dans l’API | Pages HTML | Avertissements |
+|---|---|---:|---:|---:|---:|
+| [master](master/html/index.html) | `ccf20caa0745cc2fe640f879d34acf2bf3855e6c` | 25 | 25 | 200 | 24 |
+| [Branche personnelle pré-AMR](pre_amr/html/index.html) | `cc8dace141900b82e5790fa878e39d9c54898784` | 46 | 34 | 395 | 46 |
+| [Branche personnelle avec AMR](prod/html/index.html) | `35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858` | 28 | 26 | 200 | 42 |
 
-## Édition générée
+Les trois références HTML et XML ont été générées avec **Doxygen 1.18.0**, avec un code de retour **0** pour chaque référence, puis vérifiées le **20 septembre 2026 UTC**. L’archive portable officielle a été vérifiée avec le SHA-256 publié avant exécution. Aucun logiciel n’a été installé au niveau du système.
 
-Les deux références HTML et XML ont été **effectivement générées avec Doxygen 1.18.0**, avec un code de retour 0 pour chaque branche. L’archive portable officielle a été vérifiée avec le SHA-256 publié avant exécution. Aucun logiciel n’a été installé au niveau du système.
+Le [manifeste](manifest.json) conserve les commits, les empreintes des sources et des guides, les journaux de génération et les résultats des contrôles. Le nombre de fichiers conservés mesure le contenu des snapshots ; il ne constitue pas un inventaire de lectures approfondies. Les snapshots sont **partiels**, et cette édition ne prétend pas fournir l’API exhaustive de FEZ. Les 12 fichiers de tests pré-AMR et les 2 tests de la référence AMR sont conservés hors index API ; leur présence ne signifie pas qu’ils ont été exécutés.
 
-- [Ouvrir la référence master](master/html/index.html) : 25 fichiers source inclus.
-- [Ouvrir la référence CHNS ALE](prod/html/index.html) : 28 fichiers source conservés, dont 26 dans l’index API et 2 tests conservés pour la reprise.
-- [Manifeste des sources et contrôles](manifest.json) : SHA des commits, empreintes SHA-256 des fichiers et résultats de vérification.
+## Guides et mathématiques hors ligne
 
-Les avertissements restants concernent des commandes LaTeX présentes dans les commentaires du dépôt sans délimiteurs Doxygen : **24 pour master, 42 pour la branche personnelle**. Ils sont conservés dans logs/master-warnings.log et logs/prod-warnings.log. Les sources n’ont pas été retouchées pour les faire disparaître ; certaines formules des commentaires restent donc en notation textuelle imparfaite. Les guides de lecture rédigés pour cette édition restent séparés de ces commentaires hérités.
+Les neuf guides sont synchronisés depuis les Markdown canoniques de `../knowledge`. Les quatre guides pré-AMR donnent accès au [workflow](pre_amr/html/fez_pre_amr_workflow.html), aux [modèles CHNS](pre_amr/html/fez_pre_amr_models.html), au [presolver et au cache](pre_amr/html/fez_pre_amr_presolver.html) et aux [mobilités, corrections et pas de temps](pre_amr/html/fez_pre_amr_mobility.html).
 
-Une étape limitée au HTML généré rétablit les ancres des index alphabétiques et des destructeurs émises incomplètement par Doxygen 1.18.0. Le script fix-index-anchors.ps1 rend cette correction reproductible ; il ne modifie ni le texte de l’API ni le code FEZ.
+Les copies destinées à Doxygen reçoivent des identifiants de page stables, des délimiteurs mathématiques protégés, des liens explicites entre références et un marqueur de fin de guide. Cette protection évite que Doxygen interprète une commande mathématique telle que `\dot` comme l’ouverture d’un bloc Graphviz. Les fichiers Markdown canoniques et les sources C++ ne sont pas modifiés par cette préparation.
 
-Les snapshots contiennent uniquement les sources sélectionnées pour la lecture du jour 1. Cette documentation ne constitue donc pas encore la référence exhaustive de FEZ. Les symboles absents des snapshots, notamment certaines dépendances, ne disposent pas tous d’une fiche ou d’un lien résolu. Les commentaires existants et les signatures sont extraits ; leur présence dans une page ne signifie pas que tout leur comportement a été vérifié.
+`render-math.mjs` transforme ensuite les formules en **HTML et MathML statiques avec KaTeX 0.18.7** : **60 expressions** dans le guide des modèles et **63** dans celui des mobilités, soit **123**, sans échec de conversion. La feuille de style et les polices proviennent du dossier local `../assets/vendor/katex/dist`. Les scripts MathJax générés par Doxygen sont retirés ; les équations se lisent sans connexion et sans exécution JavaScript dans le navigateur.
 
-La génération utilise les sources C++ et les guides Markdown, sans compiler FEZ et sans Graphviz. Les diagrammes interactifs de l’atlas restent le support de navigation ; Doxygen fournit ici la référence d’API et la lecture du code source.
+La vérification a confirmé la présence de toutes les sections et du marqueur final de chacun des neuf guides, ainsi que le nombre exact de formules attendu depuis les sources Markdown. Aucun lien local ou fragment manquant, aucun script distant et aucun avertissement issu des guides n’a été relevé.
 
-## Régénérer sur le PC FEZ
+## Avertissements et limites
 
-Depuis ce dossier, avec Doxygen 1.18.0 disponible :
+Les **24 / 46 / 42 avertissements** indiqués dans le tableau restent enregistrés dans les journaux [master](logs/master-warnings.log), [pré-AMR](logs/pre_amr-warnings.log) et [AMR](logs/prod-warnings.log). Ils concernent des commandes mathématiques présentes dans les commentaires C++ hérités, sans délimiteurs reconnus par Doxygen. Ces commentaires sont conservés tels quels : certaines formules de l’API restent donc en notation textuelle imparfaite, contrairement aux équations des guides rendues avec KaTeX. Ces avertissements documentaires ne démontrent pas une erreur numérique de FEZ.
+
+Le header `include/post_processing_handler.h` a été ajouté au snapshot pré-AMR depuis son commit exact pour compléter les déclarations nécessaires à la documentation. Certaines dépendances restent absentes de ces snapshots partiels ; tous les symboles mentionnés ne disposent donc pas nécessairement d’une fiche API. Une signature extraite ou un commentaire affiché ne prouve pas que son comportement a été entièrement vérifié.
+
+`fix-index-anchors.ps1` rétablit, uniquement dans le HTML généré, les ancres des index alphabétiques et des destructeurs émises incomplètement par Doxygen 1.18.0. La génération ne compile pas FEZ, ne lance aucun test numérique et n’utilise pas Graphviz. Les diagrammes interactifs de l’atlas restent le support de navigation entre les fonctionnalités.
+
+## Régénérer
+
+Depuis ce dossier, avec Doxygen 1.18.0, Node.js et Python disponibles :
 
 ```powershell
-.\generate-docs.ps1 -DoxygenPath 'doxygen'
+.\generate-docs.ps1 -DoxygenPath 'doxygen' -NodePath 'node'
+python .\verify-docs.py
 ```
 
-Le script appelle les deux Doxyfile puis normalise les ancres des index. Un chemin absolu vers un exécutable portable est également accepté. Le manifeste décrit la génération du jour 1 ; après enrichissement des sources, il faut renouveler l’inventaire et la vérification avant de le présenter comme actuel.
+Les paramètres acceptent aussi des chemins absolus vers des exécutables portables. Le module KaTeX utilisé par Node est déjà conservé dans l’atlas : aucune installation npm ni ressource CDN n’est requise.
 
-Les chemins d’entrée, de sortie et de suppression de préfixe sont relatifs à ce dossier. Le script synchronise les cinq guides depuis `../knowledge`, ajoute uniquement des identifiants de page stables, et nettoie les deux dossiers de sortie générés après validation de leurs chemins. Les fichiers HTML des guides se nomment ainsi `fez_master_core_solver.html`, `fez_master_chns_assembly.html`, `fez_master_fsi_monolithic.html`, `fez_prod_chns_ale_amr.html` et `fez_prod_distributed_state_transfer.html`, indépendamment du nom d’utilisateur ou du chemin de la machine.
+Le premier script synchronise les neuf guides, valide les chemins avant de nettoyer uniquement les trois dossiers de sortie générés, appelle les trois Doxyfile, rend les mathématiques et normalise les ancres. Les snapshots sont conservés. Les sorties sont `master/html/index.html`, `pre_amr/html/index.html` et `prod/html/index.html` ; les enregistrements `logs/*-generation.json` et `logs/*-math.json` décrivent chaque génération réussie.
 
-Avec Python disponible, `python verify-docs.py` inventorie les fichiers, vérifie les liens locaux et les fragments, puis réécrit le manifeste. Les SHA et la version du générateur sont fixés dans ce script pour cette édition : les actualiser explicitement lors d’un changement de snapshot ou de Doxygen.
+`verify-docs.py` contrôle les copies préparées contre les Markdown canoniques, la fin et les sections des guides, les formules, les liens locaux, les fragments et l’absence de scripts distants. Il renouvelle les inventaires et le manifeste, et retourne un code non nul si un de ces contrôles échoue. Les commits et les informations de provenance de Doxygen sont fixés pour cette édition dans le script ; les actualiser explicitement lors d’un changement de snapshot ou de générateur.
 
-Les sorties attendues sont master/html/index.html et prod/html/index.html. Les logs et le manifeste de génération indiquent l’état réellement atteint, les avertissements et le nombre de fichiers inclus.
-
-Les snapshots sont séparés par branche. Pour enrichir la référence, compléter chaque snapshot depuis son commit immuable, puis régénérer. Ne pas copier des headers de master dans le snapshot prod en supposant qu’ils sont identiques. Les fichiers de tests conservés dans un snapshot ne sont pas des tests exécutés lors de cette génération. Les points d’entrée main sont exclus de l’index des symboles pour éviter de fusionner les différents exécutables ; les fichiers source restent consultables.
+Pour enrichir la référence, compléter chaque snapshot depuis son propre commit immuable, puis régénérer et vérifier. Les points d’entrée `main` sont exclus de l’index des symboles pour éviter de fusionner les exécutables ; leurs fichiers source restent consultables. Cette génération n’a modifié aucun dépôt FEZ et n’a créé aucun commit ou PR.
 
 ## Sources de la méthode
 
 - [Doxygen : démarrage](https://www.doxygen.nl/manual/starting.html).
 - [Doxygen : configuration](https://www.doxygen.nl/manual/config.html).
 - [Distribution officielle et SHA-256](https://www.doxygen.nl/download.html).
-
-Cette génération n’a pas modifié le dépôt FEZ et n’y a créé aucun commit ou PR. Les livrables documentaires peuvent être versionnés séparément dans le dépôt privé FEZ-Doc.
+- [KaTeX : options de rendu](https://katex.org/docs/options.html).

@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence de la structure Parameters::NonLinearSolver</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('struct_parameters_1_1_non_linear_solver.html','','struct_parameters_1_1_non_linear_solver-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la structure Parameters::NonLinearSolver</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="parameters_8h_source.html">parameters.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a5ac9bcdd38ec856ac0805e9274c00dce" id="r_a5ac9bcdd38ec856ac0805e9274c00dce"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5ac9bcdd38ec856ac0805e9274c00dce">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="memitem:a8943e1f2eb8171bca9373f663728f78b" id="r_a8943e1f2eb8171bca9373f663728f78b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8943e1f2eb8171bca9373f663728f78b">read_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:aa0d2b84e88dec6d288e527924401cc72" id="r_aa0d2b84e88dec6d288e527924401cc72"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aa0d2b84e88dec6d288e527924401cc72">tolerance</a></td></tr>
+<tr class="memitem:a5c35253a6e00edb9992b9d7460dcfa3e" id="r_a5c35253a6e00edb9992b9d7460dcfa3e"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a5c35253a6e00edb9992b9d7460dcfa3e">divergence_tolerance</a></td></tr>
+<tr class="memitem:a159998944968650b5017cf4dc263f79f" id="r_a159998944968650b5017cf4dc263f79f"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a159998944968650b5017cf4dc263f79f">max_iterations</a></td></tr>
+<tr class="memitem:a54501d4c6a906739d09ba2965590cf14" id="r_a54501d4c6a906739d09ba2965590cf14"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a54501d4c6a906739d09ba2965590cf14">enable_line_search</a></td></tr>
+<tr class="memitem:aaa13743f2291d776fc3db5cb3457f40e" id="r_aaa13743f2291d776fc3db5cb3457f40e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaa13743f2291d776fc3db5cb3457f40e">analytic_jacobian</a></td></tr>
+<tr class="memitem:a53c5e476f6fb740ac7857c276ad25122" id="r_a53c5e476f6fb740ac7857c276ad25122"><td class="memItemLeft"><a class="el" href="namespace_parameters.html#ad408350a21239600add83c5e91fcfa26">Verbosity</a>&#160;</td><td class="memItemRight"><a class="el" href="#a53c5e476f6fb740ac7857c276ad25122">verbosity</a></td></tr>
+<tr class="memitem:a07fd2d5cf8f387e0f640ed57acebe1e1" id="r_a07fd2d5cf8f387e0f640ed57acebe1e1"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a07fd2d5cf8f387e0f640ed57acebe1e1">reassembly_decrease_tol</a></td></tr>
+<tr class="memitem:a918d86624b23dd992062534f1cc9545f" id="r_a918d86624b23dd992062534f1cc9545f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a918d86624b23dd992062534f1cc9545f">compare_jacobian_with_finite_differences</a></td></tr>
+<tr class="memitem:a6f029a79a5698809c5cc378434a7dc96" id="r_a6f029a79a5698809c5cc378434a7dc96"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a6f029a79a5698809c5cc378434a7dc96">analytical_jacobian_absolute_tolerance</a></td></tr>
+<tr class="memitem:aedaecc21e71e0a12ac078632edab846c" id="r_aedaecc21e71e0a12ac078632edab846c"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aedaecc21e71e0a12ac078632edab846c">analytical_jacobian_relative_tolerance</a></td></tr>
+<tr class="memitem:a60c39d9498bcc492951dbd789deb0b54" id="r_a60c39d9498bcc492951dbd789deb0b54"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a60c39d9498bcc492951dbd789deb0b54">write_problematic_elements</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock">
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00680">680</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="a5ac9bcdd38ec856ac0805e9274c00dce" name="a5ac9bcdd38ec856ac0805e9274c00dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ac9bcdd38ec856ac0805e9274c00dce">&#9670;&#160;</a></span>declare_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NonLinearSolver::declare_parameters </td>
+          <td>(</td>
+          <td class="paramtype">ParameterHandler &amp;</td>          <td class="paramname"><span class="paramname"><em>prm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8cpp_source.html#l01236">1236</a> du fichier <a class="el" href="parameters_8cpp_source.html">parameters.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8943e1f2eb8171bca9373f663728f78b" name="a8943e1f2eb8171bca9373f663728f78b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8943e1f2eb8171bca9373f663728f78b">&#9670;&#160;</a></span>read_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NonLinearSolver::read_parameters </td>
+          <td>(</td>
+          <td class="paramtype">ParameterHandler &amp;</td>          <td class="paramname"><span class="paramname"><em>prm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8cpp_source.html#l01296">1296</a> du fichier <a class="el" href="parameters_8cpp_source.html">parameters.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="aaa13743f2291d776fc3db5cb3457f40e" name="aaa13743f2291d776fc3db5cb3457f40e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa13743f2291d776fc3db5cb3457f40e">&#9670;&#160;</a></span>analytic_jacobian</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::NonLinearSolver::analytic_jacobian</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00686">686</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a6f029a79a5698809c5cc378434a7dc96" name="a6f029a79a5698809c5cc378434a7dc96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f029a79a5698809c5cc378434a7dc96">&#9670;&#160;</a></span>analytical_jacobian_absolute_tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::NonLinearSolver::analytical_jacobian_absolute_tolerance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00694">694</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aedaecc21e71e0a12ac078632edab846c" name="aedaecc21e71e0a12ac078632edab846c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedaecc21e71e0a12ac078632edab846c">&#9670;&#160;</a></span>analytical_jacobian_relative_tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::NonLinearSolver::analytical_jacobian_relative_tolerance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00695">695</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a918d86624b23dd992062534f1cc9545f" name="a918d86624b23dd992062534f1cc9545f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a918d86624b23dd992062534f1cc9545f">&#9670;&#160;</a></span>compare_jacobian_with_finite_differences</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::NonLinearSolver::compare_jacobian_with_finite_differences</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00693">693</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a5c35253a6e00edb9992b9d7460dcfa3e" name="a5c35253a6e00edb9992b9d7460dcfa3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c35253a6e00edb9992b9d7460dcfa3e">&#9670;&#160;</a></span>divergence_tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::NonLinearSolver::divergence_tolerance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00683">683</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a54501d4c6a906739d09ba2965590cf14" name="a54501d4c6a906739d09ba2965590cf14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54501d4c6a906739d09ba2965590cf14">&#9670;&#160;</a></span>enable_line_search</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::NonLinearSolver::enable_line_search</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00685">685</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a159998944968650b5017cf4dc263f79f" name="a159998944968650b5017cf4dc263f79f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a159998944968650b5017cf4dc263f79f">&#9670;&#160;</a></span>max_iterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::NonLinearSolver::max_iterations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00684">684</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a07fd2d5cf8f387e0f640ed57acebe1e1" name="a07fd2d5cf8f387e0f640ed57acebe1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07fd2d5cf8f387e0f640ed57acebe1e1">&#9670;&#160;</a></span>reassembly_decrease_tol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::NonLinearSolver::reassembly_decrease_tol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00689">689</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aa0d2b84e88dec6d288e527924401cc72" name="aa0d2b84e88dec6d288e527924401cc72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d2b84e88dec6d288e527924401cc72">&#9670;&#160;</a></span>tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::NonLinearSolver::tolerance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00682">682</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a53c5e476f6fb740ac7857c276ad25122" name="a53c5e476f6fb740ac7857c276ad25122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53c5e476f6fb740ac7857c276ad25122">&#9670;&#160;</a></span>verbosity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_parameters.html#ad408350a21239600add83c5e91fcfa26">Verbosity</a> Parameters::NonLinearSolver::verbosity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00687">687</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a60c39d9498bcc492951dbd789deb0b54" name="a60c39d9498bcc492951dbd789deb0b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c39d9498bcc492951dbd789deb0b54">&#9670;&#160;</a></span>write_problematic_elements</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::NonLinearSolver::write_problematic_elements</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00696">696</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+<li>snapshots/pre_amr/src/<a class="el" href="parameters_8cpp_source.html">parameters.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_parameters.html">Parameters</a></li><li class="navelem"><a href="struct_parameters_1_1_non_linear_solver.html">NonLinearSolver</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

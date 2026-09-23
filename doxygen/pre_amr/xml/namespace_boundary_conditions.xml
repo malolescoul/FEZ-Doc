@@ -1,0 +1,751 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_boundary_conditions" kind="namespace" language="C++">
+    <compoundname>BoundaryConditions</compoundname>
+    <innerclass refid="class_boundary_conditions_1_1_boundary_condition" prot="public">BoundaryConditions::BoundaryCondition</innerclass>
+    <innerclass refid="class_boundary_conditions_1_1_fluid_b_c" prot="public">BoundaryConditions::FluidBC</innerclass>
+    <innerclass refid="class_boundary_conditions_1_1_pseudosolid_b_c" prot="public">BoundaryConditions::PseudosolidBC</innerclass>
+    <innerclass refid="class_boundary_conditions_1_1_cahn_hilliard_b_c" prot="public">BoundaryConditions::CahnHilliardBC</innerclass>
+    <innerclass refid="class_boundary_conditions_1_1_heat_b_c" prot="public">BoundaryConditions::HeatBC</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_boundary_conditions_1a2ceabfadfe413235556c06447666b6a2" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>PhysicsType</name>
+        <qualifiedname>BoundaryConditions::PhysicsType</qualifiedname>
+        <enumvalue id="namespace_boundary_conditions_1a2ceabfadfe413235556c06447666b6a2a5cfea13ba1397f696bea7b2ff62c0188" prot="public">
+          <name>fluid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a2ceabfadfe413235556c06447666b6a2aa42e9ecb6bd054a5dbf434aef6dbc3a2" prot="public">
+          <name>pseudosolid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a2ceabfadfe413235556c06447666b6a2a38e549ddbcbb4f7d726c4c4b0741a99b" prot="public">
+          <name>cahn_hilliard</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a2ceabfadfe413235556c06447666b6a2a5d6eb4f1340c4c66e3adff7fdab1c931" prot="public">
+          <name>heat</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Physics for which boundary conditions are available </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="25" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="26" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>BoundaryConditions::Type</qualifiedname>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da8c53512eb093df5c2fb175288fc219a4" prot="public">
+          <name>input_function</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da49e3ed927cb368c65ee1e74a67c3baef" prot="public">
+          <name>dirichlet_mms</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068dacac0c32caf84a889ec9b2b4cb2d56972" prot="public">
+          <name>outflow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068dac72288dad8f6137a6624b858d2864a49" prot="public">
+          <name>no_tangential_flow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da659e746e12cb20543973cf940afd7ccb" prot="public">
+          <name>no_slip</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068dae8ae4d39d9327013f4c12547b28f051f" prot="public">
+          <name>weak_no_slip</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da3daec8dea85232fa2baef18aeb2334d8" prot="public">
+          <name>slip</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da896c8e45fbe11e29e4e2675c3e3d2c2e" prot="public">
+          <name>weak_pressure</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068dadd7bbf7e2f4f8dad08b3d95867cb3ff2" prot="public">
+          <name>dirichlet_pressure</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da3441eaecc51197025b98795f499658dd" prot="public">
+          <name>no_tangential_flow_with_weak_pressure</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da7ac7745320f505b3cb4835da8aaf047a" prot="public">
+          <name>velocity_mms</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068daaa9188db7d27b6569f1ad8d15d238346" prot="public">
+          <name>velocity_flux_mms</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068daeb086481f4f1f5deb5a93164a855d519" prot="public">
+          <name>pressure_mms</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da600c01aa3b1d7df50da9e73dab10bd31" prot="public">
+          <name>open_mms</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da1ba46c76c5b10230de40d96b2260cd7c" prot="public">
+          <name>heat_flux</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068dacec315e3d0975e5cc2811d5d8725f149" prot="public">
+          <name>fixed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da120f4eba86577b74f19a61a20e1614ae" prot="public">
+          <name>coupled_to_fluid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da389a2a29b2003c6d126c94d9a95640d0" prot="public">
+          <name>no_flux</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068da396c8faaac12fcb572c804fe45a432d6" prot="public">
+          <name>position_mms</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068dabafc8f466a815230b8d00248835a5e3f" prot="public">
+          <name>position_flux_mms</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Available boundary conditions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="36" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="37" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_boundary_conditions_1a31a3878b4f0fc720ad8a2e42d5a5cb64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename BCType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::declare_boundary_conditions</definition>
+        <argsstring>(ParameterHandler &amp;prm, const unsigned int n_bc, const std::string &amp;bc_type_name)</argsstring>
+        <name>declare_boundary_conditions</name>
+        <qualifiedname>BoundaryConditions::declare_boundary_conditions</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_bc</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>bc_type_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare a family of boundary conditions (fluid, pseudosolid, ...) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="272" column="8" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="574" bodyend="602" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="272" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1aa4644751dc02c915a996d29199738c89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename BCType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::read_boundary_conditions</definition>
+        <argsstring>(ParameterHandler &amp;prm, const unsigned int n_bc, const std::string &amp;bc_type_name, std::map&lt; types::boundary_id, BCType &gt; &amp;boundary_conditions)</argsstring>
+        <name>read_boundary_conditions</name>
+        <qualifiedname>BoundaryConditions::read_boundary_conditions</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_bc</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>bc_type_name</declname>
+        </param>
+        <param>
+          <type>std::map&lt; types::boundary_id, BCType &gt; &amp;</type>
+          <declname>boundary_conditions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse a family of boundary conditions from the parameter file </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>FIXME: If the number of bc actually added in the parameter file is greater than the specified number, deal.ii throws a parse error. Ideally, we should be able to return an error here if the user specified too few boundary conditions.</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="279" column="8" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="605" bodyend="646" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="279" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1a47c449fdc3cd073f435debb5c847f3cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename BCType</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool BoundaryConditions::has_boundary_condition</definition>
+        <argsstring>(const std::map&lt; types::boundary_id, BCType &gt; &amp;boundary_conditions, const Type type)</argsstring>
+        <name>has_boundary_condition</name>
+        <qualifiedname>BoundaryConditions::has_boundary_condition</qualifiedname>
+        <param>
+          <type>const std::map&lt; types::boundary_id, BCType &gt; &amp;</type>
+          <declname>boundary_conditions</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068d" kindref="member">Type</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if <computeroutput>boundary_conditions</computeroutput> contains at least one boundary condition matching the provided <computeroutput>type</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="290" column="8" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="290" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1a9cdf1ae1e3c1692cca424c4e140d3b87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::apply_velocity_boundary_conditions</definition>
+        <argsstring>(const bool homogeneous, const unsigned int u_lower, const unsigned int n_components, const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const std::map&lt; types::boundary_id, BoundaryConditions::FluidBC&lt; dim &gt; &gt; &amp;fluid_bc, const Function&lt; dim &gt; &amp;exact_solution, const Function&lt; dim &gt; &amp;exact_velocity, AffineConstraints&lt; double &gt; &amp;constraints)</argsstring>
+        <name>apply_velocity_boundary_conditions</name>
+        <qualifiedname>BoundaryConditions::apply_velocity_boundary_conditions</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>homogeneous</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>u_lower</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_components</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; types::boundary_id, <ref refid="class_boundary_conditions_1_1_fluid_b_c" kindref="compound">BoundaryConditions::FluidBC</ref>&lt; dim &gt; &gt; &amp;</type>
+          <declname>fluid_bc</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_velocity</declname>
+        </param>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/boundary_conditions.cpp" line="386" column="8" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="386" bodyend="534" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="305" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1a7012d280dc80389eaf9a2f6b0201d61d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::apply_pressure_boundary_conditions</definition>
+        <argsstring>(const bool homogeneous, const unsigned int p_lower, const unsigned int n_components, const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const std::map&lt; types::boundary_id, BoundaryConditions::FluidBC&lt; dim &gt; &gt; &amp;fluid_bc, const Function&lt; dim &gt; &amp;exact_solution, AffineConstraints&lt; double &gt; &amp;constraints)</argsstring>
+        <name>apply_pressure_boundary_conditions</name>
+        <qualifiedname>BoundaryConditions::apply_pressure_boundary_conditions</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>homogeneous</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>p_lower</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_components</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; types::boundary_id, <ref refid="class_boundary_conditions_1_1_fluid_b_c" kindref="compound">BoundaryConditions::FluidBC</ref>&lt; dim &gt; &gt; &amp;</type>
+          <declname>fluid_bc</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/boundary_conditions.cpp" line="537" column="8" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="537" bodyend="582" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="324" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1aaf6d1b4702378507717c8d2bfe2f2a34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::apply_mesh_position_boundary_conditions</definition>
+        <argsstring>(const bool homogeneous, const unsigned int x_lower, const unsigned int n_components, const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const std::map&lt; types::boundary_id, BoundaryConditions::PseudosolidBC&lt; dim &gt; &gt; &amp;pseudosolid_bc, const Function&lt; dim &gt; &amp;exact_solution, const Function&lt; dim &gt; &amp;exact_mesh_position, AffineConstraints&lt; double &gt; &amp;constraints)</argsstring>
+        <name>apply_mesh_position_boundary_conditions</name>
+        <qualifiedname>BoundaryConditions::apply_mesh_position_boundary_conditions</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>homogeneous</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>x_lower</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_components</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; types::boundary_id, <ref refid="class_boundary_conditions_1_1_pseudosolid_b_c" kindref="compound">BoundaryConditions::PseudosolidBC</ref>&lt; dim &gt; &gt; &amp;</type>
+          <declname>pseudosolid_bc</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_mesh_position</declname>
+        </param>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/boundary_conditions.cpp" line="585" column="8" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="585" bodyend="701" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="341" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1a35cc1270e56965c9c2461701ca833e69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::constrain_pressure_point</definition>
+        <argsstring>(const DoFHandler&lt; dim &gt; &amp;dof_handler, const IndexSet &amp;locally_relevant_dofs, const Mapping&lt; dim &gt; &amp;mapping, const Function&lt; dim &gt; &amp;exact_solution, const unsigned int p_lower, const bool set_to_zero, AffineConstraints&lt; double &gt; &amp;constraints, types::global_dof_index &amp;constrained_pressure_dof, Point&lt; dim &gt; &amp;constrained_pressure_support_point, const Point&lt; dim &gt; &amp;reference_point=Point&lt; dim &gt;())</argsstring>
+        <name>constrain_pressure_point</name>
+        <qualifiedname>BoundaryConditions::constrain_pressure_point</qualifiedname>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const IndexSet &amp;</type>
+          <declname>locally_relevant_dofs</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>p_lower</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>set_to_zero</declname>
+        </param>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <param>
+          <type>types::global_dof_index &amp;</type>
+          <declname>constrained_pressure_dof</declname>
+        </param>
+        <param>
+          <type>Point&lt; dim &gt; &amp;</type>
+          <declname>constrained_pressure_support_point</declname>
+        </param>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>reference_point</declname>
+          <defval>Point&lt; dim &gt;()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/boundary_conditions.cpp" line="705" column="3" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="705" bodyend="788" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="358" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1a1f26f383440ba69581df63f9216f6ca5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::create_zero_mean_pressure_constraints_data</definition>
+        <argsstring>(const Triangulation&lt; dim &gt; &amp;tria, const DoFHandler&lt; dim &gt; &amp;dof_handler, IndexSet &amp;locally_relevant_dofs, std::vector&lt; unsigned char &gt; &amp;dofs_to_component, const Mapping&lt; dim &gt; &amp;mapping, const Quadrature&lt; dim &gt; &amp;quadrature, const unsigned int p_lower, types::global_dof_index &amp;constrained_pressure_dof, std::vector&lt; std::pair&lt; types::global_dof_index, double &gt; &gt; &amp;constraint_weights)</argsstring>
+        <name>create_zero_mean_pressure_constraints_data</name>
+        <qualifiedname>BoundaryConditions::create_zero_mean_pressure_constraints_data</qualifiedname>
+        <param>
+          <type>const Triangulation&lt; dim &gt; &amp;</type>
+          <declname>tria</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>IndexSet &amp;</type>
+          <declname>locally_relevant_dofs</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; unsigned char &gt; &amp;</type>
+          <declname>dofs_to_component</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Quadrature&lt; dim &gt; &amp;</type>
+          <declname>quadrature</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>p_lower</declname>
+        </param>
+        <param>
+          <type>types::global_dof_index &amp;</type>
+          <declname>constrained_pressure_dof</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::pair&lt; types::global_dof_index, double &gt; &gt; &amp;</type>
+          <declname>constraint_weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enforcing zero-mean pressure yields the linear constraint:</para>
+<para>int_\Omega p dx = 0 -&gt; sum_j a_j * p_j = 0,</para>
+<para>where the c_j are obtained from integrating the pressure shape functions over \Omega. This is satisfied by constraining a single pressure DoF to</para>
+<para>p_0 = - sum_{j != 0} a_j/a_0 * p_j := sum_{j != 0} c_j * p_j.</para>
+<para>This function computes the weights c_j and sets the pressure dof to constrain &quot;constrained_pressure_dof&quot;, which is simply the (globally) first pressure DoF.</para>
+<para>Important: since this is a global constraint, this pressure dof will be coupled to <emphasis>all</emphasis> other pressure dofs (on MPI processes which have this dof as owned or ghost). This fills the sparsity pattern and is thus highly inefficient. Enforcing zero-mean this way is only meant for verification on corner-case (pun intended, see further) convergence studies, in particular for 3D tests with some specific non-divergence-free velocity fields, which show either reduced convergence order for the pressure or even no convergence at all when setting a corner pressure DoF to zero.</para>
+<para>Also important: Note that this function adds all the non-local pressure dofs to the vector of locally relevant dofs on ranks for which the constrained pressure dof is relevant. This should be kept in mind when performing operations on locally_relevant_dofs. For example, newly added relevant pressure dofs do not have a matching support point in the map retrieved from map_dofs_to_support_points. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>One pressure dof will be coupled with all other pressure dofs, which are not in the list of locally relevant dofs. Add them.</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/boundary_conditions.cpp" line="791" column="8" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="791" bodyend="932" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="400" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1add90f56793bd67bc6f860cb683769bdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::add_zero_mean_pressure_constraints</definition>
+        <argsstring>(AffineConstraints&lt; double &gt; &amp;constraints, const IndexSet &amp;locally_relevant_dofs, const types::global_dof_index &amp;constrained_pressure_dof, const std::vector&lt; std::pair&lt; types::global_dof_index, double &gt; &gt; &amp;constraint_weights)</argsstring>
+        <name>add_zero_mean_pressure_constraints</name>
+        <qualifiedname>BoundaryConditions::add_zero_mean_pressure_constraints</qualifiedname>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <param>
+          <type>const IndexSet &amp;</type>
+          <declname>locally_relevant_dofs</declname>
+        </param>
+        <param>
+          <type>const types::global_dof_index &amp;</type>
+          <declname>constrained_pressure_dof</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::pair&lt; types::global_dof_index, double &gt; &gt; &amp;</type>
+          <declname>constraint_weights</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Given the weights and dof computed with the function above, add the single zero-mean constraint on the specified pressure dof to the passed constraints.</para>
+<para>Important: this yields a very inefficient sparsity pattern and should only be used for specific verification tests, see above. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/boundary_conditions.cpp" line="934" column="8" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="934" bodyend="946" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="420" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1a61619c15560372647e4108237faf26d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::remove_mean_pressure</definition>
+        <argsstring>(const ComponentMask &amp;pressure_mask, const DoFHandler&lt; dim &gt; &amp;dof_handler, const double mean_pressure, VectorType &amp;solution)</argsstring>
+        <name>remove_mean_pressure</name>
+        <qualifiedname>BoundaryConditions::remove_mean_pressure</qualifiedname>
+        <param>
+          <type>const ComponentMask &amp;</type>
+          <declname>pressure_mask</declname>
+        </param>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>mean_pressure</declname>
+        </param>
+        <param>
+          <type>VectorType &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="431" column="8" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="431" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_boundary_conditions_1a557107d9cda59203d0fe67f5b40e579b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>typename VectorType</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void BoundaryConditions::apply_field_as_solution_on_volume_and_boundaries</definition>
+        <argsstring>(const DoFHandler&lt; dim &gt; &amp;dof_handler, const Mapping&lt; dim &gt; &amp;mapping, const Function&lt; dim &gt; &amp;exact_solution, VectorType &amp;present_solution, VectorType &amp;local_present_solution, const IndexSet &amp;locally_relevant_dofs, std::vector&lt; unsigned char &gt; &amp;dofs_to_component, const ComponentMask &amp;component_mask, const bool homogeneous, AffineConstraints&lt; double &gt; &amp;constraints)</argsstring>
+        <name>apply_field_as_solution_on_volume_and_boundaries</name>
+        <qualifiedname>BoundaryConditions::apply_field_as_solution_on_volume_and_boundaries</qualifiedname>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>mapping</declname>
+        </param>
+        <param>
+          <type>const Function&lt; dim &gt; &amp;</type>
+          <declname>exact_solution</declname>
+        </param>
+        <param>
+          <type>VectorType &amp;</type>
+          <declname>present_solution</declname>
+        </param>
+        <param>
+          <type>VectorType &amp;</type>
+          <declname>local_present_solution</declname>
+        </param>
+        <param>
+          <type>const IndexSet &amp;</type>
+          <declname>locally_relevant_dofs</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; unsigned char &gt; &amp;</type>
+          <declname>dofs_to_component</declname>
+        </param>
+        <param>
+          <type>const ComponentMask &amp;</type>
+          <declname>component_mask</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>homogeneous</declname>
+        </param>
+        <param>
+          <type>AffineConstraints&lt; double &gt; &amp;</type>
+          <declname>constraints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply the given field name as solution for the whole volume and boundaries. Not a boundary condition per se, but a similar constraint on the field dofs. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Non-local dofs may have been added to locally_relevant_dofs after its creation : for these dofs, the component index cannot be determined by looping over the local cells, thus we cannot decide here if the missing component index is the field currently being constrained... The map dofs_to_component should be updated when adding these dofs to locally_relevant_dofs.</para>
+<para>Currently, this happens when enforcing a zero mean pressure (which adds all pressure dofs to some ranks), and when adding lambda dofs as relevant in the FSI solver. The first case is prevented by checking the options in parameter_reader.cpp, the other should not come up because it does not make too much sense to set an exact Lagrange multiplier (and there is no currently no way to do it in the parameter file).</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="449" column="8" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="649" bodyend="710" declfile="snapshots/pre_amr/include/boundary_conditions.h" declline="449" declcolumn="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/boundary_conditions.h" line="20" column="1"/>
+  </compounddef>
+</doxygen>

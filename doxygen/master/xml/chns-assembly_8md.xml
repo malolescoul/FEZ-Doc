@@ -57,6 +57,9 @@
 <codeline></codeline>
 <codeline><highlight class="normal">Commencer<sp/>par<sp/>une<sp/>configuration<sp/>CHNS<sp/>fixe<sp/>sans<sp/>stabilisation,<sp/>puis<sp/>une<sp/>configuration<sp/>stabilisée<sp/>;<sp/>contrôler<sp/>Jacobien<sp/>et<sp/>convergence<sp/>MMS<sp/>avant<sp/>d&apos;élargir<sp/>à<sp/>ALE<sp/>et<sp/>MPI.<sp/>Les<sp/>dossiers<sp/>`tests/incompressible_chns`<sp/>et<sp/>`tests/incompressible_chns_ale`<sp/>sont<sp/>présents<sp/>dans<sp/>l&apos;arbre<sp/>Git<sp/>;<sp/>leurs<sp/>sorties<sp/>existantes<sp/>ne<sp/>sont<sp/>pas<sp/>un<sp/>résultat<sp/>de<sp/>cette<sp/>session.</highlight></codeline>
 <codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;span<sp/>id=&quot;fez-guide-end-fez_master_chns_assembly&quot;&gt;&lt;/span&gt;</highlight></codeline>
     </programlisting>
     <location file="guides/master/features/chns-assembly.md"/>
   </compounddef>

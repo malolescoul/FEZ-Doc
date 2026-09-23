@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_boundary_conditions_1_1_fluid_b_c" kind="class" language="C++" prot="public">
+    <compoundname>BoundaryConditions::FluidBC</compoundname>
+    <basecompoundref refid="class_boundary_conditions_1_1_boundary_condition" prot="public" virt="non-virtual">BoundaryConditions::BoundaryCondition</basecompoundref>
+    <includes refid="boundary__conditions_8h" local="no">boundary_conditions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1a72bf338739f4baf8a92727445e7f56b0" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::FluidBC&lt; dim &gt;::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <qualifiedname>BoundaryConditions::FluidBC::u</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The flow components imposed by a user function. Only used for bc of type input_function. When declaring the possible entries of the parameter file, we do not know beforehand which bc will be associated to a user function. For now, <emphasis>all</emphasis> boundary conditions have functions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="125" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1ae534c16bd1ce8a209b3d9d58ff58a219" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::FluidBC&lt; dim &gt;::v</definition>
+        <argsstring></argsstring>
+        <name>v</name>
+        <qualifiedname>BoundaryConditions::FluidBC::v</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="126" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1a8b799c06986ca6c6faed2bf5066b6dac" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::FluidBC&lt; dim &gt;::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <qualifiedname>BoundaryConditions::FluidBC::w</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="127" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1a92667771702e9f6f9ace90f4d445110d" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::FluidBC&lt; dim &gt;::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <qualifiedname>BoundaryConditions::FluidBC::p</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="128" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1ae9b3488968c6631bfa8d1d74d94d2c11" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BoundaryConditions::FluidBC&lt; dim &gt;::constrain_u</definition>
+        <argsstring></argsstring>
+        <name>constrain_u</name>
+        <qualifiedname>BoundaryConditions::FluidBC::constrain_u</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For an input_function boundary, select which velocity components are strongly constrained. Leaving a component unconstrained allows it to be handled by another constraint (e.g. a no normal flux added on the same boundary). At least one component must be constrained. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="136" column="10" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1ab24b696bf06daa75e68d16ab6696653a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BoundaryConditions::FluidBC&lt; dim &gt;::constrain_v</definition>
+        <argsstring></argsstring>
+        <name>constrain_v</name>
+        <qualifiedname>BoundaryConditions::FluidBC::constrain_v</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="137" column="10" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1ad471b008db0da9675b49b50966c313c6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BoundaryConditions::FluidBC&lt; dim &gt;::constrain_w</definition>
+        <argsstring></argsstring>
+        <name>constrain_w</name>
+        <qualifiedname>BoundaryConditions::FluidBC::constrain_w</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="138" column="10" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1a40d52e4495666f623fa4854d93b4629d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double BoundaryConditions::FluidBC&lt; dim &gt;::weak_no_slip_tolerance</definition>
+        <argsstring></argsstring>
+        <name>weak_no_slip_tolerance</name>
+        <qualifiedname>BoundaryConditions::FluidBC::weak_no_slip_tolerance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="141" column="12" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1abb735d3951bf60a31bd7507834cdb6c1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BoundaryConditions::FluidBC&lt; dim &gt;::enable_rigid_body_rotation</definition>
+        <argsstring></argsstring>
+        <name>enable_rigid_body_rotation</name>
+        <qualifiedname>BoundaryConditions::FluidBC::enable_rigid_body_rotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="144" column="53" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1a5e59525e313d704dc987e95dc55ac948" prot="public" static="no" mutable="no">
+        <type>Point&lt; dim &gt;</type>
+        <definition>Point&lt;dim&gt; BoundaryConditions::FluidBC&lt; dim &gt;::center_of_rotation</definition>
+        <argsstring></argsstring>
+        <name>center_of_rotation</name>
+        <qualifiedname>BoundaryConditions::FluidBC::center_of_rotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="145" column="48" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_fluid_b_c_1abc11984381fd62ea7d98da4d80f0411f" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::FluidBC&lt; dim &gt;::angular_velocity</definition>
+        <argsstring></argsstring>
+        <name>angular_velocity</name>
+        <qualifiedname>BoundaryConditions::FluidBC::angular_velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="146" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_boundary_conditions_1_1_fluid_b_c_1a91913429dba81ad1391806d4a188076c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BoundaryConditions::FluidBC&lt; dim &gt;::FluidBC</definition>
+        <argsstring>()</argsstring>
+        <name>FluidBC</name>
+        <qualifiedname>BoundaryConditions::FluidBC::FluidBC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="150" column="5" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="150" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_fluid_b_c_1a31fdd740a95def859912ea8a610a304d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BoundaryConditions::FluidBC&lt; dim &gt;::set_time</definition>
+        <argsstring>(const double new_time) override</argsstring>
+        <name>set_time</name>
+        <qualifiedname>BoundaryConditions::FluidBC::set_time</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1ac8601a76cd1f468d25975d4a6d9bacd0">set_time</reimplements>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the time in the underlying functions, if applicable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="160" column="18" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="160" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_fluid_b_c_1aa00e6f7d9195d1273306ab2557af29f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::FluidBC&lt; dim &gt;::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm) override</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>BoundaryConditions::FluidBC::declare_parameters</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1ab99ddaf1ec917586c4141fd30e431759">declare_parameters</reimplements>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare the parameters common to all boundary conditions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="170" column="18" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="31" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_fluid_b_c_1abcca67e4ff8f2b57294d5637f13d195c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::FluidBC&lt; dim &gt;::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm) override</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>BoundaryConditions::FluidBC::read_parameters</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1aa3c05a55d7ae593ea61091ab0bf915f5">read_parameters</reimplements>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="171" column="18" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="104" bodyend="184"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A boundary condition for the incompressible Navier-Stokes equations. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BoundaryConditions::BoundaryCondition</label>
+        <link refid="class_boundary_conditions_1_1_boundary_condition"/>
+      </node>
+      <node id="1">
+        <label>BoundaryConditions::FluidBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_fluid_b_c"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BoundaryConditions::BoundaryCondition</label>
+        <link refid="class_boundary_conditions_1_1_boundary_condition"/>
+      </node>
+      <node id="1">
+        <label>BoundaryConditions::FluidBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_fluid_b_c"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/boundary_conditions.h" line="116" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="117" bodyend="172"/>
+    <listofallmembers>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1abc11984381fd62ea7d98da4d80f0411f" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>angular_velocity</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1a5e59525e313d704dc987e95dc55ac948" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>center_of_rotation</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1ae9b3488968c6631bfa8d1d74d94d2c11" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>constrain_u</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1ab24b696bf06daa75e68d16ab6696653a" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>constrain_v</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1ad471b008db0da9675b49b50966c313c6" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>constrain_w</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1aa00e6f7d9195d1273306ab2557af29f4" prot="public" virt="virtual"><scope>BoundaryConditions::FluidBC</scope><name>declare_parameters</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1abb735d3951bf60a31bd7507834cdb6c1" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>enable_rigid_body_rotation</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1a91913429dba81ad1391806d4a188076c" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>FluidBC</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a730333d397ccd4d49cc78a424536d264" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>gmsh_name</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a21dd6156d2d579105e522638da6d71ab" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>id</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1a92667771702e9f6f9ace90f4d445110d" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>p</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a480b59f4d819a3ff30f292fca6b0db3f" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>physics_str</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1abfd5fc36dd938e4e9aa8dfd1ac4b5131" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>physics_type</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1abcca67e4ff8f2b57294d5637f13d195c" prot="public" virt="virtual"><scope>BoundaryConditions::FluidBC</scope><name>read_parameters</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1a31fdd740a95def859912ea8a610a304d" prot="public" virt="virtual"><scope>BoundaryConditions::FluidBC</scope><name>set_time</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1ab7b990328424a2c3e822e765c23d98fc" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>type</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1a72bf338739f4baf8a92727445e7f56b0" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>u</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1ae534c16bd1ce8a209b3d9d58ff58a219" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>v</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1a8b799c06986ca6c6faed2bf5066b6dac" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>w</name></member>
+      <member refid="class_boundary_conditions_1_1_fluid_b_c_1a40d52e4495666f623fa4854d93b4629d" prot="public" virt="non-virtual"><scope>BoundaryConditions::FluidBC</scope><name>weak_no_slip_tolerance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

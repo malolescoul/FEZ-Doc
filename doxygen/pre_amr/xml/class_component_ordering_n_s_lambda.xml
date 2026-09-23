@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_component_ordering_n_s_lambda" kind="class" language="C++" prot="public">
+    <compoundname>ComponentOrderingNSLambda</compoundname>
+    <basecompoundref refid="class_component_ordering" prot="public" virt="non-virtual">ComponentOrdering</basecompoundref>
+    <includes refid="components__ordering_8h" local="no">components_ordering.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_component_ordering_n_s_lambda_1a2531e01b5abadac8c29eb0d00ea64839" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ComponentOrderingNSLambda&lt; dim &gt;::ComponentOrderingNSLambda</definition>
+        <argsstring>()</argsstring>
+        <name>ComponentOrderingNSLambda</name>
+        <qualifiedname>ComponentOrderingNSLambda::ComponentOrderingNSLambda</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/components_ordering.h" line="320" column="3" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="320" bodyend="330"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Components ordering for the incompressible Navier-Stokes solver with Lagrange multiplier. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+      <node id="1">
+        <label>ComponentOrderingNSLambda&lt; dim &gt;</label>
+        <link refid="class_component_ordering_n_s_lambda"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+      <node id="1">
+        <label>ComponentOrderingNSLambda&lt; dim &gt;</label>
+        <link refid="class_component_ordering_n_s_lambda"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/components_ordering.h" line="317" column="1" bodyfile="snapshots/pre_amr/include/components_ordering.h" bodystart="318" bodyend="331"/>
+    <listofallmembers>
+      <member refid="class_component_ordering_1ab030978c4860fd8d18d17ea2fd7676da" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>component_to_variable_type</name></member>
+      <member refid="class_component_ordering_1a00e24d030c014eeffd1432fde4298559" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>ComponentOrdering</name></member>
+      <member refid="class_component_ordering_n_s_lambda_1a2531e01b5abadac8c29eb0d00ea64839" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>ComponentOrderingNSLambda</name></member>
+      <member refid="class_component_ordering_1a6efee15bac0a2fd27543707880ca02e1" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>get_scalar_extractor</name></member>
+      <member refid="class_component_ordering_1a33cc23cc4edf0a6071850870b159b772" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>get_vector_extractor</name></member>
+      <member refid="class_component_ordering_1a5444a0a11d9a1a012a8be7f0fba32480" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>has_variable</name></member>
+      <member refid="class_component_ordering_1a4e70b4ae2c2999b0305e3d76693801f7" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>invalid</name></member>
+      <member refid="class_component_ordering_1aa5b8bd88895565cb69e1d5d644a218ea" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_lambda</name></member>
+      <member refid="class_component_ordering_1a65c3768ccd50642d0cfaceca9fd7a95c" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_position</name></member>
+      <member refid="class_component_ordering_1ae1be7dc1204d47ff7a83eeb037731100" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_potential</name></member>
+      <member refid="class_component_ordering_1acb1ecd9fedefc84f096c442d511e9713" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_pressure</name></member>
+      <member refid="class_component_ordering_1aee52c5417b7963923349efff19efe6bb" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_psi</name></member>
+      <member refid="class_component_ordering_1a7d26e1e7b98f7e1d0fbb8817cb4560f7" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_scalar</name></member>
+      <member refid="class_component_ordering_1a323b5ce034b15c71906eae1bf8171167" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_temperature</name></member>
+      <member refid="class_component_ordering_1a8c49c7b46a5a205d7431f1be7aa2deca" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_tracer</name></member>
+      <member refid="class_component_ordering_1afc3179efe0b16ef06b0352f2d1f3db46" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_vector</name></member>
+      <member refid="class_component_ordering_1a2cb36bb2b9a67dd927038e60d8544d50" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>is_velocity</name></member>
+      <member refid="class_component_ordering_1af4394a8337f4c5617ab90946f7fa9d6d" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>l_lower</name></member>
+      <member refid="class_component_ordering_1a7b331d251d195392021acaa50fb582eb" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>l_upper</name></member>
+      <member refid="class_component_ordering_1a2858a3c4ddbe05eb3cc4273c3f0daa01" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>mu_lower</name></member>
+      <member refid="class_component_ordering_1a20ebc6cbbe4a68647781f4038e535b57" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>mu_upper</name></member>
+      <member refid="class_component_ordering_1aaba7aa635e1b292ee033be8ffcbf5fbe" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>n_components</name></member>
+      <member refid="class_component_ordering_1a4ff302d5fefd358b16da9bbba4aab005" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>p_lower</name></member>
+      <member refid="class_component_ordering_1a2a99c0e6dfe5a6b61412649ac812b854" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>p_upper</name></member>
+      <member refid="class_component_ordering_1a85c2e997a88a0b8533abe594800375eb" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>phi_lower</name></member>
+      <member refid="class_component_ordering_1a641c188ee8ed88932efab3eb382831ed" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>phi_upper</name></member>
+      <member refid="class_component_ordering_1a29314b667aa88d74c2757bf3478ad94d" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>psi_lower</name></member>
+      <member refid="class_component_ordering_1a0268594c999f4914854f056f2a2c4f43" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>psi_upper</name></member>
+      <member refid="class_component_ordering_1a163b18e1368f0ea6d07ce8eade87e5a6" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>t_lower</name></member>
+      <member refid="class_component_ordering_1ac7eec71a17e3a44d3e54891dfdee7c18" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>t_upper</name></member>
+      <member refid="class_component_ordering_1a5f2989031bded44d4411a6d1d70915c7" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>u_lower</name></member>
+      <member refid="class_component_ordering_1a2cb0e80099b90762ff388f2cb01093f3" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>u_upper</name></member>
+      <member refid="class_component_ordering_1a450d0a2a479b44cd0feedbfa5511b707" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>variable_to_first_component</name></member>
+      <member refid="class_component_ordering_1a4937d2a0c47a930ab93be09a4a787953" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>x_lower</name></member>
+      <member refid="class_component_ordering_1a4c49326b4bf3db4752141bf0d978be8d" prot="public" virt="non-virtual"><scope>ComponentOrderingNSLambda</scope><name>x_upper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

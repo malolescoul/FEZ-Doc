@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_572db43f5fb4bb08ef27a34d9eec3105" kind="dir">
+    <compoundname>snapshots</compoundname>
+    <innerdir refid="dir_c3399bd66e5cabf482dbd94d16f696da">snapshots/pre_amr</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/"/>
+  </compounddef>
+</doxygen>

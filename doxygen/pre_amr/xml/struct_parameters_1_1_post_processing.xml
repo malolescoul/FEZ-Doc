@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_post_processing" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::PostProcessing</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_post_processing_base" prot="public">Parameters::PostProcessing::PostProcessingBase</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_post_processing_file" prot="public">Parameters::PostProcessing::PostProcessingFile</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary" prot="public">Parameters::PostProcessing::PostProcessingFileBoundary</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_field_integral" prot="public">Parameters::PostProcessing::FieldIntegral</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_forces" prot="public">Parameters::PostProcessing::Forces</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_structure_position" prot="public">Parameters::PostProcessing::StructurePosition</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_slices" prot="public">Parameters::PostProcessing::Slices</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_line_probe" prot="public">Parameters::PostProcessing::LineProbe</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_time_scales" prot="public">Parameters::PostProcessing::TimeScales</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_volume" prot="public">Parameters::PostProcessing::CHNSPhasesVolume</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_center_of_mass" prot="public">Parameters::PostProcessing::CHNSPhasesCenterOfMass</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_avg_velocity" prot="public">Parameters::PostProcessing::CHNSPhasesAvgVelocity</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_post_processing_field" prot="public">Parameters::PostProcessing::PostProcessingField</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_vorticity" prot="public">Parameters::PostProcessing::Vorticity</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_q_criterion" prot="public">Parameters::PostProcessing::QCriterion</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity" prot="public">Parameters::PostProcessing::MeshVelocity</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_density" prot="public">Parameters::PostProcessing::Density</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_mobility" prot="public">Parameters::PostProcessing::Mobility</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_m_f_f_physics_compression" prot="public">Parameters::PostProcessing::MFFPhysicsCompression</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_m_f_f_enlarged_compression" prot="public">Parameters::PostProcessing::MFFEnlargedCompression</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing_1_1_m_f_f_transport" prot="public">Parameters::PostProcessing::MFFTransport</innerclass>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a7f938ad42a83753a6cc70ad44f30c7f0" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_field_integral" kindref="compound">Parameters::PostProcessing::FieldIntegral</ref></type>
+        <definition>Parameters::PostProcessing::FieldIntegral Parameters::PostProcessing::field_integral</definition>
+        <argsstring></argsstring>
+        <name>field_integral</name>
+        <qualifiedname>Parameters::PostProcessing::field_integral</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="352" column="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1af823adca51a0a25bffa41dac4f639828" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_forces" kindref="compound">Parameters::PostProcessing::Forces</ref></type>
+        <definition>Parameters::PostProcessing::Forces Parameters::PostProcessing::forces</definition>
+        <argsstring></argsstring>
+        <name>forces</name>
+        <qualifiedname>Parameters::PostProcessing::forces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="363" column="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a9e8c7fe410ad9b1f91a4280ee0a2d24f" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_structure_position" kindref="compound">Parameters::PostProcessing::StructurePosition</ref></type>
+        <definition>Parameters::PostProcessing::StructurePosition Parameters::PostProcessing::structure_position</definition>
+        <argsstring></argsstring>
+        <name>structure_position</name>
+        <qualifiedname>Parameters::PostProcessing::structure_position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="370" column="24"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a60cf943a0e2e3dfa8dfafc0277d45168" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_slices" kindref="compound">Parameters::PostProcessing::Slices</ref></type>
+        <definition>Parameters::PostProcessing::Slices Parameters::PostProcessing::slices</definition>
+        <argsstring></argsstring>
+        <name>slices</name>
+        <qualifiedname>Parameters::PostProcessing::slices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="379" column="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a8352ed1b0de6f5116369fb3ec570fb01" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_line_probe" kindref="compound">Parameters::PostProcessing::LineProbe</ref></type>
+        <definition>Parameters::PostProcessing::LineProbe Parameters::PostProcessing::line_probe</definition>
+        <argsstring></argsstring>
+        <name>line_probe</name>
+        <qualifiedname>Parameters::PostProcessing::line_probe</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="388" column="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a56e3d7e05fdeb648fa468de203c45042" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_time_scales" kindref="compound">Parameters::PostProcessing::TimeScales</ref></type>
+        <definition>Parameters::PostProcessing::TimeScales Parameters::PostProcessing::time_scales</definition>
+        <argsstring></argsstring>
+        <name>time_scales</name>
+        <qualifiedname>Parameters::PostProcessing::time_scales</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="397" column="17"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a902de1965290e5fae2697303aebc0af2" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_volume" kindref="compound">Parameters::PostProcessing::CHNSPhasesVolume</ref></type>
+        <definition>Parameters::PostProcessing::CHNSPhasesVolume Parameters::PostProcessing::chns_volumes</definition>
+        <argsstring></argsstring>
+        <name>chns_volumes</name>
+        <qualifiedname>Parameters::PostProcessing::chns_volumes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="402" column="18"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a19f6e5644afe225f23aba99547a188cc" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_center_of_mass" kindref="compound">Parameters::PostProcessing::CHNSPhasesCenterOfMass</ref></type>
+        <definition>Parameters::PostProcessing::CHNSPhasesCenterOfMass Parameters::PostProcessing::chns_center_mass</definition>
+        <argsstring></argsstring>
+        <name>chns_center_mass</name>
+        <qualifiedname>Parameters::PostProcessing::chns_center_mass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="407" column="22"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a41f8d7e8ce96836038ad086fb0b85070" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_avg_velocity" kindref="compound">Parameters::PostProcessing::CHNSPhasesAvgVelocity</ref></type>
+        <definition>Parameters::PostProcessing::CHNSPhasesAvgVelocity Parameters::PostProcessing::chns_avg_velocity</definition>
+        <argsstring></argsstring>
+        <name>chns_avg_velocity</name>
+        <qualifiedname>Parameters::PostProcessing::chns_avg_velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="412" column="23"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1ad0b425855adfff39da35b8a946928b0d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_vorticity" kindref="compound">Parameters::PostProcessing::Vorticity</ref></type>
+        <definition>Parameters::PostProcessing::Vorticity Parameters::PostProcessing::vorticity</definition>
+        <argsstring></argsstring>
+        <name>vorticity</name>
+        <qualifiedname>Parameters::PostProcessing::vorticity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="464" column="15"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1acfc74002f3517b4b478a45edb6d22ad6" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_q_criterion" kindref="compound">Parameters::PostProcessing::QCriterion</ref></type>
+        <definition>Parameters::PostProcessing::QCriterion Parameters::PostProcessing::q_criterion</definition>
+        <argsstring></argsstring>
+        <name>q_criterion</name>
+        <qualifiedname>Parameters::PostProcessing::q_criterion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="469" column="17"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a2510539a13e92479507c2c0af39c6b58" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity" kindref="compound">Parameters::PostProcessing::MeshVelocity</ref></type>
+        <definition>Parameters::PostProcessing::MeshVelocity Parameters::PostProcessing::mesh_velocity</definition>
+        <argsstring></argsstring>
+        <name>mesh_velocity</name>
+        <qualifiedname>Parameters::PostProcessing::mesh_velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="474" column="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a13ced624abddc0fcc65481ef04bf7965" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_density" kindref="compound">Parameters::PostProcessing::Density</ref></type>
+        <definition>Parameters::PostProcessing::Density Parameters::PostProcessing::density</definition>
+        <argsstring></argsstring>
+        <name>density</name>
+        <qualifiedname>Parameters::PostProcessing::density</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="479" column="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1af99882510cbb16d6718f4d06db0894cf" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_mobility" kindref="compound">Parameters::PostProcessing::Mobility</ref></type>
+        <definition>Parameters::PostProcessing::Mobility Parameters::PostProcessing::mobility</definition>
+        <argsstring></argsstring>
+        <name>mobility</name>
+        <qualifiedname>Parameters::PostProcessing::mobility</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="484" column="14"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a7d96e896cbe178988c8d0cb70f955443" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_m_f_f_physics_compression" kindref="compound">Parameters::PostProcessing::MFFPhysicsCompression</ref></type>
+        <definition>Parameters::PostProcessing::MFFPhysicsCompression Parameters::PostProcessing::mff_physics_compression</definition>
+        <argsstring></argsstring>
+        <name>mff_physics_compression</name>
+        <qualifiedname>Parameters::PostProcessing::mff_physics_compression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="489" column="29"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1a6d80b67d74c89b0bb56221cbdd44fa8d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_m_f_f_enlarged_compression" kindref="compound">Parameters::PostProcessing::MFFEnlargedCompression</ref></type>
+        <definition>Parameters::PostProcessing::MFFEnlargedCompression Parameters::PostProcessing::mff_enlarged_compression</definition>
+        <argsstring></argsstring>
+        <name>mff_enlarged_compression</name>
+        <qualifiedname>Parameters::PostProcessing::mff_enlarged_compression</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="494" column="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1aeed514b017ad429adc942cb490660582" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_post_processing_1_1_m_f_f_transport" kindref="compound">Parameters::PostProcessing::MFFTransport</ref></type>
+        <definition>Parameters::PostProcessing::MFFTransport Parameters::PostProcessing::mff_transport</definition>
+        <argsstring></argsstring>
+        <name>mff_transport</name>
+        <qualifiedname>Parameters::PostProcessing::mff_transport</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="500" column="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1ac32b9cecb38eef32b5d50c26dc08dd7a" prot="public" static="no" mutable="no">
+        <type>std::map&lt; PostProcessingTools::PostprocessorAtDofTypes, <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_field" kindref="compound">PostProcessingField</ref> * &gt;</type>
+        <definition>std::map&lt;PostProcessingTools::PostprocessorAtDofTypes, PostProcessingField *&gt; Parameters::PostProcessing::field_postprocessors</definition>
+        <argsstring></argsstring>
+        <name>field_postprocessors</name>
+        <qualifiedname>Parameters::PostProcessing::field_postprocessors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>All the <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_field" kindref="compound">PostProcessingField</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="507" column="7" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="507" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="struct_parameters_1_1_post_processing_1a9d80ac1cb8a5cbc6fca418ef97be9e5e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::PostProcessing::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::PostProcessing::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="509" column="17" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="523" bodyend="652"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_post_processing_1ac12dace8bb27a1bbcb45a2c6f15da39b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::PostProcessing::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::PostProcessing::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="510" column="17" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="708" bodyend="852"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::PostProcessing</label>
+        <link refid="struct_parameters_1_1_post_processing"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>field_integral</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>forces</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>structure_position</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>slices</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>line_probe</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>time_scales</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>chns_volumes</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>chns_center_mass</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>chns_avg_velocity</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>vorticity</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>q_criterion</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>mesh_velocity</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>density</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>mobility</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>mff_physics_compression</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>mff_enlarged_compression</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>mff_transport</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Parameters::PostProcessing::CHNSPhasesAvgVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_avg_velocity"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Parameters::PostProcessing::CHNSPhasesCenterOfMass</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_center_of_mass"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Parameters::PostProcessing::CHNSPhasesVolume</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_volume"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Parameters::PostProcessing::Density</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_density"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::FieldIntegral</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_field_integral"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Parameters::PostProcessing::Forces</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_forces"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Parameters::PostProcessing::LineProbe</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_line_probe"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>Parameters::PostProcessing::MFFEnlargedCompression</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_enlarged_compression"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Parameters::PostProcessing::MFFPhysicsCompression</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_physics_compression"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Parameters::PostProcessing::MFFTransport</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_transport"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Parameters::PostProcessing::MeshVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Parameters::PostProcessing::Mobility</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mobility"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="15">
+        <label>Parameters::PostProcessing::PostProcessingField</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_field"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Parameters::PostProcessing::PostProcessingFileBoundary</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Parameters::PostProcessing::QCriterion</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_q_criterion"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Parameters::PostProcessing::Slices</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_slices"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Parameters::PostProcessing::StructurePosition</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_structure_position"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Parameters::PostProcessing::TimeScales</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_time_scales"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Parameters::PostProcessing::Vorticity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_vorticity"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="311" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="312" bodyend="511"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_post_processing_1a41f8d7e8ce96836038ad086fb0b85070" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>chns_avg_velocity</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a19f6e5644afe225f23aba99547a188cc" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>chns_center_mass</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a902de1965290e5fae2697303aebc0af2" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>chns_volumes</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a9d80ac1cb8a5cbc6fca418ef97be9e5e" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a13ced624abddc0fcc65481ef04bf7965" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>density</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a7f938ad42a83753a6cc70ad44f30c7f0" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>field_integral</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1ac32b9cecb38eef32b5d50c26dc08dd7a" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>field_postprocessors</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1af823adca51a0a25bffa41dac4f639828" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>forces</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a8352ed1b0de6f5116369fb3ec570fb01" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>line_probe</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a2510539a13e92479507c2c0af39c6b58" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>mesh_velocity</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a6d80b67d74c89b0bb56221cbdd44fa8d" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>mff_enlarged_compression</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a7d96e896cbe178988c8d0cb70f955443" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>mff_physics_compression</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1aeed514b017ad429adc942cb490660582" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>mff_transport</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1af99882510cbb16d6718f4d06db0894cf" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>mobility</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1acfc74002f3517b4b478a45edb6d22ad6" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>q_criterion</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1ac12dace8bb27a1bbcb45a2c6f15da39b" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a60cf943a0e2e3dfa8dfafc0277d45168" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>slices</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a9e8c7fe410ad9b1f91a4280ee0a2d24f" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>structure_position</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1a56e3d7e05fdeb648fa468de203c45042" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>time_scales</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1ad0b425855adfff39da35b8a946928b0d" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing</scope><name>vorticity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

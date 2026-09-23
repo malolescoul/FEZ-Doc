@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_parameters_1_1_physical_properties" kind="class" language="C++" prot="public">
+    <compoundname>Parameters::PhysicalProperties</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_parameters_1_1_physical_properties_1a72e082cb0ae1cf2b2d29e1b5479f9d1b" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int Parameters::PhysicalProperties&lt; dim &gt;::max_fluids</definition>
+        <argsstring></argsstring>
+        <name>max_fluids</name>
+        <qualifiedname>Parameters::PhysicalProperties::max_fluids</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="653" column="24" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="653" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_physical_properties_1a35d5ace3f0bbe4ec8447493e0303fb46" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::PhysicalProperties&lt; dim &gt;::n_fluids</definition>
+        <argsstring></argsstring>
+        <name>n_fluids</name>
+        <qualifiedname>Parameters::PhysicalProperties::n_fluids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="654" column="24" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="654" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_physical_properties_1aad51005845afd50f8d7a8fba9cc84615" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_parameters_1_1_fluid" kindref="compound">Fluid</ref> &gt;</type>
+        <definition>std::vector&lt;Fluid&gt; Parameters::PhysicalProperties&lt; dim &gt;::fluids</definition>
+        <argsstring></argsstring>
+        <name>fluids</name>
+        <qualifiedname>Parameters::PhysicalProperties::fluids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="655" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="655" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_physical_properties_1ab0c71d5fca27ebd728b8bd0dd94d00b3" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int Parameters::PhysicalProperties&lt; dim &gt;::max_pseudosolids</definition>
+        <argsstring></argsstring>
+        <name>max_pseudosolids</name>
+        <qualifiedname>Parameters::PhysicalProperties::max_pseudosolids</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="657" column="35" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="657" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_physical_properties_1a52164a51121402f7d1c2ff8f7b4ec623" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::PhysicalProperties&lt; dim &gt;::n_pseudosolids</definition>
+        <argsstring></argsstring>
+        <name>n_pseudosolids</name>
+        <qualifiedname>Parameters::PhysicalProperties::n_pseudosolids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="658" column="35" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="658" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_physical_properties_1ae272ea3fb3ddac7e557e73b05efde520" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_parameters_1_1_pseudo_solid" kindref="compound">PseudoSolid</ref>&lt; dim &gt; &gt;</type>
+        <definition>std::vector&lt;PseudoSolid&lt;dim&gt; &gt; Parameters::PhysicalProperties&lt; dim &gt;::pseudosolids</definition>
+        <argsstring></argsstring>
+        <name>pseudosolids</name>
+        <qualifiedname>Parameters::PhysicalProperties::pseudosolids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="659" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="659" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_physical_properties_1ac8a6222e524f7a8e60991174f4cff47d" prot="public" static="no" mutable="no">
+        <type>Tensor&lt; 1, dim &gt;</type>
+        <definition>Tensor&lt;1, dim&gt; Parameters::PhysicalProperties&lt; dim &gt;::body_force</definition>
+        <argsstring></argsstring>
+        <name>body_force</name>
+        <qualifiedname>Parameters::PhysicalProperties::body_force</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Body force vector (e.g., gravitational acceleration). In solvers where the momentum equation is divided by density (incompressible single-fluid NS), this is used directly as a kinematic acceleration. In solvers with variable density (CHNS, compressible NS), it is multiplied by the local density to obtain the volumetric force term. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="668" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="668" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_parameters_1_1_physical_properties_1adf2340dbec75184a3ce3181a86c044cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::PhysicalProperties&lt; dim &gt;::set_time</definition>
+        <argsstring>(const double newtime)</argsstring>
+        <name>set_time</name>
+        <qualifiedname>Parameters::PhysicalProperties::set_time</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>newtime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="671" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="671" bodyend="675"/>
+      </memberdef>
+      <memberdef kind="function" id="class_parameters_1_1_physical_properties_1a486116603134ffdb1f1a60b8909cc4ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::PhysicalProperties&lt; dim &gt;::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::PhysicalProperties::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="676" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1172" bodyend="1204"/>
+      </memberdef>
+      <memberdef kind="function" id="class_parameters_1_1_physical_properties_1a19cccf35fdf96340c50b1ef9da33ca4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::PhysicalProperties&lt; dim &gt;::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::PhysicalProperties::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="677" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1207" bodyend="1231"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="650" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="651" bodyend="678"/>
+    <listofallmembers>
+      <member refid="class_parameters_1_1_physical_properties_1ac8a6222e524f7a8e60991174f4cff47d" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>body_force</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1a486116603134ffdb1f1a60b8909cc4ab" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>declare_parameters</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1aad51005845afd50f8d7a8fba9cc84615" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>fluids</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1a72e082cb0ae1cf2b2d29e1b5479f9d1b" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>max_fluids</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1ab0c71d5fca27ebd728b8bd0dd94d00b3" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>max_pseudosolids</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1a35d5ace3f0bbe4ec8447493e0303fb46" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>n_fluids</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1a52164a51121402f7d1c2ff8f7b4ec623" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>n_pseudosolids</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1ae272ea3fb3ddac7e557e73b05efde520" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>pseudosolids</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1a19cccf35fdf96340c50b1ef9da33ca4f" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>read_parameters</name></member>
+      <member refid="class_parameters_1_1_physical_properties_1adf2340dbec75184a3ce3181a86c044cf" prot="public" virt="non-virtual"><scope>Parameters::PhysicalProperties</scope><name>set_time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

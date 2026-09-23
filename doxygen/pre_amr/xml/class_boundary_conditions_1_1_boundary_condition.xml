@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_boundary_conditions_1_1_boundary_condition" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BoundaryConditions::BoundaryCondition</compoundname>
+    <derivedcompoundref refid="class_boundary_conditions_1_1_cahn_hilliard_b_c" prot="public" virt="non-virtual">BoundaryConditions::CahnHilliardBC&lt; dim &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_boundary_conditions_1_1_fluid_b_c" prot="public" virt="non-virtual">BoundaryConditions::FluidBC&lt; dim &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_boundary_conditions_1_1_heat_b_c" prot="public" virt="non-virtual">BoundaryConditions::HeatBC&lt; dim &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_boundary_conditions_1_1_pseudosolid_b_c" prot="public" virt="non-virtual">BoundaryConditions::PseudosolidBC&lt; dim &gt;</derivedcompoundref>
+    <includes refid="boundary__conditions_8h" local="no">boundary_conditions.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_boundary_condition_1abfd5fc36dd938e4e9aa8dfd1ac4b5131" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_boundary_conditions_1a2ceabfadfe413235556c06447666b6a2" kindref="member">PhysicsType</ref></type>
+        <definition>PhysicsType BoundaryConditions::BoundaryCondition::physics_type</definition>
+        <argsstring></argsstring>
+        <name>physics_type</name>
+        <qualifiedname>BoundaryConditions::BoundaryCondition::physics_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="88" column="17" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_boundary_condition_1a480b59f4d819a3ff30f292fca6b0db3f" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string BoundaryConditions::BoundaryCondition::physics_str</definition>
+        <argsstring></argsstring>
+        <name>physics_str</name>
+        <qualifiedname>BoundaryConditions::BoundaryCondition::physics_str</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="89" column="17" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_boundary_condition_1ab7b990328424a2c3e822e765c23d98fc" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_boundary_conditions_1a0362ea5f33d44f9610fbb37cbb49068d" kindref="member">Type</ref></type>
+        <definition>Type BoundaryConditions::BoundaryCondition::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>BoundaryConditions::BoundaryCondition::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="92" column="10" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_boundary_condition_1a21dd6156d2d579105e522638da6d71ab" prot="public" static="no" mutable="no">
+        <type>types::boundary_id</type>
+        <definition>types::boundary_id BoundaryConditions::BoundaryCondition::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>BoundaryConditions::BoundaryCondition::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="95" column="24" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_boundary_condition_1a730333d397ccd4d49cc78a424536d264" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string BoundaryConditions::BoundaryCondition::gmsh_name</definition>
+        <argsstring></argsstring>
+        <name>gmsh_name</name>
+        <qualifiedname>BoundaryConditions::BoundaryCondition::gmsh_name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="98" column="17" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_boundary_conditions_1_1_boundary_condition_1ab99ddaf1ec917586c4141fd30e431759" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::BoundaryCondition::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>BoundaryConditions::BoundaryCondition::declare_parameters</qualifiedname>
+        <reimplementedby refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1abd734e7a0e1d08462edf16815400c0c4">declare_parameters</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_fluid_b_c_1aa00e6f7d9195d1273306ab2557af29f4">declare_parameters</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_heat_b_c_1a606490435d5b5f1d8a78cba9314fc6ab">declare_parameters</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a8bd1ded0406471606ca003efd29add68">declare_parameters</reimplementedby>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare the parameters common to all boundary conditions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="103" column="18" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="10" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_boundary_condition_1aa3c05a55d7ae593ea61091ab0bf915f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::BoundaryCondition::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>BoundaryConditions::BoundaryCondition::read_parameters</qualifiedname>
+        <reimplementedby refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1a6ac6c2d6872ba8b7232e6ac50d90824d">read_parameters</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_fluid_b_c_1abcca67e4ff8f2b57294d5637f13d195c">read_parameters</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_heat_b_c_1a50a100bc8728f3a659b41262cfd6281c">read_parameters</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a11dee648fd9570e73ee73d60811f398b">read_parameters</reimplementedby>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="104" column="18" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_boundary_condition_1ac8601a76cd1f468d25975d4a6d9bacd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void BoundaryConditions::BoundaryCondition::set_time</definition>
+        <argsstring>(const double new_time)=0</argsstring>
+        <name>set_time</name>
+        <qualifiedname>BoundaryConditions::BoundaryCondition::set_time</qualifiedname>
+        <reimplementedby refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1a703a7e268ac90fd905d3c9ce38764a8a">set_time</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_fluid_b_c_1a31fdd740a95def859912ea8a610a304d">set_time</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_heat_b_c_1a1a53a6c3ceb83842145001cbd8c74ad4">set_time</reimplementedby>
+        <reimplementedby refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a7073a9703bc92ea1f3fde6f963aa1229">set_time</reimplementedby>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the time in the underlying functions, if applicable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="109" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base class for boundary conditions </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BoundaryConditions::BoundaryCondition</label>
+        <link refid="class_boundary_conditions_1_1_boundary_condition"/>
+      </node>
+      <node id="2">
+        <label>BoundaryConditions::CahnHilliardBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_cahn_hilliard_b_c"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BoundaryConditions::FluidBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_fluid_b_c"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BoundaryConditions::HeatBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_heat_b_c"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BoundaryConditions::PseudosolidBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_pseudosolid_b_c"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="snapshots/pre_amr/include/boundary_conditions.h" line="84" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="85" bodyend="110"/>
+    <listofallmembers>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1ab99ddaf1ec917586c4141fd30e431759" prot="public" virt="virtual"><scope>BoundaryConditions::BoundaryCondition</scope><name>declare_parameters</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a730333d397ccd4d49cc78a424536d264" prot="public" virt="non-virtual"><scope>BoundaryConditions::BoundaryCondition</scope><name>gmsh_name</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a21dd6156d2d579105e522638da6d71ab" prot="public" virt="non-virtual"><scope>BoundaryConditions::BoundaryCondition</scope><name>id</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a480b59f4d819a3ff30f292fca6b0db3f" prot="public" virt="non-virtual"><scope>BoundaryConditions::BoundaryCondition</scope><name>physics_str</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1abfd5fc36dd938e4e9aa8dfd1ac4b5131" prot="public" virt="non-virtual"><scope>BoundaryConditions::BoundaryCondition</scope><name>physics_type</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1aa3c05a55d7ae593ea61091ab0bf915f5" prot="public" virt="virtual"><scope>BoundaryConditions::BoundaryCondition</scope><name>read_parameters</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1ac8601a76cd1f468d25975d4a6d9bacd0" prot="public" virt="pure-virtual"><scope>BoundaryConditions::BoundaryCondition</scope><name>set_time</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1ab7b990328424a2c3e822e765c23d98fc" prot="public" virt="non-virtual"><scope>BoundaryConditions::BoundaryCondition</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

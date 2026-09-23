@@ -44,3 +44,6 @@ Les alias `LA::ParVectorType` et `LA::ParMatrixType` sont définis par `FEZ_WITH
 
 Le chemin CHNS fixe est établi. Les mécanismes internes de `TimeHandler`, transferts entre maillages, réutilisation MUMPS et conditions FSI restent à analyser. Les variantes ALE sont repérées mais non validées numériquement. Aucun défaut d'exécution n'est conclu à partir de cette seule lecture.
 
+
+
+<span id="fez-guide-end-fez_master_core_solver"></span>

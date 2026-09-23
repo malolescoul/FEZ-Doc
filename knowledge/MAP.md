@@ -4,6 +4,8 @@
 
 ## Entrées rapides
 
+Le workflow courant doit aussi se lire dans sa **référence antérieure au nouvel AMR** : [workflow à cc8dace](features/workflow-pre-amr.md), [modèles](features/chns-models-pre-amr.md), [cache/géométrie](patterns/presolver-cache-geometry.md), [mobilité/corrections/temps](patterns/mobility-corrections-timestep.md). La [chronologie des 61 commits](history/chronologie-branche.md) indique quand ces capacités ont été introduites, raccordées ou corrigées. Dans l'atlas, sélectionner « avant AMR · référence », puis déplier CHNSSolver et le domaine voulu ; les fonctions apparaissent dans le même canevas.
+
 | Je veux comprendre… | Fiche | Point d'entrée précis |
 |---|---|---|
 | Le parcours de l'exécutable au calcul | [Cœur du solveur](features/core-solver.md) | master · [`main` CHNS](https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/solvers/incompressible_chns.cpp#L6-L65) |
@@ -90,4 +92,3 @@ Calculer une intégrale observe la conservation ; cela ne rend pas le transfert 
 - Couverture complète des options de compilation et des tests.
 
 Le [protocole de session](SESSION_PROTOCOL.md) indique comment continuer. Les trois échos servent à choisir les lectures d'impact ; ils ne constituent pas des diagnostics de bugs.
-

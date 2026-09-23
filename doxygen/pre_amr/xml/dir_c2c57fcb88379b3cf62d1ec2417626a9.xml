@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_c2c57fcb88379b3cf62d1ec2417626a9" kind="dir">
+    <compoundname>snapshots/pre_amr/include</compoundname>
+    <innerdir refid="dir_461cc1ab957854938e31f79795591148">snapshots/pre_amr/include/assembly</innerdir>
+    <innerfile refid="boundary__conditions_8h">boundary_conditions.h</innerfile>
+    <innerfile refid="cahn__hilliard_8h">cahn_hilliard.h</innerfile>
+    <innerfile refid="components__ordering_8h">components_ordering.h</innerfile>
+    <innerfile refid="copy__data_8h">copy_data.h</innerfile>
+    <innerfile refid="elasticity__solver_8h">elasticity_solver.h</innerfile>
+    <innerfile refid="generic__solver_8h">generic_solver.h</innerfile>
+    <innerfile refid="incompressible__chns__solver_8h">incompressible_chns_solver.h</innerfile>
+    <innerfile refid="mesh__and__dof__tools_8h">mesh_and_dof_tools.h</innerfile>
+    <innerfile refid="navier__stokes__solver_8h">navier_stokes_solver.h</innerfile>
+    <innerfile refid="newton__solver_8h">newton_solver.h</innerfile>
+    <innerfile refid="parameters_8h">parameters.h</innerfile>
+    <innerfile refid="post__processing__handler_8h">post_processing_handler.h</innerfile>
+    <innerfile refid="presolver__tools_8h">presolver_tools.h</innerfile>
+    <innerfile refid="scratch__data_8h">scratch_data.h</innerfile>
+    <innerfile refid="scratch__data__elasticity_8h">scratch_data_elasticity.h</innerfile>
+    <innerfile refid="stabilization__tools_8h">stabilization_tools.h</innerfile>
+    <innerfile refid="time__handler_8h">time_handler.h</innerfile>
+    <innerfile refid="timestep__adaptation_8h">timestep_adaptation.h</innerfile>
+    <innerfile refid="types_8h">types.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/"/>
+  </compounddef>
+</doxygen>

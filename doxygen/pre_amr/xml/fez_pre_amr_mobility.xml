@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="fez_pre_amr_mobility" kind="page">
+    <compoundname>fez_pre_amr_mobility</compoundname>
+    <title>Du modèle de mobilité au flux corrigé et au pas de temps</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="fez_pre_amr_mobility_1md_guides_2pre__amr_2patterns_2mobility-corrections-timestep"/></para>
+<para><bold>Référence analysée : <computeroutput>cc8dace141900b82e5790fa878e39d9c54898784</computeroutput>.</bold> Lecture des fichiers et patches ; tests présents décrits ci-dessous, non exécutés. Cette page complète <ref refid="fez_pre_amr_models_1md_guides_2pre__amr_2features_2chns-models-pre-amr" kindref="member">les modèles CHNS</ref> et doit être lue avant de changer une formule locale : sa valeur, ses dérivées, ses usages dans l&apos;inertie et sa mesure temporelle appartiennent au même parcours.</para>
+<sect1 id="fez_pre_amr_mobility_1autotoc_md21">
+<title>Un contrat de données commun</title><para><computeroutput>MobilityEvaluation&lt;dim&gt;</computeroutput> renvoie quatre scalaires : <computeroutput>value</computeroutput>, <computeroutput>derivative_wrt_tracer</computeroutput>, <computeroutput>second_derivative_wrt_tracer</computeroutput>, <computeroutput>adaptive_sensitivity</computeroutput>. Le dernier représente la sensibilité au capteur <formula id="59">$a=u\cdot\nabla\phi$</formula> pour les modèles qui l&apos;utilisent. Un pointeur de fonction est sélectionné dans le constructeur du scratch ; la boucle quadrature n&apos;effectue pas une grande sélection de modèle à chaque point. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L575-L623">Contrat et dispatch</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/scratch_data.cpp#L420-L447">sélection dans le scratch</ulink>.</para>
+<para>Les arguments ne sont pas interchangeables. Le limiteur de mobilité est indépendant du limiteur des propriétés ; après ce filtre, <computeroutput>select_mobility_tracer_argument</computeroutput> fournit le marqueur matériel m et ses deux dérivées au modèle dégénéré, mais φ et les dérivées identités aux modèles adaptatifs. Avec NLM, cela signifie <formula id="60">$M_{deg}(q)$</formula>, tandis que la restriction du modèle adaptatif 2 est <formula id="61">$\chi(\phi)$</formula>. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L587-L612">Sélection</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h#L1138-L1171">application en quadrature</ulink>.</para>
+</sect1>
+<sect1 id="fez_pre_amr_mobility_1autotoc_md22">
+<title>Les cinq lois finales, sans confondre les versions historiques</title><para>Dans le tableau, <formula id="59">$a=u\cdot\nabla\phi$</formula>, <formula id="0">$\widetilde\sigma=3\sigma/(2\sqrt2)$</formula>. Les n et δ de chaque variante sont des paramètres distincts. L&apos;orthographe externe est bien <bold><computeroutput>adaptative_mobility</computeroutput></bold>, tandis que plusieurs symboles C++ emploient <computeroutput>adaptive</computeroutput>.</para>
+<para><table rows="6" cols="4"><row>
+<entry thead="yes"><para>Paramètre <computeroutput>mobility model</computeroutput>  </para>
+</entry><entry thead="yes"><para>Valeur M effectivement calculée  </para>
+</entry><entry thead="yes"><para>Paramètres et valeur par défaut  </para>
+</entry><entry thead="yes"><para>Dérivées / lecture du code  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>constant</computeroutput>  </para>
+</entry><entry thead="no"><para><formula id="62">$M=M_0$</formula>  </para>
+</entry><entry thead="no"><para><computeroutput>mobility=1</computeroutput>  </para>
+</entry><entry thead="no"><para>Les trois autres membres valent zéro  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>degenerate</computeroutput>  </para>
+</entry><entry thead="no"><para><formula id="63">$M=F(z)$</formula>, avec z=m après filtre  </para>
+</entry><entry thead="no"><para>sous-section <computeroutput>degenerate mobility</computeroutput>, expression par défaut <formula id="64">$(1-x^2)^2$</formula>, x=z  </para>
+</entry><entry thead="no"><para><formula id="65">$F&apos;(z)z&apos;$</formula>, <formula id="66">$F&apos;&apos;(z)(z&apos;)^2+F&apos;(z)z&apos;&apos;$</formula>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>adaptative_mobility</computeroutput>  </para>
+</entry><entry thead="no"><para><formula id="67">$\sqrt{(C_1a)^2+\delta_1^2}+2m_a\epsilon^2\vert \nabla\phi\vert ^2$</formula>, <formula id="68">$C_1=n_1\sqrt2\epsilon^3/\widetilde\sigma$</formula>  </para>
+</entry><entry thead="no"><para><computeroutput>adaptive mobility n=10</computeroutput>, <computeroutput>m=0</computeroutput>, <computeroutput>delta=1e-12</computeroutput>  </para>
+</entry><entry thead="no"><para>Retourne M, 0, 0, <formula id="69">$(C_1a/M)C_1$</formula>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>adaptative_mobility_2</computeroutput>  </para>
+</entry><entry thead="no"><para><formula id="70">$\sqrt{(C_2\chi(\phi)a)^2+\delta_2^2}$</formula>, <formula id="71">$C_2=n_2\sqrt2\epsilon^3/\widetilde\sigma$</formula>  </para>
+</entry><entry thead="no"><para><computeroutput>adaptive mobility 2 n=1</computeroutput>, <computeroutput>delta=1e-12</computeroutput>  </para>
+</entry><entry thead="no"><para>Dérivées explicites χ&apos;, χ&apos;&apos; et sensibilité <formula id="72">$(raw/M)C_2\chi$</formula>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>adaptative_mobility_3</computeroutput>  </para>
+</entry><entry thead="no"><para><formula id="73">$C_3\sqrt{\vert u\vert ^2+\delta_3^2}$</formula>, <formula id="74">$C_3=n_3\epsilon^2/\widetilde\sigma$</formula>  </para>
+</entry><entry thead="no"><para><computeroutput>adaptive mobility 3 n=1</computeroutput>, <computeroutput>delta=1e-12</computeroutput>  </para>
+</entry><entry thead="no"><para>Les trois autres membres du record retournent zéro  </para>
+</entry></row>
+</table>
+</para>
+<para>Sources : <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L625-L656">constante/dégénérée</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L659-L678">adaptative 1</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L729-L775">adaptatives 2/3</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L815-L846">échelles C</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1660-L1735">paramètres complets</ulink>.</para>
+<para>Le modèle 2 restreint son capteur : χ=1 pour <formula id="75">$\vert \phi\vert \le0.5$</formula>, χ=0 pour <formula id="76">$\vert \phi\vert \ge0.9$</formula>. Entre les deux, avec <formula id="77">$t=(\phi^2-0.25)/(0.81-0.25)$</formula>, <formula id="78">$\chi=1-(6t^5-15t^4+10t^3)$</formula>. L&apos;usage de φ² rend χ paire ; les raccords quintiques donnent des dérivées première et seconde nulles aux extrémités. <bold>M vaut δ dans les queues</bold>, et non zéro, puisque la régularisation est appliquée après χ. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L680-L759">Poids final</ulink>.</para>
+<para>Pour le modèle dégénéré, la magnitude est dans l&apos;expression parsée : le <computeroutput>mobility</computeroutput> constant n&apos;est pas implicitement un multiplicateur. Le helper évalue valeur, gradient et Hessienne de la fonction au point dont la première coordonnée vaut le marqueur. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L540-L572">Helpers parsés</ulink>. Les n/δ adaptatifs, σ et ε sont contrôlés strictement positifs ; le coefficient additionnel m est déclaré sans borne de signe. Le calcul du critère temporel vérifie M finie et non négative en chaque point. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1860-L1907">Gardes de paramètres</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L299-L310">garde de réduction Mmax</ulink>.</para>
+<para><bold>Portée du record de dérivées.</bold> Le tableau reproduit ce que renvoient les helpers, sans prétendre que tout coefficient optionnel bénéficie d&apos;une différentiation exacte. En particulier le modèle 1 renvoie sa sensibilité avec la valeur totale M au dénominateur, et le modèle 3 renvoie zéro malgré sa dépendance en u. Les usages lisibles dans l&apos;assembleur passent par ces champs. Avant de modifier m ou d&apos;exiger un Newton entièrement consistant pour le modèle 3, une reproduction ciblée de Jacobienne serait nécessaire ; aucune qualification de bug n&apos;est faite ici. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L659-L775">Sensibilités retournées</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L531-L563">injection dans δM</ulink>.</para>
+<sect2 id="fez_pre_amr_mobility_1autotoc_md23">
+<title>La généalogie du modèle 2 explique pourquoi le titre d&apos;un commit ne suffit pas</title><para><table rows="4" cols="3"><row>
+<entry thead="yes"><para>Version  </para>
+</entry><entry thead="yes"><para>Formule / décision observée dans le patch  </para>
+</entry><entry thead="yes"><para>État à cc8dace  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/0571b9a8fad2b473bd2cec2f6e5c6545f56eb854">0571b9a</ulink>  </para>
+</entry><entry thead="no"><para><formula id="79">$M=n_2(2ε^4/\widetildeσ)\vert ∇φ\vert ^2\sqrt{\vert u\vert ^2+δ_2^2}$</formula>  </para>
+</entry><entry thead="no"><para>Remplacée  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/a101eab4d59fb63e9ecca87eeccac8702ea126b2">a101eab</ulink>  </para>
+</entry><entry thead="no"><para>Passe au capteur <formula id="80">$u·∇φ$</formula>, coefficient <formula id="81">$\sqrt2ε³/\widetildeσ$</formula>, poids de queues W ; W annule la décroissance tanh entre 0.9 et 0.999, raccords C² et plateau borné  </para>
+</entry><entry thead="no"><para>Le capteur et le contrat de dérivées persistent ; le poids de queues ne persiste pas  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/cfaec11e1efe4b94fa15111249f6496f3ce8872d">cfaec11</ulink>  </para>
+</entry><entry thead="no"><para>Remplace W par χ : cœur 0.5, extinction 0.9 ; réécrit description et tests  </para>
+</entry><entry thead="no"><para>C&apos;est la loi finale du tableau ci-dessus  </para>
+</entry></row>
+</table>
+</para>
+<para>Les seuils 0.9 et 0.999 ne désignent donc pas une extension active du modèle 2 final. Le niveau 0.999 existe encore ailleurs, dans les régularisations de correction de profil ; ce sont deux mécanismes différents.</para>
+</sect2>
+</sect1>
+<sect1 id="fez_pre_amr_mobility_1autotoc_md24">
+<title>Parcours en assemblage : M atteint plusieurs équations</title><para><orderedlist>
+<listitem><para><computeroutput>reinit_cahn_hilliard_cell</computeroutput> lit φ, μ et leurs gradients sur le mapping courant, reconstruit m/m&apos;/m&apos;&apos; et les propriétés.</para>
+</listitem><listitem><para>L&apos;évaluateur reçoit <bold>u physique</bold> et ∇φ mesuré sur le maillage mobile. Il produit M et les informations de variation.</para>
+</listitem><listitem><para>Sans correction, le flux de phase est <formula id="82">$K_\phi=M∇μ$</formula> ; la ligne φ reçoit <formula id="83">$\nabla w_\phi·K_\phi$</formula>.</para>
+</listitem><listitem><para>Pour Abels/NLM, le scratch alimente aussi l&apos;inertie diffusive <formula id="84">$(\rho_1-\rho_0)(∇u)K_\phi/2$</formula>. Ding–Horriche ignore cette contribution.</para>
+</listitem><listitem><para>Les colonnes u/φ/μ/x emploient les variations pertinentes de M, gradients et mesure ; la mobilité dégénérée intervient également dans le résidu fort SUPG et les sources MMS.</para>
+</listitem></orderedlist>
+</para>
+<para>Sources : <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h#L1033-L1202">scratch</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L122-L238">résidu modèle et phase</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L531-L563">variation de flux</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L325-L513">source MMS</ulink>.</para>
+<para>La distinction ALE est volontaire : <bold>mobilité → u</bold>, <bold>advection et τ → u−ẋ</bold>. Une variation nodale de position laisse u nodal constant mais donne <formula id="85">$\delta∇φ=-G^T∇φ$</formula>, donc <formula id="86">$\delta M=s_a\,u·\delta∇φ$</formula> pour les capteurs concernés. Remplacer u par u−ẋ dans une seule de ces routines modifierait la loi physique et romprait l&apos;accord entre solveur, MMS, sortie et critère temporel. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L676-L709">Commentaire et variation x</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h#L1200-L1251">τ sur vitesse relative</ulink>.</para>
+<para>Les mobilités 1 et 2 restent incompatibles avec tracer SUPG dans cette référence ; le développement ALE a levé l&apos;interdiction de maillage mobile, pas celle de tracer SUPG. <ulink url="https://github.com/arthurbawin/fez/commit/e6ff32bf737dc0fc657829fca4ee06d3d95810ca">Patch ALE</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/incompressible_chns_assemblers.h#L390-L404">garde finale</ulink>.</para>
+</sect1>
+<sect1 id="fez_pre_amr_mobility_1autotoc_md25">
+<title>Correction de profil et projection du flux</title><para><computeroutput>interface profile correction=none|profile|profile_flux</computeroutput> choisit un <bold>flux commun</bold> aux équations de phase et d&apos;inertie. Seul Abels standard est accepté, avec tracer SUPG désactivé. La force s&apos;appelle <computeroutput>profile correction strength</computeroutput>, vaut 0.3 par défaut, est bornée dans [0,1] et doit être strictement positive dans un mode actif. σ et ε doivent être positifs. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1665-L1679">Parsing</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1844-L1907">validation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L236-L249">garde de modèle</ulink>.</para>
+<para>Pour décrire exactement le calcul, posons <formula id="87">$g=∇φ$</formula>, <formula id="88">$h=∇μ$</formula>, <formula id="89">$q_e=(1-φ²)/(\sqrt2ε)$</formula>. Le code emploie deux activations C² : <formula id="90">$A=A(φ)$</formula>, transition de <formula id="91">$1-φ²$</formula> entre <formula id="92">$0.25s_t$</formula> et <formula id="93">$0.5s_t$</formula>, et <formula id="94">$B=B(\vert g\vert )$</formula>, mêmes seuils multipliés par <formula id="95">$1/(\sqrt2ε)$</formula>, avec <formula id="96">$s_t=1-0.999²$</formula>. A s&apos;annule dans les phases pures et pour les dépassements <formula id="97">$\vert φ\vert &gt;1$</formula>. B évite de construire une normale unitaire sur un gradient non résolu. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L10-L87">Activations</ulink>.</para>
+<para>Le correcteur de profil est    <formula id="98">\[P=A\left(1-\frac{\sqrt{1+\beta^2}\,q_e}
+{\sqrt{|g|^2+\beta^2q_e^2}}\right)g,\qquad \beta=0.05.
+\]</formula> Il est nul pour un profil tanh à l&apos;équilibre <formula id="99">$\vert g\vert =q_e$</formula>, y compris avec cette régularisation relative. La normale de projection, distincte, est <formula id="100">$n_\delta=AB\,g/\vert g\vert $</formula> dans la zone activée, et zéro sinon. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L90-L154">Correcteur P</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L156-L188">normale</ulink>.</para>
+<para><table rows="5" cols="3"><row>
+<entry thead="yes"><para>Mode  </para>
+</entry><entry thead="yes"><para>Flux positif <formula id="101">$K_\phi=-J_\phi$</formula>  </para>
+</entry><entry thead="yes"><para>Conséquence de lecture  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>none  </para>
+</entry><entry thead="no"><para><formula id="102">$M h$</formula>  </para>
+</entry><entry thead="no"><para>Retour direct de l&apos;expression historique  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>profile  </para>
+</entry><entry thead="no"><para><formula id="103">$M h+\kappa P$</formula>  </para>
+</entry><entry thead="no"><para>Ajuste le profil sans projeter h  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>profile_flux  </para>
+</entry><entry thead="no"><para><formula id="104">$M[h-n_\delta(n_\delta·h)]+\kappa P$</formula>  </para>
+</entry><entry thead="no"><para>Retire la composante normale de diffusion là où les activations sont pleines ; atténuation pondérée dans leurs transitions  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Tous modes actifs  </para>
+</entry><entry thead="no"><para><formula id="105">$\kappa=\alpha_{PC}\,2M\widetildeσ/ε$</formula>  </para>
+</entry><entry thead="no"><para>L&apos;échelle suit <bold>M locale</bold>, pas le paramètre constant <computeroutput>mobility</computeroutput>  </para>
+</entry></row>
+</table>
+</para>
+<para>Source : <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L224-L273">construction du flux</ulink>. La projection est tangentielle exacte quand <formula id="106">$\vert n_\delta\vert =1$</formula> ; avec une normale pondérée plus courte, ce n&apos;est pas une projection orthogonale idempotente. Dans les phases pures et dépassements, <formula id="107">$P=0,n_\delta=0$</formula>, donc le flux revient à <formula id="108">$M∇μ$</formula>.</para>
+<para>La variation de K contient <formula id="109">$\delta M\,h_{corr}+M\,\delta h_{corr}+\delta\kappa\,P+\kappa\,\delta P$</formula>. Elle dérive A, B et la direction de normale, sans construire explicitement le tenseur <formula id="110">$I-n_\delta\otimes n_\delta$</formula>. Le scratch calcule le même K pour la ligne φ et l&apos;inertie ; l&apos;assembleur injecte ses variations u/φ/μ et x. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L276-L356">Dérivée directionnelle</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h#L1180-L1198">réutilisation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp#L686-L709">variation ALE</ulink>.</para>
+<sect2 id="fez_pre_amr_mobility_1autotoc_md26">
+<title>Les révisions changent le comportement, pas seulement les noms</title><para><table rows="5" cols="3"><row>
+<entry thead="yes"><para>Commit  </para>
+</entry><entry thead="yes"><para>Modification effective  </para>
+</entry><entry thead="yes"><para>Résultat conservé  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/96ea49a422b724d3df1778feddac31716614c087">96ea49a</ulink>  </para>
+</entry><entry thead="no"><para>Introduit profil et flux avec une normale régularisée par δ absolu, flux commun, gardes Abels et SUPG  </para>
+</entry><entry thead="no"><para>Architecture commune et gardes  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/9d885bab795c3ef6c0d77973948338acc7ea5b2f">9d885ba</ulink>  </para>
+</entry><entry thead="no"><para>Remplace cette normale pour le profil par une régularisation relative q ; ajoute activations et normale unitaire pondérée pour le flux  </para>
+</entry><entry thead="no"><para>Préservation de l&apos;équilibre tanh, extinction dans les phases pures, séparation P/n  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/3353420c2331dbbecdb240a7b8dd77e7dec7fff6">3353420</ulink>  </para>
+</entry><entry thead="no"><para>Découple κ de M locale via <formula id="57">$M_{PC}=ε^p$</formula>, introduit <computeroutput>profile correction mobility exponent</computeroutput>, retire δκ  </para>
+</entry><entry thead="no"><para>Étape intermédiaire entièrement dépassée  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/commit/74d9e06ed2fcff3d614600a8029d5b3642cf1156">74d9e06</ulink>  </para>
+</entry><entry thead="no"><para>Rétablit κ(M) et δκ(δM), retire l&apos;exposant du parsing  </para>
+</entry><entry thead="no"><para>Comportement final lu à cc8dace  </para>
+</entry></row>
+</table>
+</para>
+<para>Ainsi, une ancienne configuration avec <computeroutput>profile correction mobility exponent</computeroutput> décrit un état antérieur ; ce paramètre n&apos;existe plus dans la référence étudiée.</para>
+</sect2>
+</sect1>
+<sect1 id="fez_pre_amr_mobility_1autotoc_md27">
+<title>Le critère temporel fondé sur la mobilité</title><para>Le critère n&apos;est calculé que si <computeroutput>adaptation strategy=adaptive mobility</computeroutput>. Le solveur relit la solution courante sur le mapping mobile, réutilise l&apos;évaluateur de mobilité, trouve le maximum sur les points de quadrature des cellules possédées, puis fait un <bold>maximum MPI</bold>. Il forme   <formula id="111">\[N_M=\Delta t\,\widetilde\sigma M_{\max}/ε^3
+\]</formula> et le transmet à <computeroutput><ref refid="class_time_handler_1aad18876cca1e29b89b769b97ef647d5f" kindref="member">TimeHandler::set_max_adaptive_mobility_number</ref></computeroutput>. Ce n&apos;est ni une moyenne nodale, ni un CFL de maillage, ni le diagnostic <formula id="112">$D_\phi$</formula> de la sortie CSV. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L239-L322">Réduction complète</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h#L849-L871">formule et gardes</ulink>.</para>
+<para><table rows="5" cols="3"><row>
+<entry thead="yes"><para>Paramètre  </para>
+</entry><entry thead="yes"><para>Défaut / domaine  </para>
+</entry><entry thead="yes"><para>Usage  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>target adaptive mobility number</computeroutput>  </para>
+</entry><entry thead="no"><para>1 ; <formula id="113">$0&lt;N_\star\le1$</formula>  </para>
+</entry><entry thead="no"><para>Cible de <formula id="114">$N_M$</formula>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>reject timestep with large adaptive mobility</computeroutput>  </para>
+</entry><entry thead="no"><para>true  </para>
+</entry><entry thead="no"><para>Autorise le rejet du pas convergé  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>adaptive mobility ratio to reject</computeroutput>  </para>
+</entry><entry thead="no"><para>1 ; ratio ≥1  </para>
+</entry><entry thead="no"><para>Rejet si <formula id="115">$N_M/N_\star$</formula> dépasse ce facteur  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Bornes de temps et ratios généraux  </para>
+</entry><entry thead="no"><para>Paramètres de l&apos;adaptation temporelle  </para>
+</entry><entry thead="no"><para>Appliqués par <computeroutput><ref refid="time__handler_8cpp_1a9ce619f5ba4995d0ffade8ac2aee9a3b" kindref="member">clamp_timestep</ref></computeroutput> après la prédiction  </para>
+</entry></row>
+</table>
+</para>
+<para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1484-L1501">Déclaration</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1594-L1602">validation cible</ulink>.</para>
+<para>La boucle d&apos;acceptation suit cet ordre : échec Newton traité ; stationnaire ou adaptation absente acceptés ; démarrage BDF accepté avec avertissement si le seuil est dépassé ; sinon application du critère choisi. Sur succès, le pas prédit est <formula id="116">$\Delta t\,N_\star/N_M$</formula>, ou le maximum autorisé lorsque <formula id="117">$N_M=0$</formula>. Après rejet pour mobilité, il est multiplié en plus par 0.9 ; après échec non linéaire, il est divisé par deux. Les bornes et ratios restent appliqués. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/time_handler.cpp#L311-L455">Acceptation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/time_handler.cpp#L575-L650">prédiction</ulink>.</para>
+<para>Le rejet restaure <computeroutput>present_solution=previous_solutions[0]</computeroutput>, recule le temps et les compteurs, et marque <computeroutput>rolledback_step</computeroutput>. Au-delà de cinq rejets consécutifs permis, il interrompt par exception. Les options d&apos;adaptation sont une <bold>stratégie sélectionnée</bold> ; le code montré ne calcule pas automatiquement <formula id="118">$\min(\Delta t_{CFL},\Delta t_M,\Delta t_{BDF})$</formula>. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/time_handler.cpp#L457-L491">Rollback</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/time_handler.cpp#L575-L600">branches de stratégie</ulink>.</para>
+</sect1>
+<sect1 id="fez_pre_amr_mobility_1autotoc_md28">
+<title>Tests lus et expériences utiles avant une extension</title><para><table rows="8" cols="3"><row>
+<entry thead="yes"><para>Test présent  </para>
+</entry><entry thead="yes"><para>Observations directement lisibles  </para>
+</entry><entry thead="yes"><para>Ce qu&apos;il ne faut pas en déduire  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/unit_tests/profile_correction.cc#L24-L176">profile_correction.cc</ulink>  </para>
+</entry><entry thead="no"><para>Équilibre du profil ; gradient nul ; projection ; différence finie centrée du flux complet avec variation de M  </para>
+</entry><entry thead="no"><para>Pas une mesure de conservation globale après transport ALE complet  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/unit_tests/profile_correction.cc#L179-L338">Gardes et modes</ulink>  </para>
+</entry><entry thead="no"><para>Défauts, incompatibilité modèle/SUPG ; queues résolues ; gradients non résolus ; phases pures et dépassements  </para>
+</entry><entry thead="no"><para>Pas une validation de NLM avec correction : c&apos;est précisément refusé  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/unit_tests/time_handler_adaptive_mobility.cc#L54-L141">time_handler_adaptive_mobility.cc</ulink>  </para>
+</entry><entry thead="no"><para>Rejet de 0.2 à 0.09, restauration de solution, acceptation du retry, démarrage BDF2 non rejeté  </para>
+</entry><entry thead="no"><para>Le test construit un nombre de mobilité ; il ne remplace pas le calcul spatial Mmax  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/unit_tests/time_handler_adaptive_mobility.cc#L143-L312">Échelles et poids χ</ulink>  </para>
+</entry><entry thead="no"><para>Coefficients des trois variantes, restriction paire, dérivées FD, sélection φ contre q  </para>
+</entry><entry thead="no"><para>Pas une Jacobienne complète du modèle 3 en u  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/adaptive_mobility_timestep.prm#L17-L61">adaptive_mobility_timestep.prm</ulink>  </para>
+</entry><entry thead="no"><para>Intégration solveur avec modèle 3, cible 0.1, rejet explicitement désactivé  </para>
+</entry><entry thead="no"><para>Ne couvre pas la branche de rollback à lui seul  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility_2.prm#L27-L102">Jacobian ALE enlarged modèle 2</ulink>  </para>
+</entry><entry thead="no"><para>FD activée, seuils 1e−4, φ initial <computeroutput>0.8+0.1995*x</computeroutput>, forçage ψ actif  </para>
+</entry><entry thead="no"><para>Le commentaire annonce cœur/transition/coupure ; l&apos;étendue réelle doit se lire avec le domaine  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility.prm#L29-L84">Jacobian ALE enlarged modèle 1</ulink>  </para>
+</entry><entry thead="no"><para>Loi adaptative 1, ALE, enlarged, comparaison FD  </para>
+</entry><entry thead="no"><para>Le paramètre additionnel m n&apos;y est pas défini : sa valeur par défaut est zéro  </para>
+</entry></row>
+</table>
+</para>
+<para>Pour étendre une loi, le parcours à examiner est : paramètres → sélection de l&apos;argument → valeur et sensibilités → scratch → colonnes Jacobienne → source MMS → post-traitement et sondes → Mmax → acceptation du temps. Les expériences de lecture C++ associées sont dans <ulink url="../../../pedagogie/lecture-cpp-pre-amr.md">le cahier d&apos;exercices</ulink>. Cette liste indique où une dépendance se propage ; elle ne transforme pas les tests présents en tests exécutés.</para>
+<para> </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/pre_amr/patterns/mobility-corrections-timestep.md"/>
+  </compounddef>
+</doxygen>

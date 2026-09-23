@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_parameters_1_1_pseudo_solid" kind="class" language="C++" prot="public">
+    <compoundname>Parameters::PseudoSolid</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_parameters_1_1_pseudo_solid_1aa441bd06275e2873af41c83794f99a38" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ConstitutiveModel</name>
+        <qualifiedname>Parameters::PseudoSolid::ConstitutiveModel</qualifiedname>
+        <enumvalue id="class_parameters_1_1_pseudo_solid_1aa441bd06275e2873af41c83794f99a38aa143a9e5d9bb02ab5b924aa6f380b77a" prot="public">
+          <name>linear_elasticity</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_pseudo_solid_1aa441bd06275e2873af41c83794f99a38ada5b5c9fc727544bcaa86194adbff775" prot="public">
+          <name>neo_hookean</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_pseudo_solid_1aa441bd06275e2873af41c83794f99a38ab2f7cad93ef9003527d05df4687cc21a" prot="public">
+          <name>ogden</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="624" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="625" bodyend="629"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_parameters_1_1_pseudo_solid_1a7d4822f81b26240ca4bb78ca1f7c2a6c" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="class_parameters_1_1_pseudo_solid_1aa441bd06275e2873af41c83794f99a38" kindref="member">Parameters::PseudoSolid::ConstitutiveModel</ref></type>
+        <definition>enum Parameters::PseudoSolid::ConstitutiveModel Parameters::PseudoSolid&lt; dim &gt;::constitutive_model</definition>
+        <argsstring></argsstring>
+        <name>constitutive_model</name>
+        <qualifiedname>Parameters::PseudoSolid::constitutive_model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="629" column="24"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_pseudo_solid_1a29a6789151275bf9594c3879b297a507" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; ManufacturedSolutions::ParsedFunctionSDBase&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;ManufacturedSolutions::ParsedFunctionSDBase&lt;dim&gt; &gt; Parameters::PseudoSolid&lt; dim &gt;::lame_lambda_fun</definition>
+        <argsstring></argsstring>
+        <name>lame_lambda_fun</name>
+        <qualifiedname>Parameters::PseudoSolid::lame_lambda_fun</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="632" column="7" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="632" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_pseudo_solid_1a689fa7b82b7303121de747b7bf5204f2" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; ManufacturedSolutions::ParsedFunctionSDBase&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;ManufacturedSolutions::ParsedFunctionSDBase&lt;dim&gt; &gt; Parameters::PseudoSolid&lt; dim &gt;::lame_mu_fun</definition>
+        <argsstring></argsstring>
+        <name>lame_mu_fun</name>
+        <qualifiedname>Parameters::PseudoSolid::lame_mu_fun</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="634" column="7" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="634" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_pseudo_solid_1a7d73d0d9662c2e757ea53df170bdfece" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::PseudoSolid&lt; dim &gt;::ogden_beta</definition>
+        <argsstring></argsstring>
+        <name>ogden_beta</name>
+        <qualifiedname>Parameters::PseudoSolid::ogden_beta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="637" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="637" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_parameters_1_1_pseudo_solid_1a2d37b13f3f2e33d7ff944ff19062590c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::PseudoSolid&lt; dim &gt;::set_time</definition>
+        <argsstring>(const double newtime)</argsstring>
+        <name>set_time</name>
+        <qualifiedname>Parameters::PseudoSolid::set_time</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>newtime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="640" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="640" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="class_parameters_1_1_pseudo_solid_1a039a16e8ffff0ec7b8c76f564a983c61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::PseudoSolid&lt; dim &gt;::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm, unsigned int index)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::PseudoSolid::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="645" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1110" bodyend="1137"/>
+      </memberdef>
+      <memberdef kind="function" id="class_parameters_1_1_pseudo_solid_1a5c502612f593b7e6819b3abfadf2ab1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::PseudoSolid&lt; dim &gt;::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm, unsigned int index)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::PseudoSolid::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="646" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1140" bodyend="1166"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="621" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="622" bodyend="647"/>
+    <listofallmembers>
+      <member refid="class_parameters_1_1_pseudo_solid_1a7d4822f81b26240ca4bb78ca1f7c2a6c" prot="public" virt="non-virtual"><scope>Parameters::PseudoSolid</scope><name>constitutive_model</name></member>
+      <member refid="class_parameters_1_1_pseudo_solid_1aa441bd06275e2873af41c83794f99a38" prot="public" virt="non-virtual"><scope>Parameters::PseudoSolid</scope><name>ConstitutiveModel</name></member>
+      <member refid="class_parameters_1_1_pseudo_solid_1a039a16e8ffff0ec7b8c76f564a983c61" prot="public" virt="non-virtual"><scope>Parameters::PseudoSolid</scope><name>declare_parameters</name></member>
+      <member refid="class_parameters_1_1_pseudo_solid_1a29a6789151275bf9594c3879b297a507" prot="public" virt="non-virtual"><scope>Parameters::PseudoSolid</scope><name>lame_lambda_fun</name></member>
+      <member refid="class_parameters_1_1_pseudo_solid_1a689fa7b82b7303121de747b7bf5204f2" prot="public" virt="non-virtual"><scope>Parameters::PseudoSolid</scope><name>lame_mu_fun</name></member>
+      <member refid="class_parameters_1_1_pseudo_solid_1a7d73d0d9662c2e757ea53df170bdfece" prot="public" virt="non-virtual"><scope>Parameters::PseudoSolid</scope><name>ogden_beta</name></member>
+      <member refid="class_parameters_1_1_pseudo_solid_1a5c502612f593b7e6819b3abfadf2ab1f" prot="public" virt="non-virtual"><scope>Parameters::PseudoSolid</scope><name>read_parameters</name></member>
+      <member refid="class_parameters_1_1_pseudo_solid_1a2d37b13f3f2e33d7ff944ff19062590c" prot="public" virt="non-virtual"><scope>Parameters::PseudoSolid</scope><name>set_time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

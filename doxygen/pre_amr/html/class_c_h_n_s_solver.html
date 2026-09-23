@@ -1,0 +1,1754 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence du modèle de la classe CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_c_h_n_s_solver.html','','class_c_h_n_s_solver-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du modèle de la classe CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe d'héritage de CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_c_h_n_s_solver.png" usemap="#CHNSSolver_3C_20dim_2C_20with_5Fmoving_5Fmesh_2C_20with_5Fenlarged_20_3E_map" alt=""/>
+  <map id="CHNSSolver_3C_20dim_2C_20with_5Fmoving_5Fmesh_2C_20with_5Fenlarged_20_3E_map" name="CHNSSolver_3C_20dim_2C_20with_5Fmoving_5Fmesh_2C_20with_5Fenlarged_20_3E_map">
+<area href="class_navier_stokes_solver.html" alt="NavierStokesSolver&lt; dim, false &gt;" shape="rect" coords="0,112,329,136"/>
+<area href="class_generic_solver.html" alt="GenericSolver&lt; LA::ParVectorType &gt;" shape="rect" coords="0,56,329,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:SourceTerm" id="r_SourceTerm"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_c_h_n_s_solver_1_1_source_term.html">SourceTerm</a></td></tr>
+<tr class="memitem:MMSSolution" id="r_MMSSolution"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_c_h_n_s_solver_1_1_m_m_s_solution.html">MMSSolution</a></td></tr>
+<tr class="memitem:MMSSourceTerm" id="r_MMSSourceTerm"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_c_h_n_s_solver_1_1_m_m_s_source_term.html">MMSSourceTerm</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a9fdc75e1ef08b291e887b5d6db3f2f70" id="r_a9fdc75e1ef08b291e887b5d6db3f2f70"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9fdc75e1ef08b291e887b5d6db3f2f70">CHNSSolver</a> (const ParameterReader&lt; dim &gt; &amp;param)</td></tr>
+<tr class="memitem:aa953e2ed0546d0a958410b57aafc84cc" id="r_aa953e2ed0546d0a958410b57aafc84cc"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#aa953e2ed0546d0a958410b57aafc84cc">~CHNSSolver</a> ()=default</td></tr>
+<tr class="memitem:a52ca77fb0f5ba76cbecd36e1fc97b53f" id="r_a52ca77fb0f5ba76cbecd36e1fc97b53f"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a52ca77fb0f5ba76cbecd36e1fc97b53f">update_simulation_parameters</a> (const unsigned int fixed_point_iteration) override</td></tr>
+<tr class="memitem:ae445aa17bfb4201d998e9ce9120a84af" id="r_ae445aa17bfb4201d998e9ce9120a84af"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae445aa17bfb4201d998e9ce9120a84af">create_scratch_data</a> () override</td></tr>
+<tr class="memitem:af004d2c1786e4da0f929d51903556668" id="r_af004d2c1786e4da0f929d51903556668"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#af004d2c1786e4da0f929d51903556668">setup_assemblers</a> () override</td></tr>
+<tr class="memitem:acc707c2ec641524771910e56a58be985" id="r_acc707c2ec641524771910e56a58be985"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#acc707c2ec641524771910e56a58be985">set_solver_specific_initial_conditions</a> () override</td></tr>
+<tr class="memitem:a3b4e04a8b6fe860fb4c14e3338073b47" id="r_a3b4e04a8b6fe860fb4c14e3338073b47"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a3b4e04a8b6fe860fb4c14e3338073b47">set_solver_specific_exact_solution</a> () override</td></tr>
+<tr class="memitem:ae8033cc712d5dd66edac95ad6f23b218" id="r_ae8033cc712d5dd66edac95ad6f23b218"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae8033cc712d5dd66edac95ad6f23b218">create_solver_specific_zero_constraints</a> () override</td></tr>
+<tr class="memitem:ac71026bf5f1593d310c4815a461ff3c8" id="r_ac71026bf5f1593d310c4815a461ff3c8"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ac71026bf5f1593d310c4815a461ff3c8">create_solver_specific_nonzero_constraints</a> () override</td></tr>
+<tr class="memitem:a1f76ffca0e9c36b8f40d3278f07d7ef3" id="r_a1f76ffca0e9c36b8f40d3278f07d7ef3"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a1f76ffca0e9c36b8f40d3278f07d7ef3">set_solver_specific_time</a> () override</td></tr>
+<tr class="memitem:abdb846f3df6acf66d950851e2d7ec069" id="r_abdb846f3df6acf66d950851e2d7ec069"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#abdb846f3df6acf66d950851e2d7ec069">create_sparsity_pattern</a> () override</td></tr>
+<tr class="memitem:abef81fe199c6f63a4bc157780edc34d3" id="r_abef81fe199c6f63a4bc157780edc34d3"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#abef81fe199c6f63a4bc157780edc34d3">compute_solver_specific_errors</a> () override</td></tr>
+<tr class="memitem:a0c2e74712e387938a49ebf97056de668" id="r_a0c2e74712e387938a49ebf97056de668"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a0c2e74712e387938a49ebf97056de668">assemble_matrix</a> () override</td></tr>
+<tr class="memitem:a0e3a59d5aeaf9e8ad9669c14092283f5" id="r_a0e3a59d5aeaf9e8ad9669c14092283f5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0e3a59d5aeaf9e8ad9669c14092283f5">assemble_local_matrix</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, <a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a> &amp;scratchData, <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;copy_data)</td></tr>
+<tr class="memitem:ab5cfd76f033ca5d5c9ca6e94251ee315" id="r_ab5cfd76f033ca5d5c9ca6e94251ee315"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab5cfd76f033ca5d5c9ca6e94251ee315">assemble_local_matrix_finite_differences</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, <a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a> &amp;scratchData, <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;copy_data)</td></tr>
+<tr class="memitem:a44bc0778812d70a5c7c4ca2b1a997605" id="r_a44bc0778812d70a5c7c4ca2b1a997605"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a44bc0778812d70a5c7c4ca2b1a997605">copy_local_to_global_matrix</a> (const <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;copy_data)</td></tr>
+<tr class="memitem:ade262f1ac0f6734f12c2f568511b4c78" id="r_ade262f1ac0f6734f12c2f568511b4c78"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ade262f1ac0f6734f12c2f568511b4c78">compare_analytical_matrix_with_fd</a> () override</td></tr>
+<tr class="memitem:a9da0ac08e3d25bd9978120228bc86b57" id="r_a9da0ac08e3d25bd9978120228bc86b57"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a9da0ac08e3d25bd9978120228bc86b57">assemble_rhs</a> () override</td></tr>
+<tr class="memitem:ac88f396458d12c2f58f1dbe86fdd0e60" id="r_ac88f396458d12c2f58f1dbe86fdd0e60"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac88f396458d12c2f58f1dbe86fdd0e60">assemble_local_rhs</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, <a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a> &amp;scratchData, <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;copy_data)</td></tr>
+<tr class="memitem:a1e5188a61fc785855103ae478c6ca152" id="r_a1e5188a61fc785855103ae478c6ca152"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1e5188a61fc785855103ae478c6ca152">copy_local_to_global_rhs</a> (const <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;copy_data)</td></tr>
+<tr class="inherit_header pub_methods_class_navier_stokes_solver"><td colspan="2">Fonctions membres publiques hérités de <a class="el" href="class_navier_stokes_solver.html">NavierStokesSolver&lt; dim, false &gt;</a></td></tr>
+<tr class="memitem:a0ae187dd8edd09f50bcb1f010d9120dc pub_methods_class_navier_stokes_solver" id="r_a0ae187dd8edd09f50bcb1f010d9120dc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a0ae187dd8edd09f50bcb1f010d9120dc">NavierStokesSolver</a> (const ParameterReader&lt; dim &gt; &amp;param)</td></tr>
+<tr class="memitem:ade74be154a84e6766c6e15e2ef04d4bb pub_methods_class_navier_stokes_solver" id="r_ade74be154a84e6766c6e15e2ef04d4bb"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ade74be154a84e6766c6e15e2ef04d4bb">~NavierStokesSolver</a> ()=default</td></tr>
+<tr class="memitem:a628c47919d75c5c48da43dadb4d57985 pub_methods_class_navier_stokes_solver" id="r_a628c47919d75c5c48da43dadb4d57985"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a628c47919d75c5c48da43dadb4d57985">run</a> () override</td></tr>
+<tr class="memitem:aa7bd5bb09db4b58c9c1007c1b47e512b pub_methods_class_navier_stokes_solver" id="r_aa7bd5bb09db4b58c9c1007c1b47e512b"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa7bd5bb09db4b58c9c1007c1b47e512b">update_constraints_for_evaluation_point</a> () override</td></tr>
+<tr class="memitem:a3e2b579be5e2dd64e51d63bd58da9a72 pub_methods_class_navier_stokes_solver" id="r_a3e2b579be5e2dd64e51d63bd58da9a72"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a3e2b579be5e2dd64e51d63bd58da9a72">attach_presolver</a> (<a class="el" href="class_elasticity_solver.html">ElasticitySolver</a>&lt; dim &gt; *new_presolver)</td></tr>
+<tr class="memitem:a3318116cc7ffc61996bead7c4a5eb1e2 pub_methods_class_navier_stokes_solver" id="r_a3318116cc7ffc61996bead7c4a5eb1e2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a3318116cc7ffc61996bead7c4a5eb1e2">set_interval_data</a> (const unsigned int interval_index)</td></tr>
+<tr class="memitem:a7890aef62800dcff0ab182d769a593ab pub_methods_class_navier_stokes_solver" id="r_a7890aef62800dcff0ab182d769a593ab"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a7890aef62800dcff0ab182d769a593ab">run_time_subinterval</a> (const unsigned int interval_index)</td></tr>
+<tr class="memitem:ab7aaf49c836df3ec7573fcbbff8bd1d4 pub_methods_class_navier_stokes_solver" id="r_ab7aaf49c836df3ec7573fcbbff8bd1d4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ab7aaf49c836df3ec7573fcbbff8bd1d4">reset</a> ()</td></tr>
+<tr class="memitem:a422eeda679e285bc9fc4951dccb99519 pub_methods_class_navier_stokes_solver" id="r_a422eeda679e285bc9fc4951dccb99519"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a422eeda679e285bc9fc4951dccb99519">reset_solver_specific_data</a> ()</td></tr>
+<tr class="memitem:a56c44260e048cba5ba6ccd3202cde8b6 pub_methods_class_navier_stokes_solver" id="r_a56c44260e048cba5ba6ccd3202cde8b6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a56c44260e048cba5ba6ccd3202cde8b6">initialize</a> ()</td></tr>
+<tr class="memitem:a48d998501630eeecc71a49375accfa0a pub_methods_class_navier_stokes_solver" id="r_a48d998501630eeecc71a49375accfa0a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a48d998501630eeecc71a49375accfa0a">finalize</a> ()</td></tr>
+<tr class="memitem:ad2fa476671e05775879fe5eb27243a68 pub_methods_class_navier_stokes_solver" id="r_ad2fa476671e05775879fe5eb27243a68"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ad2fa476671e05775879fe5eb27243a68">initialize_interval</a> (const unsigned interval_index)</td></tr>
+<tr class="memitem:a117e5b8a7b08bc942db33cae5b7e87f1 pub_methods_class_navier_stokes_solver" id="r_a117e5b8a7b08bc942db33cae5b7e87f1"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a117e5b8a7b08bc942db33cae5b7e87f1">initialize_interval_solver_specific</a> (const unsigned)</td></tr>
+<tr class="memitem:a3d1f36ecc6b89311f6825baef0e946cb pub_methods_class_navier_stokes_solver" id="r_a3d1f36ecc6b89311f6825baef0e946cb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a3d1f36ecc6b89311f6825baef0e946cb">finalize_interval</a> (const unsigned interval_index)</td></tr>
+<tr class="memitem:ab1d01282a47026cfa98089f117e473ea pub_methods_class_navier_stokes_solver" id="r_ab1d01282a47026cfa98089f117e473ea"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ab1d01282a47026cfa98089f117e473ea">finalize_interval_solver_specific</a> (const unsigned)</td></tr>
+<tr class="memitem:aa9f9eb2ad3a5f3505d22feffc604da8b pub_methods_class_navier_stokes_solver" id="r_aa9f9eb2ad3a5f3505d22feffc604da8b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa9f9eb2ad3a5f3505d22feffc604da8b">set_time</a> ()</td></tr>
+<tr class="memitem:a151d69c8e5e7c3e4bbfc5fc7c17ce747 pub_methods_class_navier_stokes_solver" id="r_a151d69c8e5e7c3e4bbfc5fc7c17ce747"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a151d69c8e5e7c3e4bbfc5fc7c17ce747">setup_dofs</a> ()</td></tr>
+<tr class="memitem:aa59464653668d93b905e16d3d6ce5d18 pub_methods_class_navier_stokes_solver" id="r_aa59464653668d93b905e16d3d6ce5d18"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa59464653668d93b905e16d3d6ce5d18">setup_mappings</a> ()</td></tr>
+<tr class="memitem:a0c3e2dd7a4efe2be406e0715fb212172 pub_methods_class_navier_stokes_solver" id="r_a0c3e2dd7a4efe2be406e0715fb212172"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a0c3e2dd7a4efe2be406e0715fb212172">set_active_fe_indices</a> ()</td></tr>
+<tr class="memitem:ab7062c48b694b7e668d6059217b147c4 pub_methods_class_navier_stokes_solver" id="r_ab7062c48b694b7e668d6059217b147c4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ab7062c48b694b7e668d6059217b147c4">reinit_ghosted_vectors</a> ()</td></tr>
+<tr class="memitem:af1ef0a882f6592af774f2ac6cf9059e0 pub_methods_class_navier_stokes_solver" id="r_af1ef0a882f6592af774f2ac6cf9059e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#af1ef0a882f6592af774f2ac6cf9059e0">create_zero_mean_pressure_constraints_data</a> ()</td></tr>
+<tr class="memitem:a8e2e814f67722048bcccd664b1a890df pub_methods_class_navier_stokes_solver" id="r_a8e2e814f67722048bcccd664b1a890df"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a8e2e814f67722048bcccd664b1a890df">create_solver_specific_constraints_data</a> ()</td></tr>
+<tr class="memitem:a60c13153c2602289fce8101fc2ee18bf pub_methods_class_navier_stokes_solver" id="r_a60c13153c2602289fce8101fc2ee18bf"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a60c13153c2602289fce8101fc2ee18bf">create_base_constraints</a> (const bool homogeneous, AffineConstraints&lt; double &gt; &amp;constraints)</td></tr>
+<tr class="memitem:a35ef1df1a519597491e1cf7afd627d56 pub_methods_class_navier_stokes_solver" id="r_a35ef1df1a519597491e1cf7afd627d56"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a35ef1df1a519597491e1cf7afd627d56">create_zero_constraints</a> ()</td></tr>
+<tr class="memitem:a21572945b0e2ae106a26158edf83bfd7 pub_methods_class_navier_stokes_solver" id="r_a21572945b0e2ae106a26158edf83bfd7"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a21572945b0e2ae106a26158edf83bfd7">create_nonzero_constraints</a> ()</td></tr>
+<tr class="memitem:a8f79696461bc9a69f2d20fedd9ada3af pub_methods_class_navier_stokes_solver" id="r_a8f79696461bc9a69f2d20fedd9ada3af"><td class="memItemLeft">virtual AffineConstraints&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a8f79696461bc9a69f2d20fedd9ada3af">get_nonzero_constraints</a> () override</td></tr>
+<tr class="memitem:a21f77a3d73741b0f47a8e021f1cdba9f pub_methods_class_navier_stokes_solver" id="r_a21f77a3d73741b0f47a8e021f1cdba9f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a21f77a3d73741b0f47a8e021f1cdba9f">update_boundary_conditions</a> ()</td></tr>
+<tr class="memitem:a75a77470e2a16504007bc7c31c58a244 pub_methods_class_navier_stokes_solver" id="r_a75a77470e2a16504007bc7c31c58a244"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a75a77470e2a16504007bc7c31c58a244">set_initial_conditions</a> (const bool rotate_solutions=true)</td></tr>
+<tr class="memitem:aaa04feb130125567621db0cfb2308e1a pub_methods_class_navier_stokes_solver" id="r_aaa04feb130125567621db0cfb2308e1a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aaa04feb130125567621db0cfb2308e1a">overwrite_position_from_presolver</a> (<a class="el" href="class_elasticity_solver.html">ElasticitySolver</a>&lt; dim &gt; &amp;presolver)</td></tr>
+<tr class="memitem:a99f8e64420e39e780a8adb8dfff0e5cd pub_methods_class_navier_stokes_solver" id="r_a99f8e64420e39e780a8adb8dfff0e5cd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a99f8e64420e39e780a8adb8dfff0e5cd">set_exact_solution</a> ()</td></tr>
+<tr class="memitem:a6c0b9eb16162e7b27f5548544a376a51 pub_methods_class_navier_stokes_solver" id="r_a6c0b9eb16162e7b27f5548544a376a51"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a6c0b9eb16162e7b27f5548544a376a51">solve_linear_system</a> () override</td></tr>
+<tr class="memitem:a2f9cb465dbf409f20d7606cea7ad22f5 pub_methods_class_navier_stokes_solver" id="r_a2f9cb465dbf409f20d7606cea7ad22f5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a2f9cb465dbf409f20d7606cea7ad22f5">postprocess_solution</a> ()</td></tr>
+<tr class="memitem:a428e0f14c79d154f6b4c6149193d1745 pub_methods_class_navier_stokes_solver" id="r_a428e0f14c79d154f6b4c6149193d1745"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a428e0f14c79d154f6b4c6149193d1745">compute_field_integrals</a> ()</td></tr>
+<tr class="memitem:aa270aec15ebda01ec5f7a9d5865aecc6 pub_methods_class_navier_stokes_solver" id="r_aa270aec15ebda01ec5f7a9d5865aecc6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa270aec15ebda01ec5f7a9d5865aecc6">compute_and_add_errors</a> (const Mapping&lt; dim &gt; &amp;mapping, const Function&lt; dim &gt; &amp;exact_solution, Vector&lt; double &gt; &amp;cellwise_errors, const ComponentSelectFunction&lt; dim &gt; &amp;comp_function, const std::string &amp;field_name)</td></tr>
+<tr class="memitem:aa3407d3736ce147c9be14cfa61543530 pub_methods_class_navier_stokes_solver" id="r_aa3407d3736ce147c9be14cfa61543530"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa3407d3736ce147c9be14cfa61543530">compute_errors</a> ()</td></tr>
+<tr class="memitem:a0210d51142aaa5501a531976047c947e pub_methods_class_navier_stokes_solver" id="r_a0210d51142aaa5501a531976047c947e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a0210d51142aaa5501a531976047c947e">compute_dof_based_postprocessing</a> ()</td></tr>
+<tr class="memitem:aa968f4117bc673e64b6daecae156cd71 pub_methods_class_navier_stokes_solver" id="r_aa968f4117bc673e64b6daecae156cd71"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa968f4117bc673e64b6daecae156cd71">output_results</a> ()</td></tr>
+<tr class="memitem:a17702caa0151ca48f8df11b91d907d63 pub_methods_class_navier_stokes_solver" id="r_a17702caa0151ca48f8df11b91d907d63"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a17702caa0151ca48f8df11b91d907d63">compute_max_cfl</a> ()</td></tr>
+<tr class="memitem:a0f2e7343205d5c45fe3a3e410af13477 pub_methods_class_navier_stokes_solver" id="r_a0f2e7343205d5c45fe3a3e410af13477"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a0f2e7343205d5c45fe3a3e410af13477">compute_forces</a> ()</td></tr>
+<tr class="memitem:ab5f02acd1f1a5421214a193455371005 pub_methods_class_navier_stokes_solver" id="r_ab5f02acd1f1a5421214a193455371005"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ab5f02acd1f1a5421214a193455371005">write_forces</a> (std::ostream &amp;out=std::cout) const</td></tr>
+<tr class="memitem:a192f1dc5048e69f422281f1f20162d58 pub_methods_class_navier_stokes_solver" id="r_a192f1dc5048e69f422281f1f20162d58"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a192f1dc5048e69f422281f1f20162d58">compute_structure_mean_position</a> ()</td></tr>
+<tr class="memitem:a697e78827fb176e1f8a1a124fc2f00d4 pub_methods_class_navier_stokes_solver" id="r_a697e78827fb176e1f8a1a124fc2f00d4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a697e78827fb176e1f8a1a124fc2f00d4">write_structure_mean_position</a> (std::ostream &amp;out=std::cout) const</td></tr>
+<tr class="memitem:a65f73d005afdbcd89e6bd6de3bae75e6 pub_methods_class_navier_stokes_solver" id="r_a65f73d005afdbcd89e6bd6de3bae75e6"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a65f73d005afdbcd89e6bd6de3bae75e6">compute_reconstructions</a> ()</td></tr>
+<tr class="memitem:a85b2c88e68995dd276bcf55a1d230152 pub_methods_class_navier_stokes_solver" id="r_a85b2c88e68995dd276bcf55a1d230152"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a85b2c88e68995dd276bcf55a1d230152">compute_riemannian_metric</a> ()</td></tr>
+<tr class="memitem:abd7642da5120f6259c9c0a04066fbf05 pub_methods_class_navier_stokes_solver" id="r_abd7642da5120f6259c9c0a04066fbf05"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#abd7642da5120f6259c9c0a04066fbf05">compute_error_estimate</a> ()</td></tr>
+<tr class="memitem:a9a4264d51d48627a356452430441413b pub_methods_class_navier_stokes_solver" id="r_a9a4264d51d48627a356452430441413b"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a9a4264d51d48627a356452430441413b">adapt_mesh</a> () override</td></tr>
+<tr class="memitem:a9f882e8f71210bce6392b45f18d77479 pub_methods_class_navier_stokes_solver" id="r_a9f882e8f71210bce6392b45f18d77479"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a9f882e8f71210bce6392b45f18d77479">checkpoint</a> ()</td></tr>
+<tr class="memitem:a9609ff15f6e0213153985cbe767e9f91 pub_methods_class_navier_stokes_solver" id="r_a9609ff15f6e0213153985cbe767e9f91"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a9609ff15f6e0213153985cbe767e9f91">restart</a> ()</td></tr>
+<tr class="memitem:aeb497ba90ab310ad63ce6fa478c9e593 pub_methods_class_navier_stokes_solver" id="r_aeb497ba90ab310ad63ce6fa478c9e593"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aeb497ba90ab310ad63ce6fa478c9e593">save</a> (Archive &amp;ar, const unsigned int version) const</td></tr>
+<tr class="memitem:aecd54ac9fb4df200fbd06bd594dc64ec pub_methods_class_navier_stokes_solver" id="r_aecd54ac9fb4df200fbd06bd594dc64ec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aecd54ac9fb4df200fbd06bd594dc64ec">load</a> (Archive &amp;ar, const unsigned int version)</td></tr>
+<tr class="memitem:a75d7ec3ea3ddd9ae973bcb584877596f pub_methods_class_navier_stokes_solver" id="r_a75d7ec3ea3ddd9ae973bcb584877596f"><td class="memItemLeft">const ParameterReader&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a75d7ec3ea3ddd9ae973bcb584877596f">get_parameters</a> () const</td></tr>
+<tr class="memitem:ac2909be372168e3d315b6762e2ec8fa4 pub_methods_class_navier_stokes_solver" id="r_ac2909be372168e3d315b6762e2ec8fa4"><td class="memItemLeft">const DoFHandler&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ac2909be372168e3d315b6762e2ec8fa4">get_dof_handler</a> () const</td></tr>
+<tr class="memitem:a4f9a3ac9c20593f184559fce1ef48894 pub_methods_class_navier_stokes_solver" id="r_a4f9a3ac9c20593f184559fce1ef48894"><td class="memItemLeft">virtual <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a4f9a3ac9c20593f184559fce1ef48894">get_present_solution</a> () override</td></tr>
+<tr class="memitem:a947b8e83ba4d32ab1cf00533998eef3c pub_methods_class_navier_stokes_solver" id="r_a947b8e83ba4d32ab1cf00533998eef3c"><td class="memItemLeft">ComponentMask&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a947b8e83ba4d32ab1cf00533998eef3c">get_component_mask</a> (const SolverInfo::VariableType variable) const</td></tr>
+<tr class="inherit_header pub_methods_class_generic_solver"><td colspan="2">Fonctions membres publiques hérités de <a class="el" href="class_generic_solver.html">GenericSolver&lt; LA::ParVectorType &gt;</a></td></tr>
+<tr class="memitem:a3ccc78d2ec40e5074088217f9178ea22 pub_methods_class_generic_solver" id="r_a3ccc78d2ec40e5074088217f9178ea22"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a3ccc78d2ec40e5074088217f9178ea22">GenericSolver</a> (const <a class="el" href="struct_parameters_1_1_output.html">Parameters::Output</a> &amp;output_param, const <a class="el" href="struct_parameters_1_1_non_linear_solver.html">Parameters::NonLinearSolver</a> &amp;nonlinear_solver_param, const <a class="el" href="struct_parameters_1_1_timer.html">Parameters::Timer</a> &amp;timer_param, const <a class="el" href="struct_parameters_1_1_mesh.html">Parameters::Mesh</a> &amp;mesh_param, const <a class="el" href="struct_parameters_1_1_time_integration.html">Parameters::TimeIntegration</a> &amp;time_param, const <a class="el" href="struct_parameters_1_1_m_m_s.html">Parameters::MMS</a> &amp;mms_param, const SolverInfo::SolverType solver_type)</td></tr>
+<tr class="memitem:afbeabded407d0ea9875045cc9c2a61d4 pub_methods_class_generic_solver" id="r_afbeabded407d0ea9875045cc9c2a61d4"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#afbeabded407d0ea9875045cc9c2a61d4">~GenericSolver</a> ()=default</td></tr>
+<tr class="memitem:a5533697ed91d5aa53c0a342870db8859 pub_methods_class_generic_solver" id="r_a5533697ed91d5aa53c0a342870db8859"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a5533697ed91d5aa53c0a342870db8859">run_convergence_loop</a> ()</td></tr>
+<tr class="memitem:a3bbafb4d601a4a6963e37f18e66aec5f pub_methods_class_generic_solver" id="r_a3bbafb4d601a4a6963e37f18e66aec5f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a3bbafb4d601a4a6963e37f18e66aec5f">run_fixed_point_loop</a> ()</td></tr>
+<tr class="memitem:a7aaed7416c745ba959ad6f5bb3061b60 pub_methods_class_generic_solver" id="r_a7aaed7416c745ba959ad6f5bb3061b60"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a7aaed7416c745ba959ad6f5bb3061b60">solve_nonlinear_problem</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler)</td></tr>
+<tr class="memitem:a7201687f3387085e6c02204ffb9e123b pub_methods_class_generic_solver" id="r_a7201687f3387085e6c02204ffb9e123b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a7201687f3387085e6c02204ffb9e123b">distribute_nonzero_constraints</a> ()</td></tr>
+<tr class="memitem:a789347ad0a51b96848195c525f5f0869 pub_methods_class_generic_solver" id="r_a789347ad0a51b96848195c525f5f0869"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a789347ad0a51b96848195c525f5f0869">should_create_triangulation</a> () const</td></tr>
+<tr class="memitem:ad9e777cd9ea0fef97216ec5107d666f3 pub_methods_class_generic_solver" id="r_ad9e777cd9ea0fef97216ec5107d666f3"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#ad9e777cd9ea0fef97216ec5107d666f3">should_adapt_tree_based_mesh</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:aad9e83b6d58debd0043c81ef0576784a pub_methods_class_generic_solver" id="r_aad9e83b6d58debd0043c81ef0576784a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#aad9e83b6d58debd0043c81ef0576784a">should_adapt_mesh_at_end_of_intervals</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:aae2724c6791b3d8b3c975af67e2675d1 pub_methods_class_generic_solver" id="r_aae2724c6791b3d8b3c975af67e2675d1"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#aae2724c6791b3d8b3c975af67e2675d1">should_compute_errors</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:a80d40646517e427fe65d8a11c501bad6 pub_methods_class_generic_solver" id="r_a80d40646517e427fe65d8a11c501bad6"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a80d40646517e427fe65d8a11c501bad6">should_add_error_reference_data</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:a06abfb955b08ff4d9d3cf21b63cd2845 pub_methods_class_generic_solver" id="r_a06abfb955b08ff4d9d3cf21b63cd2845"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a06abfb955b08ff4d9d3cf21b63cd2845">should_check_weakly_enforced_velocity</a> (const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:a052b5e859d6e6bef845f8cd368404cad pub_methods_class_generic_solver" id="r_a052b5e859d6e6bef845f8cd368404cad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a052b5e859d6e6bef845f8cd368404cad">should_compute_reconstructions</a> (const ParameterReader&lt; dim &gt; &amp;param, const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:a81f5fb8ad56aa3588879cc94f9eaeb4a pub_methods_class_generic_solver" id="r_a81f5fb8ad56aa3588879cc94f9eaeb4a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a81f5fb8ad56aa3588879cc94f9eaeb4a">should_compute_riemannian_metric</a> (const ParameterReader&lt; dim &gt; &amp;param, const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:a960f6b636879bfba12b9ef77549bb995 pub_methods_class_generic_solver" id="r_a960f6b636879bfba12b9ef77549bb995"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a960f6b636879bfba12b9ef77549bb995">should_scale_and_grade_riemannian_metric</a> (const ParameterReader&lt; dim &gt; &amp;param, const <a class="el" href="class_time_handler.html">TimeHandler</a> &amp;time_handler) const</td></tr>
+<tr class="memitem:a0b29381b97f14de5c24762a480d712fd pub_methods_class_generic_solver" id="r_a0b29381b97f14de5c24762a480d712fd"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a0b29381b97f14de5c24762a480d712fd">get_evaluation_point</a> ()</td></tr>
+<tr class="memitem:a7821dbf5c15a665d3b7726d000c6bc96 pub_methods_class_generic_solver" id="r_a7821dbf5c15a665d3b7726d000c6bc96"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a7821dbf5c15a665d3b7726d000c6bc96">get_local_evaluation_point</a> ()</td></tr>
+<tr class="memitem:af1efb1d4ee238c5148ee58283ea0fae9 pub_methods_class_generic_solver" id="r_af1efb1d4ee238c5148ee58283ea0fae9"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#af1efb1d4ee238c5148ee58283ea0fae9">get_newton_update</a> ()</td></tr>
+<tr class="memitem:a10a1261c26aa9c11ceda08a574cec3a5 pub_methods_class_generic_solver" id="r_a10a1261c26aa9c11ceda08a574cec3a5"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a10a1261c26aa9c11ceda08a574cec3a5">get_system_rhs</a> ()</td></tr>
+<tr class="memitem:af955926ba01980b191dd5e1b6ecff617 pub_methods_class_generic_solver" id="r_af955926ba01980b191dd5e1b6ecff617"><td class="memItemLeft">const <a class="el" href="struct_parameters_1_1_time_integration.html">Parameters::TimeIntegration</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#af955926ba01980b191dd5e1b6ecff617">get_time_parameters</a> () const</td></tr>
+<tr class="memitem:a71829c00801e12ba31b20d6d8936aeeb pub_methods_class_generic_solver" id="r_a71829c00801e12ba31b20d6d8936aeeb"><td class="memItemLeft">const ErrorHandler &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a71829c00801e12ba31b20d6d8936aeeb">get_error_handler</a> (const VectorTools::NormType type) const</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:a8c1e51fa96e460bd09a61bbd5dbd4260" id="r_a8c1e51fa96e460bd09a61bbd5dbd4260"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a8c1e51fa96e460bd09a61bbd5dbd4260">compute_solver_specific_timestep_adaptation_criterion</a> () override</td></tr>
+<tr class="memitem:a1b40e20bcdcc67285866f121d12eea63" id="r_a1b40e20bcdcc67285866f121d12eea63"><td class="memItemLeft">virtual std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1b40e20bcdcc67285866f121d12eea63">get_additional_variables_description</a> () const override</td></tr>
+<tr class="memitem:a4be0206804d5e7c6092bd6eb80101bd6" id="r_a4be0206804d5e7c6092bd6eb80101bd6"><td class="memItemLeft">virtual const FESystem&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4be0206804d5e7c6092bd6eb80101bd6">get_fe_system</a> () const override</td></tr>
+<tr class="memitem:a18ee52f3860a1fb5aa51e61fe6506394" id="r_a18ee52f3860a1fb5aa51e61fe6506394"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a18ee52f3860a1fb5aa51e61fe6506394">uses_hp_capabilities</a> () const override</td></tr>
+<tr class="memitem:a8357d4b9416e24682db4ebc25b65acd4" id="r_a8357d4b9416e24682db4ebc25b65acd4"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a8357d4b9416e24682db4ebc25b65acd4">add_solver_specific_postprocessing_data</a> () override</td></tr>
+<tr class="memitem:ae6f26806e27c7dfc0430b14d0e2acfd9" id="r_ae6f26806e27c7dfc0430b14d0e2acfd9"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae6f26806e27c7dfc0430b14d0e2acfd9">solver_specific_post_processing</a> () override</td></tr>
+<tr class="memitem:ad2a6871730ab2f70aa916d9528287249" id="r_ad2a6871730ab2f70aa916d9528287249"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad2a6871730ab2f70aa916d9528287249">output_line_probe</a> ()</td></tr>
+<tr class="memitem:a4028ed6eaf450f69c866c344250c9bff" id="r_a4028ed6eaf450f69c866c344250c9bff"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4028ed6eaf450f69c866c344250c9bff">should_output_mesh_quality</a> () const</td></tr>
+<tr class="memitem:a928cd8d70bb3d7782f1044d09c4a88ac" id="r_a928cd8d70bb3d7782f1044d09c4a88ac"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a928cd8d70bb3d7782f1044d09c4a88ac">add_mesh_quality_postprocessing_data</a> ()</td></tr>
+<tr class="memitem:ab2df019a24b624bec1fda4eedfb4ebad" id="r_ab2df019a24b624bec1fda4eedfb4ebad"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab2df019a24b624bec1fda4eedfb4ebad">add_interface_resolution_data</a> (const Mapping&lt; dim &gt; &amp;study_mapping)</td></tr>
+<tr class="memitem:a4bc04a878a879c43413b5f11cc6dd20c" id="r_a4bc04a878a879c43413b5f11cc6dd20c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4bc04a878a879c43413b5f11cc6dd20c">add_graph_metric_quality_data</a> (const Mapping&lt; dim &gt; &amp;study_mapping)</td></tr>
+<tr class="memitem:a8b0208ef16f59c18ef055cc6bab57b56" id="r_a8b0208ef16f59c18ef055cc6bab57b56"><td class="memItemLeft">std::vector&lt; Tensor&lt; 2, dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8b0208ef16f59c18ef055cc6bab57b56">compute_vertexwise_F_inv_T</a> () const</td></tr>
+<tr class="memitem:a467b348d48a9edcd05009bc2d978a121" id="r_a467b348d48a9edcd05009bc2d978a121"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a467b348d48a9edcd05009bc2d978a121">transport_reconstructed_phi_gradient</a> (ErrorEstimation::SolutionRecovery::Scalar&lt; dim &gt; &amp;recovery) const</td></tr>
+<tr class="inherit_header pro_methods_class_navier_stokes_solver"><td colspan="2">Fonctions membres protégées hérités de <a class="el" href="class_navier_stokes_solver.html">NavierStokesSolver&lt; dim, false &gt;</a></td></tr>
+<tr class="memitem:a7c8785f651d71c39c4833296e596f00d pro_methods_class_navier_stokes_solver" id="r_a7c8785f651d71c39c4833296e596f00d"><td class="memItemLeft">virtual const hp::FECollection&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a7c8785f651d71c39c4833296e596f00d">get_fe_collection</a> () const</td></tr>
+<tr class="memitem:aebc219b364ba562f68527e27a3563b99 pro_methods_class_navier_stokes_solver" id="r_aebc219b364ba562f68527e27a3563b99"><td class="memItemLeft">virtual const hp::MappingCollection&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aebc219b364ba562f68527e27a3563b99">get_fixed_mapping_collection</a> () const</td></tr>
+<tr class="memitem:a5a02e9504844b887bfe709c718489164 pro_methods_class_navier_stokes_solver" id="r_a5a02e9504844b887bfe709c718489164"><td class="memItemLeft">virtual const hp::MappingCollection&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a5a02e9504844b887bfe709c718489164">get_moving_mapping_collection</a> () const</td></tr>
+<tr class="memitem:a72d36789fc5b37dd6b0881b9b4beded3 pro_methods_class_navier_stokes_solver" id="r_a72d36789fc5b37dd6b0881b9b4beded3"><td class="memItemLeft">virtual const hp::QCollection&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a72d36789fc5b37dd6b0881b9b4beded3">get_cell_quadrature_collection</a> () const</td></tr>
+<tr class="memitem:a51cb051475656a0525a354aec094b974 pro_methods_class_navier_stokes_solver" id="r_a51cb051475656a0525a354aec094b974"><td class="memItemLeft">virtual const hp::QCollection&lt; dim - 1 &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a51cb051475656a0525a354aec094b974">get_face_quadrature_collection</a> () const</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a1d77794a78b1ca3f463c223ac1927182" id="r_a1d77794a78b1ca3f463c223ac1927182"><td class="memItemLeft">std::unique_ptr&lt; FESystem&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1d77794a78b1ca3f463c223ac1927182">fe</a></td></tr>
+<tr class="memitem:a3d8c1ab8ec2f24fa4754f20305bcd2af" id="r_a3d8c1ab8ec2f24fa4754f20305bcd2af"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3d8c1ab8ec2f24fa4754f20305bcd2af">scratch_data</a></td></tr>
+<tr class="memitem:af5bd6b5683b27abf93112266d6bb5030" id="r_af5bd6b5683b27abf93112266d6bb5030"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; <a class="el" href="#a66e182264f17d8a4ddf5cf283df0e633">Assembler</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af5bd6b5683b27abf93112266d6bb5030">assemblers</a></td></tr>
+<tr class="memitem:a303d3c510c88a3c3617d240e31d7ab0c" id="r_a303d3c510c88a3c3617d240e31d7ab0c"><td class="memItemLeft">FEValuesExtractors::Scalar&#160;</td><td class="memItemRight"><a class="el" href="#a303d3c510c88a3c3617d240e31d7ab0c">tracer_extractor</a></td></tr>
+<tr class="memitem:a310659e769b1166fc26256677b23b019" id="r_a310659e769b1166fc26256677b23b019"><td class="memItemLeft">FEValuesExtractors::Scalar&#160;</td><td class="memItemRight"><a class="el" href="#a310659e769b1166fc26256677b23b019">potential_extractor</a></td></tr>
+<tr class="memitem:a77b0eb63783411b0c22c138ba923acd8" id="r_a77b0eb63783411b0c22c138ba923acd8"><td class="memItemLeft">FEValuesExtractors::Scalar&#160;</td><td class="memItemRight"><a class="el" href="#a77b0eb63783411b0c22c138ba923acd8">psi_extractor</a></td></tr>
+<tr class="memitem:a05c5f43a406e5a72ca3389ec76171178" id="r_a05c5f43a406e5a72ca3389ec76171178"><td class="memItemLeft">ComponentMask&#160;</td><td class="memItemRight"><a class="el" href="#a05c5f43a406e5a72ca3389ec76171178">tracer_mask</a></td></tr>
+<tr class="memitem:a0eb022ab597bfc348851e54e4260cf18" id="r_a0eb022ab597bfc348851e54e4260cf18"><td class="memItemLeft">ComponentMask&#160;</td><td class="memItemRight"><a class="el" href="#a0eb022ab597bfc348851e54e4260cf18">potential_mask</a></td></tr>
+<tr class="memitem:ad23fc466764cf378cf37f83624709b85" id="r_ad23fc466764cf378cf37f83624709b85"><td class="memItemLeft">ComponentMask&#160;</td><td class="memItemRight"><a class="el" href="#ad23fc466764cf378cf37f83624709b85">psi_mask</a></td></tr>
+<tr class="memitem:a5337d0f2b925f38268f0217128538cff" id="r_a5337d0f2b925f38268f0217128538cff"><td class="memItemLeft">TableHandler&#160;</td><td class="memItemRight"><a class="el" href="#a5337d0f2b925f38268f0217128538cff">time_scales_table</a></td></tr>
+<tr class="inherit_header pro_attribs_class_navier_stokes_solver"><td colspan="2">Attributs protégés hérités de <a class="el" href="class_navier_stokes_solver.html">NavierStokesSolver&lt; dim, false &gt;</a></td></tr>
+<tr class="memitem:a1665864ba03d75b91a74bef409630a11 pro_attribs_class_navier_stokes_solver" id="r_a1665864ba03d75b91a74bef409630a11"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="class_component_ordering.html">ComponentOrdering</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a1665864ba03d75b91a74bef409630a11">ordering</a></td></tr>
+<tr class="memitem:a8bdf42cc07da6c576b50e15f4b791096 pro_attribs_class_navier_stokes_solver" id="r_a8bdf42cc07da6c576b50e15f4b791096"><td class="memItemLeft">ParameterReader&lt; dim &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a8bdf42cc07da6c576b50e15f4b791096">param</a></td></tr>
+<tr class="memitem:a0ba946c47c6ff4ca89845e24002a40ac pro_attribs_class_navier_stokes_solver" id="r_a0ba946c47c6ff4ca89845e24002a40ac"><td class="memItemLeft">std::unique_ptr&lt; Quadrature&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a0ba946c47c6ff4ca89845e24002a40ac">quadrature</a></td></tr>
+<tr class="memitem:aa447a0ead82d0e128722b448c4ae9f88 pro_attribs_class_navier_stokes_solver" id="r_aa447a0ead82d0e128722b448c4ae9f88"><td class="memItemLeft">std::unique_ptr&lt; Quadrature&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa447a0ead82d0e128722b448c4ae9f88">error_quadrature</a></td></tr>
+<tr class="memitem:a4461fe7fde1bcf852e55865ef36c1122 pro_attribs_class_navier_stokes_solver" id="r_a4461fe7fde1bcf852e55865ef36c1122"><td class="memItemLeft">std::unique_ptr&lt; Quadrature&lt; dim - 1 &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a4461fe7fde1bcf852e55865ef36c1122">face_quadrature</a></td></tr>
+<tr class="memitem:a8e95dcd6b28cb54b7cb418a3cc7952c2 pro_attribs_class_navier_stokes_solver" id="r_a8e95dcd6b28cb54b7cb418a3cc7952c2"><td class="memItemLeft">std::unique_ptr&lt; Quadrature&lt; dim - 1 &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a8e95dcd6b28cb54b7cb418a3cc7952c2">error_face_quadrature</a></td></tr>
+<tr class="memitem:acac54510d82fbc7827a993e203f64996 pro_attribs_class_navier_stokes_solver" id="r_acac54510d82fbc7827a993e203f64996"><td class="memItemLeft"><a class="el" href="class_time_handler.html">TimeHandler</a>&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#acac54510d82fbc7827a993e203f64996">time_handler</a></td></tr>
+<tr class="memitem:a5017c45f4c928ef4ed088dddeacaceb2 pro_attribs_class_navier_stokes_solver" id="r_a5017c45f4c928ef4ed088dddeacaceb2"><td class="memItemLeft">TransientFixedPointData&lt; dim &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a5017c45f4c928ef4ed088dddeacaceb2">transient_fixed_point_data</a></td></tr>
+<tr class="memitem:aa63fee077d836891cc947a8603e10083 pro_attribs_class_navier_stokes_solver" id="r_aa63fee077d836891cc947a8603e10083"><td class="memItemLeft">parallel::DistributedTriangulationBase&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa63fee077d836891cc947a8603e10083">triangulation</a></td></tr>
+<tr class="memitem:a57ad356a2c7e351f4e566da0da44edbd pro_attribs_class_navier_stokes_solver" id="r_a57ad356a2c7e351f4e566da0da44edbd"><td class="memItemLeft">DoFHandler&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a57ad356a2c7e351f4e566da0da44edbd">dof_handler</a></td></tr>
+<tr class="memitem:a853d232cdcd773e23d8c121236e59990 pro_attribs_class_navier_stokes_solver" id="r_a853d232cdcd773e23d8c121236e59990"><td class="memItemLeft">std::unique_ptr&lt; Mapping&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a853d232cdcd773e23d8c121236e59990">fixed_mapping</a></td></tr>
+<tr class="memitem:adef518f0f93e6c57f183c81fb54538a3 pro_attribs_class_navier_stokes_solver" id="r_adef518f0f93e6c57f183c81fb54538a3"><td class="memItemLeft">std::unique_ptr&lt; Mapping&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#adef518f0f93e6c57f183c81fb54538a3">moving_mapping</a></td></tr>
+<tr class="memitem:af18e19729cac8012b78ea9941fdda6f6 pro_attribs_class_navier_stokes_solver" id="r_af18e19729cac8012b78ea9941fdda6f6"><td class="memItemLeft">std::vector&lt; unsigned char &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#af18e19729cac8012b78ea9941fdda6f6">dofs_to_component</a></td></tr>
+<tr class="memitem:af4bb9d20328ea7c4fcccb095c40fe83d pro_attribs_class_navier_stokes_solver" id="r_af4bb9d20328ea7c4fcccb095c40fe83d"><td class="memItemLeft">FEValuesExtractors::Vector&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#af4bb9d20328ea7c4fcccb095c40fe83d">velocity_extractor</a></td></tr>
+<tr class="memitem:a0a9538db2db7e5c525ead47c96f21c23 pro_attribs_class_navier_stokes_solver" id="r_a0a9538db2db7e5c525ead47c96f21c23"><td class="memItemLeft">FEValuesExtractors::Scalar&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a0a9538db2db7e5c525ead47c96f21c23">pressure_extractor</a></td></tr>
+<tr class="memitem:afd40ae81ab35ab49cadc86183ef0b328 pro_attribs_class_navier_stokes_solver" id="r_afd40ae81ab35ab49cadc86183ef0b328"><td class="memItemLeft">FEValuesExtractors::Vector&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#afd40ae81ab35ab49cadc86183ef0b328">position_extractor</a></td></tr>
+<tr class="memitem:a620b3b1798cf6be70ea217b76c92abc0 pro_attribs_class_navier_stokes_solver" id="r_a620b3b1798cf6be70ea217b76c92abc0"><td class="memItemLeft">ComponentMask&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a620b3b1798cf6be70ea217b76c92abc0">velocity_mask</a></td></tr>
+<tr class="memitem:a803369529100d844b35b4af36cf355c1 pro_attribs_class_navier_stokes_solver" id="r_a803369529100d844b35b4af36cf355c1"><td class="memItemLeft">ComponentMask&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a803369529100d844b35b4af36cf355c1">pressure_mask</a></td></tr>
+<tr class="memitem:a8d1017421dea4fcd148174fdf9360193 pro_attribs_class_navier_stokes_solver" id="r_a8d1017421dea4fcd148174fdf9360193"><td class="memItemLeft">ComponentMask&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a8d1017421dea4fcd148174fdf9360193">position_mask</a></td></tr>
+<tr class="memitem:a31515fe1d1c8531b73dfe24a55fa43cb pro_attribs_class_navier_stokes_solver" id="r_a31515fe1d1c8531b73dfe24a55fa43cb"><td class="memItemLeft">std::map&lt; std::string, ComponentMask &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a31515fe1d1c8531b73dfe24a55fa43cb">field_names_and_masks</a></td></tr>
+<tr class="memitem:aa5e335226e4dfd5ac042e68ca4aba589 pro_attribs_class_navier_stokes_solver" id="r_aa5e335226e4dfd5ac042e68ca4aba589"><td class="memItemLeft">Table&lt; 2, DoFTools::Coupling &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aa5e335226e4dfd5ac042e68ca4aba589">coupling_table</a></td></tr>
+<tr class="memitem:aca82502b50d8dc56d9665f6800fee627 pro_attribs_class_navier_stokes_solver" id="r_aca82502b50d8dc56d9665f6800fee627"><td class="memItemLeft">IndexSet&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aca82502b50d8dc56d9665f6800fee627">locally_owned_dofs</a></td></tr>
+<tr class="memitem:a45de4bf57641d0c79c6ae1843e520a2a pro_attribs_class_navier_stokes_solver" id="r_a45de4bf57641d0c79c6ae1843e520a2a"><td class="memItemLeft">IndexSet&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a45de4bf57641d0c79c6ae1843e520a2a">locally_relevant_dofs</a></td></tr>
+<tr class="memitem:a83144de4cd395115d8ce483d90fa3c9b pro_attribs_class_navier_stokes_solver" id="r_a83144de4cd395115d8ce483d90fa3c9b"><td class="memItemLeft">AffineConstraints&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a83144de4cd395115d8ce483d90fa3c9b">zero_constraints</a></td></tr>
+<tr class="memitem:a7616f51da557a2c45781a988d484bc71 pro_attribs_class_navier_stokes_solver" id="r_a7616f51da557a2c45781a988d484bc71"><td class="memItemLeft">AffineConstraints&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a7616f51da557a2c45781a988d484bc71">nonzero_constraints</a></td></tr>
+<tr class="memitem:af11d9066fd86476f350b310342de81d7 pro_attribs_class_navier_stokes_solver" id="r_af11d9066fd86476f350b310342de81d7"><td class="memItemLeft">types::global_dof_index&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#af11d9066fd86476f350b310342de81d7">constrained_pressure_dof</a></td></tr>
+<tr class="memitem:a4a73b2b2b34f3c6452e895f86dbb9e27 pro_attribs_class_navier_stokes_solver" id="r_a4a73b2b2b34f3c6452e895f86dbb9e27"><td class="memItemLeft">Point&lt; dim &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a4a73b2b2b34f3c6452e895f86dbb9e27">constrained_pressure_support_point</a></td></tr>
+<tr class="memitem:a3cfc34184fdb2e76e5c94056181a6f36 pro_attribs_class_navier_stokes_solver" id="r_a3cfc34184fdb2e76e5c94056181a6f36"><td class="memItemLeft">std::vector&lt; std::pair&lt; types::global_dof_index, double &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a3cfc34184fdb2e76e5c94056181a6f36">zero_mean_pressure_weights</a></td></tr>
+<tr class="memitem:a1dd90c0881dba50dadb41a36997b0232 pro_attribs_class_navier_stokes_solver" id="r_a1dd90c0881dba50dadb41a36997b0232"><td class="memItemLeft">std::map&lt; types::global_dof_index, Point&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a1dd90c0881dba50dadb41a36997b0232">initial_positions</a></td></tr>
+<tr class="memitem:aff6918feda6fe6e68191218707781534 pro_attribs_class_navier_stokes_solver" id="r_aff6918feda6fe6e68191218707781534"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a6cde9743803c7530f2daf44e83812bb0">LA::ParMatrixType</a>&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aff6918feda6fe6e68191218707781534">system_matrix</a></td></tr>
+<tr class="memitem:a7e929c748cfd613281099981a2397183 pro_attribs_class_navier_stokes_solver" id="r_a7e929c748cfd613281099981a2397183"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a7e929c748cfd613281099981a2397183">present_solution</a></td></tr>
+<tr class="memitem:ac08db329fa72e8dba6851dcefbced4e1 pro_attribs_class_navier_stokes_solver" id="r_ac08db329fa72e8dba6851dcefbced4e1"><td class="memItemLeft">std::vector&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ac08db329fa72e8dba6851dcefbced4e1">previous_solutions</a></td></tr>
+<tr class="memitem:a23a70eab441d21b5b81890aa2284b0a3 pro_attribs_class_navier_stokes_solver" id="r_a23a70eab441d21b5b81890aa2284b0a3"><td class="memItemLeft"><a class="el" href="class_elasticity_solver.html">ElasticitySolver</a>&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a23a70eab441d21b5b81890aa2284b0a3">presolver</a></td></tr>
+<tr class="memitem:aed0a59b7f03471a20c716614927585c7 pro_attribs_class_navier_stokes_solver" id="r_aed0a59b7f03471a20c716614927585c7"><td class="memItemLeft">std::shared_ptr&lt; Function&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#aed0a59b7f03471a20c716614927585c7">source_terms</a></td></tr>
+<tr class="memitem:adb04b0cf420d23e5317cf2d7e7b5c4d5 pro_attribs_class_navier_stokes_solver" id="r_adb04b0cf420d23e5317cf2d7e7b5c4d5"><td class="memItemLeft">std::shared_ptr&lt; Function&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#adb04b0cf420d23e5317cf2d7e7b5c4d5">exact_solution</a></td></tr>
+<tr class="memitem:a6e29882c15507afc264d6fb344ea6ee2 pro_attribs_class_navier_stokes_solver" id="r_a6e29882c15507afc264d6fb344ea6ee2"><td class="memItemLeft">SolverControl&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a6e29882c15507afc264d6fb344ea6ee2">solver_control</a></td></tr>
+<tr class="memitem:ac44eafeceecc0a4dfa0f31e98bb326ea pro_attribs_class_navier_stokes_solver" id="r_ac44eafeceecc0a4dfa0f31e98bb326ea"><td class="memItemLeft">std::unique_ptr&lt; PETScWrappers::SparseDirectMUMPSReuse &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#ac44eafeceecc0a4dfa0f31e98bb326ea">direct_solver_reuse</a></td></tr>
+<tr class="memitem:a1188bf7e95093f1f575067d945b0b621 pro_attribs_class_navier_stokes_solver" id="r_a1188bf7e95093f1f575067d945b0b621"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="class_post_processing_handler.html">PostProcessingHandler</a>&lt; dim &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a1188bf7e95093f1f575067d945b0b621">postproc_handler</a></td></tr>
+<tr class="memitem:a6bcb217150afb70c898fccf317665211 pro_attribs_class_navier_stokes_solver" id="r_a6bcb217150afb70c898fccf317665211"><td class="memItemLeft"><a class="el" href="class_post_processing_handler.html">PostProcessingHandler</a>&lt; dim &gt;::PrefixData&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a6bcb217150afb70c898fccf317665211">prefix_data</a></td></tr>
+<tr class="memitem:a65d271a1b17628765931b62fb45b12fe pro_attribs_class_navier_stokes_solver" id="r_a65d271a1b17628765931b62fb45b12fe"><td class="memItemLeft">MetricField&lt; dim &gt; *&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a65d271a1b17628765931b62fb45b12fe">metric_for_adaptation</a></td></tr>
+<tr class="memitem:adcdb121026de77bb7b420633747649ce pro_attribs_class_navier_stokes_solver" id="r_adcdb121026de77bb7b420633747649ce"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; MetricField&lt; dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#adcdb121026de77bb7b420633747649ce">metrics</a></td></tr>
+<tr class="memitem:a2bfa9a69b85a6d34bec0e49b89cc2c79 pro_attribs_class_navier_stokes_solver" id="r_a2bfa9a69b85a6d34bec0e49b89cc2c79"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; ErrorEstimation::PatchHandler&lt; dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a2bfa9a69b85a6d34bec0e49b89cc2c79">patch_handlers</a></td></tr>
+<tr class="memitem:a9811d0e6351914629f41c6cff297281e pro_attribs_class_navier_stokes_solver" id="r_a9811d0e6351914629f41c6cff297281e"><td class="memItemLeft">std::vector&lt; std::unique_ptr&lt; ErrorEstimation::SolutionRecovery::Scalar&lt; dim &gt; &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a9811d0e6351914629f41c6cff297281e">recoveries</a></td></tr>
+<tr class="memitem:a5b4478f4b460ada98850dc3a1180d169 pro_attribs_class_navier_stokes_solver" id="r_a5b4478f4b460ada98850dc3a1180d169"><td class="memItemLeft">Vector&lt; float &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_navier_stokes_solver.html#a5b4478f4b460ada98850dc3a1180d169">cellwise_refinement_criterion</a></td></tr>
+<tr class="inherit_header pro_attribs_class_generic_solver"><td colspan="2">Attributs protégés hérités de <a class="el" href="class_generic_solver.html">GenericSolver&lt; LA::ParVectorType &gt;</a></td></tr>
+<tr class="memitem:a3176c6c1e6f72c16fa3d0d43ede8757f pro_attribs_class_generic_solver" id="r_a3176c6c1e6f72c16fa3d0d43ede8757f"><td class="memItemLeft">SolverInfo::SolverType&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a3176c6c1e6f72c16fa3d0d43ede8757f">solver_type</a></td></tr>
+<tr class="memitem:a5734bd74a0b0d2d3c5950b1f08f28526 pro_attribs_class_generic_solver" id="r_a5734bd74a0b0d2d3c5950b1f08f28526"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a5734bd74a0b0d2d3c5950b1f08f28526">evaluation_point</a></td></tr>
+<tr class="memitem:a36c8d8067040f336a898ceeff371c0c6 pro_attribs_class_generic_solver" id="r_a36c8d8067040f336a898ceeff371c0c6"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a36c8d8067040f336a898ceeff371c0c6">local_evaluation_point</a></td></tr>
+<tr class="memitem:a3867a896778ee8b20ab6b78804cf1d9d pro_attribs_class_generic_solver" id="r_a3867a896778ee8b20ab6b78804cf1d9d"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a3867a896778ee8b20ab6b78804cf1d9d">newton_update</a></td></tr>
+<tr class="memitem:ac75de63dc7e91e671ce8540996c58b5f pro_attribs_class_generic_solver" id="r_ac75de63dc7e91e671ce8540996c58b5f"><td class="memItemLeft"><a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a>&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#ac75de63dc7e91e671ce8540996c58b5f">system_rhs</a></td></tr>
+<tr class="memitem:a4f4d1b5947c354c1db5fa3b955a84b7e pro_attribs_class_generic_solver" id="r_a4f4d1b5947c354c1db5fa3b955a84b7e"><td class="memItemLeft">std::unique_ptr&lt; NonLinearSolver&lt; <a class="el" href="namespace_l_a.html#a71486a471be13e3af27194053d6c8a4b">LA::ParVectorType</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a4f4d1b5947c354c1db5fa3b955a84b7e">nonlinear_solver</a></td></tr>
+<tr class="memitem:a407d5fd2bb57b9cbeb0b1fcac2079a6c pro_attribs_class_generic_solver" id="r_a407d5fd2bb57b9cbeb0b1fcac2079a6c"><td class="memItemLeft">const <a class="el" href="struct_parameters_1_1_output.html">Parameters::Output</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a407d5fd2bb57b9cbeb0b1fcac2079a6c">output_param</a></td></tr>
+<tr class="memitem:a5c62d177cd9a249c85fb05190ad9975e pro_attribs_class_generic_solver" id="r_a5c62d177cd9a249c85fb05190ad9975e"><td class="memItemLeft"><a class="el" href="struct_parameters_1_1_mesh.html">Parameters::Mesh</a>&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a5c62d177cd9a249c85fb05190ad9975e">mesh_param</a></td></tr>
+<tr class="memitem:a8988f9b2fb2ac2cc17a220cc5e26dd1e pro_attribs_class_generic_solver" id="r_a8988f9b2fb2ac2cc17a220cc5e26dd1e"><td class="memItemLeft"><a class="el" href="struct_parameters_1_1_time_integration.html">Parameters::TimeIntegration</a>&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a8988f9b2fb2ac2cc17a220cc5e26dd1e">time_param</a></td></tr>
+<tr class="memitem:a231b6929535d7e1834e9072f920d618b pro_attribs_class_generic_solver" id="r_a231b6929535d7e1834e9072f920d618b"><td class="memItemLeft"><a class="el" href="struct_parameters_1_1_m_m_s.html">Parameters::MMS</a>&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a231b6929535d7e1834e9072f920d618b">mms_param</a></td></tr>
+<tr class="memitem:a600ed6d3b56b637ec1015f38aea35163 pro_attribs_class_generic_solver" id="r_a600ed6d3b56b637ec1015f38aea35163"><td class="memItemLeft">std::map&lt; VectorTools::NormType, ErrorHandler &gt;&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a600ed6d3b56b637ec1015f38aea35163">error_handlers</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Attributs protégés statiques</h2></td></tr>
+<tr class="memitem:a8c517b608785936898d45119479057a3" id="r_a8c517b608785936898d45119479057a3"><td class="memItemLeft">static constexpr <a class="el" href="class_constexpr_component_ordering_c_h_n_s.html">ConstexprComponentOrderingCHNS</a>&lt; dim, with_moving_mesh, with_enlarged &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8c517b608785936898d45119479057a3">const_ordering</a> = {}</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-types" class="groupheader"><a id="pri-types" name="pri-types"></a>
+Types privés</h2></td></tr>
+<tr class="memitem:aeca791b9adbb5867ac109d22678da32c" id="r_aeca791b9adbb5867ac109d22678da32c"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a></td></tr>
+<tr class="memitem:ae0b3f2be2b179189958cb7765efd47a8" id="r_ae0b3f2be2b179189958cb7765efd47a8"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> = <a class="el" href="class_copy_data_base.html">CopyDataBase</a>&lt;1&gt;</td></tr>
+<tr class="memitem:a66e182264f17d8a4ddf5cf283df0e633" id="r_a66e182264f17d8a4ddf5cf283df0e633"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a66e182264f17d8a4ddf5cf283df0e633">Assembler</a> = Assembly::AssemblerBase&lt;<a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a>, <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a>&gt;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Membres hérités additionnels</h2></td></tr>
+<tr class="inherit_header pub_attribs_class_generic_solver"><td colspan="2">Attributs publics hérités de <a class="el" href="class_generic_solver.html">GenericSolver&lt; LA::ParVectorType &gt;</a></td></tr>
+<tr class="memitem:a1d5beb4d77eb4f820b70542dedd31b99 pub_attribs_class_generic_solver" id="r_a1d5beb4d77eb4f820b70542dedd31b99"><td class="memItemLeft">MPI_Comm&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a1d5beb4d77eb4f820b70542dedd31b99">mpi_communicator</a></td></tr>
+<tr class="memitem:a6d6e03777028e3b4da9266d39bd28c20 pub_attribs_class_generic_solver" id="r_a6d6e03777028e3b4da9266d39bd28c20"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a6d6e03777028e3b4da9266d39bd28c20">mpi_rank</a></td></tr>
+<tr class="memitem:a8758bd19d74796cfdd2c73d3d2a264c0 pub_attribs_class_generic_solver" id="r_a8758bd19d74796cfdd2c73d3d2a264c0"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a8758bd19d74796cfdd2c73d3d2a264c0">mpi_size</a></td></tr>
+<tr class="memitem:af8d752e99fe0e3ab145f1d2fa67e0f9a pub_attribs_class_generic_solver" id="r_af8d752e99fe0e3ab145f1d2fa67e0f9a"><td class="memItemLeft">ConditionalOStream&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#af8d752e99fe0e3ab145f1d2fa67e0f9a">pcout</a></td></tr>
+<tr class="memitem:a19c3628c086e6a0d5a35560b1ce30ed3 pub_attribs_class_generic_solver" id="r_a19c3628c086e6a0d5a35560b1ce30ed3"><td class="memItemLeft">TimerOutput&#160;</td><td class="memItemRight"><a class="el" href="class_generic_solver.html#a19c3628c086e6a0d5a35560b1ce30ed3">computing_timer</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt;<br />
+class CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;</div><p>Quasi-incompressible Cahn-Hilliard Navier-Stokes solver. TODO: Add equations. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00018">18</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Documentation des définitions de type membres</h2>
+<a id="a66e182264f17d8a4ddf5cf283df0e633" name="a66e182264f17d8a4ddf5cf283df0e633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66e182264f17d8a4ddf5cf283df0e633">&#9670;&#160;</a></span>Assembler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::Assembler = Assembly::AssemblerBase&lt;<a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a>, <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a>&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00026">26</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ae0b3f2be2b179189958cb7765efd47a8" name="ae0b3f2be2b179189958cb7765efd47a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b3f2be2b179189958cb7765efd47a8">&#9670;&#160;</a></span>CopyData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::CopyData = <a class="el" href="class_copy_data_base.html">CopyDataBase</a>&lt;1&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00025">25</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="aeca791b9adbb5867ac109d22678da32c" name="aeca791b9adbb5867ac109d22678da32c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeca791b9adbb5867ac109d22678da32c">&#9670;&#160;</a></span>ScratchData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::ScratchData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line"> </div>
+<div class="line"><a class="code hl_typedef" href="namespace_navier_stokes_scratch.html#a9f317cd569f43828f1277d345a662ed2">NavierStokesScratch::ScratchDataCHNS&lt;dim, with_moving_mesh, with_enlarged&gt;</a></div>
+<div class="ttc" id="anamespace_navier_stokes_scratch_html_a9f317cd569f43828f1277d345a662ed2"><div class="ttname"><a href="namespace_navier_stokes_scratch.html#a9f317cd569f43828f1277d345a662ed2">NavierStokesScratch::ScratchDataCHNS</a></div><div class="ttdeci">ScratchData&lt; dim,(with_moving_mesh ? pseudo_solid :ns_only)|cahn_hilliard|(with_enlarged ? enlarged :ns_only)&gt; ScratchDataCHNS</div><div class="ttdef"><b>Définition</b> <a href="scratch__data_8h_source.html#l00154">scratch_data.h:154</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00023">23</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a9fdc75e1ef08b291e887b5d6db3f2f70" name="a9fdc75e1ef08b291e887b5d6db3f2f70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fdc75e1ef08b291e887b5d6db3f2f70">&#9670;&#160;</a></span>CHNSSolver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::CHNSSolver </td>
+          <td>(</td>
+          <td class="paramtype">const ParameterReader&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor </p>
+<p>Create the initial condition functions</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00090">90</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa953e2ed0546d0a958410b57aafc84cc" name="aa953e2ed0546d0a958410b57aafc84cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa953e2ed0546d0a958410b57aafc84cc">&#9670;&#160;</a></span>~CHNSSolver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::~<a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destructor </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="a4bc04a878a879c43413b5f11cc6dd20c" name="a4bc04a878a879c43413b5f11cc6dd20c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc04a878a879c43413b5f11cc6dd20c">&#9670;&#160;</a></span>add_graph_metric_quality_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::add_graph_metric_quality_data </td>
+          <td>(</td>
+          <td class="paramtype">const Mapping&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>study_mapping</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Add the historical graph-induced continuous quality field to the VTU. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l01478">1478</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab2df019a24b624bec1fda4eedfb4ebad" name="ab2df019a24b624bec1fda4eedfb4ebad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2df019a24b624bec1fda4eedfb4ebad">&#9670;&#160;</a></span>add_interface_resolution_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::add_interface_resolution_data </td>
+          <td>(</td>
+          <td class="paramtype">const Mapping&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>study_mapping</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Add the lightweight, physically scaled interface-resolution audit. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l01232">1232</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a928cd8d70bb3d7782f1044d09c4a88ac" name="a928cd8d70bb3d7782f1044d09c4a88ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a928cd8d70bb3d7782f1044d09c4a88ac">&#9670;&#160;</a></span>add_mesh_quality_postprocessing_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::add_mesh_quality_postprocessing_data </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Add the selected mesh-audit diagnostics to the VTU. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l01200">1200</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8357d4b9416e24682db4ebc25b65acd4" name="a8357d4b9416e24682db4ebc25b65acd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8357d4b9416e24682db4ebc25b65acd4">&#9670;&#160;</a></span>add_solver_specific_postprocessing_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::add_solver_specific_postprocessing_data </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Append CHNS-specific derived fields (density, pressure, mobility) to the VTU output as continuous nodal data. The Abels pressure is the physically meaningful bulk pressure carrying the Young-Laplace jump: p_abels = p + phi * mu. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#a56d282940881b16ba0d4b787578fad86">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00996">996</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0e3a59d5aeaf9e8ad9669c14092283f5" name="a0e3a59d5aeaf9e8ad9669c14092283f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e3a59d5aeaf9e8ad9669c14092283f5">&#9670;&#160;</a></span>assemble_local_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_local_matrix </td>
+          <td>(</td>
+          <td class="paramtype">const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</td>          <td class="paramname"><span class="paramname"><em>cell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scratchData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>copy_data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compute the element-wise matrix. This function is passed to WorkStream::run to perform multithreaded assembly if supported (i.e., if using thread-safe matrix and vector wrappers). </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00848">848</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab5cfd76f033ca5d5c9ca6e94251ee315" name="ab5cfd76f033ca5d5c9ca6e94251ee315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5cfd76f033ca5d5c9ca6e94251ee315">&#9670;&#160;</a></span>assemble_local_matrix_finite_differences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_local_matrix_finite_differences </td>
+          <td>(</td>
+          <td class="paramtype">const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</td>          <td class="paramname"><span class="paramname"><em>cell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scratchData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>copy_data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compute the element-wise matrix using finite differences. FIXME: Rethink this to handle the finite difference computations in the base class and not in derived solvers. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00837">837</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac88f396458d12c2f58f1dbe86fdd0e60" name="ac88f396458d12c2f58f1dbe86fdd0e60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88f396458d12c2f58f1dbe86fdd0e60">&#9670;&#160;</a></span>assemble_local_rhs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_local_rhs </td>
+          <td>(</td>
+          <td class="paramtype">const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</td>          <td class="paramname"><span class="paramname"><em>cell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scratchData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>copy_data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>See assemble_local_matrix. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00922">922</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0c2e74712e387938a49ebf97056de668" name="a0c2e74712e387938a49ebf97056de668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c2e74712e387938a49ebf97056de668">&#9670;&#160;</a></span>assemble_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_matrix </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Assemble the linearized Jacobian matrix at the current evaluation point </p>
+
+<p>Implémente <a class="el" href="class_generic_solver.html#ac5925ccdeda32d728e8947224e011ed9">GenericSolver&lt; LA::ParVectorType &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00805">805</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9da0ac08e3d25bd9978120228bc86b57" name="a9da0ac08e3d25bd9978120228bc86b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9da0ac08e3d25bd9978120228bc86b57">&#9670;&#160;</a></span>assemble_rhs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_rhs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Assemble the Newton residual at the current evaluation point </p>
+
+<p>Implémente <a class="el" href="class_generic_solver.html#a2ef873f5575b35c23fa5fd742b8725aa">GenericSolver&lt; LA::ParVectorType &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00901">901</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ade262f1ac0f6734f12c2f568511b4c78" name="ade262f1ac0f6734f12c2f568511b4c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade262f1ac0f6734f12c2f568511b4c78">&#9670;&#160;</a></span>compare_analytical_matrix_with_fd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::compare_analytical_matrix_with_fd </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compare each Jacobian matrix computed in assemble_local_matrix to its finite differences approximation obtained by perturbing the right-hand side (Newton residual). To allow comparing for multiple Newton iterations and/or time steps, this function does not throw if the difference between the analytical matrix entries and their FD counterpart exceeds a prescribed tolerance, but instead prints the local matrices and the problematic entries. </p>
+
+<p>Implémente <a class="el" href="class_navier_stokes_solver.html#a39a2aba0a8595430a78946323db80e7e">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00888">888</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abef81fe199c6f63a4bc157780edc34d3" name="abef81fe199c6f63a4bc157780edc34d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abef81fe199c6f63a4bc157780edc34d3">&#9670;&#160;</a></span>compute_solver_specific_errors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::compute_solver_specific_errors </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute the error norms over the additional fields specific to each derived solver. By default, this function does nothing and must be overriden if needed. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#a91b18b78b3a012db616a3cda4c418914">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00962">962</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8c1e51fa96e460bd09a61bbd5dbd4260" name="a8c1e51fa96e460bd09a61bbd5dbd4260"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c1e51fa96e460bd09a61bbd5dbd4260">&#9670;&#160;</a></span>compute_solver_specific_timestep_adaptation_criterion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::compute_solver_specific_timestep_adaptation_criterion </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute the adaptive-mobility time number from the current solution. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#aaabf14c92ba73e36efdb21fa418ec08a">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00240">240</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8b0208ef16f59c18ef055cc6bab57b56" name="a8b0208ef16f59c18ef055cc6bab57b56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b0208ef16f59c18ef055cc6bab57b56">&#9670;&#160;</a></span>compute_vertexwise_F_inv_T()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; Tensor&lt; 2, dim &gt; &gt; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::compute_vertexwise_F_inv_T </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vertexwise physical push-forward F^{-T} for an ALE configuration. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l01111">1111</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a44bc0778812d70a5c7c4ca2b1a997605" name="a44bc0778812d70a5c7c4ca2b1a997605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44bc0778812d70a5c7c4ca2b1a997605">&#9670;&#160;</a></span>copy_local_to_global_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::copy_local_to_global_matrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>copy_data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Assemble the element-wise matrix computed with assemble_local_matrix into the global matrix. Passed to WorkStream::run (see above). </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00876">876</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1e5188a61fc785855103ae478c6ca152" name="a1e5188a61fc785855103ae478c6ca152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5188a61fc785855103ae478c6ca152">&#9670;&#160;</a></span>copy_local_to_global_rhs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::copy_local_to_global_rhs </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ae0b3f2be2b179189958cb7765efd47a8">CopyData</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>copy_data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>See copy_local_to_global_matrix. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00950">950</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae445aa17bfb4201d998e9ce9120a84af" name="ae445aa17bfb4201d998e9ce9120a84af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae445aa17bfb4201d998e9ce9120a84af">&#9670;&#160;</a></span>create_scratch_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::create_scratch_data </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create the scratch data structure for this solver. </p>
+
+<p>Implémente <a class="el" href="class_navier_stokes_solver.html#a10026a09e34b50769a92b683d081c6ca">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00562">562</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac71026bf5f1593d310c4815a461ff3c8" name="ac71026bf5f1593d310c4815a461ff3c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac71026bf5f1593d310c4815a461ff3c8">&#9670;&#160;</a></span>create_solver_specific_nonzero_constraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::create_solver_specific_nonzero_constraints </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create the additional inhomogeneous boundary conditions specific to each derived solver. By default, this function does nothing and must be overriden if needed. </p>
+<p>Apply manufactured solution for both tracer and potential</p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#a67e465bff87c6b3af531142c589c8593">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00651">651</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae8033cc712d5dd66edac95ad6f23b218" name="ae8033cc712d5dd66edac95ad6f23b218"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8033cc712d5dd66edac95ad6f23b218">&#9670;&#160;</a></span>create_solver_specific_zero_constraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::create_solver_specific_zero_constraints </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create the additional homogeneous boundary conditions specific to each derived solver. By default, this function does nothing and must be overriden if needed. </p>
+<p>Apply manufactured solution for both tracer and potential</p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#afa4fac4d184896dd78290fe22a1dd3c5">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00605">605</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abdb846f3df6acf66d950851e2d7ec069" name="abdb846f3df6acf66d950851e2d7ec069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdb846f3df6acf66d950851e2d7ec069">&#9670;&#160;</a></span>create_sparsity_pattern()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::create_sparsity_pattern </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create the matrix sparsity pattern, given the finite element spaces and constraints. </p>
+
+<p>Implémente <a class="el" href="class_navier_stokes_solver.html#a80efe337ed26751e91e2a73f30810a37">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00734">734</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1b40e20bcdcc67285866f121d12eea63" name="a1b40e20bcdcc67285866f121d12eea63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b40e20bcdcc67285866f121d12eea63">&#9670;&#160;</a></span>get_additional_variables_description()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::get_additional_variables_description </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the descriptions (name and number of components) of the variables solved for in the derived solvers, aside from velocity, pressure and mesh position. </p>
+
+<p>Implémente <a class="el" href="class_navier_stokes_solver.html#af11dda60a13c7688cf79a2ef88280027">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00138">138</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a4be0206804d5e7c6092bd6eb80101bd6" name="a4be0206804d5e7c6092bd6eb80101bd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be0206804d5e7c6092bd6eb80101bd6">&#9670;&#160;</a></span>get_fe_system()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const FESystem&lt; dim &gt; &amp; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::get_fe_system </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the FESystem of the derived solver </p>
+
+<p>Implémente <a class="el" href="class_navier_stokes_solver.html#a0f4f2ec48c7cc61661743d43cacbadf6">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00148">148</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ad2a6871730ab2f70aa916d9528287249" name="ad2a6871730ab2f70aa916d9528287249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a6871730ab2f70aa916d9528287249">&#9670;&#160;</a></span>output_line_probe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::output_line_probe </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Write the optional configurable straight-line CHNS field probe. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l01556">1556</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3b4e04a8b6fe860fb4c14e3338073b47" name="a3b4e04a8b6fe860fb4c14e3338073b47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4e04a8b6fe860fb4c14e3338073b47">&#9670;&#160;</a></span>set_solver_specific_exact_solution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::set_solver_specific_exact_solution </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Apply exact tracer and potential </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#ada61577eefe77d58162f46d170522878">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00712">712</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="acc707c2ec641524771910e56a58be985" name="acc707c2ec641524771910e56a58be985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc707c2ec641524771910e56a58be985">&#9670;&#160;</a></span>set_solver_specific_initial_conditions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::set_solver_specific_initial_conditions </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Apply initial condition on the tracer (phase marker) </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#af4c774a72958594b894f856e0e1938aa">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00696">696</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1f76ffca0e9c36b8f40d3278f07d7ef3" name="a1f76ffca0e9c36b8f40d3278f07d7ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f76ffca0e9c36b8f40d3278f07d7ef3">&#9670;&#160;</a></span>set_solver_specific_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::set_solver_specific_time </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Update time-dependent Cahn-Hilliard boundary functions. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#aa4e70ef690324141933b0dfb8b9ee795">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00594">594</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af004d2c1786e4da0f929d51903556668" name="af004d2c1786e4da0f929d51903556668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af004d2c1786e4da0f929d51903556668">&#9670;&#160;</a></span>setup_assemblers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::setup_assemblers </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create the volume and boundary assemblers for this solver. </p>
+
+<p>Implémente <a class="el" href="class_navier_stokes_solver.html#a808f73d3ad29c693c0f415369c51720e">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00575">575</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4028ed6eaf450f69c866c344250c9bff" name="a4028ed6eaf450f69c866c344250c9bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4028ed6eaf450f69c866c344250c9bff">&#9670;&#160;</a></span>should_output_mesh_quality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::should_output_mesh_quality </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return whether the optional mesh-quality audit is due this step. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l01094">1094</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae6f26806e27c7dfc0430b14d0e2acfd9" name="ae6f26806e27c7dfc0430b14d0e2acfd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6f26806e27c7dfc0430b14d0e2acfd9">&#9670;&#160;</a></span>solver_specific_post_processing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::solver_specific_post_processing </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute the CHNS multiphase indicators and write the characteristic time scales and dimensionless numbers (advection vs Cahn-Hilliard chemical diffusion, capillary, viscous, ...) to a CSV when enabled. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_navier_stokes_solver.html#a6b6e103541171b2e0c8c735b6fa517f4">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l01759">1759</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a467b348d48a9edcd05009bc2d978a121" name="a467b348d48a9edcd05009bc2d978a121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a467b348d48a9edcd05009bc2d978a121">&#9670;&#160;</a></span>transport_reconstructed_phi_gradient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::transport_reconstructed_phi_gradient </td>
+          <td>(</td>
+          <td class="paramtype">ErrorEstimation::SolutionRecovery::Scalar&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>recovery</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Push the reference-mesh recovered phase gradient to the ALE mesh. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l01173">1173</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a52ca77fb0f5ba76cbecd36e1fc97b53f" name="a52ca77fb0f5ba76cbecd36e1fc97b53f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52ca77fb0f5ba76cbecd36e1fc97b53f">&#9670;&#160;</a></span>update_simulation_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh, bool with_enlarged&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::update_simulation_parameters </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>fixed_point_iteration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Update parameters in between mesh adaptation fixed point iterations. This specific function updates the interface thickness. </p>
+
+<p>Réimplémentée à partir de <a class="el" href="class_generic_solver.html#aa7de51f079b8a6d22818789efcc8f776">GenericSolver&lt; LA::ParVectorType &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8cpp_source.html#l00522">522</a> du fichier <a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a18ee52f3860a1fb5aa51e61fe6506394" name="a18ee52f3860a1fb5aa51e61fe6506394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18ee52f3860a1fb5aa51e61fe6506394">&#9670;&#160;</a></span>uses_hp_capabilities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::uses_hp_capabilities </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return true if this solver uses hp capabilities </p>
+
+<p>Implémente <a class="el" href="class_navier_stokes_solver.html#aebcfb0cd753eec7fc661717354ade6f4">NavierStokesSolver&lt; dim, false &gt;</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00150">150</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="af5bd6b5683b27abf93112266d6bb5030" name="af5bd6b5683b27abf93112266d6bb5030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5bd6b5683b27abf93112266d6bb5030">&#9670;&#160;</a></span>assemblers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="#a66e182264f17d8a4ddf5cf283df0e633">Assembler</a>&gt; &gt; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::assemblers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00199">199</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a8c517b608785936898d45119479057a3" name="a8c517b608785936898d45119479057a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c517b608785936898d45119479057a3">&#9670;&#160;</a></span>const_ordering</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_constexpr_component_ordering_c_h_n_s.html">ConstexprComponentOrderingCHNS</a>&lt;dim, with_moving_mesh, with_enlarged&gt; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::const_ordering = {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00195">195</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a1d77794a78b1ca3f463c223ac1927182" name="a1d77794a78b1ca3f463c223ac1927182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d77794a78b1ca3f463c223ac1927182">&#9670;&#160;</a></span>fe</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;FESystem&lt;dim&gt; &gt; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::fe</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00190">190</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a310659e769b1166fc26256677b23b019" name="a310659e769b1166fc26256677b23b019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310659e769b1166fc26256677b23b019">&#9670;&#160;</a></span>potential_extractor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FEValuesExtractors::Scalar <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::potential_extractor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00202">202</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a0eb022ab597bfc348851e54e4260cf18" name="a0eb022ab597bfc348851e54e4260cf18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eb022ab597bfc348851e54e4260cf18">&#9670;&#160;</a></span>potential_mask</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComponentMask <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::potential_mask</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00205">205</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a77b0eb63783411b0c22c138ba923acd8" name="a77b0eb63783411b0c22c138ba923acd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b0eb63783411b0c22c138ba923acd8">&#9670;&#160;</a></span>psi_extractor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FEValuesExtractors::Scalar <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::psi_extractor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00203">203</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ad23fc466764cf378cf37f83624709b85" name="ad23fc466764cf378cf37f83624709b85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad23fc466764cf378cf37f83624709b85">&#9670;&#160;</a></span>psi_mask</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComponentMask <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::psi_mask</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00206">206</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a3d8c1ab8ec2f24fa4754f20305bcd2af" name="a3d8c1ab8ec2f24fa4754f20305bcd2af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d8c1ab8ec2f24fa4754f20305bcd2af">&#9670;&#160;</a></span>scratch_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="#aeca791b9adbb5867ac109d22678da32c">ScratchData</a>&gt; <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::scratch_data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00197">197</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a5337d0f2b925f38268f0217128538cff" name="a5337d0f2b925f38268f0217128538cff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5337d0f2b925f38268f0217128538cff">&#9670;&#160;</a></span>time_scales_table</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TableHandler <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::time_scales_table</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00209">209</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a303d3c510c88a3c3617d240e31d7ab0c" name="a303d3c510c88a3c3617d240e31d7ab0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a303d3c510c88a3c3617d240e31d7ab0c">&#9670;&#160;</a></span>tracer_extractor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FEValuesExtractors::Scalar <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::tracer_extractor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00201">201</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<a id="a05c5f43a406e5a72ca3389ec76171178" name="a05c5f43a406e5a72ca3389ec76171178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c5f43a406e5a72ca3389ec76171178">&#9670;&#160;</a></span>tracer_mask</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, bool with_moving_mesh = false, bool with_enlarged = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComponentMask <a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a>&lt; dim, with_moving_mesh, with_enlarged &gt;::tracer_mask</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="incompressible__chns__solver_8h_source.html#l00204">204</a> du fichier <a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="incompressible__chns__solver_8h_source.html">incompressible_chns_solver.h</a></li>
+<li>snapshots/pre_amr/src/<a class="el" href="incompressible__chns__solver_8cpp_source.html">incompressible_chns_solver.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_c_h_n_s_solver.html">CHNSSolver</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

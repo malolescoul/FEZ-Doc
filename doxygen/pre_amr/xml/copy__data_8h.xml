@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="copy__data_8h" kind="file" language="C++">
+    <compoundname>copy_data.h</compoundname>
+    <includes local="no">deal.II/hp/fe_collection.h</includes>
+    <includes local="no">deal.II/lac/full_matrix.h</includes>
+    <includes local="no">deal.II/lac/vector.h</includes>
+    <includes local="no">deal.II/meshworker/copy_data.h</includes>
+    <includedby refid="elasticity__solver_8h" local="no">snapshots/pre_amr/include/elasticity_solver.h</includedby>
+    <includedby refid="incompressible__chns__solver_8h" local="no">snapshots/pre_amr/include/incompressible_chns_solver.h</includedby>
+    <includedby refid="elasticity__assemblers_8cpp" local="no">snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp</includedby>
+    <includedby refid="incompressible__chns__assemblers_8cpp" local="no">snapshots/pre_amr/src/assembly/incompressible_chns_assemblers.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>snapshots/pre_amr/include/copy_data.h</label>
+        <link refid="copy__data_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>deal.II/hp/fe_collection.h</label>
+      </node>
+      <node id="3">
+        <label>deal.II/lac/full_matrix.h</label>
+      </node>
+      <node id="4">
+        <label>deal.II/lac/vector.h</label>
+      </node>
+      <node id="5">
+        <label>deal.II/meshworker/copy_data.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>snapshots/pre_amr/include/copy_data.h</label>
+        <link refid="copy__data_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>snapshots/pre_amr/include/elasticity_solver.h</label>
+        <link refid="elasticity__solver_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>snapshots/pre_amr/include/incompressible_chns_solver.h</label>
+        <link refid="incompressible__chns__solver_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>snapshots/pre_amr/include/presolver_tools.h</label>
+        <link refid="presolver__tools_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>snapshots/pre_amr/solvers/incompressible_chns_ale.cpp</label>
+        <link refid="incompressible__chns__ale_8cpp"/>
+      </node>
+      <node id="5">
+        <label>snapshots/pre_amr/solvers/incompressible_chns_ale_enlarged.cpp</label>
+        <link refid="incompressible__chns__ale__enlarged_8cpp"/>
+      </node>
+      <node id="10">
+        <label>snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp</label>
+        <link refid="elasticity__assemblers_8cpp"/>
+      </node>
+      <node id="11">
+        <label>snapshots/pre_amr/src/assembly/incompressible_chns_assemblers.cpp</label>
+        <link refid="incompressible__chns__assemblers_8cpp"/>
+      </node>
+      <node id="6">
+        <label>snapshots/pre_amr/src/elasticity_solver.cpp</label>
+        <link refid="elasticity__solver_8cpp"/>
+      </node>
+      <node id="9">
+        <label>snapshots/pre_amr/src/incompressible_chns_solver.cpp</label>
+        <link refid="incompressible__chns__solver_8cpp"/>
+      </node>
+      <node id="7">
+        <label>snapshots/pre_amr/src/navier_stokes_solver.cpp</label>
+        <link refid="navier__stokes__solver_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_copy_data_base" prot="public">CopyDataBase</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>COPY_DATA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COPY_DATA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/hp/fe_collection.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/full_matrix.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/vector.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/meshworker/copy_data.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>A<sp/>CopyData<sp/>is<sp/>a<sp/>helper<sp/>structure<sp/>used<sp/>to<sp/>copy<sp/>the<sp/>local<sp/>matrix<sp/>and<sp/>RHS</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>contributions<sp/>to<sp/>the<sp/>global<sp/>system,<sp/>see<sp/>for<sp/>instance<sp/>the<sp/>deal.II<sp/>doc<sp/>of</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>meshworker/copy_data.h<sp/>and<sp/>the<sp/>run()<sp/>functions<sp/>in<sp/>work_stream.h.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>This<sp/>class<sp/>describes<sp/>a<sp/>CopyData<sp/>which<sp/>can<sp/>be<sp/>used<sp/>with<sp/>solvers<sp/>where<sp/>one</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>FESystem<sp/>is<sp/>defined<sp/>on<sp/>a<sp/>part<sp/>of<sp/>the<sp/>domain,<sp/>and<sp/>one<sp/>or<sp/>more<sp/>other<sp/>systems</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>are<sp/>defined<sp/>on<sp/>some<sp/>other<sp/>partitions,<sp/>using<sp/>the<sp/>hp<sp/>tools<sp/>from<sp/>deal.II<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>spirit<sp/>of<sp/>the<sp/>step-46<sp/>examples.<sp/>To<sp/>this<sp/>end,<sp/>this<sp/>class<sp/>is<sp/>templated<sp/>on<sp/>the</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>number<sp/>of<sp/>partitions,<sp/>the<sp/>regular<sp/>CopyData<sp/>structure<sp/>being<sp/>simply<sp/>the<sp/>case</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>n_hp_partitions<sp/>=<sp/>1.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>This<sp/>class<sp/>basically<sp/>holds<sp/>&quot;n_hp_partitions&quot;<sp/>copies<sp/>of</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>the<sp/>local<sp/>matrix,<sp/>local<sp/>rhs<sp/>and<sp/>local<sp/>dof<sp/>indices,<sp/>which<sp/>is<sp/>exactly<sp/>what<sp/>a</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>MeshWorker::CopyData<sp/>does,<sp/>and<sp/>is<sp/>thus<sp/>derived<sp/>from<sp/>that<sp/>class.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>This<sp/>class&apos;s<sp/>name<sp/>is<sp/>CopyDataBase,<sp/>so<sp/>that<sp/>we<sp/>can<sp/>use<sp/>an<sp/>alias<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>definition<sp/>of<sp/>the<sp/>various<sp/>derived<sp/>solvers,<sp/>for<sp/>instance:</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>using<sp/>CopyData<sp/>=<sp/>CopyDataBase&lt;1&gt;;</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>This<sp/>is<sp/>not<sp/>possible<sp/>if<sp/>this<sp/>class&apos;s<sp/>name<sp/>is<sp/>CopyData,<sp/>as<sp/>otherwise<sp/>the</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>compiler<sp/>says<sp/>that<sp/>this<sp/>typedef<sp/>changes<sp/>the<sp/>meaning<sp/>of<sp/>CopyData.<sp/>Thus,<sp/>we&apos;re</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>simply<sp/>using<sp/>any<sp/>other<sp/>name<sp/>that<sp/>CopyData,<sp/>which<sp/>is<sp/>then<sp/>used<sp/>as<sp/>the<sp/>local</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>alias<sp/>in<sp/>most<sp/>solvers.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_hp_partitions<sp/>=<sp/>1&gt;</highlight></codeline>
+<codeline lineno="38" refid="class_copy_data_base" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_copy_data_base_1a22b77b8ee976ae1b25dd7fbe77026fd8" kindref="member">CopyDataBase</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>MeshWorker::CopyData&lt;n_hp_partitions&gt;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Constructor<sp/>with<sp/>non-hp<sp/>FiniteElement<sp/>simply<sp/>calls<sp/>the<sp/>hp-constructor</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/>*<sp/>below.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="46" refid="class_copy_data_base_1a22b77b8ee976ae1b25dd7fbe77026fd8" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_copy_data_base_1a22b77b8ee976ae1b25dd7fbe77026fd8" kindref="member">CopyDataBase</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FiniteElement&lt;dim&gt;<sp/>&amp;fe)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_copy_data_base_1a22b77b8ee976ae1b25dd7fbe77026fd8" kindref="member">CopyDataBase</ref>(hp::FECollection&lt;dim&gt;(fe))</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Constructor<sp/>with<sp/>hp<sp/>FECollection.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="54" refid="class_copy_data_base_1a60013d23f99da5287c0708af7e831793" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_copy_data_base_1a60013d23f99da5287c0708af7e831793" kindref="member">CopyDataBase</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>hp::FECollection&lt;dim&gt;<sp/>&amp;fe_collection)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>MeshWorker::CopyData&lt;n_hp_partitions&gt;()</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_copy_data_base_1aa0a728ab794c4248043ea43cc70d8c1a" kindref="member">cell_has_lagrange_multiplier</ref>(false)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_copy_data_base_1a23f63e77625cee8295a0f43c870d7551" kindref="member">last_active_fe_index</ref>(numbers::invalid_unsigned_int)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>AssertDimension(n_hp_partitions,<sp/>fe_collection.size());</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n_hp_partitions;<sp/>++i)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;reinit(i,<sp/>fe_collection[i].n_dofs_per_cell());</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>a<sp/>reference<sp/>to<sp/>the<sp/>@p<sp/>fe_index-th<sp/>local<sp/>right-hand<sp/>side<sp/>vector.</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="class_copy_data_base_1a4d73b967ddbeea5f5ecd8ee85f4195d2" refkind="member"><highlight class="normal"><sp/><sp/>Vector&lt;double&gt;<sp/>&amp;<ref refid="class_copy_data_base_1a4d73b967ddbeea5f5ecd8ee85f4195d2" kindref="member">local_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Const<sp/>version<sp/>of<sp/>the<sp/>function<sp/>above</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="class_copy_data_base_1af0b92d481d889da1d3e7b4d00d345d3a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vector&lt;double&gt;<sp/>&amp;<ref refid="class_copy_data_base_1af0b92d481d889da1d3e7b4d00d345d3a" kindref="member">local_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index<sp/>=<sp/>0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>a<sp/>reference<sp/>to<sp/>the<sp/>@p<sp/>fe_index-th<sp/>local<sp/>matrix.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="class_copy_data_base_1a1dec828824a693472b405309328aae4b" refkind="member"><highlight class="normal"><sp/><sp/>FullMatrix&lt;double&gt;<sp/>&amp;<ref refid="class_copy_data_base_1a1dec828824a693472b405309328aae4b" kindref="member">local_matrix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Const<sp/>version<sp/>of<sp/>the<sp/>function<sp/>above</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="class_copy_data_base_1aa422279230ba272df2d5d33a64b6c8dc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FullMatrix&lt;double&gt;<sp/>&amp;<ref refid="class_copy_data_base_1aa422279230ba272df2d5d33a64b6c8dc" kindref="member">local_matrix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index<sp/>=<sp/>0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Return<sp/>a<sp/>reference<sp/>to<sp/>the<sp/>@p<sp/>fe_index-th<sp/>local<sp/>vector<sp/>of<sp/>dof<sp/>indices.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>std::vector&lt;types::global_dof_index&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="88" refid="class_copy_data_base_1a3be1e1016403ced51d6958fcd1341a19" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_copy_data_base_1a3be1e1016403ced51d6958fcd1341a19" kindref="member">dof_indices</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Const<sp/>version<sp/>of<sp/>the<sp/>function<sp/>above</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;types::global_dof_index&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="94" refid="class_copy_data_base_1a785ba66422836cb153618762bfb01ddd" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_copy_data_base_1a785ba66422836cb153618762bfb01ddd" kindref="member">dof_indices</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index<sp/>=<sp/>0)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="97" refid="class_copy_data_base_1a0af40104c59f63073cf4b8c48f9422e1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_copy_data_base_1a0af40104c59f63073cf4b8c48f9422e1" kindref="member">cell_is_locally_owned</ref>;</highlight></codeline>
+<codeline lineno="98" refid="class_copy_data_base_1ac7b90815aabf16d7d703784ed3692816" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_copy_data_base_1ac7b90815aabf16d7d703784ed3692816" kindref="member">cell_is_at_boundary</ref>;</highlight></codeline>
+<codeline lineno="99" refid="class_copy_data_base_1aa0a728ab794c4248043ea43cc70d8c1a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_copy_data_base_1aa0a728ab794c4248043ea43cc70d8c1a" kindref="member">cell_has_lagrange_multiplier</ref>;</highlight></codeline>
+<codeline lineno="100" refid="class_copy_data_base_1a23f63e77625cee8295a0f43c870d7551" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_copy_data_base_1a23f63e77625cee8295a0f43c870d7551" kindref="member">last_active_fe_index</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>---------------<sp/>inline<sp/>functions<sp/>-------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_hp_partitions&gt;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Vector&lt;double&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="107" refid="class_copy_data_base_1a4d73b967ddbeea5f5ecd8ee85f4195d2" refkind="member"><highlight class="normal"><ref refid="class_copy_data_base_1a4d73b967ddbeea5f5ecd8ee85f4195d2" kindref="member">CopyDataBase&lt;n_hp_partitions&gt;::local_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>AssertIndexRange(fe_index,<sp/>n_hp_partitions);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;vectors[fe_index];</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_hp_partitions&gt;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vector&lt;double&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="115" refid="class_copy_data_base_1af0b92d481d889da1d3e7b4d00d345d3a" refkind="member"><highlight class="normal"><ref refid="class_copy_data_base_1a4d73b967ddbeea5f5ecd8ee85f4195d2" kindref="member">CopyDataBase&lt;n_hp_partitions&gt;::local_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="116"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>AssertIndexRange(fe_index,<sp/>n_hp_partitions);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;vectors[fe_index];</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_hp_partitions&gt;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>FullMatrix&lt;double&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="123" refid="class_copy_data_base_1a1dec828824a693472b405309328aae4b" refkind="member"><highlight class="normal"><ref refid="class_copy_data_base_1a1dec828824a693472b405309328aae4b" kindref="member">CopyDataBase&lt;n_hp_partitions&gt;::local_matrix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>AssertIndexRange(fe_index,<sp/>n_hp_partitions);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;matrices[fe_index];</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_hp_partitions&gt;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FullMatrix&lt;double&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="131" refid="class_copy_data_base_1aa422279230ba272df2d5d33a64b6c8dc" refkind="member"><highlight class="normal"><ref refid="class_copy_data_base_1a1dec828824a693472b405309328aae4b" kindref="member">CopyDataBase&lt;n_hp_partitions&gt;::local_matrix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="132"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>AssertIndexRange(fe_index,<sp/>n_hp_partitions);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;matrices[fe_index];</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_hp_partitions&gt;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::vector&lt;types::global_dof_index&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="139" refid="class_copy_data_base_1a3be1e1016403ced51d6958fcd1341a19" refkind="member"><highlight class="normal"><ref refid="class_copy_data_base_1a3be1e1016403ced51d6958fcd1341a19" kindref="member">CopyDataBase&lt;n_hp_partitions&gt;::dof_indices</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>AssertIndexRange(fe_index,<sp/>n_hp_partitions);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;local_dof_indices[fe_index];</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n_hp_partitions&gt;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;types::global_dof_index&gt;<sp/>&amp;</highlight></codeline>
+<codeline lineno="147" refid="class_copy_data_base_1a785ba66422836cb153618762bfb01ddd" refkind="member"><highlight class="normal"><ref refid="class_copy_data_base_1a3be1e1016403ced51d6958fcd1341a19" kindref="member">CopyDataBase&lt;n_hp_partitions&gt;::dof_indices</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fe_index)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="148"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>AssertIndexRange(fe_index,<sp/>n_hp_partitions);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;local_dof_indices[fe_index];</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/pre_amr/include/copy_data.h"/>
+  </compounddef>
+</doxygen>

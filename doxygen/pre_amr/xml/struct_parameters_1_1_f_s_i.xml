@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_f_s_i" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::FSI</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_f_s_i_1_1_rigid_body_rotation" prot="public">Parameters::FSI::RigidBodyRotation</innerclass>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_f_s_i_1aaf6daad17c13cd44bbfcfaee13654680" prot="public" static="no" strong="yes">
+        <type>unsigned int</type>
+        <name>CouplingStrategy</name>
+        <qualifiedname>Parameters::FSI::CouplingStrategy</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_f_s_i_1aaf6daad17c13cd44bbfcfaee13654680a639beec000ac9e49fcb532c80f77ccd7" prot="public">
+          <name>all_position_to_all_lambda</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_f_s_i_1aaf6daad17c13cd44bbfcfaee13654680adeb331ef435d806f1997a71716f4be23" prot="public">
+          <name>local_position_master_to_all_lambda</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_f_s_i_1aaf6daad17c13cd44bbfcfaee13654680ac0bc0a7b94c8ecbfe5e3a0c00e472950" prot="public">
+          <name>global_position_master_to_all_lambda</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_f_s_i_1aaf6daad17c13cd44bbfcfaee13654680aa693e8a64f1e688bc3387dbacdf440de" prot="public">
+          <name>local_position_master_to_lambda_accumulators</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_f_s_i_1aaf6daad17c13cd44bbfcfaee13654680ab158c233eabfc89eb6e6453dda99a3a9" prot="public">
+          <name>global_position_master_to_global_accumulator</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1148" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1149" bodyend="1160"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1ab2e0a6ae5ca7366a28753e9f78902115" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::FSI&lt; dim &gt;::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::FSI::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1110" column="15" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1aedfa2b62b8ba182f1d99f6be693f9bb4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::FSI&lt; dim &gt;::enable_coupling</definition>
+        <argsstring></argsstring>
+        <name>enable_coupling</name>
+        <qualifiedname>Parameters::FSI::enable_coupling</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1112" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1a0d28ae979481db14fa46d31af16cd715" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::FSI&lt; dim &gt;::zero_mass_model</definition>
+        <argsstring></argsstring>
+        <name>zero_mass_model</name>
+        <qualifiedname>Parameters::FSI::zero_mass_model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1117" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1ac93c49c230a0bc495fe913385bccbfeb" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::FSI&lt; dim &gt;::spring_constant</definition>
+        <argsstring></argsstring>
+        <name>spring_constant</name>
+        <qualifiedname>Parameters::FSI::spring_constant</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1119" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1a9ce4a619fe8b355bf25bf79acb880aa8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::FSI&lt; dim &gt;::damping</definition>
+        <argsstring></argsstring>
+        <name>damping</name>
+        <qualifiedname>Parameters::FSI::damping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1120" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1a143d80cec351c0a8fa005df98d8bee5b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::FSI&lt; dim &gt;::mass</definition>
+        <argsstring></argsstring>
+        <name>mass</name>
+        <qualifiedname>Parameters::FSI::mass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1121" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1a9daa7cd17c27ba35ba1d46ec87a42f08" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::FSI&lt; dim &gt;::cylinder_radius</definition>
+        <argsstring></argsstring>
+        <name>cylinder_radius</name>
+        <qualifiedname>Parameters::FSI::cylinder_radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1123" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1ae7377a0e0265cf8af6b8b858a5486ae2" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::FSI&lt; dim &gt;::cylinder_length</definition>
+        <argsstring></argsstring>
+        <name>cylinder_length</name>
+        <qualifiedname>Parameters::FSI::cylinder_length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1124" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1a5e85d00b54e9214539bc160f8de4abe9" prot="public" static="no" mutable="no">
+        <type>Point&lt; dim &gt;</type>
+        <definition>Point&lt;dim&gt; Parameters::FSI&lt; dim &gt;::cylinder_center</definition>
+        <argsstring></argsstring>
+        <name>cylinder_center</name>
+        <qualifiedname>Parameters::FSI::cylinder_center</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1126" column="11" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1ad8696cde6bd6c91ae1ce006c2d8b6e03" prot="public" static="no" mutable="no">
+        <type>Tensor&lt; 1, dim &gt;</type>
+        <definition>Tensor&lt;1, dim&gt; Parameters::FSI&lt; dim &gt;::initial_velocity</definition>
+        <argsstring></argsstring>
+        <name>initial_velocity</name>
+        <qualifiedname>Parameters::FSI::initial_velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1129" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1a5b7116584410c5f94cd1fa7b78d411cc" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_parameters_1_1_f_s_i_1_1_rigid_body_rotation" kindref="compound">Parameters::FSI::RigidBodyRotation</ref></type>
+        <definition>struct Parameters::FSI::RigidBodyRotation Parameters::FSI&lt; dim &gt;::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <qualifiedname>Parameters::FSI::rotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1142" column="14"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1adf90be6fd783ccb14eca257f4245af6c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::FSI&lt; dim &gt;::fix_z_component</definition>
+        <argsstring></argsstring>
+        <name>fix_z_component</name>
+        <qualifiedname>Parameters::FSI::fix_z_component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1144" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1ab42bd0bcd57dd1fa71d6fc0d66df374c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::FSI&lt; dim &gt;::compute_error_on_forces</definition>
+        <argsstring></argsstring>
+        <name>compute_error_on_forces</name>
+        <qualifiedname>Parameters::FSI::compute_error_on_forces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1146" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_f_s_i_1a5d5d214ce28fa7f51767d60bd5fcba75" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_f_s_i_1aaf6daad17c13cd44bbfcfaee13654680" kindref="member">Parameters::FSI::CouplingStrategy</ref></type>
+        <definition>enum Parameters::FSI::CouplingStrategy Parameters::FSI&lt; dim &gt;::coupling</definition>
+        <argsstring></argsstring>
+        <name>coupling</name>
+        <qualifiedname>Parameters::FSI::coupling</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1160" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_f_s_i_1ac8812c772f5a222d2e01b9c27b4af48e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::FSI&lt; dim &gt;::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::FSI::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1162" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2295" bodyend="2362"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_f_s_i_1a2aec550fc14b865503e82b2631f6cd0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::FSI&lt; dim &gt;::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::FSI::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1163" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2365" bodyend="2413"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Fluid-structure interaction </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Parameters::FSI&lt; dim &gt;::RigidBodyRotation</label>
+        <link refid="struct_parameters_1_1_f_s_i_1_1_rigid_body_rotation"/>
+      </node>
+      <node id="1">
+        <label>Parameters::FSI&lt; dim &gt;</label>
+        <link refid="struct_parameters_1_1_f_s_i"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="1108" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1109" bodyend="1164"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_f_s_i_1ab42bd0bcd57dd1fa71d6fc0d66df374c" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>compute_error_on_forces</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1a5d5d214ce28fa7f51767d60bd5fcba75" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>coupling</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1aaf6daad17c13cd44bbfcfaee13654680" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>CouplingStrategy</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1a5e85d00b54e9214539bc160f8de4abe9" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>cylinder_center</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1ae7377a0e0265cf8af6b8b858a5486ae2" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>cylinder_length</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1a9daa7cd17c27ba35ba1d46ec87a42f08" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>cylinder_radius</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1a9ce4a619fe8b355bf25bf79acb880aa8" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>damping</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1ac8812c772f5a222d2e01b9c27b4af48e" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1aedfa2b62b8ba182f1d99f6be693f9bb4" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>enable_coupling</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1adf90be6fd783ccb14eca257f4245af6c" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>fix_z_component</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1ad8696cde6bd6c91ae1ce006c2d8b6e03" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>initial_velocity</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1a143d80cec351c0a8fa005df98d8bee5b" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>mass</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1a2aec550fc14b865503e82b2631f6cd0f" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1a5b7116584410c5f94cd1fa7b78d411cc" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>rotation</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1ac93c49c230a0bc495fe913385bccbfeb" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>spring_constant</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1ab2e0a6ae5ca7366a28753e9f78902115" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>verbosity</name></member>
+      <member refid="struct_parameters_1_1_f_s_i_1a0d28ae979481db14fa46d31af16cd715" prot="public" virt="non-virtual"><scope>Parameters::FSI</scope><name>zero_mass_model</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

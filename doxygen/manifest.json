@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T03:48:34.594918+00:00",
+  "generatedAt": "2026-09-20T04:46:49.916737+00:00",
   "generator": "Doxygen 1.18.0 (8e760943e5d9581a444cf327f43a0b4d20d29482)",
   "archiveSha256": "e84f54cfd49ef06b0b16536056dbec0c496323de28abcce53a4269463de35eaf",
   "archiveHashVerifiedBeforeExecution": true,
@@ -8,40 +8,80 @@
   "scope": "Snapshots partiels séparés, lecture GitHub. Aucun build FEZ ni test numérique.",
   "graphviz": false,
   "portablePageNames": true,
-  "postprocessing": "fix-index-anchors.ps1 normalizes only the missing alphabet and destructor index anchors emitted by Doxygen 1.18.0. API text and source snapshots are unchanged.",
+  "postprocessing": "Guide copies receive stable labels, protected Doxygen math delimiters, explicit cross-document links and an end marker. render-math.mjs renders formulas as static KaTeX HTML/MathML with local CSS/fonts and removes MathJax scripts. fix-index-anchors.ps1 normalizes missing index anchors. Canonical knowledge Markdown and C++ snapshot contents are unchanged.",
+  "mathRenderer": {
+    "name": "KaTeX",
+    "version": "0.18.7",
+    "offline": true,
+    "browserJavaScriptRequired": false,
+    "fontAssetCount": 60,
+    "missingOrRemoteAssets": []
+  },
   "branches": {
     "master": {
       "gitBranch": "master",
       "commit": "ccf20caa0745cc2fe640f879d34acf2bf3855e6c",
       "doxygenExitCode": 0,
+      "generationRecord": {
+        "branch": "master",
+        "generatedAt": "2026-09-20T04:39:39.3553052Z",
+        "doxygenVersion": "1.18.0 (8e760943e5d9581a444cf327f43a0b4d20d29482)",
+        "doxygenExitCode": 0,
+        "mathRenderExitCode": 0
+      },
       "entryPoint": "master/html/index.html",
       "snapshotFileCount": 25,
       "apiSourceFileCount": 25,
       "htmlFileCount": 200,
       "xmlFileCount": 74,
       "warningCount": 24,
-      "warningSummary": "Commandes LaTeX non encadrées par les délimiteurs Doxygen dans des commentaires source existants. Les snapshots originaux sont conservés sans correction.",
+      "guideWarningCount": 0,
+      "warningSummary": "Avertissements conservés dans le journal, issus des commentaires C++ et des limites des snapshots partiels. Les copies de guides sont contrôlées séparément ; leur compteur doit être nul.",
+      "math": {
+        "branch": "master",
+        "renderer": "KaTeX 0.18.7",
+        "offline": true,
+        "pages": [],
+        "failures": [],
+        "formulaCount": 0
+      },
+      "remoteScripts": [],
       "guides": [
         {
           "path": "guides/master/features/chns-assembly.md",
-          "sha256": "5bd26dfc1e6cd06eaa1e743789856cda8ef6500fa1cbc1eddaab4c019ac7a532",
+          "sha256": "77e71874ed419ff539cc48993f263bdd14fd071219e390c974fb83da938bc5dd",
           "knowledgeSource": "../knowledge/features/chns-assembly.md",
           "knowledgeSha256": "38604b93e123fcd2d914dd126416face4b35f2800a3436beb9ed1d594de24dcd",
-          "matchesKnowledgeExceptPageLabel": true
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_master_chns_assembly.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 0,
+          "renderedFormulaCount": 0
         },
         {
           "path": "guides/master/features/core-solver.md",
-          "sha256": "07bac6d59ea85c888de34dee0fcebd40a2471660d4a798147741d7d694cd438a",
+          "sha256": "e884e0e9f38d89cecb943d74da6c9d6c1e5dca58a6152625cbceb8899f7d8045",
           "knowledgeSource": "../knowledge/features/core-solver.md",
           "knowledgeSha256": "7c9a0988ccc4c2b025a2c1ea8d4dadb27477c3f1dc1151a583c4fd916dd0c146",
-          "matchesKnowledgeExceptPageLabel": true
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_master_core_solver.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 0,
+          "renderedFormulaCount": 0
         },
         {
           "path": "guides/master/features/fsi-monolithic.md",
-          "sha256": "1089ef854bb0bb59d56f4265d263e23ddfeb638809eb3d9022a70980fae49e6e",
+          "sha256": "fbfd21416f653466d05b605cc22d2522c898da831fe5a470c999c7a52706bfa9",
           "knowledgeSource": "../knowledge/features/fsi-monolithic.md",
           "knowledgeSha256": "1c72d31ee56c089652c7e0505cffd9022e24fddf47d7f093d0c3976780e1bf47",
-          "matchesKnowledgeExceptPageLabel": true
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_master_fsi_monolithic.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 0,
+          "renderedFormulaCount": 0
         },
         {
           "path": "guides/master/index.md",
@@ -208,20 +248,42 @@
       "gitBranch": "chns-ding-horriche-master-form",
       "commit": "35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858",
       "doxygenExitCode": 0,
+      "generationRecord": {
+        "branch": "prod",
+        "generatedAt": "2026-09-20T04:39:41.9300047Z",
+        "doxygenVersion": "1.18.0 (8e760943e5d9581a444cf327f43a0b4d20d29482)",
+        "doxygenExitCode": 0,
+        "mathRenderExitCode": 0
+      },
       "entryPoint": "prod/html/index.html",
       "snapshotFileCount": 28,
       "apiSourceFileCount": 26,
       "htmlFileCount": 200,
       "xmlFileCount": 76,
       "warningCount": 42,
-      "warningSummary": "Commandes LaTeX non encadrées par les délimiteurs Doxygen dans des commentaires source existants. Les snapshots originaux sont conservés sans correction.",
+      "guideWarningCount": 0,
+      "warningSummary": "Avertissements conservés dans le journal, issus des commentaires C++ et des limites des snapshots partiels. Les copies de guides sont contrôlées séparément ; leur compteur doit être nul.",
+      "math": {
+        "branch": "prod",
+        "renderer": "KaTeX 0.18.7",
+        "offline": true,
+        "pages": [],
+        "failures": [],
+        "formulaCount": 0
+      },
+      "remoteScripts": [],
       "guides": [
         {
           "path": "guides/prod/features/chns-ale-amr.md",
-          "sha256": "8777535e5ba876e041dfc0a2e3f019b099f03ac9f4d397e71e6b0ed469880031",
+          "sha256": "af97ae71dcdfda2b97733c59d04c1e0cb986f26fc42993a53a1ac50408095a35",
           "knowledgeSource": "../knowledge/features/chns-ale-amr.md",
           "knowledgeSha256": "a005cae7829071d44ba50bad7a55642abbfc07ca308c9a94ef58315bd77947a7",
-          "matchesKnowledgeExceptPageLabel": true
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_prod_chns_ale_amr.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 0,
+          "renderedFormulaCount": 0
         },
         {
           "path": "guides/prod/index.md",
@@ -229,10 +291,15 @@
         },
         {
           "path": "guides/prod/patterns/distributed-state-transfer.md",
-          "sha256": "a557f5e21cf90ddffa18cc00bde1c8983274ed2c25467477560e13a86b402a98",
+          "sha256": "63be4121cf90c79d598ab149f9b490701c7644160ce463b17781d213adc89166",
           "knowledgeSource": "../knowledge/patterns/distributed-state-transfer.md",
           "knowledgeSha256": "162d73f05eaacbb73896a4ba8f496f5b64fd0cbc7a84ef3edce5cfa3b536eb14",
-          "matchesKnowledgeExceptPageLabel": true
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_prod_distributed_state_transfer.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 0,
+          "renderedFormulaCount": 0
         }
       ],
       "machinePathFilenames": [],
@@ -405,6 +472,379 @@
           "path": "tests/unit_tests/chns_presolver_amr.cc",
           "sha256": "bb1129bc4fb9900389b3ff68c1dfbc303f0ef08755f8dae1dc216a7820594c39",
           "sourceUrl": "https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/tests/unit_tests/chns_presolver_amr.cc",
+          "inApiInput": false
+        }
+      ]
+    },
+    "pre_amr": {
+      "gitBranch": "chns-ding-horriche-master-form",
+      "commit": "cc8dace141900b82e5790fa878e39d9c54898784",
+      "doxygenExitCode": 0,
+      "generationRecord": {
+        "branch": "pre_amr",
+        "generatedAt": "2026-09-20T04:39:46.6152729Z",
+        "doxygenVersion": "1.18.0 (8e760943e5d9581a444cf327f43a0b4d20d29482)",
+        "doxygenExitCode": 0,
+        "mathRenderExitCode": 0
+      },
+      "entryPoint": "pre_amr/html/index.html",
+      "snapshotFileCount": 46,
+      "apiSourceFileCount": 34,
+      "htmlFileCount": 395,
+      "xmlFileCount": 174,
+      "warningCount": 46,
+      "guideWarningCount": 0,
+      "warningSummary": "Avertissements conservés dans le journal, issus des commentaires C++ et des limites des snapshots partiels. Les copies de guides sont contrôlées séparément ; leur compteur doit être nul.",
+      "math": {
+        "branch": "pre_amr",
+        "renderer": "KaTeX 0.18.7",
+        "offline": true,
+        "pages": [
+          {
+            "page": "fez_pre_amr_mobility.html",
+            "formulaCount": 63
+          },
+          {
+            "page": "fez_pre_amr_models.html",
+            "formulaCount": 60
+          }
+        ],
+        "failures": [],
+        "formulaCount": 123
+      },
+      "remoteScripts": [],
+      "guides": [
+        {
+          "path": "guides/pre_amr/features/chns-models-pre-amr.md",
+          "sha256": "f90833fdb3a1ae012ccdd37e61f7b5f1428aa179f17f98fa9aedd8907e2d8302",
+          "knowledgeSource": "../knowledge/features/chns-models-pre-amr.md",
+          "knowledgeSha256": "c247f5186858dd4f31c40524d04c9dc9e61a44fdc70e4c87814c77b18697c1aa",
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_pre_amr_models.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 60,
+          "renderedFormulaCount": 60
+        },
+        {
+          "path": "guides/pre_amr/features/workflow-pre-amr.md",
+          "sha256": "aa48f7901a3fe451de0af6b7dab0ba30de0d652722b93767c9352fdf2bedef4c",
+          "knowledgeSource": "../knowledge/features/workflow-pre-amr.md",
+          "knowledgeSha256": "341f46e3f7ce9165c48bb5dbd543987e1c1abf091be03a99f751a8bf7948318c",
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_pre_amr_workflow.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 0,
+          "renderedFormulaCount": 0
+        },
+        {
+          "path": "guides/pre_amr/index.md",
+          "sha256": "0978e631186bb3efa72c486542d943fc45cd6fac38dd8cb932ad7868a3e1f7ba"
+        },
+        {
+          "path": "guides/pre_amr/patterns/mobility-corrections-timestep.md",
+          "sha256": "3796074e0fd026029ff1b09f8b0dd59c37ed41086c0630f8fde2e3e00f4cc1dd",
+          "knowledgeSource": "../knowledge/patterns/mobility-corrections-timestep.md",
+          "knowledgeSha256": "91a1fcc6045adf29ca312f4d34fa17e3a5566a518d2ebadd469f939b381324f2",
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_pre_amr_mobility.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 63,
+          "renderedFormulaCount": 63
+        },
+        {
+          "path": "guides/pre_amr/patterns/presolver-cache-geometry.md",
+          "sha256": "e790c26b19e8e0a1cd1ee3bbdaa7cae6394b955dae9d05847414d38c418a1ac9",
+          "knowledgeSource": "../knowledge/patterns/presolver-cache-geometry.md",
+          "knowledgeSha256": "707d814fda3992dce2a0509d76062e9d581de4b6363d35ced6c3942c78faea5a",
+          "matchesKnowledgeAfterDocumentedTransforms": true,
+          "renderedPage": "fez_pre_amr_presolver.html",
+          "complete": true,
+          "missingHeadings": [],
+          "expectedFormulaCount": 0,
+          "renderedFormulaCount": 0
+        }
+      ],
+      "machinePathFilenames": [],
+      "missingFileLinks": [],
+      "missingFragmentLinks": [],
+      "sources": [
+        {
+          "path": "include/assembly/elasticity_assemblers.h",
+          "sha256": "db7d3bd2e82e61ccf42a32aab3d742df9302c7f406e185091e16ac1af70c701f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/elasticity_assemblers.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/assembly/incompressible_chns_assemblers.h",
+          "sha256": "ff8dddeed5df322fa031b69ae9797d4edf345107171e9078fd47210fecf0d3dc",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/assembly/incompressible_chns_assemblers.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/boundary_conditions.h",
+          "sha256": "cdc6b30f668a62812fc8f18255fa518043028d413fd9c5b0ccc8f4ba07f2f663",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/boundary_conditions.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/cahn_hilliard.h",
+          "sha256": "f0a4b1d777030dfda841018626b3261ced564f9439db47ebdb3d30a3bb89cb94",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/cahn_hilliard.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/components_ordering.h",
+          "sha256": "771a7d310b9b1a97db4c1e325daa907d5fa2930d0a595fe8f9b1430e3f4b68c5",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/components_ordering.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/copy_data.h",
+          "sha256": "4919c0d037ae929f0f84f212aaca7d8cbd0159e17c61980bc8e0276b2901245c",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/copy_data.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/elasticity_solver.h",
+          "sha256": "9a113dc107099c70a917f8b2f39dc470bf284f4691c29a79c0355dfc5b2073b2",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/elasticity_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/generic_solver.h",
+          "sha256": "6a01c1620c170c33dc40cfc0d96ead0d419bfea575690cc78472da89f1947829",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/generic_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/incompressible_chns_solver.h",
+          "sha256": "f727ea02de0b378d49ec8bae0c1786c75ebb493ce141f7f448d731a48e08e35a",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/incompressible_chns_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/mesh_and_dof_tools.h",
+          "sha256": "61b4b395bd1cca772bd99af5a7e978f1f0ea52c476a86d6156a124a2a0b4432d",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/mesh_and_dof_tools.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/navier_stokes_solver.h",
+          "sha256": "b78b552af2ae7a518714aef023f83b5f2d4d2ba2e66d04d32b3a8a30a9c3d34b",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/navier_stokes_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/newton_solver.h",
+          "sha256": "a4bc67504d6471b424e25422d6148a7208c10ca898b19b68fa0012f5e02ba53e",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/newton_solver.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/parameters.h",
+          "sha256": "81084eceb7730da244511ff72774bad55870419828f9b3c067ccbb9b60d46d53",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/parameters.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/post_processing_handler.h",
+          "sha256": "f5c47eb63f0769305b73a3cf1a754302d9922d5199a17f1fef5f37a17041971f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/post_processing_handler.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/presolver_tools.h",
+          "sha256": "e4ac6b55f4ca854df3d2018d928cffd8656e996c9bee47776db8effdc27c0b89",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/presolver_tools.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/scratch_data.h",
+          "sha256": "2170a5129fe0cec6d56abf74a63a925d440feb5c4c598d89570f449b7d0e0317",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/scratch_data_elasticity.h",
+          "sha256": "5f75c7a25e6616950578f3408911ef43d2fe0977d35604cbfa570a1176c3fce5",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/scratch_data_elasticity.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/stabilization_tools.h",
+          "sha256": "fb5a5d7db72cdcb2a83878b72b2f4d1c82d82a037b9da22c62fa72c10092651e",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/stabilization_tools.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/time_handler.h",
+          "sha256": "67a92fbdf4ed8f8f6fab610551328c5ab03717e6c22c446ec87600af8226c1ce",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/time_handler.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/timestep_adaptation.h",
+          "sha256": "22fce7a21f0c4f3dc4ce8f0ba61aea152e64deb3824f4d46c50648b5d9c80e97",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/timestep_adaptation.h",
+          "inApiInput": true
+        },
+        {
+          "path": "include/types.h",
+          "sha256": "8dc4a4a8d60417654a248d96da6a3f13ed19124a844805bdd4fcccf3402dff5f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/types.h",
+          "inApiInput": true
+        },
+        {
+          "path": "solvers/incompressible_chns_ale.cpp",
+          "sha256": "9b528d6bdf85196021717fc4c440a20968eb03f5ec8f89d56fdf671cb7418d0c",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/solvers/incompressible_chns_ale.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "solvers/incompressible_chns_ale_enlarged.cpp",
+          "sha256": "aa3c1bc56e8791ffe93f2444062a158c32d33ed648585ce847afadc1e492a9e0",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/solvers/incompressible_chns_ale_enlarged.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/assembly/elasticity_assemblers.cpp",
+          "sha256": "7fc99438c5f107eac7ddf450ae9c5810a526eda3ba4061a15b3aa7355b548d67",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/elasticity_assemblers.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/assembly/incompressible_chns_assemblers.cpp",
+          "sha256": "59f56b5328aa5f5408fdc43e7be9b56274acd7c47bc91b77003bf23ce9760709",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/incompressible_chns_assemblers.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/boundary_conditions.cpp",
+          "sha256": "7e9c36a1a4af8fd7a18334421144f8fc95b6aacc502c871192e47d601cdfba3e",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/boundary_conditions.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/elasticity_solver.cpp",
+          "sha256": "8566bf36298409268a7890640a544483aeedbcd3f9583bcb76b92fcbd8b9efd4",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/incompressible_chns_solver.cpp",
+          "sha256": "64228c079a1f6da9140341f7a57b9f07bb49f05364e4a3438aac7b2331e563f9",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/mesh_and_dof_tools.cpp",
+          "sha256": "9af23808fbc3622628ec10796a82a8d89359b69034e4418b8a96dd33e0445b63",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/mesh_and_dof_tools.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/navier_stokes_solver.cpp",
+          "sha256": "43456233cda652f755921e94b66a111fbdc7545c0d17999d2f60c9e68aed33c7",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/parameters.cpp",
+          "sha256": "eaa7f945053cc87afa1546f6ee37fa471e2cf0eea596d556684f7f8275420c07",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/post_processing_handler.cpp",
+          "sha256": "73584f759eaf78ce120ae0df891a47b1e978d888e5326e5cdbdb9df65b261b4f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/post_processing_handler.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/scratch_data.cpp",
+          "sha256": "683088200920fb5ae388307b7ffb3a1e5c34bf147081877ecc52e4d2a3a2624e",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/scratch_data.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "src/time_handler.cpp",
+          "sha256": "2f0a9aa514a2a00c7739f0fb30983169f4f4644e9fd84810dc9bb8aebf3fb749",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/time_handler.cpp",
+          "inApiInput": true
+        },
+        {
+          "path": "tests/elasticity/presolver_forcing_jacobian.prm",
+          "sha256": "78ee14fe15df44d5cb434384d48c281400ae2d5bfeab81617a345fb314d6f78f",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/elasticity/presolver_forcing_jacobian.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns/adaptive_mobility_timestep.prm",
+          "sha256": "26369b038a9480edb6108f0c7c7740a1a2a245567d72c85e5d178f7b24c2940b",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/adaptive_mobility_timestep.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns/jacobian_matrix_supg_abels_nlm.prm",
+          "sha256": "b98dc6585702e81e5bf4a8b4eafe3b6f7b1285031691c2087c980b9df496af6e",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/jacobian_matrix_supg_abels_nlm.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns/jacobian_matrix_supg_ding_horriche.prm",
+          "sha256": "04e9d2efd021df0e4cb8f52c57ebc81fe2c2cb1347cbf7622c8a425778d813e8",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/jacobian_matrix_supg_ding_horriche.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns/mms_chns_2d_spacetime_degenerate_mobility.prm",
+          "sha256": "c95280717cef04e6807b0d6d5bfba111e592eb108d78be61a1c6409e429a07eb",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns/mms_chns_2d_spacetime_degenerate_mobility.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns_ale/presolver_injection.prm",
+          "sha256": "1c23aab0045b031e16b196cb04dc342e9708c8500f7e70c9053b14cf316f5780",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale/presolver_injection.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility.prm",
+          "sha256": "780ae44dc2111a5099a9eaca0cc818f721eb4ac26ce19cd59fa0513ef6c32a45",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility_2.prm",
+          "sha256": "dfc06294413e621fd83425352598f5dbcdb632c54f71f9b57e910662a527923d",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale_enlarged/jacobian_matrix_adaptative_mobility_2.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns_ale_enlarged/mms_chns_ale_enlarged_2d_spacetime.prm",
+          "sha256": "a61faceeda68ae0eeea175294c987898a150a64d19a09dc60ac8bf7714ee9586",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale_enlarged/mms_chns_ale_enlarged_2d_spacetime.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/incompressible_chns_ale_enlarged/presolver_psi_jacobian.prm",
+          "sha256": "786587411cad1454a33ad346e3bc5786d9983eea69073af55b03de5b35dcea12",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/incompressible_chns_ale_enlarged/presolver_psi_jacobian.prm",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/unit_tests/profile_correction.cc",
+          "sha256": "997cd31ee5bc6dec6ecbb9f36350adc6b74a67f78f861b65a30d57230d8172a3",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/unit_tests/profile_correction.cc",
+          "inApiInput": false
+        },
+        {
+          "path": "tests/unit_tests/time_handler_adaptive_mobility.cc",
+          "sha256": "7bfbea35a6bc40d08708e996950cbfbfe577cfffb8c174bfee9f88904dfc9725",
+          "sourceUrl": "https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/tests/unit_tests/time_handler_adaptive_mobility.cc",
           "inApiInput": false
         }
       ]

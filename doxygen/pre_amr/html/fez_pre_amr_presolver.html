@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Motif — presolver, cache et géométrie d&#39;évaluation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('fez_pre_amr_presolver.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Motif — presolver, cache et géométrie d'évaluation </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_guides_2pre__amr_2patterns_2presolver-cache-geometry"></a></p>
+<blockquote class="doxtable">
+<p>Code lu à <span class="tt">cc8dace141900b82e5790fa878e39d9c54898784</span>, avant le nouveau couplage AMR. Constat statique ; aucun calcul ni test exécuté. </p>
+</blockquote>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+Trois représentations, trois contrats</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Représentation  </th><th class="markdownTableHeadNone">Identité des valeurs  </th><th class="markdownTableHeadNone">Finalité  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Solution du presolver  </td><td class="markdownTableBodyNone">Champs FE <span class="tt">x</span>, éventuellement <span class="tt">psi</span>, sur son DoFHandler  </td><td class="markdownTableBodyNone">Équilibre initial du pseudo-solide  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Cache presolver  </td><td class="markdownTableBodyNone">Coordonnées de support sur la référence + numéro de composante → valeur  </td><td class="markdownTableBodyNone">Réutilisation du presolve avec une autre partition MPI compatible  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">État CHNS–ALE  </td><td class="markdownTableBodyNone">Vecteur de champs où <span class="tt">x</span> pilote le mapping lié à <span class="tt">evaluation_point</span>  </td><td class="markdownTableBodyNone">Évolution couplée sur la géométrie courante  </td></tr>
+</table>
+<p>Le cache n'est pas une sérialisation de numéros DoF à réutiliser tels quels. Son entrée contient un tableau de coordonnées, une composante et une valeur. La clé textuelle utilise la composante et les coordonnées en précision 17 ; après lecture le solveur recherche les points possédés par <b>la partition actuelle</b>. C'est le mécanisme concret derrière « indépendant de la partition ». Il n'établit pas une compatibilité avec un autre maillage ou des points de support différents. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L66-L92">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L1033-L1071">Source pré-AMR</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
+Écrire avant de déplacer</h1>
+<p>Chaque rang parcourt ses DoFs possédés, associe la valeur aux points de support du mapping de référence et envoie ses entrées au rang 0. Celui-ci écrit l'empreinte et les entrées dans un fichier temporaire ; la barrière MPI et le remplacement des fichiers temporaires terminent l'écriture. Les rangs ne dépendent donc pas de la numérotation globale conservée entre deux lancements. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L926-L973">Source pré-AMR</a></p>
+<p>Cet appel précède <span class="tt">postprocess_solution()</span>, qui peut déplacer les sommets de la triangulation pour visualiser le presolve. Enregistrer après ce déplacement changerait le repère des clés du cache. Même ordre pour l'export Gmsh : évaluer le champ déformé aux nœuds de référence, écrire, puis déplacer les sommets pour la visualisation. Le rôle de la référence est ici une donnée du format, pas seulement un choix graphique. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L320-L327">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L809-L855">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L1105-L1114">Source pré-AMR</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+Valider avant de réutiliser</h1>
+<p><span class="tt">try_load_presolved_mesh_cache()</span> remet le presolver à zéro, lit le maillage et recrée les DoFs. Chaque rang lit le cache et compare l'empreinte. Fichier absent, archive illisible, empreinte différente ou point de support possédé introuvable provoquent un retour <span class="tt">false</span>, pas une utilisation partielle du cache. Un <span class="tt">MPI::min</span> impose l'accord global ; la fabrique relance alors le presolve. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L977-L1031">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L1043-L1075">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/presolver_tools.h#L26-L37">Source pré-AMR</a></p>
+<p>L'empreinte comprend nom et hash FNV-1a du contenu du fichier maillage, degré de position, type quads, nombre de DoFs, modèle constitutif, expressions de Lamé, paramètre Ogden, sélection du forçage, épaisseur d'interface, compression physique, régularisation, présence/largeur/compression/exposant de <span class="tt">psi</span>, paramètres de continuation et expression analytique de <span class="tt">phi</span>. Le facteur de transport ne figure pas dans cette liste : le presolver n'assemble pas le transport. Le <a href="https://github.com/arthurbawin/fez/commit/a10d2366d98dd74562767ca92b14e617caf98795">patch du 30 juin</a> ajoute explicitement les paramètres enlarged manquants et retire ce facteur de transport. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L46-L63">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L890-L922">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/elasticity_assemblers.cpp#L326-L332">Source pré-AMR</a></p>
+<p><b>Limite de contrat, à vérifier selon le changement envisagé :</b> cette empreinte est une liste explicite, pas un hash du fichier de paramètres complet. Les expressions de BC et les sources utilisateur ne sont pas sérialisées dans cette fonction ; les expressions des fonctions sont enregistrées, sans inventaire explicite de toutes leurs constantes. On ne peut donc pas affirmer que tout changement qui influe sur le presolve invalide automatiquement le cache. C'est une inférence de la liste lue, pas un cas de réutilisation erronée exécuté. Pour étudier une modification hors de cette liste, <span class="tt">force_recompute</span> permet un résultat frais ; le graphe doit ensuite conduire vers l'empreinte pour décider s'il faut l'étendre. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L890-L922">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1993-L2005">Source pré-AMR</a></p>
+<p>Après une lecture réussie, le code compresse les insertions puis remplit <span class="tt">present_solution</span>, ses fantômes et <span class="tt">evaluation_point</span>. La fabrique rend le presolver sans appeler <span class="tt">run()</span>, donc sans refaire ses sorties finales. Une réutilisation du cache ne garantit pas la régénération d'un fichier msh de presolver demandé ailleurs : cette branche retourne directement l'objet chargé. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L1068-L1075">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/presolver_tools.h#L32-L39">Source pré-AMR</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
+Injecter un état cohérent</h1>
+<p>Le transfert presolver → CHNS utilise une autre identité : composantes et points de support dans la cellule de référence. Il associe <span class="tt">x</span>, et <span class="tt">psi</span> s'il existe, puis parcourt les cellules actives source/destination dans le même ordre. Cette correspondance requiert des layouts et partitions compatibles. Le socle pré-AMR possède deux triangulations construites séparément ; le nouveau chemin AMR les partagera explicitement. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/mesh_and_dof_tools.h#L52-L122">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp#L809-L842">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L96-L112">Source pré-AMR</a></p>
+<p>Le lien causal est : <span class="tt">x</span> injecté → <span class="tt">evaluation_point</span> actualisé → <span class="tt">moving_mapping</span> modifié → interpolation de <span class="tt">u</span> et <span class="tt">phi</span> → contraintes physiques recalculées. En enlarged, le <span class="tt">psi</span> du presolver est aussi la valeur initiale de l'inconnue qui produit le forçage élargi. Repartir d'un <span class="tt">psi</span> nul modifierait ce forçage malgré la géométrie comprimée conservée ; le code et le <a href="https://github.com/arthurbawin/fez/commit/7ae5094cf2a23005f89af4788bdf4d330ddeeab9">patch d'injection du 2 juillet</a> donnent cette motivation. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp#L758-L805">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp#L820-L842">Source pré-AMR</a></p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
+Échos utiles pour la suite</h1>
+<ul>
+<li>Une nouvelle composante peut nécessiter une modification du DoFHandler du presolver, de son masque, de la table de copie et de l'empreinte. Ce sont quatre lieux distincts à relire.</li>
+<li>Une nouvelle géométrie d'évaluation doit être restaurée avant ses consommateurs, comme lors de la <a href="../../prod/html/fez_prod_distributed_state_transfer.html">restauration après AMR</a>.</li>
+<li>Le cache géométrique n'est pas le restart : ce dernier charge triangulation, vecteurs courants/historiques et temps depuis des fichiers de rang, puis restaure séparément l'historique PVD.</li>
+<li>Les valeurs prises aux sondes de ligne utilisent les coordonnées physiques du mapping courant ; des clés de cache utilisent les points de référence. Réutiliser une de ces conventions dans l'autre mécanisme exige un choix explicite.</li>
+</ul>
+<p>Ces rapprochements sont des inférences de conception fondées sur les chemins de données cités, sans revendiquer une équivalence des algorithmes. <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L932-L948">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp#L1463-L1495">Source pré-AMR</a>, <a href="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L1575-L1594">Source pré-AMR</a></p>
+<p><span id="fez-guide-end-fez_pre_amr_presolver"></span> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

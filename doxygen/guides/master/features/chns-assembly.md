@@ -48,3 +48,6 @@ Le code propose deux voies de contrôle : assembler le Jacobien par différences
 
 Commencer par une configuration CHNS fixe sans stabilisation, puis une configuration stabilisée ; contrôler Jacobien et convergence MMS avant d'élargir à ALE et MPI. Les dossiers `tests/incompressible_chns` et `tests/incompressible_chns_ale` sont présents dans l'arbre Git ; leurs sorties existantes ne sont pas un résultat de cette session.
 
+
+
+<span id="fez-guide-end-fez_master_chns_assembly"></span>

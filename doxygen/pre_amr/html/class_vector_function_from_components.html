@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence du modèle de la classe VectorFunctionFromComponents&lt; dim &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_vector_function_from_components.html','','class_vector_function_from_components-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du modèle de la classe VectorFunctionFromComponents&lt; dim &gt;</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe d'héritage de VectorFunctionFromComponents&lt; dim &gt;:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_vector_function_from_components.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a57ea249708841e29ef7e027a6c56dcf8" id="r_a57ea249708841e29ef7e027a6c56dcf8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a57ea249708841e29ef7e027a6c56dcf8">VectorFunctionFromComponents</a> (const unsigned int lower, const unsigned int n_components, const Functions::ParsedFunction&lt; dim &gt; &amp;x_component, const Functions::ParsedFunction&lt; dim &gt; &amp;y_component, const Functions::ParsedFunction&lt; dim &gt; &amp;z_component)</td></tr>
+<tr class="memitem:a215ff7c4f93b59f32353d799f0bbff69" id="r_a215ff7c4f93b59f32353d799f0bbff69"><td class="memItemLeft">virtual double&#160;</td><td class="memItemRight"><a class="el" href="#a215ff7c4f93b59f32353d799f0bbff69">value</a> (const Point&lt; dim &gt; &amp;p, unsigned int component) const override</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:abb63dcbb6a3c15e6af086045240303c0" id="r_abb63dcbb6a3c15e6af086045240303c0"><td class="memItemLeft">const unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#abb63dcbb6a3c15e6af086045240303c0">lower</a></td></tr>
+<tr class="memitem:a6677010c01e36e6d9c0777386ea5f3e4" id="r_a6677010c01e36e6d9c0777386ea5f3e4"><td class="memItemLeft">const Functions::ParsedFunction&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6677010c01e36e6d9c0777386ea5f3e4">x_component</a></td></tr>
+<tr class="memitem:a2e3c3b8ec791968bd221a65a4c23566d" id="r_a2e3c3b8ec791968bd221a65a4c23566d"><td class="memItemLeft">const Functions::ParsedFunction&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2e3c3b8ec791968bd221a65a4c23566d">y_component</a></td></tr>
+<tr class="memitem:ab9197d1f4541d1b4dbb44d60dd68970c" id="r_ab9197d1f4541d1b4dbb44d60dd68970c"><td class="memItemLeft">const Functions::ParsedFunction&lt; dim &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab9197d1f4541d1b4dbb44d60dd68970c">z_component</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;int dim&gt;<br />
+class VectorFunctionFromComponents&lt; dim &gt;</div><p>Vector-valued function described by up to 3 individual ParsedFunctions. The parameter <code class="param">lower</code> is the first vector component in the solution vector.</p>
+<p>This Function does no override the set_time function, instead it assumes that time has been correctly updated in each underlying ParsedFunction. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="boundary__conditions_8h_source.html#l00502">502</a> du fichier <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a57ea249708841e29ef7e027a6c56dcf8" name="a57ea249708841e29ef7e027a6c56dcf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ea249708841e29ef7e027a6c56dcf8">&#9670;&#160;</a></span>VectorFunctionFromComponents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector_function_from_components.html">VectorFunctionFromComponents</a>&lt; dim &gt;::VectorFunctionFromComponents </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>lower</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>n_components</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Functions::ParsedFunction&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x_component</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Functions::ParsedFunction&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y_component</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Functions::ParsedFunction&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>z_component</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="boundary__conditions_8h_source.html#l00511">511</a> du fichier <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="a215ff7c4f93b59f32353d799f0bbff69" name="a215ff7c4f93b59f32353d799f0bbff69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a215ff7c4f93b59f32353d799f0bbff69">&#9670;&#160;</a></span>value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double <a class="el" href="class_vector_function_from_components.html">VectorFunctionFromComponents</a>&lt; dim &gt;::value </td>
+          <td>(</td>
+          <td class="paramtype">const Point&lt; dim &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>component</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="boundary__conditions_8h_source.html#l00524">524</a> du fichier <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="abb63dcbb6a3c15e6af086045240303c0" name="abb63dcbb6a3c15e6af086045240303c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb63dcbb6a3c15e6af086045240303c0">&#9670;&#160;</a></span>lower</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="class_vector_function_from_components.html">VectorFunctionFromComponents</a>&lt; dim &gt;::lower</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="boundary__conditions_8h_source.html#l00505">505</a> du fichier <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+</div>
+</div>
+<a id="a6677010c01e36e6d9c0777386ea5f3e4" name="a6677010c01e36e6d9c0777386ea5f3e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6677010c01e36e6d9c0777386ea5f3e4">&#9670;&#160;</a></span>x_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const Functions::ParsedFunction&lt;dim&gt;&amp; <a class="el" href="class_vector_function_from_components.html">VectorFunctionFromComponents</a>&lt; dim &gt;::x_component</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="boundary__conditions_8h_source.html#l00506">506</a> du fichier <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+</div>
+</div>
+<a id="a2e3c3b8ec791968bd221a65a4c23566d" name="a2e3c3b8ec791968bd221a65a4c23566d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e3c3b8ec791968bd221a65a4c23566d">&#9670;&#160;</a></span>y_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const Functions::ParsedFunction&lt;dim&gt;&amp; <a class="el" href="class_vector_function_from_components.html">VectorFunctionFromComponents</a>&lt; dim &gt;::y_component</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="boundary__conditions_8h_source.html#l00507">507</a> du fichier <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+</div>
+</div>
+<a id="ab9197d1f4541d1b4dbb44d60dd68970c" name="ab9197d1f4541d1b4dbb44d60dd68970c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9197d1f4541d1b4dbb44d60dd68970c">&#9670;&#160;</a></span>z_component</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const Functions::ParsedFunction&lt;dim&gt;&amp; <a class="el" href="class_vector_function_from_components.html">VectorFunctionFromComponents</a>&lt; dim &gt;::z_component</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="boundary__conditions_8h_source.html#l00508">508</a> du fichier <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_vector_function_from_components.html">VectorFunctionFromComponents</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

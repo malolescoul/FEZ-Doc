@@ -1,0 +1,17 @@
+{
+  "branch": "pre_amr",
+  "renderer": "KaTeX 0.18.7",
+  "offline": true,
+  "pages": [
+    {
+      "page": "fez_pre_amr_mobility.html",
+      "formulaCount": 63
+    },
+    {
+      "page": "fez_pre_amr_models.html",
+      "formulaCount": 60
+    }
+  ],
+  "failures": [],
+  "formulaCount": 123
+}

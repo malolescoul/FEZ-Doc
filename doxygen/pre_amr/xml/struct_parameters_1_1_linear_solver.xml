@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_linear_solver" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::LinearSolver</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_linear_solver_1ab14245996c8b2dcd7af8149531576c78" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Method</name>
+        <qualifiedname>Parameters::LinearSolver::Method</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_linear_solver_1ab14245996c8b2dcd7af8149531576c78a2f2a28d22b2da26501a2d61d3dc07a8f" prot="public">
+          <name>direct_mumps</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_linear_solver_1ab14245996c8b2dcd7af8149531576c78a6e9cf3eef65da697796cf33f27eb0f57" prot="public">
+          <name>cg</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_linear_solver_1ab14245996c8b2dcd7af8149531576c78ad43c33b8e3d5435d9cbe65c156887a02" prot="public">
+          <name>gmres</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="706" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="707" bodyend="711"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_linear_solver_1ab230b16aac90dd5da5f89c7fa3211b22" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::LinearSolver::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::LinearSolver::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="704" column="15" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="704" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_linear_solver_1a2983ed87189721911a9218422e325c87" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_linear_solver_1ab14245996c8b2dcd7af8149531576c78" kindref="member">Parameters::LinearSolver::Method</ref></type>
+        <definition>enum Parameters::LinearSolver::Method Parameters::LinearSolver::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <qualifiedname>Parameters::LinearSolver::method</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="711" column="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_linear_solver_1a063bce7bf055932641756da909796507" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::LinearSolver::tolerance</definition>
+        <argsstring></argsstring>
+        <name>tolerance</name>
+        <qualifiedname>Parameters::LinearSolver::tolerance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="714" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="714" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_linear_solver_1a8382a00681e1f1b2c3e576c4a795ca1c" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::LinearSolver::max_iterations</definition>
+        <argsstring></argsstring>
+        <name>max_iterations</name>
+        <qualifiedname>Parameters::LinearSolver::max_iterations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="715" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="715" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_linear_solver_1af94f70698cd70321d6de6a9aae180993" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::LinearSolver::ilu_fill_level</definition>
+        <argsstring></argsstring>
+        <name>ilu_fill_level</name>
+        <qualifiedname>Parameters::LinearSolver::ilu_fill_level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="718" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="718" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_linear_solver_1af6e40a204629fbba1fd0338f211d3d6e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::LinearSolver::reuse</definition>
+        <argsstring></argsstring>
+        <name>reuse</name>
+        <qualifiedname>Parameters::LinearSolver::reuse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When using MUMPS as solver, &quot;reuse&quot; the symbolic factorization of the system matrix across the solves. If the sparsity pattern does not change, then the symbolic factorization can be conserved, saving time.</para>
+<para>This is done through an extension of deal.II&apos;s PETSc interface to MUMPS, which, as a beneficial side effect, also checks the MUMPS error code, which is not done in deal.II. This allows throwing an error when the matrix is singular, instead of getting &quot;nan&quot; results.</para>
+<para>TODO: the associated MUMPS solver should be looked into, as it is unclear that the factorization is indeed reused and/or that it is more efficient. Unlike Pardiso, the symbolic factorization step is not cleanly separated from the actual factorization and solve steps. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="735" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="735" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_linear_solver_1af6c27b1cf35e9d195c84c1a1bab07ca9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::LinearSolver::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm, const std::string &amp;solver_type)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::LinearSolver::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>solver_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="737" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1322" bodyend="1349"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_linear_solver_1a73b651eb7e9fdd6b59b8acb4244b639b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::LinearSolver::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm, const std::string &amp;solver_type)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::LinearSolver::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>solver_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="739" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1351" bodyend="1374"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="702" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="703" bodyend="740"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_linear_solver_1af6c27b1cf35e9d195c84c1a1bab07ca9" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_linear_solver_1af94f70698cd70321d6de6a9aae180993" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>ilu_fill_level</name></member>
+      <member refid="struct_parameters_1_1_linear_solver_1a8382a00681e1f1b2c3e576c4a795ca1c" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>max_iterations</name></member>
+      <member refid="struct_parameters_1_1_linear_solver_1ab14245996c8b2dcd7af8149531576c78" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>Method</name></member>
+      <member refid="struct_parameters_1_1_linear_solver_1a2983ed87189721911a9218422e325c87" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>method</name></member>
+      <member refid="struct_parameters_1_1_linear_solver_1a73b651eb7e9fdd6b59b8acb4244b639b" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_linear_solver_1af6e40a204629fbba1fd0338f211d3d6e" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>reuse</name></member>
+      <member refid="struct_parameters_1_1_linear_solver_1a063bce7bf055932641756da909796507" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>tolerance</name></member>
+      <member refid="struct_parameters_1_1_linear_solver_1ab230b16aac90dd5da5f89c7fa3211b22" prot="public" virt="non-virtual"><scope>Parameters::LinearSolver</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

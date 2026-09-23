@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_debug" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Debug</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_debug_1aaa7ad08d8a4ea76890ef1194240f595a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::Debug::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::Debug::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1182" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_debug_1a40bdcb9f0394fe4d14b593135ac262ab" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Debug::write_dealii_mesh_as_msh</definition>
+        <argsstring></argsstring>
+        <name>write_dealii_mesh_as_msh</name>
+        <qualifiedname>Parameters::Debug::write_dealii_mesh_as_msh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1183" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_debug_1a460567f9cbca262f3b0d7411df665d53" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Debug::write_partition_pos_gmsh</definition>
+        <argsstring></argsstring>
+        <name>write_partition_pos_gmsh</name>
+        <qualifiedname>Parameters::Debug::write_partition_pos_gmsh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1184" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_debug_1aa09375c4c35915c77c20223888c548b3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Debug::apply_exact_solution</definition>
+        <argsstring></argsstring>
+        <name>apply_exact_solution</name>
+        <qualifiedname>Parameters::Debug::apply_exact_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1185" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_debug_1a34d23736e0ab92ecf07b38facd2a8c06" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Debug::fsi_apply_erroneous_coupling</definition>
+        <argsstring></argsstring>
+        <name>fsi_apply_erroneous_coupling</name>
+        <qualifiedname>Parameters::Debug::fsi_apply_erroneous_coupling</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1186" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_debug_1ad213ef24080520ef178374137699f49e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Debug::fsi_check_mms_on_boundary</definition>
+        <argsstring></argsstring>
+        <name>fsi_check_mms_on_boundary</name>
+        <qualifiedname>Parameters::Debug::fsi_check_mms_on_boundary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1187" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_debug_1a5a8d646d4290cb6ece0873798cb7410b" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Debug::fsi_coupling_option</definition>
+        <argsstring></argsstring>
+        <name>fsi_coupling_option</name>
+        <qualifiedname>Parameters::Debug::fsi_coupling_option</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1188" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1188" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_debug_1a1a5dacee838b6478a6344aabca41117d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Debug::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::Debug::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1190" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2430" bodyend="2456"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_debug_1a16eeed9021dcd049e493157e11b8175b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Debug::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::Debug::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1191" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2458" bodyend="2472"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Options for debugging </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="1180" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1181" bodyend="1192"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_debug_1aa09375c4c35915c77c20223888c548b3" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>apply_exact_solution</name></member>
+      <member refid="struct_parameters_1_1_debug_1a1a5dacee838b6478a6344aabca41117d" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_debug_1a34d23736e0ab92ecf07b38facd2a8c06" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>fsi_apply_erroneous_coupling</name></member>
+      <member refid="struct_parameters_1_1_debug_1ad213ef24080520ef178374137699f49e" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>fsi_check_mms_on_boundary</name></member>
+      <member refid="struct_parameters_1_1_debug_1a5a8d646d4290cb6ece0873798cb7410b" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>fsi_coupling_option</name></member>
+      <member refid="struct_parameters_1_1_debug_1a16eeed9021dcd049e493157e11b8175b" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_debug_1aaa7ad08d8a4ea76890ef1194240f595a" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>verbosity</name></member>
+      <member refid="struct_parameters_1_1_debug_1a40bdcb9f0394fe4d14b593135ac262ab" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>write_dealii_mesh_as_msh</name></member>
+      <member refid="struct_parameters_1_1_debug_1a460567f9cbca262f3b0d7411df665d53" prot="public" virt="non-virtual"><scope>Parameters::Debug</scope><name>write_partition_pos_gmsh</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

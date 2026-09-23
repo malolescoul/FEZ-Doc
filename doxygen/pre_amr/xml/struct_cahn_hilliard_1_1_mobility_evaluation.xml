@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_cahn_hilliard_1_1_mobility_evaluation" kind="struct" language="C++" prot="public">
+    <compoundname>CahnHilliard::MobilityEvaluation</compoundname>
+    <includes refid="cahn__hilliard_8h" local="no">cahn_hilliard.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_cahn_hilliard_1_1_mobility_evaluation_1a5777e3114af1dc6518f20d81b2fa87c2" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CahnHilliard::MobilityEvaluation&lt; dim &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>CahnHilliard::MobilityEvaluation::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="581" column="12" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="581" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cahn_hilliard_1_1_mobility_evaluation_1a06f5f7f5ac2c9bf27ffa7c2d2dcc4eb1" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CahnHilliard::MobilityEvaluation&lt; dim &gt;::derivative_wrt_tracer</definition>
+        <argsstring></argsstring>
+        <name>derivative_wrt_tracer</name>
+        <qualifiedname>CahnHilliard::MobilityEvaluation::derivative_wrt_tracer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="582" column="12" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="582" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cahn_hilliard_1_1_mobility_evaluation_1a238a2409ed11d948831b767044d5c542" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CahnHilliard::MobilityEvaluation&lt; dim &gt;::second_derivative_wrt_tracer</definition>
+        <argsstring></argsstring>
+        <name>second_derivative_wrt_tracer</name>
+        <qualifiedname>CahnHilliard::MobilityEvaluation::second_derivative_wrt_tracer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="583" column="12" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="583" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_cahn_hilliard_1_1_mobility_evaluation_1ad98af4873a560b4c1b6d32105b55a9b5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CahnHilliard::MobilityEvaluation&lt; dim &gt;::adaptive_sensitivity</definition>
+        <argsstring></argsstring>
+        <name>adaptive_sensitivity</name>
+        <qualifiedname>CahnHilliard::MobilityEvaluation::adaptive_sensitivity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="584" column="12" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="584" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Mobility data at one quadrature point. The adaptive sensitivity is dM_reg/d(u.grad(phi)) for gradient-dependent adaptive models and zero for all other mobility models. </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="579" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="580" bodyend="585"/>
+    <listofallmembers>
+      <member refid="struct_cahn_hilliard_1_1_mobility_evaluation_1ad98af4873a560b4c1b6d32105b55a9b5" prot="public" virt="non-virtual"><scope>CahnHilliard::MobilityEvaluation</scope><name>adaptive_sensitivity</name></member>
+      <member refid="struct_cahn_hilliard_1_1_mobility_evaluation_1a06f5f7f5ac2c9bf27ffa7c2d2dcc4eb1" prot="public" virt="non-virtual"><scope>CahnHilliard::MobilityEvaluation</scope><name>derivative_wrt_tracer</name></member>
+      <member refid="struct_cahn_hilliard_1_1_mobility_evaluation_1a238a2409ed11d948831b767044d5c542" prot="public" virt="non-virtual"><scope>CahnHilliard::MobilityEvaluation</scope><name>second_derivative_wrt_tracer</name></member>
+      <member refid="struct_cahn_hilliard_1_1_mobility_evaluation_1a5777e3114af1dc6518f20d81b2fa87c2" prot="public" virt="non-virtual"><scope>CahnHilliard::MobilityEvaluation</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -39,7 +39,8 @@
 <para>Le code propose deux voies de contrôle : assembler le Jacobien par différences finies, ou comparer le Jacobien analytique à cette approximation. Elles sont repérées, <bold>non exécutées</bold>. Un test pertinent après changement de forme doit tenir compte des choix de linéarisation, notamment τ gelé. <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L436-L460">Points d&apos;entrée</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/ccf20caa0745cc2fe640f879d34acf2bf3855e6c/src/incompressible_chns_solver.cpp#L503-L513">comparaison</ulink>.</para>
 </sect1>
 <sect1 id="fez_master_chns_assembly_1autotoc_md5">
-<title>À vérifier dans une session avec build</title><para>Commencer par une configuration CHNS fixe sans stabilisation, puis une configuration stabilisée ; contrôler Jacobien et convergence MMS avant d&apos;élargir à ALE et MPI. Les dossiers <computeroutput>tests/incompressible_chns</computeroutput> et <computeroutput>tests/incompressible_chns_ale</computeroutput> sont présents dans l&apos;arbre Git ; leurs sorties existantes ne sont pas un résultat de cette session. </para>
+<title>À vérifier dans une session avec build</title><para>Commencer par une configuration CHNS fixe sans stabilisation, puis une configuration stabilisée ; contrôler Jacobien et convergence MMS avant d&apos;élargir à ALE et MPI. Les dossiers <computeroutput>tests/incompressible_chns</computeroutput> et <computeroutput>tests/incompressible_chns_ale</computeroutput> sont présents dans l&apos;arbre Git ; leurs sorties existantes ne sont pas un résultat de cette session.</para>
+<para> </para>
 </sect1>
     </detaileddescription>
     <location file="guides/master/features/chns-assembly.md"/>

@@ -47,7 +47,7 @@ Les critères valent +1 pour raffiner, 0 pour conserver et −1 pour demander un
 
 ## Parcours 3 — transporter, puis reconstruire
 
-`adapt_mesh()` récupère l'éventuel état supplémentaire du contrôleur temporel. La couche d'adaptation prépare `present_solution + previous_solutions + additional_solution` avec des vecteurs fantômes avant `execute_coarsening_and_refinement()`. Après redistribution des DoFs, elle interpole vers des vecteurs ne contenant que les DoFs possédés, applique les contraintes, puis recopie vers les états du solveur. Voir la fiche [transfert d'état distribué](../patterns/distributed-state-transfer.md).
+`adapt_mesh()` récupère l'éventuel état supplémentaire du contrôleur temporel. La couche d'adaptation prépare `present_solution + previous_solutions + additional_solution` avec des vecteurs fantômes avant `execute_coarsening_and_refinement()`. Après redistribution des DoFs, elle interpole vers des vecteurs ne contenant que les DoFs possédés, applique les contraintes, puis recopie vers les états du solveur. Voir la fiche [transfert d'état distribué](../../prod/html/fez_prod_distributed_state_transfer.html).
 
 Le point sensible est l'ordre ALE :
 
@@ -96,3 +96,6 @@ Sources master : [indicateur et adaptation](https://github.com/arthurbawin/fez/b
 
 **Prochaine validation sur le PC de calcul :** exécuter les fixtures ciblées sur 1 et 4 rangs, relever les versions deal.II/PETSc/p4est et mesurer une situation où des cellules changent effectivement de propriétaire MPI. Aucun bug nouveau n'est affirmé à ce stade.
 
+
+
+<span id="fez-guide-end-fez_prod_chns_ale_amr"></span>

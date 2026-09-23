@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: FEZ — workflow de référence avant le couplage CHNS–ALE AMR</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">FEZ — workflow de référence avant le couplage CHNS–ALE AMR </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_guides_2pre__amr_2index"></a></p>
+<p>Révision figée : <a href="https://github.com/arthurbawin/fez/tree/cc8dace141900b82e5790fa878e39d9c54898784">cc8dace141900b82e5790fa878e39d9c54898784</a>, 16 septembre 2026. Elle précède le nouveau couplage AMR de la branche personnelle, mais contient déjà des infrastructures AMR importées de master.</p>
+<p>Cette référence partielle isole le socle de travail antérieur : presolver élastique, géométrie ALE, système enlarged avec ψ, formulations et mobilités, reprises et diagnostics. Les fichiers sont issus de cette révision précise ; aucune compilation FEZ n'a été effectuée.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+Parcours conseillé</h1>
+<ol type="1">
+<li><a class="el" href="fez_pre_amr_workflow.html#md_guides_2pre__amr_2features_2workflow-pre-amr" title="guides/pre_amr/features/workflow-pre-amr.md">Du lancement au redémarrage</a>.</li>
+<li><a class="el" href="fez_pre_amr_models.html#md_guides_2pre__amr_2features_2chns-models-pre-amr" title="guides/pre_amr/features/chns-models-pre-amr.md">Modèles CHNS et variantes enlarged</a>.</li>
+<li><a class="el" href="fez_pre_amr_presolver.html#md_guides_2pre__amr_2patterns_2presolver-cache-geometry" title="guides/pre_amr/patterns/presolver-cache-geometry.md">Presolver, cache et géométrie</a>.</li>
+<li><a class="el" href="fez_pre_amr_mobility.html#md_guides_2pre__amr_2patterns_2mobility-corrections-timestep" title="guides/pre_amr/patterns/mobility-corrections-timestep.md">Mobilité, corrections et contrôle du pas</a>.</li>
+</ol>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+Repères dans l'API</h1>
+<p><a class="el" href="class_c_h_n_s_solver.html">CHNSSolver</a> hérite de <a class="el" href="class_navier_stokes_solver.html">NavierStokesSolver</a> et sélectionne les assembleurs. <a class="el" href="class_elasticity_solver.html">ElasticitySolver</a> prépare un état géométrique avant le calcul. ScratchDataCHNS contient les champs nécessaires aux contributions locales. <a class="el" href="class_time_handler.html">TimeHandler</a> reçoit les informations utilisées par le contrôle de pas.</p>
+<p>Les commentaires sources sont conservés tels quels. La fiche workflow signale notamment un commentaire périmé sur l'injection de ψ ; la fiche physique distingue le résidu réellement assemblé de certains commentaires de signes. Ces divergences documentaires ne constituent pas des bugs numériques reproduits.</p>
+<p>Les tests présents dans le snapshot sont des cas à relancer sur le PC FEZ. Le registre des 61 commits et les 13 imports de master sont accessibles dans le Journal de l'atlas, séparément de cette référence d'API. </p>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

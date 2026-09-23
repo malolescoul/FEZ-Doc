@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_stabilization_tools" kind="namespace" language="C++">
+    <compoundname>StabilizationTools</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_stabilization_tools_1ac1a609b1de9f3f2641136277dcd56462" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double StabilizationTools::compute_h_tau_squared</definition>
+        <argsstring>(const unsigned int n_dofs_per_cell, const double cell_diameter, const Tensor&lt; 1, dim &gt; &amp;convective_velocity, const double velocity_norm_squared, const std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;grad_scalar_shape)</argsstring>
+        <name>compute_h_tau_squared</name>
+        <qualifiedname>StabilizationTools::compute_h_tau_squared</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_dofs_per_cell</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>cell_diameter</declname>
+        </param>
+        <param>
+          <type>const Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>convective_velocity</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>velocity_norm_squared</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;</type>
+          <declname>grad_scalar_shape</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the <emphasis>square</emphasis> of the cell length used to define the stabilization parameter tau_SUPG, since this length only intervenes through its square in the definition of tau_SUPG.</para>
+<para>In two dimensions, we use Tezduyar&apos;s definition which estimates the length of the cell in the direction of the <computeroutput>convective</computeroutput> velocity u:</para>
+<para>h := 2 * ||u|| / (sum_i |u \cdot grad phi_i|),</para>
+<para>where the phi_i are the isoparametric, scalar-valued shape functions of the field to stabilize.</para>
+<para>FIXME/ONGOING: This definition seems not well suited for 3D anisotropic elements. For instance, consider a velocity field u = (1, 0, 1) and the tetrahedra parameterized by the constant &quot;a&quot; and described by:</para>
+<para>t1 = (0 0 0), (1 0 0), (1 a 0), (1 a 1) t2 = (0 0 0), (1 0 0), (1 a 1), (1 0 1).</para>
+<para>This definition yields h_1 = 1, but h_2 = sqrt(2), and these values are unchanged even though both triangles become the same as a goes to zero.</para>
+<para>In three dimensions, the cell length is defined as its diameter, and is computed using deal.II&apos;s diameter() function (longest diagonal for quads/hexes and longest side for simplices).</para>
+<para>FIXME: This does not handle anisotropic elements well, as it simply returns the longest side. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/stabilization_tools.h" line="112" column="3" bodyfile="snapshots/pre_amr/include/stabilization_tools.h" bodystart="112" bodyend="134" declfile="snapshots/pre_amr/include/stabilization_tools.h" declline="51" declcolumn="3"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_stabilization_tools_1a2a7102abf8366dea4f6d138d7ba80026" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double StabilizationTools::compute_squared_cell_length_along_velocity_field</definition>
+        <argsstring>(const unsigned int n_dofs_per_cell, const double cell_diameter, const Tensor&lt; 1, dim &gt; &amp;convective_velocity, const double velocity_norm_squared, const std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;grad_scalar_shape)</argsstring>
+        <name>compute_squared_cell_length_along_velocity_field</name>
+        <qualifiedname>StabilizationTools::compute_squared_cell_length_along_velocity_field</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_dofs_per_cell</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>cell_diameter</declname>
+        </param>
+        <param>
+          <type>const Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>convective_velocity</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>velocity_norm_squared</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;</type>
+          <declname>grad_scalar_shape</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the <emphasis>square</emphasis> of the cell length used to define the stabilization parameter according to Tezduyar:</para>
+<para>h_squared := (2 * ||u|| / (sum_i |u \cdot grad phi_i|))^2. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/stabilization_tools.h" line="137" column="17" bodyfile="snapshots/pre_amr/include/stabilization_tools.h" bodystart="137" bodyend="152" declfile="snapshots/pre_amr/include/stabilization_tools.h" declline="64" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_stabilization_tools_1a67efa9b66159f4d85f19ed30ac64d4c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double StabilizationTools::compute_tau_supg</definition>
+        <argsstring>(const TimeHandler &amp;time_handler, const unsigned int n_dofs_per_cell, const double cell_diameter, const unsigned int degree, const double diffusivity, const Tensor&lt; 1, dim &gt; &amp;convective_velocity, const std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;grad_scalar_shape)</argsstring>
+        <name>compute_tau_supg</name>
+        <qualifiedname>StabilizationTools::compute_tau_supg</qualifiedname>
+        <param>
+          <type>const <ref refid="class_time_handler" kindref="compound">TimeHandler</ref> &amp;</type>
+          <declname>time_handler</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_dofs_per_cell</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>cell_diameter</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>degree</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>diffusivity</declname>
+        </param>
+        <param>
+          <type>const Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>convective_velocity</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; Tensor&lt; 1, dim &gt; &gt; &amp;</type>
+          <declname>grad_scalar_shape</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the stabilization parameter tau_SUPG according to Tezduyar&apos;s definition, including the modification for higher-order elements from Saavedra, L. P., Munch, P., &amp; Blais, B. (2025). A matrix-free stabilized solver for the incompressible Navier-Stokes equations. This writes: <verbatim>        /      2                 2                     2 \ -1/2
+       | / 1  \    / 2 ||u|| p  \        /  4 diff p^2 \ |
+</verbatim> tau_SUPG = | |-<mdash/>| + | --------<mdash/> | + 9 | --------<mdash/> | | , | \ dt / \ h_conv / \ h_diff^2 / | \ /</para>
+<para>where dt is the current time step, u is the <computeroutput>convective_velocity</computeroutput>, p is the polynomial <computeroutput>degree</computeroutput> of the field to stabilize, h_conv = h_diff are taken to be identical and given by the result of <ref refid="namespace_stabilization_tools_1ac1a609b1de9f3f2641136277dcd56462" kindref="member">compute_h_tau_squared()</ref>, and diff is the characteristic <computeroutput>diffusivity</computeroutput> coefficient of the convection- diffusion problem of interest.</para>
+<para>For steady-state computations, the first term is ignored.</para>
+<para>This definition differs from Garon &amp; Fortin&apos;s definition in the coefficient in the unsteady term. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/stabilization_tools.h" line="156" column="3" bodyfile="snapshots/pre_amr/include/stabilization_tools.h" bodystart="156" bodyend="190" declfile="snapshots/pre_amr/include/stabilization_tools.h" declline="97" declcolumn="3"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This namespace gathers routines related to the stabilization of convection- diffusion equations, notably for the computation of the SUPG/PSPG terms to stabilize the Navier-Stokes equations. </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/stabilization_tools.h" line="14" column="1"/>
+  </compounddef>
+</doxygen>

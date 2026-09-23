@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_elasticity" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Elasticity</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_elasticity_1a38f8809f2859547b4bdce6a472891915" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>PresolvedMeshPositionMode</name>
+        <qualifiedname>Parameters::Elasticity::PresolvedMeshPositionMode</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_elasticity_1a38f8809f2859547b4bdce6a472891915a3262d48df5d75e3452f0f16b313b7808" prot="public">
+          <name>off</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_elasticity_1a38f8809f2859547b4bdce6a472891915a62c7d2cb28cdcf65811a70f7a053d8cb" prot="public">
+          <name>reuse</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_elasticity_1a38f8809f2859547b4bdce6a472891915aacb4f8ab9f91c807e625a5a06225dfbc" prot="public">
+          <name>force_recompute</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="998" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="999" bodyend="1003"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1a30b05b6c532705195e445bd2035b0539" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Elasticity::write_final_msh</definition>
+        <argsstring></argsstring>
+        <name>write_final_msh</name>
+        <qualifiedname>Parameters::Elasticity::write_final_msh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="971" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="971" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1aee807eb467192c42f56c6d2da5a74f08" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Elasticity::enable_source_term_on_current_mesh</definition>
+        <argsstring></argsstring>
+        <name>enable_source_term_on_current_mesh</name>
+        <qualifiedname>Parameters::Elasticity::enable_source_term_on_current_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="976" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="976" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1a195eb0a0b26d5842275715930e5cff94" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::Elasticity::min_current_mesh_source_term_multiplier</definition>
+        <argsstring></argsstring>
+        <name>min_current_mesh_source_term_multiplier</name>
+        <qualifiedname>Parameters::Elasticity::min_current_mesh_source_term_multiplier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="980" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="980" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1af474e149713c147b694ca75ac72dbc86" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::Elasticity::max_current_mesh_source_term_multiplier</definition>
+        <argsstring></argsstring>
+        <name>max_current_mesh_source_term_multiplier</name>
+        <qualifiedname>Parameters::Elasticity::max_current_mesh_source_term_multiplier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="981" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="981" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1ab9b5ee73ee88a699b3fa81af508cf62f" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Elasticity::n_continuation_steps</definition>
+        <argsstring></argsstring>
+        <name>n_continuation_steps</name>
+        <qualifiedname>Parameters::Elasticity::n_continuation_steps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="985" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="985" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1a060a863bd65e1878bfd5867660237c21" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::Elasticity::presolver_initial_compression_multiplier</definition>
+        <argsstring></argsstring>
+        <name>presolver_initial_compression_multiplier</name>
+        <qualifiedname>Parameters::Elasticity::presolver_initial_compression_multiplier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="990" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="990" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1a524dbc8ffa87a8a99506354d65fa55e2" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Elasticity::presolver_continuation_steps</definition>
+        <argsstring></argsstring>
+        <name>presolver_continuation_steps</name>
+        <qualifiedname>Parameters::Elasticity::presolver_continuation_steps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="991" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="991" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1a175790d3bc6fa04aeff83ad6a1b03a89" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_elasticity_1a38f8809f2859547b4bdce6a472891915" kindref="member">Parameters::Elasticity::PresolvedMeshPositionMode</ref></type>
+        <definition>enum Parameters::Elasticity::PresolvedMeshPositionMode Parameters::Elasticity::presolved_mesh_position_mode</definition>
+        <argsstring></argsstring>
+        <name>presolved_mesh_position_mode</name>
+        <qualifiedname>Parameters::Elasticity::presolved_mesh_position_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1003" column="34"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_elasticity_1a8f7f36b53d7ff421e68ce657720cd206" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Elasticity::presolved_mesh_position_file</definition>
+        <argsstring></argsstring>
+        <name>presolved_mesh_position_file</name>
+        <qualifiedname>Parameters::Elasticity::presolved_mesh_position_file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1004" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1004" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_elasticity_1ae2ff8caf92918b2b814873fb567f2697" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Elasticity::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::Elasticity::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1006" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1940" bodyend="2010"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_elasticity_1a5cdff752bb7a3e638ddd6b4b2aede4fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Elasticity::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::Elasticity::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1007" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2012" bodyend="2057"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="967" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="968" bodyend="1008"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_elasticity_1ae2ff8caf92918b2b814873fb567f2697" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1aee807eb467192c42f56c6d2da5a74f08" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>enable_source_term_on_current_mesh</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1af474e149713c147b694ca75ac72dbc86" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>max_current_mesh_source_term_multiplier</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1a195eb0a0b26d5842275715930e5cff94" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>min_current_mesh_source_term_multiplier</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1ab9b5ee73ee88a699b3fa81af508cf62f" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>n_continuation_steps</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1a8f7f36b53d7ff421e68ce657720cd206" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>presolved_mesh_position_file</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1a175790d3bc6fa04aeff83ad6a1b03a89" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>presolved_mesh_position_mode</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1a38f8809f2859547b4bdce6a472891915" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>PresolvedMeshPositionMode</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1a524dbc8ffa87a8a99506354d65fa55e2" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>presolver_continuation_steps</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1a060a863bd65e1878bfd5867660237c21" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>presolver_initial_compression_multiplier</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1a5cdff752bb7a3e638ddd6b4b2aede4fa" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_elasticity_1a30b05b6c532705195e445bd2035b0539" prot="public" virt="non-virtual"><scope>Parameters::Elasticity</scope><name>write_final_msh</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_c3399bd66e5cabf482dbd94d16f696da" kind="dir">
+    <compoundname>snapshots/pre_amr</compoundname>
+    <innerdir refid="dir_c2c57fcb88379b3cf62d1ec2417626a9">snapshots/pre_amr/include</innerdir>
+    <innerdir refid="dir_a263abd300179814e671db065d4be85d">snapshots/pre_amr/solvers</innerdir>
+    <innerdir refid="dir_9d3cbf75073a5538ab09b466e47f894c">snapshots/pre_amr/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/"/>
+  </compounddef>
+</doxygen>

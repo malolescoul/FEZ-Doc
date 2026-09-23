@@ -1,0 +1,670 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="elasticity__solver_8h" kind="file" language="C++">
+    <compoundname>elasticity_solver.h</compoundname>
+    <includes local="no">assembly/assembler.h</includes>
+    <includes refid="components__ordering_8h" local="no">components_ordering.h</includes>
+    <includes refid="copy__data_8h" local="no">copy_data.h</includes>
+    <includes local="no">deal.II/base/convergence_table.h</includes>
+    <includes local="no">deal.II/base/index_set.h</includes>
+    <includes local="no">deal.II/base/table_handler.h</includes>
+    <includes local="no">deal.II/base/utilities.h</includes>
+    <includes local="no">deal.II/distributed/fully_distributed_tria.h</includes>
+    <includes local="no">deal.II/dofs/dof_handler.h</includes>
+    <includes local="no">deal.II/fe/fe_simplex_p.h</includes>
+    <includes local="no">deal.II/fe/fe_system.h</includes>
+    <includes local="no">deal.II/fe/mapping_fe.h</includes>
+    <includes local="no">deal.II/fe/mapping_fe_field.h</includes>
+    <includes local="no">deal.II/lac/affine_constraints.h</includes>
+    <includes refid="generic__solver_8h" local="no">generic_solver.h</includes>
+    <includes local="no">mumps_solver.h</includes>
+    <includes local="no">parameter_reader.h</includes>
+    <includes refid="scratch__data__elasticity_8h" local="no">scratch_data_elasticity.h</includes>
+    <includes refid="time__handler_8h" local="no">time_handler.h</includes>
+    <includes refid="types_8h" local="no">types.h</includes>
+    <includedby refid="presolver__tools_8h" local="no">snapshots/pre_amr/include/presolver_tools.h</includedby>
+    <includedby refid="elasticity__solver_8cpp" local="no">snapshots/pre_amr/src/elasticity_solver.cpp</includedby>
+    <includedby refid="navier__stokes__solver_8cpp" local="no">snapshots/pre_amr/src/navier_stokes_solver.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>components_ordering.h</label>
+        <link refid="components__ordering_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>copy_data.h</label>
+        <link refid="copy__data_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>snapshots/pre_amr/include/elasticity_solver.h</label>
+        <link refid="elasticity__solver_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>generic_solver.h</label>
+        <link refid="generic__solver_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>newton_solver.h</label>
+        <link refid="newton__solver_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>parameters.h</label>
+        <link refid="parameters_8h"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>scratch_data_elasticity.h</label>
+        <link refid="scratch__data__elasticity_8h"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>time_handler.h</label>
+        <link refid="time__handler_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>assembly/assembler.h</label>
+      </node>
+      <node id="41">
+        <label>cmath</label>
+      </node>
+      <node id="24">
+        <label>deal.II/base/conditional_ostream.h</label>
+      </node>
+      <node id="12">
+        <label>deal.II/base/convergence_table.h</label>
+      </node>
+      <node id="33">
+        <label>deal.II/base/exceptions.h</label>
+      </node>
+      <node id="13">
+        <label>deal.II/base/index_set.h</label>
+      </node>
+      <node id="25">
+        <label>deal.II/base/observer_pointer.h</label>
+      </node>
+      <node id="34">
+        <label>deal.II/base/parameter_handler.h</label>
+      </node>
+      <node id="35">
+        <label>deal.II/base/parsed_function.h</label>
+      </node>
+      <node id="48">
+        <label>deal.II/base/quadrature.h</label>
+      </node>
+      <node id="14">
+        <label>deal.II/base/table_handler.h</label>
+      </node>
+      <node id="26">
+        <label>deal.II/base/timer.h</label>
+      </node>
+      <node id="4">
+        <label>deal.II/base/types.h</label>
+      </node>
+      <node id="15">
+        <label>deal.II/base/utilities.h</label>
+      </node>
+      <node id="16">
+        <label>deal.II/distributed/fully_distributed_tria.h</label>
+      </node>
+      <node id="17">
+        <label>deal.II/dofs/dof_handler.h</label>
+      </node>
+      <node id="18">
+        <label>deal.II/fe/fe_simplex_p.h</label>
+      </node>
+      <node id="19">
+        <label>deal.II/fe/fe_system.h</label>
+      </node>
+      <node id="49">
+        <label>deal.II/fe/fe_update_flags.h</label>
+      </node>
+      <node id="50">
+        <label>deal.II/fe/fe_values.h</label>
+      </node>
+      <node id="5">
+        <label>deal.II/fe/fe_values_extractors.h</label>
+      </node>
+      <node id="51">
+        <label>deal.II/fe/mapping.h</label>
+      </node>
+      <node id="20">
+        <label>deal.II/fe/mapping_fe.h</label>
+      </node>
+      <node id="21">
+        <label>deal.II/fe/mapping_fe_field.h</label>
+      </node>
+      <node id="8">
+        <label>deal.II/hp/fe_collection.h</label>
+      </node>
+      <node id="22">
+        <label>deal.II/lac/affine_constraints.h</label>
+      </node>
+      <node id="9">
+        <label>deal.II/lac/full_matrix.h</label>
+      </node>
+      <node id="38">
+        <label>deal.II/lac/generic_linear_algebra.h</label>
+      </node>
+      <node id="39">
+        <label>deal.II/lac/petsc_sparse_matrix.h</label>
+      </node>
+      <node id="40">
+        <label>deal.II/lac/trilinos_sparse_matrix.h</label>
+      </node>
+      <node id="10">
+        <label>deal.II/lac/vector.h</label>
+      </node>
+      <node id="11">
+        <label>deal.II/meshworker/copy_data.h</label>
+      </node>
+      <node id="27">
+        <label>deal.II/numerics/vector_tools_common.h</label>
+      </node>
+      <node id="28">
+        <label>error_handler.h</label>
+      </node>
+      <node id="42">
+        <label>limits</label>
+      </node>
+      <node id="44">
+        <label>map</label>
+      </node>
+      <node id="45">
+        <label>memory</label>
+      </node>
+      <node id="46">
+        <label>mumps_solver.h</label>
+      </node>
+      <node id="30">
+        <label>nonlinear_solver.h</label>
+      </node>
+      <node id="43">
+        <label>parameter_reader.h</label>
+      </node>
+      <node id="36">
+        <label>parsed_function_symengine.h</label>
+      </node>
+      <node id="6">
+        <label>solver_info.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>snapshots/pre_amr/include/elasticity_solver.h</label>
+        <link refid="elasticity__solver_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>snapshots/pre_amr/include/presolver_tools.h</label>
+        <link refid="presolver__tools_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>snapshots/pre_amr/solvers/incompressible_chns_ale.cpp</label>
+        <link refid="incompressible__chns__ale_8cpp"/>
+      </node>
+      <node id="4">
+        <label>snapshots/pre_amr/solvers/incompressible_chns_ale_enlarged.cpp</label>
+        <link refid="incompressible__chns__ale__enlarged_8cpp"/>
+      </node>
+      <node id="5">
+        <label>snapshots/pre_amr/src/elasticity_solver.cpp</label>
+        <link refid="elasticity__solver_8cpp"/>
+      </node>
+      <node id="6">
+        <label>snapshots/pre_amr/src/navier_stokes_solver.cpp</label>
+        <link refid="navier__stokes__solver_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_elasticity_solver" prot="public">ElasticitySolver</innerclass>
+    <innerclass refid="class_elasticity_solver_1_1_m_m_s_source_term" prot="protected">ElasticitySolver::MMSSourceTerm</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>LINEAR_ELASTICITY_SOLVER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LINEAR_ELASTICITY_SOLVER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assembly/assembler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="components__ordering_8h" kindref="compound">components_ordering.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="copy__data_8h" kindref="compound">copy_data.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/base/convergence_table.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/base/index_set.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/base/table_handler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/base/utilities.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/distributed/fully_distributed_tria.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/dofs/dof_handler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/fe/fe_simplex_p.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/fe/fe_system.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/fe/mapping_fe.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/fe/mapping_fe_field.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/lac/affine_constraints.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="generic__solver_8h" kindref="compound">generic_solver.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mumps_solver.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;parameter_reader.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="scratch__data__elasticity_8h" kindref="compound">scratch_data_elasticity.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="time__handler_8h" kindref="compound">time_handler.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="types_8h" kindref="compound">types.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">dealii;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>Solve<sp/>the<sp/>linear<sp/>elasticity<sp/>equation<sp/>written<sp/>for<sp/>the<sp/>mesh<sp/>position<sp/>:</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>-<sp/>\nabla<sp/>\cdot<sp/>\sigma(x)<sp/>+<sp/>f<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>with<sp/>\sigma(x)<sp/>=<sp/>2\mu\epsilon(x)<sp/>+<sp/>\lambda\tr{\epsilon(x)}<sp/>I.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>The<sp/>infinitesimal<sp/>strain<sp/>tensor<sp/>\epsilon(x)<sp/>is<sp/>written<sp/>in<sp/>terms<sp/>of<sp/>the<sp/>mesh</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>position,<sp/>and<sp/>not<sp/>in<sp/>terms<sp/>of<sp/>displacement<sp/>u,<sp/>and<sp/>thus<sp/>writes:</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>\epsilon(x)<sp/>=<sp/>(\nabla(u)<sp/>+<sp/>\nabla(u)^T)/2</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(\nabla(x)<sp/>+<sp/>\nabla(x)^T)/2<sp/>-<sp/>I</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>The<sp/>source<sp/>term<sp/>f<sp/>can<sp/>either<sp/>be<sp/>evaluated<sp/>on<sp/>the<sp/>reference<sp/>configuration<sp/>X,</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>or<sp/>on<sp/>the<sp/>current<sp/>configuration<sp/>x(X),<sp/>yielding<sp/>a<sp/>nonlinear<sp/>problem.</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>For<sp/>the<sp/>latter,<sp/>the<sp/>nonlinear<sp/>solver<sp/>may<sp/>fail<sp/>to<sp/>find<sp/>a<sp/>solution<sp/>if<sp/>the</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>source<sp/>term<sp/>on<sp/>the<sp/>current<sp/>mesh<sp/>is<sp/>too<sp/>steep.<sp/>To<sp/>counteract<sp/>this,<sp/>a</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>continuation<sp/>method<sp/>is<sp/>used,<sp/>to<sp/>progressively<sp/>account<sp/>for<sp/>the<sp/>source<sp/>term,</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>and<sp/>we<sp/>actually<sp/>solve<sp/>:</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>-<sp/>\nabla<sp/>\cdot<sp/>\sigma(x)<sp/>+<sp/>alpha<sp/>*<sp/>f(x(X))<sp/>=<sp/>0.</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>This<sp/>feature<sp/>is<sp/>controlled<sp/>by<sp/>the<sp/>&quot;Elasticity&quot;<sp/>subsection<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>parameter<sp/>file.<sp/>The<sp/>continuation<sp/>parameter<sp/>alpha<sp/>lies<sp/>in<sp/>the<sp/>provided</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>[min_coeff,<sp/>max_coeff]<sp/>bracket,<sp/>so<sp/>that<sp/>the<sp/>last<sp/>solved<sp/>position<sp/>field</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>satisfies<sp/>:</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>-<sp/>\nabla<sp/>\cdot<sp/>\sigma(x)<sp/>+<sp/>max_coeff<sp/>*<sp/>f(x(X))<sp/>=<sp/>0.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="57" refid="class_elasticity_solver" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_elasticity_solver_1a2cb6c40558ee2454407b32e44d984693" kindref="member">ElasticitySolver</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_generic_solver_1a3ccc78d2ec40e5074088217f9178ea22" kindref="member">GenericSolver</ref>&lt;LA::ParVectorType&gt;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59" refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref><sp/>=<sp/><ref refid="class_scratch_data_elasticity" kindref="compound">ScratchDataElasticity&lt;dim&gt;</ref>;</highlight></codeline>
+<codeline lineno="60" refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref><sp/><sp/><sp/><sp/>=<sp/><ref refid="class_copy_data_base" kindref="compound">CopyDataBase&lt;1&gt;</ref>;</highlight></codeline>
+<codeline lineno="61" refid="class_elasticity_solver_1a2f69c195e6bd6231e538b9f23f360c29" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="class_elasticity_solver_1a2f69c195e6bd6231e538b9f23f360c29" kindref="member">Assembler</ref><sp/><sp/><sp/>=<sp/>Assembly::AssemblerBase&lt;ScratchData,<sp/>CopyData&gt;;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Constructor.<sp/>With<sp/>@p<sp/>with_enlarged_psi<sp/>the<sp/>presolver<sp/>also<sp/>carries<sp/>the</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/>*<sp/>enlarged<sp/>Cahn-Hilliard<sp/>marker<sp/>psi<sp/>as<sp/>an<sp/>extra<sp/>finite-element<sp/>field<sp/>(hybrid</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/>*<sp/>mode:<sp/>analytic<sp/>phi<sp/>source,<sp/>psi<sp/>FE<sp/>unknown),<sp/>so<sp/>the<sp/>presolved<sp/>mesh<sp/>matches</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/><sp/>*<sp/>the<sp/>equilibrium<sp/>of<sp/>the<sp/>enlarged<sp/>CHNS-ALE<sp/>solver.<sp/>The<sp/>physical<sp/>tracer<sp/>phi</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/>*<sp/>stays<sp/>analytic.<sp/>psi<sp/>is<sp/>reconstructed<sp/>but<sp/>NOT<sp/>injected<sp/>into<sp/>the<sp/>CHNS<sp/>solver</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/>*<sp/>(only<sp/>the<sp/>mesh<sp/>position<sp/>is<sp/>handed<sp/>off).</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="class_elasticity_solver_1a2cb6c40558ee2454407b32e44d984693" kindref="member">ElasticitySolver</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/>&amp;<ref refid="class_elasticity_solver_1ae73f694336b37068a896439c79c2f38e" kindref="member">param</ref>,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1ac91873de9c9fc59da6c08d549b8fe2e0" kindref="member">with_enlarged_psi</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="class_elasticity_solver_1aede390cb69ac7cc8d1be3c5a8689e4c0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1aede390cb69ac7cc8d1be3c5a8689e4c0" kindref="member">~ElasticitySolver</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Solve<sp/>the<sp/>elasticity<sp/>problem</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a6cc0f96caadba38b0f0b8e41cc19b4b7" kindref="member">run</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a231fea58e0578e5d5c9108eba592f4e3" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="class_elasticity_solver_1abb36609a30ab9e2afdb5d53ae89a7b21" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1abb36609a30ab9e2afdb5d53ae89a7b21" kindref="member">set_time</ref>();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a70dbcd1af15ed158ec496aecf9654662" kindref="member">setup_dofs</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ad561fb21ea86e0ad9c241d3cfca6d141" kindref="member">create_base_constraints</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>homogeneous,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AffineConstraints&lt;double&gt;<sp/>&amp;constraints);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a3b9ea70e85a810f4c3a94ff0a97bebac" kindref="member">create_zero_constraints</ref>();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a0a1a5b722fecb31fc62013b156a2031c" kindref="member">create_nonzero_constraints</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="class_elasticity_solver_1a2ed165a75656de8aee4d481a6a315dc5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>AffineConstraints&lt;double&gt;<sp/>&amp;<ref refid="class_elasticity_solver_1a2ed165a75656de8aee4d481a6a315dc5" kindref="member">get_nonzero_constraints</ref>()</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="96"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a084edf58836f20c334d3809e574d9139" kindref="member">nonzero_constraints</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1aeea585ff35b347469f876f7197a72b15" kindref="member">update_boundary_conditions</ref>();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Create<sp/>the<sp/>volume<sp/>and<sp/>boundary<sp/>assemblers<sp/>for<sp/>this<sp/>solver.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ac9fcaea678cc00a76dcc6860928f85e0" kindref="member">setup_assemblers</ref>();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ab278fcc7afc5bf5c21323eb1fd77513a" kindref="member">create_sparsity_pattern</ref>();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a19204da8473b6b0f2e866fbb19b03703" kindref="member">set_initial_conditions</ref>();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a2c2e4a47a42a1a25a2afa26dded8014e" kindref="member">set_exact_solution</ref>();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a956be6cddfce1e397cfd84f1a4e42d11" kindref="member">solve_linear_system</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ae79c5e1925644615584c69c0ecc44640" kindref="member">assemble_matrix</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a1d86ac561109ae3a5f8c82f21caadf98" kindref="member">assemble_local_matrix</ref>(</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;::active_cell_iterator<sp/>&amp;cell,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;scratchData,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ab48df5222a268507224b0e8fc6546d01" kindref="member">assemble_local_matrix_finite_differences</ref>(</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;::active_cell_iterator<sp/>&amp;cell,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;scratchData,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a2afb2ad7643379f6b7bc6679e3471b43" kindref="member">copy_local_to_global_matrix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a16ad89cb0fc55553b0bd64e50ac7ba82" kindref="member">compare_analytical_matrix_with_fd</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ad07a6b420bf602c7811663225ecf7003" kindref="member">assemble_rhs</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><ref refid="class_elasticity_solver_1afba6f391b59a80283de71b24bd43732e" kindref="member">assemble_local_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;::active_cell_iterator<sp/>&amp;cell,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a1cb4827c9faf3c904a3e86da4773f6e5" kindref="member">ScratchData</ref><sp/>&amp;scratchData,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref><sp/><sp/><sp/><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a371baf864c330c5dd6e89d7ca8cff8b4" kindref="member">copy_local_to_global_rhs</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a446e8b1f37aaa2ee5908ea63a0e2f85f" kindref="member">CopyData</ref><sp/>&amp;copy_data);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a560678263ad53f901cb648f15a50db6b" kindref="member">move_mesh</ref>();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Write<sp/>the<sp/>final<sp/>deformed<sp/>mesh<sp/>in<sp/>Gmsh<sp/>format<sp/>while<sp/>preserving<sp/>the<sp/>entities</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/><sp/><sp/>*<sp/>and<sp/>physical<sp/>groups<sp/>from<sp/>the<sp/>input<sp/>mesh.</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1af97b88740776a1e1e8b0c8eee29e12b2" kindref="member">write_final_msh</ref>();</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Try<sp/>to<sp/>load<sp/>the<sp/>presolved<sp/>mesh<sp/>position<sp/>from<sp/>the<sp/>disk<sp/>cache.<sp/>The<sp/>cache<sp/>is</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/><sp/><sp/>*<sp/>keyed<sp/>by<sp/>support-point<sp/>location<sp/>(so<sp/>it<sp/>is<sp/>reusable<sp/>with<sp/>a<sp/>different<sp/>number</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/><sp/><sp/>*<sp/>of<sp/>MPI<sp/>processes)<sp/>and<sp/>guarded<sp/>by<sp/>a<sp/>fingerprint<sp/>of<sp/>the<sp/>presolver-defining</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/>*<sp/>parameters.<sp/>Returns<sp/>true<sp/>on<sp/>success;<sp/>on<sp/>failure<sp/>it<sp/>falls<sp/>back<sp/>to<sp/>solving</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/><sp/><sp/>*<sp/>(unless<sp/>the<sp/>cache<sp/>mode<sp/>is<sp/>read_only,<sp/>which<sp/>then<sp/>throws).<sp/>Reads<sp/>the<sp/>mesh<sp/>and</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/><sp/><sp/>*<sp/>sets<sp/>up<sp/>the<sp/>DoFs<sp/>as<sp/>a<sp/>side<sp/>effect.</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1afed746a871fc3dbd7dae95b773f241d0" kindref="member">try_load_presolved_mesh_cache</ref>();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Write<sp/>the<sp/>presolved<sp/>mesh<sp/>position<sp/>to<sp/>the<sp/>disk<sp/>cache.</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1acbc352cc6ab5b353edfb627c6276819e" kindref="member">write_presolved_mesh_cache</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Canonical<sp/>fingerprint<sp/>of<sp/>all<sp/>parameters<sp/>that<sp/>affect<sp/>the<sp/>presolved<sp/>mesh</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/><sp/>*<sp/>position,<sp/>used<sp/>to<sp/>invalidate<sp/>a<sp/>stale<sp/>cache.<sp/>Requires<sp/>the<sp/>DoFs<sp/>to<sp/>be<sp/>set<sp/>up.</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="class_elasticity_solver_1ad48b721f131fc783a860b53ee4615e2d" kindref="member">presolved_mesh_fingerprint</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ab8b04ecaf400d415782c08e78d84132a" kindref="member">postprocess_solution</ref>();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a432d90d15bdba54b75f5fb4eb5b7333a" kindref="member">compute_errors</ref>();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a1fcc661956a9c26211a2fe94bd191497" kindref="member">output_results</ref>();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/>&amp;<ref refid="class_elasticity_solver_1aedbc211bad177f090120eff68ad909aa" kindref="member">get_parameters</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;<sp/>&amp;<ref refid="class_elasticity_solver_1acf4b6a3edeb9348673ab7f7ef9a3c5c6" kindref="member">get_dof_handler</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="class_elasticity_solver_1a9edef44cc094f7d0cbdd382b62035e9d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>&amp;<ref refid="class_elasticity_solver_1a9edef44cc094f7d0cbdd382b62035e9d" kindref="member">get_present_solution</ref>()</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="188"><highlight class="keyword"><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1a116f2927544d74272852960c3eff81be" kindref="member">present_solution</ref>;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="193" refid="class_elasticity_solver_1a3018e1a90a32546df04473947c2d140a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref><sp/><ref refid="class_elasticity_solver_1a3018e1a90a32546df04473947c2d140a" kindref="member">ordering</ref>;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="class_elasticity_solver_1ae73f694336b37068a896439c79c2f38e" refkind="member"><highlight class="normal"><sp/><sp/>ParameterReader&lt;dim&gt;<sp/><ref refid="class_elasticity_solver_1ae73f694336b37068a896439c79c2f38e" kindref="member">param</ref>;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="class_elasticity_solver_1acc52291d7ce98cba6e7473dee8550f39" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;FESystem&lt;dim&gt;&gt;<sp/><ref refid="class_elasticity_solver_1acc52291d7ce98cba6e7473dee8550f39" kindref="member">fe</ref>;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199" refid="class_elasticity_solver_1a25c73f925c03d403cff6cc81a82e42c8" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;Quadrature&lt;dim&gt;&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a25c73f925c03d403cff6cc81a82e42c8" kindref="member">quadrature</ref>;</highlight></codeline>
+<codeline lineno="200" refid="class_elasticity_solver_1ae3ebbd3acc79c60b0ee4b1f7e28b32fb" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;Quadrature&lt;dim&gt;&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1ae3ebbd3acc79c60b0ee4b1f7e28b32fb" kindref="member">error_quadrature</ref>;</highlight></codeline>
+<codeline lineno="201" refid="class_elasticity_solver_1ac5132e8cb7bde48515cb2f99df08a739" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;Quadrature&lt;dim<sp/>-<sp/>1&gt;&gt;<sp/><ref refid="class_elasticity_solver_1ac5132e8cb7bde48515cb2f99df08a739" kindref="member">face_quadrature</ref>;</highlight></codeline>
+<codeline lineno="202" refid="class_elasticity_solver_1a5ee6adbb2257bac32742b4bdb96f156b" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;Quadrature&lt;dim<sp/>-<sp/>1&gt;&gt;<sp/><ref refid="class_elasticity_solver_1a5ee6adbb2257bac32742b4bdb96f156b" kindref="member">error_face_quadrature</ref>;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="class_elasticity_solver_1a9fb07414da3efeb2f66b7f00ca6e0c41" refkind="member"><highlight class="normal"><sp/><sp/>parallel::fullydistributed::Triangulation&lt;dim&gt;<sp/><ref refid="class_elasticity_solver_1a9fb07414da3efeb2f66b7f00ca6e0c41" kindref="member">triangulation</ref>;</highlight></codeline>
+<codeline lineno="205" refid="class_elasticity_solver_1ade5225c53fbea0eb62e6900908577224" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;Mapping&lt;dim&gt;&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1ade5225c53fbea0eb62e6900908577224" kindref="member">mapping</ref>;</highlight></codeline>
+<codeline lineno="206" refid="class_elasticity_solver_1ae700ebccff5640cb67605abb9e824680" refkind="member"><highlight class="normal"><sp/><sp/>DoFHandler&lt;dim&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1ae700ebccff5640cb67605abb9e824680" kindref="member">dof_handler</ref>;</highlight></codeline>
+<codeline lineno="207" refid="class_elasticity_solver_1a570ffefedddf70672a4cc8bd9ca60038" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_time_handler" kindref="compound">TimeHandler</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a570ffefedddf70672a4cc8bd9ca60038" kindref="member">time_handler</ref>;<sp/></highlight><highlight class="comment">//<sp/>dummy</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="class_elasticity_solver_1a80c69dea235ddbaf7345728fe0304bb4" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;ScratchData&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a80c69dea235ddbaf7345728fe0304bb4" kindref="member">scratch_data</ref>;</highlight></codeline>
+<codeline lineno="210" refid="class_elasticity_solver_1ac03be4dfa4fc7913f246932d87676974" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;std::unique_ptr&lt;Assembler&gt;&gt;<sp/><ref refid="class_elasticity_solver_1ac03be4dfa4fc7913f246932d87676974" kindref="member">assemblers</ref>;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enlarged-presolver<sp/>mode:<sp/>psi<sp/>is<sp/>carried<sp/>as<sp/>an<sp/>extra<sp/>FE<sp/>field<sp/>(component<sp/>dim)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>reconstruct<sp/>the<sp/>widened<sp/>mesh-forcing<sp/>marker.<sp/>False<sp/>for<sp/>a<sp/>plain<sp/>presolve.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214" refid="class_elasticity_solver_1ac91873de9c9fc59da6c08d549b8fe2e0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ac91873de9c9fc59da6c08d549b8fe2e0" kindref="member">with_enlarged_psi</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216" refid="class_elasticity_solver_1ab96239577fcadcec954d09b5cb6330ee" refkind="member"><highlight class="normal"><sp/><sp/>FEValuesExtractors::Vector<sp/><ref refid="class_elasticity_solver_1ab96239577fcadcec954d09b5cb6330ee" kindref="member">position_extractor</ref>;</highlight></codeline>
+<codeline lineno="217" refid="class_elasticity_solver_1a1427b3519554fbdbae581d6b6db5ff57" refkind="member"><highlight class="normal"><sp/><sp/>ComponentMask<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a1427b3519554fbdbae581d6b6db5ff57" kindref="member">position_mask</ref>;</highlight></codeline>
+<codeline lineno="218" refid="class_elasticity_solver_1a870ce327ba9c0e779c43ec9d846a20ba" refkind="member"><highlight class="normal"><sp/><sp/>FEValuesExtractors::Scalar<sp/><ref refid="class_elasticity_solver_1a870ce327ba9c0e779c43ec9d846a20ba" kindref="member">psi_extractor</ref>;</highlight></codeline>
+<codeline lineno="219" refid="class_elasticity_solver_1a1d1708654aa52974ed63c854591c173c" refkind="member"><highlight class="normal"><sp/><sp/>ComponentMask<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a1d1708654aa52974ed63c854591c173c" kindref="member">psi_mask</ref>;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="class_elasticity_solver_1a1aa8ab3774fc3c666659398060dbdb4c" refkind="member"><highlight class="normal"><sp/><sp/>IndexSet<sp/><ref refid="class_elasticity_solver_1a1aa8ab3774fc3c666659398060dbdb4c" kindref="member">locally_owned_dofs</ref>;</highlight></codeline>
+<codeline lineno="222" refid="class_elasticity_solver_1acdf653f43c19810db68b78af1afc8943" refkind="member"><highlight class="normal"><sp/><sp/>IndexSet<sp/><ref refid="class_elasticity_solver_1acdf653f43c19810db68b78af1afc8943" kindref="member">locally_relevant_dofs</ref>;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224" refid="class_elasticity_solver_1a144802f2303c3acfc9cf0a2ddf83d509" refkind="member"><highlight class="normal"><sp/><sp/>AffineConstraints&lt;double&gt;<sp/><ref refid="class_elasticity_solver_1a144802f2303c3acfc9cf0a2ddf83d509" kindref="member">zero_constraints</ref>;</highlight></codeline>
+<codeline lineno="225" refid="class_elasticity_solver_1a084edf58836f20c334d3809e574d9139" refkind="member"><highlight class="normal"><sp/><sp/>AffineConstraints&lt;double&gt;<sp/><ref refid="class_elasticity_solver_1a084edf58836f20c334d3809e574d9139" kindref="member">nonzero_constraints</ref>;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227" refid="class_elasticity_solver_1adbfce27d36b8cfbac31b9f10d942fb2b" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespace_l_a_1a6cde9743803c7530f2daf44e83812bb0" kindref="member">LA::ParMatrixType</ref><sp/><ref refid="class_elasticity_solver_1adbfce27d36b8cfbac31b9f10d942fb2b" kindref="member">system_matrix</ref>;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229" refid="class_elasticity_solver_1a116f2927544d74272852960c3eff81be" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/><ref refid="class_elasticity_solver_1a116f2927544d74272852960c3eff81be" kindref="member">present_solution</ref>;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231" refid="class_elasticity_solver_1af7bf0a777cd5e64e2ae95779b8b7c0da" refkind="member"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;Function&lt;dim&gt;&gt;<sp/><ref refid="class_elasticity_solver_1af7bf0a777cd5e64e2ae95779b8b7c0da" kindref="member">source_terms</ref>;</highlight></codeline>
+<codeline lineno="232" refid="class_elasticity_solver_1aa7b44ab0d3551282c056407f67494ee1" refkind="member"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;Function&lt;dim&gt;&gt;<sp/><ref refid="class_elasticity_solver_1aa7b44ab0d3551282c056407f67494ee1" kindref="member">exact_solution</ref>;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234" refid="class_elasticity_solver_1a4494c2c4229b56a2f0232ea76d7d4ee2" refkind="member"><highlight class="normal"><sp/><sp/>SolverControl<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1a4494c2c4229b56a2f0232ea76d7d4ee2" kindref="member">solver_control</ref>;</highlight></codeline>
+<codeline lineno="235" refid="class_elasticity_solver_1a32987c34b31effdc82cfb0e7938e2145" refkind="member"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;PETScWrappers::SparseDirectMUMPSReuse&gt;<sp/><ref refid="class_elasticity_solver_1a32987c34b31effdc82cfb0e7938e2145" kindref="member">direct_solver_reuse</ref>;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Source<sp/>term<sp/>called<sp/>when<sp/>performing<sp/>a<sp/>convergence<sp/>study.</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>function<sp/>calls<sp/>the<sp/>derivatives<sp/>functions<sp/>from<sp/>the<sp/>given</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/><sp/><sp/>*<sp/>pre-set<sp/>manufactured<sp/>solution.</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243" refid="class_elasticity_solver_1_1_m_m_s_source_term" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1a2ae8314f6a44efddd79350c9662ec843" kindref="member">MMSSourceTerm</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Function&lt;dim&gt;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="246" refid="class_elasticity_solver_1_1_m_m_s_source_term_1a2ae8314f6a44efddd79350c9662ec843" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1a2ae8314f6a44efddd79350c9662ec843" kindref="member">MMSSourceTerm</ref>(</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_parameters_1_1_physical_properties" kindref="compound">Parameters::PhysicalProperties&lt;dim&gt;</ref><sp/>&amp;<ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1ae781c17c36c0e1ea540450d860967848" kindref="member">physical_properties</ref>,</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ManufacturedSolutions::ManufacturedSolution&lt;dim&gt;<sp/>&amp;<ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1a4c6cef3c7671d2c30bcb000c05526e56" kindref="member">mms</ref>)</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>Function&lt;dim&gt;(dim)</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1ae781c17c36c0e1ea540450d860967848" kindref="member">physical_properties</ref>(<ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1ae781c17c36c0e1ea540450d860967848" kindref="member">physical_properties</ref>)</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1a4c6cef3c7671d2c30bcb000c05526e56" kindref="member">mms</ref>(<ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1a4c6cef3c7671d2c30bcb000c05526e56" kindref="member">mms</ref>)</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Evaluate<sp/>source<sp/>term<sp/>for<sp/>the<sp/>linear<sp/>elasticity<sp/>equation.</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1a3e45debae6578c25974f3ca2c7232187" kindref="member">vector_value</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Point&lt;dim&gt;<sp/>&amp;p,</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector&lt;double&gt;<sp/><sp/><sp/>&amp;values)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Fill<sp/>the<sp/>given<sp/>list<sp/>of<sp/>gradients.</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263" refid="class_elasticity_solver_1_1_m_m_s_source_term_1a641f9629b08a2f5d8cbdaa17c163363c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1a641f9629b08a2f5d8cbdaa17c163363c" kindref="member">vector_gradient_list</ref>(</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Point&lt;dim&gt;&gt;<sp/>&amp;<sp/></highlight><highlight class="comment">/*points*/</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;Tensor&lt;1,<sp/>dim&gt;&gt;&gt;<sp/>&amp;<sp/></highlight><highlight class="comment">/*gradients*/</highlight><highlight class="normal">)</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="266"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Do<sp/>nothing:<sp/>this<sp/>function<sp/>is<sp/>only<sp/>there<sp/>to<sp/>be<sp/>able<sp/>to<sp/>call</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>vector_gradient_list<sp/>in<sp/>the<sp/>ScratchData<sp/>without<sp/>throwing<sp/>in<sp/>debug<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Source<sp/>term<sp/>gradient<sp/>is<sp/>only<sp/>needed<sp/>when<sp/>the<sp/>source<sp/>term<sp/>is<sp/>evaluated</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>on<sp/>the<sp/>current<sp/>configuration<sp/>(mesh),<sp/>which<sp/>is<sp/>never<sp/>the<sp/>case<sp/>for<sp/>an<sp/>MMS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>source<sp/>term.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="275" refid="class_elasticity_solver_1_1_m_m_s_source_term_1ae781c17c36c0e1ea540450d860967848" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_parameters_1_1_physical_properties" kindref="compound">Parameters::PhysicalProperties&lt;dim&gt;</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;<ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1ae781c17c36c0e1ea540450d860967848" kindref="member">physical_properties</ref>;</highlight></codeline>
+<codeline lineno="276" refid="class_elasticity_solver_1_1_m_m_s_source_term_1a4c6cef3c7671d2c30bcb000c05526e56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ManufacturedSolutions::ManufacturedSolution&lt;dim&gt;<sp/>&amp;<ref refid="class_elasticity_solver_1_1_m_m_s_source_term_1a4c6cef3c7671d2c30bcb000c05526e56" kindref="member">mms</ref>;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="278"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>----------------<sp/>template<sp/>and<sp/>inline<sp/>functions<sp/>-----------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="283" refid="class_elasticity_solver_1aedbc211bad177f090120eff68ad909aa" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParameterReader&lt;dim&gt;<sp/>&amp;<ref refid="class_elasticity_solver_1aedbc211bad177f090120eff68ad909aa" kindref="member">ElasticitySolver&lt;dim&gt;::get_parameters</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="284"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ae73f694336b37068a896439c79c2f38e" kindref="member">param</ref>;</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="289" refid="class_elasticity_solver_1acf4b6a3edeb9348673ab7f7ef9a3c5c6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;<sp/>&amp;<ref refid="class_elasticity_solver_1acf4b6a3edeb9348673ab7f7ef9a3c5c6" kindref="member">ElasticitySolver&lt;dim&gt;::get_dof_handler</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="290"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_elasticity_solver_1ae700ebccff5640cb67605abb9e824680" kindref="member">dof_handler</ref>;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/pre_amr/include/elasticity_solver.h"/>
+  </compounddef>
+</doxygen>

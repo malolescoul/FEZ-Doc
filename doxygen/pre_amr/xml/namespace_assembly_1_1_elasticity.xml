@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_assembly_1_1_elasticity" kind="namespace" language="C++">
+    <compoundname>Assembly::Elasticity</compoundname>
+    <innerclass refid="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor" prot="public">Assembly::Elasticity::MeshForcingFactor</innerclass>
+    <innerclass refid="class_assembly_1_1_elasticity_1_1_linear_elasticity_assembler" prot="public">Assembly::Elasticity::LinearElasticityAssembler</innerclass>
+    <innerclass refid="class_assembly_1_1_elasticity_1_1_neo_hookean_assembler" prot="public">Assembly::Elasticity::NeoHookeanAssembler</innerclass>
+    <innerclass refid="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler" prot="public">Assembly::Elasticity::OgdenHyperelasticityAssembler</innerclass>
+    <innerclass refid="class_assembly_1_1_elasticity_1_1_current_mesh_source_assembler" prot="public">Assembly::Elasticity::CurrentMeshSourceAssembler</innerclass>
+    <innerclass refid="class_assembly_1_1_elasticity_1_1_source_from_c_h_n_s_tracer_assembler" prot="public">Assembly::Elasticity::SourceFromCHNSTracerAssembler</innerclass>
+    <innerclass refid="class_assembly_1_1_elasticity_1_1_presolver_psi_assembler" prot="public">Assembly::Elasticity::PresolverPsiAssembler</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_assembly_1_1_elasticity_1accfab944366c0b491aba8cebd7d60b4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor" kindref="compound">MeshForcingFactor</ref></type>
+        <definition>MeshForcingFactor Assembly::Elasticity::mesh_forcing_factor</definition>
+        <argsstring>(const double phase_value, const double gamma)</argsstring>
+        <name>mesh_forcing_factor</name>
+        <qualifiedname>Assembly::Elasticity::mesh_forcing_factor</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_value</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="34" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="34" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_elasticity_1a6d25a2da928c4b0f8cb5dad3a768b312" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor" kindref="compound">MeshForcingFactor</ref></type>
+        <definition>MeshForcingFactor Assembly::Elasticity::smooth_power_equalized_phase</definition>
+        <argsstring>(const double phase_value, const double exponent)</argsstring>
+        <name>smooth_power_equalized_phase</name>
+        <qualifiedname>Assembly::Elasticity::smooth_power_equalized_phase</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_value</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>exponent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Smooth odd approximation of sign(psi) * |psi|^q used to equalize the enlarged mesh-forcing marker before it enters the regularized factor. The small delta keeps the map differentiable at psi=0 for Newton. With q = 1 the map is the identity (no-op). For 0 &lt; q &lt; 1 weak marker values are amplified (the mesh reacts earlier across the enlarged interface); q &gt; 1 damps them. Both the value and its derivative are returned. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="63" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="63" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_elasticity_1a1dacf27a130e9bbe07cf60742daad20f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Assembly::Elasticity::enlarged_mesh_forcing_lobe_peak</definition>
+        <argsstring>(const double gamma, const double exponent)</argsstring>
+        <name>enlarged_mesh_forcing_lobe_peak</name>
+        <qualifiedname>Assembly::Elasticity::enlarged_mesh_forcing_lobe_peak</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>exponent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Peak of the dimensionless enlarged-compression lobe associated with the one-dimensional Helmholtz marker. Away from the much thinner physical interface, psi - L^2 psi&apos;&apos; = sign(x) gives</para>
+<para>L |grad psi| = 1 - |psi|.</para>
+<para>Hence the lobe shape, with s = |psi| in [0,1], is</para>
+<para>(1-s) |factor(equalize_q(s))|.</para>
+<para>A short, deterministic one-dimensional search is sufficient here. Its result is stored by the forcing assembler and reused in all FE loops. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="91" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="91" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_elasticity_1a65dab04d4f0397886b550414cd889db9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Assembly::Elasticity::enlarged_mesh_forcing_normalization</definition>
+        <argsstring>(const double gamma, const double exponent)</argsstring>
+        <name>enlarged_mesh_forcing_normalization</name>
+        <qualifiedname>Assembly::Elasticity::enlarged_mesh_forcing_normalization</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>exponent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Automatic amplitude normalization of the equalized enlarged forcing. The q=1 lobe is the reference, so changing q primarily moves/reshapes the lobes without changing their theoretical peak compression. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="155" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="155" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_elasticity_1ad661528b91d450ff2f1798e5375a87e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_assembly_1_1_elasticity_1_1_mesh_forcing_factor" kindref="compound">MeshForcingFactor</ref></type>
+        <definition>MeshForcingFactor Assembly::Elasticity::enlarged_mesh_forcing_factor</definition>
+        <argsstring>(const double phase_value, const double gamma, const double exponent, const double normalization)</argsstring>
+        <name>enlarged_mesh_forcing_factor</name>
+        <qualifiedname>Assembly::Elasticity::enlarged_mesh_forcing_factor</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_value</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>exponent</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>normalization</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Regularized compression coefficient for the enlarged marker psi: the equalization map is chained into mesh_forcing_factor, so the returned value is factor(equalize(psi)) and the derivative is the product of the two chain-rule terms (w.r.t. psi). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="176" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="176" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_assembly_1_1_elasticity_1a6eade36a198274085cf8a497068d16f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+          <param>
+            <type>typename ScratchData</type>
+          </param>
+          <param>
+            <type>typename CopyData</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Assembly::Elasticity::setup_assemblers</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering, std::vector&lt; std::unique_ptr&lt; AssemblerBase&lt; ScratchData, CopyData &gt; &gt; &gt; &amp;assemblers)</argsstring>
+        <name>setup_assemblers</name>
+        <qualifiedname>Assembly::Elasticity::setup_assemblers</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::unique_ptr&lt; AssemblerBase&lt; ScratchData, CopyData &gt; &gt; &gt; &amp;</type>
+          <declname>assemblers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the volume and relevant boundary assemblers, and store them as unique pointers in <computeroutput>assemblers</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="428" column="10" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="428" bodyend="504" declfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" declline="194" declcolumn="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="18" column="3"/>
+  </compounddef>
+</doxygen>

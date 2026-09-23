@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_post_processing_1_1_mesh_velocity" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::PostProcessing::MeshVelocity</compoundname>
+    <basecompoundref refid="struct_parameters_1_1_post_processing_1_1_post_processing_field" prot="public" virt="non-virtual">Parameters::PostProcessing::PostProcessingField</basecompoundref>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Parameters::PostProcessing::MeshVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingField</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_field"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::PostProcessing::MeshVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingField</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_field"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="472" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="473" bodyend="474"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a126e3c8ee8426e3770713fdc5e573642" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::MeshVelocity</scope><name>ComputationMethod</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a55891c47979c3ea6096363c72eaa8fc1" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::MeshVelocity</scope><name>degree</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a921eee483d06be1b60f73ad5194704cf" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::MeshVelocity</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_field_1a7bdf65979ff96d1241781371de4a18ea" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::MeshVelocity</scope><name>method</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a5a598c5e51421aaa8a2afc09c4b04389" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::MeshVelocity</scope><name>output_frequency</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a3379bfae8b9213020cae832594e8de6f" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::MeshVelocity</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

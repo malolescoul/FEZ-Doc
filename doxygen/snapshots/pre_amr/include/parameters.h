@@ -1,0 +1,1196 @@
+#ifndef PARAMETERS_H
+#define PARAMETERS_H
+
+#include <deal.II/base/exceptions.h>
+#include <deal.II/base/parameter_handler.h>
+#include <deal.II/base/parsed_function.h>
+#include <deal.II/numerics/vector_tools_common.h>
+#include <parsed_function_symengine.h>
+#include <solver_info.h>
+
+// Forward declaration
+namespace PostProcessingTools
+{
+  enum class PostprocessorAtDofTypes;
+}
+
+#define DECLARE_VERBOSITY_PARAM(prm, default_verbosity)                        \
+  (prm).declare_entry("verbosity",                                             \
+                      std::string(default_verbosity),                          \
+                      Patterns::Selection("quiet|verbose"),                    \
+                      "Level of message display in console: quiet or verbose " \
+                      "(default: " +                                           \
+                        std::string(default_verbosity) + ")");
+
+#define READ_VERBOSITY_PARAM(prm, verbosity)                     \
+  {                                                              \
+    const std::string parsed_verbosity = (prm).get("verbosity"); \
+    if (parsed_verbosity == "quiet")                             \
+      verbosity = Verbosity::quiet;                              \
+    if (parsed_verbosity == "verbose")                           \
+      verbosity = Verbosity::verbose;                            \
+  }
+
+/**
+ * This namespace contains the parameters used to control the various
+ * parts of the solvers : mesh, (non-)linear solver, time integration, etc.
+ */
+namespace Parameters
+{
+  using namespace dealii;
+
+  /**
+   * Verbosity is set to "verbose" by default for all structures.
+   */
+  enum class Verbosity
+  {
+    quiet,
+    verbose
+  };
+
+  // The problem dimension is read in a first pass to instantiate the right
+  // pre-compiled solver. Because dimension in deal.II is not a simulation
+  // parameters per se, this is not done here, but in utilities.h. However, the
+  // "Dimension" block read by the function in utilities.h should still be read
+  // in the real run to avoid an exception. This is done here, and the dimension
+  // is not parsed.
+  struct DummyDimension
+  {
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct Timer
+  {
+    bool enable_timer;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct BoundaryConditionsData
+  {
+    Verbosity fluid_verbosity;
+
+    // These are parsed in utilities.h
+    unsigned int n_fluid_bc         = 0;
+    unsigned int n_pseudosolid_bc   = 0;
+    unsigned int n_cahn_hilliard_bc = 0;
+    unsigned int n_heat_bc          = 0;
+
+    // FIXME: This is not BC related, maybe move this in a dedicated entity
+    unsigned int n_metric_fields = 0;
+
+    bool fix_pressure_constant;
+    bool enforce_zero_mean_pressure;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct Mesh
+  {
+    Verbosity verbosity;
+
+    // Gmsh mesh file
+    std::string filename;
+
+    bool         use_deal_ii_cube_mesh;
+    std::string  deal_ii_preset_mesh;
+    std::string  deal_ii_mesh_param;
+    unsigned int refinement_level;
+
+    // Name of each mesh physical entities
+    std::map<types::boundary_id, std::string> id2name;
+    std::map<std::string, types::boundary_id> name2id;
+
+    /**
+     * Parameters controlling the mesh adaptation procedure
+     */
+    struct Adaptation
+    {
+      Verbosity verbosity;
+
+      bool enable;
+
+      // Directory into which mesh adaptation-related files are written
+      std::string adapt_dir;
+
+      // Extension for the adapted meshes
+      std::string adapted_mesh_extension;
+
+      /**
+       * Available mesh adaptation strategies:
+       * - adaptation with a Riemannian metric, originating from one or more FE
+       * fields. For simplicial meshes only, as anisotropic metric-based meshing
+       * libraries exist only for simplicial meshes for now.
+       * - (not yet implemented:) hierarchical adaptation, using deal.II's
+       * routines and p4est. For quad/hex meshes only.
+       */
+      enum class Strategy
+      {
+        RiemannianMetric,
+        LocalRefinement
+      } strategy;
+
+      bool with_metric_based_adaptation() const
+      {
+        return enable && strategy == Strategy::RiemannianMetric;
+      }
+
+      bool with_tree_based_adaptation() const
+      {
+        return enable && strategy == Strategy::LocalRefinement;
+      }
+
+      /**
+       * Parameters for mesh adaptation with a Riemannian metric
+       */
+      struct Metric
+      {
+        /**
+         * Number of fixed point iterations to perform, to converge the
+         * mesh-solution pair. For steady simulations, this is the number of
+         * times the solver is run, and the mesh is adapted this number of
+         * times minus one. For unsteady simulations, this is the number of
+         * times the whole simulation is run, and the meshes are adapted on
+         * sub-intervals, this number of times minus one.
+         */
+        unsigned int n_fixed_point;
+
+        unsigned int current_fixed_point_iteration = 0;
+
+        // Level of verbosity of the MMG library
+        unsigned int mmg_verbosity;
+
+        // For steady simulations, specify whether the solution should be
+        // transferred (projected) from the initial mesh to the adapted mesh.
+        bool transfer_solution;
+
+        unsigned int n_time_intervals;
+
+        bool is_last_fixed_point_iteration() const
+        {
+          return current_fixed_point_iteration == n_fixed_point - 1;
+        }
+
+        /**
+         * Metric-based mesh adaptation is typically performed within a fixed
+         * point loop, converging the mesh-solution pair together.
+         * These parameters specify how to update the prescribed simulation
+         * parameters in between fixed-point iterations. This allows, for
+         * instance, reducing the interface thickness of a CHNS simulation as
+         * the mesh is refined.
+         */
+        struct FixedPointUpdates
+        {
+          Verbosity verbosity;
+
+          /**
+           * Base struct for quantities updated during fixed point loop.
+           */
+          struct UpdateBase
+          {
+            // Enable/disable this update
+            bool enable;
+
+            // Quantity will be updated according to this frequency
+            unsigned int update_frequency;
+
+            // When updated, quantity will be multiplied by this value
+            double factor;
+
+            // If the quantity must be replaced in function objects, this is
+            // the string that will be replaced.
+            std::string constant_name;
+          };
+
+          // This struct controls the update of the interface thickness in a
+          // Cahn-Hilliard Navier-Stokes simulation.
+          struct CHNSInterfaceThickness : public UpdateBase
+          {
+          } chns_interface_thickness;
+        } fixed_point_updates;
+      } metric;
+
+      /**
+       * Parameters for mesh adaptation using deal.II's facilities, using p4est
+       * tree-based meshes.
+       */
+      struct TreeAMR
+      {
+        enum class RefinementStrategy
+        {
+          FixedNumber,
+          FixedFraction
+        } refinement_strategy;
+
+        // Variables driving mesh refinement/coarsening
+        std::vector<SolverInfo::VariableType> variables_for_adaptation;
+
+        // The target fractions of cells or cellwise errors to refine and
+        // coarsen, depending on the refinement strategy.
+        double fraction_to_refine;
+        double fraction_to_coarsen;
+
+        // Maximum number of cells allowed
+        unsigned int max_n_cells;
+
+        // Minimum and maximum grid levels allowed
+        unsigned int min_level;
+        unsigned int max_level;
+
+        // For steady-state computations, the number of times the mesh is
+        // adapted to the solution. One extra solve is performed, to obtain the
+        // solution on the last adapted mesh (i.e., setting this value to 1
+        // yields 2 resolutions).
+        unsigned int n_steady_adaptation_steps;
+
+        // For unsteady computations, the number of refinement steps to adapt
+        // the mesh to the initial condition.
+        unsigned int n_prerefinement_steps;
+
+        // Frequency (in time steps) at which the mesh is adapted
+        unsigned int adapt_frequency;
+
+      } tree_amr;
+    } adaptation;
+
+    void declare_parameters(ParameterHandler &prm, const int dim);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct Output
+  {
+    bool         write_results;
+    std::string  output_dir;
+    std::string  output_prefix;
+    unsigned int vtu_output_frequency;
+
+    // Number of VTU files when writing in parallel
+    unsigned int n_vtu_groups;
+
+    // Number of cells subdivisions for visualization
+    unsigned int n_subdivisions;
+
+    // Output data when using a (steady or unsteady) fixed-point method,
+    // typically when using a riemannian metric to adapt the mesh.
+    struct FixedPointMethod
+    {
+      // Specifies whether a single pvd must be generated.
+      // If true, only a pvd file for the last fixed-point iteration is written.
+      // If false, one pvd file is generated per fixed-point iteration.
+      bool single_pvd;
+
+      // This flag is used only for the unsteady fixed-point method.
+      // If true, then at the junction time between two time sub-intervals, the
+      // solution on both the current and the next mesh are written in the pvd
+      // file, which effectively duplicates these timesteps. If false, only the
+      // solution after transfer on the next mesh will appear.
+      //
+      // In other words, the outputted solutions are for the times [t_i, t_i+1]
+      // if true, and for times [t_i, t_i+1) if false, except for the last
+      // interval, which always includes the final time.
+      bool show_solution_transfer;
+    } fixed_point;
+
+    // A "skin" is a codimension 1 boundary on which we wish to extract data
+    // for visualization and/or postprocessing
+    struct Skin
+    {
+      bool               write_results;
+      types::boundary_id boundary_id;
+      std::string        output_prefix;
+      unsigned int       output_frequency;
+    } skin;
+
+    static void declare_parameters(ParameterHandler &prm);
+    void        read_parameters(ParameterHandler &prm);
+  };
+
+  struct PostProcessing
+  {
+    // A small base struct for features common to all postprocessings.
+    struct PostProcessingBase
+    {
+      Verbosity verbosity;
+
+      // Enable/disable this postprocessing
+      bool enable;
+
+      // Output options
+      unsigned int output_frequency;
+    };
+
+    // A small base struct for postprocessed quantities which are written to a
+    // file.
+    struct PostProcessingFile : public PostProcessingBase
+    {
+      // Output the results of this postprocessing to a file
+      bool write_results;
+
+      // Name of the file without the extension
+      std::string output_prefix;
+
+      // Number of significant digits to write
+      unsigned int precision;
+    };
+
+    // Derived class for postprocessing on a boundary
+    struct PostProcessingFileBoundary : public PostProcessingFile
+    {
+      types::boundary_id boundary_id;
+    };
+
+    /**
+     * Compute the volume integrals of finite element variables.
+     * Vector-valued variables are integrated component-wise.
+     */
+    struct FieldIntegral : public PostProcessingFile
+    {
+      std::vector<SolverInfo::VariableType> variables;
+    } field_integral;
+
+    // Hydrodynamic forces on a single boundary
+    struct Forces : public PostProcessingFileBoundary
+    {
+      // The method used to evaluate the forces on a boundary
+      enum class ComputationMethod
+      {
+        stress_vector,
+        lagrange_multiplier
+      } method;
+    } forces;
+
+    // For the FSI solver, compute and export the position of the structure's
+    // geometric center.
+    struct StructurePosition : public PostProcessingFileBoundary
+    {
+      // No additional members for now
+    } structure_position;
+
+    // Cut structure into slices and compute forces on each individual slice
+    // Used e.g. to measure correlation of forces coefficients along cylinder
+    struct Slices : public PostProcessingFileBoundary
+    {
+      std::string  along_which_axis;
+      unsigned int n_slices;
+      bool         compute_forces_on_slices;
+    } slices;
+
+    // Sample CHNS fields along a configurable straight segment and write them
+    // to a CSV for validation and diagnostics in any CHNS simulation.
+    struct LineProbe : public PostProcessingFile
+    {
+      std::vector<double> start;
+      std::vector<double> end;
+      unsigned int        n_points;
+    } line_probe;
+
+    // CHNS characteristic time scales and dimensionless numbers (advection vs
+    // Cahn-Hilliard chemical diffusion, capillary, viscous, ...), written per
+    // output step to a CSV. Used to analyse why the nonlinear solve becomes
+    // stiff as the mobility / dynamics change (e.g. mobility sweeps).
+    struct TimeScales : public PostProcessingFile
+    {
+      // No additional members for now
+    } time_scales;
+
+    // For the CHNS solver, compute the volume of each phase
+    struct CHNSPhasesVolume : public PostProcessingFile
+    {
+    } chns_volumes;
+
+    // For the CHNS solver, compute the center of mass of each phase
+    struct CHNSPhasesCenterOfMass : public PostProcessingFile
+    {
+    } chns_center_mass;
+
+    // For the CHNS solver, compute the average velocity in each phase
+    struct CHNSPhasesAvgVelocity : public PostProcessingFile
+    {
+    } chns_avg_velocity;
+
+    /**
+     * A base struct for postprocessing tools which produce a field, which is
+     * typically written to the visualization file alongside the solution (e.g.,
+     * vorticity, Q-criterion, mesh velocity, ...).
+     *
+     * This field can either be defined with a DataPostprocessor (outputted at
+     * visualization nodes directly), or with a PostprocessorAtDofBase, in which
+     * case the field is described as the degrees of freedom of some finite
+     * element approximation (e.g., an L2 projection).
+     */
+    struct PostProcessingField : public PostProcessingBase
+    {
+      /**
+       * Available computation methods to compute the field.
+       * Not all methods are implemented for all derived PostProcessingField.
+       */
+      enum class ComputationMethod
+      {
+        /**
+         * Use a class derived from DataPostprocessor to evaluate this field.
+         * The term "discontinuous" is kind of a misnomer, as it is really only
+         * discontinuous if we are postprocessing derivatives of a finite
+         * element approximation (i.e., postprocessing the values of a
+         * continuous field will still yield a continuous field).
+         */
+        discontinuous,
+
+        /**
+         * Compute an L2 projection of the original (usually discontinuous)
+         * field. The resulting field is continuous is using a CG approximation
+         * to represent the projection.
+         */
+        l2_projection,
+
+        /**
+         * Compute a weighted average of the original field. See the individual
+         * implementations for more information about the weights.
+         */
+        weighted_average
+      } method;
+
+      // If using a dof-based representation of the postprocessed field, the
+      // degree of the associated finite element approximation.
+      unsigned int degree;
+    };
+
+    // Vorticity field. As in deal.II, the result is a "curl_type", so a scalar
+    // field in 2D and a vector-valued field in 3D.
+    struct Vorticity : public PostProcessingField
+    {
+    } vorticity;
+
+    // Q-criterion scalar field (second invariant of the velocity gradient).
+    struct QCriterion : public PostProcessingField
+    {
+    } q_criterion;
+
+    // Mesh velocity.
+    struct MeshVelocity : public PostProcessingField
+    {
+    } mesh_velocity;
+
+    // Density reconstructed from the CHNS material marker.
+    struct Density : public PostProcessingField
+    {
+    } density;
+
+    // Cahn-Hilliard mobility evaluated with the selected mobility model.
+    struct Mobility : public PostProcessingField
+    {
+    } mobility;
+
+    // Physical-interface compression contribution to the ALE mesh forcing.
+    struct MFFPhysicsCompression : public PostProcessingField
+    {
+    } mff_physics_compression;
+
+    // Enlarged-interface compression contribution to the ALE mesh forcing.
+    struct MFFEnlargedCompression : public PostProcessingField
+    {
+    } mff_enlarged_compression;
+
+    // Positive beta transport contribution in f_mesh = alpha_enlarged +
+    // alpha_physics - beta.
+    struct MFFTransport : public PostProcessingField
+    {
+    } mff_transport;
+
+    /**
+     * All the PostProcessingField.
+     */
+    std::map<PostProcessingTools::PostprocessorAtDofTypes,
+             PostProcessingField *>
+      field_postprocessors;
+
+    static void declare_parameters(ParameterHandler &prm);
+    void        read_parameters(ParameterHandler &prm);
+  };
+
+  template <int dim>
+  struct FiniteElements
+  {
+    // If true, use hypercubes, otherwise use simplices (default).
+    bool use_quads;
+
+    // Degree of the velocity interpolation
+    unsigned int velocity_degree;
+
+    // Degree of the pressure interpolation
+    unsigned int pressure_degree;
+
+    // Degree of the mesh position interpolation
+    unsigned int mesh_position_degree;
+
+    // Degree of the Lagrange multipliers interpolation
+    // when enforcing weak no-slip constraints
+    unsigned int no_slip_lagrange_mult_degree;
+
+    // Degree of the tracer and potential interpolation for two-phase
+    // flows with a Cahn-Hilliard Navier-Stokes model
+    unsigned int tracer_degree;
+    unsigned int potential_degree;
+
+    // Degree of the temperature for the heat equation and energy equation
+    unsigned int temperature_degree;
+
+    unsigned int
+    get_variable_degree(const SolverInfo::VariableType variable) const
+    {
+      using V = SolverInfo::VariableType;
+      switch (variable)
+      {
+        case V::velocity:
+          return velocity_degree;
+        case V::pressure:
+          return pressure_degree;
+        case V::mesh_position:
+          return mesh_position_degree;
+        case V::temperature:
+          return temperature_degree;
+        case V::phase_tracer:
+          return tracer_degree;
+        case V::phase_potential:
+          return potential_degree;
+        case V::lagrange_mult:
+          return no_slip_lagrange_mult_degree;
+        default:
+          DEAL_II_ASSERT_UNREACHABLE();
+      }
+    }
+
+    // Degree of the reference-to-physical mapping(s)
+    unsigned int mapping_degree;
+
+    struct QuadratureRule
+    {
+      enum class Type
+      {
+        GaussSimplex,
+        WitherdenVincent
+      } type;
+
+      unsigned int n_pts_1D_simplex_cell_quad;
+      unsigned int n_pts_1D_simplex_face_quad;
+    };
+
+    QuadratureRule rule;
+    QuadratureRule rule_for_error;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct Fluid
+  {
+    // If using the incompressible Navier-Stokes solver, this is the constant
+    // fluid density. If using the compressible Navier-Stokes solver, this is
+    // the reference density.
+    double density;
+
+    // Kinematic viscosity
+    double kinematic_viscosity;
+
+    // Dynamic viscosity
+    double dynamic_viscosity;
+
+    // Thermal conductivity
+    double thermal_conductivity;
+
+    // Heat capacity at constant pressure c_p
+    double heat_capacity_at_constant_pressure;
+
+    // Gas constant for this specific gas (R^*, and not R)
+    double gas_constant;
+
+    // Reference pressure and temperature represent the conditions around which
+    // the equations are linearized in the compressible solver, and are used to
+    // compute the alpha_r and beta_r coefficients. p = p_ref + p^*   and   T =
+    // T_ref + T^*
+    double pressure_ref;
+    double temperature_ref;
+
+    void declare_parameters(ParameterHandler &prm, unsigned int index);
+    void read_parameters(ParameterHandler &prm, unsigned int index);
+  };
+
+  template <int dim>
+  class PseudoSolid
+  {
+  public:
+    enum class ConstitutiveModel
+    {
+      linear_elasticity,
+      neo_hookean,
+      ogden
+    } constitutive_model;
+
+    std::shared_ptr<ManufacturedSolutions::ParsedFunctionSDBase<dim>>
+      lame_lambda_fun;
+    std::shared_ptr<ManufacturedSolutions::ParsedFunctionSDBase<dim>>
+      lame_mu_fun;
+
+    // For an Ogden hyperleastic solid, the value of the parameter beta.
+    double ogden_beta;
+
+  public:
+    void set_time(const double newtime)
+    {
+      lame_lambda_fun->set_time(newtime);
+      lame_mu_fun->set_time(newtime);
+    }
+    void declare_parameters(ParameterHandler &prm, unsigned int index);
+    void read_parameters(ParameterHandler &prm, unsigned int index);
+  };
+
+  template <int dim>
+  class PhysicalProperties
+  {
+  public:
+    const unsigned int max_fluids = 2;
+    unsigned int       n_fluids;
+    std::vector<Fluid> fluids;
+
+    const unsigned int            max_pseudosolids = 1;
+    unsigned int                  n_pseudosolids;
+    std::vector<PseudoSolid<dim>> pseudosolids;
+
+    /**
+     * Body force vector (e.g., gravitational acceleration). In solvers where
+     * the momentum equation is divided by density (incompressible single-fluid
+     * NS), this is used directly as a kinematic acceleration. In solvers with
+     * variable density (CHNS, compressible NS), it is multiplied by the local
+     * density to obtain the volumetric force term.
+     */
+    Tensor<1, dim> body_force;
+
+  public:
+    void set_time(const double newtime)
+    {
+      for (auto &ps : pseudosolids)
+        ps.set_time(newtime);
+    }
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct NonLinearSolver
+  {
+    double       tolerance;
+    double       divergence_tolerance;
+    unsigned int max_iterations;
+    bool         enable_line_search;
+    bool         analytic_jacobian;
+    Verbosity    verbosity;
+
+    double reassembly_decrease_tol;
+
+    // Options to compare the Jacobian matrix with its finite differences
+    // approximation.
+    bool   compare_jacobian_with_finite_differences;
+    double analytical_jacobian_absolute_tolerance;
+    double analytical_jacobian_relative_tolerance;
+    bool   write_problematic_elements;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct LinearSolver
+  {
+    Verbosity verbosity;
+
+    enum class Method
+    {
+      direct_mumps,
+      cg,
+      gmres
+    } method;
+
+    // Tolerance and max number of iterations for iterative solvers
+    double       tolerance;
+    unsigned int max_iterations;
+
+    // Fill-in levels for ILU preconditioner
+    unsigned int ilu_fill_level;
+
+    /**
+     * When using MUMPS as solver, "reuse" the symbolic factorization of the
+     * system matrix across the solves. If the sparsity pattern does not change,
+     * then the symbolic factorization can be conserved, saving time.
+     *
+     * This is done through an extension of deal.II's PETSc interface to MUMPS,
+     * which, as a beneficial side effect, also checks the MUMPS error code,
+     * which is not done in deal.II. This allows throwing an error when the
+     * matrix is singular, instead of getting "nan" results.
+     *
+     * TODO: the associated MUMPS solver should be looked into, as it is
+     * unclear that the factorization is indeed reused and/or that it is more
+     * efficient. Unlike Pardiso, the symbolic factorization step is not cleanly
+     * separated from the actual factorization and solve steps.
+     */
+    bool reuse;
+
+    void declare_parameters(ParameterHandler  &prm,
+                            const std::string &solver_type);
+    void read_parameters(ParameterHandler &prm, const std::string &solver_type);
+  };
+
+  struct TimeIntegration
+  {
+    Verbosity verbosity;
+
+    double dt;
+    double t_initial;
+    double t_end;
+
+    enum class Scheme
+    {
+      stationary,
+      BDF1,
+      BDF2
+    } scheme;
+
+    enum class BDFStart
+    {
+      BDF1,
+      initial_condition
+    } bdfstart;
+
+    // For BDF2 scheme using BDF1 a starting scheme, the BDF1 step is
+    // done with this value times the initial time step.
+    double bdf_starting_step_ratio;
+
+    struct Adaptation
+    {
+      Verbosity verbosity;
+
+      bool enable;
+
+      // Implemented strategies for time step adaptation:
+      // - adapt based on an estimate of the BDF truncation error
+      // - adapt based on the maximum CFL number (only for solvers with
+      //   a velocity variable)
+      // - adapt based on the maximum adaptive CHNS mobility number
+      enum class AdaptationStrategy
+      {
+        BDFTruncationError,
+        CFL,
+        AdaptiveMobility
+      } strategy;
+
+      double max_timestep;
+      double min_timestep;
+      double max_timestep_increase;
+      double max_timestep_reduction;
+
+      // Parameters for adaptation based on BDF truncation error
+      std::map<SolverInfo::VariableType, double> target_error;
+      bool   reject_timestep_with_large_error;
+      double reject_error_factor;
+
+      // Parameters for adaptation based on CFL
+      double target_cfl;
+      bool   reject_timestep_with_large_cfl;
+      double reject_cfl_factor;
+
+      // Parameters for adaptation based on the adaptive CHNS mobility
+      double target_adaptive_mobility_number;
+      bool   reject_timestep_with_large_adaptive_mobility;
+      double reject_adaptive_mobility_factor;
+
+      // FIXME: Both parameters below are currently unused:
+      // required_times because it is tricky to adjust or merge the time steps
+      // to reach the required times without considering corner cases, and
+      // compute_error_on_estimator because we may or may not want to compute
+      // the convergence of the error estimator w.r.t. the true error.
+
+      // Required times : the simulation must absolutely go through these
+      std::vector<double> required_times;
+      bool                compute_error_on_estimator;
+    } adaptation;
+
+    /**
+     * If using the transient fixed point mesh adaptation method, this is the
+     * number of subintervals into which the overall simulation interval is
+     * split.
+     */
+    unsigned int n_time_intervals;
+    unsigned int n_steady_adaptation_steps;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+    bool is_steady() const { return scheme == Scheme::stationary; }
+  };
+
+  struct Stabilization
+  {
+    // Enable SUPG/PSPG stabilization of the Navier-Stokes equations
+    bool enable_supg;
+
+    // Enable SUPG stabilization for the tracer equation of the Cahn-Hilliard
+    // Navier-Stokes systems
+    bool enable_tracer_supg;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  template <int dim>
+  class CahnHilliard
+  {
+  public:
+    // CHNS model. 'abels' uses the diffuse material marker phi with the
+    // phi*grad(mu) capillary force and diffusive inertia; 'ding_horriche'
+    // uses the unscaled potential (double-well coefficient 1, gradient
+    // coefficient eps^2) with the mu*grad(phi) capillary force and no
+    // diffusive inertia; 'abels_nlm' (non-linear mixing) is Abels with the
+    // material properties made affine in a sharpened material marker
+    // q = tanh(k phi)/tanh(k) instead of phi (see tanh_mixing_steepness), so
+    // the conserved/transported variable is q while phi keeps the capillary
+    // energy.
+    enum class CHNSModel
+    {
+      abels,
+      ding_horriche,
+      abels_nlm
+    } chns_model = CHNSModel::abels;
+
+    enum class MobilityModel
+    {
+      constant,
+      degenerate,
+      adaptive,
+      adaptive_mobility_2,
+      adaptive_mobility_3
+    } mobility_model;
+
+    // Optional conservative correction of the diffuse-interface profile. The
+    // profile_flux variant additionally removes the interface-normal component
+    // of the Cahn-Hilliard chemical flux.
+    enum class InterfaceProfileCorrection
+    {
+      none,
+      profile,
+      profile_flux
+    } interface_profile_correction = InterfaceProfileCorrection::none;
+
+    // Dimensionless multiplier of the automatically scaled profile-correction
+    // diffusivity kappa_p = strength * 2*M*sigma_tilde/epsilon.
+    double profile_correction_strength;
+
+    double mobility;
+    // Positive multiplier n of the adaptive mobility contribution
+    // n*sqrt(2)*(u.grad(phi))*epsilon^3/sigma_tilde.
+    double adaptive_mobility_n;
+    // Additive gradient term coefficient m of the adaptive mobility
+    // contribution m*2*epsilon^2*|grad(phi)|^2.
+    double adaptive_mobility_m;
+    // Positive multiplier n of the restricted adaptive mobility model:
+    // n*sqrt(2)*chi(phi)*(u.grad(phi))*epsilon^3/sigma_tilde, where chi is
+    // one for |phi|<=0.5 and zero for |phi|>=0.9.
+    double adaptive_mobility_2_n;
+    // Strictly positive mobility floor in the restricted adaptive model:
+    // M_reg = sqrt(M_raw^2 + delta^2).
+    double adaptive_mobility_2_delta;
+    // Positive multiplier n of the third adaptive mobility model:
+    // n*||u||_reg*epsilon^2/sigma_tilde.
+    double adaptive_mobility_3_n;
+    // Strictly positive regularization of the velocity norm in the third
+    // adaptive mobility model: ||u||_reg = sqrt(u^2 + delta^2).
+    double adaptive_mobility_3_delta;
+    // Strictly positive regularization of adaptative_mobility, in mobility
+    // units: M_reg = sqrt(M_raw^2 + delta^2).
+    double adaptive_mobility_delta;
+    // Degenerate mobility M(phi) as a parsed function of the tracer (its single
+    // variable x is phi); the magnitude is baked into the expression. Only used
+    // when mobility_model == degenerate.
+    std::shared_ptr<ManufacturedSolutions::ParsedFunctionSDBase<dim>>
+         degenerate_mobility;
+    bool mobility_tracer_limiter;
+
+    double surface_tension;
+    double epsilon_interface;
+    bool   with_tracer_limiter;
+
+    // Steepness k of the non-linear material marker q = tanh(k phi)/tanh(k)
+    // used by the abels_nlm model (larger k sharpens the material transition
+    // relative to the capillary transition). Unused by the other models.
+    double tanh_mixing_steepness;
+
+    // Moving-mesh forcing of the pseudosolid equation (CHNS-ALE model). The
+    // source term is either the built-in Cahn-Hilliard compression form ("chns
+    // form") or a user-defined custom source term.
+    enum class MeshForcingSourceTerm
+    {
+      off,
+      chns_form,
+      custom
+    } mff_source_term;
+
+    // Compression factor multiplying the phi-based forcing factor(phi)*grad phi.
+    double mff_physics_compression_factor;
+    // Transport factor (full CHNS solver only; unused by the presolver).
+    double mff_transport_factor;
+    // Regularization gamma inside the saturated compression factor.
+    double mff_regularization_gamma;
+
+    // Enlarged (psi) solver. Psi is a widened tracer reconstructed by a
+    // Helmholtz equation psi - L^2 lap(psi) = phi (+ corrections), used as the
+    // mesh-forcing marker. The widening length is L = psi_interface_width_factor
+    // * epsilon_interface.
+    double psi_interface_width_factor;
+    // Optional opt-in mu-correction in the psi equation, localized near the
+    // interface (0 disables it).
+    double psi_mu_correction_factor;
+    // Compression factor multiplying the psi-based forcing factor(psi)*grad psi
+    // (enlarged solver). The phi-based physics compression is added on top when
+    // mff_physics_compression_factor != 0.
+    double mff_enlarged_compression_factor;
+    // Lobe-position exponent q of the enlarged forcing pre-map
+    // sign(psi)*|psi|^q (q = 1 is the identity). Its amplitude is normalized
+    // automatically so that q moves/reshapes the lobes without changing the
+    // theoretical peak associated with the one-dimensional Helmholtz marker.
+    double mff_enlarged_lobe_position_exponent;
+
+    // If true, an elasticity presolver is run first to pre-position the mesh,
+    // and its mesh position is injected as the initial mesh of the CHNS solver.
+    bool use_presolver;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct Elasticity
+  {
+    // If true, write the final deformed mesh to a Gmsh .msh file at the end
+    // of the elasticity solve. This requires an input mesh in .msh format.
+    bool write_final_msh;
+
+    // If true, then the provided position source term is to be evaluated on
+    // the current mesh, and not on the reference mesh where the elasticity
+    // equation is solved (that is, we evaluate f(x(X)) instead of f(X).
+    bool enable_source_term_on_current_mesh;
+
+    // The source term on current mesh is enforced with a continuation method,
+    // starting at min_coeff * f(x(X)) and progressing until max_coeff * f(x(X))
+    double min_current_mesh_source_term_multiplier;
+    double max_current_mesh_source_term_multiplier;
+
+    // Number of steps to use in the continuation method when the source term
+    // is applied on the current configuration.
+    unsigned int n_continuation_steps;
+
+    // Cahn-Hilliard presolver: the compression forcing is ramped from
+    // (initial multiplier) up to its physical value (1) over the given number
+    // of continuation steps.
+    double       presolver_initial_compression_multiplier;
+    unsigned int presolver_continuation_steps;
+
+    // Disk cache of the presolved mesh position. The cached field is keyed by
+    // support-point location, so it can be reloaded with a different number of
+    // MPI processes. 'reuse' loads a valid cache and writes one otherwise;
+    // 'force_recompute' always re-solves and refreshes the cache; 'off' (the
+    // default) disables caching entirely.
+    enum class PresolvedMeshPositionMode
+    {
+      off,
+      reuse,
+      force_recompute
+    } presolved_mesh_position_mode;
+    std::string presolved_mesh_position_file;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct CheckpointRestart
+  {
+    bool enable_checkpoint;
+    // If true, restart simulation from the given checkpoint file
+    bool restart;
+    // Name of the file to write to/read when checkpointing/restarting resp.
+    std::string filename;
+    // Write checkpoint every N time steps
+    unsigned int checkpoint_frequency;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  struct MMS
+  {
+    bool enable;
+
+    // The type of study to perform : refinement in space and/or time
+    enum class Type
+    {
+      space,
+      time,
+      spacetime
+    } type;
+
+    // The Lp norm used to compute the error in time
+    // The norm for the error in space is given through norms_to_compute
+    // FIXME: do the same for the time
+    enum class TimeLpNorm
+    {
+      L1,
+      L2,
+      Linfty
+    } time_norm;
+
+    // Subtract the mean value from the exact pressure solution.
+    // This must be enabled when performing a convergence study while also
+    // enforcing a zero-mean pressure solution, otherwise both functions
+    // differ by the constant mean.
+    bool subtract_mean_pressure;
+
+    // Force the use of the provided source term in the "Source terms" section,
+    // even during a convergence study. This can be used when the provided exact
+    // solution is really a solution of the system of PDEs for the given source
+    // terms. In that case, the source terms obtained from the MMS are not set.
+    bool force_source_term;
+
+    unsigned int n_convergence;
+    unsigned int current_step = 0;
+    int          run_only_step;
+
+    // FIXME: remove these, and use only the options from the "Mesh" section
+    bool use_deal_ii_cube_mesh;
+    bool use_deal_ii_holed_plate_mesh;
+
+    std::string  mesh_prefix;
+    unsigned int first_mesh_index;
+    unsigned int mesh_suffix = 0;
+
+    std::vector<VectorTools::NormType> norms_to_compute;
+
+    bool         use_space_convergence_mesh;
+    unsigned int spatial_mesh_index;
+    double       time_step_reduction_factor;
+
+    // Options to write the convergence rates to a file
+    bool        write_convergence_table_to_file;
+    std::string convergence_file_prefix;
+    bool        compute_rates_only_at_end;
+
+    // Print the errors for each time step in console
+    bool        print_unsteady_errors_to_console;
+    bool        print_unsteady_errors_to_file;
+    std::string unsteady_errors_file_prefix;
+
+    // For anisotropic mesh adaptation, the target number of vertices for the
+    // current convergence step
+    // FIXME: the GenericSolver should use the full parameters and modify the
+    // metric field parameters instead of duplicating this information
+    unsigned int n_target_vertices;
+    unsigned int n_target_vertices_multiplier;
+
+    unsigned int n_time_intervals_multiplier;
+
+    void override_mesh_filename(Mesh &mesh_param, const unsigned int index)
+    {
+      mesh_param.filename = mesh_prefix + std::to_string(index) + ".msh";
+    }
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  /**
+   * Fluid-structure interaction
+   */
+  template <int dim>
+  struct FSI
+  {
+    Verbosity verbosity;
+
+    bool enable_coupling;
+
+    // True if using a zero mass evolution equation.
+    // This avoids using arbitrary threshold on the mass of the solid to
+    // determine which model to use.
+    bool zero_mass_model;
+
+    double spring_constant;
+    double damping;
+    double mass;
+
+    double cylinder_radius;
+    double cylinder_length;
+
+    Point<dim> cylinder_center;
+
+    // Initial velocity of the solid
+    Tensor<1, dim> initial_velocity;
+
+    /**
+     * Parameters controlling the rigid body rotation of the solid.
+     * Only implemented for the zero-mass model for now.
+     */
+    struct RigidBodyRotation
+    {
+      // Enable rotation around center of rotation
+      bool enable;
+
+      // Fixed center of rotation
+      Point<dim> center;
+    } rotation;
+
+    bool fix_z_component;
+
+    bool compute_error_on_forces;
+
+    enum class CouplingStrategy : unsigned int
+    {
+      all_position_to_all_lambda = 0,
+
+      local_position_master_to_all_lambda = 1,
+
+      global_position_master_to_all_lambda = 2,
+
+      local_position_master_to_lambda_accumulators = 3,
+
+      global_position_master_to_global_accumulator = 4,
+
+    } coupling;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  /**
+   * Solution and derivatives recovery
+   */
+  struct SolutionRecovery
+  {
+    Verbosity verbosity;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+
+  /**
+   * Options for debugging
+   */
+  struct Debug
+  {
+    Verbosity    verbosity;
+    bool         write_dealii_mesh_as_msh;
+    bool         write_partition_pos_gmsh;
+    bool         apply_exact_solution;
+    bool         fsi_apply_erroneous_coupling;
+    bool         fsi_check_mms_on_boundary;
+    unsigned int fsi_coupling_option;
+
+    void declare_parameters(ParameterHandler &prm);
+    void read_parameters(ParameterHandler &prm);
+  };
+} // namespace Parameters
+
+#endif
+

@@ -88,3 +88,6 @@ void transfer_solution_between_refinements(
 
 **Réponse :** l'état supplémentaire est optionnel et mutable : le code teste sa présence puis le réinitialise et le remplit. Les deux références désignent des objets obligatoires, consultés sans modifier leur interface. Un pointeur ne signifie pas ici un transfert de propriété : le propriétaire de l'état reste l'estimateur temporel. [Implémentation](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613), [accès à l'état](https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284)
 
+
+
+<span id="fez-guide-end-fez_prod_distributed_state_transfer"></span>

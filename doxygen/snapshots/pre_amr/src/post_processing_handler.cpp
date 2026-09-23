@@ -1,0 +1,673 @@
+
+#include <post_processing_handler.h>
+#include <postprocessors_and_evaluators.h>
+
+#include <algorithm>
+#include <cmath>
+#include <fstream>
+#include <regex>
+
+namespace
+{
+  double
+  pvd_time_tolerance(const double time)
+  {
+    return 1e-12 * std::max(1.0, std::abs(time));
+  }
+
+  std::vector<std::pair<double, std::string>>
+  read_pvd_entries_until_time(const std::string &filename,
+                              const double       max_time)
+  {
+    std::ifstream input(filename);
+    if (!input)
+      return {};
+
+    const std::regex dataset_regex("<DataSet[^>]*>");
+    const std::regex timestep_regex("timestep=\"([^\"]+)\"");
+    const std::regex file_regex("file=\"([^\"]+)\"");
+    const double     tolerance = pvd_time_tolerance(max_time);
+
+    std::vector<std::pair<double, std::string>> records;
+    std::string                                 line;
+    while (std::getline(input, line))
+    {
+      std::smatch dataset_match;
+      if (!std::regex_search(line, dataset_match, dataset_regex))
+        continue;
+
+      const std::string dataset = dataset_match.str();
+      std::smatch       timestep_match;
+      std::smatch       file_match;
+      if (!std::regex_search(dataset, timestep_match, timestep_regex) ||
+          !std::regex_search(dataset, file_match, file_regex))
+        continue;
+
+      try
+      {
+        const double time = std::stod(timestep_match[1].str());
+        if (time <= max_time + tolerance)
+          records.emplace_back(time, file_match[1].str());
+      }
+      catch (const std::exception &)
+      {}
+    }
+
+    return records;
+  }
+} // namespace
+
+template <int dim>
+PostProcessingHandler<dim>::PostProcessingHandler(
+  const ComponentOrdering                                 &ordering,
+  const ParameterReader<dim>                              &param,
+  const Triangulation<dim>                                &triangulation,
+  const DoFHandler<dim>                                   &dof_handler,
+  const std::vector<std::pair<std::string, unsigned int>> &fields_description)
+  : ordering(ordering)
+  , post_proc_param(param.postprocessing)
+  , output_param(param.output)
+  , physical_properties(param.physical_properties)
+  , mms_param(param.mms_param)
+  , fe_param(param.finite_elements)
+  , triangulation(&triangulation, typeid(*this).name())
+  , dof_handler(&dof_handler, typeid(*this).name())
+  , mpi_communicator(dof_handler.get_mpi_communicator())
+  , mpi_rank(Utilities::MPI::this_mpi_process(mpi_communicator))
+{
+  if (output_param.write_results || output_param.skin.write_results)
+  {
+    solution_names.clear();
+    data_component_interpretation.clear();
+
+    for (const auto &[name, n_comp] : fields_description)
+      for (unsigned int d = 0; d < n_comp; ++d)
+      {
+        solution_names.push_back(name);
+        data_component_interpretation.push_back(
+          n_comp == 1 ?
+            DataComponentInterpretation::component_is_scalar :
+            DataComponentInterpretation::component_is_part_of_vector);
+      }
+  }
+
+  this->attach_triangulation_and_dof_handler(triangulation, dof_handler);
+
+  // Create the required DataPostProcessors
+  {
+    const auto &pp = param.postprocessing;
+    using PP       = Parameters::PostProcessing;
+
+    postprocessors.clear();
+    if (pp.vorticity.enable and
+        pp.vorticity.method == PP::Vorticity::ComputationMethod::discontinuous)
+      postprocessors.emplace_back(
+        std::make_unique<PostProcessingTools::VorticityPostProcessor<dim>>(
+          ordering));
+    if (pp.q_criterion.enable and
+        pp.q_criterion.method ==
+          PP::QCriterion::ComputationMethod::discontinuous)
+      postprocessors.emplace_back(
+        std::make_unique<PostProcessingTools::QCriterionPostProcessor<dim>>(
+          ordering));
+  }
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::attach_triangulation_and_dof_handler(
+  const Triangulation<dim> &triangulation,
+  const DoFHandler<dim>    &dof_handler)
+{
+  Assert(&dof_handler.get_triangulation() == &triangulation,
+         ExcMessage("The provided triangulation does not match the one "
+                    "attached to the provided DoFHandler"));
+
+  // Assign triangulation and dof handler to this object
+  this->triangulation = &triangulation;
+  this->dof_handler   = &dof_handler;
+
+  // Create new DataOuts
+  if (output_param.write_results)
+  {
+    data_out = std::make_unique<DataOut<dim>>();
+    data_out->attach_dof_handler(dof_handler);
+
+    // Write high-order elements if needed
+    if (fe_param.mapping_degree > 1)
+    {
+      DataOutBase::VtkFlags flags;
+      flags.write_higher_order_cells = true;
+      data_out->set_flags(flags);
+    }
+  }
+
+  if (output_param.skin.write_results)
+  {
+    // build_patches is not (yet) implemented for DataOutFaces in hp context,
+    // but at this point the dof_handler might not yet be initialized.
+    // The check is done in output_skin_fields instead.
+    data_out_skin =
+      std::make_unique<PostProcessingTools::DataOutFacesOnBoundary<dim>>(
+        triangulation, output_param.skin.boundary_id);
+    data_out_skin->attach_dof_handler(dof_handler);
+
+    // Write high-order elements if needed
+    if (fe_param.mapping_degree > 1)
+    {
+      DataOutBase::VtkFlags flags;
+      flags.write_higher_order_cells = true;
+      data_out_skin->set_flags(flags);
+    }
+  }
+
+  // Clear the stored cell-based vectors
+  subdomains.reinit(0);
+  slice_indices.reinit(0);
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::write_pvd(const PrefixData &prefix_data) const
+{
+  std::string suffix = "";
+  prefix_data.append_to_prefix_or_suffix(output_param, true, suffix);
+  suffix += ".pvd";
+
+  if (mpi_rank == 0)
+  {
+    if (output_param.write_results)
+    {
+      std::ofstream pvd_output(output_param.output_dir +
+                               output_param.output_prefix + suffix);
+      DataOutBase::write_pvd_record(pvd_output, visualization_times_and_names);
+    }
+    if (output_param.skin.write_results)
+    {
+      std::ofstream pvd_output(output_param.output_dir +
+                               output_param.skin.output_prefix + suffix);
+      DataOutBase::write_pvd_record(pvd_output,
+                                    visualization_times_and_names_skin);
+    }
+    if (!prerefinements_pseudotimes_and_names.empty())
+    {
+      std::ofstream pvd_output(output_param.output_dir +
+                               output_param.output_prefix + suffix);
+      DataOutBase::write_pvd_record(pvd_output,
+                                    prerefinements_pseudotimes_and_names);
+    }
+    if (!prerefinements_pseudotimes_and_names_skin.empty())
+    {
+      std::ofstream pvd_output(output_param.output_dir +
+                               output_param.skin.output_prefix + suffix);
+      DataOutBase::write_pvd_record(pvd_output,
+                                    prerefinements_pseudotimes_and_names_skin);
+    }
+  }
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::restore_pvd_entries_until_time(
+  const double      max_time,
+  const PrefixData &prefix_data)
+{
+  if (mpi_rank != 0)
+    return;
+
+  std::string suffix;
+  prefix_data.append_to_prefix_or_suffix(output_param, true, suffix);
+  suffix += ".pvd";
+
+  if (output_param.write_results)
+    visualization_times_and_names = read_pvd_entries_until_time(
+      output_param.output_dir + output_param.output_prefix + suffix, max_time);
+
+  if (output_param.skin.write_results)
+    visualization_times_and_names_skin = read_pvd_entries_until_time(
+      output_param.output_dir + output_param.skin.output_prefix + suffix,
+      max_time);
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::remove_visualization_record(
+  std::vector<std::pair<double, std::string>> &visualization_records,
+  const double                                 time,
+  const std::string                           &filename) const
+{
+  const double tolerance = pvd_time_tolerance(time);
+  visualization_records.erase(
+    std::remove_if(visualization_records.begin(),
+                   visualization_records.end(),
+                   [&](const auto &record) {
+                     return std::abs(record.first - time) <= tolerance ||
+                            record.second == filename;
+                   }),
+    visualization_records.end());
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::create_slices()
+{
+  const std::string &dir = post_proc_param.slices.along_which_axis;
+
+  AssertThrow(dir == "x" || dir == "y" || (dim == 3 && dir == "z"),
+              ExcMessage(dim == 2 ?
+                           "slicing_direction must be 'x' or 'y' in 2D." :
+                           "slicing_direction must be 'x', 'y' or 'z' in 3D."));
+
+  using SliceAxis      = PostProcessingTools::SliceAxis;
+  const SliceAxis axis = (dir == "x" ? SliceAxis::x :
+                          dir == "y" ? SliceAxis::y :
+                                       SliceAxis::z);
+
+  PostProcessingTools::set_slice_index_on_boundary<dim>(
+    *triangulation,
+    post_proc_param.slices.boundary_id,
+    post_proc_param.slices.n_slices,
+    axis);
+
+  // Store slice indices as cell-based data.
+  // If a face is on the sliced boundary, set its cell slice index to the
+  // face user index.
+  slice_indices.reinit(triangulation->n_active_cells());
+  for (const auto &cell : triangulation->active_cell_iterators())
+    if (cell->is_locally_owned())
+      for (const auto &face : cell->face_iterators())
+        if (face->at_boundary() &&
+            face->boundary_id() == post_proc_param.slices.boundary_id)
+        {
+          slice_indices[cell->active_cell_index()] = face->user_index();
+          break;
+        }
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::clear()
+{
+  if (data_out)
+    data_out->clear_data_vectors();
+  if (data_out_skin)
+    data_out_skin->clear_data_vectors();
+  auxiliary_continuous_fields.clear();
+  visualization_times_and_names.clear();
+  visualization_times_and_names_skin.clear();
+  subdomains.reinit(0);
+  slice_indices.reinit(0);
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::add_force_to_table(
+  const Tensor<1, dim> &forces,
+  const TimeHandler    &time_handler,
+  TableHandler         &force_table,
+  const unsigned int    i_slice)
+{
+  // Write forces to table
+  std::vector<std::string> dim_str = {"x", "y", "z"};
+  force_table.add_value("time", time_handler.current_time);
+  if (i_slice != numbers::invalid_unsigned_int)
+    force_table.add_value("slice", i_slice);
+  for (unsigned int d = 0; d < dim; ++d)
+  {
+    force_table.add_value("F" + dim_str[d], forces[d]);
+    force_table.set_precision("F" + dim_str[d],
+                              post_proc_param.forces.precision);
+    force_table.set_scientific("F" + dim_str[d], true);
+  }
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::add_position_to_table(
+  const Tensor<1, dim> &center_position,
+  const TimeHandler    &time_handler,
+  TableHandler         &table)
+{
+  // Write position to table
+  std::vector<std::string> dim_str = {"x", "y", "z"};
+  table.add_value("time", time_handler.current_time);
+  for (unsigned int d = 0; d < dim; ++d)
+  {
+    table.add_value(dim_str[d], center_position[d]);
+    table.set_precision(dim_str[d],
+                        post_proc_param.structure_position.precision);
+    table.set_scientific(dim_str[d], true);
+  }
+}
+
+template <int dim>
+template <typename DataType>
+void PostProcessingHandler<dim>::add_multiphase_data_to_table(
+  const std::array<DataType, 2>                        &data_for_phases,
+  const TimeHandler                                    &time_handler,
+  TableHandler                                         &table,
+  const Parameters::PostProcessing::PostProcessingFile &pp_param)
+{
+  if constexpr (std::is_same_v<DataType, Tensor<1, dim>>)
+  {
+    std::vector<std::string> dim_str = {"x", "y", "z"};
+    table.add_value("time", time_handler.current_time);
+    for (unsigned int i = 0; i < 2; ++i)
+      for (unsigned int d = 0; d < dim; ++d)
+      {
+        std::string key = "phase" + std::to_string(i) + "_" + dim_str[d];
+        table.add_value(key, data_for_phases[i][d]);
+        table.set_precision(key, pp_param.precision);
+        table.set_scientific(key, true);
+      }
+  }
+  else
+  {
+    table.add_value("time", time_handler.current_time);
+    for (unsigned int i = 0; i < 2; ++i)
+    {
+      std::string key = "phase" + std::to_string(i);
+      table.add_value(key, data_for_phases[i]);
+      table.set_precision(key, pp_param.precision);
+      table.set_scientific(key, true);
+    }
+  }
+}
+
+// Explicit instantiations for dim = 2,3, two phases and double/Tensor<1, dim>
+template void PostProcessingHandler<2>::add_multiphase_data_to_table(
+  const std::array<Tensor<1, 2>, 2> &,
+  const TimeHandler &,
+  TableHandler &,
+  const Parameters::PostProcessing::PostProcessingFile &);
+template void PostProcessingHandler<3>::add_multiphase_data_to_table(
+  const std::array<Tensor<1, 3>, 2> &,
+  const TimeHandler &,
+  TableHandler &,
+  const Parameters::PostProcessing::PostProcessingFile &);
+template void PostProcessingHandler<2>::add_multiphase_data_to_table(
+  const std::array<double, 2> &,
+  const TimeHandler &,
+  TableHandler &,
+  const Parameters::PostProcessing::PostProcessingFile &);
+template void PostProcessingHandler<3>::add_multiphase_data_to_table(
+  const std::array<double, 2> &,
+  const TimeHandler &,
+  TableHandler &,
+  const Parameters::PostProcessing::PostProcessingFile &);
+
+template <int dim>
+void PostProcessingHandler<dim>::write_table(
+  std::ostream                                         &out,
+  const TableHandler                                   &table,
+  const Parameters::PostProcessing::PostProcessingFile &postproc_file) const
+{
+  if (mpi_rank == 0)
+  {
+    out << std::scientific << std::setprecision(postproc_file.precision);
+    table.write_text(out);
+  }
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::write_forces(std::ostream &out) const
+{
+  write_table(out, forces_table, post_proc_param.forces);
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::write_structure_mean_position(
+  std::ostream &out) const
+{
+  write_table(out,
+              structure_mean_position_table,
+              post_proc_param.structure_position);
+}
+
+template <int dim>
+std::unique_ptr<PostProcessingTools::PostprocessorAtDofBase<dim>>
+PostProcessingHandler<dim>::create_field_postprocessor(
+  const PostProcessingTools::PostprocessorAtDofTypes type,
+  const ParameterReader<dim>                        &param,
+  const Mapping<dim>                                &mapping,
+  const Quadrature<dim>                             &cell_quadrature,
+  const bool                                         with_moving_mesh)
+{
+  using namespace PostProcessingTools;
+  using Field       = Parameters::PostProcessing::PostProcessingField;
+  using Vorticity   = Parameters::PostProcessing::Vorticity;
+  using QCriterion  = Parameters::PostProcessing::QCriterion;
+
+  switch (type)
+  {
+    case PostprocessorAtDofTypes::vorticity:
+      switch (param.postprocessing.vorticity.method)
+      {
+        case Vorticity::ComputationMethod::discontinuous:
+          // Nothing to do: the DataPostprocessor was created in the
+          // constructor.
+          return nullptr;
+        case Vorticity::ComputationMethod::l2_projection:
+          return std::make_unique<
+            FieldPostprocessorGenerator<dim, VorticityEvaluator, L2Projection>>(
+            param,
+            ordering,
+            mapping,
+            *dof_handler,
+            cell_quadrature,
+            with_moving_mesh);
+        case Vorticity::ComputationMethod::weighted_average:
+          return std::make_unique<
+            FieldPostprocessorGenerator<dim,
+                                        VorticityEvaluator,
+                                        WeightedAverage>>(param,
+                                                          ordering,
+                                                          mapping,
+                                                          *dof_handler,
+                                                          cell_quadrature,
+                                                          with_moving_mesh);
+        default:
+          DEAL_II_NOT_IMPLEMENTED();
+      }
+    case PostprocessorAtDofTypes::q_criterion:
+      switch (param.postprocessing.q_criterion.method)
+      {
+        case QCriterion::ComputationMethod::discontinuous:
+          // Nothing to do: the DataPostprocessor was created in the
+          // constructor.
+          return nullptr;
+        case QCriterion::ComputationMethod::l2_projection:
+          return std::make_unique<
+            FieldPostprocessorGenerator<dim,
+                                        QCriterionEvaluator,
+                                        L2Projection>>(param,
+                                                       ordering,
+                                                       mapping,
+                                                       *dof_handler,
+                                                       cell_quadrature,
+                                                       with_moving_mesh);
+        case QCriterion::ComputationMethod::weighted_average:
+          return std::make_unique<
+            FieldPostprocessorGenerator<dim,
+                                        QCriterionEvaluator,
+                                        WeightedAverage>>(param,
+                                                          ordering,
+                                                          mapping,
+                                                          *dof_handler,
+                                                          cell_quadrature,
+                                                          with_moving_mesh);
+        default:
+          DEAL_II_NOT_IMPLEMENTED();
+      }
+    case PostprocessorAtDofTypes::mesh_velocity:
+      return std::make_unique<MeshVelocityPostprocessor<dim>>(
+        ordering, param, mapping, *dof_handler, cell_quadrature);
+    case PostprocessorAtDofTypes::density:
+      switch (param.postprocessing.density.method)
+      {
+        case Field::ComputationMethod::l2_projection:
+          return std::make_unique<
+            FieldPostprocessorGenerator<dim, DensityEvaluator, L2Projection>>(
+            param,
+            ordering,
+            mapping,
+            *dof_handler,
+            cell_quadrature,
+            with_moving_mesh);
+        case Field::ComputationMethod::weighted_average:
+          return std::make_unique<FieldPostprocessorGenerator<
+            dim,
+            DensityEvaluator,
+            WeightedAverage>>(param,
+                              ordering,
+                              mapping,
+                              *dof_handler,
+                              cell_quadrature,
+                              with_moving_mesh);
+        case Field::ComputationMethod::discontinuous:
+          AssertThrow(false,
+                      ExcMessage("Density postprocessing supports 'l2 "
+                                 "projection' and 'weighted average'."));
+          return nullptr;
+      }
+      DEAL_II_ASSERT_UNREACHABLE();
+      return nullptr;
+    case PostprocessorAtDofTypes::mobility:
+      switch (param.postprocessing.mobility.method)
+      {
+        case Field::ComputationMethod::l2_projection:
+          return std::make_unique<
+            FieldPostprocessorGenerator<dim, MobilityEvaluator, L2Projection>>(
+            param,
+            ordering,
+            mapping,
+            *dof_handler,
+            cell_quadrature,
+            with_moving_mesh);
+        case Field::ComputationMethod::weighted_average:
+          return std::make_unique<FieldPostprocessorGenerator<
+            dim,
+            MobilityEvaluator,
+            WeightedAverage>>(param,
+                              ordering,
+                              mapping,
+                              *dof_handler,
+                              cell_quadrature,
+                              with_moving_mesh);
+        case Field::ComputationMethod::discontinuous:
+          AssertThrow(false,
+                      ExcMessage("Mobility postprocessing supports 'l2 "
+                                 "projection' and 'weighted average'."));
+          return nullptr;
+      }
+      DEAL_II_ASSERT_UNREACHABLE();
+      return nullptr;
+    case PostprocessorAtDofTypes::mff_physics_compression:
+      switch (param.postprocessing.mff_physics_compression.method)
+      {
+        case Field::ComputationMethod::l2_projection:
+          return std::make_unique<FieldPostprocessorGenerator<
+            dim,
+            MFFPhysicsCompressionEvaluator,
+            L2Projection>>(param,
+                           ordering,
+                           mapping,
+                           *dof_handler,
+                           cell_quadrature,
+                           with_moving_mesh);
+        case Field::ComputationMethod::weighted_average:
+          return std::make_unique<FieldPostprocessorGenerator<
+            dim,
+            MFFPhysicsCompressionEvaluator,
+            WeightedAverage>>(param,
+                              ordering,
+                              mapping,
+                              *dof_handler,
+                              cell_quadrature,
+                              with_moving_mesh);
+        case Field::ComputationMethod::discontinuous:
+          AssertThrow(false,
+                      ExcMessage("Mesh-forcing postprocessing supports 'l2 "
+                                 "projection' and 'weighted average'."));
+          return nullptr;
+      }
+      DEAL_II_ASSERT_UNREACHABLE();
+      return nullptr;
+    case PostprocessorAtDofTypes::mff_enlarged_compression:
+      switch (param.postprocessing.mff_enlarged_compression.method)
+      {
+        case Field::ComputationMethod::l2_projection:
+          return std::make_unique<FieldPostprocessorGenerator<
+            dim,
+            MFFEnlargedCompressionEvaluator,
+            L2Projection>>(param,
+                           ordering,
+                           mapping,
+                           *dof_handler,
+                           cell_quadrature,
+                           with_moving_mesh);
+        case Field::ComputationMethod::weighted_average:
+          return std::make_unique<FieldPostprocessorGenerator<
+            dim,
+            MFFEnlargedCompressionEvaluator,
+            WeightedAverage>>(param,
+                              ordering,
+                              mapping,
+                              *dof_handler,
+                              cell_quadrature,
+                              with_moving_mesh);
+        case Field::ComputationMethod::discontinuous:
+          AssertThrow(false,
+                      ExcMessage("Mesh-forcing postprocessing supports 'l2 "
+                                 "projection' and 'weighted average'."));
+          return nullptr;
+      }
+      DEAL_II_ASSERT_UNREACHABLE();
+      return nullptr;
+    case PostprocessorAtDofTypes::mff_transport:
+      switch (param.postprocessing.mff_transport.method)
+      {
+        case Field::ComputationMethod::l2_projection:
+          return std::make_unique<FieldPostprocessorGenerator<
+            dim,
+            MFFTransportEvaluator,
+            L2Projection>>(param,
+                           ordering,
+                           mapping,
+                           *dof_handler,
+                           cell_quadrature,
+                           with_moving_mesh);
+        case Field::ComputationMethod::weighted_average:
+          return std::make_unique<FieldPostprocessorGenerator<
+            dim,
+            MFFTransportEvaluator,
+            WeightedAverage>>(param,
+                              ordering,
+                              mapping,
+                              *dof_handler,
+                              cell_quadrature,
+                              with_moving_mesh);
+        case Field::ComputationMethod::discontinuous:
+          AssertThrow(false,
+                      ExcMessage("Mesh-forcing postprocessing supports 'l2 "
+                                 "projection' and 'weighted average'."));
+          return nullptr;
+      }
+      DEAL_II_ASSERT_UNREACHABLE();
+      return nullptr;
+    default:
+      DEAL_II_NOT_IMPLEMENTED();
+  }
+  DEAL_II_ASSERT_UNREACHABLE();
+  return nullptr;
+}
+
+template <int dim>
+void PostProcessingHandler<dim>::create_field_postprocessors(
+  const ParameterReader<dim> &param,
+  const Mapping<dim>         &mapping,
+  const Quadrature<dim>      &cell_quadrature,
+  const bool                  with_moving_mesh)
+{
+  for (const auto &[type, postprocessor_param_ptr] :
+       param.postprocessing.field_postprocessors)
+    if (postprocessor_param_ptr->enable)
+      field_postprocessors[type] = create_field_postprocessor(
+        type, param, mapping, cell_quadrature, with_moving_mesh);
+}
+
+template class PostProcessingHandler<2>;
+template class PostProcessingHandler<3>;
+

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_output_1_1_skin" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Output::Skin</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1_1_skin_1a6023d3cd3e8ab1465f150afd35a4be41" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Output::Skin::write_results</definition>
+        <argsstring></argsstring>
+        <name>write_results</name>
+        <qualifiedname>Parameters::Output::Skin::write_results</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="301" column="26" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1_1_skin_1ac2f726c8fc1bb4295b89c993f8f35ac1" prot="public" static="no" mutable="no">
+        <type>types::boundary_id</type>
+        <definition>types::boundary_id Parameters::Output::Skin::boundary_id</definition>
+        <argsstring></argsstring>
+        <name>boundary_id</name>
+        <qualifiedname>Parameters::Output::Skin::boundary_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="302" column="26" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1_1_skin_1a5d7cc7258588f8316045e5cc04f9a5a8" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Output::Skin::output_prefix</definition>
+        <argsstring></argsstring>
+        <name>output_prefix</name>
+        <qualifiedname>Parameters::Output::Skin::output_prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="303" column="26" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_output_1_1_skin_1afc8558e550184fad8fd616c5111d9eb5" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Output::Skin::output_frequency</definition>
+        <argsstring></argsstring>
+        <name>output_frequency</name>
+        <qualifiedname>Parameters::Output::Skin::output_frequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="304" column="26" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="299" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="300" bodyend="305"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_output_1_1_skin_1ac2f726c8fc1bb4295b89c993f8f35ac1" prot="public" virt="non-virtual"><scope>Parameters::Output::Skin</scope><name>boundary_id</name></member>
+      <member refid="struct_parameters_1_1_output_1_1_skin_1afc8558e550184fad8fd616c5111d9eb5" prot="public" virt="non-virtual"><scope>Parameters::Output::Skin</scope><name>output_frequency</name></member>
+      <member refid="struct_parameters_1_1_output_1_1_skin_1a5d7cc7258588f8316045e5cc04f9a5a8" prot="public" virt="non-virtual"><scope>Parameters::Output::Skin</scope><name>output_prefix</name></member>
+      <member refid="struct_parameters_1_1_output_1_1_skin_1a6023d3cd3e8ab1465f150afd35a4be41" prot="public" virt="non-virtual"><scope>Parameters::Output::Skin</scope><name>write_results</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

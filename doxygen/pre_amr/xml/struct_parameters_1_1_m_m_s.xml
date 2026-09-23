@@ -1,0 +1,541 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_m_m_s" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::MMS</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_m_m_s_1a57853a2f738bbf5cd5c0266df2e291bc" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>Parameters::MMS::Type</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_m_m_s_1a57853a2f738bbf5cd5c0266df2e291bcaff2364a0be3d20e46cc69efb36afe9a5" prot="public">
+          <name>space</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_m_m_s_1a57853a2f738bbf5cd5c0266df2e291bca07cc694b9b3fc636710fa08b6922c42b" prot="public">
+          <name>time</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_m_m_s_1a57853a2f738bbf5cd5c0266df2e291bca63f4d9345f8f1f8a94ab6beb46ffa5fd" prot="public">
+          <name>spacetime</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1029" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1030" bodyend="1034"/>
+      </memberdef>
+      <memberdef kind="enum" id="struct_parameters_1_1_m_m_s_1a5662a80cffc912a6e13e55e88b4aea9a" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>TimeLpNorm</name>
+        <qualifiedname>Parameters::MMS::TimeLpNorm</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_m_m_s_1a5662a80cffc912a6e13e55e88b4aea9aa9ec4c0afd450ceac7adb81c3bcfc9732" prot="public">
+          <name>L1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_m_m_s_1a5662a80cffc912a6e13e55e88b4aea9aa7e6aa2d53f6ee2b1a34b017fa403cb76" prot="public">
+          <name>L2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_m_m_s_1a5662a80cffc912a6e13e55e88b4aea9aae35febae1a418727baccfd61e7876208" prot="public">
+          <name>Linfty</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1039" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1040" bodyend="1044"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a3e1d2286f7136520ba1dc2f74ab64ffa" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::enable</definition>
+        <argsstring></argsstring>
+        <name>enable</name>
+        <qualifiedname>Parameters::MMS::enable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1026" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1026" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1af0dcd9d11de85b5582258a4fb2e07a8a" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_m_m_s_1a57853a2f738bbf5cd5c0266df2e291bc" kindref="member">Parameters::MMS::Type</ref></type>
+        <definition>enum Parameters::MMS::Type Parameters::MMS::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Parameters::MMS::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1034" column="10"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a20741f385c645bb22ae3e9f1a150cc80" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_m_m_s_1a5662a80cffc912a6e13e55e88b4aea9a" kindref="member">Parameters::MMS::TimeLpNorm</ref></type>
+        <definition>enum Parameters::MMS::TimeLpNorm Parameters::MMS::time_norm</definition>
+        <argsstring></argsstring>
+        <name>time_norm</name>
+        <qualifiedname>Parameters::MMS::time_norm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1044" column="15"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a3cd13d759b8a69b59c9bfc8b243734c3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::subtract_mean_pressure</definition>
+        <argsstring></argsstring>
+        <name>subtract_mean_pressure</name>
+        <qualifiedname>Parameters::MMS::subtract_mean_pressure</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1050" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1050" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a777d9db3d2cb6d9edaafaa9eb4f0831f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::force_source_term</definition>
+        <argsstring></argsstring>
+        <name>force_source_term</name>
+        <qualifiedname>Parameters::MMS::force_source_term</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1056" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1056" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1ae08f0d1ca3d4d21f5a52fcc10307636d" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::MMS::n_convergence</definition>
+        <argsstring></argsstring>
+        <name>n_convergence</name>
+        <qualifiedname>Parameters::MMS::n_convergence</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1058" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1058" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1af33a33372a1638516851c9e294455eb8" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::MMS::current_step</definition>
+        <argsstring></argsstring>
+        <name>current_step</name>
+        <qualifiedname>Parameters::MMS::current_step</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1059" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1059" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1aa93fed5773e8e33a7e630575be5b33f0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Parameters::MMS::run_only_step</definition>
+        <argsstring></argsstring>
+        <name>run_only_step</name>
+        <qualifiedname>Parameters::MMS::run_only_step</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1060" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1060" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a066090f9626f713da589b905aba38174" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::use_deal_ii_cube_mesh</definition>
+        <argsstring></argsstring>
+        <name>use_deal_ii_cube_mesh</name>
+        <qualifiedname>Parameters::MMS::use_deal_ii_cube_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1063" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1063" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a182d1022ca28749d5649ee6945072914" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::use_deal_ii_holed_plate_mesh</definition>
+        <argsstring></argsstring>
+        <name>use_deal_ii_holed_plate_mesh</name>
+        <qualifiedname>Parameters::MMS::use_deal_ii_holed_plate_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1064" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1064" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1ae6162b63176591c30606ab4ebee52453" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::MMS::mesh_prefix</definition>
+        <argsstring></argsstring>
+        <name>mesh_prefix</name>
+        <qualifiedname>Parameters::MMS::mesh_prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1066" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1066" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a6c1a8d99d3590c711c6668d72dae185e" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::MMS::first_mesh_index</definition>
+        <argsstring></argsstring>
+        <name>first_mesh_index</name>
+        <qualifiedname>Parameters::MMS::first_mesh_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1067" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1067" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1aa64e5f86bbb960552c5f8ce8601d93f7" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::MMS::mesh_suffix</definition>
+        <argsstring></argsstring>
+        <name>mesh_suffix</name>
+        <qualifiedname>Parameters::MMS::mesh_suffix</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1068" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1068" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1aa179ff1d0cb2d28ff658238b630d5569" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; VectorTools::NormType &gt;</type>
+        <definition>std::vector&lt;VectorTools::NormType&gt; Parameters::MMS::norms_to_compute</definition>
+        <argsstring></argsstring>
+        <name>norms_to_compute</name>
+        <qualifiedname>Parameters::MMS::norms_to_compute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1070" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1070" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a44c30991064aaef8bc4e79f46a451626" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::use_space_convergence_mesh</definition>
+        <argsstring></argsstring>
+        <name>use_space_convergence_mesh</name>
+        <qualifiedname>Parameters::MMS::use_space_convergence_mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1072" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1072" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a1a486aa1d2b5dcfb9721e996e215df80" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::MMS::spatial_mesh_index</definition>
+        <argsstring></argsstring>
+        <name>spatial_mesh_index</name>
+        <qualifiedname>Parameters::MMS::spatial_mesh_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1073" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1073" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a6dfddfc3b1d42af481598956ef372955" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::MMS::time_step_reduction_factor</definition>
+        <argsstring></argsstring>
+        <name>time_step_reduction_factor</name>
+        <qualifiedname>Parameters::MMS::time_step_reduction_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1074" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1074" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1aef733460e49b515c4fbb1a5c358e7dd8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::write_convergence_table_to_file</definition>
+        <argsstring></argsstring>
+        <name>write_convergence_table_to_file</name>
+        <qualifiedname>Parameters::MMS::write_convergence_table_to_file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1077" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1077" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a59f12c0b0044eba1055115015909f8e5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::MMS::convergence_file_prefix</definition>
+        <argsstring></argsstring>
+        <name>convergence_file_prefix</name>
+        <qualifiedname>Parameters::MMS::convergence_file_prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1078" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1078" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a480ba815a817ffce2c6c9e8e95306353" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::compute_rates_only_at_end</definition>
+        <argsstring></argsstring>
+        <name>compute_rates_only_at_end</name>
+        <qualifiedname>Parameters::MMS::compute_rates_only_at_end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1079" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1079" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a4de555cb5d994489c34ffca51ad453a4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::print_unsteady_errors_to_console</definition>
+        <argsstring></argsstring>
+        <name>print_unsteady_errors_to_console</name>
+        <qualifiedname>Parameters::MMS::print_unsteady_errors_to_console</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1082" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1082" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1aad93f0b7339763ab8394f3173efa84f7" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::MMS::print_unsteady_errors_to_file</definition>
+        <argsstring></argsstring>
+        <name>print_unsteady_errors_to_file</name>
+        <qualifiedname>Parameters::MMS::print_unsteady_errors_to_file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1083" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1083" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a3751c9e31eae2084de925dac10e878f2" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::MMS::unsteady_errors_file_prefix</definition>
+        <argsstring></argsstring>
+        <name>unsteady_errors_file_prefix</name>
+        <qualifiedname>Parameters::MMS::unsteady_errors_file_prefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1084" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1084" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1adbfcd982d11b75a4d69308440554e0f4" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::MMS::n_target_vertices</definition>
+        <argsstring></argsstring>
+        <name>n_target_vertices</name>
+        <qualifiedname>Parameters::MMS::n_target_vertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1090" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1090" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1adc3694b5fae806072b406892daeca97e" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::MMS::n_target_vertices_multiplier</definition>
+        <argsstring></argsstring>
+        <name>n_target_vertices_multiplier</name>
+        <qualifiedname>Parameters::MMS::n_target_vertices_multiplier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1091" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1091" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_m_m_s_1a45f65aeb0ab12140c936b3c7471c5a77" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::MMS::n_time_intervals_multiplier</definition>
+        <argsstring></argsstring>
+        <name>n_time_intervals_multiplier</name>
+        <qualifiedname>Parameters::MMS::n_time_intervals_multiplier</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1093" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1093" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_m_m_s_1a6ae703f936953823e02b5953ff2f791d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::MMS::override_mesh_filename</definition>
+        <argsstring>(Mesh &amp;mesh_param, const unsigned int index)</argsstring>
+        <name>override_mesh_filename</name>
+        <qualifiedname>Parameters::MMS::override_mesh_filename</qualifiedname>
+        <param>
+          <type><ref refid="struct_parameters_1_1_mesh" kindref="compound">Mesh</ref> &amp;</type>
+          <declname>mesh_param</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1095" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1095" bodyend="1098"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_m_m_s_1ac15c82ac4f57da1b7c59c99c7699ed43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::MMS::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::MMS::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1100" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2096" bodyend="2229"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_m_m_s_1ae2028e665a89a2349ff693691893b076" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::MMS::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::MMS::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1101" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2231" bodyend="2292"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="1024" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1025" bodyend="1102"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_m_m_s_1a480ba815a817ffce2c6c9e8e95306353" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>compute_rates_only_at_end</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a59f12c0b0044eba1055115015909f8e5" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>convergence_file_prefix</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1af33a33372a1638516851c9e294455eb8" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>current_step</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1ac15c82ac4f57da1b7c59c99c7699ed43" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a3e1d2286f7136520ba1dc2f74ab64ffa" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a6c1a8d99d3590c711c6668d72dae185e" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>first_mesh_index</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a777d9db3d2cb6d9edaafaa9eb4f0831f" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>force_source_term</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1ae6162b63176591c30606ab4ebee52453" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>mesh_prefix</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1aa64e5f86bbb960552c5f8ce8601d93f7" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>mesh_suffix</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1ae08f0d1ca3d4d21f5a52fcc10307636d" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>n_convergence</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1adbfcd982d11b75a4d69308440554e0f4" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>n_target_vertices</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1adc3694b5fae806072b406892daeca97e" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>n_target_vertices_multiplier</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a45f65aeb0ab12140c936b3c7471c5a77" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>n_time_intervals_multiplier</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1aa179ff1d0cb2d28ff658238b630d5569" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>norms_to_compute</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a6ae703f936953823e02b5953ff2f791d" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>override_mesh_filename</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a4de555cb5d994489c34ffca51ad453a4" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>print_unsteady_errors_to_console</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1aad93f0b7339763ab8394f3173efa84f7" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>print_unsteady_errors_to_file</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1ae2028e665a89a2349ff693691893b076" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1aa93fed5773e8e33a7e630575be5b33f0" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>run_only_step</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a1a486aa1d2b5dcfb9721e996e215df80" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>spatial_mesh_index</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a3cd13d759b8a69b59c9bfc8b243734c3" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>subtract_mean_pressure</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a20741f385c645bb22ae3e9f1a150cc80" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>time_norm</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a6dfddfc3b1d42af481598956ef372955" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>time_step_reduction_factor</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a5662a80cffc912a6e13e55e88b4aea9a" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>TimeLpNorm</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a57853a2f738bbf5cd5c0266df2e291bc" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>Type</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1af0dcd9d11de85b5582258a4fb2e07a8a" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>type</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a3751c9e31eae2084de925dac10e878f2" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>unsteady_errors_file_prefix</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a066090f9626f713da589b905aba38174" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>use_deal_ii_cube_mesh</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a182d1022ca28749d5649ee6945072914" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>use_deal_ii_holed_plate_mesh</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1a44c30991064aaef8bc4e79f46a451626" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>use_space_convergence_mesh</name></member>
+      <member refid="struct_parameters_1_1_m_m_s_1aef733460e49b515c4fbb1a5c358e7dd8" prot="public" virt="non-virtual"><scope>Parameters::MMS</scope><name>write_convergence_table_to_file</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

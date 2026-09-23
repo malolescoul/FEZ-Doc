@@ -43,6 +43,9 @@
 <codeline><highlight class="normal">-<sp/>Modifier<sp/>forces/couples<sp/>:<sp/>relire<sp/>l’origine<sp/>physique<sp/>de<sp/>la<sp/>pression<sp/>et<sp/>la<sp/>convention<sp/>de<sp/>signe,<sp/>ainsi<sp/>que<sp/>la<sp/>stratégie<sp/>de<sp/>couplage.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Ces<sp/>pistes<sp/>sont<sp/>des<sp/>obligations<sp/>de<sp/>revue,<sp/>pas<sp/>des<sp/>défauts<sp/>démontrés.<sp/>Aucun<sp/>calcul<sp/>FSI<sp/>n’a<sp/>été<sp/>exécuté<sp/>aujourd’hui.<sp/>Lecture<sp/>fine<sp/>restante<sp/>:<sp/>variantes<sp/>de<sp/>couplage,<sp/>rotation,<sp/>différence<sp/>entre<sp/>les<sp/>deux<sp/>implémentations<sp/>FSI,<sp/>formulations<sp/>des<sp/>assembleurs<sp/>de<sp/>frontière<sp/>et<sp/>cas<sp/>tests<sp/>multi-rangs.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;span<sp/>id=&quot;fez-guide-end-fez_master_fsi_monolithic&quot;&gt;&lt;/span&gt;</highlight></codeline>
     </programlisting>
     <location file="guides/master/features/fsi-monolithic.md"/>
   </compounddef>

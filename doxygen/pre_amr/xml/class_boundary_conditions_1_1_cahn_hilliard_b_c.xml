@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_boundary_conditions_1_1_cahn_hilliard_b_c" kind="class" language="C++" prot="public">
+    <compoundname>BoundaryConditions::CahnHilliardBC</compoundname>
+    <basecompoundref refid="class_boundary_conditions_1_1_boundary_condition" prot="public" virt="non-virtual">BoundaryConditions::BoundaryCondition</basecompoundref>
+    <includes refid="boundary__conditions_8h" local="no">boundary_conditions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_cahn_hilliard_b_c_1a245524490085f1368e96dfa181752127" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::CahnHilliardBC&lt; dim &gt;::tracer</definition>
+        <argsstring></argsstring>
+        <name>tracer</name>
+        <qualifiedname>BoundaryConditions::CahnHilliardBC::tracer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="225" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_cahn_hilliard_b_c_1aa7929eedc38a83368d4bc7c106ed0891" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double BoundaryConditions::CahnHilliardBC&lt; dim &gt;::contact_angle</definition>
+        <argsstring></argsstring>
+        <name>contact_angle</name>
+        <qualifiedname>BoundaryConditions::CahnHilliardBC::contact_angle</qualifiedname>
+        <initializer>= -1.</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="231" column="12" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_boundary_conditions_1_1_cahn_hilliard_b_c_1ae56a759080a4a52dd86f1bc07e361504" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BoundaryConditions::CahnHilliardBC&lt; dim &gt;::CahnHilliardBC</definition>
+        <argsstring>()</argsstring>
+        <name>CahnHilliardBC</name>
+        <qualifiedname>BoundaryConditions::CahnHilliardBC::CahnHilliardBC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="233" column="5" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="233" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_cahn_hilliard_b_c_1abd734e7a0e1d08462edf16815400c0c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::CahnHilliardBC&lt; dim &gt;::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm) override</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>BoundaryConditions::CahnHilliardBC::declare_parameters</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1ab99ddaf1ec917586c4141fd30e431759">declare_parameters</reimplements>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare the parameters common to all boundary conditions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="237" column="18" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="274" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_cahn_hilliard_b_c_1a6ac6c2d6872ba8b7232e6ac50d90824d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::CahnHilliardBC&lt; dim &gt;::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm) override</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>BoundaryConditions::CahnHilliardBC::read_parameters</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1aa3c05a55d7ae593ea61091ab0bf915f5">read_parameters</reimplements>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="238" column="18" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="295" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_cahn_hilliard_b_c_1a703a7e268ac90fd905d3c9ce38764a8a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BoundaryConditions::CahnHilliardBC&lt; dim &gt;::set_time</definition>
+        <argsstring>(const double new_time) override</argsstring>
+        <name>set_time</name>
+        <qualifiedname>BoundaryConditions::CahnHilliardBC::set_time</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1ac8601a76cd1f468d25975d4a6d9bacd0">set_time</reimplements>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the time in the underlying functions, if applicable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="239" column="18" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="239" bodyend="242"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A boundary condition for the Cahn-Hilliard tracer and potential. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BoundaryConditions::BoundaryCondition</label>
+        <link refid="class_boundary_conditions_1_1_boundary_condition"/>
+      </node>
+      <node id="1">
+        <label>BoundaryConditions::CahnHilliardBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_cahn_hilliard_b_c"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BoundaryConditions::BoundaryCondition</label>
+        <link refid="class_boundary_conditions_1_1_boundary_condition"/>
+      </node>
+      <node id="1">
+        <label>BoundaryConditions::CahnHilliardBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_cahn_hilliard_b_c"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/boundary_conditions.h" line="221" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="222" bodyend="243"/>
+    <listofallmembers>
+      <member refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1ae56a759080a4a52dd86f1bc07e361504" prot="public" virt="non-virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>CahnHilliardBC</name></member>
+      <member refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1aa7929eedc38a83368d4bc7c106ed0891" prot="public" virt="non-virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>contact_angle</name></member>
+      <member refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1abd734e7a0e1d08462edf16815400c0c4" prot="public" virt="virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>declare_parameters</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a730333d397ccd4d49cc78a424536d264" prot="public" virt="non-virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>gmsh_name</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a21dd6156d2d579105e522638da6d71ab" prot="public" virt="non-virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>id</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a480b59f4d819a3ff30f292fca6b0db3f" prot="public" virt="non-virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>physics_str</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1abfd5fc36dd938e4e9aa8dfd1ac4b5131" prot="public" virt="non-virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>physics_type</name></member>
+      <member refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1a6ac6c2d6872ba8b7232e6ac50d90824d" prot="public" virt="virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>read_parameters</name></member>
+      <member refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1a703a7e268ac90fd905d3c9ce38764a8a" prot="public" virt="virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>set_time</name></member>
+      <member refid="class_boundary_conditions_1_1_cahn_hilliard_b_c_1a245524490085f1368e96dfa181752127" prot="public" virt="non-virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>tracer</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1ab7b990328424a2c3e822e765c23d98fc" prot="public" virt="non-virtual"><scope>BoundaryConditions::CahnHilliardBC</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_post_processing_1_1_post_processing_base" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::PostProcessing::PostProcessingBase</compoundname>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_post_processing_field" prot="public" virt="non-virtual">Parameters::PostProcessing::PostProcessingField</derivedcompoundref>
+    <derivedcompoundref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file" prot="public" virt="non-virtual">Parameters::PostProcessing::PostProcessingFile</derivedcompoundref>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a3379bfae8b9213020cae832594e8de6f" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::PostProcessing::PostProcessingBase::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::PostProcessing::PostProcessingBase::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="316" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a921eee483d06be1b60f73ad5194704cf" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::PostProcessing::PostProcessingBase::enable</definition>
+        <argsstring></argsstring>
+        <name>enable</name>
+        <qualifiedname>Parameters::PostProcessing::PostProcessingBase::enable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="319" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a5a598c5e51421aaa8a2afc09c4b04389" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::PostProcessing::PostProcessingBase::output_frequency</definition>
+        <argsstring></argsstring>
+        <name>output_frequency</name>
+        <qualifiedname>Parameters::PostProcessing::PostProcessingBase::output_frequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="322" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="12">
+        <label>Parameters::PostProcessing::CHNSPhasesAvgVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_avg_velocity"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Parameters::PostProcessing::CHNSPhasesCenterOfMass</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_center_of_mass"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Parameters::PostProcessing::CHNSPhasesVolume</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_c_h_n_s_phases_volume"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::Density</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_density"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Parameters::PostProcessing::FieldIntegral</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_field_integral"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Parameters::PostProcessing::Forces</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_forces"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Parameters::PostProcessing::LineProbe</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_line_probe"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Parameters::PostProcessing::MFFEnlargedCompression</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_enlarged_compression"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Parameters::PostProcessing::MFFPhysicsCompression</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_physics_compression"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Parameters::PostProcessing::MFFTransport</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_m_f_f_transport"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Parameters::PostProcessing::MeshVelocity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mesh_velocity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Parameters::PostProcessing::Mobility</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_mobility"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingField</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_field"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Parameters::PostProcessing::PostProcessingFileBoundary</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Parameters::PostProcessing::QCriterion</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_q_criterion"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Parameters::PostProcessing::Slices</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_slices"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Parameters::PostProcessing::StructurePosition</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_structure_position"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>Parameters::PostProcessing::TimeScales</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_time_scales"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Parameters::PostProcessing::Vorticity</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_vorticity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="314" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="315" bodyend="323"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a921eee483d06be1b60f73ad5194704cf" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingBase</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a5a598c5e51421aaa8a2afc09c4b04389" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingBase</scope><name>output_frequency</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a3379bfae8b9213020cae832594e8de6f" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::PostProcessingBase</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

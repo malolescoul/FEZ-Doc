@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_mesh_1_1_adaptation" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Mesh::Adaptation</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric" prot="public">Parameters::Mesh::Adaptation::Metric</innerclass>
+    <innerclass refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_tree_a_m_r" prot="public">Parameters::Mesh::Adaptation::TreeAMR</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_mesh_1_1_adaptation_1a2a165a1681bf9fb5586e20ed9679201f" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Strategy</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Strategy</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_mesh_1_1_adaptation_1a2a165a1681bf9fb5586e20ed9679201fa74ab63472de1083253beb88e4dd1e44f" prot="public">
+          <name>RiemannianMetric</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_mesh_1_1_adaptation_1a2a165a1681bf9fb5586e20ed9679201fa977a44d4802f7ac9cb2d78bd2b1a45ec" prot="public">
+          <name>LocalRefinement</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Available mesh adaptation strategies:<itemizedlist>
+<listitem><para>adaptation with a Riemannian metric, originating from one or more FE fields. For simplicial meshes only, as anisotropic metric-based meshing libraries exist only for simplicial meshes for now.</para>
+</listitem><listitem><para>(not yet implemented:) hierarchical adaptation, using deal.II&apos;s routines and p4est. For quad/hex meshes only. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="130" column="7" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="131" bodyend="134"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1aeb3d6bd7a941f793364ff40c6bde51d5" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::Mesh::Adaptation::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="112" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1a6a11618e9a2f93e3ed1581589d28a856" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Mesh::Adaptation::enable</definition>
+        <argsstring></argsstring>
+        <name>enable</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::enable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="114" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1aceec89a290e22006ed7a5760864f14a3" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Mesh::Adaptation::adapt_dir</definition>
+        <argsstring></argsstring>
+        <name>adapt_dir</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::adapt_dir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="117" column="19" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1a0d8936f3edda686d838d208e2761b97f" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::Mesh::Adaptation::adapted_mesh_extension</definition>
+        <argsstring></argsstring>
+        <name>adapted_mesh_extension</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::adapted_mesh_extension</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="120" column="19" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1aed4a57eff6b9a5b27c838b7e546e636e" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_mesh_1_1_adaptation_1a2a165a1681bf9fb5586e20ed9679201f" kindref="member">Parameters::Mesh::Adaptation::Strategy</ref></type>
+        <definition>enum Parameters::Mesh::Adaptation::Strategy Parameters::Mesh::Adaptation::strategy</definition>
+        <argsstring></argsstring>
+        <name>strategy</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::strategy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="134" column="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1a9444f5ae93bb4392b00b9d4745112c64" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric" kindref="compound">Parameters::Mesh::Adaptation::Metric</ref></type>
+        <definition>struct Parameters::Mesh::Adaptation::Metric Parameters::Mesh::Adaptation::metric</definition>
+        <argsstring></argsstring>
+        <name>metric</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::metric</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="214" column="14"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1afd278c05232c8c85936a9623cba2d61d" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_tree_a_m_r" kindref="compound">Parameters::Mesh::Adaptation::TreeAMR</ref></type>
+        <definition>struct Parameters::Mesh::Adaptation::TreeAMR Parameters::Mesh::Adaptation::tree_amr</definition>
+        <argsstring></argsstring>
+        <name>tree_amr</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::tree_amr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="256" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_mesh_1_1_adaptation_1a59697e307cad7a7dde30f59b40eb9118" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Parameters::Mesh::Adaptation::with_metric_based_adaptation</definition>
+        <argsstring>() const</argsstring>
+        <name>with_metric_based_adaptation</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::with_metric_based_adaptation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="136" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_mesh_1_1_adaptation_1abd8f0ae25270b5d282f17f8ce00852ac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Parameters::Mesh::Adaptation::with_tree_based_adaptation</definition>
+        <argsstring>() const</argsstring>
+        <name>with_tree_based_adaptation</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::with_tree_based_adaptation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="141" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="141" bodyend="144"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespace_parameters" kindref="compound">Parameters</ref> controlling the mesh adaptation procedure </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::Mesh::Adaptation</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>metric</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>tree_amr</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::Mesh::Adaptation::Metric</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>fixed_point_updates</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>chns_interface_thickness</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base"/>
+      </node>
+      <node id="6">
+        <label>Parameters::Mesh::Adaptation::TreeAMR</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_tree_a_m_r"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="110" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="111" bodyend="257"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1aceec89a290e22006ed7a5760864f14a3" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>adapt_dir</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1a0d8936f3edda686d838d208e2761b97f" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>adapted_mesh_extension</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1a6a11618e9a2f93e3ed1581589d28a856" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1a9444f5ae93bb4392b00b9d4745112c64" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>metric</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1a2a165a1681bf9fb5586e20ed9679201f" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>Strategy</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1aed4a57eff6b9a5b27c838b7e546e636e" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>strategy</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1afd278c05232c8c85936a9623cba2d61d" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>tree_amr</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1aeb3d6bd7a941f793364ff40c6bde51d5" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>verbosity</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1a59697e307cad7a7dde30f59b40eb9118" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>with_metric_based_adaptation</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1abd8f0ae25270b5d282f17f8ce00852ac" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation</scope><name>with_tree_based_adaptation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

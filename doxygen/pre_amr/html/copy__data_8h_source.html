@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR:  Fichier source de snapshots/pre_amr/include/copy_data.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('copy__data_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">copy_data.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="copy__data_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef COPY_DATA_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define COPY_DATA_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;deal.II/hp/fe_collection.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;deal.II/lac/full_matrix.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;deal.II/lac/vector.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;deal.II/meshworker/copy_data.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using namespace </span>dealii;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"></span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * A CopyData is a helper structure used to copy the local matrix and RHS</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * contributions to the global system, see for instance the deal.II doc of</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * meshworker/copy_data.h and the run() functions in work_stream.h.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"></span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * This class describes a CopyData which can be used with solvers where one</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * FESystem is defined on a part of the domain, and one or more other systems</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * are defined on some other partitions, using the hp tools from deal.II in the</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * spirit of the step-46 examples. To this end, this class is templated on the</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * number of partitions, the regular CopyData structure being simply the case</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * n_hp_partitions = 1.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * This class basically holds &quot;n_hp_partitions&quot; copies of</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * the local matrix, local rhs and local dof indices, which is exactly what a</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * MeshWorker::CopyData does, and is thus derived from that class.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * This class&#39;s name is CopyDataBase, so that we can use an alias in the</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * definition of the various derived solvers, for instance:</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * using CopyData = CopyDataBase&lt;1&gt;;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * This is not possible if this class&#39;s name is CopyData, as otherwise the</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * compiler says that this typedef changes the meaning of CopyData. Thus, we&#39;re</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * simply using any other name that CopyData, which is then used as the local</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * alias in most solvers.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_hp_partitions = 1&gt;</div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_copy_data_base.html">   38</a></span><span class="keyword">class </span><a class="code hl_function" href="class_copy_data_base.html#a22b77b8ee976ae1b25dd7fbe77026fd8">CopyDataBase</a> : <span class="keyword">public</span> MeshWorker::CopyData&lt;n_hp_partitions&gt;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">   * Constructor with non-hp FiniteElement simply calls the hp-constructor</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">   * below.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a22b77b8ee976ae1b25dd7fbe77026fd8">   46</a></span>  <a class="code hl_function" href="class_copy_data_base.html#a22b77b8ee976ae1b25dd7fbe77026fd8">CopyDataBase</a>(<span class="keyword">const</span> FiniteElement&lt;dim&gt; &amp;fe)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    : <a class="code hl_function" href="class_copy_data_base.html#a22b77b8ee976ae1b25dd7fbe77026fd8">CopyDataBase</a>(hp::FECollection&lt;dim&gt;(fe))</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  {}</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"></span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">   * Constructor with hp FECollection.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a60013d23f99da5287c0708af7e831793">   54</a></span>  <a class="code hl_function" href="class_copy_data_base.html#a60013d23f99da5287c0708af7e831793">CopyDataBase</a>(<span class="keyword">const</span> hp::FECollection&lt;dim&gt; &amp;fe_collection)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    : MeshWorker::CopyData&lt;n_hp_partitions&gt;()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    , <a class="code hl_variable" href="class_copy_data_base.html#aa0a728ab794c4248043ea43cc70d8c1a">cell_has_lagrange_multiplier</a>(false)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    , <a class="code hl_variable" href="class_copy_data_base.html#a23f63e77625cee8295a0f43c870d7551">last_active_fe_index</a>(numbers::invalid_unsigned_int)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    AssertDimension(n_hp_partitions, fe_collection.size());</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; n_hp_partitions; ++i)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      this-&gt;reinit(i, fe_collection[i].n_dofs_per_cell());</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  }</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"></span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">   * Return a reference to the @p fe_index-th local right-hand side vector.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a4d73b967ddbeea5f5ecd8ee85f4195d2">   67</a></span>  Vector&lt;double&gt; &amp;<a class="code hl_function" href="class_copy_data_base.html#a4d73b967ddbeea5f5ecd8ee85f4195d2">local_rhs</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index = 0);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"></span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">   * Const version of the function above</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#af0b92d481d889da1d3e7b4d00d345d3a">   72</a></span>  <span class="keyword">const</span> Vector&lt;double&gt; &amp;<a class="code hl_function" href="class_copy_data_base.html#af0b92d481d889da1d3e7b4d00d345d3a">local_rhs</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"></span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">   * Return a reference to the @p fe_index-th local matrix.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a1dec828824a693472b405309328aae4b">   77</a></span>  FullMatrix&lt;double&gt; &amp;<a class="code hl_function" href="class_copy_data_base.html#a1dec828824a693472b405309328aae4b">local_matrix</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index = 0);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"></span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">   * Const version of the function above</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#aa422279230ba272df2d5d33a64b6c8dc">   82</a></span>  <span class="keyword">const</span> FullMatrix&lt;double&gt; &amp;<a class="code hl_function" href="class_copy_data_base.html#aa422279230ba272df2d5d33a64b6c8dc">local_matrix</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"></span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">   * Return a reference to the @p fe_index-th local vector of dof indices.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  std::vector&lt;types::global_dof_index&gt; &amp;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a3be1e1016403ced51d6958fcd1341a19">   88</a></span>  <a class="code hl_function" href="class_copy_data_base.html#a3be1e1016403ced51d6958fcd1341a19">dof_indices</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index = 0);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"></span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">   * Const version of the function above</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keyword">const</span> std::vector&lt;types::global_dof_index&gt; &amp;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a785ba66422836cb153618762bfb01ddd">   94</a></span>  <a class="code hl_function" href="class_copy_data_base.html#a785ba66422836cb153618762bfb01ddd">dof_indices</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a0af40104c59f63073cf4b8c48f9422e1">   97</a></span>  <span class="keywordtype">bool</span>         <a class="code hl_variable" href="class_copy_data_base.html#a0af40104c59f63073cf4b8c48f9422e1">cell_is_locally_owned</a>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#ac7b90815aabf16d7d703784ed3692816">   98</a></span>  <span class="keywordtype">bool</span>         <a class="code hl_variable" href="class_copy_data_base.html#ac7b90815aabf16d7d703784ed3692816">cell_is_at_boundary</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#aa0a728ab794c4248043ea43cc70d8c1a">   99</a></span>  <span class="keywordtype">bool</span>         <a class="code hl_variable" href="class_copy_data_base.html#aa0a728ab794c4248043ea43cc70d8c1a">cell_has_lagrange_multiplier</a>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a23f63e77625cee8295a0f43c870d7551">  100</a></span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_copy_data_base.html#a23f63e77625cee8295a0f43c870d7551">last_active_fe_index</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>};</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">/* --------------- inline functions ------------------- */</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_hp_partitions&gt;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">inline</span> Vector&lt;double&gt; &amp;</div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a4d73b967ddbeea5f5ecd8ee85f4195d2">  107</a></span><a class="code hl_function" href="class_copy_data_base.html#a4d73b967ddbeea5f5ecd8ee85f4195d2">CopyDataBase&lt;n_hp_partitions&gt;::local_rhs</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  AssertIndexRange(fe_index, n_hp_partitions);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="keywordflow">return</span> this-&gt;vectors[fe_index];</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_hp_partitions&gt;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keyword">inline</span> <span class="keyword">const</span> Vector&lt;double&gt; &amp;</div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#af0b92d481d889da1d3e7b4d00d345d3a">  115</a></span><a class="code hl_function" href="class_copy_data_base.html#a4d73b967ddbeea5f5ecd8ee85f4195d2">CopyDataBase&lt;n_hp_partitions&gt;::local_rhs</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  AssertIndexRange(fe_index, n_hp_partitions);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="keywordflow">return</span> this-&gt;vectors[fe_index];</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
+</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_hp_partitions&gt;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">inline</span> FullMatrix&lt;double&gt; &amp;</div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a1dec828824a693472b405309328aae4b">  123</a></span><a class="code hl_function" href="class_copy_data_base.html#a1dec828824a693472b405309328aae4b">CopyDataBase&lt;n_hp_partitions&gt;::local_matrix</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>{</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  AssertIndexRange(fe_index, n_hp_partitions);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <span class="keywordflow">return</span> this-&gt;matrices[fe_index];</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_hp_partitions&gt;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keyword">inline</span> <span class="keyword">const</span> FullMatrix&lt;double&gt; &amp;</div>
+<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#aa422279230ba272df2d5d33a64b6c8dc">  131</a></span><a class="code hl_function" href="class_copy_data_base.html#a1dec828824a693472b405309328aae4b">CopyDataBase&lt;n_hp_partitions&gt;::local_matrix</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  AssertIndexRange(fe_index, n_hp_partitions);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <span class="keywordflow">return</span> this-&gt;matrices[fe_index];</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_hp_partitions&gt;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keyword">inline</span> std::vector&lt;types::global_dof_index&gt; &amp;</div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a3be1e1016403ced51d6958fcd1341a19">  139</a></span><a class="code hl_function" href="class_copy_data_base.html#a3be1e1016403ced51d6958fcd1341a19">CopyDataBase&lt;n_hp_partitions&gt;::dof_indices</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>{</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  AssertIndexRange(fe_index, n_hp_partitions);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  <span class="keywordflow">return</span> this-&gt;local_dof_indices[fe_index];</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>}</div>
+</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_hp_partitions&gt;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;types::global_dof_index&gt; &amp;</div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="class_copy_data_base.html#a785ba66422836cb153618762bfb01ddd">  147</a></span><a class="code hl_function" href="class_copy_data_base.html#a3be1e1016403ced51d6958fcd1341a19">CopyDataBase&lt;n_hp_partitions&gt;::dof_indices</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> fe_index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  AssertIndexRange(fe_index, n_hp_partitions);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  <span class="keywordflow">return</span> this-&gt;local_dof_indices[fe_index];</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
+</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="ttc" id="aclass_copy_data_base_html_a0af40104c59f63073cf4b8c48f9422e1"><div class="ttname"><a href="class_copy_data_base.html#a0af40104c59f63073cf4b8c48f9422e1">CopyDataBase&lt; 1 &gt;::cell_is_locally_owned</a></div><div class="ttdeci">bool cell_is_locally_owned</div><div class="ttdef"><b>Définition</b> <a href="#l00097">copy_data.h:97</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_a1dec828824a693472b405309328aae4b"><div class="ttname"><a href="class_copy_data_base.html#a1dec828824a693472b405309328aae4b">CopyDataBase::local_matrix</a></div><div class="ttdeci">FullMatrix&lt; double &gt; &amp; local_matrix(const unsigned int fe_index=0)</div><div class="ttdef"><b>Définition</b> <a href="#l00123">copy_data.h:123</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_a22b77b8ee976ae1b25dd7fbe77026fd8"><div class="ttname"><a href="class_copy_data_base.html#a22b77b8ee976ae1b25dd7fbe77026fd8">CopyDataBase::CopyDataBase</a></div><div class="ttdeci">CopyDataBase(const FiniteElement&lt; dim &gt; &amp;fe)</div><div class="ttdef"><b>Définition</b> <a href="#l00046">copy_data.h:46</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_a23f63e77625cee8295a0f43c870d7551"><div class="ttname"><a href="class_copy_data_base.html#a23f63e77625cee8295a0f43c870d7551">CopyDataBase&lt; 1 &gt;::last_active_fe_index</a></div><div class="ttdeci">unsigned int last_active_fe_index</div><div class="ttdef"><b>Définition</b> <a href="#l00100">copy_data.h:100</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_a3be1e1016403ced51d6958fcd1341a19"><div class="ttname"><a href="class_copy_data_base.html#a3be1e1016403ced51d6958fcd1341a19">CopyDataBase::dof_indices</a></div><div class="ttdeci">std::vector&lt; types::global_dof_index &gt; &amp; dof_indices(const unsigned int fe_index=0)</div><div class="ttdef"><b>Définition</b> <a href="#l00139">copy_data.h:139</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_a4d73b967ddbeea5f5ecd8ee85f4195d2"><div class="ttname"><a href="class_copy_data_base.html#a4d73b967ddbeea5f5ecd8ee85f4195d2">CopyDataBase::local_rhs</a></div><div class="ttdeci">Vector&lt; double &gt; &amp; local_rhs(const unsigned int fe_index=0)</div><div class="ttdef"><b>Définition</b> <a href="#l00107">copy_data.h:107</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_a60013d23f99da5287c0708af7e831793"><div class="ttname"><a href="class_copy_data_base.html#a60013d23f99da5287c0708af7e831793">CopyDataBase::CopyDataBase</a></div><div class="ttdeci">CopyDataBase(const hp::FECollection&lt; dim &gt; &amp;fe_collection)</div><div class="ttdef"><b>Définition</b> <a href="#l00054">copy_data.h:54</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_a785ba66422836cb153618762bfb01ddd"><div class="ttname"><a href="class_copy_data_base.html#a785ba66422836cb153618762bfb01ddd">CopyDataBase::dof_indices</a></div><div class="ttdeci">const std::vector&lt; types::global_dof_index &gt; &amp; dof_indices(const unsigned int fe_index=0) const</div><div class="ttdef"><b>Définition</b> <a href="#l00147">copy_data.h:147</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_aa0a728ab794c4248043ea43cc70d8c1a"><div class="ttname"><a href="class_copy_data_base.html#aa0a728ab794c4248043ea43cc70d8c1a">CopyDataBase&lt; 1 &gt;::cell_has_lagrange_multiplier</a></div><div class="ttdeci">bool cell_has_lagrange_multiplier</div><div class="ttdef"><b>Définition</b> <a href="#l00099">copy_data.h:99</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_aa422279230ba272df2d5d33a64b6c8dc"><div class="ttname"><a href="class_copy_data_base.html#aa422279230ba272df2d5d33a64b6c8dc">CopyDataBase::local_matrix</a></div><div class="ttdeci">const FullMatrix&lt; double &gt; &amp; local_matrix(const unsigned int fe_index=0) const</div><div class="ttdef"><b>Définition</b> <a href="#l00131">copy_data.h:131</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_ac7b90815aabf16d7d703784ed3692816"><div class="ttname"><a href="class_copy_data_base.html#ac7b90815aabf16d7d703784ed3692816">CopyDataBase&lt; 1 &gt;::cell_is_at_boundary</a></div><div class="ttdeci">bool cell_is_at_boundary</div><div class="ttdef"><b>Définition</b> <a href="#l00098">copy_data.h:98</a></div></div>
+<div class="ttc" id="aclass_copy_data_base_html_af0b92d481d889da1d3e7b4d00d345d3a"><div class="ttname"><a href="class_copy_data_base.html#af0b92d481d889da1d3e7b4d00d345d3a">CopyDataBase::local_rhs</a></div><div class="ttdeci">const Vector&lt; double &gt; &amp; local_rhs(const unsigned int fe_index=0) const</div><div class="ttdef"><b>Définition</b> <a href="#l00115">copy_data.h:115</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_572db43f5fb4bb08ef27a34d9eec3105.html">snapshots</a></li><li class="navelem"><a href="dir_c3399bd66e5cabf482dbd94d16f696da.html">pre_amr</a></li><li class="navelem"><a href="dir_c2c57fcb88379b3cf62d1ec2417626a9.html">include</a></li><li class="navelem"><a href="copy__data_8h.html">copy_data.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

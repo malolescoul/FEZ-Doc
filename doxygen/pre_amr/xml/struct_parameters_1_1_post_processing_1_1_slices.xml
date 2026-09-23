@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_post_processing_1_1_slices" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::PostProcessing::Slices</compoundname>
+    <basecompoundref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary" prot="public" virt="non-virtual">Parameters::PostProcessing::PostProcessingFileBoundary</basecompoundref>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_slices_1abeaca52066ae18f67cf600c9ae1b1401" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Parameters::PostProcessing::Slices::along_which_axis</definition>
+        <argsstring></argsstring>
+        <name>along_which_axis</name>
+        <qualifiedname>Parameters::PostProcessing::Slices::along_which_axis</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="376" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_slices_1aab09082e1e105d624283762e81b918ad" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::PostProcessing::Slices::n_slices</definition>
+        <argsstring></argsstring>
+        <name>n_slices</name>
+        <qualifiedname>Parameters::PostProcessing::Slices::n_slices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="377" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_post_processing_1_1_slices_1af32e058f40594cd2a3540b6d9293f43b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::PostProcessing::Slices::compute_forces_on_slices</definition>
+        <argsstring></argsstring>
+        <name>compute_forces_on_slices</name>
+        <qualifiedname>Parameters::PostProcessing::Slices::compute_forces_on_slices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="378" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="378" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingFileBoundary</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Parameters::PostProcessing::Slices</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_slices"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>Parameters::PostProcessing::PostProcessingBase</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_base"/>
+      </node>
+      <node id="3">
+        <label>Parameters::PostProcessing::PostProcessingFile</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::PostProcessing::PostProcessingFileBoundary</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Parameters::PostProcessing::Slices</label>
+        <link refid="struct_parameters_1_1_post_processing_1_1_slices"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="374" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="375" bodyend="379"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_post_processing_1_1_slices_1abeaca52066ae18f67cf600c9ae1b1401" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>along_which_axis</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary_1a0438b1d7f26bf032df528700493be512" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>boundary_id</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_slices_1af32e058f40594cd2a3540b6d9293f43b" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>compute_forces_on_slices</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a921eee483d06be1b60f73ad5194704cf" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_slices_1aab09082e1e105d624283762e81b918ad" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>n_slices</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a5a598c5e51421aaa8a2afc09c4b04389" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>output_frequency</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1a04b33f78a97a8d9b7053fc0e5527c3f2" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>output_prefix</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1af05555db5e66180d6ea56bfb8e8b0133" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>precision</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_base_1a3379bfae8b9213020cae832594e8de6f" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>verbosity</name></member>
+      <member refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_1a3b1bbd30bdb3387fc31432d37c47550d" prot="public" virt="non-virtual"><scope>Parameters::PostProcessing::Slices</scope><name>write_results</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

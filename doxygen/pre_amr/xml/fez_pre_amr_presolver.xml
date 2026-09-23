@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="fez_pre_amr_presolver" kind="page">
+    <compoundname>fez_pre_amr_presolver</compoundname>
+    <title>Motif — presolver, cache et géométrie d&apos;évaluation</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="fez_pre_amr_presolver_1md_guides_2pre__amr_2patterns_2presolver-cache-geometry"/></para>
+<para><blockquote><para>Code lu à <computeroutput>cc8dace141900b82e5790fa878e39d9c54898784</computeroutput>, avant le nouveau couplage AMR. Constat statique ; aucun calcul ni test exécuté. </para>
+</blockquote></para>
+<sect1 id="fez_pre_amr_presolver_1autotoc_md29">
+<title>Trois représentations, trois contrats</title><para><table rows="4" cols="3"><row>
+<entry thead="yes"><para>Représentation  </para>
+</entry><entry thead="yes"><para>Identité des valeurs  </para>
+</entry><entry thead="yes"><para>Finalité  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Solution du presolver  </para>
+</entry><entry thead="no"><para>Champs FE <computeroutput>x</computeroutput>, éventuellement <computeroutput>psi</computeroutput>, sur son DoFHandler  </para>
+</entry><entry thead="no"><para>Équilibre initial du pseudo-solide  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Cache presolver  </para>
+</entry><entry thead="no"><para>Coordonnées de support sur la référence + numéro de composante → valeur  </para>
+</entry><entry thead="no"><para>Réutilisation du presolve avec une autre partition MPI compatible  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>État CHNS–ALE  </para>
+</entry><entry thead="no"><para>Vecteur de champs où <computeroutput>x</computeroutput> pilote le mapping lié à <computeroutput>evaluation_point</computeroutput>  </para>
+</entry><entry thead="no"><para>Évolution couplée sur la géométrie courante  </para>
+</entry></row>
+</table>
+</para>
+<para>Le cache n&apos;est pas une sérialisation de numéros DoF à réutiliser tels quels. Son entrée contient un tableau de coordonnées, une composante et une valeur. La clé textuelle utilise la composante et les coordonnées en précision 17 ; après lecture le solveur recherche les points possédés par <bold>la partition actuelle</bold>. C&apos;est le mécanisme concret derrière « indépendant de la partition ». Il n&apos;établit pas une compatibilité avec un autre maillage ou des points de support différents. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L66-L92">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L1033-L1071">Source pré-AMR</ulink></para>
+</sect1>
+<sect1 id="fez_pre_amr_presolver_1autotoc_md30">
+<title>Écrire avant de déplacer</title><para>Chaque rang parcourt ses DoFs possédés, associe la valeur aux points de support du mapping de référence et envoie ses entrées au rang 0. Celui-ci écrit l&apos;empreinte et les entrées dans un fichier temporaire ; la barrière MPI et le remplacement des fichiers temporaires terminent l&apos;écriture. Les rangs ne dépendent donc pas de la numérotation globale conservée entre deux lancements. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L926-L973">Source pré-AMR</ulink></para>
+<para>Cet appel précède <computeroutput>postprocess_solution()</computeroutput>, qui peut déplacer les sommets de la triangulation pour visualiser le presolve. Enregistrer après ce déplacement changerait le repère des clés du cache. Même ordre pour l&apos;export Gmsh : évaluer le champ déformé aux nœuds de référence, écrire, puis déplacer les sommets pour la visualisation. Le rôle de la référence est ici une donnée du format, pas seulement un choix graphique. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L320-L327">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L809-L855">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L1105-L1114">Source pré-AMR</ulink></para>
+</sect1>
+<sect1 id="fez_pre_amr_presolver_1autotoc_md31">
+<title>Valider avant de réutiliser</title><para><computeroutput>try_load_presolved_mesh_cache()</computeroutput> remet le presolver à zéro, lit le maillage et recrée les DoFs. Chaque rang lit le cache et compare l&apos;empreinte. Fichier absent, archive illisible, empreinte différente ou point de support possédé introuvable provoquent un retour <computeroutput>false</computeroutput>, pas une utilisation partielle du cache. Un <computeroutput>MPI::min</computeroutput> impose l&apos;accord global ; la fabrique relance alors le presolve. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L977-L1031">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L1043-L1075">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/presolver_tools.h#L26-L37">Source pré-AMR</ulink></para>
+<para>L&apos;empreinte comprend nom et hash FNV-1a du contenu du fichier maillage, degré de position, type quads, nombre de DoFs, modèle constitutif, expressions de Lamé, paramètre Ogden, sélection du forçage, épaisseur d&apos;interface, compression physique, régularisation, présence/largeur/compression/exposant de <computeroutput>psi</computeroutput>, paramètres de continuation et expression analytique de <computeroutput>phi</computeroutput>. Le facteur de transport ne figure pas dans cette liste : le presolver n&apos;assemble pas le transport. Le <ulink url="https://github.com/arthurbawin/fez/commit/a10d2366d98dd74562767ca92b14e617caf98795">patch du 30 juin</ulink> ajoute explicitement les paramètres enlarged manquants et retire ce facteur de transport. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L46-L63">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L890-L922">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/assembly/elasticity_assemblers.cpp#L326-L332">Source pré-AMR</ulink></para>
+<para><bold>Limite de contrat, à vérifier selon le changement envisagé :</bold> cette empreinte est une liste explicite, pas un hash du fichier de paramètres complet. Les expressions de BC et les sources utilisateur ne sont pas sérialisées dans cette fonction ; les expressions des fonctions sont enregistrées, sans inventaire explicite de toutes leurs constantes. On ne peut donc pas affirmer que tout changement qui influe sur le presolve invalide automatiquement le cache. C&apos;est une inférence de la liste lue, pas un cas de réutilisation erronée exécuté. Pour étudier une modification hors de cette liste, <computeroutput>force_recompute</computeroutput> permet un résultat frais ; le graphe doit ensuite conduire vers l&apos;empreinte pour décider s&apos;il faut l&apos;étendre. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L890-L922">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/parameters.cpp#L1993-L2005">Source pré-AMR</ulink></para>
+<para>Après une lecture réussie, le code compresse les insertions puis remplit <computeroutput>present_solution</computeroutput>, ses fantômes et <computeroutput>evaluation_point</computeroutput>. La fabrique rend le presolver sans appeler <computeroutput>run()</computeroutput>, donc sans refaire ses sorties finales. Une réutilisation du cache ne garantit pas la régénération d&apos;un fichier msh de presolver demandé ailleurs : cette branche retourne directement l&apos;objet chargé. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L1068-L1075">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/presolver_tools.h#L32-L39">Source pré-AMR</ulink></para>
+</sect1>
+<sect1 id="fez_pre_amr_presolver_1autotoc_md32">
+<title>Injecter un état cohérent</title><para>Le transfert presolver → CHNS utilise une autre identité : composantes et points de support dans la cellule de référence. Il associe <computeroutput>x</computeroutput>, et <computeroutput>psi</computeroutput> s&apos;il existe, puis parcourt les cellules actives source/destination dans le même ordre. Cette correspondance requiert des layouts et partitions compatibles. Le socle pré-AMR possède deux triangulations construites séparément ; le nouveau chemin AMR les partagera explicitement. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/include/mesh_and_dof_tools.h#L52-L122">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp#L809-L842">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L96-L112">Source pré-AMR</ulink></para>
+<para>Le lien causal est : <computeroutput>x</computeroutput> injecté → <computeroutput>evaluation_point</computeroutput> actualisé → <computeroutput>moving_mapping</computeroutput> modifié → interpolation de <computeroutput>u</computeroutput> et <computeroutput>phi</computeroutput> → contraintes physiques recalculées. En enlarged, le <computeroutput>psi</computeroutput> du presolver est aussi la valeur initiale de l&apos;inconnue qui produit le forçage élargi. Repartir d&apos;un <computeroutput>psi</computeroutput> nul modifierait ce forçage malgré la géométrie comprimée conservée ; le code et le <ulink url="https://github.com/arthurbawin/fez/commit/7ae5094cf2a23005f89af4788bdf4d330ddeeab9">patch d&apos;injection du 2 juillet</ulink> donnent cette motivation. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp#L758-L805">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp#L820-L842">Source pré-AMR</ulink></para>
+</sect1>
+<sect1 id="fez_pre_amr_presolver_1autotoc_md33">
+<title>Échos utiles pour la suite</title><para><itemizedlist>
+<listitem><para>Une nouvelle composante peut nécessiter une modification du DoFHandler du presolver, de son masque, de la table de copie et de l&apos;empreinte. Ce sont quatre lieux distincts à relire.</para>
+</listitem><listitem><para>Une nouvelle géométrie d&apos;évaluation doit être restaurée avant ses consommateurs, comme lors de la <ulink url="../../prod/html/fez_prod_distributed_state_transfer.html">restauration après AMR</ulink>.</para>
+</listitem><listitem><para>Le cache géométrique n&apos;est pas le restart : ce dernier charge triangulation, vecteurs courants/historiques et temps depuis des fichiers de rang, puis restaure séparément l&apos;historique PVD.</para>
+</listitem><listitem><para>Les valeurs prises aux sondes de ligne utilisent les coordonnées physiques du mapping courant ; des clés de cache utilisent les points de référence. Réutiliser une de ces conventions dans l&apos;autre mécanisme exige un choix explicite.</para>
+</listitem></itemizedlist>
+</para>
+<para>Ces rapprochements sont des inférences de conception fondées sur les chemins de données cités, sans revendiquer une équivalence des algorithmes. <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/elasticity_solver.cpp#L932-L948">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/navier_stokes_solver.cpp#L1463-L1495">Source pré-AMR</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/cc8dace141900b82e5790fa878e39d9c54898784/src/incompressible_chns_solver.cpp#L1575-L1594">Source pré-AMR</ulink></para>
+<para> </para>
+</sect1>
+    </detaileddescription>
+    <location file="guides/pre_amr/patterns/presolver-cache-geometry.md"/>
+  </compounddef>
+</doxygen>

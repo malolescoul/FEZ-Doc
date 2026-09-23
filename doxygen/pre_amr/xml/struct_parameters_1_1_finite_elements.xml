@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_finite_elements" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::FiniteElements</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule" prot="public">Parameters::FiniteElements::QuadratureRule</innerclass>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a14dfa825adeaa758f596f0a7355dd10e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::FiniteElements&lt; dim &gt;::use_quads</definition>
+        <argsstring></argsstring>
+        <name>use_quads</name>
+        <qualifiedname>Parameters::FiniteElements::use_quads</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="517" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="517" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a0406cfd01d126cf609262ceb4117e770" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::velocity_degree</definition>
+        <argsstring></argsstring>
+        <name>velocity_degree</name>
+        <qualifiedname>Parameters::FiniteElements::velocity_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="520" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="520" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a4c800f1047005d0041b8d5e13acf5663" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::pressure_degree</definition>
+        <argsstring></argsstring>
+        <name>pressure_degree</name>
+        <qualifiedname>Parameters::FiniteElements::pressure_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="523" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="523" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a9b6516a0823f48aefd8903858fd3f629" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::mesh_position_degree</definition>
+        <argsstring></argsstring>
+        <name>mesh_position_degree</name>
+        <qualifiedname>Parameters::FiniteElements::mesh_position_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="526" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="526" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a65e423b9f55b1ede2e12891e680d5719" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::no_slip_lagrange_mult_degree</definition>
+        <argsstring></argsstring>
+        <name>no_slip_lagrange_mult_degree</name>
+        <qualifiedname>Parameters::FiniteElements::no_slip_lagrange_mult_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="530" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="530" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1aa9e654fb65ef1977444b7a1f785ae98c" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::tracer_degree</definition>
+        <argsstring></argsstring>
+        <name>tracer_degree</name>
+        <qualifiedname>Parameters::FiniteElements::tracer_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="534" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="534" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a9bd20350a5cb0c09c4bd8f15d1701c38" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::potential_degree</definition>
+        <argsstring></argsstring>
+        <name>potential_degree</name>
+        <qualifiedname>Parameters::FiniteElements::potential_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="535" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="535" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a44e24c94d3395b9ded5114e39bb3e642" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::temperature_degree</definition>
+        <argsstring></argsstring>
+        <name>temperature_degree</name>
+        <qualifiedname>Parameters::FiniteElements::temperature_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="538" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="538" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a6fbcbadf3d91860f9eb3c1fb1f60ae93" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::mapping_degree</definition>
+        <argsstring></argsstring>
+        <name>mapping_degree</name>
+        <qualifiedname>Parameters::FiniteElements::mapping_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="566" column="18" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="566" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1a9024db056251d3f4f3e1b979c8572705" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule" kindref="compound">QuadratureRule</ref></type>
+        <definition>QuadratureRule Parameters::FiniteElements&lt; dim &gt;::rule</definition>
+        <argsstring></argsstring>
+        <name>rule</name>
+        <qualifiedname>Parameters::FiniteElements::rule</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="580" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="580" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_finite_elements_1ac4ffa67e10d71e6adae5196e08fa32c5" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule" kindref="compound">QuadratureRule</ref></type>
+        <definition>QuadratureRule Parameters::FiniteElements&lt; dim &gt;::rule_for_error</definition>
+        <argsstring></argsstring>
+        <name>rule_for_error</name>
+        <qualifiedname>Parameters::FiniteElements::rule_for_error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="581" column="20" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="581" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_finite_elements_1a5779e0ee2018262bf9e3b70c0eacd054" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::FiniteElements&lt; dim &gt;::get_variable_degree</definition>
+        <argsstring>(const SolverInfo::VariableType variable) const</argsstring>
+        <name>get_variable_degree</name>
+        <qualifiedname>Parameters::FiniteElements::get_variable_degree</qualifiedname>
+        <param>
+          <type>const SolverInfo::VariableType</type>
+          <declname>variable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="541" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="541" bodyend="563"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_finite_elements_1a7ffaf9909223a5e4b4f2ae0bcd8157c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::FiniteElements&lt; dim &gt;::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::FiniteElements::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="583" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="880" bodyend="938"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_finite_elements_1a34eb4c44126c9e8d7cb126b0cb0a1cf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::FiniteElements&lt; dim &gt;::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::FiniteElements::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Set the degree of the geometric mapping. If the mesh position is a variable of the problem, their degree must match, but we cannot test it here, as we don&apos;t know which solver will be created.</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="584" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1000" bodyend="1038"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Parameters::FiniteElements&lt; dim &gt;::QuadratureRule</label>
+        <link refid="struct_parameters_1_1_finite_elements_1_1_quadrature_rule"/>
+      </node>
+      <node id="1">
+        <label>Parameters::FiniteElements&lt; dim &gt;</label>
+        <link refid="struct_parameters_1_1_finite_elements"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rule</edgelabel>
+          <edgelabel>rule_for_error</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="514" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="515" bodyend="585"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_finite_elements_1a7ffaf9909223a5e4b4f2ae0bcd8157c1" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a5779e0ee2018262bf9e3b70c0eacd054" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>get_variable_degree</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a6fbcbadf3d91860f9eb3c1fb1f60ae93" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>mapping_degree</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a9b6516a0823f48aefd8903858fd3f629" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>mesh_position_degree</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a65e423b9f55b1ede2e12891e680d5719" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>no_slip_lagrange_mult_degree</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a9bd20350a5cb0c09c4bd8f15d1701c38" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>potential_degree</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a4c800f1047005d0041b8d5e13acf5663" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>pressure_degree</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a34eb4c44126c9e8d7cb126b0cb0a1cf5" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a9024db056251d3f4f3e1b979c8572705" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>rule</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1ac4ffa67e10d71e6adae5196e08fa32c5" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>rule_for_error</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a44e24c94d3395b9ded5114e39bb3e642" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>temperature_degree</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1aa9e654fb65ef1977444b7a1f785ae98c" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>tracer_degree</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a14dfa825adeaa758f596f0a7355dd10e" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>use_quads</name></member>
+      <member refid="struct_parameters_1_1_finite_elements_1a0406cfd01d126cf609262ceb4117e770" prot="public" virt="non-virtual"><scope>Parameters::FiniteElements</scope><name>velocity_degree</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence de la structure Parameters::LinearSolver</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('struct_parameters_1_1_linear_solver.html','','struct_parameters_1_1_linear_solver-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la structure Parameters::LinearSolver</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="parameters_8h_source.html">parameters.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:ab14245996c8b2dcd7af8149531576c78" id="r_ab14245996c8b2dcd7af8149531576c78"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ab14245996c8b2dcd7af8149531576c78">Method</a> { <a class="el" href="#ab14245996c8b2dcd7af8149531576c78a2f2a28d22b2da26501a2d61d3dc07a8f">direct_mumps</a>
+, <a class="el" href="#ab14245996c8b2dcd7af8149531576c78a6e9cf3eef65da697796cf33f27eb0f57">cg</a>
+, <a class="el" href="#ab14245996c8b2dcd7af8149531576c78ad43c33b8e3d5435d9cbe65c156887a02">gmres</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:af6c27b1cf35e9d195c84c1a1bab07ca9" id="r_af6c27b1cf35e9d195c84c1a1bab07ca9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af6c27b1cf35e9d195c84c1a1bab07ca9">declare_parameters</a> (ParameterHandler &amp;prm, const std::string &amp;solver_type)</td></tr>
+<tr class="memitem:a73b651eb7e9fdd6b59b8acb4244b639b" id="r_a73b651eb7e9fdd6b59b8acb4244b639b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a73b651eb7e9fdd6b59b8acb4244b639b">read_parameters</a> (ParameterHandler &amp;prm, const std::string &amp;solver_type)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:ab230b16aac90dd5da5f89c7fa3211b22" id="r_ab230b16aac90dd5da5f89c7fa3211b22"><td class="memItemLeft"><a class="el" href="namespace_parameters.html#ad408350a21239600add83c5e91fcfa26">Verbosity</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab230b16aac90dd5da5f89c7fa3211b22">verbosity</a></td></tr>
+<tr class="memitem:a2983ed87189721911a9218422e325c87" id="r_a2983ed87189721911a9218422e325c87"><td class="memItemLeft">enum <a class="el" href="#ab14245996c8b2dcd7af8149531576c78">Parameters::LinearSolver::Method</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2983ed87189721911a9218422e325c87">method</a></td></tr>
+<tr class="memitem:a063bce7bf055932641756da909796507" id="r_a063bce7bf055932641756da909796507"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a063bce7bf055932641756da909796507">tolerance</a></td></tr>
+<tr class="memitem:a8382a00681e1f1b2c3e576c4a795ca1c" id="r_a8382a00681e1f1b2c3e576c4a795ca1c"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a8382a00681e1f1b2c3e576c4a795ca1c">max_iterations</a></td></tr>
+<tr class="memitem:af94f70698cd70321d6de6a9aae180993" id="r_af94f70698cd70321d6de6a9aae180993"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#af94f70698cd70321d6de6a9aae180993">ilu_fill_level</a></td></tr>
+<tr class="memitem:af6e40a204629fbba1fd0338f211d3d6e" id="r_af6e40a204629fbba1fd0338f211d3d6e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af6e40a204629fbba1fd0338f211d3d6e">reuse</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock">
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00702">702</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation des énumérations membres</h2>
+<a id="ab14245996c8b2dcd7af8149531576c78" name="ab14245996c8b2dcd7af8149531576c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab14245996c8b2dcd7af8149531576c78">&#9670;&#160;</a></span>Method</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ab14245996c8b2dcd7af8149531576c78">Parameters::LinearSolver::Method</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ab14245996c8b2dcd7af8149531576c78a2f2a28d22b2da26501a2d61d3dc07a8f" name="ab14245996c8b2dcd7af8149531576c78a2f2a28d22b2da26501a2d61d3dc07a8f"></a>direct_mumps&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab14245996c8b2dcd7af8149531576c78a6e9cf3eef65da697796cf33f27eb0f57" name="ab14245996c8b2dcd7af8149531576c78a6e9cf3eef65da697796cf33f27eb0f57"></a>cg&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab14245996c8b2dcd7af8149531576c78ad43c33b8e3d5435d9cbe65c156887a02" name="ab14245996c8b2dcd7af8149531576c78ad43c33b8e3d5435d9cbe65c156887a02"></a>gmres&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00706">706</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentation des fonctions membres</h2>
+<a id="af6c27b1cf35e9d195c84c1a1bab07ca9" name="af6c27b1cf35e9d195c84c1a1bab07ca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6c27b1cf35e9d195c84c1a1bab07ca9">&#9670;&#160;</a></span>declare_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parameters::LinearSolver::declare_parameters </td>
+          <td>(</td>
+          <td class="paramtype">ParameterHandler &amp;</td>          <td class="paramname"><span class="paramname"><em>prm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>solver_type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8cpp_source.html#l01322">1322</a> du fichier <a class="el" href="parameters_8cpp_source.html">parameters.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a73b651eb7e9fdd6b59b8acb4244b639b" name="a73b651eb7e9fdd6b59b8acb4244b639b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73b651eb7e9fdd6b59b8acb4244b639b">&#9670;&#160;</a></span>read_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parameters::LinearSolver::read_parameters </td>
+          <td>(</td>
+          <td class="paramtype">ParameterHandler &amp;</td>          <td class="paramname"><span class="paramname"><em>prm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>solver_type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8cpp_source.html#l01351">1351</a> du fichier <a class="el" href="parameters_8cpp_source.html">parameters.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="af94f70698cd70321d6de6a9aae180993" name="af94f70698cd70321d6de6a9aae180993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af94f70698cd70321d6de6a9aae180993">&#9670;&#160;</a></span>ilu_fill_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::LinearSolver::ilu_fill_level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00718">718</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a8382a00681e1f1b2c3e576c4a795ca1c" name="a8382a00681e1f1b2c3e576c4a795ca1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8382a00681e1f1b2c3e576c4a795ca1c">&#9670;&#160;</a></span>max_iterations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Parameters::LinearSolver::max_iterations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00715">715</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a2983ed87189721911a9218422e325c87" name="a2983ed87189721911a9218422e325c87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2983ed87189721911a9218422e325c87">&#9670;&#160;</a></span>method</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ab14245996c8b2dcd7af8149531576c78">Parameters::LinearSolver::Method</a> Parameters::LinearSolver::method</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6e40a204629fbba1fd0338f211d3d6e" name="af6e40a204629fbba1fd0338f211d3d6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6e40a204629fbba1fd0338f211d3d6e">&#9670;&#160;</a></span>reuse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parameters::LinearSolver::reuse</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>When using MUMPS as solver, "reuse" the symbolic factorization of the system matrix across the solves. If the sparsity pattern does not change, then the symbolic factorization can be conserved, saving time.</p>
+<p>This is done through an extension of deal.II's PETSc interface to MUMPS, which, as a beneficial side effect, also checks the MUMPS error code, which is not done in deal.II. This allows throwing an error when the matrix is singular, instead of getting "nan" results.</p>
+<p>TODO: the associated MUMPS solver should be looked into, as it is unclear that the factorization is indeed reused and/or that it is more efficient. Unlike Pardiso, the symbolic factorization step is not cleanly separated from the actual factorization and solve steps. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00735">735</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="a063bce7bf055932641756da909796507" name="a063bce7bf055932641756da909796507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063bce7bf055932641756da909796507">&#9670;&#160;</a></span>tolerance</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Parameters::LinearSolver::tolerance</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00714">714</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="ab230b16aac90dd5da5f89c7fa3211b22" name="ab230b16aac90dd5da5f89c7fa3211b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab230b16aac90dd5da5f89c7fa3211b22">&#9670;&#160;</a></span>verbosity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_parameters.html#ad408350a21239600add83c5e91fcfa26">Verbosity</a> Parameters::LinearSolver::verbosity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00704">704</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir des fichiers suivants :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+<li>snapshots/pre_amr/src/<a class="el" href="parameters_8cpp_source.html">parameters.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_parameters.html">Parameters</a></li><li class="navelem"><a href="struct_parameters_1_1_linear_solver.html">LinearSolver</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

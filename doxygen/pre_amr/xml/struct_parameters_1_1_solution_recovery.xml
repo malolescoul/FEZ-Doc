@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_solution_recovery" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::SolutionRecovery</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_solution_recovery_1a9bda58dcb0babe87464cbcb97dcef0d6" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::SolutionRecovery::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::SolutionRecovery::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1171" column="15" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1171" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_solution_recovery_1a8b01f08386a9cb26d067676daf528dc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::SolutionRecovery::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::SolutionRecovery::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1173" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2418" bodyend="2422"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_solution_recovery_1ab6087638def11656b75a579d3c7015e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::SolutionRecovery::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::SolutionRecovery::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="1174" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="2424" bodyend="2428"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Solution and derivatives recovery </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="1169" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="1170" bodyend="1175"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_solution_recovery_1a8b01f08386a9cb26d067676daf528dc2" prot="public" virt="non-virtual"><scope>Parameters::SolutionRecovery</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_solution_recovery_1ab6087638def11656b75a579d3c7015e9" prot="public" virt="non-virtual"><scope>Parameters::SolutionRecovery</scope><name>read_parameters</name></member>
+      <member refid="struct_parameters_1_1_solution_recovery_1a9bda58dcb0babe87464cbcb97dcef0d6" prot="public" virt="non-virtual"><scope>Parameters::SolutionRecovery</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

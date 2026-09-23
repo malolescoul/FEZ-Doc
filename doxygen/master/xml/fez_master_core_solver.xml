@@ -66,7 +66,8 @@
 </para>
 </sect1>
 <sect1 id="fez_master_core_solver_1autotoc_md11">
-<title>Limites et prochaine lecture</title><para>Le chemin CHNS fixe est établi. Les mécanismes internes de <computeroutput><ref refid="class_time_handler" kindref="compound">TimeHandler</ref></computeroutput>, transferts entre maillages, réutilisation MUMPS et conditions FSI restent à analyser. Les variantes ALE sont repérées mais non validées numériquement. Aucun défaut d&apos;exécution n&apos;est conclu à partir de cette seule lecture. </para>
+<title>Limites et prochaine lecture</title><para>Le chemin CHNS fixe est établi. Les mécanismes internes de <computeroutput><ref refid="class_time_handler" kindref="compound">TimeHandler</ref></computeroutput>, transferts entre maillages, réutilisation MUMPS et conditions FSI restent à analyser. Les variantes ALE sont repérées mais non validées numériquement. Aucun défaut d&apos;exécution n&apos;est conclu à partir de cette seule lecture.</para>
+<para> </para>
 </sect1>
     </detaileddescription>
     <location file="guides/master/features/core-solver.md"/>

@@ -13,6 +13,12 @@ La [comparaison des deux SHA](https://github.com/arthurbawin/fez/compare/ccf20ca
 
 ## Ce qui est connu sur chaque branche
 
+### Référence historique ajoutée : avant le nouveau couplage AMR
+
+Le parent direct du HEAD personnel est [cc8dace141900b82e5790fa878e39d9c54898784](https://github.com/arthurbawin/fez/commit/cc8dace141900b82e5790fa878e39d9c54898784), merge du 16 septembre. Il contient le master ccf20ca et s'en distingue par **61 commits propres, 0 retard et 131 fichiers modifiés**. Le point de départ historique est fcb028e, avant 13 apports ultérieurs de master. Ce snapshot n'est pas une troisième branche Git.
+
+Le [registre détaillé](history/chronologie-branche.md) étudie chaque commit propre à travers ses différences pertinentes et retrace les cinq merges. Il conserve les limites des patches de grande taille ; il ne prétend pas auditer toutes les lignes de tous les changements. Le [workflow de référence](features/workflow-pre-amr.md) et les [modèles](features/chns-models-pre-amr.md) décrivent l'état final à cc8dace. « Avant AMR » désigne ici l'ajout spécialisé de 35d43b8 : des infrastructures AMR de master étaient déjà présentes.
+
 ### Master
 
 - L’AMR Navier–Stokes/CHNS initial a été fusionné avec [#81](https://github.com/arthurbawin/fez/pull/81), commit aba07862f2252ac2808e9333ec805cd59123cfd6.
@@ -39,4 +45,3 @@ Le bloc du motif creux des DoF de vitesse du solide vérifie seulement !zero_mas
 4. Sur le PC équipé : reproduire les scénarios MPI ciblés et mesurer l’intégrale du traceur immédiatement avant/après AMR.
 
 Aucune automatisation, publication GitHub, modification de branche ou exécution FEZ n’a été effectuée.
-

@@ -1,0 +1,622 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_parameters_1_1_cahn_hilliard" kind="class" language="C++" prot="public">
+    <compoundname>Parameters::CahnHilliard</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_parameters_1_1_cahn_hilliard_1ae1cc548e57c7c87c0d72015be160d3df" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>CHNSModel</name>
+        <qualifiedname>Parameters::CahnHilliard::CHNSModel</qualifiedname>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1ae1cc548e57c7c87c0d72015be160d3dfae9743ef966d6671bf38b9ae6757a7d6f" prot="public">
+          <name>abels</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1ae1cc548e57c7c87c0d72015be160d3dfa5cf74ca86db61c99c507386a6a5764ff" prot="public">
+          <name>ding_horriche</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1ae1cc548e57c7c87c0d72015be160d3dfab25b4358d6b19a20111a1cc08514dbba" prot="public">
+          <name>abels_nlm</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="855" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="856" bodyend="860"/>
+      </memberdef>
+      <memberdef kind="enum" id="class_parameters_1_1_cahn_hilliard_1af6d1d0761c12923e197a8dd3fc881402" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>MobilityModel</name>
+        <qualifiedname>Parameters::CahnHilliard::MobilityModel</qualifiedname>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1af6d1d0761c12923e197a8dd3fc881402a617ac08757d38a5a7ed91c224f0e90a0" prot="public">
+          <name>constant</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1af6d1d0761c12923e197a8dd3fc881402aff412e499efcfbbb2da4c22b01b39ab5" prot="public">
+          <name>degenerate</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1af6d1d0761c12923e197a8dd3fc881402a8cb043b2dace9afc0680e6bae5cd316f" prot="public">
+          <name>adaptive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1af6d1d0761c12923e197a8dd3fc881402a588396a4841ade426b36d7039704518b" prot="public">
+          <name>adaptive_mobility_2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1af6d1d0761c12923e197a8dd3fc881402a95835278884379dc30d675e4add50132" prot="public">
+          <name>adaptive_mobility_3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="862" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="863" bodyend="869"/>
+      </memberdef>
+      <memberdef kind="enum" id="class_parameters_1_1_cahn_hilliard_1a74eea52a001402fd7001858c3c7c7e1f" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>InterfaceProfileCorrection</name>
+        <qualifiedname>Parameters::CahnHilliard::InterfaceProfileCorrection</qualifiedname>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1a74eea52a001402fd7001858c3c7c7e1fa334c4a4c42fdb79d7ebc3e73b517e6f8" prot="public">
+          <name>none</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1a74eea52a001402fd7001858c3c7c7e1fa7d97481b1fe66f4b51db90da7e794d9f" prot="public">
+          <name>profile</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1a74eea52a001402fd7001858c3c7c7e1fa640381b892650035eb3279378cbb63b2" prot="public">
+          <name>profile_flux</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="874" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="875" bodyend="879"/>
+      </memberdef>
+      <memberdef kind="enum" id="class_parameters_1_1_cahn_hilliard_1a7b7a4394e96c8c9c62d6bcccbb8151af" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>MeshForcingSourceTerm</name>
+        <qualifiedname>Parameters::CahnHilliard::MeshForcingSourceTerm</qualifiedname>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1a7b7a4394e96c8c9c62d6bcccbb8151afa3262d48df5d75e3452f0f16b313b7808" prot="public">
+          <name>off</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1a7b7a4394e96c8c9c62d6bcccbb8151afab423313fd11737f9592c697aed207c82" prot="public">
+          <name>chns_form</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_parameters_1_1_cahn_hilliard_1a7b7a4394e96c8c9c62d6bcccbb8151afa8b9035807842a4e4dbe009f3f1478127" prot="public">
+          <name>custom</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="927" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="928" bodyend="932"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a62741e7d18521e119ac4e4526ac8b814" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="class_parameters_1_1_cahn_hilliard_1ae1cc548e57c7c87c0d72015be160d3df" kindref="member">Parameters::CahnHilliard::CHNSModel</ref></type>
+        <definition>enum Parameters::CahnHilliard::CHNSModel Parameters::CahnHilliard&lt; dim &gt;::chns_model</definition>
+        <argsstring></argsstring>
+        <name>chns_model</name>
+        <qualifiedname>Parameters::CahnHilliard::chns_model</qualifiedname>
+        <initializer>= <ref refid="class_parameters_1_1_cahn_hilliard_1ae1cc548e57c7c87c0d72015be160d3dfae9743ef966d6671bf38b9ae6757a7d6f" kindref="member">CHNSModel::abels</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="860" column="17"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a965f3069bcc57c40faa511ccfe9e019b" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="class_parameters_1_1_cahn_hilliard_1af6d1d0761c12923e197a8dd3fc881402" kindref="member">Parameters::CahnHilliard::MobilityModel</ref></type>
+        <definition>enum Parameters::CahnHilliard::MobilityModel Parameters::CahnHilliard&lt; dim &gt;::mobility_model</definition>
+        <argsstring></argsstring>
+        <name>mobility_model</name>
+        <qualifiedname>Parameters::CahnHilliard::mobility_model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="869" column="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ab39060b414749eea5e82c55915fc8453" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="class_parameters_1_1_cahn_hilliard_1a74eea52a001402fd7001858c3c7c7e1f" kindref="member">Parameters::CahnHilliard::InterfaceProfileCorrection</ref></type>
+        <definition>enum Parameters::CahnHilliard::InterfaceProfileCorrection Parameters::CahnHilliard&lt; dim &gt;::interface_profile_correction</definition>
+        <argsstring></argsstring>
+        <name>interface_profile_correction</name>
+        <qualifiedname>Parameters::CahnHilliard::interface_profile_correction</qualifiedname>
+        <initializer>= <ref refid="class_parameters_1_1_cahn_hilliard_1a74eea52a001402fd7001858c3c7c7e1fa334c4a4c42fdb79d7ebc3e73b517e6f8" kindref="member">InterfaceProfileCorrection::none</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="879" column="35"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ae1e190b5c29f6eb56757c0ab780a2fd2" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::profile_correction_strength</definition>
+        <argsstring></argsstring>
+        <name>profile_correction_strength</name>
+        <qualifiedname>Parameters::CahnHilliard::profile_correction_strength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="883" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="883" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a4019544541d5f7867a51fc74d7dd8783" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::mobility</definition>
+        <argsstring></argsstring>
+        <name>mobility</name>
+        <qualifiedname>Parameters::CahnHilliard::mobility</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="885" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="885" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ac1f5cf04c9b92673c9da95ea3cf38af3" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::adaptive_mobility_n</definition>
+        <argsstring></argsstring>
+        <name>adaptive_mobility_n</name>
+        <qualifiedname>Parameters::CahnHilliard::adaptive_mobility_n</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="888" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="888" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a7735ef858772611f909222d6444ed57c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::adaptive_mobility_m</definition>
+        <argsstring></argsstring>
+        <name>adaptive_mobility_m</name>
+        <qualifiedname>Parameters::CahnHilliard::adaptive_mobility_m</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="891" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="891" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a500a6f360b4b63080df5697d64a9839d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::adaptive_mobility_2_n</definition>
+        <argsstring></argsstring>
+        <name>adaptive_mobility_2_n</name>
+        <qualifiedname>Parameters::CahnHilliard::adaptive_mobility_2_n</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="895" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="895" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a58aaf3a68c5a1d2028d4245bb5df8193" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::adaptive_mobility_2_delta</definition>
+        <argsstring></argsstring>
+        <name>adaptive_mobility_2_delta</name>
+        <qualifiedname>Parameters::CahnHilliard::adaptive_mobility_2_delta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="898" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="898" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a2084f749bb98da4464a0437baad81edc" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::adaptive_mobility_3_n</definition>
+        <argsstring></argsstring>
+        <name>adaptive_mobility_3_n</name>
+        <qualifiedname>Parameters::CahnHilliard::adaptive_mobility_3_n</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="901" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="901" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a0edbafa6a5127df6ab35ac2394800b1f" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::adaptive_mobility_3_delta</definition>
+        <argsstring></argsstring>
+        <name>adaptive_mobility_3_delta</name>
+        <qualifiedname>Parameters::CahnHilliard::adaptive_mobility_3_delta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="904" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="904" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ae77ad23f8f9d76025c16f4b1afbb8f3c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::adaptive_mobility_delta</definition>
+        <argsstring></argsstring>
+        <name>adaptive_mobility_delta</name>
+        <qualifiedname>Parameters::CahnHilliard::adaptive_mobility_delta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="907" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="907" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a20370bd1c8b01eb4bae328a6687dbf2f" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; ManufacturedSolutions::ParsedFunctionSDBase&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;ManufacturedSolutions::ParsedFunctionSDBase&lt;dim&gt; &gt; Parameters::CahnHilliard&lt; dim &gt;::degenerate_mobility</definition>
+        <argsstring></argsstring>
+        <name>degenerate_mobility</name>
+        <qualifiedname>Parameters::CahnHilliard::degenerate_mobility</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="912" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="912" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a8fa0b018f048933b3a42749cd0be45af" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::CahnHilliard&lt; dim &gt;::mobility_tracer_limiter</definition>
+        <argsstring></argsstring>
+        <name>mobility_tracer_limiter</name>
+        <qualifiedname>Parameters::CahnHilliard::mobility_tracer_limiter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="913" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="913" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a26714e5c3d5fc418043d5aba23b150ba" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::surface_tension</definition>
+        <argsstring></argsstring>
+        <name>surface_tension</name>
+        <qualifiedname>Parameters::CahnHilliard::surface_tension</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="915" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="915" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a1a085ab8ef522316a0f587330c5aa4b6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::epsilon_interface</definition>
+        <argsstring></argsstring>
+        <name>epsilon_interface</name>
+        <qualifiedname>Parameters::CahnHilliard::epsilon_interface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="916" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="916" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1af0691b6e0377436c6a8b4976b119f2f6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::CahnHilliard&lt; dim &gt;::with_tracer_limiter</definition>
+        <argsstring></argsstring>
+        <name>with_tracer_limiter</name>
+        <qualifiedname>Parameters::CahnHilliard::with_tracer_limiter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="917" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="917" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a366fc19a00bb82bb190a197b93bd8d69" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::tanh_mixing_steepness</definition>
+        <argsstring></argsstring>
+        <name>tanh_mixing_steepness</name>
+        <qualifiedname>Parameters::CahnHilliard::tanh_mixing_steepness</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="922" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="922" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ab79444c4221e40a69ded0f68eb5aaba0" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="class_parameters_1_1_cahn_hilliard_1a7b7a4394e96c8c9c62d6bcccbb8151af" kindref="member">Parameters::CahnHilliard::MeshForcingSourceTerm</ref></type>
+        <definition>enum Parameters::CahnHilliard::MeshForcingSourceTerm Parameters::CahnHilliard&lt; dim &gt;::mff_source_term</definition>
+        <argsstring></argsstring>
+        <name>mff_source_term</name>
+        <qualifiedname>Parameters::CahnHilliard::mff_source_term</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="932" column="21"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1acab7a64b822e378c3bbcab8f096a6a10" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::mff_physics_compression_factor</definition>
+        <argsstring></argsstring>
+        <name>mff_physics_compression_factor</name>
+        <qualifiedname>Parameters::CahnHilliard::mff_physics_compression_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="935" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="935" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ab1d624bef92aff1d6af7ead1c365b133" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::mff_transport_factor</definition>
+        <argsstring></argsstring>
+        <name>mff_transport_factor</name>
+        <qualifiedname>Parameters::CahnHilliard::mff_transport_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="937" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="937" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a2e3e6bc6fcf407e8a536d63f81135165" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::mff_regularization_gamma</definition>
+        <argsstring></argsstring>
+        <name>mff_regularization_gamma</name>
+        <qualifiedname>Parameters::CahnHilliard::mff_regularization_gamma</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="939" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="939" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ab422996730d90a3e02a997d335b3dae5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::psi_interface_width_factor</definition>
+        <argsstring></argsstring>
+        <name>psi_interface_width_factor</name>
+        <qualifiedname>Parameters::CahnHilliard::psi_interface_width_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="945" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="945" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1a83ffb35f184e60b808c9459195a608e8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::psi_mu_correction_factor</definition>
+        <argsstring></argsstring>
+        <name>psi_mu_correction_factor</name>
+        <qualifiedname>Parameters::CahnHilliard::psi_mu_correction_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="948" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="948" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ae1a24b4b7e3e2eba8ab6fe6d49a3653a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::mff_enlarged_compression_factor</definition>
+        <argsstring></argsstring>
+        <name>mff_enlarged_compression_factor</name>
+        <qualifiedname>Parameters::CahnHilliard::mff_enlarged_compression_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="952" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="952" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1ac315eed06d1a9073549a7bfd5fb4b1fa" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::CahnHilliard&lt; dim &gt;::mff_enlarged_lobe_position_exponent</definition>
+        <argsstring></argsstring>
+        <name>mff_enlarged_lobe_position_exponent</name>
+        <qualifiedname>Parameters::CahnHilliard::mff_enlarged_lobe_position_exponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="957" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="957" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_parameters_1_1_cahn_hilliard_1aef9d592f54f4c70c36ca3a186afc271e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::CahnHilliard&lt; dim &gt;::use_presolver</definition>
+        <argsstring></argsstring>
+        <name>use_presolver</name>
+        <qualifiedname>Parameters::CahnHilliard::use_presolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="961" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="961" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_parameters_1_1_cahn_hilliard_1aff7257eaa5458c5017482415be2d33d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::CahnHilliard&lt; dim &gt;::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::CahnHilliard::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="963" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1639" bodyend="1810"/>
+      </memberdef>
+      <memberdef kind="function" id="class_parameters_1_1_cahn_hilliard_1ab07731c2015cd4fe2bd542e1b5018307" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::CahnHilliard&lt; dim &gt;::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::CahnHilliard::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="964" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="1813" bodyend="1935"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="843" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="844" bodyend="965"/>
+    <listofallmembers>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a58aaf3a68c5a1d2028d4245bb5df8193" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>adaptive_mobility_2_delta</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a500a6f360b4b63080df5697d64a9839d" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>adaptive_mobility_2_n</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a0edbafa6a5127df6ab35ac2394800b1f" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>adaptive_mobility_3_delta</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a2084f749bb98da4464a0437baad81edc" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>adaptive_mobility_3_n</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ae77ad23f8f9d76025c16f4b1afbb8f3c" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>adaptive_mobility_delta</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a7735ef858772611f909222d6444ed57c" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>adaptive_mobility_m</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ac1f5cf04c9b92673c9da95ea3cf38af3" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>adaptive_mobility_n</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a62741e7d18521e119ac4e4526ac8b814" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>chns_model</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ae1cc548e57c7c87c0d72015be160d3df" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>CHNSModel</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1aff7257eaa5458c5017482415be2d33d3" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>declare_parameters</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a20370bd1c8b01eb4bae328a6687dbf2f" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>degenerate_mobility</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a1a085ab8ef522316a0f587330c5aa4b6" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>epsilon_interface</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ab39060b414749eea5e82c55915fc8453" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>interface_profile_correction</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a74eea52a001402fd7001858c3c7c7e1f" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>InterfaceProfileCorrection</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a7b7a4394e96c8c9c62d6bcccbb8151af" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>MeshForcingSourceTerm</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ae1a24b4b7e3e2eba8ab6fe6d49a3653a" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mff_enlarged_compression_factor</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ac315eed06d1a9073549a7bfd5fb4b1fa" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mff_enlarged_lobe_position_exponent</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1acab7a64b822e378c3bbcab8f096a6a10" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mff_physics_compression_factor</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a2e3e6bc6fcf407e8a536d63f81135165" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mff_regularization_gamma</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ab79444c4221e40a69ded0f68eb5aaba0" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mff_source_term</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ab1d624bef92aff1d6af7ead1c365b133" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mff_transport_factor</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a4019544541d5f7867a51fc74d7dd8783" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mobility</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a965f3069bcc57c40faa511ccfe9e019b" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mobility_model</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a8fa0b018f048933b3a42749cd0be45af" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>mobility_tracer_limiter</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1af6d1d0761c12923e197a8dd3fc881402" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>MobilityModel</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ae1e190b5c29f6eb56757c0ab780a2fd2" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>profile_correction_strength</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ab422996730d90a3e02a997d335b3dae5" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>psi_interface_width_factor</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a83ffb35f184e60b808c9459195a608e8" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>psi_mu_correction_factor</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1ab07731c2015cd4fe2bd542e1b5018307" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>read_parameters</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a26714e5c3d5fc418043d5aba23b150ba" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>surface_tension</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1a366fc19a00bb82bb190a197b93bd8d69" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>tanh_mixing_steepness</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1aef9d592f54f4c70c36ca3a186afc271e" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>use_presolver</name></member>
+      <member refid="class_parameters_1_1_cahn_hilliard_1af0691b6e0377436c6a8b4976b119f2f6" prot="public" virt="non-virtual"><scope>Parameters::CahnHilliard</scope><name>with_tracer_limiter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

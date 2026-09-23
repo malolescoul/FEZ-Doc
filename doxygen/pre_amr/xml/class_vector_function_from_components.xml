@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_vector_function_from_components" kind="class" language="C++" prot="public">
+    <compoundname>VectorFunctionFromComponents</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="boundary__conditions_8h" local="no">boundary_conditions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_vector_function_from_components_1abb63dcbb6a3c15e6af086045240303c0" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int VectorFunctionFromComponents&lt; dim &gt;::lower</definition>
+        <argsstring></argsstring>
+        <name>lower</name>
+        <qualifiedname>VectorFunctionFromComponents::lower</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="505" column="41" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="505" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vector_function_from_components_1a6677010c01e36e6d9c0777386ea5f3e4" prot="public" static="no" mutable="no">
+        <type>const Functions::ParsedFunction&lt; dim &gt; &amp;</type>
+        <definition>const Functions::ParsedFunction&lt;dim&gt;&amp; VectorFunctionFromComponents&lt; dim &gt;::x_component</definition>
+        <argsstring></argsstring>
+        <name>x_component</name>
+        <qualifiedname>VectorFunctionFromComponents::x_component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="506" column="35" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="506" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vector_function_from_components_1a2e3c3b8ec791968bd221a65a4c23566d" prot="public" static="no" mutable="no">
+        <type>const Functions::ParsedFunction&lt; dim &gt; &amp;</type>
+        <definition>const Functions::ParsedFunction&lt;dim&gt;&amp; VectorFunctionFromComponents&lt; dim &gt;::y_component</definition>
+        <argsstring></argsstring>
+        <name>y_component</name>
+        <qualifiedname>VectorFunctionFromComponents::y_component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="507" column="35" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="507" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vector_function_from_components_1ab9197d1f4541d1b4dbb44d60dd68970c" prot="public" static="no" mutable="no">
+        <type>const Functions::ParsedFunction&lt; dim &gt; &amp;</type>
+        <definition>const Functions::ParsedFunction&lt;dim&gt;&amp; VectorFunctionFromComponents&lt; dim &gt;::z_component</definition>
+        <argsstring></argsstring>
+        <name>z_component</name>
+        <qualifiedname>VectorFunctionFromComponents::z_component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="508" column="35" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="508" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_vector_function_from_components_1a57ea249708841e29ef7e027a6c56dcf8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>VectorFunctionFromComponents&lt; dim &gt;::VectorFunctionFromComponents</definition>
+        <argsstring>(const unsigned int lower, const unsigned int n_components, const Functions::ParsedFunction&lt; dim &gt; &amp;x_component, const Functions::ParsedFunction&lt; dim &gt; &amp;y_component, const Functions::ParsedFunction&lt; dim &gt; &amp;z_component)</argsstring>
+        <name>VectorFunctionFromComponents</name>
+        <qualifiedname>VectorFunctionFromComponents::VectorFunctionFromComponents</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>lower</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_components</declname>
+        </param>
+        <param>
+          <type>const Functions::ParsedFunction&lt; dim &gt; &amp;</type>
+          <declname>x_component</declname>
+        </param>
+        <param>
+          <type>const Functions::ParsedFunction&lt; dim &gt; &amp;</type>
+          <declname>y_component</declname>
+        </param>
+        <param>
+          <type>const Functions::ParsedFunction&lt; dim &gt; &amp;</type>
+          <declname>z_component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="511" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="511" bodyend="522"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vector_function_from_components_1a215ff7c4f93b59f32353d799f0bbff69" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double VectorFunctionFromComponents&lt; dim &gt;::value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, unsigned int component) const override</argsstring>
+        <name>value</name>
+        <qualifiedname>VectorFunctionFromComponents::value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="524" column="18" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="524" bodyend="534"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Vector-valued function described by up to 3 individual ParsedFunctions. The parameter <computeroutput>lower</computeroutput> is the first vector component in the solution vector.</para>
+<para>This Function does no override the set_time function, instead it assumes that time has been correctly updated in each underlying ParsedFunction. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+      <node id="1">
+        <label>VectorFunctionFromComponents&lt; dim &gt;</label>
+        <link refid="class_vector_function_from_components"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+      <node id="1">
+        <label>VectorFunctionFromComponents&lt; dim &gt;</label>
+        <link refid="class_vector_function_from_components"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/boundary_conditions.h" line="502" column="1" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="503" bodyend="535"/>
+    <listofallmembers>
+      <member refid="class_vector_function_from_components_1abb63dcbb6a3c15e6af086045240303c0" prot="public" virt="non-virtual"><scope>VectorFunctionFromComponents</scope><name>lower</name></member>
+      <member refid="class_vector_function_from_components_1a215ff7c4f93b59f32353d799f0bbff69" prot="public" virt="virtual"><scope>VectorFunctionFromComponents</scope><name>value</name></member>
+      <member refid="class_vector_function_from_components_1a57ea249708841e29ef7e027a6c56dcf8" prot="public" virt="non-virtual"><scope>VectorFunctionFromComponents</scope><name>VectorFunctionFromComponents</name></member>
+      <member refid="class_vector_function_from_components_1a6677010c01e36e6d9c0777386ea5f3e4" prot="public" virt="non-virtual"><scope>VectorFunctionFromComponents</scope><name>x_component</name></member>
+      <member refid="class_vector_function_from_components_1a2e3c3b8ec791968bd221a65a4c23566d" prot="public" virt="non-virtual"><scope>VectorFunctionFromComponents</scope><name>y_component</name></member>
+      <member refid="class_vector_function_from_components_1ab9197d1f4541d1b4dbb44d60dd68970c" prot="public" virt="non-virtual"><scope>VectorFunctionFromComponents</scope><name>z_component</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

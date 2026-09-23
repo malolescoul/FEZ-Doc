@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base" prot="public">Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</innerclass>
+    <innerclass refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness" prot="public">Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</innerclass>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1a492c8bf355eef42e466890670f496aff" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="187" column="21" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1a3721f228094b9a1ff06fde55023c90c3" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness" kindref="compound">Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</ref></type>
+        <definition>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::chns_interface_thickness</definition>
+        <argsstring></argsstring>
+        <name>chns_interface_thickness</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::chns_interface_thickness</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="212" column="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Metric-based mesh adaptation is typically performed within a fixed point loop, converging the mesh-solution pair together. These parameters specify how to update the prescribed simulation parameters in between fixed-point iterations. This allows, for instance, reducing the interface thickness of a CHNS simulation as the mesh is refined. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>chns_interface_thickness</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="185" column="9" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="186" bodyend="213"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1a3721f228094b9a1ff06fde55023c90c3" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</scope><name>chns_interface_thickness</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1a492c8bf355eef42e466890670f496aff" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

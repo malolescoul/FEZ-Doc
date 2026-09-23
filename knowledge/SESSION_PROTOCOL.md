@@ -6,6 +6,8 @@
 
 Lire d'abord [la carte](MAP.md), [l'état des branches](branches.md), le [dernier journal](journal/jour-1.md) et [state.json](../state.json). Le fichier d'état donne les commits capturés, les sources suivies et les travaux restants ; il ne remplace pas les fiches de compréhension.
 
+Lire aussi le [complément pré-AMR](journal/complement-pre-amr.md) et le [workflow de référence](features/workflow-pre-amr.md). Le registre [historique](history/chronologie-branche.md) explique les capacités antérieures ; garder cc8dace figé au lieu de le remplacer par le prochain HEAD. Identifier d'abord les paramètres réellement utilisés par l'utilisateur, puis comparer ce cas sans AMR au HEAD avec l'AMR désactivé. Cette base précède les expériences avec adaptation.
+
 Pour chaque branche prioritaire, distinguer :
 
 - le dernier commit distant **observé** ;
@@ -110,4 +112,3 @@ Mettre à jour ensemble :
 Vérifier les liens relatifs et permalinks, la cohérence des extrémités du graphe, le rendu des pages modifiées et la génération documentaire. Ne jamais faire passer « fichier téléchargé » pour « fichier lu intégralement », ni « relation statique comprise » pour « calcul validé ».
 
 La publication GitHub reste une étape distincte. Le résultat normal de cette session est un atlas consultable, une mémoire locale propre et une documentation prête à progresser ; aucune planification automatique n'est créée.
-

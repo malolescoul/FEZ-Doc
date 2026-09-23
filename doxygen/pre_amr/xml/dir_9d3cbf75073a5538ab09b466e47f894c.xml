@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="dir_9d3cbf75073a5538ab09b466e47f894c" kind="dir">
+    <compoundname>snapshots/pre_amr/src</compoundname>
+    <innerdir refid="dir_af06b4e4af7142dcabf47e05df30388a">snapshots/pre_amr/src/assembly</innerdir>
+    <innerfile refid="boundary__conditions_8cpp">boundary_conditions.cpp</innerfile>
+    <innerfile refid="elasticity__solver_8cpp">elasticity_solver.cpp</innerfile>
+    <innerfile refid="incompressible__chns__solver_8cpp">incompressible_chns_solver.cpp</innerfile>
+    <innerfile refid="mesh__and__dof__tools_8cpp">mesh_and_dof_tools.cpp</innerfile>
+    <innerfile refid="navier__stokes__solver_8cpp">navier_stokes_solver.cpp</innerfile>
+    <innerfile refid="parameters_8cpp">parameters.cpp</innerfile>
+    <innerfile refid="post__processing__handler_8cpp">post_processing_handler.cpp</innerfile>
+    <innerfile refid="scratch__data_8cpp">scratch_data.cpp</innerfile>
+    <innerfile refid="time__handler_8cpp">time_handler.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/src/"/>
+  </compounddef>
+</doxygen>

@@ -123,7 +123,8 @@
 <codeline><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>AffineConstraints&lt;double&gt;<sp/>&amp;nonzero_constraints,</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><ref refid="namespace_l_a_1a71486a471be13e3af27194053d6c8a4b" kindref="member">LA::ParVectorType</ref><sp/>*additional_solution);</highlight></codeline>
 </programlisting></para>
-<para><bold>Réponse :</bold> l&apos;état supplémentaire est optionnel et mutable : le code teste sa présence puis le réinitialise et le remplit. Les deux références désignent des objets obligatoires, consultés sans modifier leur interface. Un pointeur ne signifie pas ici un transfert de propriété : le propriétaire de l&apos;état reste l&apos;estimateur temporel. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613">Implémentation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284">accès à l&apos;état</ulink> </para>
+<para><bold>Réponse :</bold> l&apos;état supplémentaire est optionnel et mutable : le code teste sa présence puis le réinitialise et le remplit. Les deux références désignent des objets obligatoires, consultés sans modifier leur interface. Un pointeur ne signifie pas ici un transfert de propriété : le propriétaire de l&apos;état reste l&apos;estimateur temporel. <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/mesh_adaptation/transient_fixed_point.cpp#L558-L613">Implémentation</ulink>, <ulink url="https://github.com/arthurbawin/fez/blob/35d43b8e3bc4cae33a6ed7b6b57a6f3d77e93858/src/time_handler.cpp#L279-L284">accès à l&apos;état</ulink></para>
+<para> </para>
 </sect1>
     </detaileddescription>
     <location file="guides/prod/patterns/distributed-state-transfer.md"/>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_timer" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Timer</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_timer_1a6a4a2ecbb91bd2c1da4dba5adbd5ebf4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Timer::enable_timer</definition>
+        <argsstring></argsstring>
+        <name>enable_timer</name>
+        <qualifiedname>Parameters::Timer::enable_timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="65" column="10" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_timer_1a36e7d52642addc590940ae4eb0717213" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Timer::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>Parameters::Timer::declare_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="67" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="32" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_parameters_1_1_timer_1ad59117cd4e6052398d026f694d291cfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::Timer::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>Parameters::Timer::read_parameters</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="68" column="10" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="44" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="63" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="64" bodyend="69"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_timer_1a36e7d52642addc590940ae4eb0717213" prot="public" virt="non-virtual"><scope>Parameters::Timer</scope><name>declare_parameters</name></member>
+      <member refid="struct_parameters_1_1_timer_1a6a4a2ecbb91bd2c1da4dba5adbd5ebf4" prot="public" virt="non-virtual"><scope>Parameters::Timer</scope><name>enable_timer</name></member>
+      <member refid="struct_parameters_1_1_timer_1ad59117cd4e6052398d026f694d291cfc" prot="public" virt="non-virtual"><scope>Parameters::Timer</scope><name>read_parameters</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

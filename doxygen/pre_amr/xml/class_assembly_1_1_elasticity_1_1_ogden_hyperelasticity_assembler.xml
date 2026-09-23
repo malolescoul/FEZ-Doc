@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler" kind="class" language="C++" prot="public">
+    <compoundname>Assembly::Elasticity::OgdenHyperelasticityAssembler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AssemblerBase&lt; ScratchData, CopyData &gt;</basecompoundref>
+    <includes refid="elasticity__assemblers_8h" local="no">elasticity_assemblers.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>typename ScratchData</type>
+      </param>
+      <param>
+        <type>typename CopyData</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1a9bc75756fa8adb1c8e906c761ec6c871" prot="public" static="no" mutable="no">
+        <type>const ParameterReader&lt; dim &gt; &amp;</type>
+        <definition>const ParameterReader&lt;dim&gt;&amp; Assembly::Elasticity::OgdenHyperelasticityAssembler&lt; dim, ScratchData, CopyData &gt;::param</definition>
+        <argsstring></argsstring>
+        <name>param</name>
+        <qualifiedname>Assembly::Elasticity::OgdenHyperelasticityAssembler::param</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="288" column="29" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1a59849d423d6ab06428d5ab922178f579" prot="public" static="no" mutable="no">
+        <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+        <definition>const ComponentOrdering&amp; Assembly::Elasticity::OgdenHyperelasticityAssembler&lt; dim, ScratchData, CopyData &gt;::ordering</definition>
+        <argsstring></argsstring>
+        <name>ordering</name>
+        <qualifiedname>Assembly::Elasticity::OgdenHyperelasticityAssembler::ordering</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="289" column="34" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1ae01c3131501bdea0679be35bd96659e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Assembly::Elasticity::OgdenHyperelasticityAssembler&lt; dim, ScratchData, CopyData &gt;::OgdenHyperelasticityAssembler</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param, const ComponentOrdering &amp;ordering)</argsstring>
+        <name>OgdenHyperelasticityAssembler</name>
+        <qualifiedname>Assembly::Elasticity::OgdenHyperelasticityAssembler::OgdenHyperelasticityAssembler</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_component_ordering" kindref="compound">ComponentOrdering</ref> &amp;</type>
+          <declname>ordering</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="269" column="7" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="269" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1aa695cb648c55eca872c961c194011d7c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::OgdenHyperelasticityAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_matrix</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>Assembly::Elasticity::OgdenHyperelasticityAssembler::assemble_matrix</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="278" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="235" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1a8160656eb4ffe44765da0aabdefc4ba5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Assembly::Elasticity::OgdenHyperelasticityAssembler&lt; dim, ScratchData, CopyData &gt;::assemble_rhs</definition>
+        <argsstring>(const ScratchData &amp;scratch_data, CopyData &amp;copy_data) const override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>Assembly::Elasticity::OgdenHyperelasticityAssembler::assemble_rhs</qualifiedname>
+        <param>
+          <type>const ScratchData &amp;</type>
+          <declname>scratch_data</declname>
+        </param>
+        <param>
+          <type>CopyData &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble local right-hand side vector. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="284" column="20" bodyfile="snapshots/pre_amr/src/assembly/elasticity_assemblers.cpp" bodystart="193" bodyend="231"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::OgdenHyperelasticityAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AssemblerBase&lt; ScratchData, CopyData &gt;</label>
+      </node>
+      <node id="1">
+        <label>Assembly::Elasticity::OgdenHyperelasticityAssembler&lt; dim, ScratchData, CopyData &gt;</label>
+        <link refid="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ordering</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ComponentOrdering</label>
+        <link refid="class_component_ordering"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" line="265" column="5" bodyfile="snapshots/pre_amr/include/assembly/elasticity_assemblers.h" bodystart="267" bodyend="290"/>
+    <listofallmembers>
+      <member refid="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1aa695cb648c55eca872c961c194011d7c" prot="public" virt="virtual"><scope>Assembly::Elasticity::OgdenHyperelasticityAssembler</scope><name>assemble_matrix</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1a8160656eb4ffe44765da0aabdefc4ba5" prot="public" virt="virtual"><scope>Assembly::Elasticity::OgdenHyperelasticityAssembler</scope><name>assemble_rhs</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1ae01c3131501bdea0679be35bd96659e0" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::OgdenHyperelasticityAssembler</scope><name>OgdenHyperelasticityAssembler</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1a59849d423d6ab06428d5ab922178f579" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::OgdenHyperelasticityAssembler</scope><name>ordering</name></member>
+      <member refid="class_assembly_1_1_elasticity_1_1_ogden_hyperelasticity_assembler_1a9bc75756fa8adb1c8e906c761ec6c871" prot="public" virt="non-virtual"><scope>Assembly::Elasticity::OgdenHyperelasticityAssembler</scope><name>param</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

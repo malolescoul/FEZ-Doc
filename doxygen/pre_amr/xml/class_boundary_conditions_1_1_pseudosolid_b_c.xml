@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_boundary_conditions_1_1_pseudosolid_b_c" kind="class" language="C++" prot="public">
+    <compoundname>BoundaryConditions::PseudosolidBC</compoundname>
+    <basecompoundref refid="class_boundary_conditions_1_1_boundary_condition" prot="public" virt="non-virtual">BoundaryConditions::BoundaryCondition</basecompoundref>
+    <includes refid="boundary__conditions_8h" local="no">boundary_conditions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a5c812bd1becdcd058f5936643d7be321" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::PseudosolidBC&lt; dim &gt;::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::x</qualifiedname>
+        <briefdescription>
+<para>Prescribed mesh position (used only for input_function). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="183" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a4f94ff354397de29c7da8b07827ce89b" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::PseudosolidBC&lt; dim &gt;::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="184" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a0078e8a8a7a45f527733ad7ae8a1732c" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;Functions::ParsedFunction&lt;dim&gt; &gt; BoundaryConditions::PseudosolidBC&lt; dim &gt;::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="185" column="21" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a50e442deb77323c259291a40e9886618" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BoundaryConditions::PseudosolidBC&lt; dim &gt;::constrain_x</definition>
+        <argsstring></argsstring>
+        <name>constrain_x</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::constrain_x</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For an input_function boundary, select which mesh-position components are strongly constrained by the x/y/z function. Leaving a component unconstrained lets the pseudosolid solver determine it (e.g. a wavemaker whose horizontal motion is prescribed while the vertical slides freely). At least one component must be constrained. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="194" column="10" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a43518075b39b5a761a2f3aa5d894d7ff" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BoundaryConditions::PseudosolidBC&lt; dim &gt;::constrain_y</definition>
+        <argsstring></argsstring>
+        <name>constrain_y</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::constrain_y</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="195" column="10" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a43c060fc277092c1eb89e28d8c7ba76d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BoundaryConditions::PseudosolidBC&lt; dim &gt;::constrain_z</definition>
+        <argsstring></argsstring>
+        <name>constrain_z</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::constrain_z</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="196" column="10" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a3b4116694ccce321d146f131dbc692fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BoundaryConditions::PseudosolidBC&lt; dim &gt;::PseudosolidBC</definition>
+        <argsstring>()</argsstring>
+        <name>PseudosolidBC</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::PseudosolidBC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="199" column="5" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="199" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a7073a9703bc92ea1f3fde6f963aa1229" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BoundaryConditions::PseudosolidBC&lt; dim &gt;::set_time</definition>
+        <argsstring>(const double new_time) override</argsstring>
+        <name>set_time</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::set_time</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1ac8601a76cd1f468d25975d4a6d9bacd0">set_time</reimplements>
+        <param>
+          <type>const double</type>
+          <declname>new_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the time in the underlying functions, if applicable. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="206" column="18" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="206" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a8bd1ded0406471606ca003efd29add68" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::PseudosolidBC&lt; dim &gt;::declare_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm) override</argsstring>
+        <name>declare_parameters</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::declare_parameters</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1ab99ddaf1ec917586c4141fd30e431759">declare_parameters</reimplements>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Declare the parameters common to all boundary conditions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="213" column="18" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="187" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_boundary_conditions_1_1_pseudosolid_b_c_1a11dee648fd9570e73ee73d60811f398b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BoundaryConditions::PseudosolidBC&lt; dim &gt;::read_parameters</definition>
+        <argsstring>(ParameterHandler &amp;prm) override</argsstring>
+        <name>read_parameters</name>
+        <qualifiedname>BoundaryConditions::PseudosolidBC::read_parameters</qualifiedname>
+        <reimplements refid="class_boundary_conditions_1_1_boundary_condition_1aa3c05a55d7ae593ea61091ab0bf915f5">read_parameters</reimplements>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="214" column="18" bodyfile="snapshots/pre_amr/src/boundary_conditions.cpp" bodystart="219" bodyend="271"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A boundary condition for the linear elasticity equations, for the mesh movement analogy. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BoundaryConditions::BoundaryCondition</label>
+        <link refid="class_boundary_conditions_1_1_boundary_condition"/>
+      </node>
+      <node id="1">
+        <label>BoundaryConditions::PseudosolidBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_pseudosolid_b_c"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BoundaryConditions::BoundaryCondition</label>
+        <link refid="class_boundary_conditions_1_1_boundary_condition"/>
+      </node>
+      <node id="1">
+        <label>BoundaryConditions::PseudosolidBC&lt; dim &gt;</label>
+        <link refid="class_boundary_conditions_1_1_pseudosolid_b_c"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/boundary_conditions.h" line="179" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="180" bodyend="215"/>
+    <listofallmembers>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a50e442deb77323c259291a40e9886618" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>constrain_x</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a43518075b39b5a761a2f3aa5d894d7ff" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>constrain_y</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a43c060fc277092c1eb89e28d8c7ba76d" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>constrain_z</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a8bd1ded0406471606ca003efd29add68" prot="public" virt="virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>declare_parameters</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a730333d397ccd4d49cc78a424536d264" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>gmsh_name</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a21dd6156d2d579105e522638da6d71ab" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>id</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1a480b59f4d819a3ff30f292fca6b0db3f" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>physics_str</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1abfd5fc36dd938e4e9aa8dfd1ac4b5131" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>physics_type</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a3b4116694ccce321d146f131dbc692fc" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>PseudosolidBC</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a11dee648fd9570e73ee73d60811f398b" prot="public" virt="virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>read_parameters</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a7073a9703bc92ea1f3fde6f963aa1229" prot="public" virt="virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>set_time</name></member>
+      <member refid="class_boundary_conditions_1_1_boundary_condition_1ab7b990328424a2c3e822e765c23d98fc" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>type</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a5c812bd1becdcd058f5936643d7be321" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>x</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a4f94ff354397de29c7da8b07827ce89b" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>y</name></member>
+      <member refid="class_boundary_conditions_1_1_pseudosolid_b_c_1a0078e8a8a7a45f527733ad7ae8a1732c" prot="public" virt="non-virtual"><scope>BoundaryConditions::PseudosolidBC</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FEZ — workflow avant AMR: Référence de la structure Parameters::FiniteElements&lt; dim &gt;::QuadratureRule</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+
+
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FEZ — workflow avant AMR<span id="projectnumber">&#160;cc8dace141900 · Complément jour 1</span>
+   </div>
+   <div id="projectbrief">Référence partielle des sources sélectionnées — lecture GitHub, sans build FEZ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Recherche" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('struct_parameters_1_1_finite_elements_1_1_quadrature_rule.html','','struct_parameters_1_1_finite_elements_1_1_quadrature_rule-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Référence de la structure Parameters::FiniteElements&lt; dim &gt;::QuadratureRule</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="parameters_8h_source.html">parameters.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:a74074f85affbf69a3e374e5e6de03c0b" id="r_a74074f85affbf69a3e374e5e6de03c0b"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a74074f85affbf69a3e374e5e6de03c0b">Type</a> { <a class="el" href="#a74074f85affbf69a3e374e5e6de03c0baa7db4141455ea790ecd317db6822cd62">GaussSimplex</a>
+, <a class="el" href="#a74074f85affbf69a3e374e5e6de03c0ba1a2b12b2cd19a375bb0966dd631f6ec2">WitherdenVincent</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:aac1509c2b38a866b7cd4853f3d8609e2" id="r_aac1509c2b38a866b7cd4853f3d8609e2"><td class="memItemLeft">enum <a class="el" href="#a74074f85affbf69a3e374e5e6de03c0b">Parameters::FiniteElements::QuadratureRule::Type</a>&#160;</td><td class="memItemRight"><a class="el" href="#aac1509c2b38a866b7cd4853f3d8609e2">type</a></td></tr>
+<tr class="memitem:a4ae10417e85f4c5619653739d28b5e25" id="r_a4ae10417e85f4c5619653739d28b5e25"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#a4ae10417e85f4c5619653739d28b5e25">n_pts_1D_simplex_cell_quad</a></td></tr>
+<tr class="memitem:addf7887632d84c37355e1e27c8e72293" id="r_addf7887632d84c37355e1e27c8e72293"><td class="memItemLeft">unsigned int&#160;</td><td class="memItemRight"><a class="el" href="#addf7887632d84c37355e1e27c8e72293">n_pts_1D_simplex_face_quad</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description détaillée</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;int dim&gt;<br />
+struct Parameters::FiniteElements&lt; dim &gt;::QuadratureRule</div>
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00568">568</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Documentation des énumérations membres</h2>
+<a id="a74074f85affbf69a3e374e5e6de03c0b" name="a74074f85affbf69a3e374e5e6de03c0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74074f85affbf69a3e374e5e6de03c0b">&#9670;&#160;</a></span>Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a74074f85affbf69a3e374e5e6de03c0b">Parameters::FiniteElements::QuadratureRule::Type</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="a74074f85affbf69a3e374e5e6de03c0baa7db4141455ea790ecd317db6822cd62" name="a74074f85affbf69a3e374e5e6de03c0baa7db4141455ea790ecd317db6822cd62"></a>GaussSimplex&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a74074f85affbf69a3e374e5e6de03c0ba1a2b12b2cd19a375bb0966dd631f6ec2" name="a74074f85affbf69a3e374e5e6de03c0ba1a2b12b2cd19a375bb0966dd631f6ec2"></a>WitherdenVincent&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00570">570</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentation des données membres</h2>
+<a id="a4ae10417e85f4c5619653739d28b5e25" name="a4ae10417e85f4c5619653739d28b5e25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ae10417e85f4c5619653739d28b5e25">&#9670;&#160;</a></span>n_pts_1D_simplex_cell_quad</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="struct_parameters_1_1_finite_elements.html">Parameters::FiniteElements</a>&lt; dim &gt;::QuadratureRule::n_pts_1D_simplex_cell_quad</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00576">576</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="addf7887632d84c37355e1e27c8e72293" name="addf7887632d84c37355e1e27c8e72293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addf7887632d84c37355e1e27c8e72293">&#9670;&#160;</a></span>n_pts_1D_simplex_face_quad</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="struct_parameters_1_1_finite_elements.html">Parameters::FiniteElements</a>&lt; dim &gt;::QuadratureRule::n_pts_1D_simplex_face_quad</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="parameters_8h_source.html#l00577">577</a> du fichier <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
+</div>
+</div>
+<a id="aac1509c2b38a866b7cd4853f3d8609e2" name="aac1509c2b38a866b7cd4853f3d8609e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1509c2b38a866b7cd4853f3d8609e2">&#9670;&#160;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a74074f85affbf69a3e374e5e6de03c0b">Parameters::FiniteElements::QuadratureRule::Type</a> <a class="el" href="struct_parameters_1_1_finite_elements.html">Parameters::FiniteElements</a>&lt; dim &gt;::QuadratureRule::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li>snapshots/pre_amr/include/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_parameters.html">Parameters</a></li><li class="navelem"><a href="struct_parameters_1_1_finite_elements.html">FiniteElements</a></li><li class="navelem"><a href="struct_parameters_1_1_finite_elements_1_1_quadrature_rule.html">QuadratureRule</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

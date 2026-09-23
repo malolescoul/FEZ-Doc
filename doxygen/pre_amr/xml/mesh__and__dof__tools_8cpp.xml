@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="mesh__and__dof__tools_8cpp" kind="file" language="C++">
+    <compoundname>mesh_and_dof_tools.cpp</compoundname>
+    <includes local="no">deal.II/dofs/dof_handler.h</includes>
+    <includes refid="mesh__and__dof__tools_8h" local="no">mesh_and_dof_tools.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>mesh_and_dof_tools.h</label>
+        <link refid="mesh__and__dof__tools_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>snapshots/pre_amr/src/mesh_and_dof_tools.cpp</label>
+        <link refid="mesh__and__dof__tools_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>deal.II/dofs/dof_handler.h</label>
+      </node>
+      <node id="4">
+        <label>deal.II/lac/vector.h</label>
+      </node>
+      <node id="6">
+        <label>map</label>
+      </node>
+      <node id="5">
+        <label>utilities.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="mesh__and__dof__tools_8cpp_1a6db3de4523b1a69dafaa3ccbb3f8b1f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void get_owned_mesh_vertices</definition>
+        <argsstring>(const Triangulation&lt; dim &gt; &amp;triangulation, const types::subdomain_id subdomain_id, std::vector&lt; bool &gt; &amp;owned_vertices)</argsstring>
+        <name>get_owned_mesh_vertices</name>
+        <param>
+          <type>const Triangulation&lt; dim &gt; &amp;</type>
+          <declname>triangulation</declname>
+        </param>
+        <param>
+          <type>const types::subdomain_id</type>
+          <declname>subdomain_id</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; bool &gt; &amp;</type>
+          <declname>owned_vertices</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fill <computeroutput>owned_vertices</computeroutput> with a flag stating if the i-th local mesh vertex is owned or not on the partition <computeroutput>subdomain_id</computeroutput>.</para>
+<para>This function exists because GridTools::get_locally_owned_vertices(triangulation) provides mesh vertices with multiple owners at the boundary of a partition, where we would want a single owner. This function leaves out vertices touching ONLY ghost-cells, which would be marked as owned with GridTools::get_locally_owned_vertices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" line="6" column="6" bodyfile="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" bodystart="6" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="mesh__and__dof__tools_8cpp_1aae6bcdf2fd8fcf2f3080ffcb32a9058d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void get_owned_mesh_vertices</definition>
+        <argsstring>(const Triangulation&lt; 2 &gt; &amp;, const types::subdomain_id, std::vector&lt; bool &gt; &amp;)</argsstring>
+        <name>get_owned_mesh_vertices</name>
+        <param>
+          <type>const Triangulation&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const types::subdomain_id</type>
+        </param>
+        <param>
+          <type>std::vector&lt; bool &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" line="27" column="15" declfile="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" declline="27" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="mesh__and__dof__tools_8cpp_1aa0237ee357ea240bdcf2740fafe4ef02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template void</type>
+        <definition>template void get_owned_mesh_vertices</definition>
+        <argsstring>(const Triangulation&lt; 3 &gt; &amp;, const types::subdomain_id, std::vector&lt; bool &gt; &amp;)</argsstring>
+        <name>get_owned_mesh_vertices</name>
+        <param>
+          <type>const Triangulation&lt; 3 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const types::subdomain_id</type>
+        </param>
+        <param>
+          <type>std::vector&lt; bool &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" line="30" column="15" declfile="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" declline="30" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="mesh__and__dof__tools_8cpp_1acf683d4d7c329d77c71154c3124d5785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>std::set&lt; Point&lt; dim &gt;, PointComparator&lt; dim &gt; &gt;</type>
+        <definition>std::set&lt; Point&lt; dim &gt;, PointComparator&lt; dim &gt; &gt; get_mesh_vertices_on_boundary</definition>
+        <argsstring>(const DoFHandler&lt; dim &gt; &amp;dof_handler, const types::boundary_id boundary_id)</argsstring>
+        <name>get_mesh_vertices_on_boundary</name>
+        <param>
+          <type>const DoFHandler&lt; dim &gt; &amp;</type>
+          <declname>dof_handler</declname>
+        </param>
+        <param>
+          <type>const types::boundary_id</type>
+          <declname>boundary_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the set of mesh vertices which belong to cell faces on the given boundary &quot;boundary_id&quot;. Mesh vertex indices are not unique across MPI ranks, so this returns a set of Points instead of a more manageable global vertex index. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" line="36" column="1" bodyfile="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" bodystart="36" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="mesh__and__dof__tools_8cpp_1a8427f2cf1eba41dae54e4aeb3d95629c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template std::set&lt; Point&lt; 2 &gt;, PointComparator&lt; 2 &gt; &gt;</type>
+        <definition>template std::set&lt; Point&lt; 2 &gt;, PointComparator&lt; 2 &gt; &gt; get_mesh_vertices_on_boundary</definition>
+        <argsstring>(const DoFHandler&lt; 2 &gt; &amp;, const types::boundary_id)</argsstring>
+        <name>get_mesh_vertices_on_boundary</name>
+        <param>
+          <type>const DoFHandler&lt; 2 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const types::boundary_id</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" line="61" column="1" declfile="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" declline="61" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="mesh__and__dof__tools_8cpp_1ace6f22d45cb8e552735bf6368180c58d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>template std::set&lt; Point&lt; 3 &gt;, PointComparator&lt; 3 &gt; &gt;</type>
+        <definition>template std::set&lt; Point&lt; 3 &gt;, PointComparator&lt; 3 &gt; &gt; get_mesh_vertices_on_boundary</definition>
+        <argsstring>(const DoFHandler&lt; 3 &gt; &amp;, const types::boundary_id)</argsstring>
+        <name>get_mesh_vertices_on_boundary</name>
+        <param>
+          <type>const DoFHandler&lt; 3 &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const types::boundary_id</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" line="63" column="1" declfile="snapshots/pre_amr/src/mesh_and_dof_tools.cpp" declline="63" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;deal.II/dofs/dof_handler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="mesh__and__dof__tools_8h" kindref="compound">mesh_and_dof_tools.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="6" refid="mesh__and__dof__tools_8h_1a6db3de4523b1a69dafaa3ccbb3f8b1f5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mesh__and__dof__tools_8h_1a6db3de4523b1a69dafaa3ccbb3f8b1f5" kindref="member">get_owned_mesh_vertices</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Triangulation&lt;dim&gt;<sp/>&amp;triangulation,</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>types::subdomain_id<sp/>subdomain_id,</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;bool&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;owned_vertices)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>owned_vertices.clear();</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>owned_vertices.resize(triangulation.n_vertices(),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>by<sp/>marking<sp/>all<sp/>vertices<sp/>touching<sp/>an<sp/>owned<sp/>cell<sp/>as<sp/>owned</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;cell<sp/>:<sp/>triangulation.active_cell_iterators())</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;is_locally_owned())</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>v<sp/>:<sp/>cell-&gt;vertex_indices())</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>owned_vertices[cell-&gt;vertex_index(v)]<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>a<sp/>ghost<sp/>cell<sp/>with<sp/>lesser<sp/>id<sp/>touches<sp/>a<sp/>vertex,<sp/>mark<sp/>it<sp/>non-owned</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;cell<sp/>:<sp/>triangulation.active_cell_iterators())</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;is_artificial()<sp/>||</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(cell-&gt;is_ghost()<sp/>&amp;&amp;<sp/>cell-&gt;subdomain_id()<sp/>&lt;<sp/>subdomain_id))</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>v<sp/>:<sp/>cell-&gt;vertex_indices())</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>owned_vertices[cell-&gt;vertex_index(v)]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="mesh__and__dof__tools_8cpp_1aae6bcdf2fd8fcf2f3080ffcb32a9058d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mesh__and__dof__tools_8h_1a6db3de4523b1a69dafaa3ccbb3f8b1f5" kindref="member">get_owned_mesh_vertices</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Triangulation&lt;2&gt;<sp/>&amp;,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>types::subdomain_id,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;bool&gt;<sp/>&amp;);</highlight></codeline>
+<codeline lineno="30" refid="mesh__and__dof__tools_8cpp_1aa0237ee357ea240bdcf2740fafe4ef02" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="mesh__and__dof__tools_8h_1a6db3de4523b1a69dafaa3ccbb3f8b1f5" kindref="member">get_owned_mesh_vertices</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Triangulation&lt;3&gt;<sp/>&amp;,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>types::subdomain_id,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;bool&gt;<sp/>&amp;);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim&gt;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">std::set&lt;Point&lt;dim&gt;,<sp/>PointComparator&lt;dim&gt;&gt;</highlight></codeline>
+<codeline lineno="36" refid="mesh__and__dof__tools_8h_1acf683d4d7c329d77c71154c3124d5785" refkind="member"><highlight class="normal"><ref refid="mesh__and__dof__tools_8h_1acf683d4d7c329d77c71154c3124d5785" kindref="member">get_mesh_vertices_on_boundary</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;dim&gt;<sp/><sp/><sp/>&amp;dof_handler,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>types::boundary_id<sp/>boundary_id)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>MPI_Comm<sp/>comm<sp/>=<sp/>dof_handler.get_mpi_communicator();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>std::set&lt;Point&lt;dim&gt;,<sp/>PointComparator&lt;dim&gt;&gt;<sp/>vertices_on_boundary;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>std::vector&lt;Point&lt;dim&gt;&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>local_vertices_on_boundary;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Mark<sp/>based<sp/>on<sp/>faces</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;cell<sp/>:<sp/>dof_handler.active_cell_iterators())</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;face<sp/>:<sp/>cell-&gt;face_iterators())</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(face-&gt;at_boundary()<sp/>&amp;&amp;<sp/>face-&gt;boundary_id()<sp/>==<sp/>boundary_id)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>face-&gt;n_vertices();<sp/>++i)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>local_vertices_on_boundary.push_back(face-&gt;vertex(i));</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;Point&lt;dim&gt;&gt;&gt;<sp/>gathered<sp/>=</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>Utilities::MPI::all_gather(comm,<sp/>local_vertices_on_boundary);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;vec<sp/>:<sp/>gathered)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pt<sp/>:<sp/>vec)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vertices_on_boundary.insert(pt);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>vertices_on_boundary;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>std::set&lt;Point&lt;2&gt;,<sp/>PointComparator&lt;2&gt;&gt;</highlight></codeline>
+<codeline lineno="61" refid="mesh__and__dof__tools_8cpp_1a8427f2cf1eba41dae54e4aeb3d95629c" refkind="member"><highlight class="normal"><ref refid="mesh__and__dof__tools_8h_1acf683d4d7c329d77c71154c3124d5785" kindref="member">get_mesh_vertices_on_boundary</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;2&gt;<sp/>&amp;,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>types::boundary_id);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>std::set&lt;Point&lt;3&gt;,<sp/>PointComparator&lt;3&gt;&gt;</highlight></codeline>
+<codeline lineno="63" refid="mesh__and__dof__tools_8cpp_1ace6f22d45cb8e552735bf6368180c58d" refkind="member"><highlight class="normal"><ref refid="mesh__and__dof__tools_8h_1acf683d4d7c329d77c71154c3124d5785" kindref="member">get_mesh_vertices_on_boundary</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DoFHandler&lt;3&gt;<sp/>&amp;,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>types::boundary_id);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="snapshots/pre_amr/src/mesh_and_dof_tools.cpp"/>
+  </compounddef>
+</doxygen>

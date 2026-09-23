@@ -1,0 +1,1898 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_cahn_hilliard" kind="namespace" language="C++">
+    <compoundname>CahnHilliard</compoundname>
+    <innerclass refid="struct_cahn_hilliard_1_1_mobility_evaluation" prot="public">CahnHilliard::MobilityEvaluation</innerclass>
+    <innerclass refid="struct_cahn_hilliard_1_1_mobility_tracer_argument" prot="public">CahnHilliard::MobilityTracerArgument</innerclass>
+    <innerclass refid="struct_cahn_hilliard_1_1_adaptive_mobility_restriction_weight" prot="public">CahnHilliard::AdaptiveMobilityRestrictionWeight</innerclass>
+    <innerclass refid="struct_cahn_hilliard_1_1_adaptive_mobility_scaling" prot="public">CahnHilliard::AdaptiveMobilityScaling</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespace_cahn_hilliard_1a26d9455e41da6c54c7f2ff8eca43f4cd" prot="public" static="no">
+        <type>double(*)(double)</type>
+        <definition>using CahnHilliard::TracerLimiterFunction = double (*)(double)</definition>
+        <argsstring></argsstring>
+        <name>TracerLimiterFunction</name>
+        <qualifiedname>CahnHilliard::TracerLimiterFunction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a pointer to the limiter function used for the phase field tracer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="450" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="450" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_cahn_hilliard_1ad0fef693a5594df8314241cade1c6ccd" prot="public" static="no">
+        <type>double(*)(double)</type>
+        <definition>using CahnHilliard::MobilityTracerLimiterFunction = double (*)(double)</definition>
+        <argsstring></argsstring>
+        <name>MobilityTracerLimiterFunction</name>
+        <qualifiedname>CahnHilliard::MobilityTracerLimiterFunction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a pointer to the tracer limiter used when evaluating a tracer-dependent mobility. Optional and independent from the material-property limiter above. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="467" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="467" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_cahn_hilliard_1aa3dc908e193111f32c1164d81fdd2da5" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_cahn_hilliard_1_1_mobility_evaluation" kindref="compound">MobilityEvaluation</ref>&lt; dim &gt;(*)(const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;, double, double, double, const dealii::Tensor&lt; 1, dim &gt; &amp;, const dealii::Tensor&lt; 1, dim &gt; &amp;, double, double)</type>
+        <definition>using CahnHilliard::MobilityEvaluationFunction = MobilityEvaluation&lt;dim&gt; (*)
+   (const Parameters::CahnHilliard&lt;dim&gt; &amp;,
+    double,
+    double,
+    double,
+    const dealii::Tensor&lt;1, dim&gt; &amp;,
+    const dealii::Tensor&lt;1, dim&gt; &amp;,
+    double,
+    double)</definition>
+        <argsstring></argsstring>
+        <name>MobilityEvaluationFunction</name>
+        <qualifiedname>CahnHilliard::MobilityEvaluationFunction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="615" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="615" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespace_cahn_hilliard_1a77ae3ade25c7c31b320f46e9438175c7" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double(*)(const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;, double)</type>
+        <definition>using CahnHilliard::MaterialPhaseFunction = double (*)(const Parameters::CahnHilliard&lt;dim&gt; &amp;,
+                                          double)</definition>
+        <argsstring></argsstring>
+        <name>MaterialPhaseFunction</name>
+        <qualifiedname>CahnHilliard::MaterialPhaseFunction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="931" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="931" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_cahn_hilliard_1a6f61694a0899f3d3310096a778ea2483" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>double</type>
+        <definition>double CahnHilliard::profile_correction_tail_level</definition>
+        <argsstring></argsstring>
+        <name>profile_correction_tail_level</name>
+        <qualifiedname>CahnHilliard::profile_correction_tail_level</qualifiedname>
+        <initializer>= 0.999</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="13" column="20" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_cahn_hilliard_1a47e4324fcd954f9abb727021de82e188" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>double</type>
+        <definition>double CahnHilliard::profile_correction_beta</definition>
+        <argsstring></argsstring>
+        <name>profile_correction_beta</name>
+        <qualifiedname>CahnHilliard::profile_correction_beta</qualifiedname>
+        <initializer>= 0.05</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="14" column="20" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a149834ed6490386edbb00d55e8a61450" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::quintic_transition</definition>
+        <argsstring>(const double value, const double lower, const double upper)</argsstring>
+        <name>quintic_transition</name>
+        <qualifiedname>CahnHilliard::quintic_transition</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>lower</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>upper</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="16" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="16" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a2fa68085fb94545bdac8c9760dd8700f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::quintic_transition_derivative</definition>
+        <argsstring>(const double value, const double lower, const double upper)</argsstring>
+        <name>quintic_transition_derivative</name>
+        <qualifiedname>CahnHilliard::quintic_transition_derivative</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>lower</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>upper</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="29" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="29" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a79364e7ff94fb393dfda07862ddd27be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::profile_correction_tail_scale</definition>
+        <argsstring>()</argsstring>
+        <name>profile_correction_tail_scale</name>
+        <qualifiedname>CahnHilliard::profile_correction_tail_scale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="40" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a4994728e0db3263f67a1c0af5090ee55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::profile_correction_phase_activation</definition>
+        <argsstring>(const double tracer)</argsstring>
+        <name>profile_correction_phase_activation</name>
+        <qualifiedname>CahnHilliard::profile_correction_phase_activation</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>tracer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Activation declaring that phi still belongs to the retained tanh tail. It is C2, zero in pure phases and for every overshoot |phi| &gt; 1. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="48" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="48" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a3c9baa955b5e20b449de16f7034b0cca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::profile_correction_phase_activation_derivative</definition>
+        <argsstring>(const double tracer)</argsstring>
+        <name>profile_correction_phase_activation_derivative</name>
+        <qualifiedname>CahnHilliard::profile_correction_phase_activation_derivative</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>tracer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="56" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="56" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a42440b7f1831dbbe518acdb23e5cd5c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::flux_correction_gradient_activation</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double gradient_norm)</argsstring>
+        <name>flux_correction_gradient_activation</name>
+        <qualifiedname>CahnHilliard::flux_correction_gradient_activation</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>gradient_norm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="65" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="65" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1af44d837462ab60d48b1c0f52aef4ee7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::flux_correction_gradient_activation_derivative</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double gradient_norm)</argsstring>
+        <name>flux_correction_gradient_activation_derivative</name>
+        <qualifiedname>CahnHilliard::flux_correction_gradient_activation_derivative</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>gradient_norm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="77" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="77" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1abffffe942a048ea1a6a2e7fae292272d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>dealii::Tensor&lt; 1, dim &gt;</type>
+        <definition>dealii::Tensor&lt; 1, dim &gt; CahnHilliard::profile_correction_flux_driver</definition>
+        <argsstring>(const double tracer, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient, const double epsilon)</argsstring>
+        <name>profile_correction_flux_driver</name>
+        <qualifiedname>CahnHilliard::profile_correction_flux_driver</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>tracer</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>epsilon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Li profile driver with a q-relative regularization. beta_PC is purely a Newton regularization and is not part of the physical Li formulation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="92" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="92" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ae6dae32714bcaedbba291f3c75e32a28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>dealii::Tensor&lt; 1, dim &gt;</type>
+        <definition>dealii::Tensor&lt; 1, dim &gt; CahnHilliard::profile_correction_flux_driver_variation</definition>
+        <argsstring>(const double tracer, const double tracer_variation, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient_variation, const double epsilon)</argsstring>
+        <name>profile_correction_flux_driver_variation</name>
+        <qualifiedname>CahnHilliard::profile_correction_flux_driver_variation</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>tracer</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>tracer_variation</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient_variation</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>epsilon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="114" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="114" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a4cfc3e3e105339cc66b9b64b3ff6bf2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>dealii::Tensor&lt; 1, dim &gt;</type>
+        <definition>dealii::Tensor&lt; 1, dim &gt; CahnHilliard::flux_correction_normal</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double tracer, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient)</argsstring>
+        <name>flux_correction_normal</name>
+        <qualifiedname>CahnHilliard::flux_correction_normal</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>tracer</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Weighted true unit normal used only by the Soligo flux correction. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="157" column="25" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="157" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a0de5705f61b98fce97bf5bb0bdc4f1ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>dealii::Tensor&lt; 1, dim &gt;</type>
+        <definition>dealii::Tensor&lt; 1, dim &gt; CahnHilliard::project_chemical_potential_gradient</definition>
+        <argsstring>(const dealii::Tensor&lt; 1, dim &gt; &amp;potential_gradient, const dealii::Tensor&lt; 1, dim &gt; &amp;normal)</argsstring>
+        <name>project_chemical_potential_gradient</name>
+        <qualifiedname>CahnHilliard::project_chemical_potential_gradient</qualifiedname>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>potential_gradient</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply I - n_delta tensor_product n_delta without constructing the tensor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="179" column="25" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="179" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a975e54a36e85f09d8a92987eb24f0250" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CahnHilliard::is_abels_model</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>is_abels_model</name>
+        <qualifiedname>CahnHilliard::is_abels_model</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="198" column="15" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ae98c0d6f3e64554a3c60af0215c35c03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CahnHilliard::has_interface_profile_correction</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>has_interface_profile_correction</name>
+        <qualifiedname>CahnHilliard::has_interface_profile_correction</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="205" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="205" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1aa5306ca494032b2a6820d8fb0c1d0d00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CahnHilliard::has_interface_flux_correction</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>has_interface_flux_correction</name>
+        <qualifiedname>CahnHilliard::has_interface_flux_correction</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="214" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="214" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a8cdd9669d78fbe7adea37584aa0a0d79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::profile_correction_coefficient</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double mobility)</argsstring>
+        <name>profile_correction_coefficient</name>
+        <qualifiedname>CahnHilliard::profile_correction_coefficient</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>mobility</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Automatically scaled profile-correction diffusivity. The scale is the bulk Cahn-Hilliard diffusivity already used by the solver diagnostics. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="224" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="224" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1adafe38e4afcaa01ce61cb4f9ffb4bc90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void CahnHilliard::validate_interface_profile_correction</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const bool enable_tracer_supg)</argsstring>
+        <name>validate_interface_profile_correction</name>
+        <qualifiedname>CahnHilliard::validate_interface_profile_correction</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>enable_tracer_supg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enforce the deliberately narrow scope of the first implementation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="236" column="15" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="236" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1adafeaf853f62210956e04d7e04b6d569" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>dealii::Tensor&lt; 1, dim &gt;</type>
+        <definition>dealii::Tensor&lt; 1, dim &gt; CahnHilliard::phase_diffusion_flux_driver</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double tracer, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient, const dealii::Tensor&lt; 1, dim &gt; &amp;potential_gradient, const double mobility)</argsstring>
+        <name>phase_diffusion_flux_driver</name>
+        <qualifiedname>CahnHilliard::phase_diffusion_flux_driver</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>tracer</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>potential_gradient</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>mobility</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Positive flux driver K_phi=-J_phi used by both the tracer equation and the Abels diffusive mass flux. The none branch is deliberately the original M*grad(mu) expression. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="255" column="25" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="255" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1aa396b5efd6569df3b64333d03c9c321b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>dealii::Tensor&lt; 1, dim &gt;</type>
+        <definition>dealii::Tensor&lt; 1, dim &gt; CahnHilliard::phase_diffusion_flux_driver_variation</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double tracer, const double tracer_variation, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient_variation, const dealii::Tensor&lt; 1, dim &gt; &amp;potential_gradient, const dealii::Tensor&lt; 1, dim &gt; &amp;potential_gradient_variation, const double mobility, const double mobility_variation, const dealii::Tensor&lt; 1, dim &gt; &amp;normal, const double gradient_norm)</argsstring>
+        <name>phase_diffusion_flux_driver_variation</name>
+        <qualifiedname>CahnHilliard::phase_diffusion_flux_driver_variation</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>tracer</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>tracer_variation</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient_variation</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>potential_gradient</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>potential_gradient_variation</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>mobility</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>mobility_variation</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>gradient_norm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Complete directional derivative of K_phi=-J_phi. The weighted FC normal and |grad(phi)| are supplied by the quadrature-point assembly so they are computed only once and reused for every trial function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="280" column="25" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="280" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ac1756687eafb2a31d1c6b5aadc3f4080" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CahnHilliard::is_ding_horriche_model</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>is_ding_horriche_model</name>
+        <qualifiedname>CahnHilliard::is_ding_horriche_model</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="359" column="15" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="359" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a1204c1e10de62ab8e759d88415f118a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CahnHilliard::is_abels_nlm_model</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>is_abels_nlm_model</name>
+        <qualifiedname>CahnHilliard::is_abels_nlm_model</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="371" column="15" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="371" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1afce17411ef259fd228fb45a3a43c7ef4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>const char *</type>
+        <definition>const char * CahnHilliard::model_name</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>model_name</name>
+        <qualifiedname>CahnHilliard::model_name</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="378" column="21" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="378" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ae9308051fa3b4d1d4b97370fe35c76de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::potential_double_well_coefficient</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double sigma_tilde)</argsstring>
+        <name>potential_double_well_coefficient</name>
+        <qualifiedname>CahnHilliard::potential_double_well_coefficient</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>sigma_tilde</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Coefficient of the double-well term phi(phi^2 - 1) in the potential equation. Ding-Horriche uses the unscaled potential (coefficient 1); Abels scales it by sigma_tilde / epsilon. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="394" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="394" bodyend="400"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a22bf82ee517c4539b4890c459e9adf2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::potential_gradient_coefficient</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double sigma_tilde)</argsstring>
+        <name>potential_gradient_coefficient</name>
+        <qualifiedname>CahnHilliard::potential_gradient_coefficient</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>sigma_tilde</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Coefficient of the gradient term grad(phi) in the potential equation. Ding-Horriche uses eps^2; Abels uses sigma_tilde * epsilon. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="408" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="408" bodyend="414"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ad1e2f4ba8a7857716d9b5de75465d0c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::ding_horriche_capillary_coefficient</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>ding_horriche_capillary_coefficient</name>
+        <qualifiedname>CahnHilliard::ding_horriche_capillary_coefficient</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Coefficient gamma of the Ding-Horriche capillary momentum force gamma * mu * grad(phi). The normalized surface tension sigma_tilde / eps is used so that the tanh diffuse-interface energy integrates to the physical surface tension sigma. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="424" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="424" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a5cb21a1a84c1cfc7c0dd3f28513871fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::tracer_identity</definition>
+        <argsstring>(const double phase_marker)</argsstring>
+        <name>tracer_identity</name>
+        <qualifiedname>CahnHilliard::tracer_identity</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_marker</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Simply return the passed phase marker </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="434" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="434" bodyend="437"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a058a22717433a4992d4aa1f3ecc8469b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::tracer_limiter</definition>
+        <argsstring>(const double phase_marker)</argsstring>
+        <name>tracer_limiter</name>
+        <qualifiedname>CahnHilliard::tracer_limiter</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_marker</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply a limiter to the phase tracer : res = max(-1, min(1, phi)) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="442" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="442" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a2ee95e99850178f24d1480efe08d1ed3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespace_cahn_hilliard_1a26d9455e41da6c54c7f2ff8eca43f4cd" kindref="member">TracerLimiterFunction</ref></type>
+        <definition>TracerLimiterFunction CahnHilliard::get_limiter_function</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; param)</argsstring>
+        <name>get_limiter_function</name>
+        <qualifiedname>CahnHilliard::get_limiter_function</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="454" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="454" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a411dc7e001235add71a77e23878f6fc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespace_cahn_hilliard_1ad0fef693a5594df8314241cade1c6ccd" kindref="member">MobilityTracerLimiterFunction</ref></type>
+        <definition>MobilityTracerLimiterFunction CahnHilliard::get_mobility_limiter_function</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; param)</argsstring>
+        <name>get_mobility_limiter_function</name>
+        <qualifiedname>CahnHilliard::get_mobility_limiter_function</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="471" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="471" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a16129f211607badbe8bcf6b58b180030" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::linear_mixing</definition>
+        <argsstring>(const double phase_marker, const double val_a, const double val_b)</argsstring>
+        <name>linear_mixing</name>
+        <qualifiedname>CahnHilliard::linear_mixing</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_marker</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_a</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply linear mixing from value A (when phase marker = 1) to value B (phase marker = -1). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="483" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="483" bodyend="488"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1af359a6a4a1e9c343a8137ac919a2e708" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::linear_mixing_derivative</definition>
+        <argsstring>(const double, const double val_a, const double val_b)</argsstring>
+        <name>linear_mixing_derivative</name>
+        <qualifiedname>CahnHilliard::linear_mixing_derivative</qualifiedname>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_a</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Derivative w.r.t. the tracer of the linear mixing function </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="493" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="493" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1aec79bad36ddea2fb49e39b65a3e86ad3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::contact_angle_surface_coefficient</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double sigma_tilde)</argsstring>
+        <name>contact_angle_surface_coefficient</name>
+        <qualifiedname>CahnHilliard::contact_angle_surface_coefficient</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>sigma_tilde</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Surface-term coefficient for the static contact-angle (wetting) condition in the potential equation. It matches the bulk gradient-term coefficient (potential_gradient_coefficient) so the wetting boundary term scales consistently with the volume Cahn-Hilliard energy, including the model-dependent scaling (sigma_tilde * epsilon for Abels, eps^2 for Ding-Horriche). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="510" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="510" bodyend="514"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a68e6dd9bed6c69c6dbdedc530d012ad6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::contact_angle_normal_derivative</definition>
+        <argsstring>(const double phi, const double epsilon, const double theta)</argsstring>
+        <name>contact_angle_normal_derivative</name>
+        <qualifiedname>CahnHilliard::contact_angle_normal_derivative</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>epsilon</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>theta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Static wetting condition for a tanh diffuse interface:</para>
+<para>n . grad(phi) = -cos(theta) (1 - phi^2) / (sqrt(2) eps),</para>
+<para>with theta the equilibrium contact angle measured through the phi = +1 phase. Returns the prescribed normal derivative g(phi). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="524" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="524" bodyend="529"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a92abe8c4ba22cfb24f7dcc2db9acd1e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::contact_angle_normal_derivative_jacobian</definition>
+        <argsstring>(const double phi, const double epsilon, const double theta)</argsstring>
+        <name>contact_angle_normal_derivative_jacobian</name>
+        <qualifiedname>CahnHilliard::contact_angle_normal_derivative_jacobian</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>epsilon</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>theta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Derivative of contact_angle_normal_derivative w.r.t. the tracer phi. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="534" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="534" bodyend="539"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ab4fdb9ada319874e7acf7fed79aa306c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::degenerate_mobility</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double phi)</argsstring>
+        <name>degenerate_mobility</name>
+        <qualifiedname>CahnHilliard::degenerate_mobility</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="547" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="547" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1afd05013a327fb8ccf8d585e927722de2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::degenerate_mobility_derivative</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double phi)</argsstring>
+        <name>degenerate_mobility_derivative</name>
+        <qualifiedname>CahnHilliard::degenerate_mobility_derivative</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="557" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="557" bodyend="563"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1af7d6b0204330c8d4a02dd2f51355a7a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::degenerate_mobility_second_derivative</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double phi)</argsstring>
+        <name>degenerate_mobility_second_derivative</name>
+        <qualifiedname>CahnHilliard::degenerate_mobility_second_derivative</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="567" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="567" bodyend="573"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1acccdf9c50e9a5d480644eedccced2ac2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_cahn_hilliard_1_1_mobility_tracer_argument" kindref="compound">MobilityTracerArgument</ref></type>
+        <definition>MobilityTracerArgument CahnHilliard::select_mobility_tracer_argument</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double tracer, const double material_marker, const double material_marker_derivative, const double material_marker_second_derivative)</argsstring>
+        <name>select_mobility_tracer_argument</name>
+        <qualifiedname>CahnHilliard::select_mobility_tracer_argument</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>tracer</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>material_marker</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>material_marker_derivative</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>material_marker_second_derivative</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="599" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="599" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1abfdbe671f2e1ac4e36aa7ba647cba683" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_cahn_hilliard_1_1_mobility_evaluation" kindref="compound">MobilityEvaluation</ref>&lt; dim &gt;</type>
+        <definition>MobilityEvaluation&lt; dim &gt; CahnHilliard::evaluate_constant_mobility</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double, const double, const double, const dealii::Tensor&lt; 1, dim &gt; &amp;, const dealii::Tensor&lt; 1, dim &gt; &amp;, const double, const double)</argsstring>
+        <name>evaluate_constant_mobility</name>
+        <qualifiedname>CahnHilliard::evaluate_constant_mobility</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="627" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="627" bodyend="637"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a1288917de4a68da66c4765d0facf23fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_cahn_hilliard_1_1_mobility_evaluation" kindref="compound">MobilityEvaluation</ref>&lt; dim &gt;</type>
+        <definition>MobilityEvaluation&lt; dim &gt; CahnHilliard::evaluate_degenerate_mobility</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double phi, const double phi_d, const double phi_dd, const dealii::Tensor&lt; 1, dim &gt; &amp;, const dealii::Tensor&lt; 1, dim &gt; &amp;, const double, const double)</argsstring>
+        <name>evaluate_degenerate_mobility</name>
+        <qualifiedname>CahnHilliard::evaluate_degenerate_mobility</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi_d</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi_dd</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="641" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="641" bodyend="657"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a1bd9aae4a629fa4edd462a72c310265c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_cahn_hilliard_1_1_mobility_evaluation" kindref="compound">MobilityEvaluation</ref>&lt; dim &gt;</type>
+        <definition>MobilityEvaluation&lt; dim &gt; CahnHilliard::evaluate_adaptative_mobility</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double, const double, const double, const dealii::Tensor&lt; 1, dim &gt; &amp;velocity, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient, const double adaptive_coefficient, const double delta)</argsstring>
+        <name>evaluate_adaptative_mobility</name>
+        <qualifiedname>CahnHilliard::evaluate_adaptative_mobility</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>velocity</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>adaptive_coefficient</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="661" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="661" bodyend="678"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ad25ff982527333a223f431270f91ebe7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_cahn_hilliard_1_1_adaptive_mobility_restriction_weight" kindref="compound">AdaptiveMobilityRestrictionWeight</ref></type>
+        <definition>AdaptiveMobilityRestrictionWeight CahnHilliard::evaluate_adaptive_mobility_2_restriction_weight</definition>
+        <argsstring>(const double phi)</argsstring>
+        <name>evaluate_adaptive_mobility_2_restriction_weight</name>
+        <qualifiedname>CahnHilliard::evaluate_adaptive_mobility_2_restriction_weight</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restrict the adaptive-mobility sensor to the interface core.</para>
+<para>The weight is one in the core, decreases with a complementary quintic smoothstep between |phi|=0.5 and |phi|=0.9, and vanishes in the outer tails. Using phi^2 makes the weight even; the smoothstep makes both joins C2-compatible. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="697" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="697" bodyend="727"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1aab5f5a2f02315f5613928a5a956fe945" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_cahn_hilliard_1_1_mobility_evaluation" kindref="compound">MobilityEvaluation</ref>&lt; dim &gt;</type>
+        <definition>MobilityEvaluation&lt; dim &gt; CahnHilliard::evaluate_adaptative_mobility_2</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;, const double phi, const double phi_d, const double phi_dd, const dealii::Tensor&lt; 1, dim &gt; &amp;velocity, const dealii::Tensor&lt; 1, dim &gt; &amp;tracer_gradient, const double adaptive_coefficient, const double delta)</argsstring>
+        <name>evaluate_adaptative_mobility_2</name>
+        <qualifiedname>CahnHilliard::evaluate_adaptative_mobility_2</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi_d</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi_dd</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>velocity</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>tracer_gradient</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>adaptive_coefficient</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="731" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="731" bodyend="760"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a21376cf789930682b917f7cd41fc0efc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_cahn_hilliard_1_1_mobility_evaluation" kindref="compound">MobilityEvaluation</ref>&lt; dim &gt;</type>
+        <definition>MobilityEvaluation&lt; dim &gt; CahnHilliard::evaluate_adaptative_mobility_3</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;, const double, const double, const double, const dealii::Tensor&lt; 1, dim &gt; &amp;velocity, const dealii::Tensor&lt; 1, dim &gt; &amp;, const double adaptive_coefficient, const double delta)</argsstring>
+        <name>evaluate_adaptative_mobility_3</name>
+        <qualifiedname>CahnHilliard::evaluate_adaptative_mobility_3</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+          <declname>velocity</declname>
+        </param>
+        <param>
+          <type>const dealii::Tensor&lt; 1, dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>adaptive_coefficient</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>delta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="764" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="764" bodyend="776"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a333e3420183bb993f13cb6e0a2886e69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespace_cahn_hilliard_1aa3dc908e193111f32c1164d81fdd2da5" kindref="member">MobilityEvaluationFunction</ref>&lt; dim &gt;</type>
+        <definition>MobilityEvaluationFunction&lt; dim &gt; CahnHilliard::get_mobility_evaluation_function</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>get_mobility_evaluation_function</name>
+        <qualifiedname>CahnHilliard::get_mobility_evaluation_function</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="779" column="30" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="779" bodyend="796"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ae56efd8c579c034db6876813f93796fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool CahnHilliard::is_adaptive_mobility_model</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>is_adaptive_mobility_model</name>
+        <qualifiedname>CahnHilliard::is_adaptive_mobility_model</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="806" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="806" bodyend="813"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a47f1a5c018be2bce1bd878e50529187c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="struct_cahn_hilliard_1_1_adaptive_mobility_scaling" kindref="compound">AdaptiveMobilityScaling</ref></type>
+        <definition>AdaptiveMobilityScaling CahnHilliard::get_adaptive_mobility_scaling</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>get_adaptive_mobility_scaling</name>
+        <qualifiedname>CahnHilliard::get_adaptive_mobility_scaling</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="817" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="817" bodyend="847"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a61b366d35aa8bdc031d4651578c675ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::compute_adaptive_mobility_number</definition>
+        <argsstring>(const double timestep, const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double max_mobility)</argsstring>
+        <name>compute_adaptive_mobility_number</name>
+        <qualifiedname>CahnHilliard::compute_adaptive_mobility_number</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>timestep</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>max_mobility</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="850" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="850" bodyend="872"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a5df75990e98988becfc4dab58817058d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::tanh_mixing</definition>
+        <argsstring>(const double phase_marker, const double val_a, const double val_b, const double k)</argsstring>
+        <name>tanh_mixing</name>
+        <qualifiedname>CahnHilliard::tanh_mixing</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_marker</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_a</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_b</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="891" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="891" bodyend="900"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a0c82c75c18db8aa29f34b285168c4534" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::tanh_mixing_derivative</definition>
+        <argsstring>(const double phase_marker, const double val_a, const double val_b, const double k)</argsstring>
+        <name>tanh_mixing_derivative</name>
+        <qualifiedname>CahnHilliard::tanh_mixing_derivative</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_marker</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_a</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_b</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="903" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="903" bodyend="912"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a186a4c2c9c77c55b4bf40468a2b00034" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double CahnHilliard::tanh_mixing_second_derivative</definition>
+        <argsstring>(const double phase_marker, const double val_a, const double val_b, const double k)</argsstring>
+        <name>tanh_mixing_second_derivative</name>
+        <qualifiedname>CahnHilliard::tanh_mixing_second_derivative</qualifiedname>
+        <param>
+          <type>const double</type>
+          <declname>phase_marker</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_a</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>val_b</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="915" column="17" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="915" bodyend="924"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a962fe70eb7461e47c7f4a07d34aea105" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::material_phase_identity</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;, const double phi)</argsstring>
+        <name>material_phase_identity</name>
+        <qualifiedname>CahnHilliard::material_phase_identity</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="936" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="936" bodyend="940"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1abae10e37c0a0330a6bf19168b655f693" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::material_phase_identity_derivative</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;, const double)</argsstring>
+        <name>material_phase_identity_derivative</name>
+        <qualifiedname>CahnHilliard::material_phase_identity_derivative</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="944" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="944" bodyend="948"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a89c66eb79fc7a80bd2817da6daf1d101" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::material_phase_identity_second_derivative</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;, const double)</argsstring>
+        <name>material_phase_identity_second_derivative</name>
+        <qualifiedname>CahnHilliard::material_phase_identity_second_derivative</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="952" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="952" bodyend="956"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1aed821ce4c1f0f8450ce12db4c7abec30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::material_phase_tanh</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double phi)</argsstring>
+        <name>material_phase_tanh</name>
+        <qualifiedname>CahnHilliard::material_phase_tanh</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="960" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="960" bodyend="964"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ab7c6d94c7e8ab326d304dbd1a84dca3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::material_phase_tanh_derivative</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double phi)</argsstring>
+        <name>material_phase_tanh_derivative</name>
+        <qualifiedname>CahnHilliard::material_phase_tanh_derivative</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="968" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="968" bodyend="972"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1adce0d4d02aa25a6ce10638213b1872b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double CahnHilliard::material_phase_tanh_second_derivative</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param, const double phi)</argsstring>
+        <name>material_phase_tanh_second_derivative</name>
+        <qualifiedname>CahnHilliard::material_phase_tanh_second_derivative</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="976" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="976" bodyend="981"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a43e076250c00168e7114d6ce8945af05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespace_cahn_hilliard_1a77ae3ade25c7c31b320f46e9438175c7" kindref="member">MaterialPhaseFunction</ref>&lt; dim &gt;</type>
+        <definition>MaterialPhaseFunction&lt; dim &gt; CahnHilliard::get_material_phase_function</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>get_material_phase_function</name>
+        <qualifiedname>CahnHilliard::get_material_phase_function</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="985" column="3" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="985" bodyend="990"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1ade075d3d8135b198fb63b1ee5373edec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespace_cahn_hilliard_1a77ae3ade25c7c31b320f46e9438175c7" kindref="member">MaterialPhaseFunction</ref>&lt; dim &gt;</type>
+        <definition>MaterialPhaseFunction&lt; dim &gt; CahnHilliard::get_material_phase_derivative_function</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>get_material_phase_derivative_function</name>
+        <qualifiedname>CahnHilliard::get_material_phase_derivative_function</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="993" column="25" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="993" bodyend="999"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_cahn_hilliard_1a39574d2920040505b76b707947d3e86d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespace_cahn_hilliard_1a77ae3ade25c7c31b320f46e9438175c7" kindref="member">MaterialPhaseFunction</ref>&lt; dim &gt;</type>
+        <definition>MaterialPhaseFunction&lt; dim &gt; CahnHilliard::get_material_phase_second_derivative_function</definition>
+        <argsstring>(const Parameters::CahnHilliard&lt; dim &gt; &amp;param)</argsstring>
+        <name>get_material_phase_second_derivative_function</name>
+        <qualifiedname>CahnHilliard::get_material_phase_second_derivative_function</qualifiedname>
+        <param>
+          <type>const <ref refid="class_parameters_1_1_cahn_hilliard" kindref="compound">Parameters::CahnHilliard</ref>&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="1002" column="25" bodyfile="snapshots/pre_amr/include/cahn_hilliard.h" bodystart="1002" bodyend="1008"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/cahn_hilliard.h" line="8" column="1"/>
+  </compounddef>
+</doxygen>

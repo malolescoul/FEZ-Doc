@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_post_processing_handler_1_1_prefix_data" kind="struct" language="C++" prot="public">
+    <compoundname>PostProcessingHandler::PrefixData</compoundname>
+    <includes refid="post__processing__handler_8h" local="no">post_processing_handler.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_post_processing_handler_1_1_prefix_data_1a0cd23c7005dfa33fe2b801f66de1ebf4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::PrefixData::is_convergence_step</definition>
+        <argsstring></argsstring>
+        <name>is_convergence_step</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::is_convergence_step</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is this a step of a convergence study with manufactured solutions? </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="40" column="10" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_post_processing_handler_1_1_prefix_data_1a2f232479b51fbe1592f76a63f18a5aca" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int PostProcessingHandler&lt; dim &gt;::PrefixData::convergence_step</definition>
+        <argsstring></argsstring>
+        <name>convergence_step</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::convergence_step</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convergence step, if applicable </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="45" column="18" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_post_processing_handler_1_1_prefix_data_1a4a444a38b9754a369abe8de3dead9013" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::PrefixData::is_fixed_point_step</definition>
+        <argsstring></argsstring>
+        <name>is_fixed_point_step</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::is_fixed_point_step</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is this a step of a fixed-point mesh adaptation loop? </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="50" column="10" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_post_processing_handler_1_1_prefix_data_1a6bf18f2de562f161b8b63d2969b87335" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int PostProcessingHandler&lt; dim &gt;::PrefixData::fixed_point_step</definition>
+        <argsstring></argsstring>
+        <name>fixed_point_step</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::fixed_point_step</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fixed-point step, if applicable </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="55" column="18" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_post_processing_handler_1_1_prefix_data_1a512eaa9c6dc2884c1b07a2a8dea4ae62" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::PrefixData::is_time_subinterval</definition>
+        <argsstring></argsstring>
+        <name>is_time_subinterval</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::is_time_subinterval</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is this a time subinterval within an unsteady fixed-point mesh adaptation loop? </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="61" column="10" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_post_processing_handler_1_1_prefix_data_1a6570eea96b300137e212f5206da2b909" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int PostProcessingHandler&lt; dim &gt;::PrefixData::interval_index</definition>
+        <argsstring></argsstring>
+        <name>interval_index</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::interval_index</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Time subinterval index, if applicable </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="66" column="18" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_post_processing_handler_1_1_prefix_data_1a258060006c6348a29675da25d761d0b5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PostProcessingHandler&lt; dim &gt;::PrefixData::is_prerefinement_step</definition>
+        <argsstring></argsstring>
+        <name>is_prerefinement_step</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::is_prerefinement_step</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is this a tree-based prerefinement step in an unsteady problem? </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="71" column="10" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_post_processing_handler_1_1_prefix_data_1aafc8da34722dba7f018bed8a7cdb836d" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int PostProcessingHandler&lt; dim &gt;::PrefixData::prerefinement_step</definition>
+        <argsstring></argsstring>
+        <name>prerefinement_step</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::prerefinement_step</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prerefinement step, if applicable </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="76" column="18" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_post_processing_handler_1_1_prefix_data_1a7b4618f72031bd29bdc85d006e8abf32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PostProcessingHandler&lt; dim &gt;::PrefixData::append_to_prefix_or_suffix</definition>
+        <argsstring>(const Parameters::Output &amp;output_param, const bool is_for_pvd, std::string &amp;prefix_or_suffix) const</argsstring>
+        <name>append_to_prefix_or_suffix</name>
+        <qualifiedname>PostProcessingHandler::PrefixData::append_to_prefix_or_suffix</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_parameters_1_1_output" kindref="compound">Parameters::Output</ref> &amp;</type>
+          <declname>output_param</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>is_for_pvd</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>prefix_or_suffix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Append some additional strings to the given prefix or suffix, depending on the stored flags and step counters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/post_processing_handler.h" line="82" column="10" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="584" bodyend="604"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A struct to set up the prefixes and suffixes of the files to be written. </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/post_processing_handler.h" line="35" column="3" bodyfile="snapshots/pre_amr/include/post_processing_handler.h" bodystart="36" bodyend="85"/>
+    <listofallmembers>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1a7b4618f72031bd29bdc85d006e8abf32" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>append_to_prefix_or_suffix</name></member>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1a2f232479b51fbe1592f76a63f18a5aca" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>convergence_step</name></member>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1a6bf18f2de562f161b8b63d2969b87335" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>fixed_point_step</name></member>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1a6570eea96b300137e212f5206da2b909" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>interval_index</name></member>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1a0cd23c7005dfa33fe2b801f66de1ebf4" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>is_convergence_step</name></member>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1a4a444a38b9754a369abe8de3dead9013" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>is_fixed_point_step</name></member>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1a258060006c6348a29675da25d761d0b5" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>is_prerefinement_step</name></member>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1a512eaa9c6dc2884c1b07a2a8dea4ae62" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>is_time_subinterval</name></member>
+      <member refid="struct_post_processing_handler_1_1_prefix_data_1aafc8da34722dba7f018bed8a7cdb836d" prot="public" virt="non-virtual"><scope>PostProcessingHandler::PrefixData</scope><name>prerefinement_step</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

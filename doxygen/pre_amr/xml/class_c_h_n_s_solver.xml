@@ -1,0 +1,1168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_c_h_n_s_solver" kind="class" language="C++" prot="public">
+    <compoundname>CHNSSolver</compoundname>
+    <basecompoundref refid="class_navier_stokes_solver" prot="public" virt="non-virtual">NavierStokesSolver&lt; dim, false &gt;</basecompoundref>
+    <includes refid="incompressible__chns__solver_8h" local="no">incompressible_chns_solver.h</includes>
+    <innerclass refid="class_c_h_n_s_solver_1_1_source_term" prot="protected">CHNSSolver::SourceTerm</innerclass>
+    <innerclass refid="class_c_h_n_s_solver_1_1_m_m_s_solution" prot="protected">CHNSSolver::MMSSolution</innerclass>
+    <innerclass refid="class_c_h_n_s_solver_1_1_m_m_s_source_term" prot="protected">CHNSSolver::MMSSourceTerm</innerclass>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>with_moving_mesh</declname>
+        <defname>with_moving_mesh</defname>
+        <defval>false</defval>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>with_enlarged</declname>
+        <defname>with_enlarged</defname>
+        <defval>false</defval>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="class_c_h_n_s_solver_1aeca791b9adbb5867ac109d22678da32c" prot="private" static="no">
+        <type><ref refid="namespace_navier_stokes_scratch_1a9f317cd569f43828f1277d345a662ed2" kindref="member">NavierStokesScratch::ScratchDataCHNS</ref>&lt; dim, with_moving_mesh, with_enlarged &gt;</type>
+        <definition>using CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::ScratchData = 
+NavierStokesScratch::ScratchDataCHNS&lt;dim, with_moving_mesh, with_enlarged&gt;</definition>
+        <argsstring></argsstring>
+        <name>ScratchData</name>
+        <qualifiedname>CHNSSolver::ScratchData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="23" column="3" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_c_h_n_s_solver_1ae0b3f2be2b179189958cb7765efd47a8" prot="private" static="no">
+        <type><ref refid="class_copy_data_base" kindref="compound">CopyDataBase</ref>&lt; 1 &gt;</type>
+        <definition>using CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::CopyData = CopyDataBase&lt;1&gt;</definition>
+        <argsstring></argsstring>
+        <name>CopyData</name>
+        <qualifiedname>CHNSSolver::CopyData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="25" column="3" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="class_c_h_n_s_solver_1a66e182264f17d8a4ddf5cf283df0e633" prot="private" static="no">
+        <type>Assembly::AssemblerBase&lt; <ref refid="class_c_h_n_s_solver_1aeca791b9adbb5867ac109d22678da32c" kindref="member">ScratchData</ref>, <ref refid="class_c_h_n_s_solver_1ae0b3f2be2b179189958cb7765efd47a8" kindref="member">CopyData</ref> &gt;</type>
+        <definition>using CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::Assembler = Assembly::AssemblerBase&lt;ScratchData, CopyData&gt;</definition>
+        <argsstring></argsstring>
+        <name>Assembler</name>
+        <qualifiedname>CHNSSolver::Assembler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="26" column="3" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a1d77794a78b1ca3f463c223ac1927182" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; FESystem&lt; dim &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;FESystem&lt;dim&gt; &gt; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::fe</definition>
+        <argsstring></argsstring>
+        <name>fe</name>
+        <qualifiedname>CHNSSolver::fe</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="190" column="19" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a3d8c1ab8ec2f24fa4754f20305bcd2af" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_c_h_n_s_solver_1aeca791b9adbb5867ac109d22678da32c" kindref="member">ScratchData</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;ScratchData&gt; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::scratch_data</definition>
+        <argsstring></argsstring>
+        <name>scratch_data</name>
+        <qualifiedname>CHNSSolver::scratch_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="197" column="19" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1af5bd6b5683b27abf93112266d6bb5030" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="class_c_h_n_s_solver_1a66e182264f17d8a4ddf5cf283df0e633" kindref="member">Assembler</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;Assembler&gt; &gt; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::assemblers</definition>
+        <argsstring></argsstring>
+        <name>assemblers</name>
+        <qualifiedname>CHNSSolver::assemblers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="199" column="15" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a303d3c510c88a3c3617d240e31d7ab0c" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Scalar</type>
+        <definition>FEValuesExtractors::Scalar CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::tracer_extractor</definition>
+        <argsstring></argsstring>
+        <name>tracer_extractor</name>
+        <qualifiedname>CHNSSolver::tracer_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="201" column="30" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a310659e769b1166fc26256677b23b019" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Scalar</type>
+        <definition>FEValuesExtractors::Scalar CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::potential_extractor</definition>
+        <argsstring></argsstring>
+        <name>potential_extractor</name>
+        <qualifiedname>CHNSSolver::potential_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="202" column="30" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a77b0eb63783411b0c22c138ba923acd8" prot="protected" static="no" mutable="no">
+        <type>FEValuesExtractors::Scalar</type>
+        <definition>FEValuesExtractors::Scalar CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::psi_extractor</definition>
+        <argsstring></argsstring>
+        <name>psi_extractor</name>
+        <qualifiedname>CHNSSolver::psi_extractor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="203" column="30" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a05c5f43a406e5a72ca3389ec76171178" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::tracer_mask</definition>
+        <argsstring></argsstring>
+        <name>tracer_mask</name>
+        <qualifiedname>CHNSSolver::tracer_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="204" column="30" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a0eb022ab597bfc348851e54e4260cf18" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::potential_mask</definition>
+        <argsstring></argsstring>
+        <name>potential_mask</name>
+        <qualifiedname>CHNSSolver::potential_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="205" column="30" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1ad23fc466764cf378cf37f83624709b85" prot="protected" static="no" mutable="no">
+        <type>ComponentMask</type>
+        <definition>ComponentMask CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::psi_mask</definition>
+        <argsstring></argsstring>
+        <name>psi_mask</name>
+        <qualifiedname>CHNSSolver::psi_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="206" column="30" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a5337d0f2b925f38268f0217128538cff" prot="protected" static="no" mutable="no">
+        <type>TableHandler</type>
+        <definition>TableHandler CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::time_scales_table</definition>
+        <argsstring></argsstring>
+        <name>time_scales_table</name>
+        <qualifiedname>CHNSSolver::time_scales_table</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="209" column="16" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="class_c_h_n_s_solver_1a8c517b608785936898d45119479057a3" prot="protected" static="yes" constexpr="yes" mutable="no">
+        <type><ref refid="class_constexpr_component_ordering_c_h_n_s" kindref="compound">ConstexprComponentOrderingCHNS</ref>&lt; dim, with_moving_mesh, with_enlarged &gt;</type>
+        <definition>ConstexprComponentOrderingCHNS&lt;dim, with_moving_mesh, with_enlarged&gt; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::const_ordering</definition>
+        <argsstring></argsstring>
+        <name>const_ordering</name>
+        <qualifiedname>CHNSSolver::const_ordering</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="195" column="5" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="195" bodyend="195"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a9fdc75e1ef08b291e887b5d6db3f2f70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::CHNSSolver</definition>
+        <argsstring>(const ParameterReader&lt; dim &gt; &amp;param)</argsstring>
+        <name>CHNSSolver</name>
+        <qualifiedname>CHNSSolver::CHNSSolver</qualifiedname>
+        <param>
+          <type>const ParameterReader&lt; dim &gt; &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Create the initial condition functions</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="32" column="3" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="90" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1aa953e2ed0546d0a958410b57aafc84cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::~CHNSSolver</definition>
+        <argsstring>()=default</argsstring>
+        <name>~CHNSSolver</name>
+        <qualifiedname>CHNSSolver::~CHNSSolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="37" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a52ca77fb0f5ba76cbecd36e1fc97b53f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::update_simulation_parameters</definition>
+        <argsstring>(const unsigned int fixed_point_iteration) override</argsstring>
+        <name>update_simulation_parameters</name>
+        <qualifiedname>CHNSSolver::update_simulation_parameters</qualifiedname>
+        <reimplements refid="class_generic_solver_1aa7de51f079b8a6d22818789efcc8f776">update_simulation_parameters</reimplements>
+        <param>
+          <type>const unsigned int</type>
+          <declname>fixed_point_iteration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update parameters in between mesh adaptation fixed point iterations. This specific function updates the interface thickness. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="43" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="523" bodyend="559"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ae445aa17bfb4201d998e9ce9120a84af" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::create_scratch_data</definition>
+        <argsstring>() override</argsstring>
+        <name>create_scratch_data</name>
+        <qualifiedname>CHNSSolver::create_scratch_data</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a10026a09e34b50769a92b683d081c6ca">create_scratch_data</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the scratch data structure for this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="49" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="562" bodyend="572"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1af004d2c1786e4da0f929d51903556668" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::setup_assemblers</definition>
+        <argsstring>() override</argsstring>
+        <name>setup_assemblers</name>
+        <qualifiedname>CHNSSolver::setup_assemblers</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a808f73d3ad29c693c0f415369c51720e">setup_assemblers</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the volume and boundary assemblers for this solver. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="54" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="575" bodyend="591"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1acc707c2ec641524771910e56a58be985" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::set_solver_specific_initial_conditions</definition>
+        <argsstring>() override</argsstring>
+        <name>set_solver_specific_initial_conditions</name>
+        <qualifiedname>CHNSSolver::set_solver_specific_initial_conditions</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1af4c774a72958594b894f856e0e1938aa">set_solver_specific_initial_conditions</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply initial condition on the tracer (phase marker) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="59" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="696" bodyend="709"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a3b4e04a8b6fe860fb4c14e3338073b47" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::set_solver_specific_exact_solution</definition>
+        <argsstring>() override</argsstring>
+        <name>set_solver_specific_exact_solution</name>
+        <qualifiedname>CHNSSolver::set_solver_specific_exact_solution</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1ada61577eefe77d58162f46d170522878">set_solver_specific_exact_solution</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Apply exact tracer and potential </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="64" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="712" bodyend="731"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ae8033cc712d5dd66edac95ad6f23b218" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::create_solver_specific_zero_constraints</definition>
+        <argsstring>() override</argsstring>
+        <name>create_solver_specific_zero_constraints</name>
+        <qualifiedname>CHNSSolver::create_solver_specific_zero_constraints</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1afa4fac4d184896dd78290fe22a1dd3c5">create_solver_specific_zero_constraints</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the additional homogeneous boundary conditions specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Apply manufactured solution for both tracer and potential</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="66" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="606" bodyend="648"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ac71026bf5f1593d310c4815a461ff3c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::create_solver_specific_nonzero_constraints</definition>
+        <argsstring>() override</argsstring>
+        <name>create_solver_specific_nonzero_constraints</name>
+        <qualifiedname>CHNSSolver::create_solver_specific_nonzero_constraints</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a67e465bff87c6b3af531142c589c8593">create_solver_specific_nonzero_constraints</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the additional inhomogeneous boundary conditions specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Apply manufactured solution for both tracer and potential</para>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="67" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="652" bodyend="693"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a1f76ffca0e9c36b8f40d3278f07d7ef3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::set_solver_specific_time</definition>
+        <argsstring>() override</argsstring>
+        <name>set_solver_specific_time</name>
+        <qualifiedname>CHNSSolver::set_solver_specific_time</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1aa4e70ef690324141933b0dfb8b9ee795">set_solver_specific_time</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update time-dependent Cahn-Hilliard boundary functions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="72" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="595" bodyend="602"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1abdb846f3df6acf66d950851e2d7ec069" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::create_sparsity_pattern</definition>
+        <argsstring>() override</argsstring>
+        <name>create_sparsity_pattern</name>
+        <qualifiedname>CHNSSolver::create_sparsity_pattern</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a80efe337ed26751e91e2a73f30810a37">create_sparsity_pattern</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the matrix sparsity pattern, given the finite element spaces and constraints. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="77" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="734" bodyend="802"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1abef81fe199c6f63a4bc157780edc34d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::compute_solver_specific_errors</definition>
+        <argsstring>() override</argsstring>
+        <name>compute_solver_specific_errors</name>
+        <qualifiedname>CHNSSolver::compute_solver_specific_errors</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a91b18b78b3a012db616a3cda4c418914">compute_solver_specific_errors</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the error norms over the additional fields specific to each derived solver. By default, this function does nothing and must be overriden if needed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="79" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="962" bodyend="993"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a0c2e74712e387938a49ebf97056de668" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_matrix</definition>
+        <argsstring>() override</argsstring>
+        <name>assemble_matrix</name>
+        <qualifiedname>CHNSSolver::assemble_matrix</qualifiedname>
+        <reimplements refid="class_generic_solver_1ac5925ccdeda32d728e8947224e011ed9">assemble_matrix</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the linearized Jacobian matrix at the current evaluation point </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="84" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="805" bodyend="834"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a0e3a59d5aeaf9e8ad9669c14092283f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_local_matrix</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</argsstring>
+        <name>assemble_local_matrix</name>
+        <qualifiedname>CHNSSolver::assemble_local_matrix</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="class_c_h_n_s_solver_1aeca791b9adbb5867ac109d22678da32c" kindref="member">ScratchData</ref> &amp;</type>
+          <declname>scratchData</declname>
+        </param>
+        <param>
+          <type><ref refid="class_c_h_n_s_solver_1ae0b3f2be2b179189958cb7765efd47a8" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the element-wise matrix. This function is passed to WorkStream::run to perform multithreaded assembly if supported (i.e., if using thread-safe matrix and vector wrappers). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="91" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="848" bodyend="873"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ab5cfd76f033ca5d5c9ca6e94251ee315" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_local_matrix_finite_differences</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</argsstring>
+        <name>assemble_local_matrix_finite_differences</name>
+        <qualifiedname>CHNSSolver::assemble_local_matrix_finite_differences</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="class_c_h_n_s_solver_1aeca791b9adbb5867ac109d22678da32c" kindref="member">ScratchData</ref> &amp;</type>
+          <declname>scratchData</declname>
+        </param>
+        <param>
+          <type><ref refid="class_c_h_n_s_solver_1ae0b3f2be2b179189958cb7765efd47a8" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the element-wise matrix using finite differences. FIXME: Rethink this to handle the finite difference computations in the base class and not in derived solvers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="101" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="838" bodyend="845"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a44bc0778812d70a5c7c4ca2b1a997605" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::copy_local_to_global_matrix</definition>
+        <argsstring>(const CopyData &amp;copy_data)</argsstring>
+        <name>copy_local_to_global_matrix</name>
+        <qualifiedname>CHNSSolver::copy_local_to_global_matrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_c_h_n_s_solver_1ae0b3f2be2b179189958cb7765efd47a8" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the element-wise matrix computed with assemble_local_matrix into the global matrix. Passed to WorkStream::run (see above). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="110" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="876" bodyend="885"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ade262f1ac0f6734f12c2f568511b4c78" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::compare_analytical_matrix_with_fd</definition>
+        <argsstring>() override</argsstring>
+        <name>compare_analytical_matrix_with_fd</name>
+        <qualifiedname>CHNSSolver::compare_analytical_matrix_with_fd</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a39a2aba0a8595430a78946323db80e7e">compare_analytical_matrix_with_fd</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compare each Jacobian matrix computed in assemble_local_matrix to its finite differences approximation obtained by perturbing the right-hand side (Newton residual). To allow comparing for multiple Newton iterations and/or time steps, this function does not throw if the difference between the analytical matrix entries and their FD counterpart exceeds a prescribed tolerance, but instead prints the local matrices and the problematic entries. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="112" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="888" bodyend="898"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a9da0ac08e3d25bd9978120228bc86b57" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_rhs</definition>
+        <argsstring>() override</argsstring>
+        <name>assemble_rhs</name>
+        <qualifiedname>CHNSSolver::assemble_rhs</qualifiedname>
+        <reimplements refid="class_generic_solver_1a2ef873f5575b35c23fa5fd742b8725aa">assemble_rhs</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assemble the Newton residual at the current evaluation point </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="117" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="901" bodyend="919"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ac88f396458d12c2f58f1dbe86fdd0e60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::assemble_local_rhs</definition>
+        <argsstring>(const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, ScratchData &amp;scratchData, CopyData &amp;copy_data)</argsstring>
+        <name>assemble_local_rhs</name>
+        <qualifiedname>CHNSSolver::assemble_local_rhs</qualifiedname>
+        <param>
+          <type>const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="class_c_h_n_s_solver_1aeca791b9adbb5867ac109d22678da32c" kindref="member">ScratchData</ref> &amp;</type>
+          <declname>scratchData</declname>
+        </param>
+        <param>
+          <type><ref refid="class_c_h_n_s_solver_1ae0b3f2be2b179189958cb7765efd47a8" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>See assemble_local_matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="123" column="3" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="922" bodyend="947"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a1e5188a61fc785855103ae478c6ca152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::copy_local_to_global_rhs</definition>
+        <argsstring>(const CopyData &amp;copy_data)</argsstring>
+        <name>copy_local_to_global_rhs</name>
+        <qualifiedname>CHNSSolver::copy_local_to_global_rhs</qualifiedname>
+        <param>
+          <type>const <ref refid="class_c_h_n_s_solver_1ae0b3f2be2b179189958cb7765efd47a8" kindref="member">CopyData</ref> &amp;</type>
+          <declname>copy_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>See copy_local_to_global_matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="130" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="950" bodyend="959"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a8c1e51fa96e460bd09a61bbd5dbd4260" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::compute_solver_specific_timestep_adaptation_criterion</definition>
+        <argsstring>() override</argsstring>
+        <name>compute_solver_specific_timestep_adaptation_criterion</name>
+        <qualifiedname>CHNSSolver::compute_solver_specific_timestep_adaptation_criterion</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1aaabf14c92ba73e36efdb21fa418ec08a">compute_solver_specific_timestep_adaptation_criterion</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the adaptive-mobility time number from the current solution. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="135" column="3" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="241" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a1b40e20bcdcc67285866f121d12eea63" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt;</type>
+        <definition>virtual std::vector&lt; std::pair&lt; std::string, unsigned int &gt; &gt; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::get_additional_variables_description</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_additional_variables_description</name>
+        <qualifiedname>CHNSSolver::get_additional_variables_description</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1af11dda60a13c7688cf79a2ef88280027">get_additional_variables_description</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the descriptions (name and number of components) of the variables solved for in the derived solvers, aside from velocity, pressure and mesh position. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="138" column="3" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="138" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a4be0206804d5e7c6092bd6eb80101bd6" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const FESystem&lt; dim &gt; &amp;</type>
+        <definition>virtual const FESystem&lt; dim &gt; &amp; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::get_fe_system</definition>
+        <argsstring>() const override</argsstring>
+        <name>get_fe_system</name>
+        <qualifiedname>CHNSSolver::get_fe_system</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a0f4f2ec48c7cc61661743d43cacbadf6">get_fe_system</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the FESystem of the derived solver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="148" column="26" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a18ee52f3860a1fb5aa51e61fe6506394" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::uses_hp_capabilities</definition>
+        <argsstring>() const override</argsstring>
+        <name>uses_hp_capabilities</name>
+        <qualifiedname>CHNSSolver::uses_hp_capabilities</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1aebcfb0cd753eec7fc661717354ade6f4">uses_hp_capabilities</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return true if this solver uses hp capabilities </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="150" column="16" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="150" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a8357d4b9416e24682db4ebc25b65acd4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::add_solver_specific_postprocessing_data</definition>
+        <argsstring>() override</argsstring>
+        <name>add_solver_specific_postprocessing_data</name>
+        <qualifiedname>CHNSSolver::add_solver_specific_postprocessing_data</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a56d282940881b16ba0d4b787578fad86">add_solver_specific_postprocessing_data</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Append CHNS-specific derived fields (density, pressure, mobility) to the VTU output as continuous nodal data. The Abels pressure is the physically meaningful bulk pressure carrying the Young-Laplace jump: p_abels = p + phi * mu. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="158" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="997" bodyend="1089"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ae6f26806e27c7dfc0430b14d0e2acfd9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::solver_specific_post_processing</definition>
+        <argsstring>() override</argsstring>
+        <name>solver_specific_post_processing</name>
+        <qualifiedname>CHNSSolver::solver_specific_post_processing</qualifiedname>
+        <reimplements refid="class_navier_stokes_solver_1a6b6e103541171b2e0c8c735b6fa517f4">solver_specific_post_processing</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute the CHNS multiphase indicators and write the characteristic time scales and dimensionless numbers (advection vs Cahn-Hilliard chemical diffusion, capillary, viscous, ...) to a CSV when enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="165" column="16" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="1760" bodyend="1921"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ad2a6871730ab2f70aa916d9528287249" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::output_line_probe</definition>
+        <argsstring>()</argsstring>
+        <name>output_line_probe</name>
+        <qualifiedname>CHNSSolver::output_line_probe</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write the optional configurable straight-line CHNS field probe. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="168" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="1556" bodyend="1756"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a4028ed6eaf450f69c866c344250c9bff" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::should_output_mesh_quality</definition>
+        <argsstring>() const</argsstring>
+        <name>should_output_mesh_quality</name>
+        <qualifiedname>CHNSSolver::should_output_mesh_quality</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return whether the optional mesh-quality audit is due this step. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="171" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="1094" bodyend="1107"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a928cd8d70bb3d7782f1044d09c4a88ac" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::add_mesh_quality_postprocessing_data</definition>
+        <argsstring>()</argsstring>
+        <name>add_mesh_quality_postprocessing_data</name>
+        <qualifiedname>CHNSSolver::add_mesh_quality_postprocessing_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add the selected mesh-audit diagnostics to the VTU. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="174" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="1201" bodyend="1229"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1ab2df019a24b624bec1fda4eedfb4ebad" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::add_interface_resolution_data</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;study_mapping)</argsstring>
+        <name>add_interface_resolution_data</name>
+        <qualifiedname>CHNSSolver::add_interface_resolution_data</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>study_mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add the lightweight, physically scaled interface-resolution audit. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="177" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="1233" bodyend="1475"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a4bc04a878a879c43413b5f11cc6dd20c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::add_graph_metric_quality_data</definition>
+        <argsstring>(const Mapping&lt; dim &gt; &amp;study_mapping)</argsstring>
+        <name>add_graph_metric_quality_data</name>
+        <qualifiedname>CHNSSolver::add_graph_metric_quality_data</qualifiedname>
+        <param>
+          <type>const Mapping&lt; dim &gt; &amp;</type>
+          <declname>study_mapping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add the historical graph-induced continuous quality field to the VTU. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="180" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="1479" bodyend="1553"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a8b0208ef16f59c18ef055cc6bab57b56" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; Tensor&lt; 2, dim &gt; &gt;</type>
+        <definition>std::vector&lt; Tensor&lt; 2, dim &gt; &gt; CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::compute_vertexwise_F_inv_T</definition>
+        <argsstring>() const</argsstring>
+        <name>compute_vertexwise_F_inv_T</name>
+        <qualifiedname>CHNSSolver::compute_vertexwise_F_inv_T</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vertexwise physical push-forward F^{-T} for an ALE configuration. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="183" column="15" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="1111" bodyend="1168"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_h_n_s_solver_1a467b348d48a9edcd05009bc2d978a121" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;::transport_reconstructed_phi_gradient</definition>
+        <argsstring>(ErrorEstimation::SolutionRecovery::Scalar&lt; dim &gt; &amp;recovery) const</argsstring>
+        <name>transport_reconstructed_phi_gradient</name>
+        <qualifiedname>CHNSSolver::transport_reconstructed_phi_gradient</qualifiedname>
+        <param>
+          <type>ErrorEstimation::SolutionRecovery::Scalar&lt; dim &gt; &amp;</type>
+          <declname>recovery</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Push the reference-mesh recovered phase gradient to the ALE mesh. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="186" column="8" bodyfile="snapshots/pre_amr/src/incompressible_chns_solver.cpp" bodystart="1173" bodyend="1197"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Quasi-incompressible Cahn-Hilliard Navier-Stokes solver. TODO: Add equations. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;</label>
+        <link refid="class_c_h_n_s_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="3">
+        <label>GenericSolver&lt; LA::ParVectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NavierStokesSolver&lt; dim, false &gt;</label>
+        <link refid="class_navier_stokes_solver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CHNSSolver&lt; dim, with_moving_mesh, with_enlarged &gt;</label>
+        <link refid="class_c_h_n_s_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>const_ordering</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ConstexprComponentOrderingCHNS&lt; dim, false, false &gt;</label>
+        <link refid="class_constexpr_component_ordering_c_h_n_s"/>
+      </node>
+      <node id="4">
+        <label>EnableObserverPointer</label>
+      </node>
+      <node id="3">
+        <label>GenericSolver&lt; LA::ParVectorType &gt;</label>
+        <link refid="class_generic_solver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>output_param</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>mesh_param</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>time_param</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>mms_param</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NavierStokesSolver&lt; dim, false &gt;</label>
+        <link refid="class_navier_stokes_solver"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>time_handler</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Parameters::MMS</label>
+        <link refid="struct_parameters_1_1_m_m_s"/>
+      </node>
+      <node id="8">
+        <label>Parameters::Mesh</label>
+        <link refid="struct_parameters_1_1_mesh"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>adaptation</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Parameters::Mesh::Adaptation</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>metric</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>tree_amr</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Parameters::Mesh::Adaptation::Metric</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>fixed_point_updates</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>chns_interface_thickness</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base"/>
+      </node>
+      <node id="14">
+        <label>Parameters::Mesh::Adaptation::TreeAMR</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_tree_a_m_r"/>
+      </node>
+      <node id="5">
+        <label>Parameters::Output</label>
+        <link refid="struct_parameters_1_1_output"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>fixed_point</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>skin</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Parameters::Output::FixedPointMethod</label>
+        <link refid="struct_parameters_1_1_output_1_1_fixed_point_method"/>
+      </node>
+      <node id="7">
+        <label>Parameters::Output::Skin</label>
+        <link refid="struct_parameters_1_1_output_1_1_skin"/>
+      </node>
+      <node id="15">
+        <label>Parameters::TimeIntegration</label>
+        <link refid="struct_parameters_1_1_time_integration"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>adaptation</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Parameters::TimeIntegration::Adaptation</label>
+        <link refid="struct_parameters_1_1_time_integration_1_1_adaptation"/>
+      </node>
+      <node id="18">
+        <label>TimeHandler</label>
+        <link refid="class_time_handler"/>
+        <childnode refid="15" relation="usage">
+          <edgelabel>time_parameters</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/incompressible_chns_solver.h" line="18" column="1" bodyfile="snapshots/pre_amr/include/incompressible_chns_solver.h" bodystart="19" bodyend="457"/>
+    <listofallmembers>
+      <member refid="class_navier_stokes_solver_1a9a4264d51d48627a356452430441413b" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>adapt_mesh</name></member>
+      <member refid="class_c_h_n_s_solver_1a4bc04a878a879c43413b5f11cc6dd20c" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>add_graph_metric_quality_data</name></member>
+      <member refid="class_c_h_n_s_solver_1ab2df019a24b624bec1fda4eedfb4ebad" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>add_interface_resolution_data</name></member>
+      <member refid="class_c_h_n_s_solver_1a928cd8d70bb3d7782f1044d09c4a88ac" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>add_mesh_quality_postprocessing_data</name></member>
+      <member refid="class_c_h_n_s_solver_1a8357d4b9416e24682db4ebc25b65acd4" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>add_solver_specific_postprocessing_data</name></member>
+      <member refid="class_c_h_n_s_solver_1a0e3a59d5aeaf9e8ad9669c14092283f5" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>assemble_local_matrix</name></member>
+      <member refid="class_c_h_n_s_solver_1ab5cfd76f033ca5d5c9ca6e94251ee315" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>assemble_local_matrix_finite_differences</name></member>
+      <member refid="class_c_h_n_s_solver_1ac88f396458d12c2f58f1dbe86fdd0e60" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>assemble_local_rhs</name></member>
+      <member refid="class_c_h_n_s_solver_1a0c2e74712e387938a49ebf97056de668" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>assemble_matrix</name></member>
+      <member refid="class_c_h_n_s_solver_1a9da0ac08e3d25bd9978120228bc86b57" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>assemble_rhs</name></member>
+      <member refid="class_c_h_n_s_solver_1a66e182264f17d8a4ddf5cf283df0e633" prot="private" virt="non-virtual"><scope>CHNSSolver</scope><name>Assembler</name></member>
+      <member refid="class_c_h_n_s_solver_1af5bd6b5683b27abf93112266d6bb5030" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>assemblers</name></member>
+      <member refid="class_navier_stokes_solver_1a3e2b579be5e2dd64e51d63bd58da9a72" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>attach_presolver</name></member>
+      <member refid="class_navier_stokes_solver_1a5b4478f4b460ada98850dc3a1180d169" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>cellwise_refinement_criterion</name></member>
+      <member refid="class_navier_stokes_solver_1a9f882e8f71210bce6392b45f18d77479" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>checkpoint</name></member>
+      <member refid="class_c_h_n_s_solver_1a9fdc75e1ef08b291e887b5d6db3f2f70" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>CHNSSolver</name></member>
+      <member refid="class_c_h_n_s_solver_1ade262f1ac0f6734f12c2f568511b4c78" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>compare_analytical_matrix_with_fd</name></member>
+      <member refid="class_navier_stokes_solver_1aa270aec15ebda01ec5f7a9d5865aecc6" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_and_add_errors</name></member>
+      <member refid="class_navier_stokes_solver_1a0210d51142aaa5501a531976047c947e" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_dof_based_postprocessing</name></member>
+      <member refid="class_navier_stokes_solver_1abd7642da5120f6259c9c0a04066fbf05" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_error_estimate</name></member>
+      <member refid="class_navier_stokes_solver_1aa3407d3736ce147c9be14cfa61543530" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_errors</name></member>
+      <member refid="class_navier_stokes_solver_1a428e0f14c79d154f6b4c6149193d1745" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_field_integrals</name></member>
+      <member refid="class_navier_stokes_solver_1a0f2e7343205d5c45fe3a3e410af13477" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_forces</name></member>
+      <member refid="class_navier_stokes_solver_1a17702caa0151ca48f8df11b91d907d63" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_max_cfl</name></member>
+      <member refid="class_navier_stokes_solver_1a65f73d005afdbcd89e6bd6de3bae75e6" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>compute_reconstructions</name></member>
+      <member refid="class_navier_stokes_solver_1a85b2c88e68995dd276bcf55a1d230152" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>compute_riemannian_metric</name></member>
+      <member refid="class_c_h_n_s_solver_1abef81fe199c6f63a4bc157780edc34d3" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>compute_solver_specific_errors</name></member>
+      <member refid="class_c_h_n_s_solver_1a8c1e51fa96e460bd09a61bbd5dbd4260" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>compute_solver_specific_timestep_adaptation_criterion</name></member>
+      <member refid="class_navier_stokes_solver_1a192f1dc5048e69f422281f1f20162d58" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_structure_mean_position</name></member>
+      <member refid="class_c_h_n_s_solver_1a8b0208ef16f59c18ef055cc6bab57b56" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>compute_vertexwise_F_inv_T</name></member>
+      <member refid="class_generic_solver_1a19c3628c086e6a0d5a35560b1ce30ed3" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>computing_timer</name></member>
+      <member refid="class_c_h_n_s_solver_1a8c517b608785936898d45119479057a3" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>const_ordering</name></member>
+      <member refid="class_navier_stokes_solver_1af11d9066fd86476f350b310342de81d7" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>constrained_pressure_dof</name></member>
+      <member refid="class_navier_stokes_solver_1a4a73b2b2b34f3c6452e895f86dbb9e27" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>constrained_pressure_support_point</name></member>
+      <member refid="class_c_h_n_s_solver_1a44bc0778812d70a5c7c4ca2b1a997605" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>copy_local_to_global_matrix</name></member>
+      <member refid="class_c_h_n_s_solver_1a1e5188a61fc785855103ae478c6ca152" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>copy_local_to_global_rhs</name></member>
+      <member refid="class_c_h_n_s_solver_1ae0b3f2be2b179189958cb7765efd47a8" prot="private" virt="non-virtual"><scope>CHNSSolver</scope><name>CopyData</name></member>
+      <member refid="class_navier_stokes_solver_1aa5e335226e4dfd5ac042e68ca4aba589" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>coupling_table</name></member>
+      <member refid="class_navier_stokes_solver_1a60c13153c2602289fce8101fc2ee18bf" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>create_base_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a21572945b0e2ae106a26158edf83bfd7" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>create_nonzero_constraints</name></member>
+      <member refid="class_c_h_n_s_solver_1ae445aa17bfb4201d998e9ce9120a84af" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>create_scratch_data</name></member>
+      <member refid="class_navier_stokes_solver_1a8e2e814f67722048bcccd664b1a890df" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>create_solver_specific_constraints_data</name></member>
+      <member refid="class_c_h_n_s_solver_1ac71026bf5f1593d310c4815a461ff3c8" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>create_solver_specific_nonzero_constraints</name></member>
+      <member refid="class_c_h_n_s_solver_1ae8033cc712d5dd66edac95ad6f23b218" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>create_solver_specific_zero_constraints</name></member>
+      <member refid="class_c_h_n_s_solver_1abdb846f3df6acf66d950851e2d7ec069" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>create_sparsity_pattern</name></member>
+      <member refid="class_navier_stokes_solver_1a35ef1df1a519597491e1cf7afd627d56" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>create_zero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1af1ef0a882f6592af774f2ac6cf9059e0" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>create_zero_mean_pressure_constraints_data</name></member>
+      <member refid="class_navier_stokes_solver_1ac44eafeceecc0a4dfa0f31e98bb326ea" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>direct_solver_reuse</name></member>
+      <member refid="class_generic_solver_1a7201687f3387085e6c02204ffb9e123b" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>distribute_nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a57ad356a2c7e351f4e566da0da44edbd" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>dof_handler</name></member>
+      <member refid="class_navier_stokes_solver_1af18e19729cac8012b78ea9941fdda6f6" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>dofs_to_component</name></member>
+      <member refid="class_navier_stokes_solver_1a8e95dcd6b28cb54b7cb418a3cc7952c2" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>error_face_quadrature</name></member>
+      <member refid="class_generic_solver_1a600ed6d3b56b637ec1015f38aea35163" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>error_handlers</name></member>
+      <member refid="class_navier_stokes_solver_1aa447a0ead82d0e128722b448c4ae9f88" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>error_quadrature</name></member>
+      <member refid="class_generic_solver_1a5734bd74a0b0d2d3c5950b1f08f28526" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1adb04b0cf420d23e5317cf2d7e7b5c4d5" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>exact_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a4461fe7fde1bcf852e55865ef36c1122" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>face_quadrature</name></member>
+      <member refid="class_c_h_n_s_solver_1a1d77794a78b1ca3f463c223ac1927182" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>fe</name></member>
+      <member refid="class_navier_stokes_solver_1a31515fe1d1c8531b73dfe24a55fa43cb" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>field_names_and_masks</name></member>
+      <member refid="class_navier_stokes_solver_1a48d998501630eeecc71a49375accfa0a" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>finalize</name></member>
+      <member refid="class_navier_stokes_solver_1a3d1f36ecc6b89311f6825baef0e946cb" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>finalize_interval</name></member>
+      <member refid="class_navier_stokes_solver_1ab1d01282a47026cfa98089f117e473ea" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>finalize_interval_solver_specific</name></member>
+      <member refid="class_navier_stokes_solver_1a853d232cdcd773e23d8c121236e59990" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>fixed_mapping</name></member>
+      <member refid="class_generic_solver_1a3ccc78d2ec40e5074088217f9178ea22" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>GenericSolver</name></member>
+      <member refid="class_c_h_n_s_solver_1a1b40e20bcdcc67285866f121d12eea63" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>get_additional_variables_description</name></member>
+      <member refid="class_navier_stokes_solver_1a72d36789fc5b37dd6b0881b9b4beded3" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>get_cell_quadrature_collection</name></member>
+      <member refid="class_navier_stokes_solver_1a947b8e83ba4d32ab1cf00533998eef3c" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_component_mask</name></member>
+      <member refid="class_navier_stokes_solver_1ac2909be372168e3d315b6762e2ec8fa4" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_dof_handler</name></member>
+      <member refid="class_generic_solver_1a71829c00801e12ba31b20d6d8936aeeb" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_error_handler</name></member>
+      <member refid="class_generic_solver_1a0b29381b97f14de5c24762a480d712fd" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1a51cb051475656a0525a354aec094b974" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>get_face_quadrature_collection</name></member>
+      <member refid="class_navier_stokes_solver_1a7c8785f651d71c39c4833296e596f00d" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>get_fe_collection</name></member>
+      <member refid="class_c_h_n_s_solver_1a4be0206804d5e7c6092bd6eb80101bd6" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>get_fe_system</name></member>
+      <member refid="class_navier_stokes_solver_1aebc219b364ba562f68527e27a3563b99" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>get_fixed_mapping_collection</name></member>
+      <member refid="class_generic_solver_1a7821dbf5c15a665d3b7726d000c6bc96" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_local_evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1a5a02e9504844b887bfe709c718489164" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>get_moving_mapping_collection</name></member>
+      <member refid="class_generic_solver_1af1efb1d4ee238c5148ee58283ea0fae9" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_newton_update</name></member>
+      <member refid="class_navier_stokes_solver_1a8f79696461bc9a69f2d20fedd9ada3af" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>get_nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a75d7ec3ea3ddd9ae973bcb584877596f" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_parameters</name></member>
+      <member refid="class_navier_stokes_solver_1a4f9a3ac9c20593f184559fce1ef48894" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>get_present_solution</name></member>
+      <member refid="class_generic_solver_1a10a1261c26aa9c11ceda08a574cec3a5" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_system_rhs</name></member>
+      <member refid="class_generic_solver_1af955926ba01980b191dd5e1b6ecff617" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>get_time_parameters</name></member>
+      <member refid="class_navier_stokes_solver_1a472a8376b286f4934100b9f68695ccc5" prot="private" virt="non-virtual"><scope>CHNSSolver</scope><name>get_variables_description</name></member>
+      <member refid="class_navier_stokes_solver_1a1dd90c0881dba50dadb41a36997b0232" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>initial_positions</name></member>
+      <member refid="class_navier_stokes_solver_1a56c44260e048cba5ba6ccd3202cde8b6" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>initialize</name></member>
+      <member refid="class_navier_stokes_solver_1ad2fa476671e05775879fe5eb27243a68" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>initialize_interval</name></member>
+      <member refid="class_navier_stokes_solver_1a117e5b8a7b08bc942db33cae5b7e87f1" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>initialize_interval_solver_specific</name></member>
+      <member refid="class_navier_stokes_solver_1aecd54ac9fb4df200fbd06bd594dc64ec" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>load</name></member>
+      <member refid="class_generic_solver_1a36c8d8067040f336a898ceeff371c0c6" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>local_evaluation_point</name></member>
+      <member refid="class_navier_stokes_solver_1aca82502b50d8dc56d9665f6800fee627" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>locally_owned_dofs</name></member>
+      <member refid="class_navier_stokes_solver_1a45de4bf57641d0c79c6ae1843e520a2a" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>locally_relevant_dofs</name></member>
+      <member refid="class_generic_solver_1a5c62d177cd9a249c85fb05190ad9975e" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>mesh_param</name></member>
+      <member refid="class_navier_stokes_solver_1a65d271a1b17628765931b62fb45b12fe" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>metric_for_adaptation</name></member>
+      <member refid="class_navier_stokes_solver_1adcdb121026de77bb7b420633747649ce" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>metrics</name></member>
+      <member refid="class_generic_solver_1a231b6929535d7e1834e9072f920d618b" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>mms_param</name></member>
+      <member refid="class_navier_stokes_solver_1adef518f0f93e6c57f183c81fb54538a3" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>moving_mapping</name></member>
+      <member refid="class_generic_solver_1a1d5beb4d77eb4f820b70542dedd31b99" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>mpi_communicator</name></member>
+      <member refid="class_generic_solver_1a6d6e03777028e3b4da9266d39bd28c20" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>mpi_rank</name></member>
+      <member refid="class_generic_solver_1a8758bd19d74796cfdd2c73d3d2a264c0" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>mpi_size</name></member>
+      <member refid="class_navier_stokes_solver_1a0ae187dd8edd09f50bcb1f010d9120dc" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>NavierStokesSolver</name></member>
+      <member refid="class_generic_solver_1a3867a896778ee8b20ab6b78804cf1d9d" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>newton_update</name></member>
+      <member refid="class_generic_solver_1a4f4d1b5947c354c1db5fa3b955a84b7e" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>nonlinear_solver</name></member>
+      <member refid="class_navier_stokes_solver_1a7616f51da557a2c45781a988d484bc71" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>nonzero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a1665864ba03d75b91a74bef409630a11" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>ordering</name></member>
+      <member refid="class_c_h_n_s_solver_1ad2a6871730ab2f70aa916d9528287249" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>output_line_probe</name></member>
+      <member refid="class_generic_solver_1a407d5fd2bb57b9cbeb0b1fcac2079a6c" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>output_param</name></member>
+      <member refid="class_navier_stokes_solver_1aa968f4117bc673e64b6daecae156cd71" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>output_results</name></member>
+      <member refid="class_navier_stokes_solver_1aaa04feb130125567621db0cfb2308e1a" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>overwrite_position_from_presolver</name></member>
+      <member refid="class_navier_stokes_solver_1a8bdf42cc07da6c576b50e15f4b791096" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>param</name></member>
+      <member refid="class_navier_stokes_solver_1a2bfa9a69b85a6d34bec0e49b89cc2c79" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>patch_handlers</name></member>
+      <member refid="class_generic_solver_1af8d752e99fe0e3ab145f1d2fa67e0f9a" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>pcout</name></member>
+      <member refid="class_navier_stokes_solver_1afd40ae81ab35ab49cadc86183ef0b328" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>position_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a8d1017421dea4fcd148174fdf9360193" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>position_mask</name></member>
+      <member refid="class_navier_stokes_solver_1a1188bf7e95093f1f575067d945b0b621" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>postproc_handler</name></member>
+      <member refid="class_navier_stokes_solver_1a2f9cb465dbf409f20d7606cea7ad22f5" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>postprocess_solution</name></member>
+      <member refid="class_c_h_n_s_solver_1a310659e769b1166fc26256677b23b019" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>potential_extractor</name></member>
+      <member refid="class_c_h_n_s_solver_1a0eb022ab597bfc348851e54e4260cf18" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>potential_mask</name></member>
+      <member refid="class_navier_stokes_solver_1a6bcb217150afb70c898fccf317665211" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>prefix_data</name></member>
+      <member refid="class_navier_stokes_solver_1a7e929c748cfd613281099981a2397183" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>present_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a23a70eab441d21b5b81890aa2284b0a3" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>presolver</name></member>
+      <member refid="class_navier_stokes_solver_1a0a9538db2db7e5c525ead47c96f21c23" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>pressure_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a803369529100d844b35b4af36cf355c1" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>pressure_mask</name></member>
+      <member refid="class_navier_stokes_solver_1ac08db329fa72e8dba6851dcefbced4e1" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>previous_solutions</name></member>
+      <member refid="class_c_h_n_s_solver_1a77b0eb63783411b0c22c138ba923acd8" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>psi_extractor</name></member>
+      <member refid="class_c_h_n_s_solver_1ad23fc466764cf378cf37f83624709b85" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>psi_mask</name></member>
+      <member refid="class_navier_stokes_solver_1a0ba946c47c6ff4ca89845e24002a40ac" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>quadrature</name></member>
+      <member refid="class_navier_stokes_solver_1a9811d0e6351914629f41c6cff297281e" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>recoveries</name></member>
+      <member refid="class_navier_stokes_solver_1ab7062c48b694b7e668d6059217b147c4" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>reinit_ghosted_vectors</name></member>
+      <member refid="class_navier_stokes_solver_1ab7aaf49c836df3ec7573fcbbff8bd1d4" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>reset</name></member>
+      <member refid="class_navier_stokes_solver_1a422eeda679e285bc9fc4951dccb99519" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>reset_solver_specific_data</name></member>
+      <member refid="class_navier_stokes_solver_1a9609ff15f6e0213153985cbe767e9f91" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>restart</name></member>
+      <member refid="class_navier_stokes_solver_1a628c47919d75c5c48da43dadb4d57985" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>run</name></member>
+      <member refid="class_generic_solver_1a5533697ed91d5aa53c0a342870db8859" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>run_convergence_loop</name></member>
+      <member refid="class_generic_solver_1a3bbafb4d601a4a6963e37f18e66aec5f" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>run_fixed_point_loop</name></member>
+      <member refid="class_navier_stokes_solver_1a7890aef62800dcff0ab182d769a593ab" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>run_time_subinterval</name></member>
+      <member refid="class_navier_stokes_solver_1aeb497ba90ab310ad63ce6fa478c9e593" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>save</name></member>
+      <member refid="class_c_h_n_s_solver_1a3d8c1ab8ec2f24fa4754f20305bcd2af" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>scratch_data</name></member>
+      <member refid="class_c_h_n_s_solver_1aeca791b9adbb5867ac109d22678da32c" prot="private" virt="non-virtual"><scope>CHNSSolver</scope><name>ScratchData</name></member>
+      <member refid="class_navier_stokes_solver_1a0c3e2dd7a4efe2be406e0715fb212172" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>set_active_fe_indices</name></member>
+      <member refid="class_navier_stokes_solver_1a99f8e64420e39e780a8adb8dfff0e5cd" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>set_exact_solution</name></member>
+      <member refid="class_navier_stokes_solver_1a75a77470e2a16504007bc7c31c58a244" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>set_initial_conditions</name></member>
+      <member refid="class_navier_stokes_solver_1a3318116cc7ffc61996bead7c4a5eb1e2" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>set_interval_data</name></member>
+      <member refid="class_c_h_n_s_solver_1a3b4e04a8b6fe860fb4c14e3338073b47" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>set_solver_specific_exact_solution</name></member>
+      <member refid="class_c_h_n_s_solver_1acc707c2ec641524771910e56a58be985" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>set_solver_specific_initial_conditions</name></member>
+      <member refid="class_c_h_n_s_solver_1a1f76ffca0e9c36b8f40d3278f07d7ef3" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>set_solver_specific_time</name></member>
+      <member refid="class_navier_stokes_solver_1aa9f9eb2ad3a5f3505d22feffc604da8b" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>set_time</name></member>
+      <member refid="class_c_h_n_s_solver_1af004d2c1786e4da0f929d51903556668" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>setup_assemblers</name></member>
+      <member refid="class_navier_stokes_solver_1a151d69c8e5e7c3e4bbfc5fc7c17ce747" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>setup_dofs</name></member>
+      <member refid="class_navier_stokes_solver_1aa59464653668d93b905e16d3d6ce5d18" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>setup_mappings</name></member>
+      <member refid="class_generic_solver_1aad9e83b6d58debd0043c81ef0576784a" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>should_adapt_mesh_at_end_of_intervals</name></member>
+      <member refid="class_generic_solver_1ad9e777cd9ea0fef97216ec5107d666f3" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>should_adapt_tree_based_mesh</name></member>
+      <member refid="class_generic_solver_1a80d40646517e427fe65d8a11c501bad6" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>should_add_error_reference_data</name></member>
+      <member refid="class_generic_solver_1a06abfb955b08ff4d9d3cf21b63cd2845" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>should_check_weakly_enforced_velocity</name></member>
+      <member refid="class_generic_solver_1aae2724c6791b3d8b3c975af67e2675d1" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>should_compute_errors</name></member>
+      <member refid="class_generic_solver_1a052b5e859d6e6bef845f8cd368404cad" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>should_compute_reconstructions</name></member>
+      <member refid="class_generic_solver_1a81f5fb8ad56aa3588879cc94f9eaeb4a" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>should_compute_riemannian_metric</name></member>
+      <member refid="class_generic_solver_1a789347ad0a51b96848195c525f5f0869" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>should_create_triangulation</name></member>
+      <member refid="class_c_h_n_s_solver_1a4028ed6eaf450f69c866c344250c9bff" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>should_output_mesh_quality</name></member>
+      <member refid="class_generic_solver_1a960f6b636879bfba12b9ef77549bb995" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>should_scale_and_grade_riemannian_metric</name></member>
+      <member refid="class_navier_stokes_solver_1a6c0b9eb16162e7b27f5548544a376a51" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>solve_linear_system</name></member>
+      <member refid="class_generic_solver_1a7aaed7416c745ba959ad6f5bb3061b60" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>solve_nonlinear_problem</name></member>
+      <member refid="class_navier_stokes_solver_1a6e29882c15507afc264d6fb344ea6ee2" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>solver_control</name></member>
+      <member refid="class_c_h_n_s_solver_1ae6f26806e27c7dfc0430b14d0e2acfd9" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>solver_specific_post_processing</name></member>
+      <member refid="class_generic_solver_1a3176c6c1e6f72c16fa3d0d43ede8757f" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>solver_type</name></member>
+      <member refid="class_navier_stokes_solver_1aed0a59b7f03471a20c716614927585c7" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>source_terms</name></member>
+      <member refid="class_navier_stokes_solver_1aff6918feda6fe6e68191218707781534" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>system_matrix</name></member>
+      <member refid="class_generic_solver_1ac75de63dc7e91e671ce8540996c58b5f" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>system_rhs</name></member>
+      <member refid="class_navier_stokes_solver_1acac54510d82fbc7827a993e203f64996" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>time_handler</name></member>
+      <member refid="class_generic_solver_1a8988f9b2fb2ac2cc17a220cc5e26dd1e" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>time_param</name></member>
+      <member refid="class_c_h_n_s_solver_1a5337d0f2b925f38268f0217128538cff" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>time_scales_table</name></member>
+      <member refid="class_c_h_n_s_solver_1a303d3c510c88a3c3617d240e31d7ab0c" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>tracer_extractor</name></member>
+      <member refid="class_c_h_n_s_solver_1a05c5f43a406e5a72ca3389ec76171178" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>tracer_mask</name></member>
+      <member refid="class_navier_stokes_solver_1a5017c45f4c928ef4ed088dddeacaceb2" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>transient_fixed_point_data</name></member>
+      <member refid="class_c_h_n_s_solver_1a467b348d48a9edcd05009bc2d978a121" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>transport_reconstructed_phi_gradient</name></member>
+      <member refid="class_navier_stokes_solver_1aa63fee077d836891cc947a8603e10083" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>triangulation</name></member>
+      <member refid="class_navier_stokes_solver_1a21f77a3d73741b0f47a8e021f1cdba9f" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>update_boundary_conditions</name></member>
+      <member refid="class_navier_stokes_solver_1aa7bd5bb09db4b58c9c1007c1b47e512b" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>update_constraints_for_evaluation_point</name></member>
+      <member refid="class_c_h_n_s_solver_1a52ca77fb0f5ba76cbecd36e1fc97b53f" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>update_simulation_parameters</name></member>
+      <member refid="class_c_h_n_s_solver_1a18ee52f3860a1fb5aa51e61fe6506394" prot="protected" virt="virtual"><scope>CHNSSolver</scope><name>uses_hp_capabilities</name></member>
+      <member refid="class_navier_stokes_solver_1af4bb9d20328ea7c4fcccb095c40fe83d" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>velocity_extractor</name></member>
+      <member refid="class_navier_stokes_solver_1a620b3b1798cf6be70ea217b76c92abc0" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>velocity_mask</name></member>
+      <member refid="class_navier_stokes_solver_1ab5f02acd1f1a5421214a193455371005" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>write_forces</name></member>
+      <member refid="class_navier_stokes_solver_1a697e78827fb176e1f8a1a124fc2f00d4" prot="public" virt="non-virtual"><scope>CHNSSolver</scope><name>write_structure_mean_position</name></member>
+      <member refid="class_navier_stokes_solver_1a83144de4cd395115d8ce483d90fa3c9b" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>zero_constraints</name></member>
+      <member refid="class_navier_stokes_solver_1a3cfc34184fdb2e76e5c94056181a6f36" prot="protected" virt="non-virtual"><scope>CHNSSolver</scope><name>zero_mean_pressure_weights</name></member>
+      <member refid="class_c_h_n_s_solver_1aa953e2ed0546d0a958410b57aafc84cc" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>~CHNSSolver</name></member>
+      <member refid="class_generic_solver_1afbeabded407d0ea9875045cc9c2a61d4" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>~GenericSolver</name></member>
+      <member refid="class_navier_stokes_solver_1ade74be154a84e6766c6e15e2ef04d4bb" prot="public" virt="virtual"><scope>CHNSSolver</scope><name>~NavierStokesSolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

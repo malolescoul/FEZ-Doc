@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_time_integration_1_1_adaptation" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::TimeIntegration::Adaptation</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a2c0dda93373a7559bb75dfdfec28e71d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>AdaptationStrategy</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::AdaptationStrategy</qualifiedname>
+        <enumvalue id="struct_parameters_1_1_time_integration_1_1_adaptation_1a2c0dda93373a7559bb75dfdfec28e71da46606c362d34561957d333ad275ffee7" prot="public">
+          <name>BDFTruncationError</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_time_integration_1_1_adaptation_1a2c0dda93373a7559bb75dfdfec28e71dafdbf8bb275d7d5ca01cfa7dcbd4f8ed1" prot="public">
+          <name>CFL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_parameters_1_1_time_integration_1_1_adaptation_1a2c0dda93373a7559bb75dfdfec28e71dab2052fa07283ee49fa379fd6b453cf1a" prot="public">
+          <name>AdaptiveMobility</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="778" column="7" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="779" bodyend="783"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a02fefaf62572f0c85c0cc448ae11acc8" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref></type>
+        <definition>Verbosity Parameters::TimeIntegration::Adaptation::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="769" column="17" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="769" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1acc254110595231229708357a67d8746d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::TimeIntegration::Adaptation::enable</definition>
+        <argsstring></argsstring>
+        <name>enable</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::enable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="771" column="12" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="771" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a7766d63a4183f26b8f7717309e383a30" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a2c0dda93373a7559bb75dfdfec28e71d" kindref="member">Parameters::TimeIntegration::Adaptation::AdaptationStrategy</ref></type>
+        <definition>enum Parameters::TimeIntegration::Adaptation::AdaptationStrategy Parameters::TimeIntegration::Adaptation::strategy</definition>
+        <argsstring></argsstring>
+        <name>strategy</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::strategy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="783" column="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1afdaed0bbea662737cdaa3726e99e2846" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::max_timestep</definition>
+        <argsstring></argsstring>
+        <name>max_timestep</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::max_timestep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="785" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="785" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1afdbb1ae0046a0d53d15c480d7819827c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::min_timestep</definition>
+        <argsstring></argsstring>
+        <name>min_timestep</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::min_timestep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="786" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="786" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a0515767b6ee7edb98265b1576c82bd3b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::max_timestep_increase</definition>
+        <argsstring></argsstring>
+        <name>max_timestep_increase</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::max_timestep_increase</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="787" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="787" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a96678406b30120c144e184efcef33e7b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::max_timestep_reduction</definition>
+        <argsstring></argsstring>
+        <name>max_timestep_reduction</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::max_timestep_reduction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="788" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="788" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1ae47c4d49e3f69ee507af2d8b0414424d" prot="public" static="no" mutable="no">
+        <type>std::map&lt; SolverInfo::VariableType, double &gt;</type>
+        <definition>std::map&lt;SolverInfo::VariableType, double&gt; Parameters::TimeIntegration::Adaptation::target_error</definition>
+        <argsstring></argsstring>
+        <name>target_error</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::target_error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="791" column="16" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="791" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1afe6590022a3d758df80ccee4c445ab05" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_error</definition>
+        <argsstring></argsstring>
+        <name>reject_timestep_with_large_error</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="792" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="792" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a3feb9065efa9bc96ca33a1838b887aa4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::reject_error_factor</definition>
+        <argsstring></argsstring>
+        <name>reject_error_factor</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::reject_error_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="793" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="793" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a7710d0bdeeda6b06ec19915020653bd7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::target_cfl</definition>
+        <argsstring></argsstring>
+        <name>target_cfl</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::target_cfl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="796" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="796" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a7b6bc187dede461b79981d1a2b4d1d69" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_cfl</definition>
+        <argsstring></argsstring>
+        <name>reject_timestep_with_large_cfl</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_cfl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="797" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="797" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1adf6deda3c7333a97c7e251eaa1697196" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::reject_cfl_factor</definition>
+        <argsstring></argsstring>
+        <name>reject_cfl_factor</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::reject_cfl_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="798" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="798" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a4a89dfa20346c21d414a86371c33678b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::target_adaptive_mobility_number</definition>
+        <argsstring></argsstring>
+        <name>target_adaptive_mobility_number</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::target_adaptive_mobility_number</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="801" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="801" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a51649b8a14c0f2d61bce3dc79b373d43" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_adaptive_mobility</definition>
+        <argsstring></argsstring>
+        <name>reject_timestep_with_large_adaptive_mobility</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::reject_timestep_with_large_adaptive_mobility</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="802" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="802" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1a12fed9ae1b28d9ad07e9972afa8370c5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Parameters::TimeIntegration::Adaptation::reject_adaptive_mobility_factor</definition>
+        <argsstring></argsstring>
+        <name>reject_adaptive_mobility_factor</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::reject_adaptive_mobility_factor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="803" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="803" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1aeba1154f4e91257d06aaa837b8d4109e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; Parameters::TimeIntegration::Adaptation::required_times</definition>
+        <argsstring></argsstring>
+        <name>required_times</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::required_times</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="812" column="19" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="812" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_time_integration_1_1_adaptation_1afeb8edcc6b57ed2df284b2792cd2af50" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::TimeIntegration::Adaptation::compute_error_on_estimator</definition>
+        <argsstring></argsstring>
+        <name>compute_error_on_estimator</name>
+        <qualifiedname>Parameters::TimeIntegration::Adaptation::compute_error_on_estimator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="813" column="27" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="813" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="767" column="5" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="768" bodyend="814"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a2c0dda93373a7559bb75dfdfec28e71d" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>AdaptationStrategy</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1afeb8edcc6b57ed2df284b2792cd2af50" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>compute_error_on_estimator</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1acc254110595231229708357a67d8746d" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>enable</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1afdaed0bbea662737cdaa3726e99e2846" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>max_timestep</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a0515767b6ee7edb98265b1576c82bd3b" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>max_timestep_increase</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a96678406b30120c144e184efcef33e7b" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>max_timestep_reduction</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1afdbb1ae0046a0d53d15c480d7819827c" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>min_timestep</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a12fed9ae1b28d9ad07e9972afa8370c5" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>reject_adaptive_mobility_factor</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1adf6deda3c7333a97c7e251eaa1697196" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>reject_cfl_factor</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a3feb9065efa9bc96ca33a1838b887aa4" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>reject_error_factor</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a51649b8a14c0f2d61bce3dc79b373d43" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>reject_timestep_with_large_adaptive_mobility</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a7b6bc187dede461b79981d1a2b4d1d69" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>reject_timestep_with_large_cfl</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1afe6590022a3d758df80ccee4c445ab05" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>reject_timestep_with_large_error</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1aeba1154f4e91257d06aaa837b8d4109e" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>required_times</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a7766d63a4183f26b8f7717309e383a30" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>strategy</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a4a89dfa20346c21d414a86371c33678b" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>target_adaptive_mobility_number</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a7710d0bdeeda6b06ec19915020653bd7" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>target_cfl</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1ae47c4d49e3f69ee507af2d8b0414424d" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>target_error</name></member>
+      <member refid="struct_parameters_1_1_time_integration_1_1_adaptation_1a02fefaf62572f0c85c0cc448ae11acc8" prot="public" virt="non-virtual"><scope>Parameters::TimeIntegration::Adaptation</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

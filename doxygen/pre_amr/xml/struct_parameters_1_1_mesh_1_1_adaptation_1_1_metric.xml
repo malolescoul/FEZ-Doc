@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric" kind="struct" language="C++" prot="public">
+    <compoundname>Parameters::Mesh::Adaptation::Metric</compoundname>
+    <includes refid="parameters_8h" local="no">parameters.h</includes>
+    <innerclass refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates" prot="public">Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</innerclass>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1aaacc6e8830903c88eba501794e4b5871" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Mesh::Adaptation::Metric::n_fixed_point</definition>
+        <argsstring></argsstring>
+        <name>n_fixed_point</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::n_fixed_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of fixed point iterations to perform, to converge the mesh-solution pair. For steady simulations, this is the number of times the solver is run, and the mesh is adapted this number of times minus one. For unsteady simulations, this is the number of times the whole simulation is run, and the meshes are adapted on sub-intervals, this number of times minus one. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="159" column="22" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1a77e45ccd8d66044d60bc516e7883dffc" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Mesh::Adaptation::Metric::current_fixed_point_iteration</definition>
+        <argsstring></argsstring>
+        <name>current_fixed_point_iteration</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::current_fixed_point_iteration</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="161" column="22" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1a0e388e9d3fc788e1997024365c99a9ad" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Mesh::Adaptation::Metric::mmg_verbosity</definition>
+        <argsstring></argsstring>
+        <name>mmg_verbosity</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::mmg_verbosity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="164" column="22" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1af9ea0c6b90504b944e4a2d043f3f317b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Parameters::Mesh::Adaptation::Metric::transfer_solution</definition>
+        <argsstring></argsstring>
+        <name>transfer_solution</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::transfer_solution</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="168" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1a0b32fcb5d50a6f9d655f6f64669d28eb" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Parameters::Mesh::Adaptation::Metric::n_time_intervals</definition>
+        <argsstring></argsstring>
+        <name>n_time_intervals</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::n_time_intervals</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="170" column="22" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1ad9226f6fb036fd62cdd8d8c59e55726e" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates" kindref="compound">Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</ref></type>
+        <definition>struct Parameters::Mesh::Adaptation::Metric::FixedPointUpdates Parameters::Mesh::Adaptation::Metric::fixed_point_updates</definition>
+        <argsstring></argsstring>
+        <name>fixed_point_updates</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::fixed_point_updates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="213" column="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1a28f9340171cefbb88336bd1f80e59501" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Parameters::Mesh::Adaptation::Metric::is_last_fixed_point_iteration</definition>
+        <argsstring>() const</argsstring>
+        <name>is_last_fixed_point_iteration</name>
+        <qualifiedname>Parameters::Mesh::Adaptation::Metric::is_last_fixed_point_iteration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="172" column="14" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="172" bodyend="175"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespace_parameters" kindref="compound">Parameters</ref> for mesh adaptation with a Riemannian metric </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Parameters::Mesh::Adaptation::Metric</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>fixed_point_updates</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>chns_interface_thickness</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::CHNSInterfaceThickness</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_c_h_n_s_interface_thickness"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Parameters::Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</label>
+        <link refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base"/>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/parameters.h" line="149" column="7" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="150" bodyend="214"/>
+    <listofallmembers>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1a77e45ccd8d66044d60bc516e7883dffc" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric</scope><name>current_fixed_point_iteration</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1ad9226f6fb036fd62cdd8d8c59e55726e" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric</scope><name>fixed_point_updates</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1a28f9340171cefbb88336bd1f80e59501" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric</scope><name>is_last_fixed_point_iteration</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1a0e388e9d3fc788e1997024365c99a9ad" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric</scope><name>mmg_verbosity</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1aaacc6e8830903c88eba501794e4b5871" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric</scope><name>n_fixed_point</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1a0b32fcb5d50a6f9d655f6f64669d28eb" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric</scope><name>n_time_intervals</name></member>
+      <member refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1af9ea0c6b90504b944e4a2d043f3f317b" prot="public" virt="non-virtual"><scope>Parameters::Mesh::Adaptation::Metric</scope><name>transfer_solution</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

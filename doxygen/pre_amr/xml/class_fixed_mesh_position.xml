@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="class_fixed_mesh_position" kind="class" language="C++" prot="public">
+    <compoundname>FixedMeshPosition</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Function&lt; dim &gt;</basecompoundref>
+    <includes refid="boundary__conditions_8h" local="no">boundary_conditions.h</includes>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>dim</declname>
+        <defname>dim</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_fixed_mesh_position_1a2fa4904a6a6a4c2811aa1a4ab372de41" prot="public" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int FixedMeshPosition&lt; dim &gt;::x_lower</definition>
+        <argsstring></argsstring>
+        <name>x_lower</name>
+        <qualifiedname>FixedMeshPosition::x_lower</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="554" column="22" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="554" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_fixed_mesh_position_1af220afae52b98e747defc380072aa6ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FixedMeshPosition&lt; dim &gt;::FixedMeshPosition</definition>
+        <argsstring>(const unsigned int x_lower, const unsigned int n_components)</argsstring>
+        <name>FixedMeshPosition</name>
+        <qualifiedname>FixedMeshPosition::FixedMeshPosition</qualifiedname>
+        <param>
+          <type>const unsigned int</type>
+          <declname>x_lower</declname>
+        </param>
+        <param>
+          <type>const unsigned int</type>
+          <declname>n_components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="557" column="3" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="557" bodyend="560"/>
+      </memberdef>
+      <memberdef kind="function" id="class_fixed_mesh_position_1aa5a2814f7bdaf82eb1d63b204ea80137" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void FixedMeshPosition&lt; dim &gt;::vector_value</definition>
+        <argsstring>(const Point&lt; dim &gt; &amp;p, Vector&lt; double &gt; &amp;values) const override</argsstring>
+        <name>vector_value</name>
+        <qualifiedname>FixedMeshPosition::vector_value</qualifiedname>
+        <param>
+          <type>const Point&lt; dim &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>Vector&lt; double &gt; &amp;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/boundary_conditions.h" line="562" column="16" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="562" bodyend="567"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This function is meant to represent the spatial identity function, and is used to enforce a no displacement boundary condition for a pseudosolid mesh movement problem, that is, x(X) = X.</para>
+<para>The only trick is that depending on the problem, the index of the position variables in the solution vector may vary, so this needs to be specified by the <computeroutput>x_lower</computeroutput> parameter.</para>
+<para>Note that if we were solving for the displacement instead of the position, this function would simply be the zero function. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FixedMeshPosition&lt; dim &gt;</label>
+        <link refid="class_fixed_mesh_position"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FixedMeshPosition&lt; dim &gt;</label>
+        <link refid="class_fixed_mesh_position"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Function&lt; dim &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="snapshots/pre_amr/include/boundary_conditions.h" line="550" column="1" bodyfile="snapshots/pre_amr/include/boundary_conditions.h" bodystart="551" bodyend="568"/>
+    <listofallmembers>
+      <member refid="class_fixed_mesh_position_1af220afae52b98e747defc380072aa6ee" prot="public" virt="non-virtual"><scope>FixedMeshPosition</scope><name>FixedMeshPosition</name></member>
+      <member refid="class_fixed_mesh_position_1aa5a2814f7bdaf82eb1d63b204ea80137" prot="public" virt="virtual"><scope>FixedMeshPosition</scope><name>vector_value</name></member>
+      <member refid="class_fixed_mesh_position_1a2fa4904a6a6a4c2811aa1a4ab372de41" prot="public" virt="non-virtual"><scope>FixedMeshPosition</scope><name>x_lower</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

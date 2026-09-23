@@ -1,0 +1,336 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="fr">
+  <compounddef id="namespace_parameters" kind="namespace" language="C++">
+    <compoundname>Parameters</compoundname>
+    <innerclass refid="struct_parameters_1_1_dummy_dimension" prot="public">Parameters::DummyDimension</innerclass>
+    <innerclass refid="struct_parameters_1_1_timer" prot="public">Parameters::Timer</innerclass>
+    <innerclass refid="struct_parameters_1_1_boundary_conditions_data" prot="public">Parameters::BoundaryConditionsData</innerclass>
+    <innerclass refid="struct_parameters_1_1_mesh" prot="public">Parameters::Mesh</innerclass>
+    <innerclass refid="struct_parameters_1_1_output" prot="public">Parameters::Output</innerclass>
+    <innerclass refid="struct_parameters_1_1_post_processing" prot="public">Parameters::PostProcessing</innerclass>
+    <innerclass refid="struct_parameters_1_1_finite_elements" prot="public">Parameters::FiniteElements</innerclass>
+    <innerclass refid="struct_parameters_1_1_fluid" prot="public">Parameters::Fluid</innerclass>
+    <innerclass refid="class_parameters_1_1_pseudo_solid" prot="public">Parameters::PseudoSolid</innerclass>
+    <innerclass refid="class_parameters_1_1_physical_properties" prot="public">Parameters::PhysicalProperties</innerclass>
+    <innerclass refid="struct_parameters_1_1_non_linear_solver" prot="public">Parameters::NonLinearSolver</innerclass>
+    <innerclass refid="struct_parameters_1_1_linear_solver" prot="public">Parameters::LinearSolver</innerclass>
+    <innerclass refid="struct_parameters_1_1_time_integration" prot="public">Parameters::TimeIntegration</innerclass>
+    <innerclass refid="struct_parameters_1_1_stabilization" prot="public">Parameters::Stabilization</innerclass>
+    <innerclass refid="class_parameters_1_1_cahn_hilliard" prot="public">Parameters::CahnHilliard</innerclass>
+    <innerclass refid="struct_parameters_1_1_elasticity" prot="public">Parameters::Elasticity</innerclass>
+    <innerclass refid="struct_parameters_1_1_checkpoint_restart" prot="public">Parameters::CheckpointRestart</innerclass>
+    <innerclass refid="struct_parameters_1_1_m_m_s" prot="public">Parameters::MMS</innerclass>
+    <innerclass refid="struct_parameters_1_1_f_s_i" prot="public">Parameters::FSI</innerclass>
+    <innerclass refid="struct_parameters_1_1_solution_recovery" prot="public">Parameters::SolutionRecovery</innerclass>
+    <innerclass refid="struct_parameters_1_1_debug" prot="public">Parameters::Debug</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Verbosity</name>
+        <qualifiedname>Parameters::Verbosity</qualifiedname>
+        <enumvalue id="namespace_parameters_1ad408350a21239600add83c5e91fcfa26a556966c7830465dc4623d62e32cec31d" prot="public">
+          <name>quiet</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_parameters_1ad408350a21239600add83c5e91fcfa26a2c7aea4237e25b4f8ee3b0bf77d6fed0" prot="public">
+          <name>verbose</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="namespace_parameters_1ad408350a21239600add83c5e91fcfa26" kindref="member">Verbosity</ref> is set to &quot;verbose&quot; by default for all structures. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/include/parameters.h" line="45" column="3" bodyfile="snapshots/pre_amr/include/parameters.h" bodystart="46" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_parameters_1a83740566dafe9de3bc3431ecdfc29e19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::declare_fixed_point_update_base</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_fixed_point_update_base</name>
+        <qualifiedname>Parameters::declare_fixed_point_update_base</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="83" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="83" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a170b1d2c59524024ab03de4c07e018cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::read_fixed_point_update_base</definition>
+        <argsstring>(ParameterHandler &amp;prm, Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase &amp;update_base)</argsstring>
+        <name>read_fixed_point_update_base</name>
+        <qualifiedname>Parameters::read_fixed_point_update_base</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_parameters_1_1_mesh_1_1_adaptation_1_1_metric_1_1_fixed_point_updates_1_1_update_base" kindref="compound">Mesh::Adaptation::Metric::FixedPointUpdates::UpdateBase</ref> &amp;</type>
+          <declname>update_base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="103" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="103" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1ac001b65b4560be84c0740111cc589eb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::declare_postprocessing_base</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_postprocessing_base</name>
+        <qualifiedname>Parameters::declare_postprocessing_base</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="465" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="465" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a3cd4446b38705bdcd2152b01152f1212" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::declare_postprocessing_file</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_postprocessing_file</name>
+        <qualifiedname>Parameters::declare_postprocessing_file</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="479" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="479" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1ab028751657097b31933a17f9b62f4345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::declare_postprocessing_file_boundary</definition>
+        <argsstring>(ParameterHandler &amp;prm)</argsstring>
+        <name>declare_postprocessing_file_boundary</name>
+        <qualifiedname>Parameters::declare_postprocessing_file_boundary</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="496" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="496" bodyend="504"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a18ba2476c44b07dfe03d3c50d5506425" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::declare_postprocessing_field</definition>
+        <argsstring>(ParameterHandler &amp;prm, const std::string &amp;default_method=&quot;discontinuous&quot;)</argsstring>
+        <name>declare_postprocessing_field</name>
+        <qualifiedname>Parameters::declare_postprocessing_field</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>default_method</declname>
+          <defval>&quot;discontinuous&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="506" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="506" bodyend="521"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a568b7cd32a8cb510ffcee0be3ca9aecb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::read_postprocessing_base</definition>
+        <argsstring>(ParameterHandler &amp;prm, PostProcessing::PostProcessingBase &amp;pp_base)</argsstring>
+        <name>read_postprocessing_base</name>
+        <qualifiedname>Parameters::read_postprocessing_base</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_base" kindref="compound">PostProcessing::PostProcessingBase</ref> &amp;</type>
+          <declname>pp_base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="654" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="654" bodyend="660"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a1353245d8dcf1c2181dd49a5fb451f05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::read_postprocessing_file</definition>
+        <argsstring>(ParameterHandler &amp;prm, PostProcessing::PostProcessingFile &amp;pp_file)</argsstring>
+        <name>read_postprocessing_file</name>
+        <qualifiedname>Parameters::read_postprocessing_file</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file" kindref="compound">PostProcessing::PostProcessingFile</ref> &amp;</type>
+          <declname>pp_file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="662" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="662" bodyend="669"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a1822b89bb82f708606d7a8f33f2ccdd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::read_postprocessing_file_boundary</definition>
+        <argsstring>(ParameterHandler &amp;prm, PostProcessing::PostProcessingFileBoundary &amp;pp_boundary)</argsstring>
+        <name>read_postprocessing_file_boundary</name>
+        <qualifiedname>Parameters::read_postprocessing_file_boundary</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_file_boundary" kindref="compound">PostProcessing::PostProcessingFileBoundary</ref> &amp;</type>
+          <declname>pp_boundary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="671" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="671" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a504332f46e168a706a0a6284ba5bb75e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Parameters::read_postprocessing_field</definition>
+        <argsstring>(ParameterHandler &amp;prm, PostProcessing::PostProcessingField &amp;pp_field, const PostProcessingTools::PostprocessorAtDofTypes type, std::map&lt; PostProcessingTools::PostprocessorAtDofTypes, PostProcessing::PostProcessingField * &gt; &amp;field_postprocessors)</argsstring>
+        <name>read_postprocessing_field</name>
+        <qualifiedname>Parameters::read_postprocessing_field</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_field" kindref="compound">PostProcessing::PostProcessingField</ref> &amp;</type>
+          <declname>pp_field</declname>
+        </param>
+        <param>
+          <type>const PostProcessingTools::PostprocessorAtDofTypes</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>std::map&lt; PostProcessingTools::PostprocessorAtDofTypes, <ref refid="struct_parameters_1_1_post_processing_1_1_post_processing_field" kindref="compound">PostProcessing::PostProcessingField</ref> * &gt; &amp;</type>
+          <declname>field_postprocessors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="679" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="679" bodyend="706"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a2ca1590e96f5567ac44e68980b75eeaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Parameters::declare_quadrature_rule</definition>
+        <argsstring>(ParameterHandler &amp;prm, const bool default_for_error=false)</argsstring>
+        <name>declare_quadrature_rule</name>
+        <qualifiedname>Parameters::declare_quadrature_rule</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>default_for_error</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="860" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="860" bodyend="877"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_parameters_1a9d6662ac6fd63a11bbe0c6885f5d181b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>dim</declname>
+            <defname>dim</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void Parameters::read_quadrature_rule</definition>
+        <argsstring>(ParameterHandler &amp;prm, typename FiniteElements&lt; dim &gt;::QuadratureRule &amp;rule)</argsstring>
+        <name>read_quadrature_rule</name>
+        <qualifiedname>Parameters::read_quadrature_rule</qualifiedname>
+        <param>
+          <type>ParameterHandler &amp;</type>
+          <declname>prm</declname>
+        </param>
+        <param>
+          <type>typename <ref refid="struct_parameters_1_1_finite_elements" kindref="compound">FiniteElements</ref>&lt; dim &gt;::QuadratureRule &amp;</type>
+          <declname>rule</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="snapshots/pre_amr/src/parameters.cpp" line="941" column="8" bodyfile="snapshots/pre_amr/src/parameters.cpp" bodystart="941" bodyend="997"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This namespace contains the parameters used to control the various parts of the solvers : mesh, (non-)linear solver, time integration, etc. </para>
+    </detaileddescription>
+    <location file="snapshots/pre_amr/include/parameters.h" line="38" column="1"/>
+  </compounddef>
+</doxygen>
