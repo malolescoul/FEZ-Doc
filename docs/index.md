@@ -5,6 +5,7 @@ FEZ is a C++ finite element code for fluid mechanics and fluid–structure inter
 ## Contents
 
 - [FEZ overview](overview.md): scope, executable entry points and the parameter system.
+- [Time integration](time-integration.md): stationary and BDF schemes, starting methods and principal parameters.
 
 The documentation is being developed. Solver-specific models and parameters, common numerical methods, and a parameter index will be added as they are checked against the source. Installation, execution and example workflows will be documented separately.
 
