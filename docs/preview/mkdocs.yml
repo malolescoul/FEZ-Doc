@@ -1,0 +1,45 @@
+site_name: FEZ reference — c6c4dd0
+site_description: Source-audited FEZ master reference at c6c4dd08b4ab3376062f031d577406a30a6e06bf
+docs_dir: ..
+site_dir: /tmp/fez-doc-preview
+use_directory_urls: true
+exclude_docs: |
+  preview/
+theme:
+  name: readthedocs
+plugins:
+  - search
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Solvers:
+      - Selection and scope: solvers.md
+      - Incompressible flow: incompressible-flow.md
+      - Boundary multipliers: incompressible-flow-lambda.md
+      - Two-phase flow: two-phase-flow.md
+      - Two-phase ALE: two-phase-flow-ale.md
+      - Compressible flow: compressible-flow.md
+      - FSI: fsi.md
+      - Monolithic FSI: monolithic-fsi.md
+      - Elastic mesh: elasticity.md
+      - Heat: heat.md
+  - Models and methods:
+      - Material properties: physical-properties.md
+      - Spatial discretization: spatial-discretization.md
+      - Time integration: time-integration.md
+      - Algebraic solvers: algebraic-solvers.md
+      - Mesh and adaptation: mesh-adaptation.md
+      - Boundary and function data: boundary-conditions.md
+      - Output and restart: outputs.md
+  - Reference:
+      - Parameter index: parameter-index.md
+      - Limitations and questions: limitations.md
+      - Documentation maintenance: documentation-maintenance.md
